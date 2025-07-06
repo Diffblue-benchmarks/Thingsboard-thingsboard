@@ -16,25 +16,28 @@ import org.thingsboard.server.common.data.exception.ThingsboardErrorCode;
 
 @ExtendWith(MockitoExtension.class)
 class ThingsboardErrorResponseDiffblueTest {
-  @Mock
-  private HttpStatus httpStatus;
+  @Mock private HttpStatus httpStatus;
 
-  @InjectMocks
-  private ThingsboardErrorResponse thingsboardErrorResponse;
+  @InjectMocks private ThingsboardErrorResponse thingsboardErrorResponse;
 
   /**
-   * Test {@link ThingsboardErrorResponse#ThingsboardErrorResponse(String, ThingsboardErrorCode, HttpStatus)}.
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponse#ThingsboardErrorResponse(String, ThingsboardErrorCode, HttpStatus)}
+   * Test {@link ThingsboardErrorResponse#ThingsboardErrorResponse(String, ThingsboardErrorCode,
+   * HttpStatus)}.
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponse#ThingsboardErrorResponse(String,
+   * ThingsboardErrorCode, HttpStatus)}
    */
   @Test
   @DisplayName("Test new ThingsboardErrorResponse(String, ThingsboardErrorCode, HttpStatus)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ThingsboardErrorResponse.<init>(String, ThingsboardErrorCode, HttpStatus)"})
+  @MethodsUnderTest({
+    "void ThingsboardErrorResponse.<init>(String, ThingsboardErrorCode, HttpStatus)"
+  })
   void testNewThingsboardErrorResponse() {
     // Arrange and Act
-    ThingsboardErrorResponse actualThingsboardErrorResponse = new ThingsboardErrorResponse(
-        "Not all who wander are lost", ThingsboardErrorCode.GENERAL, HttpStatus.OK);
+    ThingsboardErrorResponse actualThingsboardErrorResponse =
+        new ThingsboardErrorResponse(
+            "Not all who wander are lost", ThingsboardErrorCode.GENERAL, HttpStatus.OK);
 
     // Assert
     assertEquals("Not all who wander are lost", actualThingsboardErrorResponse.getMessage());
@@ -44,17 +47,21 @@ class ThingsboardErrorResponseDiffblueTest {
 
   /**
    * Test {@link ThingsboardErrorResponse#of(String, ThingsboardErrorCode, HttpStatus)}.
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponse#of(String, ThingsboardErrorCode, HttpStatus)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponse#of(String, ThingsboardErrorCode,
+   * HttpStatus)}
    */
   @Test
   @DisplayName("Test of(String, ThingsboardErrorCode, HttpStatus)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ThingsboardErrorResponse ThingsboardErrorResponse.of(String, ThingsboardErrorCode, HttpStatus)"})
+  @MethodsUnderTest({
+    "ThingsboardErrorResponse ThingsboardErrorResponse.of(String, ThingsboardErrorCode, HttpStatus)"
+  })
   void testOf() {
     // Arrange and Act
-    ThingsboardErrorResponse actualOfResult = ThingsboardErrorResponse.of("Not all who wander are lost",
-        ThingsboardErrorCode.GENERAL, HttpStatus.OK);
+    ThingsboardErrorResponse actualOfResult =
+        ThingsboardErrorResponse.of(
+            "Not all who wander are lost", ThingsboardErrorCode.GENERAL, HttpStatus.OK);
 
     // Assert
     assertEquals("Not all who wander are lost", actualOfResult.getMessage());
@@ -64,8 +71,8 @@ class ThingsboardErrorResponseDiffblueTest {
 
   /**
    * Test {@link ThingsboardErrorResponse#getStatus()}.
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponse#getStatus()}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponse#getStatus()}
    */
   @Test
   @DisplayName("Test getStatus()")
@@ -85,8 +92,9 @@ class ThingsboardErrorResponseDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ThingsboardErrorResponse#getErrorCode()}
    *   <li>{@link ThingsboardErrorResponse#getMessage()}
@@ -96,12 +104,16 @@ class ThingsboardErrorResponseDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ThingsboardErrorCode ThingsboardErrorResponse.getErrorCode()",
-      "String ThingsboardErrorResponse.getMessage()", "long ThingsboardErrorResponse.getTimestamp()"})
+  @MethodsUnderTest({
+    "ThingsboardErrorCode ThingsboardErrorResponse.getErrorCode()",
+    "String ThingsboardErrorResponse.getMessage()",
+    "long ThingsboardErrorResponse.getTimestamp()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    ThingsboardErrorResponse ofResult = ThingsboardErrorResponse.of("Not all who wander are lost",
-        ThingsboardErrorCode.GENERAL, HttpStatus.OK);
+    ThingsboardErrorResponse ofResult =
+        ThingsboardErrorResponse.of(
+            "Not all who wander are lost", ThingsboardErrorCode.GENERAL, HttpStatus.OK);
 
     // Act
     ThingsboardErrorCode actualErrorCode = ofResult.getErrorCode();

@@ -21,16 +21,14 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class ZkDiscoveryServiceDiffblueTest {
-  @Mock
-  private TbServiceInfoProvider tbServiceInfoProvider;
+  @Mock private TbServiceInfoProvider tbServiceInfoProvider;
 
-  @InjectMocks
-  private ZkDiscoveryService zkDiscoveryService;
+  @InjectMocks private ZkDiscoveryService zkDiscoveryService;
 
   /**
    * Test {@link ZkDiscoveryService#isMonolith()}.
-   * <p>
-   * Method under test: {@link ZkDiscoveryService#isMonolith()}
+   *
+   * <p>Method under test: {@link ZkDiscoveryService#isMonolith()}
    */
   @Test
   @DisplayName("Test isMonolith()")
@@ -46,16 +44,23 @@ class ZkDiscoveryServiceDiffblueTest {
     QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
 
     // Act and Assert
-    assertFalse((new ZkDiscoveryService(applicationEventPublisher, serviceInfoProvider,
-        new HashPartitionService(serviceInfoProvider2, tenantRoutingInfoService, applicationEventPublisher2,
-            queueRoutingInfoService, new TopicService())))
-        .isMonolith());
+    assertFalse(
+        new ZkDiscoveryService(
+                applicationEventPublisher,
+                serviceInfoProvider,
+                new HashPartitionService(
+                    serviceInfoProvider2,
+                    tenantRoutingInfoService,
+                    applicationEventPublisher2,
+                    queueRoutingInfoService,
+                    new TopicService()))
+            .isMonolith());
   }
 
   /**
    * Test {@link ZkDiscoveryService#publishCurrentServer()}.
-   * <p>
-   * Method under test: {@link ZkDiscoveryService#publishCurrentServer()}
+   *
+   * <p>Method under test: {@link ZkDiscoveryService#publishCurrentServer()}
    */
   @Test
   @DisplayName("Test publishCurrentServer()")
@@ -73,8 +78,8 @@ class ZkDiscoveryServiceDiffblueTest {
 
   /**
    * Test {@link ZkDiscoveryService#missingProperty(String)}.
-   * <p>
-   * Method under test: {@link ZkDiscoveryService#missingProperty(String)}
+   *
+   * <p>Method under test: {@link ZkDiscoveryService#missingProperty(String)}
    */
   @Test
   @DisplayName("Test missingProperty(String)")
@@ -82,13 +87,15 @@ class ZkDiscoveryServiceDiffblueTest {
   @MethodsUnderTest({"String ZkDiscoveryService.missingProperty(String)"})
   void testMissingProperty() {
     // Arrange, Act and Assert
-    assertEquals("The Property Name property need to be set!", ZkDiscoveryService.missingProperty("Property Name"));
+    assertEquals(
+        "The Property Name property need to be set!",
+        ZkDiscoveryService.missingProperty("Property Name"));
   }
 
   /**
    * Test {@link ZkDiscoveryService#recalculatePartitions()}.
-   * <p>
-   * Method under test: {@link ZkDiscoveryService#recalculatePartitions()}
+   *
+   * <p>Method under test: {@link ZkDiscoveryService#recalculatePartitions()}
    */
   @Test
   @DisplayName("Test recalculatePartitions()")

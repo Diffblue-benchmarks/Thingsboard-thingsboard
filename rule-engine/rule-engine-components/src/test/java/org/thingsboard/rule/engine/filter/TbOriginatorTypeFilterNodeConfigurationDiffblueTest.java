@@ -15,30 +15,34 @@ import org.thingsboard.server.common.data.EntityType;
 class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbOriginatorTypeFilterNodeConfiguration TbOriginatorTypeFilterNodeConfiguration.defaultConfiguration()"})
+    "TbOriginatorTypeFilterNodeConfiguration TbOriginatorTypeFilterNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
-    List<EntityType> originatorTypes = (new TbOriginatorTypeFilterNodeConfiguration()).defaultConfiguration()
-        .getOriginatorTypes();
+    List<EntityType> originatorTypes =
+        new TbOriginatorTypeFilterNodeConfiguration().defaultConfiguration().getOriginatorTypes();
     assertEquals(1, originatorTypes.size());
     assertEquals(EntityType.DEVICE, originatorTypes.get(0));
   }
 
   /**
-   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}
@@ -47,12 +51,16 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 =
+        new TbOriginatorTypeFilterNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbOriginatorTypeFilterNodeConfiguration, tbOriginatorTypeFilterNodeConfiguration2);
@@ -61,13 +69,16 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}
@@ -76,14 +87,18 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
     tbOriginatorTypeFilterNodeConfiguration.setOriginatorTypes(new ArrayList<>());
 
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 =
+        new TbOriginatorTypeFilterNodeConfiguration();
     tbOriginatorTypeFilterNodeConfiguration2.setOriginatorTypes(new ArrayList<>());
 
     // Act and Assert
@@ -93,13 +108,16 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbOriginatorTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#hashCode()}
@@ -108,11 +126,14 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbOriginatorTypeFilterNodeConfiguration, tbOriginatorTypeFilterNodeConfiguration);
@@ -122,18 +143,21 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbOriginatorTypeFilterNodeConfiguration(), 1);
@@ -141,66 +165,80 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
     tbOriginatorTypeFilterNodeConfiguration.setOriginatorTypes(new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(tbOriginatorTypeFilterNodeConfiguration, new TbOriginatorTypeFilterNodeConfiguration());
+    assertNotEquals(
+        tbOriginatorTypeFilterNodeConfiguration, new TbOriginatorTypeFilterNodeConfiguration());
   }
 
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
 
-    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration tbOriginatorTypeFilterNodeConfiguration2 =
+        new TbOriginatorTypeFilterNodeConfiguration();
     tbOriginatorTypeFilterNodeConfiguration2.setOriginatorTypes(new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(tbOriginatorTypeFilterNodeConfiguration, tbOriginatorTypeFilterNodeConfiguration2);
+    assertNotEquals(
+        tbOriginatorTypeFilterNodeConfiguration, tbOriginatorTypeFilterNodeConfiguration2);
   }
 
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbOriginatorTypeFilterNodeConfiguration(), null);
@@ -208,28 +246,33 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
-      "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbOriginatorTypeFilterNodeConfiguration.equals(Object)",
+    "int TbOriginatorTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbOriginatorTypeFilterNodeConfiguration(),
+    assertNotEquals(
+        new TbOriginatorTypeFilterNodeConfiguration(),
         "Different type to TbOriginatorTypeFilterNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbOriginatorTypeFilterNodeConfiguration}
    *   <li>{@link TbOriginatorTypeFilterNodeConfiguration#setOriginatorTypes(List)}
@@ -240,20 +283,25 @@ class TbOriginatorTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbOriginatorTypeFilterNodeConfiguration.<init>()",
-      "List TbOriginatorTypeFilterNodeConfiguration.getOriginatorTypes()",
-      "void TbOriginatorTypeFilterNodeConfiguration.setOriginatorTypes(List)",
-      "String TbOriginatorTypeFilterNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbOriginatorTypeFilterNodeConfiguration.<init>()",
+    "List TbOriginatorTypeFilterNodeConfiguration.getOriginatorTypes()",
+    "void TbOriginatorTypeFilterNodeConfiguration.setOriginatorTypes(List)",
+    "String TbOriginatorTypeFilterNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbOriginatorTypeFilterNodeConfiguration actualTbOriginatorTypeFilterNodeConfiguration = new TbOriginatorTypeFilterNodeConfiguration();
+    TbOriginatorTypeFilterNodeConfiguration actualTbOriginatorTypeFilterNodeConfiguration =
+        new TbOriginatorTypeFilterNodeConfiguration();
     ArrayList<EntityType> originatorTypes = new ArrayList<>();
     actualTbOriginatorTypeFilterNodeConfiguration.setOriginatorTypes(originatorTypes);
     String actualToStringResult = actualTbOriginatorTypeFilterNodeConfiguration.toString();
-    List<EntityType> actualOriginatorTypes = actualTbOriginatorTypeFilterNodeConfiguration.getOriginatorTypes();
+    List<EntityType> actualOriginatorTypes =
+        actualTbOriginatorTypeFilterNodeConfiguration.getOriginatorTypes();
 
     // Assert
-    assertEquals("TbOriginatorTypeFilterNodeConfiguration(originatorTypes=[])", actualToStringResult);
+    assertEquals(
+        "TbOriginatorTypeFilterNodeConfiguration(originatorTypes=[])", actualToStringResult);
     assertTrue(actualOriginatorTypes.isEmpty());
     assertSame(originatorTypes, actualOriginatorTypes);
   }

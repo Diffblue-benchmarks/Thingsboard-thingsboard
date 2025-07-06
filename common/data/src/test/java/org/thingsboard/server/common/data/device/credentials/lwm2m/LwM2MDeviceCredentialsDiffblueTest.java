@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class LwM2MDeviceCredentialsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2MDeviceCredentials}
    *   <li>{@link LwM2MDeviceCredentials#setBootstrap(LwM2MBootstrapClientCredentials)}
@@ -23,11 +24,13 @@ class LwM2MDeviceCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MDeviceCredentials.<init>()",
-      "LwM2MBootstrapClientCredentials LwM2MDeviceCredentials.getBootstrap()",
-      "LwM2MClientCredential LwM2MDeviceCredentials.getClient()",
-      "void LwM2MDeviceCredentials.setBootstrap(LwM2MBootstrapClientCredentials)",
-      "void LwM2MDeviceCredentials.setClient(LwM2MClientCredential)"})
+  @MethodsUnderTest({
+    "void LwM2MDeviceCredentials.<init>()",
+    "LwM2MBootstrapClientCredentials LwM2MDeviceCredentials.getBootstrap()",
+    "LwM2MClientCredential LwM2MDeviceCredentials.getClient()",
+    "void LwM2MDeviceCredentials.setBootstrap(LwM2MBootstrapClientCredentials)",
+    "void LwM2MDeviceCredentials.setClient(LwM2MClientCredential)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MDeviceCredentials actualLwM2MDeviceCredentials = new LwM2MDeviceCredentials();

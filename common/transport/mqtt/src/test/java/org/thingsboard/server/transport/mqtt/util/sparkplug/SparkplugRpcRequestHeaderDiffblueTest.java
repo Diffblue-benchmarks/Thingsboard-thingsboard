@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class SparkplugRpcRequestHeaderDiffblueTest {
   /**
-   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link SparkplugRpcRequestHeader#hashCode()}.
+   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link
+   * SparkplugRpcRequestHeader#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SparkplugRpcRequestHeader#equals(Object)}
    *   <li>{@link SparkplugRpcRequestHeader#hashCode()}
@@ -24,7 +27,10 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -44,13 +50,16 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   }
 
   /**
-   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link SparkplugRpcRequestHeader#hashCode()}.
+   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link
+   * SparkplugRpcRequestHeader#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SparkplugRpcRequestHeader#equals(Object)}
    *   <li>{@link SparkplugRpcRequestHeader#hashCode()}
@@ -59,7 +68,10 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -79,13 +91,16 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   }
 
   /**
-   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link SparkplugRpcRequestHeader#hashCode()}.
+   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link
+   * SparkplugRpcRequestHeader#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SparkplugRpcRequestHeader#equals(Object)}
    *   <li>{@link SparkplugRpcRequestHeader#hashCode()}
@@ -94,7 +109,10 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -114,13 +132,16 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   }
 
   /**
-   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link SparkplugRpcRequestHeader#hashCode()}.
+   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link
+   * SparkplugRpcRequestHeader#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SparkplugRpcRequestHeader#equals(Object)}
    *   <li>{@link SparkplugRpcRequestHeader#hashCode()}
@@ -129,7 +150,10 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -149,13 +173,16 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   }
 
   /**
-   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link SparkplugRpcRequestHeader#hashCode()}.
+   * Test {@link SparkplugRpcRequestHeader#equals(Object)}, and {@link
+   * SparkplugRpcRequestHeader#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SparkplugRpcRequestHeader#equals(Object)}
    *   <li>{@link SparkplugRpcRequestHeader#hashCode()}
@@ -164,7 +191,10 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -180,17 +210,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -209,17 +243,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -238,17 +276,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -267,17 +309,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -296,17 +342,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -330,17 +380,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -359,17 +413,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -383,17 +441,21 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test {@link SparkplugRpcRequestHeader#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
+   *
+   * <p>Method under test: {@link SparkplugRpcRequestHeader#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SparkplugRpcRequestHeader.equals(Object)", "int SparkplugRpcRequestHeader.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SparkplugRpcRequestHeader.equals(Object)",
+    "int SparkplugRpcRequestHeader.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SparkplugRpcRequestHeader sparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -407,8 +469,9 @@ class SparkplugRpcRequestHeaderDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SparkplugRpcRequestHeader}
    *   <li>{@link SparkplugRpcRequestHeader#setMessageType(String)}
@@ -423,10 +486,16 @@ class SparkplugRpcRequestHeaderDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SparkplugRpcRequestHeader.<init>()", "String SparkplugRpcRequestHeader.getMessageType()",
-      "String SparkplugRpcRequestHeader.getMetricName()", "Object SparkplugRpcRequestHeader.getValue()",
-      "void SparkplugRpcRequestHeader.setMessageType(String)", "void SparkplugRpcRequestHeader.setMetricName(String)",
-      "void SparkplugRpcRequestHeader.setValue(Object)", "String SparkplugRpcRequestHeader.toString()"})
+  @MethodsUnderTest({
+    "void SparkplugRpcRequestHeader.<init>()",
+    "String SparkplugRpcRequestHeader.getMessageType()",
+    "String SparkplugRpcRequestHeader.getMetricName()",
+    "Object SparkplugRpcRequestHeader.getValue()",
+    "void SparkplugRpcRequestHeader.setMessageType(String)",
+    "void SparkplugRpcRequestHeader.setMetricName(String)",
+    "void SparkplugRpcRequestHeader.setValue(Object)",
+    "String SparkplugRpcRequestHeader.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SparkplugRpcRequestHeader actualSparkplugRpcRequestHeader = new SparkplugRpcRequestHeader();
@@ -440,7 +509,8 @@ class SparkplugRpcRequestHeaderDiffblueTest {
     // Assert
     assertEquals("Message Type", actualMessageType);
     assertEquals("Metric Name", actualMetricName);
-    assertEquals("SparkplugRpcRequestHeader(messageType=Message Type, metricName=Metric Name, value=Value)",
+    assertEquals(
+        "SparkplugRpcRequestHeader(messageType=Message Type, metricName=Metric Name, value=Value)",
         actualToStringResult);
     assertEquals("Value", actualSparkplugRpcRequestHeader.getValue());
   }

@@ -19,12 +19,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class QueueStatsEntityDiffblueTest {
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#equals(Object)}
    *   <li>{@link QueueStatsEntity#hashCode()}
@@ -59,12 +61,14 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#equals(Object)}
    *   <li>{@link QueueStatsEntity#hashCode()}
@@ -99,12 +103,14 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#equals(Object)}
    *   <li>{@link QueueStatsEntity#hashCode()}
@@ -139,12 +145,14 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#equals(Object)}
    *   <li>{@link QueueStatsEntity#hashCode()}
@@ -179,12 +187,14 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#equals(Object)}
    *   <li>{@link QueueStatsEntity#hashCode()}
@@ -211,12 +221,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -245,12 +256,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -279,12 +291,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -313,12 +326,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -347,12 +361,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -381,12 +396,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -415,12 +431,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -449,12 +466,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -475,12 +493,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -501,8 +520,9 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsEntity#QueueStatsEntity()}
    *   <li>{@link QueueStatsEntity#setQueueName(String)}
@@ -516,10 +536,16 @@ public class QueueStatsEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void QueueStatsEntity.<init>()", "String QueueStatsEntity.getQueueName()",
-      "String QueueStatsEntity.getServiceId()", "UUID QueueStatsEntity.getTenantId()",
-      "void QueueStatsEntity.setQueueName(String)", "void QueueStatsEntity.setServiceId(String)",
-      "void QueueStatsEntity.setTenantId(UUID)", "String QueueStatsEntity.toString()"})
+  @MethodsUnderTest({
+    "void QueueStatsEntity.<init>()",
+    "String QueueStatsEntity.getQueueName()",
+    "String QueueStatsEntity.getServiceId()",
+    "UUID QueueStatsEntity.getTenantId()",
+    "void QueueStatsEntity.setQueueName(String)",
+    "void QueueStatsEntity.setServiceId(String)",
+    "void QueueStatsEntity.setTenantId(UUID)",
+    "String QueueStatsEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity();
@@ -536,7 +562,8 @@ public class QueueStatsEntityDiffblueTest {
     assertEquals("42", actualServiceId);
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualTenantId.toString());
     assertEquals("Queue Name", actualQueueName);
-    assertEquals("QueueStatsEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, queueName=Queue Name, serviceId=42)",
+    assertEquals(
+        "QueueStatsEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, queueName=Queue Name, serviceId=42)",
         actualToStringResult);
     assertNull(actualQueueStatsEntity.getId());
     assertNull(actualQueueStatsEntity.getUuid());
@@ -546,23 +573,23 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
-   * <p>
-   * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
   public void testNewQueueStatsEntity() {
     // Arrange
-    QueueStats queueStats = new QueueStats();
-    queueStats.setId(null);
+    QueueStats queueStats = new QueueStats(null);
     queueStats.setTenantId(ModelConstants.SYSTEM_TENANT);
 
     // Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity(queueStats);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualQueueStatsEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualQueueStatsEntity.getTenantId().toString());
     assertNull(actualQueueStatsEntity.getId());
     assertNull(actualQueueStatsEntity.getUuid());
     assertEquals(0L, actualQueueStatsEntity.getCreatedTime());
@@ -570,12 +597,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>Then return CreatedTime is one.</li>
+   *   <li>Given one.
+   *   <li>Then return CreatedTime is one.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -597,20 +625,21 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
+   *
    * <ul>
-   *   <li>Then return Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
   public void testNewQueueStatsEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
-    QueueStats queueStats = new QueueStats();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    queueStats.setId(new QueueStatsId(id));
+
+    QueueStats queueStats = new QueueStats(new QueueStatsId(id));
     queueStats.setTenantId(ModelConstants.SYSTEM_TENANT);
 
     // Act
@@ -625,12 +654,13 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}.
+   *
    * <ul>
-   *   <li>When {@link QueueStats#QueueStats()}.</li>
-   *   <li>Then return TenantId is {@code null}.</li>
+   *   <li>When {@link QueueStats#QueueStats()}.
+   *   <li>Then return TenantId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -648,15 +678,15 @@ public class QueueStatsEntityDiffblueTest {
 
   /**
    * Test {@link QueueStatsEntity#toData()}.
-   * <p>
-   * Method under test: {@link QueueStatsEntity#toData()}
+   *
+   * <p>Method under test: {@link QueueStatsEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"QueueStats QueueStatsEntity.toData()"})
   public void testToData() {
     // Arrange and Act
-    QueueStats actualToDataResult = (new QueueStatsEntity()).toData();
+    QueueStats actualToDataResult = new QueueStatsEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getQueueName());

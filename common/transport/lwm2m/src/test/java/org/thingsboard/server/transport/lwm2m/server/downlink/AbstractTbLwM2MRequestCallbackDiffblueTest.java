@@ -16,11 +16,12 @@ import org.thingsboard.server.transport.lwm2m.server.log.LwM2MTelemetryLogServic
 class AbstractTbLwM2MRequestCallbackDiffblueTest {
   /**
    * Test {@link AbstractTbLwM2MRequestCallback#onValidationError(String, String)}.
+   *
    * <ul>
-   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
+   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbLwM2MRequestCallback#onValidationError(String, String)}
+   *
+   * <p>Method under test: {@link AbstractTbLwM2MRequestCallback#onValidationError(String, String)}
    */
   @Test
   @DisplayName("Test onValidationError(String, String); then calls log(LwM2mClient, String)")
@@ -32,20 +33,24 @@ class AbstractTbLwM2MRequestCallbackDiffblueTest {
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
 
     // Act
-    (new TbLwM2MCancelAllObserveCallback(logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com")))
+    new TbLwM2MCancelAllObserveCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"))
         .onValidationError("Params", "Msg");
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class), eq("[error]: Request [Params] validation failed. Reason: Msg"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class), eq("[error]: Request [Params] validation failed. Reason: Msg"));
   }
 
   /**
    * Test {@link AbstractTbLwM2MRequestCallback#onError(String, Exception)}.
+   *
    * <ul>
-   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
+   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbLwM2MRequestCallback#onError(String, Exception)}
+   *
+   * <p>Method under test: {@link AbstractTbLwM2MRequestCallback#onError(String, Exception)}
    */
   @Test
   @DisplayName("Test onError(String, Exception); then calls log(LwM2mClient, String)")
@@ -55,14 +60,17 @@ class AbstractTbLwM2MRequestCallbackDiffblueTest {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
-    TbLwM2MCancelAllObserveCallback tbLwM2MCancelAllObserveCallback = new TbLwM2MCancelAllObserveCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"));
+    TbLwM2MCancelAllObserveCallback tbLwM2MCancelAllObserveCallback =
+        new TbLwM2MCancelAllObserveCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"));
 
     // Act
     tbLwM2MCancelAllObserveCallback.onError("Params", new Exception("foo"));
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class),
-        eq("[error]: Request [Params] processing failed. Reason: java.lang.Exception: foo"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq("[error]: Request [Params] processing failed. Reason: java.lang.Exception: foo"));
   }
 }

@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {UnauthorizedException.class, String.class})
 @ExtendWith(SpringExtension.class)
 class UnauthorizedExceptionDiffblueTest {
-  @Autowired
-  private UnauthorizedException unauthorizedException;
+  @Autowired private UnauthorizedException unauthorizedException;
 
   /**
    * Test {@link UnauthorizedException#UnauthorizedException(String)}.
-   * <p>
-   * Method under test: {@link UnauthorizedException#UnauthorizedException(String)}
+   *
+   * <p>Method under test: {@link UnauthorizedException#UnauthorizedException(String)}
    */
   @Test
   @DisplayName("Test new UnauthorizedException(String)")
@@ -32,7 +31,8 @@ class UnauthorizedExceptionDiffblueTest {
   @MethodsUnderTest({"void UnauthorizedException.<init>(String)"})
   void testNewUnauthorizedException() {
     // Arrange and Act
-    UnauthorizedException actualUnauthorizedException = new UnauthorizedException("An error occurred");
+    UnauthorizedException actualUnauthorizedException =
+        new UnauthorizedException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualUnauthorizedException.getMessage());
@@ -42,8 +42,8 @@ class UnauthorizedExceptionDiffblueTest {
 
   /**
    * Test {@link UnauthorizedException#toErrorResponseEntity()}.
-   * <p>
-   * Method under test: {@link UnauthorizedException#toErrorResponseEntity()}
+   *
+   * <p>Method under test: {@link UnauthorizedException#toErrorResponseEntity()}
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
@@ -51,7 +51,8 @@ class UnauthorizedExceptionDiffblueTest {
   @MethodsUnderTest({"ResponseEntity UnauthorizedException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
-    ResponseEntity<String> actualToErrorResponseEntityResult = unauthorizedException.toErrorResponseEntity();
+    ResponseEntity<String> actualToErrorResponseEntityResult =
+        unauthorizedException.toErrorResponseEntity();
 
     // Assert
     HttpStatusCode statusCode = actualToErrorResponseEntityResult.getStatusCode();

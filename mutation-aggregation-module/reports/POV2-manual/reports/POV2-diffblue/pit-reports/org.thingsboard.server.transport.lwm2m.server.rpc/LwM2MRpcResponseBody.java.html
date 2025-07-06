@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>LwM2MRpcResponseBody.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.transport.lwm2m.server.rpc;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.fasterxml.jackson.annotation.JsonInclude;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Builder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_22'/>
+22
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_22'>32</a>
+<span>
+
+1. canEqual : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::canEqual &rarr; SURVIVED<br/>
+
+2. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+3. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+4. equals : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; NO_COVERAGE<br/>
+
+5. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+6. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+7. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+8. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+9. hashCode : replaced int return with 0 for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::hashCode &rarr; SURVIVED<br/>
+
+10. equals : negated conditional &rarr; SURVIVED<br/>
+
+11. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+12. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+13. equals : negated conditional &rarr; SURVIVED<br/>
+
+14. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+15. canEqual : replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::canEqual &rarr; KILLED<br/>
+
+16. equals : replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+17. equals : negated conditional &rarr; KILLED<br/>
+
+18. equals : negated conditional &rarr; KILLED<br/>
+
+19. toString : replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::toString &rarr; KILLED<br/>
+
+20. equals : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+21. equals : negated conditional &rarr; KILLED<br/>
+
+22. equals : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+23. equals : negated conditional &rarr; KILLED<br/>
+
+24. equals : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+25. equals : negated conditional &rarr; KILLED<br/>
+
+26. equals : negated conditional &rarr; KILLED<br/>
+
+27. equals : replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+28. equals : replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED<br/>
+
+29. equals : negated conditional &rarr; KILLED<br/>
+
+30. equals : negated conditional &rarr; KILLED<br/>
+
+31. equals : negated conditional &rarr; KILLED<br/>
+
+32. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_23'/>
+23
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_23'>6</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::toString &rarr; NO_COVERAGE<br/>
+
+2. build : replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::build &rarr; KILLED<br/>
+
+3. result : replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::result &rarr; KILLED<br/>
+
+4. builder : replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::builder &rarr; KILLED<br/>
+
+5. value : replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::value &rarr; KILLED<br/>
+
+6. error : replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::error &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Builder</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@JsonInclude(JsonInclude.Include.NON_NULL)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class LwM2MRpcResponseBody {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_27'>1</a>
+<span>
+
+1. getResult : replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getResult &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String result;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_28'>1</a>
+<span>
+
+1. getValue : replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String value;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_29'>1</a>
+<span>
+
+1. getError : replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getError &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String error;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b140f39_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b140f39_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_22'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::canEqual &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::toString &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBody,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b140f39_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::build &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>result<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::result &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>builder<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::builder &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>value<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testLwM2MRpcResponseBodyBuilderBuild()]</span></span> replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::value &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>error<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::error &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toString<br/><b>Killed by : </b></span></span> replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody$LwM2MRpcResponseBodyBuilder::toString &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b140f39_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getResult<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testLwM2MRpcResponseBodyBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getResult &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b140f39_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getValue<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testLwM2MRpcResponseBodyBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getValue &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b140f39_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b140f39_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getError<br/><b>Killed by : </b>org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.transport.lwm2m.server.rpc.LwM2MRpcResponseBodyDiffblueTest]/[method:testLwM2MRpcResponseBodyBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/transport/lwm2m/server/rpc/LwM2MRpcResponseBody::getError &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class MqttTransportServiceDiffblueTest {
   /**
    * Test {@link MqttTransportService#getName()}.
-   * <p>
-   * Method under test: {@link MqttTransportService#getName()}
+   *
+   * <p>Method under test: {@link MqttTransportService#getName()}
    */
   @Test
   @DisplayName("Test getName()")
@@ -18,6 +18,6 @@ class MqttTransportServiceDiffblueTest {
   @MethodsUnderTest({"java.lang.String MqttTransportService.getName()"})
   void testGetName() {
     // Arrange, Act and Assert
-    assertEquals("MQTT", (new MqttTransportService()).getName());
+    assertEquals("MQTT", new MqttTransportService().getName());
   }
 }

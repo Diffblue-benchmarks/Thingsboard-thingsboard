@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class NumericParseExceptionDiffblueTest {
   /**
    * Test {@link NumericParseException#NumericParseException(String)}.
-   * <p>
-   * Method under test: {@link NumericParseException#NumericParseException(String)}
+   *
+   * <p>Method under test: {@link NumericParseException#NumericParseException(String)}
    */
   @Test
   @DisplayName("Test new NumericParseException(String)")
@@ -19,7 +19,8 @@ class NumericParseExceptionDiffblueTest {
   @MethodsUnderTest({"void NumericParseException.<init>(String)"})
   void testNewNumericParseException() {
     // Arrange and Act
-    NumericParseException actualNumericParseException = new NumericParseException("An error occurred");
+    NumericParseException actualNumericParseException =
+        new NumericParseException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualNumericParseException.getMessage());

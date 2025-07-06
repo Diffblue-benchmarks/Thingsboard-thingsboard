@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class VersionedEntityInfoDiffblueTest {
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}, and {@link VersionedEntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionedEntityInfo#equals(Object)}
    *   <li>{@link VersionedEntityInfo#hashCode()}
@@ -27,7 +29,10 @@ class VersionedEntityInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionedEntityInfo versionedEntityInfo = new VersionedEntityInfo();
@@ -41,12 +46,14 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}, and {@link VersionedEntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionedEntityInfo#equals(Object)}
    *   <li>{@link VersionedEntityInfo#hashCode()}
@@ -55,7 +62,10 @@ class VersionedEntityInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     VersionedEntityInfo versionedEntityInfo = new VersionedEntityInfo(TenantId.SYS_TENANT_ID);
@@ -69,12 +79,14 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}, and {@link VersionedEntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionedEntityInfo#equals(Object)}
    *   <li>{@link VersionedEntityInfo#hashCode()}
@@ -83,7 +95,10 @@ class VersionedEntityInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionedEntityInfo versionedEntityInfo = new VersionedEntityInfo();
@@ -96,17 +111,21 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedEntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionedEntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     VersionedEntityInfo versionedEntityInfo = new VersionedEntityInfo(TenantId.SYS_TENANT_ID);
@@ -117,17 +136,21 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedEntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionedEntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     VersionedEntityInfo versionedEntityInfo = new VersionedEntityInfo();
@@ -138,17 +161,21 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedEntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionedEntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new VersionedEntityInfo(), null);
@@ -156,17 +183,21 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test {@link VersionedEntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedEntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionedEntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionedEntityInfo.equals(Object)", "int VersionedEntityInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionedEntityInfo.equals(Object)",
+    "int VersionedEntityInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new VersionedEntityInfo(), "Different type to VersionedEntityInfo");
@@ -174,8 +205,9 @@ class VersionedEntityInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionedEntityInfo#VersionedEntityInfo()}
    *   <li>{@link VersionedEntityInfo#setExternalId(EntityId)}
@@ -186,9 +218,13 @@ class VersionedEntityInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionedEntityInfo.<init>()", "void VersionedEntityInfo.<init>(EntityId)",
-      "EntityId VersionedEntityInfo.getExternalId()", "void VersionedEntityInfo.setExternalId(EntityId)",
-      "String VersionedEntityInfo.toString()"})
+  @MethodsUnderTest({
+    "void VersionedEntityInfo.<init>()",
+    "void VersionedEntityInfo.<init>(EntityId)",
+    "EntityId VersionedEntityInfo.getExternalId()",
+    "void VersionedEntityInfo.setExternalId(EntityId)",
+    "String VersionedEntityInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     VersionedEntityInfo actualVersionedEntityInfo = new VersionedEntityInfo();
@@ -197,17 +233,21 @@ class VersionedEntityInfoDiffblueTest {
     EntityId actualExternalId = actualVersionedEntityInfo.getExternalId();
 
     // Assert
-    assertEquals("VersionedEntityInfo(externalId=13814000-1dd2-11b2-8080-808080808080)", actualToStringResult);
+    assertEquals(
+        "VersionedEntityInfo(externalId=13814000-1dd2-11b2-8080-808080808080)",
+        actualToStringResult);
     assertSame(((TenantId) actualExternalId).SYS_TENANT_ID, actualExternalId);
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>When {@link TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionedEntityInfo#VersionedEntityInfo(EntityId)}
    *   <li>{@link VersionedEntityInfo#setExternalId(EntityId)}
@@ -218,9 +258,13 @@ class VersionedEntityInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionedEntityInfo.<init>()", "void VersionedEntityInfo.<init>(EntityId)",
-      "EntityId VersionedEntityInfo.getExternalId()", "void VersionedEntityInfo.setExternalId(EntityId)",
-      "String VersionedEntityInfo.toString()"})
+  @MethodsUnderTest({
+    "void VersionedEntityInfo.<init>()",
+    "void VersionedEntityInfo.<init>(EntityId)",
+    "EntityId VersionedEntityInfo.getExternalId()",
+    "void VersionedEntityInfo.setExternalId(EntityId)",
+    "String VersionedEntityInfo.toString()"
+  })
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange and Act
     VersionedEntityInfo actualVersionedEntityInfo = new VersionedEntityInfo(TenantId.SYS_TENANT_ID);
@@ -229,7 +273,9 @@ class VersionedEntityInfoDiffblueTest {
     EntityId actualExternalId = actualVersionedEntityInfo.getExternalId();
 
     // Assert
-    assertEquals("VersionedEntityInfo(externalId=13814000-1dd2-11b2-8080-808080808080)", actualToStringResult);
+    assertEquals(
+        "VersionedEntityInfo(externalId=13814000-1dd2-11b2-8080-808080808080)",
+        actualToStringResult);
     assertSame(((TenantId) actualExternalId).SYS_TENANT_ID, actualExternalId);
   }
 }

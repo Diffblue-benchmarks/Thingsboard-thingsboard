@@ -17,13 +17,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MWriteReplac
 @ContextConfiguration(classes = {TbLwM2MWriteReplaceRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MWriteReplaceRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MWriteReplaceRequestBuilder tbLwM2MWriteReplaceRequestBuilder;
+  @Autowired private TbLwM2MWriteReplaceRequestBuilder tbLwM2MWriteReplaceRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MWriteReplaceRequest#getContentFormat()}
    *   <li>{@link TbLwM2MWriteReplaceRequest#getType()}
@@ -33,17 +33,22 @@ class TbLwM2MWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ContentFormat TbLwM2MWriteReplaceRequest.getContentFormat()",
-      "LwM2MOperationType TbLwM2MWriteReplaceRequest.getType()", "Object TbLwM2MWriteReplaceRequest.getValue()"})
+  @MethodsUnderTest({
+    "ContentFormat TbLwM2MWriteReplaceRequest.getContentFormat()",
+    "LwM2MOperationType TbLwM2MWriteReplaceRequest.getType()",
+    "Object TbLwM2MWriteReplaceRequest.getValue()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MWriteReplaceRequestBuilder builderResult = TbLwM2MWriteReplaceRequest.builder();
     ContentFormat contentFormat = ContentFormat.fromCode(1);
-    TbLwM2MWriteReplaceRequest buildResult = builderResult.contentFormat(contentFormat)
-        .timeout(10L)
-        .value("Value")
-        .versionedId("42")
-        .build();
+    TbLwM2MWriteReplaceRequest buildResult =
+        builderResult
+            .contentFormat(contentFormat)
+            .timeout(10L)
+            .value("Value")
+            .versionedId("42")
+            .build();
 
     // Act
     ContentFormat actualContentFormat = buildResult.getContentFormat();
@@ -57,8 +62,9 @@ class TbLwM2MWriteReplaceRequestDiffblueTest {
 
   /**
    * Test TbLwM2MWriteReplaceRequestBuilder {@link TbLwM2MWriteReplaceRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MWriteReplaceRequestBuilder#build()}
    *   <li>{@link TbLwM2MWriteReplaceRequestBuilder#contentFormat(ContentFormat)}
@@ -70,24 +76,28 @@ class TbLwM2MWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MWriteReplaceRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MWriteReplaceRequestBuilder.<init>()",
-      "TbLwM2MWriteReplaceRequest TbLwM2MWriteReplaceRequestBuilder.build()",
-      "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.contentFormat(ContentFormat)",
-      "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.timeout(long)",
-      "String TbLwM2MWriteReplaceRequestBuilder.toString()",
-      "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.value(Object)",
-      "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MWriteReplaceRequestBuilder.<init>()",
+    "TbLwM2MWriteReplaceRequest TbLwM2MWriteReplaceRequestBuilder.build()",
+    "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.contentFormat(ContentFormat)",
+    "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.timeout(long)",
+    "String TbLwM2MWriteReplaceRequestBuilder.toString()",
+    "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.value(Object)",
+    "TbLwM2MWriteReplaceRequestBuilder TbLwM2MWriteReplaceRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MWriteReplaceRequestBuilderBuild() {
     // Arrange
     TbLwM2MWriteReplaceRequestBuilder builderResult = TbLwM2MWriteReplaceRequest.builder();
     ContentFormat contentFormat = ContentFormat.fromCode(1);
 
     // Act
-    TbLwM2MWriteReplaceRequest actualBuildResult = builderResult.contentFormat(contentFormat)
-        .timeout(10L)
-        .value("Value")
-        .versionedId("42")
-        .build();
+    TbLwM2MWriteReplaceRequest actualBuildResult =
+        builderResult
+            .contentFormat(contentFormat)
+            .timeout(10L)
+            .value("Value")
+            .versionedId("42")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

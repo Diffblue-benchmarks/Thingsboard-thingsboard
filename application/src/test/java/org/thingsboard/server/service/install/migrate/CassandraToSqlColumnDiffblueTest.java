@@ -31,8 +31,8 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 class CassandraToSqlColumnDiffblueTest {
   /**
    * Test {@link CassandraToSqlColumn#idColumn(String)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#idColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#idColumn(String)}
    */
   @Test
   @DisplayName("Test idColumn(String)")
@@ -55,9 +55,10 @@ class CassandraToSqlColumnDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlColumn#stringColumn(String, String)} with {@code cassandraColumnName}, {@code sqlColumnName}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#stringColumn(String, String)}
+   * Test {@link CassandraToSqlColumn#stringColumn(String, String)} with {@code
+   * cassandraColumnName}, {@code sqlColumnName}.
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#stringColumn(String, String)}
    */
   @Test
   @DisplayName("Test stringColumn(String, String) with 'cassandraColumnName', 'sqlColumnName'")
@@ -65,8 +66,8 @@ class CassandraToSqlColumnDiffblueTest {
   @MethodsUnderTest({"CassandraToSqlColumn CassandraToSqlColumn.stringColumn(String, String)"})
   void testStringColumnWithCassandraColumnNameSqlColumnName() {
     // Arrange and Act
-    CassandraToSqlColumn actualStringColumnResult = CassandraToSqlColumn.stringColumn("Cassandra Column Name",
-        "Sql Column Name");
+    CassandraToSqlColumn actualStringColumnResult =
+        CassandraToSqlColumn.stringColumn("Cassandra Column Name", "Sql Column Name");
 
     // Assert
     assertEquals("Cassandra Column Name", actualStringColumnResult.getCassandraColumnName());
@@ -82,8 +83,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#stringColumn(String)} with {@code name}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#stringColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#stringColumn(String)}
    */
   @Test
   @DisplayName("Test stringColumn(String) with 'name'")
@@ -107,8 +108,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#bigintColumn(String)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#bigintColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#bigintColumn(String)}
    */
   @Test
   @DisplayName("Test bigintColumn(String)")
@@ -132,8 +133,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#doubleColumn(String)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#doubleColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#doubleColumn(String)}
    */
   @Test
   @DisplayName("Test doubleColumn(String)")
@@ -157,8 +158,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#booleanColumn(String)} with {@code name}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#booleanColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#booleanColumn(String)}
    */
   @Test
   @DisplayName("Test booleanColumn(String) with 'name'")
@@ -181,9 +182,10 @@ class CassandraToSqlColumnDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlColumn#booleanColumn(String, boolean)} with {@code name}, {@code allowNullBoolean}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#booleanColumn(String, boolean)}
+   * Test {@link CassandraToSqlColumn#booleanColumn(String, boolean)} with {@code name}, {@code
+   * allowNullBoolean}.
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#booleanColumn(String, boolean)}
    */
   @Test
   @DisplayName("Test booleanColumn(String, boolean) with 'name', 'allowNullBoolean'")
@@ -191,7 +193,8 @@ class CassandraToSqlColumnDiffblueTest {
   @MethodsUnderTest({"CassandraToSqlColumn CassandraToSqlColumn.booleanColumn(String, boolean)"})
   void testBooleanColumnWithNameAllowNullBoolean() {
     // Arrange and Act
-    CassandraToSqlColumn actualBooleanColumnResult = CassandraToSqlColumn.booleanColumn("Name", true);
+    CassandraToSqlColumn actualBooleanColumnResult =
+        CassandraToSqlColumn.booleanColumn("Name", true);
 
     // Assert
     assertEquals("Name", actualBooleanColumnResult.getCassandraColumnName());
@@ -207,8 +210,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#jsonColumn(String)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#jsonColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#jsonColumn(String)}
    */
   @Test
   @DisplayName("Test jsonColumn(String)")
@@ -232,8 +235,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#enumToIntColumn(String, Class)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#enumToIntColumn(String, Class)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#enumToIntColumn(String, Class)}
    */
   @Test
   @DisplayName("Test enumToIntColumn(String, Class)")
@@ -244,7 +247,8 @@ class CassandraToSqlColumnDiffblueTest {
     Class<Enum> enumClass = Enum.class;
 
     // Act
-    CassandraToSqlColumn actualEnumToIntColumnResult = CassandraToSqlColumn.enumToIntColumn("Name", enumClass);
+    CassandraToSqlColumn actualEnumToIntColumnResult =
+        CassandraToSqlColumn.enumToIntColumn("Name", enumClass);
 
     // Assert
     assertEquals("Name", actualEnumToIntColumnResult.getCassandraColumnName());
@@ -261,12 +265,14 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}, and {@link CassandraToSqlColumn#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumn#equals(Object)}
    *   <li>{@link CassandraToSqlColumn#hashCode()}
@@ -275,7 +281,10 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -289,12 +298,14 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}, and {@link CassandraToSqlColumn#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumn#equals(Object)}
    *   <li>{@link CassandraToSqlColumn#hashCode()}
@@ -303,7 +314,10 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn(null);
@@ -317,12 +331,14 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}, and {@link CassandraToSqlColumn#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumn#equals(Object)}
    *   <li>{@link CassandraToSqlColumn#hashCode()}
@@ -331,7 +347,10 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -349,12 +368,14 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}, and {@link CassandraToSqlColumn#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumn#equals(Object)}
    *   <li>{@link CassandraToSqlColumn#hashCode()}
@@ -363,7 +384,10 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -376,17 +400,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn(null);
@@ -397,21 +425,26 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn
-        .bigintColumn("org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
+    CassandraToSqlColumn bigintColumnResult =
+        CassandraToSqlColumn.bigintColumn(
+            "org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
 
     // Act and Assert
     assertNotEquals(bigintColumnResult, CassandraToSqlColumn.bigintColumn("Name"));
@@ -419,17 +452,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CassandraToSqlColumn doubleColumnResult = CassandraToSqlColumn.doubleColumn("Name");
@@ -440,17 +477,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -462,17 +503,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -484,17 +529,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -506,17 +555,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -528,17 +581,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -551,17 +608,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -573,17 +634,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
@@ -597,23 +662,29 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn
-        .bigintColumn("org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
+    CassandraToSqlColumn bigintColumnResult =
+        CassandraToSqlColumn.bigintColumn(
+            "org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
     CassandraToSqlColumn bigintColumnResult2 = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult2.setCassandraColumnName("org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
+    bigintColumnResult2.setCassandraColumnName(
+        "org.thingsboard.server.service.install.migrate.CassandraToSqlColumn");
 
     // Act and Assert
     assertNotEquals(bigintColumnResult, bigintColumnResult2);
@@ -621,17 +692,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn(null);
@@ -644,17 +719,21 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(CassandraToSqlColumn.bigintColumn("Name"), null);
@@ -662,31 +741,39 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumn.equals(Object)", "int CassandraToSqlColumn.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumn.equals(Object)",
+    "int CassandraToSqlColumn.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(CassandraToSqlColumn.bigintColumn("Name"), "Different type to CassandraToSqlColumn");
+    assertNotEquals(
+        CassandraToSqlColumn.bigintColumn("Name"), "Different type to CassandraToSqlColumn");
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Cassandra Column Name}.</li>
+   *   <li>When {@code Cassandra Column Name}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link CassandraToSqlColumn#CassandraToSqlColumn(String, String, CassandraToSqlColumnType, Class, boolean)}
+   *   <li>{@link CassandraToSqlColumn#CassandraToSqlColumn(String, String,
+   *       CassandraToSqlColumnType, Class, boolean)}
    *   <li>{@link CassandraToSqlColumn#setAllowNullBoolean(boolean)}
    *   <li>{@link CassandraToSqlColumn#setCassandraColumnName(String)}
    *   <li>{@link CassandraToSqlColumn#setEnumClass(Class)}
@@ -711,26 +798,42 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Cassandra Column Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
-      "String CassandraToSqlColumn.getCassandraColumnName()", "Class CassandraToSqlColumn.getEnumClass()",
-      "int CassandraToSqlColumn.getIndex()", "int CassandraToSqlColumn.getSize()",
-      "String CassandraToSqlColumn.getSqlColumnName()", "int CassandraToSqlColumn.getSqlIndex()",
-      "int CassandraToSqlColumn.getSqlType()", "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
-      "boolean CassandraToSqlColumn.isAllowNullBoolean()", "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
-      "void CassandraToSqlColumn.setCassandraColumnName(String)", "void CassandraToSqlColumn.setEnumClass(Class)",
-      "void CassandraToSqlColumn.setIndex(int)", "void CassandraToSqlColumn.setSize(int)",
-      "void CassandraToSqlColumn.setSqlColumnName(String)", "void CassandraToSqlColumn.setSqlIndex(int)",
-      "void CassandraToSqlColumn.setSqlType(int)", "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
-      "String CassandraToSqlColumn.toString()"})
+  @MethodsUnderTest({
+    "void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
+    "String CassandraToSqlColumn.getCassandraColumnName()",
+    "Class CassandraToSqlColumn.getEnumClass()",
+    "int CassandraToSqlColumn.getIndex()",
+    "int CassandraToSqlColumn.getSize()",
+    "String CassandraToSqlColumn.getSqlColumnName()",
+    "int CassandraToSqlColumn.getSqlIndex()",
+    "int CassandraToSqlColumn.getSqlType()",
+    "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
+    "boolean CassandraToSqlColumn.isAllowNullBoolean()",
+    "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
+    "void CassandraToSqlColumn.setCassandraColumnName(String)",
+    "void CassandraToSqlColumn.setEnumClass(Class)",
+    "void CassandraToSqlColumn.setIndex(int)",
+    "void CassandraToSqlColumn.setSize(int)",
+    "void CassandraToSqlColumn.setSqlColumnName(String)",
+    "void CassandraToSqlColumn.setSqlIndex(int)",
+    "void CassandraToSqlColumn.setSqlType(int)",
+    "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
+    "String CassandraToSqlColumn.toString()"
+  })
   void testGettersAndSetters_whenCassandraColumnName() {
     // Arrange
     Class<Enum> enumClass = Enum.class;
 
     // Act
-    CassandraToSqlColumn actualCassandraToSqlColumn = new CassandraToSqlColumn("Cassandra Column Name",
-        "Sql Column Name", CassandraToSqlColumnType.ID, enumClass, true);
+    CassandraToSqlColumn actualCassandraToSqlColumn =
+        new CassandraToSqlColumn(
+            "Cassandra Column Name",
+            "Sql Column Name",
+            CassandraToSqlColumnType.ID,
+            enumClass,
+            true);
     actualCassandraToSqlColumn.setAllowNullBoolean(true);
     actualCassandraToSqlColumn.setCassandraColumnName("Cassandra Column Name");
     Class<Enum> enumClass2 = Enum.class;
@@ -771,11 +874,13 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Column Name}.</li>
+   *   <li>When {@code Column Name}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumn#CassandraToSqlColumn(String, CassandraToSqlColumnType)}
    *   <li>{@link CassandraToSqlColumn#setAllowNullBoolean(boolean)}
@@ -802,23 +907,34 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Column Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
-      "String CassandraToSqlColumn.getCassandraColumnName()", "Class CassandraToSqlColumn.getEnumClass()",
-      "int CassandraToSqlColumn.getIndex()", "int CassandraToSqlColumn.getSize()",
-      "String CassandraToSqlColumn.getSqlColumnName()", "int CassandraToSqlColumn.getSqlIndex()",
-      "int CassandraToSqlColumn.getSqlType()", "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
-      "boolean CassandraToSqlColumn.isAllowNullBoolean()", "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
-      "void CassandraToSqlColumn.setCassandraColumnName(String)", "void CassandraToSqlColumn.setEnumClass(Class)",
-      "void CassandraToSqlColumn.setIndex(int)", "void CassandraToSqlColumn.setSize(int)",
-      "void CassandraToSqlColumn.setSqlColumnName(String)", "void CassandraToSqlColumn.setSqlIndex(int)",
-      "void CassandraToSqlColumn.setSqlType(int)", "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
-      "String CassandraToSqlColumn.toString()"})
+  @MethodsUnderTest({
+    "void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
+    "String CassandraToSqlColumn.getCassandraColumnName()",
+    "Class CassandraToSqlColumn.getEnumClass()",
+    "int CassandraToSqlColumn.getIndex()",
+    "int CassandraToSqlColumn.getSize()",
+    "String CassandraToSqlColumn.getSqlColumnName()",
+    "int CassandraToSqlColumn.getSqlIndex()",
+    "int CassandraToSqlColumn.getSqlType()",
+    "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
+    "boolean CassandraToSqlColumn.isAllowNullBoolean()",
+    "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
+    "void CassandraToSqlColumn.setCassandraColumnName(String)",
+    "void CassandraToSqlColumn.setEnumClass(Class)",
+    "void CassandraToSqlColumn.setIndex(int)",
+    "void CassandraToSqlColumn.setSize(int)",
+    "void CassandraToSqlColumn.setSqlColumnName(String)",
+    "void CassandraToSqlColumn.setSqlIndex(int)",
+    "void CassandraToSqlColumn.setSqlType(int)",
+    "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
+    "String CassandraToSqlColumn.toString()"
+  })
   void testGettersAndSetters_whenColumnName() {
     // Arrange and Act
-    CassandraToSqlColumn actualCassandraToSqlColumn = new CassandraToSqlColumn("Column Name",
-        CassandraToSqlColumnType.ID);
+    CassandraToSqlColumn actualCassandraToSqlColumn =
+        new CassandraToSqlColumn("Column Name", CassandraToSqlColumnType.ID);
     actualCassandraToSqlColumn.setAllowNullBoolean(true);
     actualCassandraToSqlColumn.setCassandraColumnName("Cassandra Column Name");
     Class<Enum> enumClass = Enum.class;
@@ -859,13 +975,16 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Column Name}.</li>
+   *   <li>When {@code Column Name}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link CassandraToSqlColumn#CassandraToSqlColumn(String, CassandraToSqlColumnType, Class)}
+   *   <li>{@link CassandraToSqlColumn#CassandraToSqlColumn(String, CassandraToSqlColumnType,
+   *       Class)}
    *   <li>{@link CassandraToSqlColumn#setAllowNullBoolean(boolean)}
    *   <li>{@link CassandraToSqlColumn#setCassandraColumnName(String)}
    *   <li>{@link CassandraToSqlColumn#setEnumClass(Class)}
@@ -890,26 +1009,37 @@ class CassandraToSqlColumnDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Column Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
-      "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
-      "String CassandraToSqlColumn.getCassandraColumnName()", "Class CassandraToSqlColumn.getEnumClass()",
-      "int CassandraToSqlColumn.getIndex()", "int CassandraToSqlColumn.getSize()",
-      "String CassandraToSqlColumn.getSqlColumnName()", "int CassandraToSqlColumn.getSqlIndex()",
-      "int CassandraToSqlColumn.getSqlType()", "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
-      "boolean CassandraToSqlColumn.isAllowNullBoolean()", "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
-      "void CassandraToSqlColumn.setCassandraColumnName(String)", "void CassandraToSqlColumn.setEnumClass(Class)",
-      "void CassandraToSqlColumn.setIndex(int)", "void CassandraToSqlColumn.setSize(int)",
-      "void CassandraToSqlColumn.setSqlColumnName(String)", "void CassandraToSqlColumn.setSqlIndex(int)",
-      "void CassandraToSqlColumn.setSqlType(int)", "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
-      "String CassandraToSqlColumn.toString()"})
+  @MethodsUnderTest({
+    "void CassandraToSqlColumn.<init>(String, String, CassandraToSqlColumnType, Class, boolean)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType)",
+    "void CassandraToSqlColumn.<init>(String, CassandraToSqlColumnType, Class)",
+    "String CassandraToSqlColumn.getCassandraColumnName()",
+    "Class CassandraToSqlColumn.getEnumClass()",
+    "int CassandraToSqlColumn.getIndex()",
+    "int CassandraToSqlColumn.getSize()",
+    "String CassandraToSqlColumn.getSqlColumnName()",
+    "int CassandraToSqlColumn.getSqlIndex()",
+    "int CassandraToSqlColumn.getSqlType()",
+    "CassandraToSqlColumnType CassandraToSqlColumn.getType()",
+    "boolean CassandraToSqlColumn.isAllowNullBoolean()",
+    "void CassandraToSqlColumn.setAllowNullBoolean(boolean)",
+    "void CassandraToSqlColumn.setCassandraColumnName(String)",
+    "void CassandraToSqlColumn.setEnumClass(Class)",
+    "void CassandraToSqlColumn.setIndex(int)",
+    "void CassandraToSqlColumn.setSize(int)",
+    "void CassandraToSqlColumn.setSqlColumnName(String)",
+    "void CassandraToSqlColumn.setSqlIndex(int)",
+    "void CassandraToSqlColumn.setSqlType(int)",
+    "void CassandraToSqlColumn.setType(CassandraToSqlColumnType)",
+    "String CassandraToSqlColumn.toString()"
+  })
   void testGettersAndSetters_whenColumnName2() {
     // Arrange
     Class<Enum> enumClass = Enum.class;
 
     // Act
-    CassandraToSqlColumn actualCassandraToSqlColumn = new CassandraToSqlColumn("Column Name",
-        CassandraToSqlColumnType.ID, enumClass);
+    CassandraToSqlColumn actualCassandraToSqlColumn =
+        new CassandraToSqlColumn("Column Name", CassandraToSqlColumnType.ID, enumClass);
     actualCassandraToSqlColumn.setAllowNullBoolean(true);
     actualCassandraToSqlColumn.setCassandraColumnName("Cassandra Column Name");
     Class<Enum> enumClass2 = Enum.class;
@@ -950,8 +1080,8 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#CassandraToSqlColumn(String, String)}.
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#CassandraToSqlColumn(String, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#CassandraToSqlColumn(String, String)}
    */
   @Test
   @DisplayName("Test new CassandraToSqlColumn(String, String)")
@@ -959,8 +1089,8 @@ class CassandraToSqlColumnDiffblueTest {
   @MethodsUnderTest({"void CassandraToSqlColumn.<init>(String, String)"})
   void testNewCassandraToSqlColumn() {
     // Arrange and Act
-    CassandraToSqlColumn actualCassandraToSqlColumn = new CassandraToSqlColumn("Cassandra Column Name",
-        "Sql Column Name");
+    CassandraToSqlColumn actualCassandraToSqlColumn =
+        new CassandraToSqlColumn("Cassandra Column Name", "Sql Column Name");
 
     // Assert
     assertEquals("Cassandra Column Name", actualCassandraToSqlColumn.getCassandraColumnName());
@@ -976,14 +1106,16 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#CassandraToSqlColumn(String)}.
+   *
    * <ul>
-   *   <li>Then return CassandraColumnName is {@code Column Name}.</li>
+   *   <li>Then return CassandraColumnName is {@code Column Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#CassandraToSqlColumn(String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#CassandraToSqlColumn(String)}
    */
   @Test
-  @DisplayName("Test new CassandraToSqlColumn(String); then return CassandraColumnName is 'Column Name'")
+  @DisplayName(
+      "Test new CassandraToSqlColumn(String); then return CassandraColumnName is 'Column Name'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.<init>(String)"})
   void testNewCassandraToSqlColumn_thenReturnCassandraColumnNameIsColumnName() {
@@ -1004,51 +1136,27 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>Given bigintColumn {@code Name} Type is {@code BIGINT}.</li>
-   *   <li>Then calls {@link PreparedStatement#setLong(int, long)}.</li>
+   *   <li>Then calls {@link PreparedStatement#setBoolean(int, boolean)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name' Type is 'BIGINT'; then calls setLong(int, long)")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); then calls setBoolean(int, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnNameTypeIsBigint_thenCallsSetLong() throws SQLException {
+  void testSetColumnValue_thenCallsSetBoolean() throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.BIGINT);
-    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doThrow(new SQLException()).when(sqlInsertStatement).setLong(anyInt(), anyLong());
-
-    // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "1"));
-    verify(sqlInsertStatement).setLong(eq(0), eq(1L));
-  }
-
-  /**
-   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
-   * <ul>
-   *   <li>Given bigintColumn {@code Name} Type is {@code BOOLEAN}.</li>
-   *   <li>Then calls {@link PreparedStatement#setBoolean(int, boolean)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
-   */
-  @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name' Type is 'BOOLEAN'; then calls setBoolean(int, boolean)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnNameTypeIsBoolean_thenCallsSetBoolean() throws SQLException {
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.BOOLEAN);
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.BOOLEAN);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
     doNothing().when(sqlInsertStatement).setBoolean(anyInt(), anyBoolean());
 
     // Act
-    bigintColumnResult.setColumnValue(sqlInsertStatement, "1");
+    cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1");
 
     // Assert
     verify(sqlInsertStatement).setBoolean(eq(0), eq(false));
@@ -1056,75 +1164,26 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>Given bigintColumn {@code Name} Type is {@code DOUBLE}.</li>
-   *   <li>Then calls {@link PreparedStatement#setDouble(int, double)}.</li>
+   *   <li>Then calls {@link PreparedStatement#setInt(int, int)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name' Type is 'DOUBLE'; then calls setDouble(int, double)")
+  @DisplayName("Test setColumnValue(PreparedStatement, String); then calls setInt(int, int)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnNameTypeIsDouble_thenCallsSetDouble() throws SQLException {
+  void testSetColumnValue_thenCallsSetInt() throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.DOUBLE);
-    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doThrow(new SQLException()).when(sqlInsertStatement).setDouble(anyInt(), anyDouble());
-
-    // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "1"));
-    verify(sqlInsertStatement).setDouble(eq(0), eq(1.0d));
-  }
-
-  /**
-   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
-   * <ul>
-   *   <li>Given bigintColumn {@code Name} Type is {@code ID}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
-   */
-  @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name' Type is 'ID'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnNameTypeIsId() throws SQLException {
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.ID);
-    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doThrow(new SQLException()).when(sqlInsertStatement).setString(anyInt(), Mockito.<String>any());
-
-    // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "0"));
-    verify(sqlInsertStatement).setString(eq(0), eq("0"));
-  }
-
-  /**
-   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
-   * <ul>
-   *   <li>Given bigintColumn {@code Name} Type is {@code INTEGER}.</li>
-   *   <li>Then calls {@link PreparedStatement#setInt(int, int)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
-   */
-  @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name' Type is 'INTEGER'; then calls setInt(int, int)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnNameTypeIsInteger_thenCallsSetInt() throws SQLException {
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.INTEGER);
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.INTEGER);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
     doNothing().when(sqlInsertStatement).setInt(anyInt(), anyInt());
 
     // Act
-    bigintColumnResult.setColumnValue(sqlInsertStatement, "1");
+    cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1");
 
     // Assert
     verify(sqlInsertStatement).setInt(eq(0), eq(1));
@@ -1132,43 +1191,50 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>Given bigintColumn {@code Name}.</li>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setLong(int, long)} does nothing.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setBoolean(int, boolean)} throw
+   *       {@link SQLException#SQLException()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given bigintColumn 'Name'; when PreparedStatement setLong(int, long) does nothing")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setBoolean(int, boolean) throw SQLException()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenBigintColumnName_whenPreparedStatementSetLongDoesNothing() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetBooleanThrowSQLException() throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.BOOLEAN);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doNothing().when(sqlInsertStatement).setLong(anyInt(), anyLong());
+    doThrow(new SQLException()).when(sqlInsertStatement).setBoolean(anyInt(), anyBoolean());
 
-    // Act
-    bigintColumnResult.setColumnValue(sqlInsertStatement, "42");
-
-    // Assert
-    verify(sqlInsertStatement).setLong(eq(0), eq(42L));
+    // Act and Assert
+    assertThrows(
+        SQLException.class, () -> cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1"));
+    verify(sqlInsertStatement).setBoolean(eq(0), eq(false));
   }
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>Given doubleColumn {@code Name}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setDouble(int, double)} does
+   *       nothing.
+   *   <li>Then calls {@link PreparedStatement#setDouble(int, double)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given doubleColumn 'Name'")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setDouble(int, double) does nothing; then calls setDouble(int, double)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenDoubleColumnName() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetDoubleDoesNothing_thenCallsSetDouble()
+      throws SQLException {
     // Arrange
     CassandraToSqlColumn doubleColumnResult = CassandraToSqlColumn.doubleColumn("Name");
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
@@ -1183,76 +1249,57 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>Given idColumn {@code Name}.</li>
-   *   <li>Then calls {@link PreparedStatement#setString(int, String)}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setDouble(int, double)} throw
+   *       {@link SQLException#SQLException()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); given idColumn 'Name'; then calls setString(int, String)")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setDouble(int, double) throw SQLException()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_givenIdColumnName_thenCallsSetString() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetDoubleThrowSQLException() throws SQLException {
     // Arrange
-    CassandraToSqlColumn idColumnResult = CassandraToSqlColumn.idColumn("Name");
+    CassandraToSqlColumn doubleColumnResult = CassandraToSqlColumn.doubleColumn("Name");
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doNothing().when(sqlInsertStatement).setString(anyInt(), Mockito.<String>any());
-
-    // Act
-    idColumnResult.setColumnValue(sqlInsertStatement, "42");
-
-    // Assert
-    verify(sqlInsertStatement).setString(eq(0), eq("42"));
-  }
-
-  /**
-   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
-   * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setBoolean(int, boolean)} throw {@link SQLException#SQLException()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
-   */
-  @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setBoolean(int, boolean) throw SQLException()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_whenPreparedStatementSetBooleanThrowSQLException() throws SQLException {
-    // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.BOOLEAN);
-    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
-    doThrow(new SQLException()).when(sqlInsertStatement).setBoolean(anyInt(), anyBoolean());
+    doThrow(new SQLException()).when(sqlInsertStatement).setDouble(anyInt(), anyDouble());
 
     // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "1"));
-    verify(sqlInsertStatement).setBoolean(eq(0), eq(false));
+    assertThrows(
+        SQLException.class, () -> doubleColumnResult.setColumnValue(sqlInsertStatement, "42"));
+    verify(sqlInsertStatement).setDouble(eq(0), eq(42.0d));
   }
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setFloat(int, float)} does nothing.</li>
-   *   <li>Then calls {@link PreparedStatement#setFloat(int, float)}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setFloat(int, float)} does
+   *       nothing.
+   *   <li>Then calls {@link PreparedStatement#setFloat(int, float)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setFloat(int, float) does nothing; then calls setFloat(int, float)")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setFloat(int, float) does nothing; then calls setFloat(int, float)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_whenPreparedStatementSetFloatDoesNothing_thenCallsSetFloat() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetFloatDoesNothing_thenCallsSetFloat()
+      throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.FLOAT);
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.FLOAT);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
     doNothing().when(sqlInsertStatement).setFloat(anyInt(), anyFloat());
 
     // Act
-    bigintColumnResult.setColumnValue(sqlInsertStatement, "1");
+    cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1");
 
     // Assert
     verify(sqlInsertStatement).setFloat(eq(0), eq(1.0f));
@@ -1260,67 +1307,135 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setFloat(int, float)} throw {@link SQLException#SQLException()}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setFloat(int, float)} throw
+   *       {@link SQLException#SQLException()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setFloat(int, float) throw SQLException()")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setFloat(int, float) throw SQLException()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
   void testSetColumnValue_whenPreparedStatementSetFloatThrowSQLException() throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.FLOAT);
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.FLOAT);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
     doThrow(new SQLException()).when(sqlInsertStatement).setFloat(anyInt(), anyFloat());
 
     // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "0"));
-    verify(sqlInsertStatement).setFloat(eq(0), eq(0.0f));
+    assertThrows(
+        SQLException.class, () -> cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1"));
+    verify(sqlInsertStatement).setFloat(eq(0), eq(1.0f));
   }
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setInt(int, int)} throw {@link SQLException#SQLException()}.</li>
-   *   <li>Then calls {@link PreparedStatement#setInt(int, int)}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setInt(int, int)} throw {@link
+   *       SQLException#SQLException()}.
+   *   <li>Then calls {@link PreparedStatement#setInt(int, int)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setInt(int, int) throw SQLException(); then calls setInt(int, int)")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setInt(int, int) throw SQLException(); then calls setInt(int, int)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_whenPreparedStatementSetIntThrowSQLException_thenCallsSetInt() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetIntThrowSQLException_thenCallsSetInt()
+      throws SQLException {
     // Arrange
-    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
-    bigintColumnResult.setType(CassandraToSqlColumnType.INTEGER);
+    CassandraToSqlColumn cassandraToSqlColumn = new CassandraToSqlColumn("Column Name");
+    cassandraToSqlColumn.setType(CassandraToSqlColumnType.INTEGER);
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
     doThrow(new SQLException()).when(sqlInsertStatement).setInt(anyInt(), anyInt());
 
     // Act and Assert
-    assertThrows(SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "0"));
-    verify(sqlInsertStatement).setInt(eq(0), eq(0));
+    assertThrows(
+        SQLException.class, () -> cassandraToSqlColumn.setColumnValue(sqlInsertStatement, "1"));
+    verify(sqlInsertStatement).setInt(eq(0), eq(1));
   }
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setNull(int, int)} does nothing.</li>
-   *   <li>Then calls {@link PreparedStatement#setNull(int, int)}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setLong(int, long)} does nothing.
+   *   <li>Then calls {@link PreparedStatement#setLong(int, long)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setNull(int, int) does nothing; then calls setNull(int, int)")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setLong(int, long) does nothing; then calls setLong(int, long)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
-  void testSetColumnValue_whenPreparedStatementSetNullDoesNothing_thenCallsSetNull() throws SQLException {
+  void testSetColumnValue_whenPreparedStatementSetLongDoesNothing_thenCallsSetLong()
+      throws SQLException {
+    // Arrange
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setLong(anyInt(), anyLong());
+
+    // Act
+    bigintColumnResult.setColumnValue(sqlInsertStatement, "42");
+
+    // Assert
+    verify(sqlInsertStatement).setLong(eq(0), eq(42L));
+  }
+
+  /**
+   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
+   * <ul>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setLong(int, long)} throw {@link
+   *       SQLException#SQLException()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setLong(int, long) throw SQLException()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
+  void testSetColumnValue_whenPreparedStatementSetLongThrowSQLException() throws SQLException {
+    // Arrange
+    CassandraToSqlColumn bigintColumnResult = CassandraToSqlColumn.bigintColumn("Name");
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doThrow(new SQLException()).when(sqlInsertStatement).setLong(anyInt(), anyLong());
+
+    // Act and Assert
+    assertThrows(
+        SQLException.class, () -> bigintColumnResult.setColumnValue(sqlInsertStatement, "42"));
+    verify(sqlInsertStatement).setLong(eq(0), eq(42L));
+  }
+
+  /**
+   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
+   * <ul>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setNull(int, int)} does nothing.
+   *   <li>Then calls {@link PreparedStatement#setNull(int, int)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setNull(int, int) does nothing; then calls setNull(int, int)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
+  void testSetColumnValue_whenPreparedStatementSetNullDoesNothing_thenCallsSetNull()
+      throws SQLException {
     // Arrange
     CassandraToSqlColumn idColumnResult = CassandraToSqlColumn.idColumn("Name");
     PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
@@ -1335,14 +1450,17 @@ class CassandraToSqlColumnDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
    * <ul>
-   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setNull(int, int)} throw {@link SQLException#SQLException()}.</li>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setNull(int, int)} throw {@link
+   *       SQLException#SQLException()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
    */
   @Test
-  @DisplayName("Test setColumnValue(PreparedStatement, String); when PreparedStatement setNull(int, int) throw SQLException()")
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setNull(int, int) throw SQLException()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
   void testSetColumnValue_whenPreparedStatementSetNullThrowSQLException() throws SQLException {
@@ -1354,5 +1472,61 @@ class CassandraToSqlColumnDiffblueTest {
     // Act and Assert
     assertThrows(SQLException.class, () -> idColumnResult.setColumnValue(sqlInsertStatement, null));
     verify(sqlInsertStatement).setNull(eq(0), eq(0));
+  }
+
+  /**
+   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
+   * <ul>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setString(int, String)} does
+   *       nothing.
+   *   <li>Then calls {@link PreparedStatement#setString(int, String)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setString(int, String) does nothing; then calls setString(int, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
+  void testSetColumnValue_whenPreparedStatementSetStringDoesNothing_thenCallsSetString()
+      throws SQLException {
+    // Arrange
+    CassandraToSqlColumn idColumnResult = CassandraToSqlColumn.idColumn("Name");
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doNothing().when(sqlInsertStatement).setString(anyInt(), Mockito.<String>any());
+
+    // Act
+    idColumnResult.setColumnValue(sqlInsertStatement, "42");
+
+    // Assert
+    verify(sqlInsertStatement).setString(eq(0), eq("42"));
+  }
+
+  /**
+   * Test {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}.
+   *
+   * <ul>
+   *   <li>When {@link PreparedStatement} {@link PreparedStatement#setString(int, String)} throw
+   *       {@link SQLException#SQLException()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CassandraToSqlColumn#setColumnValue(PreparedStatement, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test setColumnValue(PreparedStatement, String); when PreparedStatement setString(int, String) throw SQLException()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CassandraToSqlColumn.setColumnValue(PreparedStatement, String)"})
+  void testSetColumnValue_whenPreparedStatementSetStringThrowSQLException() throws SQLException {
+    // Arrange
+    CassandraToSqlColumn idColumnResult = CassandraToSqlColumn.idColumn("Name");
+    PreparedStatement sqlInsertStatement = mock(PreparedStatement.class);
+    doThrow(new SQLException()).when(sqlInsertStatement).setString(anyInt(), Mockito.<String>any());
+
+    // Act and Assert
+    assertThrows(SQLException.class, () -> idColumnResult.setColumnValue(sqlInsertStatement, "42"));
+    verify(sqlInsertStatement).setString(eq(0), eq("42"));
   }
 }

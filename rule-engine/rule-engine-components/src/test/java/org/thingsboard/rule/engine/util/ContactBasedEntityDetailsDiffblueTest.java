@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class ContactBasedEntityDetailsDiffblueTest {
   /**
    * Test {@link ContactBasedEntityDetails#getRuleEngineName()}.
-   * <p>
-   * Method under test: {@link ContactBasedEntityDetails#getRuleEngineName()}
+   *
+   * <p>Method under test: {@link ContactBasedEntityDetails#getRuleEngineName()}
    */
   @Test
   @DisplayName("Test getRuleEngineName()")

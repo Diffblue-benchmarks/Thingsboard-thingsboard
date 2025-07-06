@@ -9,13 +9,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.POJONode;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -29,42 +28,52 @@ import org.thingsboard.server.common.data.util.TbPair;
 class TbGetTenantAttributeNodeDiffblueTest {
   /**
    * Test {@link TbGetTenantAttributeNode#loadNodeConfiguration(TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Then return {@link TbGetEntityDataNodeConfiguration} (default constructor).</li>
+   *   <li>Then return {@link TbGetEntityDataNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTenantAttributeNode#loadNodeConfiguration(TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * TbGetTenantAttributeNode#loadNodeConfiguration(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadNodeConfiguration(TbNodeConfiguration); then return TbGetEntityDataNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test loadNodeConfiguration(TbNodeConfiguration); then return TbGetEntityDataNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbGetEntityDataNodeConfiguration TbGetTenantAttributeNode.loadNodeConfiguration(TbNodeConfiguration)"})
-  void testLoadNodeConfiguration_thenReturnTbGetEntityDataNodeConfiguration() throws TbNodeException {
+    "TbGetEntityDataNodeConfiguration TbGetTenantAttributeNode.loadNodeConfiguration(TbNodeConfiguration)"
+  })
+  void testLoadNodeConfiguration_thenReturnTbGetEntityDataNodeConfiguration()
+      throws TbNodeException {
     // Arrange
     TbGetTenantAttributeNode tbGetTenantAttributeNode = new TbGetTenantAttributeNode();
 
     HashMap<String, String> dataMapping = new HashMap<>();
     dataMapping.put("foo", "foo");
 
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
     tbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.ATTRIBUTES);
     tbGetEntityDataNodeConfiguration.setDataMapping(dataMapping);
 
     // Act and Assert
-    assertSame(tbGetEntityDataNodeConfiguration, tbGetTenantAttributeNode
-        .loadNodeConfiguration(new TbNodeConfiguration(new POJONode(tbGetEntityDataNodeConfiguration))));
+    assertSame(
+        tbGetEntityDataNodeConfiguration,
+        tbGetTenantAttributeNode.loadNodeConfiguration(
+            new TbNodeConfiguration(new POJONode(tbGetEntityDataNodeConfiguration))));
   }
 
   /**
    * Test {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}.
-   * <p>
-   * Method under test: {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}
    */
   @Test
   @DisplayName("Test findEntityAsync(TbContext, EntityId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ListenableFuture TbGetTenantAttributeNode.findEntityAsync(TbContext, EntityId)"})
+  @MethodsUnderTest({
+    "ListenableFuture TbGetTenantAttributeNode.findEntityAsync(TbContext, EntityId)"
+  })
   void testFindEntityAsync() throws InterruptedException, ExecutionException {
     // Arrange
     TbGetTenantAttributeNode tbGetTenantAttributeNode = new TbGetTenantAttributeNode();
@@ -73,7 +82,8 @@ class TbGetTenantAttributeNodeDiffblueTest {
     when(ctx.getTenantId()).thenReturn(tenantId);
 
     // Act
-    ListenableFuture<TenantId> actualFindEntityAsyncResult = tbGetTenantAttributeNode.findEntityAsync(ctx, null);
+    ListenableFuture<TenantId> actualFindEntityAsyncResult =
+        tbGetTenantAttributeNode.findEntityAsync(ctx, null);
 
     // Assert
     verify(ctx).getTenantId();
@@ -82,25 +92,31 @@ class TbGetTenantAttributeNodeDiffblueTest {
 
   /**
    * Test {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then return {@link Future#get()} is {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>Then return {@link ListenableFuture#get()} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link TbGetTenantAttributeNode#findEntityAsync(TbContext, EntityId)}
    */
   @Test
-  @DisplayName("Test findEntityAsync(TbContext, EntityId); given 'null'; then return get() is 'null'")
+  @DisplayName(
+      "Test findEntityAsync(TbContext, EntityId); given 'null'; then return get() is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ListenableFuture TbGetTenantAttributeNode.findEntityAsync(TbContext, EntityId)"})
-  void testFindEntityAsync_givenNull_thenReturnGetIsNull() throws InterruptedException, ExecutionException {
+  @MethodsUnderTest({
+    "ListenableFuture TbGetTenantAttributeNode.findEntityAsync(TbContext, EntityId)"
+  })
+  void testFindEntityAsync_givenNull_thenReturnGetIsNull()
+      throws InterruptedException, ExecutionException {
     // Arrange
     TbGetTenantAttributeNode tbGetTenantAttributeNode = new TbGetTenantAttributeNode();
     TbContext ctx = mock(TbContext.class);
     when(ctx.getTenantId()).thenReturn(null);
 
     // Act
-    ListenableFuture<TenantId> actualFindEntityAsyncResult = tbGetTenantAttributeNode.findEntityAsync(ctx, null);
+    ListenableFuture<TenantId> actualFindEntityAsyncResult =
+        tbGetTenantAttributeNode.findEntityAsync(ctx, null);
 
     // Assert
     verify(ctx).getTenantId();
@@ -110,32 +126,38 @@ class TbGetTenantAttributeNodeDiffblueTest {
 
   /**
    * Test {@link TbGetTenantAttributeNode#upgrade(int, JsonNode)}.
-   * <p>
-   * Method under test: {@link TbGetTenantAttributeNode#upgrade(int, JsonNode)}
+   *
+   * <ul>
+   *   <li>When one.
+   *   <li>Then Second return {@link DoubleNode}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbGetTenantAttributeNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode)")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then Second return DoubleNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair TbGetTenantAttributeNode.upgrade(int, JsonNode)"})
-  void testUpgrade() throws TbNodeException {
+  void testUpgrade_whenOne_thenSecondReturnDoubleNode() throws TbNodeException {
     // Arrange
     TbGetTenantAttributeNode tbGetTenantAttributeNode = new TbGetTenantAttributeNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbGetTenantAttributeNode.upgrade(1, oldConfiguration);
+    TbPair<Boolean, JsonNode> actualUpgradeResult =
+        tbGetTenantAttributeNode.upgrade(1, oldConfiguration);
 
     // Assert
     JsonNode second = actualUpgradeResult.getSecond();
-    assertTrue(second instanceof MissingNode);
+    assertTrue(second instanceof DoubleNode);
     assertFalse(actualUpgradeResult.getFirst());
     assertSame(oldConfiguration, second);
   }
 
   /**
    * Test new {@link TbGetTenantAttributeNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbGetTenantAttributeNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbGetTenantAttributeNode}
    */
   @Test
   @DisplayName("Test new TbGetTenantAttributeNode (default constructor)")

@@ -22,19 +22,18 @@ import org.thingsboard.monitoring.notification.channels.NotificationChannel;
 
 @ExtendWith(MockitoExtension.class)
 class NotificationServiceDiffblueTest {
-  @Mock
-  private List<NotificationChannel> list;
+  @Mock private List<NotificationChannel> list;
 
-  @InjectMocks
-  private NotificationService notificationService;
+  @InjectMocks private NotificationService notificationService;
 
   /**
    * Test {@link NotificationService#sendNotification(Notification)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@link NotificationChannel}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@link NotificationChannel}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationService#sendNotification(Notification)}
+   *
+   * <p>Method under test: {@link NotificationService#sendNotification(Notification)}
    */
   @Test
   @DisplayName("Test sendNotification(Notification); given ArrayList() add NotificationChannel")
@@ -57,11 +56,12 @@ class NotificationServiceDiffblueTest {
 
   /**
    * Test {@link NotificationService#sendNotification(Notification)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@link NotificationChannel}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@link NotificationChannel}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationService#sendNotification(Notification)}
+   *
+   * <p>Method under test: {@link NotificationService#sendNotification(Notification)}
    */
   @Test
   @DisplayName("Test sendNotification(Notification); given ArrayList() add NotificationChannel")
@@ -85,15 +85,17 @@ class NotificationServiceDiffblueTest {
 
   /**
    * Test {@link NotificationService#sendNotification(Notification)}.
+   *
    * <ul>
-   *   <li>Given {@link List} {@link Iterable#forEach(Consumer)} does nothing.</li>
-   *   <li>Then calls {@link Iterable#forEach(Consumer)}.</li>
+   *   <li>Given {@link List} {@link List#forEach(Consumer)} does nothing.
+   *   <li>Then calls {@link List#forEach(Consumer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationService#sendNotification(Notification)}
+   *
+   * <p>Method under test: {@link NotificationService#sendNotification(Notification)}
    */
   @Test
-  @DisplayName("Test sendNotification(Notification); given List forEach(Consumer) does nothing; then calls forEach(Consumer)")
+  @DisplayName(
+      "Test sendNotification(Notification); given List forEach(Consumer) does nothing; then calls forEach(Consumer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationService.sendNotification(Notification)"})
   void testSendNotification_givenListForEachDoesNothing_thenCallsForEach() {

@@ -11,12 +11,14 @@ import org.thingsboard.server.common.data.device.data.PowerMode;
 class OtherConfigurationDiffblueTest {
   /**
    * Test {@link OtherConfiguration#equals(Object)}, and {@link OtherConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtherConfiguration#equals(Object)}
    *   <li>{@link OtherConfiguration#hashCode()}
@@ -25,7 +27,10 @@ class OtherConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -39,12 +44,14 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}, and {@link OtherConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtherConfiguration#equals(Object)}
    *   <li>{@link OtherConfiguration#hashCode()}
@@ -53,13 +60,18 @@ class OtherConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    OtherConfiguration otherConfiguration = new OtherConfiguration(1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01",
-        "2020-03-01", "Default Object IDVer");
-    OtherConfiguration otherConfiguration2 = new OtherConfiguration(1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01",
-        "2020-03-01", "Default Object IDVer");
+    OtherConfiguration otherConfiguration =
+        new OtherConfiguration(
+            1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01", "2020-03-01", "Default Object IDVer");
+    OtherConfiguration otherConfiguration2 =
+        new OtherConfiguration(
+            1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01", "2020-03-01", "Default Object IDVer");
 
     // Act and Assert
     assertEquals(otherConfiguration, otherConfiguration2);
@@ -69,12 +81,14 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}, and {@link OtherConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtherConfiguration#equals(Object)}
    *   <li>{@link OtherConfiguration#hashCode()}
@@ -83,7 +97,10 @@ class OtherConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -96,21 +113,26 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OtherConfiguration otherConfiguration = new OtherConfiguration(1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01",
-        "2020-03-01", "Default Object IDVer");
+    OtherConfiguration otherConfiguration =
+        new OtherConfiguration(
+            1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01", "2020-03-01", "Default Object IDVer");
 
     // Act and Assert
     assertNotEquals(otherConfiguration, new OtherConfiguration());
@@ -118,17 +140,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -140,17 +166,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -162,17 +192,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -184,17 +218,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -206,17 +244,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -228,17 +270,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -250,17 +296,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -274,17 +324,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -298,17 +352,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -322,17 +380,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -346,17 +408,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -370,17 +436,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     OtherConfiguration otherConfiguration = new OtherConfiguration();
@@ -394,17 +464,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OtherConfiguration(), null);
@@ -412,17 +486,21 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test {@link OtherConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtherConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link OtherConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtherConfiguration.equals(Object)", "int OtherConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtherConfiguration.equals(Object)",
+    "int OtherConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OtherConfiguration(), "Different type to OtherConfiguration");
@@ -430,8 +508,9 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtherConfiguration#OtherConfiguration()}
    *   <li>{@link OtherConfiguration#setClientOnlyObserveAfterConnect(Integer)}
@@ -460,20 +539,31 @@ class OtherConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OtherConfiguration.<init>()",
-      "void OtherConfiguration.<init>(Integer, Integer, Integer, PowerMode, Long, Long, Long, String, String, String)",
-      "Integer OtherConfiguration.getClientOnlyObserveAfterConnect()",
-      "String OtherConfiguration.getDefaultObjectIDVer()", "Long OtherConfiguration.getEdrxCycle()",
-      "String OtherConfiguration.getFwUpdateResource()", "Integer OtherConfiguration.getFwUpdateStrategy()",
-      "Long OtherConfiguration.getPagingTransmissionWindow()", "PowerMode OtherConfiguration.getPowerMode()",
-      "Long OtherConfiguration.getPsmActivityTimer()", "String OtherConfiguration.getSwUpdateResource()",
-      "Integer OtherConfiguration.getSwUpdateStrategy()",
-      "void OtherConfiguration.setClientOnlyObserveAfterConnect(Integer)",
-      "void OtherConfiguration.setDefaultObjectIDVer(String)", "void OtherConfiguration.setEdrxCycle(Long)",
-      "void OtherConfiguration.setFwUpdateResource(String)", "void OtherConfiguration.setFwUpdateStrategy(Integer)",
-      "void OtherConfiguration.setPagingTransmissionWindow(Long)", "void OtherConfiguration.setPowerMode(PowerMode)",
-      "void OtherConfiguration.setPsmActivityTimer(Long)", "void OtherConfiguration.setSwUpdateResource(String)",
-      "void OtherConfiguration.setSwUpdateStrategy(Integer)", "String OtherConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void OtherConfiguration.<init>()",
+    "void OtherConfiguration.<init>(Integer, Integer, Integer, PowerMode, Long, Long, Long, String, String, String)",
+    "Integer OtherConfiguration.getClientOnlyObserveAfterConnect()",
+    "String OtherConfiguration.getDefaultObjectIDVer()",
+    "Long OtherConfiguration.getEdrxCycle()",
+    "String OtherConfiguration.getFwUpdateResource()",
+    "Integer OtherConfiguration.getFwUpdateStrategy()",
+    "Long OtherConfiguration.getPagingTransmissionWindow()",
+    "PowerMode OtherConfiguration.getPowerMode()",
+    "Long OtherConfiguration.getPsmActivityTimer()",
+    "String OtherConfiguration.getSwUpdateResource()",
+    "Integer OtherConfiguration.getSwUpdateStrategy()",
+    "void OtherConfiguration.setClientOnlyObserveAfterConnect(Integer)",
+    "void OtherConfiguration.setDefaultObjectIDVer(String)",
+    "void OtherConfiguration.setEdrxCycle(Long)",
+    "void OtherConfiguration.setFwUpdateResource(String)",
+    "void OtherConfiguration.setFwUpdateStrategy(Integer)",
+    "void OtherConfiguration.setPagingTransmissionWindow(Long)",
+    "void OtherConfiguration.setPowerMode(PowerMode)",
+    "void OtherConfiguration.setPsmActivityTimer(Long)",
+    "void OtherConfiguration.setSwUpdateResource(String)",
+    "void OtherConfiguration.setSwUpdateStrategy(Integer)",
+    "String OtherConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     OtherConfiguration actualOtherConfiguration = new OtherConfiguration();
@@ -488,7 +578,8 @@ class OtherConfigurationDiffblueTest {
     actualOtherConfiguration.setSwUpdateResource("2020-03-01");
     actualOtherConfiguration.setSwUpdateStrategy(1);
     String actualToStringResult = actualOtherConfiguration.toString();
-    Integer actualClientOnlyObserveAfterConnect = actualOtherConfiguration.getClientOnlyObserveAfterConnect();
+    Integer actualClientOnlyObserveAfterConnect =
+        actualOtherConfiguration.getClientOnlyObserveAfterConnect();
     String actualDefaultObjectIDVer = actualOtherConfiguration.getDefaultObjectIDVer();
     Long actualEdrxCycle = actualOtherConfiguration.getEdrxCycle();
     String actualFwUpdateResource = actualOtherConfiguration.getFwUpdateResource();
@@ -519,13 +610,16 @@ class OtherConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When one.</li>
+   *   <li>When one.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link OtherConfiguration#OtherConfiguration(Integer, Integer, Integer, PowerMode, Long, Long, Long, String, String, String)}
+   *   <li>{@link OtherConfiguration#OtherConfiguration(Integer, Integer, Integer, PowerMode, Long,
+   *       Long, Long, String, String, String)}
    *   <li>{@link OtherConfiguration#setClientOnlyObserveAfterConnect(Integer)}
    *   <li>{@link OtherConfiguration#setDefaultObjectIDVer(String)}
    *   <li>{@link OtherConfiguration#setEdrxCycle(Long)}
@@ -552,24 +646,36 @@ class OtherConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OtherConfiguration.<init>()",
-      "void OtherConfiguration.<init>(Integer, Integer, Integer, PowerMode, Long, Long, Long, String, String, String)",
-      "Integer OtherConfiguration.getClientOnlyObserveAfterConnect()",
-      "String OtherConfiguration.getDefaultObjectIDVer()", "Long OtherConfiguration.getEdrxCycle()",
-      "String OtherConfiguration.getFwUpdateResource()", "Integer OtherConfiguration.getFwUpdateStrategy()",
-      "Long OtherConfiguration.getPagingTransmissionWindow()", "PowerMode OtherConfiguration.getPowerMode()",
-      "Long OtherConfiguration.getPsmActivityTimer()", "String OtherConfiguration.getSwUpdateResource()",
-      "Integer OtherConfiguration.getSwUpdateStrategy()",
-      "void OtherConfiguration.setClientOnlyObserveAfterConnect(Integer)",
-      "void OtherConfiguration.setDefaultObjectIDVer(String)", "void OtherConfiguration.setEdrxCycle(Long)",
-      "void OtherConfiguration.setFwUpdateResource(String)", "void OtherConfiguration.setFwUpdateStrategy(Integer)",
-      "void OtherConfiguration.setPagingTransmissionWindow(Long)", "void OtherConfiguration.setPowerMode(PowerMode)",
-      "void OtherConfiguration.setPsmActivityTimer(Long)", "void OtherConfiguration.setSwUpdateResource(String)",
-      "void OtherConfiguration.setSwUpdateStrategy(Integer)", "String OtherConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void OtherConfiguration.<init>()",
+    "void OtherConfiguration.<init>(Integer, Integer, Integer, PowerMode, Long, Long, Long, String, String, String)",
+    "Integer OtherConfiguration.getClientOnlyObserveAfterConnect()",
+    "String OtherConfiguration.getDefaultObjectIDVer()",
+    "Long OtherConfiguration.getEdrxCycle()",
+    "String OtherConfiguration.getFwUpdateResource()",
+    "Integer OtherConfiguration.getFwUpdateStrategy()",
+    "Long OtherConfiguration.getPagingTransmissionWindow()",
+    "PowerMode OtherConfiguration.getPowerMode()",
+    "Long OtherConfiguration.getPsmActivityTimer()",
+    "String OtherConfiguration.getSwUpdateResource()",
+    "Integer OtherConfiguration.getSwUpdateStrategy()",
+    "void OtherConfiguration.setClientOnlyObserveAfterConnect(Integer)",
+    "void OtherConfiguration.setDefaultObjectIDVer(String)",
+    "void OtherConfiguration.setEdrxCycle(Long)",
+    "void OtherConfiguration.setFwUpdateResource(String)",
+    "void OtherConfiguration.setFwUpdateStrategy(Integer)",
+    "void OtherConfiguration.setPagingTransmissionWindow(Long)",
+    "void OtherConfiguration.setPowerMode(PowerMode)",
+    "void OtherConfiguration.setPsmActivityTimer(Long)",
+    "void OtherConfiguration.setSwUpdateResource(String)",
+    "void OtherConfiguration.setSwUpdateStrategy(Integer)",
+    "String OtherConfiguration.toString()"
+  })
   void testGettersAndSetters_whenOne() {
     // Arrange and Act
-    OtherConfiguration actualOtherConfiguration = new OtherConfiguration(1, 1, 1, PowerMode.PSM, 1L, 1L, 1L,
-        "2020-03-01", "2020-03-01", "Default Object IDVer");
+    OtherConfiguration actualOtherConfiguration =
+        new OtherConfiguration(
+            1, 1, 1, PowerMode.PSM, 1L, 1L, 1L, "2020-03-01", "2020-03-01", "Default Object IDVer");
     actualOtherConfiguration.setClientOnlyObserveAfterConnect(1);
     actualOtherConfiguration.setDefaultObjectIDVer("Default Object IDVer");
     actualOtherConfiguration.setEdrxCycle(1L);
@@ -581,7 +687,8 @@ class OtherConfigurationDiffblueTest {
     actualOtherConfiguration.setSwUpdateResource("2020-03-01");
     actualOtherConfiguration.setSwUpdateStrategy(1);
     String actualToStringResult = actualOtherConfiguration.toString();
-    Integer actualClientOnlyObserveAfterConnect = actualOtherConfiguration.getClientOnlyObserveAfterConnect();
+    Integer actualClientOnlyObserveAfterConnect =
+        actualOtherConfiguration.getClientOnlyObserveAfterConnect();
     String actualDefaultObjectIDVer = actualOtherConfiguration.getDefaultObjectIDVer();
     Long actualEdrxCycle = actualOtherConfiguration.getEdrxCycle();
     String actualFwUpdateResource = actualOtherConfiguration.getFwUpdateResource();

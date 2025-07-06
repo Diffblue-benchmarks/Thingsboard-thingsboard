@@ -13,17 +13,19 @@ import org.junit.jupiter.api.Test;
 class TbSendEmailNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSendEmailNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbSendEmailNodeConfiguration TbSendEmailNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbSendEmailNodeConfiguration TbSendEmailNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbSendEmailNodeConfiguration actualDefaultConfigurationResult = (new TbSendEmailNodeConfiguration())
-        .defaultConfiguration();
+    TbSendEmailNodeConfiguration actualDefaultConfigurationResult =
+        new TbSendEmailNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("TLSv1.2", actualDefaultConfigurationResult.getTlsVersion());
@@ -43,13 +45,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -58,8 +63,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -72,13 +79,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -87,8 +97,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -104,13 +116,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -119,8 +134,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -136,13 +153,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -151,8 +171,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -168,13 +190,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -183,8 +208,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -200,13 +227,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -215,8 +245,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -232,13 +264,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -247,8 +282,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -264,13 +301,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -279,8 +319,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual8() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -296,13 +338,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -311,8 +356,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual9() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -328,13 +375,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -343,8 +393,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual10() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -360,13 +412,16 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link TbSendEmailNodeConfiguration#hashCode()}.
+   * Test {@link TbSendEmailNodeConfiguration#equals(Object)}, and {@link
+   * TbSendEmailNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendEmailNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendEmailNodeConfiguration#hashCode()}
@@ -375,8 +430,10 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -389,18 +446,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendEmailNodeConfiguration(), 1);
@@ -408,18 +468,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -431,18 +494,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -454,18 +520,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -477,18 +546,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -500,18 +572,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -523,18 +598,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -546,18 +624,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -569,18 +650,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -592,18 +676,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -615,18 +702,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -638,18 +728,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -661,18 +754,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -684,18 +780,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -707,18 +806,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -730,18 +832,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -755,18 +860,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -780,18 +888,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -805,18 +916,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -830,18 +944,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -855,18 +972,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -880,18 +1000,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -905,18 +1028,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -930,18 +1056,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     TbSendEmailNodeConfiguration tbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
@@ -955,18 +1084,21 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendEmailNodeConfiguration(), null);
@@ -974,27 +1106,32 @@ class TbSendEmailNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendEmailNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendEmailNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendEmailNodeConfiguration.equals(Object)",
-      "int TbSendEmailNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendEmailNodeConfiguration.equals(Object)",
+    "int TbSendEmailNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbSendEmailNodeConfiguration(), "Different type to TbSendEmailNodeConfiguration");
+    assertNotEquals(
+        new TbSendEmailNodeConfiguration(), "Different type to TbSendEmailNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbSendEmailNodeConfiguration}
    *   <li>{@link TbSendEmailNodeConfiguration#setEnableProxy(boolean)}
@@ -1031,27 +1168,42 @@ class TbSendEmailNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbSendEmailNodeConfiguration.<init>()", "String TbSendEmailNodeConfiguration.getPassword()",
-      "String TbSendEmailNodeConfiguration.getProxyHost()", "String TbSendEmailNodeConfiguration.getProxyPassword()",
-      "String TbSendEmailNodeConfiguration.getProxyPort()", "String TbSendEmailNodeConfiguration.getProxyUser()",
-      "String TbSendEmailNodeConfiguration.getSmtpHost()", "int TbSendEmailNodeConfiguration.getSmtpPort()",
-      "String TbSendEmailNodeConfiguration.getSmtpProtocol()", "int TbSendEmailNodeConfiguration.getTimeout()",
-      "String TbSendEmailNodeConfiguration.getTlsVersion()", "String TbSendEmailNodeConfiguration.getUsername()",
-      "boolean TbSendEmailNodeConfiguration.isEnableProxy()", "boolean TbSendEmailNodeConfiguration.isEnableTls()",
-      "boolean TbSendEmailNodeConfiguration.isUseSystemSmtpSettings()",
-      "void TbSendEmailNodeConfiguration.setEnableProxy(boolean)",
-      "void TbSendEmailNodeConfiguration.setEnableTls(boolean)",
-      "void TbSendEmailNodeConfiguration.setPassword(String)", "void TbSendEmailNodeConfiguration.setProxyHost(String)",
-      "void TbSendEmailNodeConfiguration.setProxyPassword(String)",
-      "void TbSendEmailNodeConfiguration.setProxyPort(String)",
-      "void TbSendEmailNodeConfiguration.setProxyUser(String)", "void TbSendEmailNodeConfiguration.setSmtpHost(String)",
-      "void TbSendEmailNodeConfiguration.setSmtpPort(int)", "void TbSendEmailNodeConfiguration.setSmtpProtocol(String)",
-      "void TbSendEmailNodeConfiguration.setTimeout(int)", "void TbSendEmailNodeConfiguration.setTlsVersion(String)",
-      "void TbSendEmailNodeConfiguration.setUseSystemSmtpSettings(boolean)",
-      "void TbSendEmailNodeConfiguration.setUsername(String)", "String TbSendEmailNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbSendEmailNodeConfiguration.<init>()",
+    "String TbSendEmailNodeConfiguration.getPassword()",
+    "String TbSendEmailNodeConfiguration.getProxyHost()",
+    "String TbSendEmailNodeConfiguration.getProxyPassword()",
+    "String TbSendEmailNodeConfiguration.getProxyPort()",
+    "String TbSendEmailNodeConfiguration.getProxyUser()",
+    "String TbSendEmailNodeConfiguration.getSmtpHost()",
+    "int TbSendEmailNodeConfiguration.getSmtpPort()",
+    "String TbSendEmailNodeConfiguration.getSmtpProtocol()",
+    "int TbSendEmailNodeConfiguration.getTimeout()",
+    "String TbSendEmailNodeConfiguration.getTlsVersion()",
+    "String TbSendEmailNodeConfiguration.getUsername()",
+    "boolean TbSendEmailNodeConfiguration.isEnableProxy()",
+    "boolean TbSendEmailNodeConfiguration.isEnableTls()",
+    "boolean TbSendEmailNodeConfiguration.isUseSystemSmtpSettings()",
+    "void TbSendEmailNodeConfiguration.setEnableProxy(boolean)",
+    "void TbSendEmailNodeConfiguration.setEnableTls(boolean)",
+    "void TbSendEmailNodeConfiguration.setPassword(String)",
+    "void TbSendEmailNodeConfiguration.setProxyHost(String)",
+    "void TbSendEmailNodeConfiguration.setProxyPassword(String)",
+    "void TbSendEmailNodeConfiguration.setProxyPort(String)",
+    "void TbSendEmailNodeConfiguration.setProxyUser(String)",
+    "void TbSendEmailNodeConfiguration.setSmtpHost(String)",
+    "void TbSendEmailNodeConfiguration.setSmtpPort(int)",
+    "void TbSendEmailNodeConfiguration.setSmtpProtocol(String)",
+    "void TbSendEmailNodeConfiguration.setTimeout(int)",
+    "void TbSendEmailNodeConfiguration.setTlsVersion(String)",
+    "void TbSendEmailNodeConfiguration.setUseSystemSmtpSettings(boolean)",
+    "void TbSendEmailNodeConfiguration.setUsername(String)",
+    "String TbSendEmailNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbSendEmailNodeConfiguration actualTbSendEmailNodeConfiguration = new TbSendEmailNodeConfiguration();
+    TbSendEmailNodeConfiguration actualTbSendEmailNodeConfiguration =
+        new TbSendEmailNodeConfiguration();
     actualTbSendEmailNodeConfiguration.setEnableProxy(true);
     actualTbSendEmailNodeConfiguration.setEnableTls(true);
     actualTbSendEmailNodeConfiguration.setPassword("iloveyou");
@@ -1086,10 +1238,12 @@ class TbSendEmailNodeConfigurationDiffblueTest {
     assertEquals("Proxy Port", actualProxyPort);
     assertEquals("Proxy User", actualProxyUser);
     assertEquals("Smtp Protocol", actualSmtpProtocol);
-    assertEquals("TbSendEmailNodeConfiguration(useSystemSmtpSettings=true, smtpHost=localhost, smtpPort=8080,"
-        + " username=janedoe, password=iloveyou, smtpProtocol=Smtp Protocol, timeout=10, enableTls=true,"
-        + " tlsVersion=1.0.2, enableProxy=true, proxyHost=localhost, proxyPort=Proxy Port, proxyUser=Proxy User,"
-        + " proxyPassword=iloveyou)", actualToStringResult);
+    assertEquals(
+        "TbSendEmailNodeConfiguration(useSystemSmtpSettings=true, smtpHost=localhost, smtpPort=8080,"
+            + " username=janedoe, password=iloveyou, smtpProtocol=Smtp Protocol, timeout=10, enableTls=true,"
+            + " tlsVersion=1.0.2, enableProxy=true, proxyHost=localhost, proxyPort=Proxy Port, proxyUser=Proxy User,"
+            + " proxyPassword=iloveyou)",
+        actualToStringResult);
     assertEquals("iloveyou", actualPassword);
     assertEquals("iloveyou", actualProxyPassword);
     assertEquals("janedoe", actualUsername);

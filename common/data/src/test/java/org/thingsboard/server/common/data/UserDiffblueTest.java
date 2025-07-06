@@ -21,11 +21,12 @@ import org.thingsboard.server.common.data.security.Authority;
 class UserDiffblueTest {
   /**
    * Test {@link User#User(User)}.
+   *
    * <ul>
-   *   <li>When {@link User#User()}.</li>
+   *   <li>When {@link User#User()}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#User(User)}
+   *
+   * <p>Method under test: {@link User#User(User)}
    */
   @Test
   @DisplayName("Test new User(User); when User()")
@@ -57,11 +58,12 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#User(User)}.
+   *
    * <ul>
-   *   <li>When {@link User#User(User)} with user is {@link User#User()}.</li>
+   *   <li>When {@link User#User(User)} with user is {@link User#User()}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#User(User)}
+   *
+   * <p>Method under test: {@link User#User(User)}
    */
   @Test
   @DisplayName("Test new User(User); when User(User) with user is User()")
@@ -93,11 +95,12 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#User(User)}.
+   *
    * <ul>
-   *   <li>When {@link User#User(User)} with user is {@link User#User(User)}.</li>
+   *   <li>When {@link User#User(User)} with user is {@link User#User(User)}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#User(User)}
+   *
+   * <p>Method under test: {@link User#User(User)}
    */
   @Test
   @DisplayName("Test new User(User); when User(User) with user is User(User)")
@@ -129,8 +132,8 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#getId()}.
-   * <p>
-   * Method under test: {@link User#getId()}
+   *
+   * <p>Method under test: {@link User#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -138,13 +141,13 @@ class UserDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.UserId User.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new User()).getId());
+    assertNull(new User().getId());
   }
 
   /**
    * Test {@link User#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link User#getCreatedTime()}
+   *
+   * <p>Method under test: {@link User#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -152,25 +155,27 @@ class UserDiffblueTest {
   @MethodsUnderTest({"long User.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new User()).getCreatedTime());
+    assertEquals(0L, new User().getCreatedTime());
   }
 
   /**
    * Test {@link User#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User(User)} with user is {@link User#User()}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link User#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given User(User) with user is User(); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given User(User) with user is User(); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUserWithUserIsUser_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new User(new User())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new User(new User()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -178,20 +183,22 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User(User)} with user is {@link User#User(User)}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User(User)}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link User#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given User(User) with user is User(User); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given User(User) with user is User(User); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUserWithUserIsUser_thenReturnInstance2() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new User(new User(new User()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new User(new User(new User())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -199,12 +206,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link User#User()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link User#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given User(); then return 'null'")
@@ -212,38 +220,71 @@ class UserDiffblueTest {
   @MethodsUnderTest({"JsonNode User.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenUser_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new User()).getAdditionalInfo());
+    assertNull(new User().getAdditionalInfo());
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code
+   * String}.
+   *
    * <ul>
-   *   <li>When {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
-   *   <li>Then return {@code not empty}.</li>
+   *   <li>Then return {@code jane.doe@example.org}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle(String, String, String)}
+   *
+   * <p>Method under test: {@link User#getTitle(String, String, String)}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when DEFAULT_SECRET_KEY; then return 'not empty'")
+  @DisplayName(
+      "Test getTitle(String, String, String) with 'String', 'String', 'String'; then return 'jane.doe@example.org'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
+  void testGetTitleWithStringStringString_thenReturnJaneDoeExampleOrg() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "jane.doe@example.org",
+        User.getTitle(
+            "jane.doe@example.org",
+            DataConstants.DEFAULT_SECRET_KEY,
+            DataConstants.DEFAULT_SECRET_KEY));
+  }
+
+  /**
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code
+   * String}.
+   *
+   * <ul>
+   *   <li>When {@link DataConstants#DEFAULT_SECRET_KEY}.
+   *   <li>Then return {@code not empty}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#getTitle(String, String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test getTitle(String, String, String) with 'String', 'String', 'String'; when DEFAULT_SECRET_KEY; then return 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String User.getTitle(String, String, String)"})
   void testGetTitleWithStringStringString_whenDefault_secret_key_thenReturnNotEmpty() {
     // Arrange, Act and Assert
-    assertEquals("not empty", User.getTitle("jane.doe@example.org", "not empty", DataConstants.DEFAULT_SECRET_KEY));
+    assertEquals(
+        "not empty",
+        User.getTitle("jane.doe@example.org", DataConstants.DEFAULT_SECRET_KEY, "not empty"));
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code
+   * String}.
+   *
    * <ul>
-   *   <li>When {@code Jane}.</li>
-   *   <li>Then return {@code Jane Doe}.</li>
+   *   <li>When {@code Jane}.
+   *   <li>Then return {@code Jane Doe}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle(String, String, String)}
+   *
+   * <p>Method under test: {@link User#getTitle(String, String, String)}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'Jane'; then return 'Jane Doe'")
+  @DisplayName(
+      "Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'Jane'; then return 'Jane Doe'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String User.getTitle(String, String, String)"})
   void testGetTitleWithStringStringString_whenJane_thenReturnJaneDoe() {
@@ -252,75 +293,134 @@ class UserDiffblueTest {
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code
+   * String}.
+   *
    * <ul>
-   *   <li>When {@code not empty}.</li>
-   *   <li>Then return {@code not empty}.</li>
+   *   <li>When {@code not empty}.
+   *   <li>Then return {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle(String, String, String)}
+   *
+   * <p>Method under test: {@link User#getTitle(String, String, String)}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'not empty'; then return 'not empty'")
+  @DisplayName(
+      "Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'not empty'; then return 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String User.getTitle(String, String, String)"})
   void testGetTitleWithStringStringString_whenNotEmpty_thenReturnNotEmpty() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "not empty",
+        User.getTitle("jane.doe@example.org", "not empty", DataConstants.DEFAULT_SECRET_KEY));
+  }
+
+  /**
+   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code
+   * String}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code not empty}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#getTitle(String, String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
+  void testGetTitleWithStringStringString_whenNull_thenReturnNotEmpty() {
     // Arrange, Act and Assert
     assertEquals("not empty", User.getTitle("jane.doe@example.org", "not empty", null));
   }
 
   /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
+   * Test {@link User#getTitle()}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code jane.doe@example.org}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} FirstName is {@link
+   *       DataConstants#DEFAULT_SECRET_KEY}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle(String, String, String)}
+   *
+   * <p>Method under test: {@link User#getTitle()}
    */
   @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'jane.doe@example.org'")
+  @DisplayName(
+      "Test getTitle(); given User(User) with user is User() FirstName is DEFAULT_SECRET_KEY")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
-  void testGetTitleWithStringStringString_whenNull_thenReturnJaneDoeExampleOrg() {
-    // Arrange, Act and Assert
-    assertEquals("jane.doe@example.org", User.getTitle("jane.doe@example.org", null, null));
-  }
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUserWithUserIsUserFirstNameIsDefault_secret_key() {
+    // Arrange
+    User user = new User(new User());
+    user.setFirstName(DataConstants.DEFAULT_SECRET_KEY);
+    user.setLastName("not empty");
 
-  /**
-   * Test {@link User#getTitle(String, String, String)} with {@code String}, {@code String}, {@code String}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code not empty}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle(String, String, String)}
-   */
-  @Test
-  @DisplayName("Test getTitle(String, String, String) with 'String', 'String', 'String'; when 'null'; then return 'not empty'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle(String, String, String)"})
-  void testGetTitleWithStringStringString_whenNull_thenReturnNotEmpty() {
-    // Arrange, Act and Assert
-    assertEquals("not empty", User.getTitle("jane.doe@example.org", null, "not empty"));
+    // Act and Assert
+    assertEquals("not empty", user.getTitle());
   }
 
   /**
    * Test {@link User#getTitle()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()} FirstName is {@code not empty}.</li>
-   *   <li>Then return {@code not empty not empty}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} LastName is {@link
+   *       DataConstants#DEFAULT_SECRET_KEY}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
+   *
+   * <p>Method under test: {@link User#getTitle()}
    */
   @Test
-  @DisplayName("Test getTitle(); given User() FirstName is 'not empty'; then return 'not empty not empty'")
+  @DisplayName(
+      "Test getTitle(); given User(User) with user is User() LastName is DEFAULT_SECRET_KEY")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String User.getTitle()"})
-  void testGetTitle_givenUserFirstNameIsNotEmpty_thenReturnNotEmptyNotEmpty() {
+  void testGetTitle_givenUserWithUserIsUserLastNameIsDefault_secret_key() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
+    user.setFirstName("not empty");
+    user.setLastName(DataConstants.DEFAULT_SECRET_KEY);
+
+    // Act and Assert
+    assertEquals("not empty", user.getTitle());
+  }
+
+  /**
+   * Test {@link User#getTitle()}.
+   *
+   * <ul>
+   *   <li>Given {@link User#User()}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#getTitle()}
+   */
+  @Test
+  @DisplayName("Test getTitle(); given User(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_givenUser_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(new User().getTitle());
+  }
+
+  /**
+   * Test {@link User#getTitle()}.
+   *
+   * <ul>
+   *   <li>Then return {@code not empty not empty}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#getTitle()}
+   */
+  @Test
+  @DisplayName("Test getTitle(); then return 'not empty not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String User.getTitle()"})
+  void testGetTitle_thenReturnNotEmptyNotEmpty() {
+    // Arrange
+    User user = new User(new User());
     user.setFirstName("not empty");
     user.setLastName("not empty");
 
@@ -329,108 +429,24 @@ class UserDiffblueTest {
   }
 
   /**
-   * Test {@link User#getTitle()}.
-   * <ul>
-   *   <li>Given {@link User#User()} FirstName is {@code null}.</li>
-   *   <li>Then return {@code not empty}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
-   */
-  @Test
-  @DisplayName("Test getTitle(); given User() FirstName is 'null'; then return 'not empty'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle()"})
-  void testGetTitle_givenUserFirstNameIsNull_thenReturnNotEmpty() {
-    // Arrange
-    User user = new User();
-    user.setFirstName(null);
-    user.setLastName("not empty");
-
-    // Act and Assert
-    assertEquals("not empty", user.getTitle());
-  }
-
-  /**
-   * Test {@link User#getTitle()}.
-   * <ul>
-   *   <li>Given {@link User#User()} LastName is {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
-   */
-  @Test
-  @DisplayName("Test getTitle(); given User() LastName is DEFAULT_SECRET_KEY; then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle()"})
-  void testGetTitle_givenUserLastNameIsDefault_secret_key_thenReturnNull() {
-    // Arrange
-    User user = new User();
-    user.setFirstName(null);
-    user.setLastName(DataConstants.DEFAULT_SECRET_KEY);
-
-    // Act and Assert
-    assertNull(user.getTitle());
-  }
-
-  /**
-   * Test {@link User#getTitle()}.
-   * <ul>
-   *   <li>Given {@link User#User()} LastName is {@code null}.</li>
-   *   <li>Then return {@code not empty}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
-   */
-  @Test
-  @DisplayName("Test getTitle(); given User() LastName is 'null'; then return 'not empty'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle()"})
-  void testGetTitle_givenUserLastNameIsNull_thenReturnNotEmpty() {
-    // Arrange
-    User user = new User();
-    user.setFirstName("not empty");
-    user.setLastName(null);
-
-    // Act and Assert
-    assertEquals("not empty", user.getTitle());
-  }
-
-  /**
-   * Test {@link User#getTitle()}.
-   * <ul>
-   *   <li>Given {@link User#User()}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#getTitle()}
-   */
-  @Test
-  @DisplayName("Test getTitle(); given User(); then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String User.getTitle()"})
-  void testGetTitle_givenUser_thenReturnNull() {
-    // Arrange, Act and Assert
-    assertNull((new User()).getTitle());
-  }
-
-  /**
    * Test {@link User#isSystemAdmin()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} TenantId is {@link
+   *       TenantId#SYS_TENANT_ID}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isSystemAdmin()}
+   *
+   * <p>Method under test: {@link User#isSystemAdmin()}
    */
   @Test
-  @DisplayName("Test isSystemAdmin(); given User() TenantId is SYS_TENANT_ID; then return 'true'")
+  @DisplayName(
+      "Test isSystemAdmin(); given User(User) with user is User() TenantId is SYS_TENANT_ID; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean User.isSystemAdmin()"})
-  void testIsSystemAdmin_givenUserTenantIdIsSys_tenant_id_thenReturnTrue() {
+  void testIsSystemAdmin_givenUserWithUserIsUserTenantIdIsSys_tenant_id_thenReturnTrue() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
     user.setTenantId(TenantId.SYS_TENANT_ID);
 
     // Act and Assert
@@ -439,12 +455,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isSystemAdmin()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link User#User()}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isSystemAdmin()}
+   *
+   * <p>Method under test: {@link User#isSystemAdmin()}
    */
   @Test
   @DisplayName("Test isSystemAdmin(); given User(); then return 'true'")
@@ -452,16 +469,17 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isSystemAdmin()"})
   void testIsSystemAdmin_givenUser_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new User()).isSystemAdmin());
+    assertTrue(new User().isSystemAdmin());
   }
 
   /**
    * Test {@link User#isSystemAdmin()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isSystemAdmin()}
+   *
+   * <p>Method under test: {@link User#isSystemAdmin()}
    */
   @Test
   @DisplayName("Test isSystemAdmin(); then return 'false'")
@@ -469,7 +487,7 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isSystemAdmin()"})
   void testIsSystemAdmin_thenReturnFalse() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
     user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
@@ -478,8 +496,8 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isTenantAdmin()}.
-   * <p>
-   * Method under test: {@link User#isTenantAdmin()}
+   *
+   * <p>Method under test: {@link User#isTenantAdmin()}
    */
   @Test
   @DisplayName("Test isTenantAdmin()")
@@ -487,7 +505,7 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
     user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
@@ -497,19 +515,22 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isTenantAdmin()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()} CustomerId is {@link CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} CustomerId is {@link
+   *       CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isTenantAdmin()}
+   *
+   * <p>Method under test: {@link User#isTenantAdmin()}
    */
   @Test
-  @DisplayName("Test isTenantAdmin(); given User() CustomerId is CustomerId(UUID) with id is NULL_UUID")
+  @DisplayName(
+      "Test isTenantAdmin(); given User(User) with user is User() CustomerId is CustomerId(UUID) with id is NULL_UUID")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean User.isTenantAdmin()"})
-  void testIsTenantAdmin_givenUserCustomerIdIsCustomerIdWithIdIsNull_uuid() {
+  void testIsTenantAdmin_givenUserWithUserIsUserCustomerIdIsCustomerIdWithIdIsNull_uuid() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
     user.setCustomerId(new CustomerId(EntityId.NULL_UUID));
     user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
@@ -519,20 +540,50 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isTenantAdmin()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} CustomerId is {@code
+   *       null}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isTenantAdmin()}
+   *
+   * <p>Method under test: {@link User#isTenantAdmin()}
    */
   @Test
-  @DisplayName("Test isTenantAdmin(); given User() TenantId is SYS_TENANT_ID; then return 'false'")
+  @DisplayName(
+      "Test isTenantAdmin(); given User(User) with user is User() CustomerId is 'null'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean User.isTenantAdmin()"})
-  void testIsTenantAdmin_givenUserTenantIdIsSys_tenant_id_thenReturnFalse() {
+  void testIsTenantAdmin_givenUserWithUserIsUserCustomerIdIsNull_thenReturnTrue() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
+    user.setCustomerId(null);
+    user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertTrue(user.isTenantAdmin());
+  }
+
+  /**
+   * Test {@link User#isTenantAdmin()}.
+   *
+   * <ul>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} TenantId is {@link
+   *       TenantId#SYS_TENANT_ID}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#isTenantAdmin()}
+   */
+  @Test
+  @DisplayName(
+      "Test isTenantAdmin(); given User(User) with user is User() TenantId is SYS_TENANT_ID; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
+  void testIsTenantAdmin_givenUserWithUserIsUserTenantIdIsSys_tenant_id_thenReturnFalse() {
+    // Arrange
+    User user = new User(new User());
+    user.setCustomerId(null);
     user.setTenantId(TenantId.SYS_TENANT_ID);
 
     // Act and Assert
@@ -541,12 +592,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isTenantAdmin()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link User#User()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isTenantAdmin()}
+   *
+   * <p>Method under test: {@link User#isTenantAdmin()}
    */
   @Test
   @DisplayName("Test isTenantAdmin(); given User(); then return 'false'")
@@ -554,34 +606,13 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isTenantAdmin()"})
   void testIsTenantAdmin_givenUser_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new User()).isTenantAdmin());
-  }
-
-  /**
-   * Test {@link User#isTenantAdmin()}.
-   * <ul>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#isTenantAdmin()}
-   */
-  @Test
-  @DisplayName("Test isTenantAdmin(); then return 'true'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean User.isTenantAdmin()"})
-  void testIsTenantAdmin_thenReturnTrue() {
-    // Arrange
-    User user = new User();
-    user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act and Assert
-    assertTrue(user.isTenantAdmin());
+    assertFalse(new User().isTenantAdmin());
   }
 
   /**
    * Test {@link User#isCustomerUser()}.
-   * <p>
-   * Method under test: {@link User#isCustomerUser()}
+   *
+   * <p>Method under test: {@link User#isCustomerUser()}
    */
   @Test
   @DisplayName("Test isCustomerUser()")
@@ -589,30 +620,9 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser() {
     // Arrange
-    User user = new User();
+    User user = new User(new User());
     user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act and Assert
-    assertFalse(user.isCustomerUser());
-  }
-
-  /**
-   * Test {@link User#isCustomerUser()}.
-   * <ul>
-   *   <li>Given {@link User#User()} CustomerId is {@link CustomerId#CustomerId(UUID)} with id is {@link EntityId#NULL_UUID}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link User#isCustomerUser()}
-   */
-  @Test
-  @DisplayName("Test isCustomerUser(); given User() CustomerId is CustomerId(UUID) with id is NULL_UUID")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean User.isCustomerUser()"})
-  void testIsCustomerUser_givenUserCustomerIdIsCustomerIdWithIdIsNull_uuid() {
-    // Arrange
-    User user = new User();
     user.setCustomerId(new CustomerId(EntityId.NULL_UUID));
-    user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertFalse(user.isCustomerUser());
@@ -620,21 +630,25 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isCustomerUser()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()} TenantId is {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} CustomerId is {@code
+   *       null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isCustomerUser()}
+   *
+   * <p>Method under test: {@link User#isCustomerUser()}
    */
   @Test
-  @DisplayName("Test isCustomerUser(); given User() TenantId is SYS_TENANT_ID; then return 'false'")
+  @DisplayName(
+      "Test isCustomerUser(); given User(User) with user is User() CustomerId is 'null'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean User.isCustomerUser()"})
-  void testIsCustomerUser_givenUserTenantIdIsSys_tenant_id_thenReturnFalse() {
+  void testIsCustomerUser_givenUserWithUserIsUserCustomerIdIsNull_thenReturnFalse() {
     // Arrange
-    User user = new User();
-    user.setTenantId(TenantId.SYS_TENANT_ID);
+    User user = new User(new User());
+    user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    user.setCustomerId(null);
 
     // Act and Assert
     assertFalse(user.isCustomerUser());
@@ -642,12 +656,38 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#isCustomerUser()}.
+   *
    * <ul>
-   *   <li>Given {@link User#User()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link User#User(User)} with user is {@link User#User()} TenantId is {@link
+   *       TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isCustomerUser()}
+   *
+   * <p>Method under test: {@link User#isCustomerUser()}
+   */
+  @Test
+  @DisplayName(
+      "Test isCustomerUser(); given User(User) with user is User() TenantId is SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean User.isCustomerUser()"})
+  void testIsCustomerUser_givenUserWithUserIsUserTenantIdIsSys_tenant_id() {
+    // Arrange
+    User user = new User(new User());
+    user.setTenantId(TenantId.SYS_TENANT_ID);
+    user.setCustomerId(null);
+
+    // Act and Assert
+    assertFalse(user.isCustomerUser());
+  }
+
+  /**
+   * Test {@link User#isCustomerUser()}.
+   *
+   * <ul>
+   *   <li>Given {@link User#User()}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link User#isCustomerUser()}
    */
   @Test
   @DisplayName("Test isCustomerUser(); given User(); then return 'false'")
@@ -655,16 +695,17 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_givenUser_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new User()).isCustomerUser());
+    assertFalse(new User().isCustomerUser());
   }
 
   /**
    * Test {@link User#isCustomerUser()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link User#isCustomerUser()}
+   *
+   * <p>Method under test: {@link User#isCustomerUser()}
    */
   @Test
   @DisplayName("Test isCustomerUser(); then return 'true'")
@@ -672,9 +713,9 @@ class UserDiffblueTest {
   @MethodsUnderTest({"boolean User.isCustomerUser()"})
   void testIsCustomerUser_thenReturnTrue() {
     // Arrange
-    User user = new User();
-    user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    User user = new User(new User());
     user.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertTrue(user.isCustomerUser());
@@ -682,12 +723,14 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}, and {@link User#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link User#equals(Object)}
    *   <li>{@link User#hashCode()}
@@ -710,12 +753,14 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}, and {@link User#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link User#equals(Object)}
    *   <li>{@link User#hashCode()}
@@ -737,12 +782,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -758,12 +804,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -780,12 +827,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -802,12 +850,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -824,12 +873,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -846,12 +896,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -868,12 +919,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -890,12 +942,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -912,12 +965,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -934,12 +988,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -958,12 +1013,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -982,12 +1038,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1006,12 +1063,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1030,12 +1088,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1054,12 +1113,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1078,12 +1138,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1102,12 +1163,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1126,12 +1188,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1144,12 +1207,13 @@ class UserDiffblueTest {
 
   /**
    * Test {@link User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link User#equals(Object)}
+   *
+   * <p>Method under test: {@link User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

@@ -16,17 +16,19 @@ import org.thingsboard.rule.engine.util.TbMsgSource;
 class TbGetOriginatorFieldsConfigurationDiffblueTest {
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbGetOriginatorFieldsConfiguration TbGetOriginatorFieldsConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbGetOriginatorFieldsConfiguration TbGetOriginatorFieldsConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbGetOriginatorFieldsConfiguration actualDefaultConfigurationResult = (new TbGetOriginatorFieldsConfiguration())
-        .defaultConfiguration();
+    TbGetOriginatorFieldsConfiguration actualDefaultConfigurationResult =
+        new TbGetOriginatorFieldsConfiguration().defaultConfiguration();
 
     // Assert
     Map<String, String> dataMapping = actualDefaultConfigurationResult.getDataMapping();
@@ -38,13 +40,16 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}, and {@link TbGetOriginatorFieldsConfiguration#hashCode()}.
+   * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}, and {@link
+   * TbGetOriginatorFieldsConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    *   <li>{@link TbGetOriginatorFieldsConfiguration#hashCode()}
@@ -53,12 +58,16 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration = new TbGetOriginatorFieldsConfiguration();
-    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration2 = new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration =
+        new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration2 =
+        new TbGetOriginatorFieldsConfiguration();
 
     // Act and Assert
     assertEquals(tbGetOriginatorFieldsConfiguration, tbGetOriginatorFieldsConfiguration2);
@@ -67,13 +76,16 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}, and {@link TbGetOriginatorFieldsConfiguration#hashCode()}.
+   * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}, and {@link
+   * TbGetOriginatorFieldsConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    *   <li>{@link TbGetOriginatorFieldsConfiguration#hashCode()}
@@ -82,11 +94,14 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration = new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration =
+        new TbGetOriginatorFieldsConfiguration();
 
     // Act and Assert
     assertEquals(tbGetOriginatorFieldsConfiguration, tbGetOriginatorFieldsConfiguration);
@@ -96,18 +111,21 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetOriginatorFieldsConfiguration(), 1);
@@ -115,21 +133,25 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration = new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration =
+        new TbGetOriginatorFieldsConfiguration();
     tbGetOriginatorFieldsConfiguration.setIgnoreNullStrings(true);
 
     // Act and Assert
@@ -138,21 +160,25 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration = new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration tbGetOriginatorFieldsConfiguration =
+        new TbGetOriginatorFieldsConfiguration();
     tbGetOriginatorFieldsConfiguration.setDataMapping(new HashMap<>());
 
     // Act and Assert
@@ -161,18 +187,21 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetOriginatorFieldsConfiguration(), null);
@@ -180,27 +209,33 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetOriginatorFieldsConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetOriginatorFieldsConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
-      "int TbGetOriginatorFieldsConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetOriginatorFieldsConfiguration.equals(Object)",
+    "int TbGetOriginatorFieldsConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbGetOriginatorFieldsConfiguration(), "Different type to TbGetOriginatorFieldsConfiguration");
+    assertNotEquals(
+        new TbGetOriginatorFieldsConfiguration(),
+        "Different type to TbGetOriginatorFieldsConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGetOriginatorFieldsConfiguration}
    *   <li>{@link TbGetOriginatorFieldsConfiguration#setIgnoreNullStrings(boolean)}
@@ -211,19 +246,24 @@ class TbGetOriginatorFieldsConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGetOriginatorFieldsConfiguration.<init>()",
-      "boolean TbGetOriginatorFieldsConfiguration.isIgnoreNullStrings()",
-      "void TbGetOriginatorFieldsConfiguration.setIgnoreNullStrings(boolean)",
-      "String TbGetOriginatorFieldsConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbGetOriginatorFieldsConfiguration.<init>()",
+    "boolean TbGetOriginatorFieldsConfiguration.isIgnoreNullStrings()",
+    "void TbGetOriginatorFieldsConfiguration.setIgnoreNullStrings(boolean)",
+    "String TbGetOriginatorFieldsConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbGetOriginatorFieldsConfiguration actualTbGetOriginatorFieldsConfiguration = new TbGetOriginatorFieldsConfiguration();
+    TbGetOriginatorFieldsConfiguration actualTbGetOriginatorFieldsConfiguration =
+        new TbGetOriginatorFieldsConfiguration();
     actualTbGetOriginatorFieldsConfiguration.setIgnoreNullStrings(true);
     String actualToStringResult = actualTbGetOriginatorFieldsConfiguration.toString();
-    boolean actualIsIgnoreNullStringsResult = actualTbGetOriginatorFieldsConfiguration.isIgnoreNullStrings();
+    boolean actualIsIgnoreNullStringsResult =
+        actualTbGetOriginatorFieldsConfiguration.isIgnoreNullStrings();
 
     // Assert
-    assertEquals("TbGetOriginatorFieldsConfiguration(ignoreNullStrings=true)", actualToStringResult);
+    assertEquals(
+        "TbGetOriginatorFieldsConfiguration(ignoreNullStrings=true)", actualToStringResult);
     assertNull(actualTbGetOriginatorFieldsConfiguration.getDataMapping());
     assertNull(actualTbGetOriginatorFieldsConfiguration.getFetchTo());
     assertTrue(actualIsIgnoreNullStringsResult);

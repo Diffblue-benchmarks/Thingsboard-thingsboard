@@ -15,12 +15,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class OAuth2UserDiffblueTest {
   /**
    * Test {@link OAuth2User#equals(Object)}, and {@link OAuth2User#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2User#equals(Object)}
    *   <li>{@link OAuth2User#hashCode()}
@@ -34,7 +36,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -45,7 +48,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -62,12 +66,14 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}, and {@link OAuth2User#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2User#equals(Object)}
    *   <li>{@link OAuth2User#hashCode()}
@@ -81,7 +87,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -98,12 +105,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -113,7 +121,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(false);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -124,7 +133,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -139,12 +149,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -165,7 +176,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -180,12 +192,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -206,7 +219,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -221,12 +235,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -236,7 +251,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Tenant Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -247,7 +263,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -262,12 +279,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,7 +295,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName(null);
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -288,7 +307,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -303,12 +323,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -318,7 +339,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Tenant Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -329,7 +351,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -344,12 +367,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -359,7 +383,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName(null);
     oAuth2User.setEmail("jane.doe@example.org");
@@ -370,7 +395,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -385,12 +411,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -400,7 +427,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("john.smith@example.org");
@@ -411,7 +439,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -426,12 +455,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -441,7 +471,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail(null);
@@ -452,7 +483,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -467,12 +499,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -482,7 +515,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -493,7 +527,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -508,12 +543,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -523,7 +559,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -534,7 +571,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -549,12 +587,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -564,7 +603,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -575,7 +615,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -590,12 +631,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -605,7 +647,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -616,7 +659,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -631,12 +675,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -646,7 +691,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -657,7 +703,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -672,12 +719,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -687,7 +735,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -698,7 +747,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -713,12 +763,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -728,7 +779,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -739,7 +791,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -754,12 +807,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -769,7 +823,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -780,7 +835,8 @@ class OAuth2UserDiffblueTest {
 
     OAuth2User oAuth2User2 = new OAuth2User();
     oAuth2User2.setAlwaysFullScreen(true);
-    oAuth2User2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User2.setCustomerName("Customer Name");
     oAuth2User2.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User2.setEmail("jane.doe@example.org");
@@ -795,12 +851,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -810,7 +867,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -825,12 +883,13 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test {@link OAuth2User#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2User#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2User#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -840,7 +899,8 @@ class OAuth2UserDiffblueTest {
     // Arrange
     OAuth2User oAuth2User = new OAuth2User();
     oAuth2User.setAlwaysFullScreen(true);
-    oAuth2User.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    oAuth2User.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     oAuth2User.setCustomerName("Customer Name");
     oAuth2User.setDefaultDashboardName("Default Dashboard Name");
     oAuth2User.setEmail("jane.doe@example.org");
@@ -855,8 +915,9 @@ class OAuth2UserDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link OAuth2User}
    *   <li>{@link OAuth2User#setAlwaysFullScreen(boolean)}
@@ -883,15 +944,28 @@ class OAuth2UserDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2User.<init>()", "CustomerId OAuth2User.getCustomerId()",
-      "String OAuth2User.getCustomerName()", "String OAuth2User.getDefaultDashboardName()",
-      "String OAuth2User.getEmail()", "String OAuth2User.getFirstName()", "String OAuth2User.getLastName()",
-      "TenantId OAuth2User.getTenantId()", "String OAuth2User.getTenantName()",
-      "boolean OAuth2User.isAlwaysFullScreen()", "void OAuth2User.setAlwaysFullScreen(boolean)",
-      "void OAuth2User.setCustomerId(CustomerId)", "void OAuth2User.setCustomerName(String)",
-      "void OAuth2User.setDefaultDashboardName(String)", "void OAuth2User.setEmail(String)",
-      "void OAuth2User.setFirstName(String)", "void OAuth2User.setLastName(String)",
-      "void OAuth2User.setTenantId(TenantId)", "void OAuth2User.setTenantName(String)", "String OAuth2User.toString()"})
+  @MethodsUnderTest({
+    "void OAuth2User.<init>()",
+    "CustomerId OAuth2User.getCustomerId()",
+    "String OAuth2User.getCustomerName()",
+    "String OAuth2User.getDefaultDashboardName()",
+    "String OAuth2User.getEmail()",
+    "String OAuth2User.getFirstName()",
+    "String OAuth2User.getLastName()",
+    "TenantId OAuth2User.getTenantId()",
+    "String OAuth2User.getTenantName()",
+    "boolean OAuth2User.isAlwaysFullScreen()",
+    "void OAuth2User.setAlwaysFullScreen(boolean)",
+    "void OAuth2User.setCustomerId(CustomerId)",
+    "void OAuth2User.setCustomerName(String)",
+    "void OAuth2User.setDefaultDashboardName(String)",
+    "void OAuth2User.setEmail(String)",
+    "void OAuth2User.setFirstName(String)",
+    "void OAuth2User.setLastName(String)",
+    "void OAuth2User.setTenantId(TenantId)",
+    "void OAuth2User.setTenantName(String)",
+    "String OAuth2User.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2User actualOAuth2User = new OAuth2User();

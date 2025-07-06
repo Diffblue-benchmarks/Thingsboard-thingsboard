@@ -15,11 +15,12 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AlarmNotificationInfoDiffblueTest {
   /**
    * Test {@link AlarmNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is eight.</li>
+   *   <li>Then return size is eight.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link AlarmNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is eight")
@@ -39,7 +40,8 @@ class AlarmNotificationInfoDiffblueTest {
     // Assert
     assertEquals(8, actualTemplateData.size());
     assertEquals("13814000-1dd2-11b2-8080-808080808080", actualTemplateData.get("alarmId"));
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualTemplateData.get("alarmOriginatorId"));
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualTemplateData.get("alarmOriginatorId"));
     assertEquals("ACTIVE_ACK", actualTemplateData.get("alarmStatus"));
     assertEquals("Tenant", actualTemplateData.get("alarmOriginatorEntityType"));
     assertEquals("critical", actualTemplateData.get("alarmSeverity"));

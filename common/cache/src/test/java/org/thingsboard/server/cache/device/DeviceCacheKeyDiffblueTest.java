@@ -15,8 +15,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DeviceCacheKeyDiffblueTest {
   /**
    * Test {@link DeviceCacheKey#toString()}.
-   * <p>
-   * Method under test: {@link DeviceCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceCacheKey#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -25,42 +25,49 @@ class DeviceCacheKeyDiffblueTest {
   void testToString() {
     // Arrange
     DeviceCacheKeyBuilder builderResult = DeviceCacheKey.builder();
-    DeviceCacheKeyBuilder deviceNameResult = builderResult
-        .deviceId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .deviceName("Device Name");
-    DeviceCacheKey buildResult = deviceNameResult
-        .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    DeviceCacheKeyBuilder deviceNameResult =
+        builderResult
+            .deviceId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .deviceName("Device Name");
+    DeviceCacheKey buildResult =
+        deviceNameResult
+            .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
 
     // Act and Assert
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9_784f394c-42b6-435a-983c-b7beff2784f9", buildResult.toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9_784f394c-42b6-435a-983c-b7beff2784f9",
+        buildResult.toString());
   }
 
   /**
    * Test {@link DeviceCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceCacheKey#DeviceCacheKey(DeviceId)} with deviceId is {@code null}.</li>
-   *   <li>Then return {@code null_n_null}.</li>
+   *   <li>Given {@link DeviceCacheKey#DeviceCacheKey(DeviceId)} with deviceId is {@code null}.
+   *   <li>Then return {@code null_n_null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceCacheKey#toString()}
    */
   @Test
-  @DisplayName("Test toString(); given DeviceCacheKey(DeviceId) with deviceId is 'null'; then return 'null_n_null'")
+  @DisplayName(
+      "Test toString(); given DeviceCacheKey(DeviceId) with deviceId is 'null'; then return 'null_n_null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String DeviceCacheKey.toString()"})
   void testToString_givenDeviceCacheKeyWithDeviceIdIsNull_thenReturnNullNNull() {
     // Arrange, Act and Assert
-    assertEquals("null_n_null", (new DeviceCacheKey(null)).toString());
+    assertEquals("null_n_null", new DeviceCacheKey(null).toString());
   }
 
   /**
    * Test {@link DeviceCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Then return {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceCacheKey#toString()}
    */
   @Test
   @DisplayName("Test toString(); then return '784f394c-42b6-435a-983c-b7beff2784f9'")
@@ -68,35 +75,40 @@ class DeviceCacheKeyDiffblueTest {
   @MethodsUnderTest({"java.lang.String DeviceCacheKey.toString()"})
   void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9",
-        (new DeviceCacheKey(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        new DeviceCacheKey(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .toString());
   }
 
   /**
    * Test {@link DeviceCacheKey#isVersioned()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceCacheKey#DeviceCacheKey(DeviceId)} with deviceId is {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link DeviceCacheKey#DeviceCacheKey(DeviceId)} with deviceId is {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceCacheKey#isVersioned()}
+   *
+   * <p>Method under test: {@link DeviceCacheKey#isVersioned()}
    */
   @Test
-  @DisplayName("Test isVersioned(); given DeviceCacheKey(DeviceId) with deviceId is 'null'; then return 'false'")
+  @DisplayName(
+      "Test isVersioned(); given DeviceCacheKey(DeviceId) with deviceId is 'null'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceCacheKey.isVersioned()"})
   void testIsVersioned_givenDeviceCacheKeyWithDeviceIdIsNull_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new DeviceCacheKey(null)).isVersioned());
+    assertFalse(new DeviceCacheKey(null).isVersioned());
   }
 
   /**
    * Test {@link DeviceCacheKey#isVersioned()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceCacheKey#isVersioned()}
+   *
+   * <p>Method under test: {@link DeviceCacheKey#isVersioned()}
    */
   @Test
   @DisplayName("Test isVersioned(); then return 'true'")
@@ -105,6 +117,7 @@ class DeviceCacheKeyDiffblueTest {
   void testIsVersioned_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(
-        (new DeviceCacheKey(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).isVersioned());
+        new DeviceCacheKey(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .isVersioned());
   }
 }

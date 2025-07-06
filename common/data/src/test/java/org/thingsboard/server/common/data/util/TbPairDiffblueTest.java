@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class TbPairDiffblueTest {
   /**
    * Test {@link TbPair#of(Object, Object)}.
-   * <p>
-   * Method under test: {@link TbPair#of(Object, Object)}
+   *
+   * <p>Method under test: {@link TbPair#of(Object, Object)}
    */
   @Test
   @DisplayName("Test of(Object, Object)")
@@ -28,12 +28,14 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}, and {@link TbPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPair#equals(Object)}
    *   <li>{@link TbPair#hashCode()}
@@ -56,12 +58,14 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}, and {@link TbPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPair#equals(Object)}
    *   <li>{@link TbPair#hashCode()}
@@ -84,12 +88,14 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}, and {@link TbPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPair#equals(Object)}
    *   <li>{@link TbPair#hashCode()}
@@ -112,12 +118,14 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}, and {@link TbPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPair#equals(Object)}
    *   <li>{@link TbPair#hashCode()}
@@ -139,12 +147,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -161,12 +170,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -184,12 +194,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -206,12 +217,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -228,12 +240,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -251,12 +264,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -273,12 +287,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -294,12 +309,13 @@ class TbPairDiffblueTest {
 
   /**
    * Test {@link TbPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPair#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -315,8 +331,9 @@ class TbPairDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPair#TbPair(Object, Object)}
    *   <li>{@link TbPair#setFirst(Object)}
@@ -329,8 +346,14 @@ class TbPairDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbPair.<init>(Object, Object)", "Object TbPair.getFirst()", "Object TbPair.getSecond()",
-      "void TbPair.setFirst(Object)", "void TbPair.setSecond(Object)", "String TbPair.toString()"})
+  @MethodsUnderTest({
+    "void TbPair.<init>(Object, Object)",
+    "Object TbPair.getFirst()",
+    "Object TbPair.getSecond()",
+    "void TbPair.setFirst(Object)",
+    "void TbPair.setSecond(Object)",
+    "String TbPair.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbPair<Object, Object> actualTbPair = new TbPair<>("First", "Second");

@@ -16,12 +16,14 @@ import org.mockito.Mockito;
 class SslCredentialsConfigDiffblueTest {
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -30,7 +32,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -44,12 +49,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -58,7 +65,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig(null, true);
@@ -72,12 +82,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -86,7 +98,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -103,12 +118,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -117,7 +134,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -134,12 +154,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -148,7 +170,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -165,12 +190,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -179,7 +206,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -196,12 +226,14 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}, and {@link SslCredentialsConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#equals(Object)}
    *   <li>{@link SslCredentialsConfig#hashCode()}
@@ -210,7 +242,10 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -223,17 +258,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig(null, true);
@@ -244,21 +283,26 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig(
-        "org.thingsboard.server.common.transport.config.ssl.SslCredentialsConfig", true);
+    SslCredentialsConfig sslCredentialsConfig =
+        new SslCredentialsConfig(
+            "org.thingsboard.server.common.transport.config.ssl.SslCredentialsConfig", true);
 
     // Act and Assert
     assertNotEquals(sslCredentialsConfig, new SslCredentialsConfig("Name", true));
@@ -266,17 +310,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", false);
@@ -287,17 +335,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -309,17 +361,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -331,17 +387,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -353,17 +413,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -375,17 +439,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -399,17 +467,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -423,17 +495,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -447,17 +523,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -471,17 +551,53 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then throw exception.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
+    sslCredentialsConfig.setEnabled(false);
+    sslCredentialsConfig.setPem(new PemSslCredentials());
+    PemSslCredentials pem = mock(PemSslCredentials.class);
+    when(pem.canEqual(Mockito.<Object>any())).thenThrow(new RuntimeException("foo"));
+
+    SslCredentialsConfig sslCredentialsConfig2 = new SslCredentialsConfig("Name", true);
+    sslCredentialsConfig2.setPem(pem);
+
+    // Act and Assert
+    assertNotEquals(sslCredentialsConfig, sslCredentialsConfig2);
+  }
+
+  /**
+   * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then throw exception.
+   * </ul>
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then throw exception")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenThrowException() {
     // Arrange
     SslCredentialsConfig sslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -498,17 +614,21 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SslCredentialsConfig("Name", true), null);
@@ -516,26 +636,32 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SslCredentialsConfig.equals(Object)", "int SslCredentialsConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SslCredentialsConfig.equals(Object)",
+    "int SslCredentialsConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new SslCredentialsConfig("Name", true), "Different type to SslCredentialsConfig");
+    assertNotEquals(
+        new SslCredentialsConfig("Name", true), "Different type to SslCredentialsConfig");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SslCredentialsConfig#SslCredentialsConfig(String, boolean)}
    *   <li>{@link SslCredentialsConfig#setCredentials(SslCredentials)}
@@ -556,15 +682,22 @@ class SslCredentialsConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SslCredentialsConfig.<init>(String, boolean)",
-      "SslCredentials SslCredentialsConfig.getCredentials()",
-      "KeystoreSslCredentials SslCredentialsConfig.getKeystore()", "String SslCredentialsConfig.getName()",
-      "PemSslCredentials SslCredentialsConfig.getPem()", "SslCredentialsType SslCredentialsConfig.getType()",
-      "boolean SslCredentialsConfig.isEnabled()", "boolean SslCredentialsConfig.isTrustsOnly()",
-      "void SslCredentialsConfig.setCredentials(SslCredentials)", "void SslCredentialsConfig.setEnabled(boolean)",
-      "void SslCredentialsConfig.setKeystore(KeystoreSslCredentials)",
-      "void SslCredentialsConfig.setPem(PemSslCredentials)", "void SslCredentialsConfig.setType(SslCredentialsType)",
-      "String SslCredentialsConfig.toString()"})
+  @MethodsUnderTest({
+    "void SslCredentialsConfig.<init>(String, boolean)",
+    "SslCredentials SslCredentialsConfig.getCredentials()",
+    "KeystoreSslCredentials SslCredentialsConfig.getKeystore()",
+    "String SslCredentialsConfig.getName()",
+    "PemSslCredentials SslCredentialsConfig.getPem()",
+    "SslCredentialsType SslCredentialsConfig.getType()",
+    "boolean SslCredentialsConfig.isEnabled()",
+    "boolean SslCredentialsConfig.isTrustsOnly()",
+    "void SslCredentialsConfig.setCredentials(SslCredentials)",
+    "void SslCredentialsConfig.setEnabled(boolean)",
+    "void SslCredentialsConfig.setKeystore(KeystoreSslCredentials)",
+    "void SslCredentialsConfig.setPem(PemSslCredentials)",
+    "void SslCredentialsConfig.setType(SslCredentialsType)",
+    "String SslCredentialsConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SslCredentialsConfig actualSslCredentialsConfig = new SslCredentialsConfig("Name", true);
@@ -602,14 +735,17 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code classpath:}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code
+   *       classpath:}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) StoreFile is 'classpath:'")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) StoreFile is 'classpath:'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsStoreFileIsClasspath() {
@@ -626,14 +762,16 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is empty string.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) StoreFile is empty string")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) StoreFile is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsStoreFileIsEmptyString() {
@@ -650,14 +788,17 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code {}: Initializing SSL credentials.}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code {}:
+   *       Initializing SSL credentials.}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) StoreFile is '{}: Initializing SSL credentials.'")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) StoreFile is '{}: Initializing SSL credentials.'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsStoreFileIsInitializingSslCredentials() {
@@ -674,14 +815,17 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StorePassword is {@code iloveyou}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StorePassword is {@code
+   *       iloveyou}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) StorePassword is 'iloveyou'")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) StorePassword is 'iloveyou'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsStorePasswordIsIloveyou() {
@@ -699,15 +843,17 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) Type is empty string.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) Type is empty string.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) Type is empty string; then throw RuntimeException")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) Type is empty string; then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsTypeIsEmptyString_thenThrowRuntimeException() {
@@ -725,14 +871,17 @@ class SslCredentialsConfigDiffblueTest {
 
   /**
    * Test {@link SslCredentialsConfig#init()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) Type is {@code {}: Initializing SSL credentials.}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) Type is {@code {}:
+   *       Initializing SSL credentials.}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslCredentialsConfig#init()}
+   *
+   * <p>Method under test: {@link SslCredentialsConfig#init()}
    */
   @Test
-  @DisplayName("Test init(); given KeystoreSslCredentials (default constructor) Type is '{}: Initializing SSL credentials.'")
+  @DisplayName(
+      "Test init(); given KeystoreSslCredentials (default constructor) Type is '{}: Initializing SSL credentials.'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SslCredentialsConfig.init()"})
   void testInit_givenKeystoreSslCredentialsTypeIsInitializingSslCredentials() {

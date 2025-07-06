@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class TbMsgTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgType#getRuleNodeConnection()}
    *   <li>{@link TbMsgType#isTellSelfOnly()}
@@ -20,7 +21,10 @@ class TbMsgTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbMsgType.getRuleNodeConnection()", "boolean TbMsgType.isTellSelfOnly()"})
+  @MethodsUnderTest({
+    "String TbMsgType.getRuleNodeConnection()",
+    "boolean TbMsgType.isTellSelfOnly()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbMsgType valueOfResult = TbMsgType.valueOf("POST_ATTRIBUTES_REQUEST");

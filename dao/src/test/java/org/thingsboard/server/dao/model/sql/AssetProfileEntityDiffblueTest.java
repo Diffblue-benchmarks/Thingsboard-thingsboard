@@ -22,12 +22,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class AssetProfileEntityDiffblueTest {
   /**
    * Test {@link AssetProfileEntity#equals(Object)}, and {@link AssetProfileEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileEntity#equals(Object)}
    *   <li>{@link AssetProfileEntity#hashCode()}
@@ -35,16 +37,22 @@ public class AssetProfileEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -57,10 +65,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -78,12 +89,14 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}, and {@link AssetProfileEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileEntity#equals(Object)}
    *   <li>{@link AssetProfileEntity#hashCode()}
@@ -91,16 +104,22 @@ public class AssetProfileEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -118,25 +137,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(3L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -149,10 +175,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -168,25 +197,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(false);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -199,10 +235,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -218,25 +257,31 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
     assetProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -249,10 +294,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -268,25 +316,31 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
     assetProfileEntity.setDefaultDashboardId(null);
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -299,10 +353,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -318,25 +375,31 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -349,10 +412,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -368,25 +434,31 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultEdgeRuleChainId(null);
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -399,10 +471,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -418,25 +493,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -449,10 +531,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -468,25 +553,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName(null);
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -499,10 +591,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -518,23 +613,29 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
     assetProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
     assetProfileEntity.setDescription("The characteristics of someone or something");
@@ -549,10 +650,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -568,23 +672,29 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
     assetProfileEntity.setDefaultRuleChainId(null);
     assetProfileEntity.setDescription("The characteristics of someone or something");
@@ -599,10 +709,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -618,25 +731,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("Name");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -649,10 +769,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -668,25 +791,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription(null);
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -699,10 +829,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -718,25 +851,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(ModelConstants.NULL_UUID);
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -749,10 +889,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -768,25 +911,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(null);
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -799,10 +949,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -818,25 +971,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -849,10 +1009,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -868,25 +1031,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -899,10 +1069,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -918,25 +1091,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -949,10 +1129,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -968,25 +1151,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -999,10 +1189,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1018,25 +1211,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1049,10 +1249,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1068,25 +1271,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1099,10 +1309,13 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity assetProfileEntity2 = new AssetProfileEntity();
     assetProfileEntity2.setCreatedTime(1L);
     assetProfileEntity2.setDefault(true);
-    assetProfileEntity2.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity2.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity2.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setDescription("The characteristics of someone or something");
     assetProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1118,25 +1331,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1152,25 +1372,32 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AssetProfileEntity.equals(Object)", "int AssetProfileEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AssetProfileEntity.equals(Object)",
+    "int AssetProfileEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
     assetProfileEntity.setDefault(true);
-    assetProfileEntity.setDefaultDashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    assetProfileEntity.setDefaultEdgeRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDefaultQueueName("Default Queue Name");
-    assetProfileEntity.setDefaultRuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    assetProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setDescription("The characteristics of someone or something");
     assetProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     assetProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1186,8 +1413,9 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileEntity#AssetProfileEntity()}
    *   <li>{@link AssetProfileEntity#setDefault(boolean)}
@@ -1215,17 +1443,30 @@ public class AssetProfileEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AssetProfileEntity.<init>()", "UUID AssetProfileEntity.getDefaultDashboardId()",
-      "UUID AssetProfileEntity.getDefaultEdgeRuleChainId()", "String AssetProfileEntity.getDefaultQueueName()",
-      "UUID AssetProfileEntity.getDefaultRuleChainId()", "String AssetProfileEntity.getDescription()",
-      "UUID AssetProfileEntity.getExternalId()", "String AssetProfileEntity.getImage()",
-      "String AssetProfileEntity.getName()", "UUID AssetProfileEntity.getTenantId()",
-      "boolean AssetProfileEntity.isDefault()", "void AssetProfileEntity.setDefault(boolean)",
-      "void AssetProfileEntity.setDefaultDashboardId(UUID)", "void AssetProfileEntity.setDefaultEdgeRuleChainId(UUID)",
-      "void AssetProfileEntity.setDefaultQueueName(String)", "void AssetProfileEntity.setDefaultRuleChainId(UUID)",
-      "void AssetProfileEntity.setDescription(String)", "void AssetProfileEntity.setExternalId(UUID)",
-      "void AssetProfileEntity.setImage(String)", "void AssetProfileEntity.setName(String)",
-      "void AssetProfileEntity.setTenantId(UUID)", "String AssetProfileEntity.toString()"})
+  @MethodsUnderTest({
+    "void AssetProfileEntity.<init>()",
+    "UUID AssetProfileEntity.getDefaultDashboardId()",
+    "UUID AssetProfileEntity.getDefaultEdgeRuleChainId()",
+    "String AssetProfileEntity.getDefaultQueueName()",
+    "UUID AssetProfileEntity.getDefaultRuleChainId()",
+    "String AssetProfileEntity.getDescription()",
+    "UUID AssetProfileEntity.getExternalId()",
+    "String AssetProfileEntity.getImage()",
+    "String AssetProfileEntity.getName()",
+    "UUID AssetProfileEntity.getTenantId()",
+    "boolean AssetProfileEntity.isDefault()",
+    "void AssetProfileEntity.setDefault(boolean)",
+    "void AssetProfileEntity.setDefaultDashboardId(UUID)",
+    "void AssetProfileEntity.setDefaultEdgeRuleChainId(UUID)",
+    "void AssetProfileEntity.setDefaultQueueName(String)",
+    "void AssetProfileEntity.setDefaultRuleChainId(UUID)",
+    "void AssetProfileEntity.setDescription(String)",
+    "void AssetProfileEntity.setExternalId(UUID)",
+    "void AssetProfileEntity.setImage(String)",
+    "void AssetProfileEntity.setName(String)",
+    "void AssetProfileEntity.setTenantId(UUID)",
+    "String AssetProfileEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     AssetProfileEntity actualAssetProfileEntity = new AssetProfileEntity();
@@ -1287,15 +1528,15 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
   public void testNewAssetProfileEntity() {
     // Arrange
-    AssetProfile assetProfile = new AssetProfile();
+    AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
     assetProfile.setDefaultRuleChainId(null);
     assetProfile.setDefaultDashboardId(null);
@@ -1316,15 +1557,15 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
   public void testNewAssetProfileEntity2() {
     // Arrange
-    AssetProfile assetProfile = new AssetProfile();
+    AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     assetProfile.setDefaultRuleChainId(new RuleChainId(id));
@@ -1345,15 +1586,15 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
   public void testNewAssetProfileEntity3() {
     // Arrange
-    AssetProfile assetProfile = new AssetProfile();
+    AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(ModelConstants.SYSTEM_TENANT);
     assetProfile.setDefaultRuleChainId(null);
     assetProfile.setDefaultDashboardId(null);
@@ -1364,7 +1605,8 @@ public class AssetProfileEntityDiffblueTest {
     AssetProfileEntity actualAssetProfileEntity = new AssetProfileEntity(assetProfile);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualAssetProfileEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualAssetProfileEntity.getTenantId().toString());
     assertNull(actualAssetProfileEntity.getDefaultDashboardId());
     assertNull(actualAssetProfileEntity.getDefaultEdgeRuleChainId());
     assertNull(actualAssetProfileEntity.getDefaultRuleChainId());
@@ -1373,15 +1615,15 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
   public void testNewAssetProfileEntity4() {
     // Arrange
-    AssetProfile assetProfile = new AssetProfile();
+    AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
     assetProfile.setDefaultRuleChainId(null);
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1404,15 +1646,15 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
   public void testNewAssetProfileEntity5() {
     // Arrange
-    AssetProfile assetProfile = new AssetProfile();
+    AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
     assetProfile.setDefaultRuleChainId(null);
     assetProfile.setDefaultDashboardId(null);
@@ -1435,12 +1677,13 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}.
+   *
    * <ul>
-   *   <li>When {@link AssetProfile#AssetProfile()}.</li>
-   *   <li>Then return DefaultDashboardId is {@code null}.</li>
+   *   <li>When {@link AssetProfile#AssetProfile()}.
+   *   <li>Then return DefaultDashboardId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1459,8 +1702,8 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1495,8 +1738,8 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1531,8 +1774,8 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1567,19 +1810,20 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AssetProfileEntity#AssetProfileEntity()}.</li>
-   *   <li>Then return Version is {@code null}.</li>
+   *   <li>Given {@link AssetProfileEntity#AssetProfileEntity()}.
+   *   <li>Then return Version is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
   public void testToData_givenAssetProfileEntity_thenReturnVersionIsNull() {
     // Arrange and Act
-    AssetProfile actualToDataResult = (new AssetProfileEntity()).toData();
+    AssetProfile actualToDataResult = new AssetProfileEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getVersion());
@@ -1595,11 +1839,12 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return ExternalId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return ExternalId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1638,11 +1883,12 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1687,11 +1933,12 @@ public class AssetProfileEntityDiffblueTest {
 
   /**
    * Test {@link AssetProfileEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileEntity#toData()}
+   *
+   * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

@@ -17,26 +17,30 @@ import org.thingsboard.server.queue.TbQueueMsgDecoder;
 
 @ExtendWith(MockitoExtension.class)
 class TbServiceBusConsumerTemplateDiffblueTest {
-  @Mock
-  private TbQueueAdmin tbQueueAdmin;
+  @Mock private TbQueueAdmin tbQueueAdmin;
 
-  @Mock
-  private TbServiceBusSettings tbServiceBusSettings;
+  @Mock private TbServiceBusSettings tbServiceBusSettings;
 
   /**
-   * Test {@link TbServiceBusConsumerTemplate#TbServiceBusConsumerTemplate(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)}.
-   * <p>
-   * Method under test: {@link TbServiceBusConsumerTemplate#TbServiceBusConsumerTemplate(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)}
+   * Test {@link TbServiceBusConsumerTemplate#TbServiceBusConsumerTemplate(TbQueueAdmin,
+   * TbServiceBusSettings, String, TbQueueMsgDecoder)}.
+   *
+   * <p>Method under test: {@link
+   * TbServiceBusConsumerTemplate#TbServiceBusConsumerTemplate(TbQueueAdmin, TbServiceBusSettings,
+   * String, TbQueueMsgDecoder)}
    */
   @Test
-  @DisplayName("Test new TbServiceBusConsumerTemplate(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)")
+  @DisplayName(
+      "Test new TbServiceBusConsumerTemplate(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void TbServiceBusConsumerTemplate.<init>(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)"})
+    "void TbServiceBusConsumerTemplate.<init>(TbQueueAdmin, TbServiceBusSettings, String, TbQueueMsgDecoder)"
+  })
   void testNewTbServiceBusConsumerTemplate() {
     // Arrange and Act
-    TbServiceBusConsumerTemplate<TbQueueMsg> actualTbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(
-        tbQueueAdmin, tbServiceBusSettings, "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> actualTbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            tbQueueAdmin, tbServiceBusSettings, "Topic", mock(TbQueueMsgDecoder.class));
 
     // Assert
     assertEquals("Topic", actualTbServiceBusConsumerTemplate.getTopic());

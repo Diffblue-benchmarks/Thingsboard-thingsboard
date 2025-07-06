@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class RpcStatusDiffblueTest {
   /**
    * Test {@link RpcStatus#isPushDeleteNotificationToCore()}.
-   * <p>
-   * Method under test: {@link RpcStatus#isPushDeleteNotificationToCore()}
+   *
+   * <p>Method under test: {@link RpcStatus#isPushDeleteNotificationToCore()}
    */
   @Test
   @DisplayName("Test isPushDeleteNotificationToCore()")

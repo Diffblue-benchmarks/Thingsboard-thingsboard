@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ProcessFailureStrategyDiffblueTest {
   /**
    * Test {@link ProcessFailureStrategy#stop()}.
-   * <p>
-   * Method under test: {@link ProcessFailureStrategy#stop()}
+   *
+   * <p>Method under test: {@link ProcessFailureStrategy#stop()}
    */
   @Test
   @DisplayName("Test stop()")
@@ -25,8 +25,8 @@ class ProcessFailureStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessFailureStrategy#resume()}.
-   * <p>
-   * Method under test: {@link ProcessFailureStrategy#resume()}
+   *
+   * <p>Method under test: {@link ProcessFailureStrategy#resume()}
    */
   @Test
   @DisplayName("Test resume()")
@@ -39,8 +39,9 @@ class ProcessFailureStrategyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProcessFailureStrategy#toString()}
    *   <li>{@link ProcessFailureStrategy#isStop()}
@@ -49,7 +50,10 @@ class ProcessFailureStrategyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessFailureStrategy.isStop()", "String ProcessFailureStrategy.toString()"})
+  @MethodsUnderTest({
+    "boolean ProcessFailureStrategy.isStop()",
+    "String ProcessFailureStrategy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ProcessFailureStrategy resumeResult = ProcessFailureStrategy.resume();

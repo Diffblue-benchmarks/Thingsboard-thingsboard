@@ -13,25 +13,29 @@ import org.thingsboard.server.gen.edge.v1.EdgeVersion;
 
 @ExtendWith(MockitoExtension.class)
 class TenantEdgeProcessorDiffblueTest {
-  @InjectMocks
-  private TenantEdgeProcessor tenantEdgeProcessor;
+  @InjectMocks private TenantEdgeProcessor tenantEdgeProcessor;
 
   /**
    * Test {@link TenantEdgeProcessor#convertTenantEventToDownlink(EdgeEvent, EdgeVersion)}.
+   *
    * <ul>
-   *   <li>When {@link EdgeEvent#EdgeEvent()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link EdgeEvent#EdgeEvent()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEdgeProcessor#convertTenantEventToDownlink(EdgeEvent, EdgeVersion)}
+   *
+   * <p>Method under test: {@link TenantEdgeProcessor#convertTenantEventToDownlink(EdgeEvent,
+   * EdgeVersion)}
    */
   @Test
-  @DisplayName("Test convertTenantEventToDownlink(EdgeEvent, EdgeVersion); when EdgeEvent(); then return 'null'")
+  @DisplayName(
+      "Test convertTenantEventToDownlink(EdgeEvent, EdgeVersion); when EdgeEvent(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.gen.edge.v1.DownlinkMsg TenantEdgeProcessor.convertTenantEventToDownlink(EdgeEvent, EdgeVersion)"})
+    "org.thingsboard.server.gen.edge.v1.DownlinkMsg TenantEdgeProcessor.convertTenantEventToDownlink(EdgeEvent, EdgeVersion)"
+  })
   void testConvertTenantEventToDownlink_whenEdgeEvent_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull(tenantEdgeProcessor.convertTenantEventToDownlink(new EdgeEvent(), EdgeVersion.V_3_3_0));
+    assertNull(
+        tenantEdgeProcessor.convertTenantEventToDownlink(new EdgeEvent(), EdgeVersion.V_3_3_0));
   }
 }

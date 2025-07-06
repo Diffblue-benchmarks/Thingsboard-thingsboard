@@ -21,29 +21,32 @@ import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProvi
 class PlatformTwoFaSettingsDiffblueTest {
   /**
    * Test {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}.
+   *
    * <ul>
-   *   <li>Given {@link PlatformTwoFaSettings} (default constructor).</li>
-   *   <li>Then return not Present.</li>
+   *   <li>Given {@link PlatformTwoFaSettings} (default constructor).
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
-  @DisplayName("Test getProviderConfig(TwoFaProviderType); given PlatformTwoFaSettings (default constructor); then return not Present")
+  @DisplayName(
+      "Test getProviderConfig(TwoFaProviderType); given PlatformTwoFaSettings (default constructor); then return not Present")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional PlatformTwoFaSettings.getProviderConfig(TwoFaProviderType)"})
   void testGetProviderConfig_givenPlatformTwoFaSettings_thenReturnNotPresent() {
     // Arrange, Act and Assert
-    assertFalse((new PlatformTwoFaSettings()).getProviderConfig(TwoFaProviderType.TOTP).isPresent());
+    assertFalse(new PlatformTwoFaSettings().getProviderConfig(TwoFaProviderType.TOTP).isPresent());
   }
 
   /**
    * Test {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}.
+   *
    * <ul>
-   *   <li>Then return not Present.</li>
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
   @DisplayName("Test getProviderConfig(TwoFaProviderType); then return not Present")
@@ -56,7 +59,7 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertFalse(platformTwoFaSettings.getProviderConfig(TwoFaProviderType.TOTP).isPresent());
@@ -64,11 +67,12 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}.
+   *
    * <ul>
-   *   <li>Then return Present.</li>
+   *   <li>Then return Present.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#getProviderConfig(TwoFaProviderType)}
    */
   @Test
   @DisplayName("Test getProviderConfig(TwoFaProviderType); then return Present")
@@ -87,11 +91,11 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(providers);
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     // Act
-    Optional<TwoFaProviderConfig> actualProviderConfig = platformTwoFaSettings
-        .getProviderConfig(TwoFaProviderType.TOTP);
+    Optional<TwoFaProviderConfig> actualProviderConfig =
+        platformTwoFaSettings.getProviderConfig(TwoFaProviderType.TOTP);
 
     // Assert
     verify(twoFaProviderConfig).getProviderType();
@@ -99,13 +103,16 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link
+   * PlatformTwoFaSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PlatformTwoFaSettings#equals(Object)}
    *   <li>{@link PlatformTwoFaSettings#hashCode()}
@@ -114,7 +121,10 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -122,14 +132,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -138,13 +148,16 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link
+   * PlatformTwoFaSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PlatformTwoFaSettings#equals(Object)}
    *   <li>{@link PlatformTwoFaSettings#hashCode()}
@@ -153,7 +166,10 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -161,14 +177,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(null);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -177,13 +193,16 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link
+   * PlatformTwoFaSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PlatformTwoFaSettings#equals(Object)}
    *   <li>{@link PlatformTwoFaSettings#hashCode()}
@@ -192,7 +211,10 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -200,14 +222,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(null);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(null);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -216,13 +238,16 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link
+   * PlatformTwoFaSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PlatformTwoFaSettings#equals(Object)}
    *   <li>{@link PlatformTwoFaSettings#hashCode()}
@@ -231,7 +256,10 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -239,14 +267,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(null);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(null);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -255,52 +283,16 @@ class PlatformTwoFaSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
+   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link
+   * PlatformTwoFaSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link PlatformTwoFaSettings#equals(Object)}
-   *   <li>{@link PlatformTwoFaSettings#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
-    // Arrange
-    PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
-    platformTwoFaSettings.setMaxVerificationFailuresBeforeUserLockout(3);
-    platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
-    platformTwoFaSettings.setProviders(new ArrayList<>());
-    platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit(null);
-
-    PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
-    platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
-    platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
-    platformTwoFaSettings2.setProviders(new ArrayList<>());
-    platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit(null);
-
-    // Act and Assert
-    assertEquals(platformTwoFaSettings, platformTwoFaSettings2);
-    int expectedHashCodeResult = platformTwoFaSettings.hashCode();
-    assertEquals(expectedHashCodeResult, platformTwoFaSettings2.hashCode());
-  }
-
-  /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}, and {@link PlatformTwoFaSettings#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PlatformTwoFaSettings#equals(Object)}
    *   <li>{@link PlatformTwoFaSettings#hashCode()}
@@ -309,7 +301,10 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -317,7 +312,7 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertEquals(platformTwoFaSettings, platformTwoFaSettings);
@@ -327,17 +322,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -345,14 +344,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -360,17 +359,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -378,14 +381,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -393,17 +396,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -411,14 +418,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(1);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -426,17 +433,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -444,14 +455,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(null);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -459,17 +470,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ArrayList<TwoFaProviderConfig> providers = new ArrayList<>();
@@ -480,14 +495,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(providers);
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -495,17 +510,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -513,14 +532,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(3);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -528,17 +547,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -546,14 +569,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(null);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -561,17 +584,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -579,14 +606,14 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit(null);
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:9999:99");
 
     PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
     platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
     platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings2.setProviders(new ArrayList<>());
     platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
@@ -594,51 +621,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
-    // Arrange
-    PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
-    platformTwoFaSettings.setMaxVerificationFailuresBeforeUserLockout(3);
-    platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
-    platformTwoFaSettings.setProviders(new ArrayList<>());
-    platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit(
-        "org.thingsboard.server.common.data.security.model.mfa.PlatformTwoFaSettings");
-
-    PlatformTwoFaSettings platformTwoFaSettings2 = new PlatformTwoFaSettings();
-    platformTwoFaSettings2.setMaxVerificationFailuresBeforeUserLockout(3);
-    platformTwoFaSettings2.setMinVerificationCodeSendPeriod(3);
-    platformTwoFaSettings2.setProviders(new ArrayList<>());
-    platformTwoFaSettings2.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings2.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
-
-    // Act and Assert
-    assertNotEquals(platformTwoFaSettings, platformTwoFaSettings2);
-  }
-
-  /**
-   * Test {@link PlatformTwoFaSettings#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -646,7 +643,7 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, null);
@@ -654,17 +651,21 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test {@link PlatformTwoFaSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PlatformTwoFaSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link PlatformTwoFaSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PlatformTwoFaSettings.equals(Object)", "int PlatformTwoFaSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PlatformTwoFaSettings.equals(Object)",
+    "int PlatformTwoFaSettings.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PlatformTwoFaSettings platformTwoFaSettings = new PlatformTwoFaSettings();
@@ -672,7 +673,7 @@ class PlatformTwoFaSettingsDiffblueTest {
     platformTwoFaSettings.setMinVerificationCodeSendPeriod(3);
     platformTwoFaSettings.setProviders(new ArrayList<>());
     platformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    platformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    platformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
 
     // Act and Assert
     assertNotEquals(platformTwoFaSettings, "Different type to PlatformTwoFaSettings");
@@ -680,8 +681,9 @@ class PlatformTwoFaSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link PlatformTwoFaSettings}
    *   <li>{@link PlatformTwoFaSettings#setMaxVerificationFailuresBeforeUserLockout(Integer)}
@@ -700,17 +702,20 @@ class PlatformTwoFaSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PlatformTwoFaSettings.<init>()",
-      "Integer PlatformTwoFaSettings.getMaxVerificationFailuresBeforeUserLockout()",
-      "Integer PlatformTwoFaSettings.getMinVerificationCodeSendPeriod()", "List PlatformTwoFaSettings.getProviders()",
-      "Integer PlatformTwoFaSettings.getTotalAllowedTimeForVerification()",
-      "String PlatformTwoFaSettings.getVerificationCodeCheckRateLimit()",
-      "void PlatformTwoFaSettings.setMaxVerificationFailuresBeforeUserLockout(Integer)",
-      "void PlatformTwoFaSettings.setMinVerificationCodeSendPeriod(Integer)",
-      "void PlatformTwoFaSettings.setProviders(List)",
-      "void PlatformTwoFaSettings.setTotalAllowedTimeForVerification(Integer)",
-      "void PlatformTwoFaSettings.setVerificationCodeCheckRateLimit(String)",
-      "String PlatformTwoFaSettings.toString()"})
+  @MethodsUnderTest({
+    "void PlatformTwoFaSettings.<init>()",
+    "Integer PlatformTwoFaSettings.getMaxVerificationFailuresBeforeUserLockout()",
+    "Integer PlatformTwoFaSettings.getMinVerificationCodeSendPeriod()",
+    "List PlatformTwoFaSettings.getProviders()",
+    "Integer PlatformTwoFaSettings.getTotalAllowedTimeForVerification()",
+    "String PlatformTwoFaSettings.getVerificationCodeCheckRateLimit()",
+    "void PlatformTwoFaSettings.setMaxVerificationFailuresBeforeUserLockout(Integer)",
+    "void PlatformTwoFaSettings.setMinVerificationCodeSendPeriod(Integer)",
+    "void PlatformTwoFaSettings.setProviders(List)",
+    "void PlatformTwoFaSettings.setTotalAllowedTimeForVerification(Integer)",
+    "void PlatformTwoFaSettings.setVerificationCodeCheckRateLimit(String)",
+    "String PlatformTwoFaSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PlatformTwoFaSettings actualPlatformTwoFaSettings = new PlatformTwoFaSettings();
@@ -719,19 +724,22 @@ class PlatformTwoFaSettingsDiffblueTest {
     ArrayList<TwoFaProviderConfig> providers = new ArrayList<>();
     actualPlatformTwoFaSettings.setProviders(providers);
     actualPlatformTwoFaSettings.setTotalAllowedTimeForVerification(1);
-    actualPlatformTwoFaSettings.setVerificationCodeCheckRateLimit("Verification Code Check Rate Limit");
+    actualPlatformTwoFaSettings.setVerificationCodeCheckRateLimit("99:99");
     String actualToStringResult = actualPlatformTwoFaSettings.toString();
-    Integer actualMaxVerificationFailuresBeforeUserLockout = actualPlatformTwoFaSettings
-        .getMaxVerificationFailuresBeforeUserLockout();
-    Integer actualMinVerificationCodeSendPeriod = actualPlatformTwoFaSettings.getMinVerificationCodeSendPeriod();
+    Integer actualMaxVerificationFailuresBeforeUserLockout =
+        actualPlatformTwoFaSettings.getMaxVerificationFailuresBeforeUserLockout();
+    Integer actualMinVerificationCodeSendPeriod =
+        actualPlatformTwoFaSettings.getMinVerificationCodeSendPeriod();
     List<TwoFaProviderConfig> actualProviders = actualPlatformTwoFaSettings.getProviders();
-    Integer actualTotalAllowedTimeForVerification = actualPlatformTwoFaSettings.getTotalAllowedTimeForVerification();
+    Integer actualTotalAllowedTimeForVerification =
+        actualPlatformTwoFaSettings.getTotalAllowedTimeForVerification();
 
     // Assert
-    assertEquals("PlatformTwoFaSettings(providers=[], minVerificationCodeSendPeriod=3, verificationCodeCheckRateLimit"
-        + "=Verification Code Check Rate Limit, maxVerificationFailuresBeforeUserLockout=3, totalAllowedTimeFor"
-        + "Verification=1)", actualToStringResult);
-    assertEquals("Verification Code Check Rate Limit", actualPlatformTwoFaSettings.getVerificationCodeCheckRateLimit());
+    assertEquals("99:99", actualPlatformTwoFaSettings.getVerificationCodeCheckRateLimit());
+    assertEquals(
+        "PlatformTwoFaSettings(providers=[], minVerificationCodeSendPeriod=3, verificationCodeCheckRateLimit=99:99,"
+            + " maxVerificationFailuresBeforeUserLockout=3, totalAllowedTimeForVerification=1)",
+        actualToStringResult);
     assertEquals(1, actualTotalAllowedTimeForVerification.intValue());
     assertEquals(3, actualMaxVerificationFailuresBeforeUserLockout.intValue());
     assertEquals(3, actualMinVerificationCodeSendPeriod.intValue());

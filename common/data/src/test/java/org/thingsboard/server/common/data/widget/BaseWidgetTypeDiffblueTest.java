@@ -16,12 +16,14 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 class BaseWidgetTypeDiffblueTest {
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -44,12 +46,14 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -75,12 +79,14 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -106,12 +112,14 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -137,12 +145,14 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -168,12 +178,14 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}, and {@link BaseWidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#equals(Object)}
    *   <li>{@link BaseWidgetType#hashCode()}
@@ -195,12 +207,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -208,8 +221,9 @@ class BaseWidgetTypeDiffblueTest {
   @MethodsUnderTest({"boolean BaseWidgetType.equals(Object)", "int BaseWidgetType.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    BaseWidgetType baseWidgetType = new BaseWidgetType(
-        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    BaseWidgetType baseWidgetType =
+        new BaseWidgetType(
+            new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(baseWidgetType, new BaseWidgetType());
@@ -217,12 +231,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -238,12 +253,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -260,12 +276,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -282,12 +299,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -304,12 +322,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -326,12 +345,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -348,12 +368,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -370,12 +391,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -394,12 +416,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -418,12 +441,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -442,12 +466,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -466,12 +491,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -484,12 +510,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -502,8 +529,9 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#BaseWidgetType(WidgetTypeId)}
    *   <li>{@link BaseWidgetType#setDeprecated(boolean)}
@@ -524,13 +552,23 @@ class BaseWidgetTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BaseWidgetType.<init>()", "void BaseWidgetType.<init>(WidgetTypeId)",
-      "String BaseWidgetType.getFqn()", "String BaseWidgetType.getName()", "TenantId BaseWidgetType.getTenantId()",
-      "Long BaseWidgetType.getVersion()", "boolean BaseWidgetType.isDeprecated()", "boolean BaseWidgetType.isScada()",
-      "void BaseWidgetType.setDeprecated(boolean)", "void BaseWidgetType.setFqn(String)",
-      "void BaseWidgetType.setName(String)", "void BaseWidgetType.setScada(boolean)",
-      "void BaseWidgetType.setTenantId(TenantId)", "void BaseWidgetType.setVersion(Long)",
-      "String BaseWidgetType.toString()"})
+  @MethodsUnderTest({
+    "void BaseWidgetType.<init>()",
+    "void BaseWidgetType.<init>(WidgetTypeId)",
+    "String BaseWidgetType.getFqn()",
+    "String BaseWidgetType.getName()",
+    "TenantId BaseWidgetType.getTenantId()",
+    "Long BaseWidgetType.getVersion()",
+    "boolean BaseWidgetType.isDeprecated()",
+    "boolean BaseWidgetType.isScada()",
+    "void BaseWidgetType.setDeprecated(boolean)",
+    "void BaseWidgetType.setFqn(String)",
+    "void BaseWidgetType.setName(String)",
+    "void BaseWidgetType.setScada(boolean)",
+    "void BaseWidgetType.setTenantId(TenantId)",
+    "void BaseWidgetType.setVersion(Long)",
+    "String BaseWidgetType.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     WidgetTypeId id = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -552,8 +590,10 @@ class BaseWidgetTypeDiffblueTest {
     boolean actualIsScadaResult = actualBaseWidgetType.isScada();
 
     // Assert
-    assertEquals("BaseWidgetType(tenantId=13814000-1dd2-11b2-8080-808080808080, fqn=Fqn, name=Name, deprecated=true,"
-        + " scada=true, version=1)", actualToStringResult);
+    assertEquals(
+        "BaseWidgetType(tenantId=13814000-1dd2-11b2-8080-808080808080, fqn=Fqn, name=Name, deprecated=true,"
+            + " scada=true, version=1)",
+        actualToStringResult);
     assertEquals("Fqn", actualFqn);
     assertEquals("Name", actualName);
     assertEquals(0L, actualBaseWidgetType.getCreatedTime());
@@ -566,11 +606,13 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BaseWidgetType#BaseWidgetType()}
    *   <li>{@link BaseWidgetType#setDeprecated(boolean)}
@@ -591,13 +633,23 @@ class BaseWidgetTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BaseWidgetType.<init>()", "void BaseWidgetType.<init>(WidgetTypeId)",
-      "String BaseWidgetType.getFqn()", "String BaseWidgetType.getName()", "TenantId BaseWidgetType.getTenantId()",
-      "Long BaseWidgetType.getVersion()", "boolean BaseWidgetType.isDeprecated()", "boolean BaseWidgetType.isScada()",
-      "void BaseWidgetType.setDeprecated(boolean)", "void BaseWidgetType.setFqn(String)",
-      "void BaseWidgetType.setName(String)", "void BaseWidgetType.setScada(boolean)",
-      "void BaseWidgetType.setTenantId(TenantId)", "void BaseWidgetType.setVersion(Long)",
-      "String BaseWidgetType.toString()"})
+  @MethodsUnderTest({
+    "void BaseWidgetType.<init>()",
+    "void BaseWidgetType.<init>(WidgetTypeId)",
+    "String BaseWidgetType.getFqn()",
+    "String BaseWidgetType.getName()",
+    "TenantId BaseWidgetType.getTenantId()",
+    "Long BaseWidgetType.getVersion()",
+    "boolean BaseWidgetType.isDeprecated()",
+    "boolean BaseWidgetType.isScada()",
+    "void BaseWidgetType.setDeprecated(boolean)",
+    "void BaseWidgetType.setFqn(String)",
+    "void BaseWidgetType.setName(String)",
+    "void BaseWidgetType.setScada(boolean)",
+    "void BaseWidgetType.setTenantId(TenantId)",
+    "void BaseWidgetType.setVersion(Long)",
+    "String BaseWidgetType.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     BaseWidgetType actualBaseWidgetType = new BaseWidgetType();
@@ -616,8 +668,10 @@ class BaseWidgetTypeDiffblueTest {
     boolean actualIsScadaResult = actualBaseWidgetType.isScada();
 
     // Assert
-    assertEquals("BaseWidgetType(tenantId=13814000-1dd2-11b2-8080-808080808080, fqn=Fqn, name=Name, deprecated=true,"
-        + " scada=true, version=1)", actualToStringResult);
+    assertEquals(
+        "BaseWidgetType(tenantId=13814000-1dd2-11b2-8080-808080808080, fqn=Fqn, name=Name, deprecated=true,"
+            + " scada=true, version=1)",
+        actualToStringResult);
     assertEquals("Fqn", actualFqn);
     assertEquals("Name", actualName);
     assertNull(actualBaseWidgetType.getId());
@@ -630,15 +684,17 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link BaseWidgetType#BaseWidgetType()} Deprecated is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link BaseWidgetType#BaseWidgetType()} Deprecated is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}
    */
   @Test
-  @DisplayName("Test new BaseWidgetType(BaseWidgetType); given 'true'; when BaseWidgetType() Deprecated is 'true'")
+  @DisplayName(
+      "Test new BaseWidgetType(BaseWidgetType); given 'true'; when BaseWidgetType() Deprecated is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseWidgetType.<init>(BaseWidgetType)"})
   void testNewBaseWidgetType_givenTrue_whenBaseWidgetTypeDeprecatedIsTrue() {
@@ -652,11 +708,12 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.</li>
+   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link BaseWidgetType#BaseWidgetType(BaseWidgetType)}
    */
   @Test
   @DisplayName("Test new BaseWidgetType(BaseWidgetType); when BaseWidgetType()")
@@ -672,8 +729,8 @@ class BaseWidgetTypeDiffblueTest {
 
   /**
    * Test {@link BaseWidgetType#getId()}.
-   * <p>
-   * Method under test: {@link BaseWidgetType#getId()}
+   *
+   * <p>Method under test: {@link BaseWidgetType#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -681,13 +738,13 @@ class BaseWidgetTypeDiffblueTest {
   @MethodsUnderTest({"WidgetTypeId BaseWidgetType.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new BaseWidgetType()).getId());
+    assertNull(new BaseWidgetType().getId());
   }
 
   /**
    * Test {@link BaseWidgetType#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link BaseWidgetType#getCreatedTime()}
+   *
+   * <p>Method under test: {@link BaseWidgetType#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -695,6 +752,6 @@ class BaseWidgetTypeDiffblueTest {
   @MethodsUnderTest({"long BaseWidgetType.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new BaseWidgetType()).getCreatedTime());
+    assertEquals(0L, new BaseWidgetType().getCreatedTime());
   }
 }

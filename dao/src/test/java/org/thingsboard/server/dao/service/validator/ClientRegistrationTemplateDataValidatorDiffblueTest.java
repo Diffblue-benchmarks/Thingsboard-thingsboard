@@ -31,189 +31,276 @@ public class ClientRegistrationTemplateDataValidatorDiffblueTest {
   private ClientRegistrationTemplateDataValidator clientRegistrationTemplateDataValidator;
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateUpdate(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateUpdate(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateUpdate(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateUpdate(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "OAuth2ClientRegistrationTemplate ClientRegistrationTemplateDataValidator.validateUpdate(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "OAuth2ClientRegistrationTemplate ClientRegistrationTemplateDataValidator.validateUpdate(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateUpdateWithTenantIdOAuth2ClientRegistrationTemplate() {
     // Arrange, Act and Assert
-    assertNull(clientRegistrationTemplateDataValidator.validateUpdate(ModelConstants.SYSTEM_TENANT,
-        new OAuth2ClientRegistrationTemplate()));
+    assertNull(
+        clientRegistrationTemplateDataValidator.validateUpdate(
+            ModelConstants.SYSTEM_TENANT, new OAuth2ClientRegistrationTemplate()));
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate() {
     // Arrange, Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, new OAuth2ClientRegistrationTemplate()));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, new OAuth2ClientRegistrationTemplate()));
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate2() {
     // Arrange
-    OAuth2ClientRegistrationTemplate clientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
     clientRegistrationTemplate.setProviderId("");
     clientRegistrationTemplate.setMapperConfig(null);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate3() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     mapperConfig.setType(null);
     mapperConfig.setBasic(null);
 
-    OAuth2ClientRegistrationTemplate clientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
     clientRegistrationTemplate.setProviderId("Client Registration Template");
     clientRegistrationTemplate.setMapperConfig(mapperConfig);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate4() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     mapperConfig.setType(MapperType.BASIC);
     mapperConfig.setBasic(null);
 
-    OAuth2ClientRegistrationTemplate clientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
     clientRegistrationTemplate.setProviderId("Client Registration Template");
     clientRegistrationTemplate.setMapperConfig(mapperConfig);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate5() {
+    // Arrange
+    OAuth2MapperConfig mapperConfig = mock(OAuth2MapperConfig.class);
+    when(mapperConfig.getType()).thenThrow(new DataValidationException("An error occurred"));
+
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
+    clientRegistrationTemplate.setProviderId("Client Registration Template");
+    clientRegistrationTemplate.setMapperConfig(mapperConfig);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    verify(mapperConfig).getType();
+  }
+
+  /**
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
+  public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate6() {
     // Arrange
     OAuth2MapperConfig mapperConfig = mock(OAuth2MapperConfig.class);
     when(mapperConfig.getBasic()).thenThrow(new DataValidationException("An error occurred"));
     when(mapperConfig.getType()).thenReturn(MapperType.BASIC);
 
-    OAuth2ClientRegistrationTemplate clientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
     clientRegistrationTemplate.setProviderId("Client Registration Template");
     clientRegistrationTemplate.setMapperConfig(mapperConfig);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
     verify(mapperConfig).getBasic();
     verify(mapperConfig).getType();
   }
 
   /**
-   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code OAuth2ClientRegistrationTemplate}.
+   * Test {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)} with {@code TenantId}, {@code
+   * OAuth2ClientRegistrationTemplate}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
+   *   <li>Given {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)}
+   *
+   * <p>Method under test: {@link ClientRegistrationTemplateDataValidator#validateDataImpl(TenantId,
+   * OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({
-      "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"})
+    "void ClientRegistrationTemplateDataValidator.validateDataImpl(TenantId, OAuth2ClientRegistrationTemplate)"
+  })
   public void testValidateDataImplWithTenantIdOAuth2ClientRegistrationTemplate_givenNull() {
     // Arrange
-    OAuth2ClientRegistrationTemplate clientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate clientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
     clientRegistrationTemplate.setProviderId("Client Registration Template");
     clientRegistrationTemplate.setMapperConfig(null);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> clientRegistrationTemplateDataValidator
-        .validateDataImpl(ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            clientRegistrationTemplateDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, clientRegistrationTemplate));
   }
 }

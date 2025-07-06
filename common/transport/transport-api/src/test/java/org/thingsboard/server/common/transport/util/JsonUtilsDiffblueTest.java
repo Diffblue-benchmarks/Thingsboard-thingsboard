@@ -1,5 +1,6 @@
 package org.thingsboard.server.common.transport.util;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -7,8 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.amazonaws.transform.MapEntry;
 import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.internal.LazilyParsedNumber;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,17 +24,275 @@ import org.junit.jupiter.api.Test;
 
 class JsonUtilsDiffblueTest {
   /**
-   * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   * Test {@link JsonUtils#getJsonObject(List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#getJsonObject(List)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given '42'; when HashMap() '42' is '42'; then return size is two")
+  @DisplayName("Test getJsonObject(List); when ArrayList(); then return size is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonObject JsonUtils.getJsonObject(List)"})
+  void testGetJsonObject_whenArrayList_thenReturnSizeIsZero() {
+    // Arrange and Act
+    JsonObject actualJsonObject = JsonUtils.getJsonObject(new ArrayList<>());
+
+    // Assert
+    assertEquals(0, actualJsonObject.size());
+    assertFalse(actualJsonObject.isJsonArray());
+    assertFalse(actualJsonObject.isJsonNull());
+    assertFalse(actualJsonObject.isJsonPrimitive());
+    assertTrue(actualJsonObject.isJsonObject());
+    assertTrue(actualJsonObject.isEmpty());
+    assertSame(actualJsonObject, actualJsonObject.getAsJsonObject());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When {@code 42}.
+   *   <li>Then return AsNumber toString is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when '42'; then return AsNumber toString is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_when42_thenReturnAsNumberToStringIs42() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse("42");
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    Number asNumber = actualParseResult.getAsNumber();
+    assertTrue(asNumber instanceof LazilyParsedNumber);
+    assertEquals("42", asNumber.toString());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+    assertArrayEquals(new byte[] {'*'}, actualParseResult.getAsBigInteger().toByteArray());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When empty string.
+   *   <li>Then return {@link JsonNull}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when empty string; then return JsonNull")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenEmptyString_thenReturnJsonNull() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse("");
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonNull);
+    assertFalse(actualParseResult.isJsonPrimitive());
+    assertTrue(actualParseResult.isJsonNull());
+    JsonNull expectedAsJsonNull = ((JsonNull) actualParseResult).INSTANCE;
+    assertSame(expectedAsJsonNull, actualParseResult.getAsJsonNull());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When forty-two.
+   *   <li>Then return AsNumber intValue is forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when forty-two; then return AsNumber intValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenFortyTwo_thenReturnAsNumberIntValueIsFortyTwo() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse(42);
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    assertEquals(42, actualParseResult.getAsNumber().intValue());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+    assertArrayEquals(new byte[] {'*'}, actualParseResult.getAsBigInteger().toByteArray());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When forty-two.
+   *   <li>Then return AsNumber longValue is forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when forty-two; then return AsNumber longValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenFortyTwo_thenReturnAsNumberLongValueIsFortyTwo() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse(42L);
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    assertEquals(42L, actualParseResult.getAsNumber().longValue());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+    assertArrayEquals(new byte[] {'*'}, actualParseResult.getAsBigInteger().toByteArray());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When ten.
+   *   <li>Then return AsNumber doubleValue is ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when ten; then return AsNumber doubleValue is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenTen_thenReturnAsNumberDoubleValueIsTen() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse(10.0d);
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    assertEquals("10.0", actualParseResult.getAsString());
+    assertEquals('1', actualParseResult.getAsCharacter());
+    assertEquals(10, actualParseResult.getAsInt());
+    assertEquals(10.0d, actualParseResult.getAsDouble());
+    assertEquals(10.0d, actualParseResult.getAsNumber().doubleValue());
+    assertEquals(10.0f, actualParseResult.getAsFloat());
+    assertEquals(10L, actualParseResult.getAsLong());
+    assertEquals((short) 10, actualParseResult.getAsShort());
+    BigDecimal expectedAsBigDecimal = new BigDecimal("10.0");
+    assertEquals(expectedAsBigDecimal, actualParseResult.getAsBigDecimal());
+    assertEquals('\n', actualParseResult.getAsByte());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When ten.
+   *   <li>Then return AsNumber floatValue is ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when ten; then return AsNumber floatValue is ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenTen_thenReturnAsNumberFloatValueIsTen() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse(10.0f);
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    assertEquals("10.0", actualParseResult.getAsString());
+    assertEquals('1', actualParseResult.getAsCharacter());
+    assertEquals(10, actualParseResult.getAsInt());
+    assertEquals(10.0d, actualParseResult.getAsDouble());
+    assertEquals(10.0f, actualParseResult.getAsFloat());
+    assertEquals(10.0f, actualParseResult.getAsNumber().floatValue());
+    assertEquals(10L, actualParseResult.getAsLong());
+    assertEquals((short) 10, actualParseResult.getAsShort());
+    BigDecimal expectedAsBigDecimal = new BigDecimal("10.0");
+    assertEquals(expectedAsBigDecimal, actualParseResult.getAsBigDecimal());
+    assertEquals('\n', actualParseResult.getAsByte());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When {@code true}.
+   *   <li>Then return AsCharacter is {@code t}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when 'true'; then return AsCharacter is 't'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenTrue_thenReturnAsCharacterIsT() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse(true);
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    assertEquals('t', actualParseResult.getAsCharacter());
+    assertTrue(actualParseResult.getAsBoolean());
+    assertTrue(((JsonPrimitive) actualParseResult).isBoolean());
+    String expectedAsString = Boolean.TRUE.toString();
+    assertEquals(expectedAsString, actualParseResult.getAsString());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+  }
+
+  /**
+   * Test {@link JsonUtils#parse(Object)}.
+   *
+   * <ul>
+   *   <li>When {@code Value}.
+   *   <li>Then return AsString is {@code Value}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#parse(Object)}
+   */
+  @Test
+  @DisplayName("Test parse(Object); when 'Value'; then return AsString is 'Value'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"JsonElement JsonUtils.parse(Object)"})
+  void testParse_whenValue_thenReturnAsStringIsValue() {
+    // Arrange and Act
+    JsonElement actualParseResult = JsonUtils.parse("Value");
+
+    // Assert
+    assertTrue(actualParseResult instanceof JsonPrimitive);
+    Number asNumber = actualParseResult.getAsNumber();
+    assertTrue(asNumber instanceof LazilyParsedNumber);
+    assertEquals("Value", actualParseResult.getAsString());
+    assertEquals("Value", asNumber.toString());
+    assertEquals('V', actualParseResult.getAsCharacter());
+    assertTrue(((JsonPrimitive) actualParseResult).isString());
+    assertSame(actualParseResult, actualParseResult.getAsJsonPrimitive());
+  }
+
+  /**
+   * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
+   * <ul>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
+   *   <li>Then return size is two.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   */
+  @Test
+  @DisplayName(
+      "Test convertToJsonObject(Map); given '42'; when HashMap() '42' is '42'; then return size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_given42_whenHashMap42Is42_thenReturnSizeIsTwo() {
@@ -50,16 +316,18 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code 42}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code 42}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given '42'; when HashMap() 'foo' is '42'; then return size is one")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given '42'; when HashMap() 'foo' is '42'; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_given42_whenHashMapFooIs42_thenReturnSizeIsOne() {
@@ -82,15 +350,17 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is empty string.</li>
+   *   <li>Given empty string.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given empty string; when HashMap() 'foo' is empty string")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given empty string; when HashMap() 'foo' is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_givenEmptyString_whenHashMapFooIsEmptyString() {
@@ -113,16 +383,18 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return size is one")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_givenFoo_whenHashMapFooIsFoo_thenReturnSizeIsOne() {
@@ -145,15 +417,17 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given {@link MapEntry} (default constructor) Key is {@code Key}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Given {@link MapEntry} (default constructor) Key is {@code Key}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given MapEntry (default constructor) Key is 'Key'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given MapEntry (default constructor) Key is 'Key'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_givenMapEntryKeyIsKey_thenThrowIllegalArgumentException() {
@@ -171,16 +445,18 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is one.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given one.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is one.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given one; when HashMap() 'foo' is one; then return size is one")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given one; when HashMap() 'foo' is one; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_givenOne_whenHashMapFooIsOne_thenReturnSizeIsOne() {
@@ -203,16 +479,18 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is one.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given one.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is one.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); given one; when HashMap() 'foo' is one; then return size is one")
+  @DisplayName(
+      "Test convertToJsonObject(Map); given one; when HashMap() 'foo' is one; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_givenOne_whenHashMapFooIsOne_thenReturnSizeIsOne2() {
@@ -235,15 +513,17 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is empty string.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is empty string.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); when HashMap() '42' is empty string; then return size is two")
+  @DisplayName(
+      "Test convertToJsonObject(Map); when HashMap() '42' is empty string; then return size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_whenHashMap42IsEmptyString_thenReturnSizeIsTwo() {
@@ -267,15 +547,17 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()} empty string is {@code 42}.</li>
-   *   <li>Then return size is three.</li>
+   *   <li>When {@link HashMap#HashMap()} empty string is {@code 42}.
+   *   <li>Then return size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
-  @DisplayName("Test convertToJsonObject(Map); when HashMap() empty string is '42'; then return size is three")
+  @DisplayName(
+      "Test convertToJsonObject(Map); when HashMap() empty string is '42'; then return size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonUtils.convertToJsonObject(Map)"})
   void testConvertToJsonObject_whenHashMapEmptyStringIs42_thenReturnSizeIsThree() {
@@ -300,12 +582,13 @@ class JsonUtilsDiffblueTest {
 
   /**
    * Test {@link JsonUtils#convertToJsonObject(Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()}.</li>
-   *   <li>Then return size is zero.</li>
+   *   <li>When {@link HashMap#HashMap()}.
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonUtils#convertToJsonObject(Map)}
+   *
+   * <p>Method under test: {@link JsonUtils#convertToJsonObject(Map)}
    */
   @Test
   @DisplayName("Test convertToJsonObject(Map); when HashMap(); then return size is zero")

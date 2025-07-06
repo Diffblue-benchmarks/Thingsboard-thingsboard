@@ -26,13 +26,13 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {DbCallStatsSnapshotBuilder.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DbCallStatsSnapshotDiffblueTest {
-  @Autowired
-  private DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder;
+  @Autowired private DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder;
 
   /**
    * Test DbCallStatsSnapshotBuilder {@link DbCallStatsSnapshotBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DbCallStatsSnapshotBuilder#build()}
    *   <li>{@link DbCallStatsSnapshotBuilder#methodStats(Map)}
@@ -44,26 +44,30 @@ public class DbCallStatsSnapshotDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DbCallStatsSnapshotBuilder.<init>()",
-      "DbCallStatsSnapshot DbCallStatsSnapshotBuilder.build()",
-      "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.methodStats(Map)",
-      "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.tenantId(TenantId)",
-      "String DbCallStatsSnapshotBuilder.toString()",
-      "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalFailure(int)",
-      "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalSuccess(int)",
-      "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalTiming(long)"})
+  @MethodsUnderTest({
+    "void DbCallStatsSnapshotBuilder.<init>()",
+    "DbCallStatsSnapshot DbCallStatsSnapshotBuilder.build()",
+    "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.methodStats(Map)",
+    "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.tenantId(TenantId)",
+    "String DbCallStatsSnapshotBuilder.toString()",
+    "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalFailure(int)",
+    "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalSuccess(int)",
+    "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalTiming(long)"
+  })
   public void testDbCallStatsSnapshotBuilderBuild() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     HashMap<String, MethodCallStatsSnapshot> methodStats = new HashMap<>();
 
     // Act
-    DbCallStatsSnapshot actualBuildResult = builderResult.methodStats(methodStats)
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot actualBuildResult =
+        builderResult
+            .methodStats(methodStats)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Assert
     TenantId tenantId = actualBuildResult.getTenantId();
@@ -82,25 +86,30 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#getTotalCalls()}.
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#getTotalCalls()}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#getTotalCalls()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"int DbCallStatsSnapshot.getTotalCalls()"})
   public void testGetTotalCalls() {
     // Arrange, Act and Assert
-    assertEquals(2, (new DbCallStatsSnapshot(ModelConstants.SYSTEM_TENANT, 1, 1, 1L, new HashMap<>())).getTotalCalls());
+    assertEquals(
+        2,
+        new DbCallStatsSnapshot(ModelConstants.SYSTEM_TENANT, 1, 1, 1L, new HashMap<>())
+            .getTotalCalls());
   }
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}, and {@link DbCallStatsSnapshot#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DbCallStatsSnapshot#equals(Object)}
    *   <li>{@link DbCallStatsSnapshot#hashCode()}
@@ -108,23 +117,30 @@ public class DbCallStatsSnapshotDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
     DbCallStatsSnapshotBuilder builderResult2 = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult2 = builderResult2.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult2 =
+        builderResult2
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -134,12 +150,14 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}, and {@link DbCallStatsSnapshot#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DbCallStatsSnapshot#equals(Object)}
    *   <li>{@link DbCallStatsSnapshot#hashCode()}
@@ -147,16 +165,21 @@ public class DbCallStatsSnapshotDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -166,34 +189,43 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder.methodStats(Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
+    when(dbCallStatsSnapshotBuilder.methodStats(
+            Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
         .thenReturn(DbCallStatsSnapshot.builder());
-    DbCallStatsSnapshot buildResult = dbCallStatsSnapshotBuilder.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        dbCallStatsSnapshotBuilder
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult2 = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult2 =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -201,36 +233,46 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder.tenantId(Mockito.<TenantId>any())).thenReturn(DbCallStatsSnapshot.builder());
+    when(dbCallStatsSnapshotBuilder.tenantId(Mockito.<TenantId>any()))
+        .thenReturn(DbCallStatsSnapshot.builder());
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder2 = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder2.methodStats(Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
+    when(dbCallStatsSnapshotBuilder2.methodStats(
+            Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
         .thenReturn(dbCallStatsSnapshotBuilder);
-    DbCallStatsSnapshot buildResult = dbCallStatsSnapshotBuilder2.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        dbCallStatsSnapshotBuilder2
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult2 = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult2 =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -238,38 +280,49 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder.totalFailure(anyInt())).thenReturn(DbCallStatsSnapshot.builder());
+    when(dbCallStatsSnapshotBuilder.totalFailure(anyInt()))
+        .thenReturn(DbCallStatsSnapshot.builder());
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder2 = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder2.tenantId(Mockito.<TenantId>any())).thenReturn(dbCallStatsSnapshotBuilder);
+    when(dbCallStatsSnapshotBuilder2.tenantId(Mockito.<TenantId>any()))
+        .thenReturn(dbCallStatsSnapshotBuilder);
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder3 = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder3.methodStats(Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
+    when(dbCallStatsSnapshotBuilder3.methodStats(
+            Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
         .thenReturn(dbCallStatsSnapshotBuilder2);
-    DbCallStatsSnapshot buildResult = dbCallStatsSnapshotBuilder3.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        dbCallStatsSnapshotBuilder3
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult2 = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult2 =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -277,40 +330,51 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder.totalSuccess(anyInt())).thenReturn(DbCallStatsSnapshot.builder());
+    when(dbCallStatsSnapshotBuilder.totalSuccess(anyInt()))
+        .thenReturn(DbCallStatsSnapshot.builder());
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder2 = mock(DbCallStatsSnapshotBuilder.class);
     when(dbCallStatsSnapshotBuilder2.totalFailure(anyInt())).thenReturn(dbCallStatsSnapshotBuilder);
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder3 = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder3.tenantId(Mockito.<TenantId>any())).thenReturn(dbCallStatsSnapshotBuilder2);
+    when(dbCallStatsSnapshotBuilder3.tenantId(Mockito.<TenantId>any()))
+        .thenReturn(dbCallStatsSnapshotBuilder2);
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder4 = mock(DbCallStatsSnapshotBuilder.class);
-    when(dbCallStatsSnapshotBuilder4.methodStats(Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
+    when(dbCallStatsSnapshotBuilder4.methodStats(
+            Mockito.<Map<String, MethodCallStatsSnapshot>>any()))
         .thenReturn(dbCallStatsSnapshotBuilder3);
-    DbCallStatsSnapshot buildResult = dbCallStatsSnapshotBuilder4.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        dbCallStatsSnapshotBuilder4
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult2 = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult2 =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -318,25 +382,31 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -344,25 +414,31 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#equals(Object)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean DbCallStatsSnapshot.equals(Object)", "int DbCallStatsSnapshot.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DbCallStatsSnapshot.equals(Object)",
+    "int DbCallStatsSnapshot.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
-    DbCallStatsSnapshot buildResult = builderResult.methodStats(new HashMap<>())
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        builderResult
+            .methodStats(new HashMap<>())
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to DbCallStatsSnapshot");
@@ -370,8 +446,9 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DbCallStatsSnapshot#toString()}
    *   <li>{@link DbCallStatsSnapshot#getMethodStats()}
@@ -383,19 +460,26 @@ public class DbCallStatsSnapshotDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"Map DbCallStatsSnapshot.getMethodStats()", "TenantId DbCallStatsSnapshot.getTenantId()",
-      "int DbCallStatsSnapshot.getTotalFailure()", "int DbCallStatsSnapshot.getTotalSuccess()",
-      "long DbCallStatsSnapshot.getTotalTiming()", "String DbCallStatsSnapshot.toString()"})
+  @MethodsUnderTest({
+    "Map DbCallStatsSnapshot.getMethodStats()",
+    "TenantId DbCallStatsSnapshot.getTenantId()",
+    "int DbCallStatsSnapshot.getTotalFailure()",
+    "int DbCallStatsSnapshot.getTotalSuccess()",
+    "long DbCallStatsSnapshot.getTotalTiming()",
+    "String DbCallStatsSnapshot.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     HashMap<String, MethodCallStatsSnapshot> methodStats = new HashMap<>();
-    DbCallStatsSnapshot buildResult = builderResult.methodStats(methodStats)
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .totalFailure(1)
-        .totalSuccess(1)
-        .totalTiming(1L)
-        .build();
+    DbCallStatsSnapshot buildResult =
+        builderResult
+            .methodStats(methodStats)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .totalFailure(1)
+            .totalSuccess(1)
+            .totalTiming(1L)
+            .build();
 
     // Act
     String actualToStringResult = buildResult.toString();
@@ -405,8 +489,10 @@ public class DbCallStatsSnapshotDiffblueTest {
     int actualTotalSuccess = buildResult.getTotalSuccess();
 
     // Assert
-    assertEquals("DbCallStatsSnapshot(tenantId=13814000-1dd2-11b2-8080-808080808080, totalSuccess=1, totalFailure=1,"
-        + " totalTiming=1, methodStats={})", actualToStringResult);
+    assertEquals(
+        "DbCallStatsSnapshot(tenantId=13814000-1dd2-11b2-8080-808080808080, totalSuccess=1, totalFailure=1,"
+            + " totalTiming=1, methodStats={})",
+        actualToStringResult);
     assertEquals(1, actualTotalFailure);
     assertEquals(1, actualTotalSuccess);
     assertEquals(1L, buildResult.getTotalTiming());
@@ -417,8 +503,9 @@ public class DbCallStatsSnapshotDiffblueTest {
 
   /**
    * Test {@link DbCallStatsSnapshot#DbCallStatsSnapshot(TenantId, int, int, long, Map)}.
-   * <p>
-   * Method under test: {@link DbCallStatsSnapshot#DbCallStatsSnapshot(TenantId, int, int, long, Map)}
+   *
+   * <p>Method under test: {@link DbCallStatsSnapshot#DbCallStatsSnapshot(TenantId, int, int, long,
+   * Map)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -428,7 +515,8 @@ public class DbCallStatsSnapshotDiffblueTest {
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
     // Act
-    DbCallStatsSnapshot actualDbCallStatsSnapshot = new DbCallStatsSnapshot(tenantId, 1, 1, 1L, new HashMap<>());
+    DbCallStatsSnapshot actualDbCallStatsSnapshot =
+        new DbCallStatsSnapshot(tenantId, 1, 1, 1L, new HashMap<>());
 
     // Assert
     assertEquals(1, actualDbCallStatsSnapshot.getTotalFailure());

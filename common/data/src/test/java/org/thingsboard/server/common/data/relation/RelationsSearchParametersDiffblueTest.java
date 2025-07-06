@@ -46,13 +46,16 @@ import org.thingsboard.server.common.data.id.WidgetsBundleId;
 
 class RelationsSearchParametersDiffblueTest {
   /**
-   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link RelationsSearchParameters#hashCode()}.
+   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link
+   * RelationsSearchParameters#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsSearchParameters#equals(Object)}
    *   <li>{@link RelationsSearchParameters#hashCode()}
@@ -61,13 +64,16 @@ class RelationsSearchParametersDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
-    RelationsSearchParameters relationsSearchParameters2 = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters2 =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
     assertEquals(relationsSearchParameters, relationsSearchParameters2);
@@ -76,13 +82,16 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link RelationsSearchParameters#hashCode()}.
+   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link
+   * RelationsSearchParameters#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsSearchParameters#equals(Object)}
    *   <li>{@link RelationsSearchParameters#hashCode()}
@@ -91,19 +100,22 @@ class RelationsSearchParametersDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters2 = new RelationsSearchParameters(entityId2,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters2 =
+        new RelationsSearchParameters(entityId2, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
     assertEquals(relationsSearchParameters, relationsSearchParameters2);
@@ -112,13 +124,16 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link RelationsSearchParameters#hashCode()}.
+   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link
+   * RelationsSearchParameters#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsSearchParameters#equals(Object)}
    *   <li>{@link RelationsSearchParameters#hashCode()}
@@ -127,19 +142,22 @@ class RelationsSearchParametersDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(null);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(null);
-    RelationsSearchParameters relationsSearchParameters2 = new RelationsSearchParameters(entityId2,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters2 =
+        new RelationsSearchParameters(entityId2, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
     assertEquals(relationsSearchParameters, relationsSearchParameters2);
@@ -148,13 +166,16 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link RelationsSearchParameters#hashCode()}.
+   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link
+   * RelationsSearchParameters#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsSearchParameters#equals(Object)}
    *   <li>{@link RelationsSearchParameters#hashCode()}
@@ -163,17 +184,22 @@ class RelationsSearchParametersDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId, null, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, null, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters2 = new RelationsSearchParameters(entityId2, null, 3, true);
+    RelationsSearchParameters relationsSearchParameters2 =
+        new RelationsSearchParameters(entityId2, null, 3, true);
 
     // Act and Assert
     assertEquals(relationsSearchParameters, relationsSearchParameters2);
@@ -182,13 +208,16 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link RelationsSearchParameters#hashCode()}.
+   * Test {@link RelationsSearchParameters#equals(Object)}, and {@link
+   * RelationsSearchParameters#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsSearchParameters#equals(Object)}
    *   <li>{@link RelationsSearchParameters#hashCode()}
@@ -197,11 +226,14 @@ class RelationsSearchParametersDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
     assertEquals(relationsSearchParameters, relationsSearchParameters);
@@ -211,260 +243,322 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(
+            new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            EntitySearchDirection.FROM,
+            3,
+            true);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 1, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 1, true);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, false);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, false);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters, new RelationsSearchParameters(
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), EntitySearchDirection.FROM, 3, true));
+    assertNotEquals(
+        relationsSearchParameters,
+        new RelationsSearchParameters(
+            new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            EntitySearchDirection.FROM,
+            3,
+            true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(null);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(EntityType.TENANT);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(entityId2, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId, null, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, null, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(EntityType.TENANT);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(entityId2, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityId entityId = mock(EntityId.class);
     when(entityId.getId()).thenReturn(null);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.TO, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.TO, 3, true);
     EntityId entityId2 = mock(EntityId.class);
     when(entityId2.getId()).thenReturn(null);
     when(entityId2.getEntityType()).thenReturn(EntityType.TENANT);
 
     // Act and Assert
-    assertNotEquals(relationsSearchParameters,
+    assertNotEquals(
+        relationsSearchParameters,
         new RelationsSearchParameters(entityId2, EntitySearchDirection.FROM, 3, true));
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true), null);
+    assertNotEquals(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true),
+        null);
   }
 
   /**
    * Test {@link RelationsSearchParameters#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsSearchParameters.equals(Object)", "int RelationsSearchParameters.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsSearchParameters.equals(Object)",
+    "int RelationsSearchParameters.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true),
+    assertNotEquals(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true),
         "Different type to RelationsSearchParameters");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link RelationsSearchParameters#RelationsSearchParameters(UUID, EntityType, EntitySearchDirection, RelationTypeGroup, int, boolean)}
+   *   <li>{@link RelationsSearchParameters#RelationsSearchParameters(UUID, EntityType,
+   *       EntitySearchDirection, RelationTypeGroup, int, boolean)}
    *   <li>{@link RelationsSearchParameters#setDirection(EntitySearchDirection)}
    *   <li>{@link RelationsSearchParameters#setFetchLastLevelOnly(boolean)}
    *   <li>{@link RelationsSearchParameters#setMaxLevel(int)}
@@ -484,22 +578,31 @@ class RelationsSearchParametersDiffblueTest {
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void RelationsSearchParameters.<init>(UUID, EntityType, EntitySearchDirection, RelationTypeGroup, int, boolean)",
-      "EntitySearchDirection RelationsSearchParameters.getDirection()", "int RelationsSearchParameters.getMaxLevel()",
-      "RelationTypeGroup RelationsSearchParameters.getRelationTypeGroup()",
-      "UUID RelationsSearchParameters.getRootId()", "EntityType RelationsSearchParameters.getRootType()",
-      "boolean RelationsSearchParameters.isFetchLastLevelOnly()",
-      "void RelationsSearchParameters.setDirection(EntitySearchDirection)",
-      "void RelationsSearchParameters.setFetchLastLevelOnly(boolean)",
-      "void RelationsSearchParameters.setMaxLevel(int)",
-      "void RelationsSearchParameters.setRelationTypeGroup(RelationTypeGroup)",
-      "void RelationsSearchParameters.setRootId(UUID)", "void RelationsSearchParameters.setRootType(EntityType)",
-      "String RelationsSearchParameters.toString()"})
+    "void RelationsSearchParameters.<init>(UUID, EntityType, EntitySearchDirection, RelationTypeGroup, int, boolean)",
+    "EntitySearchDirection RelationsSearchParameters.getDirection()",
+    "int RelationsSearchParameters.getMaxLevel()",
+    "RelationTypeGroup RelationsSearchParameters.getRelationTypeGroup()",
+    "UUID RelationsSearchParameters.getRootId()",
+    "EntityType RelationsSearchParameters.getRootType()",
+    "boolean RelationsSearchParameters.isFetchLastLevelOnly()",
+    "void RelationsSearchParameters.setDirection(EntitySearchDirection)",
+    "void RelationsSearchParameters.setFetchLastLevelOnly(boolean)",
+    "void RelationsSearchParameters.setMaxLevel(int)",
+    "void RelationsSearchParameters.setRelationTypeGroup(RelationTypeGroup)",
+    "void RelationsSearchParameters.setRootId(UUID)",
+    "void RelationsSearchParameters.setRootType(EntityType)",
+    "String RelationsSearchParameters.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    RelationsSearchParameters actualRelationsSearchParameters = new RelationsSearchParameters(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EntityType.TENANT, EntitySearchDirection.FROM,
-        RelationTypeGroup.COMMON, 3, true);
+    RelationsSearchParameters actualRelationsSearchParameters =
+        new RelationsSearchParameters(
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"),
+            EntityType.TENANT,
+            EntitySearchDirection.FROM,
+            RelationTypeGroup.COMMON,
+            3,
+            true);
     actualRelationsSearchParameters.setDirection(EntitySearchDirection.FROM);
     actualRelationsSearchParameters.setFetchLastLevelOnly(true);
     actualRelationsSearchParameters.setMaxLevel(3);
@@ -510,10 +613,12 @@ class RelationsSearchParametersDiffblueTest {
     String actualToStringResult = actualRelationsSearchParameters.toString();
     EntitySearchDirection actualDirection = actualRelationsSearchParameters.getDirection();
     int actualMaxLevel = actualRelationsSearchParameters.getMaxLevel();
-    RelationTypeGroup actualRelationTypeGroup = actualRelationsSearchParameters.getRelationTypeGroup();
+    RelationTypeGroup actualRelationTypeGroup =
+        actualRelationsSearchParameters.getRelationTypeGroup();
     UUID actualRootId = actualRelationsSearchParameters.getRootId();
     EntityType actualRootType = actualRelationsSearchParameters.getRootType();
-    boolean actualIsFetchLastLevelOnlyResult = actualRelationsSearchParameters.isFetchLastLevelOnly();
+    boolean actualIsFetchLastLevelOnlyResult =
+        actualRelationsSearchParameters.isFetchLastLevelOnly();
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualRootId.toString());
@@ -530,26 +635,32 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#RelationsSearchParameters(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean)}.
+   * Test {@link RelationsSearchParameters#RelationsSearchParameters(EntityId,
+   * EntitySearchDirection, int, RelationTypeGroup, boolean)}.
+   *
    * <ul>
-   *   <li>Then EntityId return {@link AlarmId}.</li>
+   *   <li>Then EntityId return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#RelationsSearchParameters(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#RelationsSearchParameters(EntityId,
+   * EntitySearchDirection, int, RelationTypeGroup, boolean)}
    */
   @Test
-  @DisplayName("Test new RelationsSearchParameters(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean); then EntityId return AlarmId")
+  @DisplayName(
+      "Test new RelationsSearchParameters(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean); then EntityId return AlarmId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void RelationsSearchParameters.<init>(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean)"})
+    "void RelationsSearchParameters.<init>(EntityId, EntitySearchDirection, int, RelationTypeGroup, boolean)"
+  })
   void testNewRelationsSearchParameters_thenEntityIdReturnAlarmId() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     AlarmId entityId = new AlarmId(id);
 
     // Act
-    RelationsSearchParameters actualRelationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, RelationTypeGroup.COMMON, true);
+    RelationsSearchParameters actualRelationsSearchParameters =
+        new RelationsSearchParameters(
+            entityId, EntitySearchDirection.FROM, 3, RelationTypeGroup.COMMON, true);
 
     // Assert
     EntityId entityId2 = actualRelationsSearchParameters.getEntityId();
@@ -562,25 +673,31 @@ class RelationsSearchParametersDiffblueTest {
   }
 
   /**
-   * Test {@link RelationsSearchParameters#RelationsSearchParameters(EntityId, EntitySearchDirection, int, boolean)}.
+   * Test {@link RelationsSearchParameters#RelationsSearchParameters(EntityId,
+   * EntitySearchDirection, int, boolean)}.
+   *
    * <ul>
-   *   <li>Then EntityId return {@link AlarmId}.</li>
+   *   <li>Then EntityId return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#RelationsSearchParameters(EntityId, EntitySearchDirection, int, boolean)}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#RelationsSearchParameters(EntityId,
+   * EntitySearchDirection, int, boolean)}
    */
   @Test
-  @DisplayName("Test new RelationsSearchParameters(EntityId, EntitySearchDirection, int, boolean); then EntityId return AlarmId")
+  @DisplayName(
+      "Test new RelationsSearchParameters(EntityId, EntitySearchDirection, int, boolean); then EntityId return AlarmId")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RelationsSearchParameters.<init>(EntityId, EntitySearchDirection, int, boolean)"})
+  @MethodsUnderTest({
+    "void RelationsSearchParameters.<init>(EntityId, EntitySearchDirection, int, boolean)"
+  })
   void testNewRelationsSearchParameters_thenEntityIdReturnAlarmId2() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     AlarmId entityId = new AlarmId(id);
 
     // Act
-    RelationsSearchParameters actualRelationsSearchParameters = new RelationsSearchParameters(entityId,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters actualRelationsSearchParameters =
+        new RelationsSearchParameters(entityId, EntitySearchDirection.FROM, 3, true);
 
     // Assert
     EntityId entityId2 = actualRelationsSearchParameters.getEntityId();
@@ -594,11 +711,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return AlarmId")
@@ -606,8 +724,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnAlarmId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.ALARM);
 
     // Act
@@ -622,11 +740,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return ApiUsageStateId")
@@ -634,8 +753,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnApiUsageStateId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.API_USAGE_STATE);
 
     // Act
@@ -650,11 +769,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return AssetId")
@@ -662,8 +782,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnAssetId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.ASSET);
 
     // Act
@@ -678,11 +798,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return AssetProfileId")
@@ -690,8 +811,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnAssetProfileId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.ASSET_PROFILE);
 
     // Act
@@ -706,11 +827,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return CustomerId")
@@ -718,8 +840,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnCustomerId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.CUSTOMER);
 
     // Act
@@ -734,11 +856,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return DashboardId")
@@ -746,8 +869,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnDashboardId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.DASHBOARD);
 
     // Act
@@ -762,11 +885,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return DeviceId")
@@ -774,8 +898,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnDeviceId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.DEVICE);
 
     // Act
@@ -790,11 +914,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return DeviceProfileId")
@@ -802,8 +927,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnDeviceProfileId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.DEVICE_PROFILE);
 
     // Act
@@ -818,11 +943,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link DomainId}.</li>
+   *   <li>Then return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return DomainId")
@@ -830,8 +956,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnDomainId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.DOMAIN);
 
     // Act
@@ -846,11 +972,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link EdgeId}.</li>
+   *   <li>Then return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return EdgeId")
@@ -858,8 +985,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnEdgeId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.EDGE);
 
     // Act
@@ -874,11 +1001,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return EntityViewId")
@@ -886,8 +1014,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnEntityViewId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.ENTITY_VIEW);
 
     // Act
@@ -902,11 +1030,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link MobileAppId}.</li>
+   *   <li>Then return {@link MobileAppId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return MobileAppId")
@@ -914,8 +1043,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnMobileAppId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.MOBILE_APP);
 
     // Act
@@ -930,11 +1059,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationId}.</li>
+   *   <li>Then return {@link NotificationId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return NotificationId")
@@ -942,8 +1072,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnNotificationId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.NOTIFICATION);
 
     // Act
@@ -958,11 +1088,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRequestId}.</li>
+   *   <li>Then return {@link NotificationRequestId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return NotificationRequestId")
@@ -970,8 +1101,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnNotificationRequestId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.NOTIFICATION_REQUEST);
 
     // Act
@@ -986,11 +1117,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRuleId}.</li>
+   *   <li>Then return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return NotificationRuleId")
@@ -998,8 +1130,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnNotificationRuleId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.NOTIFICATION_RULE);
 
     // Act
@@ -1014,11 +1146,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTargetId}.</li>
+   *   <li>Then return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return NotificationTargetId")
@@ -1026,8 +1159,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnNotificationTargetId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.NOTIFICATION_TARGET);
 
     // Act
@@ -1042,11 +1175,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTemplateId}.</li>
+   *   <li>Then return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return NotificationTemplateId")
@@ -1054,8 +1188,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnNotificationTemplateId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.NOTIFICATION_TEMPLATE);
 
     // Act
@@ -1070,11 +1204,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link OAuth2ClientId}.</li>
+   *   <li>Then return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return OAuth2ClientId")
@@ -1082,8 +1217,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnOAuth2ClientId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.OAUTH2_CLIENT);
 
     // Act
@@ -1098,11 +1233,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return OtaPackageId")
@@ -1110,8 +1246,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnOtaPackageId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.OTA_PACKAGE);
 
     // Act
@@ -1126,11 +1262,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link QueueId}.</li>
+   *   <li>Then return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return QueueId")
@@ -1138,8 +1275,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnQueueId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.QUEUE);
 
     // Act
@@ -1154,11 +1291,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link QueueStatsId}.</li>
+   *   <li>Then return {@link QueueStatsId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return QueueStatsId")
@@ -1166,8 +1304,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnQueueStatsId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.QUEUE_STATS);
 
     // Act
@@ -1182,11 +1320,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link RpcId}.</li>
+   *   <li>Then return {@link RpcId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return RpcId")
@@ -1194,8 +1333,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnRpcId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.RPC);
 
     // Act
@@ -1210,11 +1349,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return RuleChainId")
@@ -1222,8 +1362,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnRuleChainId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.RULE_CHAIN);
 
     // Act
@@ -1238,11 +1378,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return RuleNodeId")
@@ -1250,8 +1391,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnRuleNodeId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.RULE_NODE);
 
     // Act
@@ -1266,11 +1407,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return TbResourceId")
@@ -1278,8 +1420,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnTbResourceId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.TB_RESOURCE);
 
     // Act
@@ -1294,11 +1436,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return TenantProfileId")
@@ -1306,8 +1449,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnTenantProfileId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.TENANT_PROFILE);
 
     // Act
@@ -1322,11 +1465,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return UserId")
@@ -1334,8 +1478,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnUserId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.USER);
 
     // Act
@@ -1350,11 +1494,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return WidgetTypeId")
@@ -1362,8 +1507,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnWidgetTypeId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.WIDGET_TYPE);
 
     // Act
@@ -1378,11 +1523,12 @@ class RelationsSearchParametersDiffblueTest {
 
   /**
    * Test {@link RelationsSearchParameters#getEntityId()}.
+   *
    * <ul>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsSearchParameters#getEntityId()}
+   *
+   * <p>Method under test: {@link RelationsSearchParameters#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId(); then return WidgetsBundleId")
@@ -1390,8 +1536,8 @@ class RelationsSearchParametersDiffblueTest {
   @MethodsUnderTest({"EntityId RelationsSearchParameters.getEntityId()"})
   void testGetEntityId_thenReturnWidgetsBundleId() {
     // Arrange
-    RelationsSearchParameters relationsSearchParameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters relationsSearchParameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
     relationsSearchParameters.setRootType(EntityType.WIDGETS_BUNDLE);
 
     // Act

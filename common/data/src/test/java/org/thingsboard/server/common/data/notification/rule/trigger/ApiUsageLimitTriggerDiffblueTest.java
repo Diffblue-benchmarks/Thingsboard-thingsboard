@@ -29,13 +29,13 @@ import org.thingsboard.server.common.data.notification.rule.trigger.config.Notif
 @ContextConfiguration(classes = {ApiUsageLimitTriggerBuilder.class})
 @ExtendWith(SpringExtension.class)
 class ApiUsageLimitTriggerDiffblueTest {
-  @Autowired
-  private ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder;
+  @Autowired private ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder;
 
   /**
    * Test ApiUsageLimitTriggerBuilder {@link ApiUsageLimitTriggerBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageLimitTriggerBuilder#build()}
    *   <li>{@link ApiUsageLimitTriggerBuilder#state(ApiUsageRecordState)}
@@ -46,28 +46,34 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test ApiUsageLimitTriggerBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ApiUsageLimitTriggerBuilder.<init>()",
-      "ApiUsageLimitTrigger ApiUsageLimitTriggerBuilder.build()",
-      "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.state(ApiUsageRecordState)",
-      "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.status(ApiUsageStateValue)",
-      "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.tenantId(TenantId)",
-      "String ApiUsageLimitTriggerBuilder.toString()"})
+  @MethodsUnderTest({
+    "void ApiUsageLimitTriggerBuilder.<init>()",
+    "ApiUsageLimitTrigger ApiUsageLimitTriggerBuilder.build()",
+    "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.state(ApiUsageRecordState)",
+    "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.status(ApiUsageStateValue)",
+    "ApiUsageLimitTriggerBuilder ApiUsageLimitTriggerBuilder.tenantId(TenantId)",
+    "String ApiUsageLimitTriggerBuilder.toString()"
+  })
   void testApiUsageLimitTriggerBuilderBuild() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageRecordState state = new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L,
-        42L);
+    ApiUsageRecordState state =
+        new ApiUsageRecordState(
+            ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L);
 
     // Act
-    ApiUsageLimitTrigger actualBuildResult = builderResult.state(state)
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger actualBuildResult =
+        builderResult
+            .state(state)
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Assert
     EntityId originatorEntityId = actualBuildResult.getOriginatorEntityId();
     assertTrue(originatorEntityId instanceof TenantId);
-    assertEquals("API_USAGE_LIMIT:TENANT:13814000-1dd2-11b2-8080-808080808080",
+    assertEquals(
+        "API_USAGE_LIMIT:TENANT:13814000-1dd2-11b2-8080-808080808080",
         actualBuildResult.getDeduplicationKey());
     assertEquals(0L, actualBuildResult.getDefaultDeduplicationDuration());
     assertEquals(ApiUsageStateValue.ENABLED, actualBuildResult.getStatus());
@@ -79,12 +85,14 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}, and {@link ApiUsageLimitTrigger#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageLimitTrigger#equals(Object)}
    *   <li>{@link ApiUsageLimitTrigger#hashCode()}
@@ -93,21 +101,30 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
     ApiUsageLimitTriggerBuilder builderResult2 = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult2 = builderResult2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        builderResult2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -117,12 +134,14 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}, and {@link ApiUsageLimitTrigger#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageLimitTrigger#equals(Object)}
    *   <li>{@link ApiUsageLimitTrigger#hashCode()}
@@ -131,25 +150,36 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder2.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTrigger buildResult2 = apiUsageLimitTriggerBuilder2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        apiUsageLimitTriggerBuilder2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -159,12 +189,14 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}, and {@link ApiUsageLimitTrigger#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageLimitTrigger#equals(Object)}
    *   <li>{@link ApiUsageLimitTrigger#hashCode()}
@@ -173,31 +205,44 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder2.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder);
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder3.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder4.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder3);
-    ApiUsageLimitTrigger buildResult2 = apiUsageLimitTriggerBuilder4
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        apiUsageLimitTriggerBuilder4
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -207,12 +252,14 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}, and {@link ApiUsageLimitTrigger#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageLimitTrigger#equals(Object)}
    *   <li>{@link ApiUsageLimitTrigger#hashCode()}
@@ -221,15 +268,21 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -239,33 +292,44 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult2 = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -273,34 +337,46 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder statusResult = apiUsageLimitTriggerBuilder
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED);
-    ApiUsageLimitTrigger buildResult = statusResult
-        .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    ApiUsageLimitTriggerBuilder statusResult =
+        apiUsageLimitTriggerBuilder
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED);
+    ApiUsageLimitTrigger buildResult =
+        statusResult
+            .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult2 = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -308,33 +384,44 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(null)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(null)
+            .build();
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult2 = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -342,38 +429,51 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder2.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder);
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder3.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTrigger buildResult2 = apiUsageLimitTriggerBuilder3
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        apiUsageLimitTriggerBuilder3
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -381,42 +481,59 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    builderResult.state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L));
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
-    when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any())).thenReturn(builderResult);
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 = mock(ApiUsageLimitTriggerBuilder.class);
+    builderResult.state(
+        new ApiUsageRecordState(
+            ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L));
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
+    when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any()))
+        .thenReturn(builderResult);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder2.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder);
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder3.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder4.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder3);
-    ApiUsageLimitTrigger buildResult2 = apiUsageLimitTriggerBuilder4
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        apiUsageLimitTriggerBuilder4
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -424,42 +541,57 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
     builderResult.status(ApiUsageStateValue.ENABLED);
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder = mock(ApiUsageLimitTriggerBuilder.class);
-    when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any())).thenReturn(builderResult);
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder =
+        mock(ApiUsageLimitTriggerBuilder.class);
+    when(apiUsageLimitTriggerBuilder.status(Mockito.<ApiUsageStateValue>any()))
+        .thenReturn(builderResult);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder2 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder2.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder);
-    ApiUsageLimitTrigger buildResult = apiUsageLimitTriggerBuilder2
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTrigger buildResult =
+        apiUsageLimitTriggerBuilder2
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder3 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder3.status(Mockito.<ApiUsageStateValue>any()))
         .thenReturn(ApiUsageLimitTrigger.builder());
-    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 = mock(ApiUsageLimitTriggerBuilder.class);
+    ApiUsageLimitTriggerBuilder apiUsageLimitTriggerBuilder4 =
+        mock(ApiUsageLimitTriggerBuilder.class);
     when(apiUsageLimitTriggerBuilder4.state(Mockito.<ApiUsageRecordState>any()))
         .thenReturn(apiUsageLimitTriggerBuilder3);
-    ApiUsageLimitTrigger buildResult2 = apiUsageLimitTriggerBuilder4
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult2 =
+        apiUsageLimitTriggerBuilder4
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -467,25 +599,32 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -493,25 +632,32 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageLimitTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ApiUsageLimitTrigger.equals(Object)", "int ApiUsageLimitTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageLimitTrigger.equals(Object)",
+    "int ApiUsageLimitTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ApiUsageLimitTriggerBuilder builderResult = ApiUsageLimitTrigger.builder();
-    ApiUsageLimitTrigger buildResult = builderResult
-        .state(new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
-        .status(ApiUsageStateValue.ENABLED)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    ApiUsageLimitTrigger buildResult =
+        builderResult
+            .state(
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L))
+            .status(ApiUsageStateValue.ENABLED)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to ApiUsageLimitTrigger");
@@ -519,10 +665,12 @@ class ApiUsageLimitTriggerDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link ApiUsageLimitTrigger#ApiUsageLimitTrigger(TenantId, ApiUsageRecordState, ApiUsageStateValue)}
+   *   <li>{@link ApiUsageLimitTrigger#ApiUsageLimitTrigger(TenantId, ApiUsageRecordState,
+   *       ApiUsageStateValue)}
    *   <li>{@link ApiUsageLimitTrigger#toString()}
    *   <li>{@link ApiUsageLimitTrigger#getOriginatorEntityId()}
    *   <li>{@link ApiUsageLimitTrigger#getState()}
@@ -534,18 +682,24 @@ class ApiUsageLimitTriggerDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ApiUsageLimitTrigger.<init>(TenantId, ApiUsageRecordState, ApiUsageStateValue)",
-      "EntityId ApiUsageLimitTrigger.getOriginatorEntityId()", "ApiUsageRecordState ApiUsageLimitTrigger.getState()",
-      "ApiUsageStateValue ApiUsageLimitTrigger.getStatus()", "TenantId ApiUsageLimitTrigger.getTenantId()",
-      "NotificationRuleTriggerType ApiUsageLimitTrigger.getType()", "String ApiUsageLimitTrigger.toString()"})
+  @MethodsUnderTest({
+    "void ApiUsageLimitTrigger.<init>(TenantId, ApiUsageRecordState, ApiUsageStateValue)",
+    "EntityId ApiUsageLimitTrigger.getOriginatorEntityId()",
+    "ApiUsageRecordState ApiUsageLimitTrigger.getState()",
+    "ApiUsageStateValue ApiUsageLimitTrigger.getStatus()",
+    "TenantId ApiUsageLimitTrigger.getTenantId()",
+    "NotificationRuleTriggerType ApiUsageLimitTrigger.getType()",
+    "String ApiUsageLimitTrigger.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    ApiUsageRecordState state = new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L,
-        42L);
+    ApiUsageRecordState state =
+        new ApiUsageRecordState(
+            ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L);
 
     // Act
-    ApiUsageLimitTrigger actualApiUsageLimitTrigger = new ApiUsageLimitTrigger(TenantId.SYS_TENANT_ID, state,
-        ApiUsageStateValue.ENABLED);
+    ApiUsageLimitTrigger actualApiUsageLimitTrigger =
+        new ApiUsageLimitTrigger(TenantId.SYS_TENANT_ID, state, ApiUsageStateValue.ENABLED);
     String actualToStringResult = actualApiUsageLimitTrigger.toString();
     EntityId actualOriginatorEntityId = actualApiUsageLimitTrigger.getOriginatorEntityId();
     ApiUsageRecordState actualState = actualApiUsageLimitTrigger.getState();

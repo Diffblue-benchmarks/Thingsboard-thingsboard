@@ -11,17 +11,19 @@ import org.thingsboard.server.common.data.script.ScriptLanguage;
 class TbJsFilterNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbJsFilterNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbJsFilterNodeConfiguration TbJsFilterNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbJsFilterNodeConfiguration TbJsFilterNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbJsFilterNodeConfiguration actualDefaultConfigurationResult = (new TbJsFilterNodeConfiguration())
-        .defaultConfiguration();
+    TbJsFilterNodeConfiguration actualDefaultConfigurationResult =
+        new TbJsFilterNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("return msg.temperature > 20;", actualDefaultConfigurationResult.getJsScript());
@@ -30,13 +32,16 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link TbJsFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbJsFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbJsFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbJsFilterNodeConfiguration#hashCode()}
@@ -45,8 +50,10 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -59,13 +66,16 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link TbJsFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbJsFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbJsFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbJsFilterNodeConfiguration#hashCode()}
@@ -74,8 +84,10 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -91,13 +103,16 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link TbJsFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbJsFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbJsFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbJsFilterNodeConfiguration#hashCode()}
@@ -106,8 +121,10 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -123,13 +140,16 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link TbJsFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbJsFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbJsFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbJsFilterNodeConfiguration#hashCode()}
@@ -138,8 +158,10 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -155,13 +177,16 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link TbJsFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbJsFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbJsFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbJsFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbJsFilterNodeConfiguration#hashCode()}
@@ -170,8 +195,10 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -184,18 +211,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbJsFilterNodeConfiguration(), 1);
@@ -203,18 +233,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -226,18 +259,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -249,18 +285,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -272,18 +311,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -297,18 +339,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -322,18 +367,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbJsFilterNodeConfiguration tbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
@@ -347,18 +395,21 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbJsFilterNodeConfiguration(), null);
@@ -366,27 +417,32 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbJsFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbJsFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbJsFilterNodeConfiguration.equals(Object)",
-      "int TbJsFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbJsFilterNodeConfiguration.equals(Object)",
+    "int TbJsFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbJsFilterNodeConfiguration(), "Different type to TbJsFilterNodeConfiguration");
+    assertNotEquals(
+        new TbJsFilterNodeConfiguration(), "Different type to TbJsFilterNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbJsFilterNodeConfiguration}
    *   <li>{@link TbJsFilterNodeConfiguration#setJsScript(String)}
@@ -401,14 +457,20 @@ class TbJsFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbJsFilterNodeConfiguration.<init>()", "String TbJsFilterNodeConfiguration.getJsScript()",
-      "ScriptLanguage TbJsFilterNodeConfiguration.getScriptLang()",
-      "String TbJsFilterNodeConfiguration.getTbelScript()", "void TbJsFilterNodeConfiguration.setJsScript(String)",
-      "void TbJsFilterNodeConfiguration.setScriptLang(ScriptLanguage)",
-      "void TbJsFilterNodeConfiguration.setTbelScript(String)", "String TbJsFilterNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbJsFilterNodeConfiguration.<init>()",
+    "String TbJsFilterNodeConfiguration.getJsScript()",
+    "ScriptLanguage TbJsFilterNodeConfiguration.getScriptLang()",
+    "String TbJsFilterNodeConfiguration.getTbelScript()",
+    "void TbJsFilterNodeConfiguration.setJsScript(String)",
+    "void TbJsFilterNodeConfiguration.setScriptLang(ScriptLanguage)",
+    "void TbJsFilterNodeConfiguration.setTbelScript(String)",
+    "String TbJsFilterNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbJsFilterNodeConfiguration actualTbJsFilterNodeConfiguration = new TbJsFilterNodeConfiguration();
+    TbJsFilterNodeConfiguration actualTbJsFilterNodeConfiguration =
+        new TbJsFilterNodeConfiguration();
     actualTbJsFilterNodeConfiguration.setJsScript("Js Script");
     actualTbJsFilterNodeConfiguration.setScriptLang(ScriptLanguage.JS);
     actualTbJsFilterNodeConfiguration.setTbelScript("Tbel Script");
@@ -418,7 +480,8 @@ class TbJsFilterNodeConfigurationDiffblueTest {
 
     // Assert
     assertEquals("Js Script", actualJsScript);
-    assertEquals("TbJsFilterNodeConfiguration(scriptLang=JS, jsScript=Js Script, tbelScript=Tbel Script)",
+    assertEquals(
+        "TbJsFilterNodeConfiguration(scriptLang=JS, jsScript=Js Script, tbelScript=Tbel Script)",
         actualToStringResult);
     assertEquals("Tbel Script", actualTbJsFilterNodeConfiguration.getTbelScript());
     assertEquals(ScriptLanguage.JS, actualScriptLang);

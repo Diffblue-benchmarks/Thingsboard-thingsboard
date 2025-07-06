@@ -1,24 +1,1067 @@
 package org.thingsboard.server.dao.eventsourcing;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.entity.BaseEntityService;
+import org.thingsboard.server.dao.eventsourcing.DeleteEntityEvent.DeleteEntityEventBuilder;
 import org.thingsboard.server.dao.model.ModelConstants;
 
+@ContextConfiguration(classes = {DeleteEntityEventBuilder.class})
+@RunWith(SpringJUnit4ClassRunner.class)
 public class DeleteEntityEventDiffblueTest {
+  @Autowired private DeleteEntityEventBuilder<Object> deleteEntityEventBuilder;
+
+  /**
+   * Test DeleteEntityEventBuilder {@link DeleteEntityEventBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeleteEntityEventBuilder#build()}
+   *   <li>{@link DeleteEntityEventBuilder#body(String)}
+   *   <li>{@link DeleteEntityEventBuilder#cause(ActionCause)}
+   *   <li>{@link DeleteEntityEventBuilder#entity(Object)}
+   *   <li>{@link DeleteEntityEventBuilder#entityId(EntityId)}
+   *   <li>{@link DeleteEntityEventBuilder#tenantId(TenantId)}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "void DeleteEntityEventBuilder.<init>()",
+    "DeleteEntityEventBuilder DeleteEntityEventBuilder.body(String)",
+    "DeleteEntityEvent DeleteEntityEventBuilder.build()",
+    "DeleteEntityEventBuilder DeleteEntityEventBuilder.cause(ActionCause)",
+    "DeleteEntityEventBuilder DeleteEntityEventBuilder.entity(Object)",
+    "DeleteEntityEventBuilder DeleteEntityEventBuilder.entityId(EntityId)",
+    "DeleteEntityEventBuilder DeleteEntityEventBuilder.tenantId(TenantId)",
+    "String DeleteEntityEventBuilder.toString()"
+  })
+  public void testDeleteEntityEventBuilderBuild() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+
+    // Act
+    DeleteEntityEvent<Object> actualBuildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Assert
+    assertTrue(actualBuildResult.getEntityId() instanceof CustomerId);
+    TenantId tenantId = actualBuildResult.getTenantId();
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
+    assertEquals("Entity", actualBuildResult.getEntity());
+    assertEquals("Not all who wander are lost", actualBuildResult.getBody());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertEquals(ActionCause.TENANT_DELETION, actualBuildResult.getCause());
+    assertTrue(tenantId.isNullUid());
+    assertTrue(tenantId.isSysTenantId());
+  }
+
+  /**
+   * Test DeleteEntityEventBuilder {@link DeleteEntityEventBuilder#ts(long)}.
+   *
+   * <p>Method under test: {@link DeleteEntityEventBuilder#ts(long)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeleteEntityEventBuilder DeleteEntityEventBuilder.ts(long)"})
+  public void testDeleteEntityEventBuilderTs() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+
+    // Act
+    DeleteEntityEventBuilder<Object> actualTsResult = builderResult.ts(1L);
+
+    // Assert
+    assertEquals(1L, builderResult.build().getTs());
+    assertSame(builderResult, actualTsResult);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}, and {@link DeleteEntityEvent#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeleteEntityEvent#equals(Object)}
+   *   <li>{@link DeleteEntityEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult2);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}, and {@link DeleteEntityEvent#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeleteEntityEvent#equals(Object)}
+   *   <li>{@link DeleteEntityEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.body(Mockito.<String>any()))
+        .thenReturn(new DeleteEntityEventBuilder<>());
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult
+            .body(null)
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult2);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}, and {@link DeleteEntityEvent#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeleteEntityEvent#equals(Object)}
+   *   <li>{@link DeleteEntityEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.cause(Mockito.<ActionCause>any())).thenReturn(builderResult);
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder2 =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder2.body(Mockito.<String>any()))
+        .thenReturn(deleteEntityEventBuilder);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body(null)
+            .cause(null)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult2);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult2.hashCode());
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}, and {@link DeleteEntityEvent#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeleteEntityEvent#equals(Object)}
+   *   <li>{@link DeleteEntityEvent#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertEquals(buildResult, buildResult);
+    int expectedHashCodeResult = buildResult.hashCode();
+    assertEquals(expectedHashCodeResult, buildResult.hashCode());
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.body(Mockito.<String>any()))
+        .thenReturn(new DeleteEntityEventBuilder<>());
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity(-618614074)
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(ModelConstants.SYSTEM_TENANT)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEventBuilder<Object> entityIdResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID);
+    DeleteEntityEvent<Object> buildResult =
+        entityIdResult
+            .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(null)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity(null)
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.body(Mockito.<String>any()))
+        .thenReturn(new DeleteEntityEventBuilder<>());
+    DeleteEntityEventBuilder<Object> causeResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEvent<Object> buildResult2 =
+        causeResult
+            .entity(buildResult)
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult3 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult2, buildResult3);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.body(Mockito.<String>any()))
+        .thenReturn(new DeleteEntityEventBuilder<>());
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(null)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(null)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(null)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity(null)
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity(null)
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.body(Mockito.<String>any()))
+        .thenReturn(new DeleteEntityEventBuilder<>());
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(null)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(null)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.cause(Mockito.<ActionCause>any())).thenReturn(builderResult);
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder2 =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder2.body(Mockito.<String>any()))
+        .thenReturn(deleteEntityEventBuilder);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult2 =
+        builderResult2
+            .body(null)
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder2 =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder2.cause(Mockito.<ActionCause>any())).thenReturn(builderResult2);
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder3 =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder3.body(Mockito.<String>any()))
+        .thenReturn(deleteEntityEventBuilder2);
+    DeleteEntityEvent<Object> buildResult2 =
+        deleteEntityEventBuilder3
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    builderResult.body("Not all who wander are lost");
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder.cause(Mockito.<ActionCause>any())).thenReturn(builderResult);
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder2 =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder2.body(Mockito.<String>any()))
+        .thenReturn(deleteEntityEventBuilder);
+    DeleteEntityEvent<Object> buildResult =
+        deleteEntityEventBuilder2
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder3 =
+        mock(DeleteEntityEventBuilder.class);
+    DeleteEntityEventBuilder<Object> builderResult2 = DeleteEntityEvent.builder();
+    when(deleteEntityEventBuilder3.cause(Mockito.<ActionCause>any())).thenReturn(builderResult2);
+    DeleteEntityEventBuilder<Object> deleteEntityEventBuilder4 =
+        mock(DeleteEntityEventBuilder.class);
+    when(deleteEntityEventBuilder4.body(Mockito.<String>any()))
+        .thenReturn(deleteEntityEventBuilder3);
+    DeleteEntityEvent<Object> buildResult2 =
+        deleteEntityEventBuilder4
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, null);
+  }
+
+  /**
+   * Test {@link DeleteEntityEvent#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeleteEntityEvent#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeleteEntityEvent.equals(Object)",
+    "int DeleteEntityEvent.hashCode()"
+  })
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    DeleteEntityEventBuilder<Object> builderResult = DeleteEntityEvent.builder();
+    DeleteEntityEvent<Object> buildResult =
+        builderResult
+            .body("Not all who wander are lost")
+            .cause(ActionCause.TENANT_DELETION)
+            .entity("Entity")
+            .entityId(BaseEntityService.NULL_CUSTOMER_ID)
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, "Different type to DeleteEntityEvent");
+  }
+
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link DeleteEntityEvent#DeleteEntityEvent(TenantId, EntityId, Object, String, ActionCause, long)}
+   *   <li>{@link DeleteEntityEvent#DeleteEntityEvent(TenantId, EntityId, Object, String,
+   *       ActionCause, long)}
    *   <li>{@link DeleteEntityEvent#toString()}
    *   <li>{@link DeleteEntityEvent#getBody()}
    *   <li>{@link DeleteEntityEvent#getCause()}
@@ -30,18 +1073,29 @@ public class DeleteEntityEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DeleteEntityEvent.<init>(TenantId, EntityId, Object, String, ActionCause, long)",
-      "String DeleteEntityEvent.getBody()", "ActionCause DeleteEntityEvent.getCause()",
-      "Object DeleteEntityEvent.getEntity()", "EntityId DeleteEntityEvent.getEntityId()",
-      "TenantId DeleteEntityEvent.getTenantId()", "long DeleteEntityEvent.getTs()",
-      "String DeleteEntityEvent.toString()"})
+  @MethodsUnderTest({
+    "void DeleteEntityEvent.<init>(TenantId, EntityId, Object, String, ActionCause, long)",
+    "String DeleteEntityEvent.getBody()",
+    "ActionCause DeleteEntityEvent.getCause()",
+    "Object DeleteEntityEvent.getEntity()",
+    "EntityId DeleteEntityEvent.getEntityId()",
+    "TenantId DeleteEntityEvent.getTenantId()",
+    "long DeleteEntityEvent.getTs()",
+    "String DeleteEntityEvent.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     CustomerId entityId = BaseEntityService.NULL_CUSTOMER_ID;
 
     // Act
-    DeleteEntityEvent<Object> actualDeleteEntityEvent = new DeleteEntityEvent<>(ModelConstants.SYSTEM_TENANT, entityId,
-        "Entity", "Not all who wander are lost", ActionCause.TENANT_DELETION, 1L);
+    DeleteEntityEvent<Object> actualDeleteEntityEvent =
+        new DeleteEntityEvent<>(
+            ModelConstants.SYSTEM_TENANT,
+            entityId,
+            "Entity",
+            "Not all who wander are lost",
+            ActionCause.TENANT_DELETION,
+            1L);
     String actualToStringResult = actualDeleteEntityEvent.toString();
     String actualBody = actualDeleteEntityEvent.getBody();
     ActionCause actualCause = actualDeleteEntityEvent.getCause();

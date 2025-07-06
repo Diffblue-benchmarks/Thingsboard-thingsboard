@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class PersistedDeviceStateDiffblueTest {
   /**
    * Test {@link PersistedDeviceState#equals(Object)}, and {@link PersistedDeviceState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PersistedDeviceState#equals(Object)}
    *   <li>{@link PersistedDeviceState#hashCode()}
@@ -28,7 +30,10 @@ class PersistedDeviceStateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedDeviceState.equals(Object)", "int PersistedDeviceState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedDeviceState.equals(Object)",
+    "int PersistedDeviceState.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PersistedDeviceState persistedDeviceState = new PersistedDeviceState();
@@ -45,12 +50,14 @@ class PersistedDeviceStateDiffblueTest {
 
   /**
    * Test {@link PersistedDeviceState#equals(Object)}, and {@link PersistedDeviceState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PersistedDeviceState#equals(Object)}
    *   <li>{@link PersistedDeviceState#hashCode()}
@@ -59,7 +66,10 @@ class PersistedDeviceStateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedDeviceState.equals(Object)", "int PersistedDeviceState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedDeviceState.equals(Object)",
+    "int PersistedDeviceState.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PersistedDeviceState persistedDeviceState = new PersistedDeviceState();
@@ -73,17 +83,21 @@ class PersistedDeviceStateDiffblueTest {
 
   /**
    * Test {@link PersistedDeviceState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedDeviceState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedDeviceState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedDeviceState.equals(Object)", "int PersistedDeviceState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedDeviceState.equals(Object)",
+    "int PersistedDeviceState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PersistedAlarmState persistedAlarmState = new PersistedAlarmState();
@@ -105,17 +119,21 @@ class PersistedDeviceStateDiffblueTest {
 
   /**
    * Test {@link PersistedDeviceState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedDeviceState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedDeviceState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedDeviceState.equals(Object)", "int PersistedDeviceState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedDeviceState.equals(Object)",
+    "int PersistedDeviceState.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PersistedDeviceState persistedDeviceState = new PersistedDeviceState();
@@ -127,17 +145,21 @@ class PersistedDeviceStateDiffblueTest {
 
   /**
    * Test {@link PersistedDeviceState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedDeviceState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedDeviceState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedDeviceState.equals(Object)", "int PersistedDeviceState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedDeviceState.equals(Object)",
+    "int PersistedDeviceState.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PersistedDeviceState persistedDeviceState = new PersistedDeviceState();
@@ -149,8 +171,9 @@ class PersistedDeviceStateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link PersistedDeviceState}
    *   <li>{@link PersistedDeviceState#setAlarmStates(Map)}
@@ -161,15 +184,20 @@ class PersistedDeviceStateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PersistedDeviceState.<init>()", "Map PersistedDeviceState.getAlarmStates()",
-      "void PersistedDeviceState.setAlarmStates(Map)", "String PersistedDeviceState.toString()"})
+  @MethodsUnderTest({
+    "void PersistedDeviceState.<init>()",
+    "Map PersistedDeviceState.getAlarmStates()",
+    "void PersistedDeviceState.setAlarmStates(Map)",
+    "String PersistedDeviceState.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PersistedDeviceState actualPersistedDeviceState = new PersistedDeviceState();
     HashMap<String, PersistedAlarmState> alarmStates = new HashMap<>();
     actualPersistedDeviceState.setAlarmStates(alarmStates);
     String actualToStringResult = actualPersistedDeviceState.toString();
-    Map<String, PersistedAlarmState> actualAlarmStates = actualPersistedDeviceState.getAlarmStates();
+    Map<String, PersistedAlarmState> actualAlarmStates =
+        actualPersistedDeviceState.getAlarmStates();
 
     // Assert
     assertEquals("PersistedDeviceState(alarmStates={})", actualToStringResult);

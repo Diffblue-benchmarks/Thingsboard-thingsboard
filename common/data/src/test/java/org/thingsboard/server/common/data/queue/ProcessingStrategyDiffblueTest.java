@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class ProcessingStrategyDiffblueTest {
   /**
    * Test {@link ProcessingStrategy#equals(Object)}, and {@link ProcessingStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProcessingStrategy#equals(Object)}
    *   <li>{@link ProcessingStrategy#hashCode()}
@@ -24,7 +26,10 @@ class ProcessingStrategyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -49,12 +54,14 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}, and {@link ProcessingStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProcessingStrategy#equals(Object)}
    *   <li>{@link ProcessingStrategy#hashCode()}
@@ -63,7 +70,10 @@ class ProcessingStrategyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -88,12 +98,14 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}, and {@link ProcessingStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProcessingStrategy#equals(Object)}
    *   <li>{@link ProcessingStrategy#hashCode()}
@@ -102,7 +114,10 @@ class ProcessingStrategyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -120,17 +135,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -153,17 +172,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -186,17 +209,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -219,17 +246,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -252,17 +283,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -285,17 +320,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -318,17 +357,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -344,17 +387,21 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test {@link ProcessingStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProcessingStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link ProcessingStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProcessingStrategy.equals(Object)", "int ProcessingStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProcessingStrategy.equals(Object)",
+    "int ProcessingStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -370,8 +417,9 @@ class ProcessingStrategyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ProcessingStrategy}
    *   <li>{@link ProcessingStrategy#setFailurePercentage(double)}
@@ -390,12 +438,20 @@ class ProcessingStrategyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProcessingStrategy.<init>()", "double ProcessingStrategy.getFailurePercentage()",
-      "long ProcessingStrategy.getMaxPauseBetweenRetries()", "long ProcessingStrategy.getPauseBetweenRetries()",
-      "int ProcessingStrategy.getRetries()", "ProcessingStrategyType ProcessingStrategy.getType()",
-      "void ProcessingStrategy.setFailurePercentage(double)", "void ProcessingStrategy.setMaxPauseBetweenRetries(long)",
-      "void ProcessingStrategy.setPauseBetweenRetries(long)", "void ProcessingStrategy.setRetries(int)",
-      "void ProcessingStrategy.setType(ProcessingStrategyType)", "String ProcessingStrategy.toString()"})
+  @MethodsUnderTest({
+    "void ProcessingStrategy.<init>()",
+    "double ProcessingStrategy.getFailurePercentage()",
+    "long ProcessingStrategy.getMaxPauseBetweenRetries()",
+    "long ProcessingStrategy.getPauseBetweenRetries()",
+    "int ProcessingStrategy.getRetries()",
+    "ProcessingStrategyType ProcessingStrategy.getType()",
+    "void ProcessingStrategy.setFailurePercentage(double)",
+    "void ProcessingStrategy.setMaxPauseBetweenRetries(long)",
+    "void ProcessingStrategy.setPauseBetweenRetries(long)",
+    "void ProcessingStrategy.setRetries(int)",
+    "void ProcessingStrategy.setType(ProcessingStrategyType)",
+    "String ProcessingStrategy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ProcessingStrategy actualProcessingStrategy = new ProcessingStrategy();
@@ -411,8 +467,10 @@ class ProcessingStrategyDiffblueTest {
     int actualRetries = actualProcessingStrategy.getRetries();
 
     // Assert
-    assertEquals("ProcessingStrategy(type=SKIP_ALL_FAILURES, retries=1, failurePercentage=10.0, pauseBetweenRetries=1,"
-        + " maxPauseBetweenRetries=1)", actualToStringResult);
+    assertEquals(
+        "ProcessingStrategy(type=SKIP_ALL_FAILURES, retries=1, failurePercentage=10.0, pauseBetweenRetries=1,"
+            + " maxPauseBetweenRetries=1)",
+        actualToStringResult);
     assertEquals(1, actualRetries);
     assertEquals(10.0d, actualFailurePercentage);
     assertEquals(1L, actualMaxPauseBetweenRetries);

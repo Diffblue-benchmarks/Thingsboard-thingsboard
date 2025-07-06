@@ -12,15 +12,18 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class TransportMonitoringTargetDiffblueTest {
   /**
    * Test {@link TransportMonitoringTarget#getDeviceId()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceConfig} (default constructor) Credentials is {@link DeviceCredentials#DeviceCredentials()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link DeviceConfig} (default constructor) Credentials is {@link
+   *       DeviceCredentials#DeviceCredentials()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringTarget#getDeviceId()}
+   *
+   * <p>Method under test: {@link TransportMonitoringTarget#getDeviceId()}
    */
   @Test
-  @DisplayName("Test getDeviceId(); given DeviceConfig (default constructor) Credentials is DeviceCredentials(); then return 'null'")
+  @DisplayName(
+      "Test getDeviceId(); given DeviceConfig (default constructor) Credentials is DeviceCredentials(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.util.UUID TransportMonitoringTarget.getDeviceId()"})
   void testGetDeviceId_givenDeviceConfigCredentialsIsDeviceCredentials_thenReturnNull() {
@@ -39,11 +42,12 @@ class TransportMonitoringTargetDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringTarget#getQueue()}.
+   *
    * <ul>
-   *   <li>Given {@link TransportMonitoringTarget} (default constructor).</li>
+   *   <li>Given {@link TransportMonitoringTarget} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringTarget#getQueue()}
+   *
+   * <p>Method under test: {@link TransportMonitoringTarget#getQueue()}
    */
   @Test
   @DisplayName("Test getQueue(); given TransportMonitoringTarget (default constructor)")
@@ -51,19 +55,21 @@ class TransportMonitoringTargetDiffblueTest {
   @MethodsUnderTest({"String TransportMonitoringTarget.getQueue()"})
   void testGetQueue_givenTransportMonitoringTarget() {
     // Arrange, Act and Assert
-    assertEquals("Main", (new TransportMonitoringTarget()).getQueue());
+    assertEquals("Main", new TransportMonitoringTarget().getQueue());
   }
 
   /**
    * Test {@link TransportMonitoringTarget#getQueue()}.
+   *
    * <ul>
-   *   <li>Given {@link TransportMonitoringTarget} (default constructor) Queue is empty string.</li>
+   *   <li>Given {@link TransportMonitoringTarget} (default constructor) Queue is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringTarget#getQueue()}
+   *
+   * <p>Method under test: {@link TransportMonitoringTarget#getQueue()}
    */
   @Test
-  @DisplayName("Test getQueue(); given TransportMonitoringTarget (default constructor) Queue is empty string")
+  @DisplayName(
+      "Test getQueue(); given TransportMonitoringTarget (default constructor) Queue is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TransportMonitoringTarget.getQueue()"})
   void testGetQueue_givenTransportMonitoringTargetQueueIsEmptyString() {
@@ -77,14 +83,16 @@ class TransportMonitoringTargetDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringTarget#getQueue()}.
+   *
    * <ul>
-   *   <li>Given {@link TransportMonitoringTarget} (default constructor) Queue is {@code Main}.</li>
+   *   <li>Given {@link TransportMonitoringTarget} (default constructor) Queue is {@code Main}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringTarget#getQueue()}
+   *
+   * <p>Method under test: {@link TransportMonitoringTarget#getQueue()}
    */
   @Test
-  @DisplayName("Test getQueue(); given TransportMonitoringTarget (default constructor) Queue is 'Main'")
+  @DisplayName(
+      "Test getQueue(); given TransportMonitoringTarget (default constructor) Queue is 'Main'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TransportMonitoringTarget.getQueue()"})
   void testGetQueue_givenTransportMonitoringTargetQueueIsMain() {
@@ -98,8 +106,9 @@ class TransportMonitoringTargetDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TransportMonitoringTarget}
    *   <li>{@link TransportMonitoringTarget#setBaseUrl(String)}
@@ -114,11 +123,17 @@ class TransportMonitoringTargetDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TransportMonitoringTarget.<init>()", "String TransportMonitoringTarget.getBaseUrl()",
-      "DeviceConfig TransportMonitoringTarget.getDevice()", "boolean TransportMonitoringTarget.isCheckDomainIps()",
-      "void TransportMonitoringTarget.setBaseUrl(String)", "void TransportMonitoringTarget.setCheckDomainIps(boolean)",
-      "void TransportMonitoringTarget.setDevice(DeviceConfig)", "void TransportMonitoringTarget.setQueue(String)",
-      "String TransportMonitoringTarget.toString()"})
+  @MethodsUnderTest({
+    "void TransportMonitoringTarget.<init>()",
+    "String TransportMonitoringTarget.getBaseUrl()",
+    "DeviceConfig TransportMonitoringTarget.getDevice()",
+    "boolean TransportMonitoringTarget.isCheckDomainIps()",
+    "void TransportMonitoringTarget.setBaseUrl(String)",
+    "void TransportMonitoringTarget.setCheckDomainIps(boolean)",
+    "void TransportMonitoringTarget.setDevice(DeviceConfig)",
+    "void TransportMonitoringTarget.setQueue(String)",
+    "String TransportMonitoringTarget.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TransportMonitoringTarget actualTransportMonitoringTarget = new TransportMonitoringTarget();

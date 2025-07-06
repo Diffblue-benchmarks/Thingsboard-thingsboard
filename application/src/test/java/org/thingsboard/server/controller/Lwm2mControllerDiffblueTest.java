@@ -20,31 +20,34 @@ import org.thingsboard.server.service.lwm2m.LwM2MService;
 
 @ExtendWith(MockitoExtension.class)
 class Lwm2mControllerDiffblueTest {
-  @Mock
-  private LwM2MService lwM2MService;
+  @Mock private LwM2MService lwM2MService;
 
-  @InjectMocks
-  private Lwm2mController lwm2mController;
+  @InjectMocks private Lwm2mController lwm2mController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link Lwm2mController#getLwm2mBootstrapSecurityInfo(boolean)}.
+   *
    * <ul>
-   *   <li>When {@code true}.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When {@code true}.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link Lwm2mController#getLwm2mBootstrapSecurityInfo(boolean)}
+   *
+   * <p>Method under test: {@link Lwm2mController#getLwm2mBootstrapSecurityInfo(boolean)}
    */
   @Test
-  @DisplayName("Test getLwm2mBootstrapSecurityInfo(boolean); when 'true'; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getLwm2mBootstrapSecurityInfo(boolean); when 'true'; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"LwM2MServerSecurityConfigDefault Lwm2mController.getLwm2mBootstrapSecurityInfo(boolean)"})
-  void testGetLwm2mBootstrapSecurityInfo_whenTrue_thenContentContentTypeApplicationJson() throws Exception {
+  @MethodsUnderTest({
+    "LwM2MServerSecurityConfigDefault Lwm2mController.getLwm2mBootstrapSecurityInfo(boolean)"
+  })
+  void testGetLwm2mBootstrapSecurityInfo_whenTrue_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault = new LwM2MServerSecurityConfigDefault();
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        new LwM2MServerSecurityConfigDefault();
     lwM2MServerSecurityConfigDefault.setBinding("Binding");
     lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
     lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
@@ -59,9 +62,10 @@ class Lwm2mControllerDiffblueTest {
     lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
     lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
     lwM2MServerSecurityConfigDefault.setShortServerId(1);
-    when(lwM2MService.getServerSecurityInfo(anyBoolean())).thenReturn(lwM2MServerSecurityConfigDefault);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-        .get("/api/lwm2m/deviceProfile/bootstrap/{isBootstrapServer}", true);
+    when(lwM2MService.getServerSecurityInfo(anyBoolean()))
+        .thenReturn(lwM2MServerSecurityConfigDefault);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/lwm2m/deviceProfile/bootstrap/{isBootstrapServer}", true);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(lwm2mController)
@@ -70,11 +74,12 @@ class Lwm2mControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"shortServerId\":1,\"bootstrapServerIs\":true,\"host\":\"localhost\",\"port\":8080,\"clientHoldOffTime\":1,"
-                    + "\"serverPublicKey\":\"Server Public Key\",\"serverCertificate\":\"Server Certificate\",\"bootstrapServerAccountTimeout"
-                    + "\":3,\"lifetime\":1,\"defaultMinPeriod\":1,\"notifIfDisabled\":true,\"binding\":\"Binding\",\"securityHost\":"
-                    + "\"localhost\",\"securityPort\":8080}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"shortServerId\":1,\"bootstrapServerIs\":true,\"host\":\"localhost\",\"port\":8080,\"clientHoldOffTime\":1,"
+                        + "\"serverPublicKey\":\"Server Public Key\",\"serverCertificate\":\"Server Certificate\",\"bootstrapServerAccountTimeout"
+                        + "\":3,\"lifetime\":1,\"defaultMinPeriod\":1,\"notifIfDisabled\":true,\"binding\":\"Binding\",\"securityHost\":"
+                        + "\"localhost\",\"securityPort\":8080}"));
   }
 }

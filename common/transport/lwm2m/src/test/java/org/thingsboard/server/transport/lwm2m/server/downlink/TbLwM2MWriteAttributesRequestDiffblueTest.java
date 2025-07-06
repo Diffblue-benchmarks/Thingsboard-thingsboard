@@ -17,13 +17,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MWriteAttrib
 @ContextConfiguration(classes = {TbLwM2MWriteAttributesRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MWriteAttributesRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MWriteAttributesRequestBuilder tbLwM2MWriteAttributesRequestBuilder;
+  @Autowired private TbLwM2MWriteAttributesRequestBuilder tbLwM2MWriteAttributesRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MWriteAttributesRequest#getAttributes()}
    *   <li>{@link TbLwM2MWriteAttributesRequest#getType()}
@@ -32,8 +32,10 @@ class TbLwM2MWriteAttributesRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ObjectAttributes TbLwM2MWriteAttributesRequest.getAttributes()",
-      "LwM2MOperationType TbLwM2MWriteAttributesRequest.getType()"})
+  @MethodsUnderTest({
+    "ObjectAttributes TbLwM2MWriteAttributesRequest.getAttributes()",
+    "LwM2MOperationType TbLwM2MWriteAttributesRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ObjectAttributes attributes = new ObjectAttributes();
@@ -49,11 +51,12 @@ class TbLwM2MWriteAttributesRequestDiffblueTest {
     attributes.setSt(10.0d);
     attributes.setUri("Uri");
     attributes.setVer("Ver");
-    TbLwM2MWriteAttributesRequest buildResult = TbLwM2MWriteAttributesRequest.builder()
-        .attributes(attributes)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MWriteAttributesRequest buildResult =
+        TbLwM2MWriteAttributesRequest.builder()
+            .attributes(attributes)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Act
     ObjectAttributes actualAttributes = buildResult.getAttributes();
@@ -65,8 +68,9 @@ class TbLwM2MWriteAttributesRequestDiffblueTest {
 
   /**
    * Test TbLwM2MWriteAttributesRequestBuilder {@link TbLwM2MWriteAttributesRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MWriteAttributesRequestBuilder#build()}
    *   <li>{@link TbLwM2MWriteAttributesRequestBuilder#attributes(ObjectAttributes)}
@@ -77,12 +81,14 @@ class TbLwM2MWriteAttributesRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MWriteAttributesRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MWriteAttributesRequestBuilder.<init>()",
-      "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.attributes(ObjectAttributes)",
-      "TbLwM2MWriteAttributesRequest TbLwM2MWriteAttributesRequestBuilder.build()",
-      "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.timeout(long)",
-      "String TbLwM2MWriteAttributesRequestBuilder.toString()",
-      "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MWriteAttributesRequestBuilder.<init>()",
+    "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.attributes(ObjectAttributes)",
+    "TbLwM2MWriteAttributesRequest TbLwM2MWriteAttributesRequestBuilder.build()",
+    "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.timeout(long)",
+    "String TbLwM2MWriteAttributesRequestBuilder.toString()",
+    "TbLwM2MWriteAttributesRequestBuilder TbLwM2MWriteAttributesRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MWriteAttributesRequestBuilderBuild() {
     // Arrange
     ObjectAttributes attributes = new ObjectAttributes();
@@ -100,11 +106,12 @@ class TbLwM2MWriteAttributesRequestDiffblueTest {
     attributes.setVer("Ver");
 
     // Act
-    TbLwM2MWriteAttributesRequest actualBuildResult = TbLwM2MWriteAttributesRequest.builder()
-        .attributes(attributes)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MWriteAttributesRequest actualBuildResult =
+        TbLwM2MWriteAttributesRequest.builder()
+            .attributes(attributes)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

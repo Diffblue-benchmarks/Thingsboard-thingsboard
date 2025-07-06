@@ -10,15 +10,15 @@ import org.junit.experimental.categories.Category;
 public class MethodCallStatsDiffblueTest {
   /**
    * Test {@link MethodCallStats#snapshot()}.
-   * <p>
-   * Method under test: {@link MethodCallStats#snapshot()}
+   *
+   * <p>Method under test: {@link MethodCallStats#snapshot()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"MethodCallStatsSnapshot MethodCallStats.snapshot()"})
   public void testSnapshot() {
     // Arrange and Act
-    MethodCallStatsSnapshot actualSnapshotResult = (new MethodCallStats()).snapshot();
+    MethodCallStatsSnapshot actualSnapshotResult = new MethodCallStats().snapshot();
 
     // Assert
     assertEquals(0, actualSnapshotResult.getExecutions());
@@ -28,12 +28,14 @@ public class MethodCallStatsDiffblueTest {
 
   /**
    * Test {@link MethodCallStats#equals(Object)}, and {@link MethodCallStats#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MethodCallStats#equals(Object)}
    *   <li>{@link MethodCallStats#hashCode()}
@@ -54,12 +56,13 @@ public class MethodCallStatsDiffblueTest {
 
   /**
    * Test {@link MethodCallStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MethodCallStats#equals(Object)}
+   *
+   * <p>Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -74,12 +77,13 @@ public class MethodCallStatsDiffblueTest {
 
   /**
    * Test {@link MethodCallStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MethodCallStats#equals(Object)}
+   *
+   * <p>Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -91,12 +95,13 @@ public class MethodCallStatsDiffblueTest {
 
   /**
    * Test {@link MethodCallStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MethodCallStats#equals(Object)}
+   *
+   * <p>Method under test: {@link MethodCallStats#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

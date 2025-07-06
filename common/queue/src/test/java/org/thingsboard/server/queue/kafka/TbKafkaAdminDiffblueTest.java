@@ -11,15 +11,18 @@ import org.junit.jupiter.api.Test;
 class TbKafkaAdminDiffblueTest {
   /**
    * Test {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@link TbKafkaTopicConfigs#NUM_PARTITIONS_SETTING} is {@code 42}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@link TbKafkaTopicConfigs#NUM_PARTITIONS_SETTING} is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}
+   *
+   * <p>Method under test: {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}
    */
   @Test
-  @DisplayName("Test new TbKafkaAdmin(TbKafkaSettings, Map); given '42'; when HashMap() NUM_PARTITIONS_SETTING is '42'")
+  @DisplayName(
+      "Test new TbKafkaAdmin(TbKafkaSettings, Map); given '42'; when HashMap() NUM_PARTITIONS_SETTING is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbKafkaAdmin.<init>(TbKafkaSettings, Map)"})
   void testNewTbKafkaAdmin_given42_whenHashMapNum_partitions_settingIs42() {
@@ -38,12 +41,13 @@ class TbKafkaAdminDiffblueTest {
 
   /**
    * Test {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()}.</li>
-   *   <li>Then {@link HashMap#HashMap()} Empty.</li>
+   *   <li>When {@link HashMap#HashMap()}.
+   *   <li>Then {@link HashMap#HashMap()} Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}
+   *
+   * <p>Method under test: {@link TbKafkaAdmin#TbKafkaAdmin(TbKafkaSettings, Map)}
    */
   @Test
   @DisplayName("Test new TbKafkaAdmin(TbKafkaSettings, Map); when HashMap(); then HashMap() Empty")

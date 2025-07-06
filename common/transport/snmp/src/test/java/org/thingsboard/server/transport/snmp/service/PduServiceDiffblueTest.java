@@ -14,7 +14,6 @@ import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,37 +37,42 @@ import org.thingsboard.server.transport.snmp.session.DeviceSessionContext;
 
 class PduServiceDiffblueTest {
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
-  void testCreateSingleVariablePdu() throws UnsupportedEncodingException {
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
+  void testCreateSingleVariablePdu() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setEngineId("42");
+    snmpDeviceTransportConfiguration.setContextName("42");
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        "42", DataType.BOOLEAN);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(
+            sessionContext, SnmpMethod.GET, "42", "42", DataType.BOOLEAN);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
     List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
@@ -76,34 +80,38 @@ class PduServiceDiffblueTest {
     VariableBinding getResult = all.get(0);
     Variable variable = getResult.getVariable();
     assertTrue(variable instanceof OctetString);
-    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    OctetString contextEngineID =
+        ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(
+        contextEngineID, ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName());
     byte[] value = contextEngineID.getValue();
     assertSame(value, contextEngineID.toByteArray());
-    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
-    byte[] value2 = contextName.getValue();
-    assertSame(value2, contextName.toByteArray());
-    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
     OID oid = getResult.getOid();
-    assertArrayEquals(new byte[]{'*'}, oid.toByteArray());
-    assertArrayEquals(new byte[]{'4', '2'}, value);
-    assertArrayEquals(new byte[]{'4', '2'}, ((OctetString) variable).getValue());
-    assertArrayEquals(new int[]{42}, oid.getValue());
-    assertArrayEquals(new long[]{42L}, oid.toUnsignedLongArray());
+    assertArrayEquals(new byte[] {'*'}, oid.toByteArray());
+    assertArrayEquals(new byte[] {'4', '2'}, value);
+    assertArrayEquals(new byte[] {'4', '2'}, ((OctetString) variable).getValue());
+    assertArrayEquals(new int[] {42}, oid.getValue());
+    assertArrayEquals(new long[] {42L}, oid.toUnsignedLongArray());
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>Then return BERPayloadLength is twenty.</li>
+   *   <li>Then return BERPayloadLength is twenty.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then return BERPayloadLength is twenty")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then return BERPayloadLength is twenty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
   void testCreateSingleVariablePdu_thenReturnBERPayloadLengthIsTwenty() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
@@ -111,17 +119,20 @@ class PduServiceDiffblueTest {
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V1);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V1);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        "42", DataType.BOOLEAN);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(
+            sessionContext, SnmpMethod.GET, "42", "42", DataType.BOOLEAN);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
     assertEquals(1, all.size());
@@ -132,32 +143,37 @@ class PduServiceDiffblueTest {
     assertEquals(22, actualCreateSingleVariablePduResult.getBERLength());
     OID oid = getResult.getOid();
     OID trimResult = oid.trim();
-    assertArrayEquals(new byte[]{}, trimResult.toByteArray());
-    assertArrayEquals(new byte[]{'*'}, oid.toByteArray());
+    assertArrayEquals(new byte[] {}, trimResult.toByteArray());
+    assertArrayEquals(new byte[] {'*'}, oid.toByteArray());
     OID successorResult = oid.successor();
-    assertArrayEquals(new byte[]{'*', 0}, successorResult.toByteArray());
-    assertArrayEquals(new byte[]{'4', '2'}, ((OctetString) variable).getValue());
-    assertArrayEquals(new int[]{}, trimResult.getValue());
-    assertArrayEquals(new int[]{42}, oid.getValue());
-    assertArrayEquals(new int[]{42, 0}, successorResult.getValue());
-    assertArrayEquals(new long[]{}, trimResult.toUnsignedLongArray());
-    assertArrayEquals(new long[]{42L}, oid.toUnsignedLongArray());
-    assertArrayEquals(new long[]{42L, 0L}, successorResult.toUnsignedLongArray());
+    assertArrayEquals(new byte[] {'*', 0}, successorResult.toByteArray());
+    assertArrayEquals(new byte[] {'4', '2'}, ((OctetString) variable).getValue());
+    assertArrayEquals(new int[] {}, trimResult.getValue());
+    assertArrayEquals(new int[] {42}, oid.getValue());
+    assertArrayEquals(new int[] {42, 0}, successorResult.getValue());
+    assertArrayEquals(new long[] {}, trimResult.toUnsignedLongArray());
+    assertArrayEquals(new long[] {42L}, oid.toUnsignedLongArray());
+    assertArrayEquals(new long[] {42L, 0L}, successorResult.toUnsignedLongArray());
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>Then throw {@link NumberFormatException}.</li>
+   *   <li>Then throw {@link NumberFormatException}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then throw NumberFormatException")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); then throw NumberFormatException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
   void testCreateSingleVariablePdu_thenThrowNumberFormatException() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
@@ -165,111 +181,116 @@ class PduServiceDiffblueTest {
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenThrow(new NumberFormatException("foo"));
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenThrow(new NumberFormatException("foo"));
 
     // Act and Assert
-    assertThrows(NumberFormatException.class,
-        () -> pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "Oid", "42", DataType.BOOLEAN));
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
+    assertThrows(
+        NumberFormatException.class,
+        () ->
+            pduService.createSingleVariablePdu(
+                sessionContext, SnmpMethod.GET, "Oid", "42", DataType.BOOLEAN));
     verify(sessionContext).getDeviceTransportConfiguration();
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>When {@code LONG}.</li>
-   *   <li>Then return BERPayloadLength is thirty-nine.</li>
+   *   <li>When {@code LONG}.
+   *   <li>Then return BERPayloadLength is twenty-nine.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'LONG'; then return BERPayloadLength is thirty-nine")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'LONG'; then return BERPayloadLength is twenty-nine")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
-  void testCreateSingleVariablePdu_whenLong_thenReturnBERPayloadLengthIsThirtyNine()
-      throws UnsupportedEncodingException {
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
+  void testCreateSingleVariablePdu_whenLong_thenReturnBERPayloadLengthIsTwentyNine() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setEngineId("42");
+    snmpDeviceTransportConfiguration.setContextName("42");
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        "42", DataType.LONG);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(
+            sessionContext, SnmpMethod.GET, "42", "42", DataType.LONG);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
     assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
-    assertEquals(39, actualCreateSingleVariablePduResult.getBERPayloadLength());
-    assertEquals(41, actualCreateSingleVariablePduResult.getBERLength());
-    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(29, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(31, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID =
+        ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(
+        contextEngineID, ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName());
     byte[] value = contextEngineID.getValue();
     assertSame(value, contextEngineID.toByteArray());
-    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
-    byte[] value2 = contextName.getValue();
-    assertSame(value2, contextName.toByteArray());
-    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
-    assertArrayEquals(new byte[]{'4', '2'}, value);
+    assertArrayEquals(new byte[] {'4', '2'}, value);
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return All first Variable is ContextEngineID.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return All first Variable is ContextEngineID.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return All first Variable is ContextEngineID")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return All first Variable is ContextEngineID")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
-  void testCreateSingleVariablePdu_whenNull_thenReturnAllFirstVariableIsContextEngineID()
-      throws UnsupportedEncodingException {
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
+  void testCreateSingleVariablePdu_whenNull_thenReturnAllFirstVariableIsContextEngineID() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setEngineId("42");
+    snmpDeviceTransportConfiguration.setContextName("42");
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        "42", null);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42", "42", null);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
     List<VariableBinding> all = actualCreateSingleVariablePduResult.getAll();
@@ -279,127 +300,134 @@ class PduServiceDiffblueTest {
     assertTrue(variable instanceof OctetString);
     VariableBinding[] toArrayResult = actualCreateSingleVariablePduResult.toArray();
     assertEquals(1, toArrayResult.length);
-    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    OctetString contextEngineID =
+        ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(
+        contextEngineID, ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName());
     assertEquals(contextEngineID, variable);
     assertSame(getResult, toArrayResult[0]);
     assertSame(all, actualCreateSingleVariablePduResult.getVariableBindings());
     byte[] value = contextEngineID.getValue();
     assertSame(value, contextEngineID.toByteArray());
-    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
-    byte[] value2 = contextName.getValue();
-    assertSame(value2, contextName.toByteArray());
-    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
-    assertArrayEquals(new byte[]{'4', '2'}, value);
+    assertArrayEquals(new byte[] {'4', '2'}, value);
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return BERPayloadLength is thirty-eight.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return BERPayloadLength is twenty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return BERPayloadLength is thirty-eight")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'null'; then return BERPayloadLength is twenty-eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
-  void testCreateSingleVariablePdu_whenNull_thenReturnBERPayloadLengthIsThirtyEight()
-      throws UnsupportedEncodingException {
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
+  void testCreateSingleVariablePdu_whenNull_thenReturnBERPayloadLengthIsTwentyEight() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setEngineId("42");
+    snmpDeviceTransportConfiguration.setContextName("42");
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        null, DataType.BOOLEAN);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(
+            sessionContext, SnmpMethod.GET, "42", null, DataType.BOOLEAN);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
     assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
-    assertEquals(38, actualCreateSingleVariablePduResult.getBERPayloadLength());
-    assertEquals(40, actualCreateSingleVariablePduResult.getBERLength());
-    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(28, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(30, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID =
+        ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(
+        contextEngineID, ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName());
     byte[] value = contextEngineID.getValue();
     assertSame(value, contextEngineID.toByteArray());
-    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
-    byte[] value2 = contextName.getValue();
-    assertSame(value2, contextName.toByteArray());
-    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
-    assertArrayEquals(new byte[]{'4', '2'}, value);
+    assertArrayEquals(new byte[] {'4', '2'}, value);
   }
 
   /**
-   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}.
+   * Test {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String,
+   * String, DataType)}.
+   *
    * <ul>
-   *   <li>When {@code Value}.</li>
-   *   <li>Then return BERPayloadLength is forty-three.</li>
+   *   <li>When {@code Value}.
+   *   <li>Then return BERPayloadLength is thirty-three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)}
+   *
+   * <p>Method under test: {@link PduService#createSingleVariablePdu(DeviceSessionContext,
+   * SnmpMethod, String, String, DataType)}
    */
   @Test
-  @DisplayName("Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'Value'; then return BERPayloadLength is forty-three")
+  @DisplayName(
+      "Test createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType); when 'Value'; then return BERPayloadLength is thirty-three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"})
-  void testCreateSingleVariablePdu_whenValue_thenReturnBERPayloadLengthIsFortyThree()
-      throws UnsupportedEncodingException {
+    "PDU PduService.createSingleVariablePdu(DeviceSessionContext, SnmpMethod, String, String, DataType)"
+  })
+  void testCreateSingleVariablePdu_whenValue_thenReturnBERPayloadLengthIsThirtyThree() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
     PduService pduService = new PduService();
-    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration = mock(SnmpDeviceTransportConfiguration.class);
-    when(snmpDeviceTransportConfiguration.getEngineId()).thenReturn("42");
-    when(snmpDeviceTransportConfiguration.getContextName()).thenReturn("Context Name");
-    when(snmpDeviceTransportConfiguration.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    SnmpDeviceTransportConfiguration snmpDeviceTransportConfiguration =
+        new SnmpDeviceTransportConfiguration();
+    snmpDeviceTransportConfiguration.setEngineId("42");
+    snmpDeviceTransportConfiguration.setContextName("42");
+    snmpDeviceTransportConfiguration.setProtocolVersion(SnmpProtocolVersion.V3);
     DeviceSessionContext sessionContext = mock(DeviceSessionContext.class);
-    when(sessionContext.getDeviceTransportConfiguration()).thenReturn(snmpDeviceTransportConfiguration);
+    when(sessionContext.getDeviceTransportConfiguration())
+        .thenReturn(snmpDeviceTransportConfiguration);
 
     // Act
-    PDU actualCreateSingleVariablePduResult = pduService.createSingleVariablePdu(sessionContext, SnmpMethod.GET, "42",
-        "Value", DataType.LONG);
+    PDU actualCreateSingleVariablePduResult =
+        pduService.createSingleVariablePdu(
+            sessionContext, SnmpMethod.GET, "42", "Value", DataType.LONG);
 
     // Assert
-    verify(snmpDeviceTransportConfiguration).getContextName();
-    verify(snmpDeviceTransportConfiguration).getEngineId();
-    verify(snmpDeviceTransportConfiguration).getProtocolVersion();
     verify(sessionContext).getDeviceTransportConfiguration();
     assertTrue(actualCreateSingleVariablePduResult instanceof ScopedPDU);
     assertEquals(1, actualCreateSingleVariablePduResult.toArray().length);
-    assertEquals(43, actualCreateSingleVariablePduResult.getBERPayloadLength());
-    assertEquals(45, actualCreateSingleVariablePduResult.getBERLength());
-    OctetString contextEngineID = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(33, actualCreateSingleVariablePduResult.getBERPayloadLength());
+    assertEquals(35, actualCreateSingleVariablePduResult.getBERLength());
+    OctetString contextEngineID =
+        ((ScopedPDU) actualCreateSingleVariablePduResult).getContextEngineID();
+    assertEquals(
+        contextEngineID, ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName());
     byte[] value = contextEngineID.getValue();
     assertSame(value, contextEngineID.toByteArray());
-    OctetString contextName = ((ScopedPDU) actualCreateSingleVariablePduResult).getContextName();
-    byte[] value2 = contextName.getValue();
-    assertSame(value2, contextName.toByteArray());
-    assertArrayEquals("Context Name".getBytes("UTF-8"), value2);
-    assertArrayEquals(new byte[]{'4', '2'}, value);
+    assertArrayEquals(new byte[] {'4', '2'}, value);
   }
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'")
@@ -428,14 +456,16 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.</li>
+   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU() add VariableBinding()")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU() add VariableBinding()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPduAddVariableBinding() {
@@ -463,15 +493,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
+   *   <li>Given {@link PDU#PDU()}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPdu_whenArrayListAddPdu() {
@@ -496,15 +528,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
+   *   <li>Given {@link PDU#PDU()}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; given PDU(); when ArrayList() add PDU()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_givenPdu_whenArrayListAddPdu2() {
@@ -530,21 +564,24 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>Then calls {@link PDU#add(VariableBinding)}.</li>
+   *   <li>Then calls {@link PDU#add(VariableBinding)}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; then calls add(VariableBinding)")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; then calls add(VariableBinding)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_thenCallsAdd() {
     // Arrange
     PduService pduService = new PduService();
     PDU pdu = mock(PDU.class);
-    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings()).thenReturn(new ArrayList<>());
+    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings())
+        .thenReturn(new ArrayList<>());
     doNothing().when(pdu).add(Mockito.<VariableBinding>any());
     pdu.add(new VariableBinding());
 
@@ -568,11 +605,12 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>Then calls {@link VariableBinding#getOid()}.</li>
+   *   <li>Then calls {@link VariableBinding#getOid()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
   @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; then calls getOid()")
@@ -589,7 +627,8 @@ class PduServiceDiffblueTest {
     ArrayList<VariableBinding> variableBindingList = new ArrayList<>();
     variableBindingList.add(variableBinding);
     PDU pdu = mock(PDU.class);
-    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings()).thenReturn(variableBindingList);
+    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings())
+        .thenReturn(variableBindingList);
     doNothing().when(pdu).add(Mockito.<VariableBinding>any());
     pdu.add(new VariableBinding());
 
@@ -616,15 +655,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return size is zero.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; when ArrayList(); then return size is zero")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; when ArrayList(); then return size is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_whenArrayList_thenReturnSizeIsZero() {
@@ -647,15 +688,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List, List)} with {@code pdus}, {@code responseMappings}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return size is zero.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List, List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List, List)}
    */
   @Test
-  @DisplayName("Test processPdus(List, List) with 'pdus', 'responseMappings'; when 'null'; then return size is zero")
+  @DisplayName(
+      "Test processPdus(List, List) with 'pdus', 'responseMappings'; when 'null'; then return size is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject PduService.processPdus(List, List)"})
   void testProcessPdusWithPdusResponseMappings_whenNull_thenReturnSizeIsZero() {
@@ -677,15 +720,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
+   *   <li>Given {@link PDU#PDU()} add {@link VariableBinding#VariableBinding()}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
-  @DisplayName("Test processPdus(List) with 'pdus'; given PDU() add VariableBinding(); when ArrayList() add PDU()")
+  @DisplayName(
+      "Test processPdus(List) with 'pdus'; given PDU() add VariableBinding(); when ArrayList() add PDU()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPduAddVariableBinding_whenArrayListAddPdu() {
@@ -704,22 +749,25 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>Given {@link PDU} {@link PDU#getVariableBindings()} return {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then calls {@link PDU#add(VariableBinding)}.</li>
+   *   <li>Given {@link PDU} {@link PDU#getVariableBindings()} return {@link ArrayList#ArrayList()}.
+   *   <li>Then calls {@link PDU#add(VariableBinding)}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
-  @DisplayName("Test processPdus(List) with 'pdus'; given PDU getVariableBindings() return ArrayList(); then calls add(VariableBinding)")
+  @DisplayName(
+      "Test processPdus(List) with 'pdus'; given PDU getVariableBindings() return ArrayList(); then calls add(VariableBinding)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPduGetVariableBindingsReturnArrayList_thenCallsAdd() {
     // Arrange
     PduService pduService = new PduService();
     PDU pdu = mock(PDU.class);
-    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings()).thenReturn(new ArrayList<>());
+    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings())
+        .thenReturn(new ArrayList<>());
     doNothing().when(pdu).add(Mockito.<VariableBinding>any());
     pdu.add(new VariableBinding());
 
@@ -737,16 +785,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@link PDU#PDU()}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
-  @DisplayName("Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
+  @DisplayName(
+      "Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPdu_whenArrayListAddPdu_thenReturnEmpty() {
@@ -762,16 +812,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>Given {@link PDU#PDU()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@link PDU#PDU()}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link PDU#PDU()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
-  @DisplayName("Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
+  @DisplayName(
+      "Test processPdus(List) with 'pdus'; given PDU(); when ArrayList() add PDU(); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PduService.processPdus(List)"})
   void testProcessPdusWithPdus_givenPdu_whenArrayListAddPdu_thenReturnEmpty2() {
@@ -788,11 +840,12 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>Then return size is one.</li>
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; then return size is one")
@@ -809,7 +862,8 @@ class PduServiceDiffblueTest {
     ArrayList<VariableBinding> variableBindingList = new ArrayList<>();
     variableBindingList.add(variableBinding);
     PDU pdu = mock(PDU.class);
-    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings()).thenReturn(variableBindingList);
+    Mockito.<List<? extends VariableBinding>>when(pdu.getVariableBindings())
+        .thenReturn(variableBindingList);
     doNothing().when(pdu).add(Mockito.<VariableBinding>any());
     pdu.add(new VariableBinding());
 
@@ -830,12 +884,13 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processPdus(List)} with {@code pdus}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processPdus(List)}
+   *
+   * <p>Method under test: {@link PduService#processPdus(List)}
    */
   @Test
   @DisplayName("Test processPdus(List) with 'pdus'; when ArrayList(); then return Empty")
@@ -851,15 +906,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
+   *   <li>Given {@code 42}.
+   *   <li>Then {@link JsonObject} (default constructor) size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsThree() {
@@ -880,15 +937,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
+   *   <li>Given {@code 42}.
+   *   <li>Then {@link JsonObject} (default constructor) size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsThree2() {
@@ -910,15 +969,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is two.</li>
+   *   <li>Given {@code 42}.
+   *   <li>Then {@link JsonObject} (default constructor) size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is two")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; then JsonObject (default constructor) size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_thenJsonObjectSizeIsTwo() {
@@ -939,16 +1000,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@code .}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@code .}.
+   *   <li>Then {@link JsonObject} (default constructor) size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenDot_thenJsonObjectSizeIsThree() {
@@ -969,16 +1032,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@code .}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@code .}.
+   *   <li>Then {@link JsonObject} (default constructor) size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; when '.'; then JsonObject (default constructor) size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenDot_thenJsonObjectSizeIsThree2() {
@@ -1000,16 +1065,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link Boolean#FALSE} toString.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is three.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link Boolean#FALSE} toString.
+   *   <li>Then {@link JsonObject} (default constructor) size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '42'; when FALSE toString; then JsonObject (default constructor) size is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '42'; when FALSE toString; then JsonObject (default constructor) size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_given42_whenFalseToString_thenJsonObjectSizeIsThree() {
@@ -1031,15 +1098,18 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code .}.</li>
-   *   <li>When {@link JsonObject} (default constructor) add {@code .} and {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>Given {@code .}.
+   *   <li>When {@link JsonObject} (default constructor) add {@code .} and {@link
+   *       JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given '.'; when JsonObject (default constructor) add '.' and JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given '.'; when JsonObject (default constructor) add '.' and JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_givenDot_whenJsonObjectAddDotAndJsonArrayWithCapacityIsThree() {
@@ -1059,15 +1129,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>Given {@code Property}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is two.</li>
+   *   <li>Given {@code Property}.
+   *   <li>Then {@link JsonObject} (default constructor) size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); given 'Property'; then JsonObject (default constructor) size is two")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); given 'Property'; then JsonObject (default constructor) size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_givenProperty_thenJsonObjectSizeIsTwo() {
@@ -1087,15 +1159,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>When {@code BOOLEAN}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code BOOLEAN}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); when 'BOOLEAN'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); when 'BOOLEAN'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenBoolean_thenThrowIllegalArgumentException() {
@@ -1103,21 +1177,24 @@ class PduServiceDiffblueTest {
     PduService pduService = new PduService();
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> pduService.processValue("Key", DataType.BOOLEAN, "42", new JsonObject()));
   }
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then {@link JsonObject} (default constructor) size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); when JsonObject (default constructor); then JsonObject (default constructor) size is one")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); when JsonObject (default constructor); then JsonObject (default constructor) size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenJsonObject_thenJsonObjectSizeIsOne() {
@@ -1135,15 +1212,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>When {@code STRING}.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
+   *   <li>When {@code STRING}.
+   *   <li>Then {@link JsonObject} (default constructor) size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); when 'STRING'; then JsonObject (default constructor) size is one")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); when 'STRING'; then JsonObject (default constructor) size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenString_thenJsonObjectSizeIsOne() {
@@ -1161,15 +1240,17 @@ class PduServiceDiffblueTest {
 
   /**
    * Test {@link PduService#processValue(String, DataType, String, JsonObject)}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#TRUE} toString.</li>
-   *   <li>Then {@link JsonObject} (default constructor) size is one.</li>
+   *   <li>When {@link Boolean#TRUE} toString.
+   *   <li>Then {@link JsonObject} (default constructor) size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
+   *
+   * <p>Method under test: {@link PduService#processValue(String, DataType, String, JsonObject)}
    */
   @Test
-  @DisplayName("Test processValue(String, DataType, String, JsonObject); when TRUE toString; then JsonObject (default constructor) size is one")
+  @DisplayName(
+      "Test processValue(String, DataType, String, JsonObject); when TRUE toString; then JsonObject (default constructor) size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PduService.processValue(String, DataType, String, JsonObject)"})
   void testProcessValue_whenTrueToString_thenJsonObjectSizeIsOne() {

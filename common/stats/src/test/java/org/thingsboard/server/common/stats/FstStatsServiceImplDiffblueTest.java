@@ -30,33 +30,41 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class FstStatsServiceImplDiffblueTest {
-  @Autowired
-  private FstStatsServiceImpl fstStatsServiceImpl;
+  @Autowired private FstStatsServiceImpl fstStatsServiceImpl;
 
-  @MockBean
-  private StatsFactory statsFactory;
+  @MockBean private StatsFactory statsFactory;
 
   /**
    * Test {@link FstStatsServiceImpl#incrementEncode(Class)}.
+   *
    * <ul>
-   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with one.</li>
-   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.</li>
+   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with one.
+   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#incrementEncode(Class)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#incrementEncode(Class)}
    */
   @Test
-  @DisplayName("Test incrementEncode(Class); given AtomicInteger(int) with one; then calls createStatsCounter(String, String, String[])")
+  @DisplayName(
+      "Test incrementEncode(Class); given AtomicInteger(int) with one; then calls createStatsCounter(String, String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void FstStatsServiceImpl.incrementEncode(Class)"})
   void testIncrementEncode_givenAtomicIntegerWithOne_thenCallsCreateStatsCounter() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -68,25 +76,35 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#incrementEncode(Class)}.
+   *
    * <ul>
-   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with zero.</li>
-   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.</li>
+   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with zero.
+   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#incrementEncode(Class)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#incrementEncode(Class)}
    */
   @Test
-  @DisplayName("Test incrementEncode(Class); given AtomicInteger(int) with zero; then calls createStatsCounter(String, String, String[])")
+  @DisplayName(
+      "Test incrementEncode(Class); given AtomicInteger(int) with zero; then calls createStatsCounter(String, String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void FstStatsServiceImpl.incrementEncode(Class)"})
   void testIncrementEncode_givenAtomicIntegerWithZero_thenCallsCreateStatsCounter() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(0);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -98,25 +116,35 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#incrementDecode(Class)}.
+   *
    * <ul>
-   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with one.</li>
-   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.</li>
+   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with one.
+   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#incrementDecode(Class)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#incrementDecode(Class)}
    */
   @Test
-  @DisplayName("Test incrementDecode(Class); given AtomicInteger(int) with one; then calls createStatsCounter(String, String, String[])")
+  @DisplayName(
+      "Test incrementDecode(Class); given AtomicInteger(int) with one; then calls createStatsCounter(String, String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void FstStatsServiceImpl.incrementDecode(Class)"})
   void testIncrementDecode_givenAtomicIntegerWithOne_thenCallsCreateStatsCounter() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -128,25 +156,35 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#incrementDecode(Class)}.
+   *
    * <ul>
-   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with zero.</li>
-   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.</li>
+   *   <li>Given {@link AtomicInteger#AtomicInteger(int)} with zero.
+   *   <li>Then calls {@link StatsFactory#createStatsCounter(String, String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#incrementDecode(Class)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#incrementDecode(Class)}
    */
   @Test
-  @DisplayName("Test incrementDecode(Class); given AtomicInteger(int) with zero; then calls createStatsCounter(String, String, String[])")
+  @DisplayName(
+      "Test incrementDecode(Class); given AtomicInteger(int) with zero; then calls createStatsCounter(String, String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void FstStatsServiceImpl.incrementDecode(Class)"})
   void testIncrementDecode_givenAtomicIntegerWithZero_thenCallsCreateStatsCounter() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(0);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -158,8 +196,8 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}.
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}
    */
   @Test
   @DisplayName("Test recordEncodeTime(Class, long)")
@@ -168,8 +206,14 @@ class FstStatsServiceImplDiffblueTest {
   void testRecordEncodeTime() {
     // Arrange
     when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new NoopTimer(new Id("fst_encode_time", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Type.COUNTER)));
+        .thenReturn(
+            new NoopTimer(
+                new Id(
+                    "fst_encode_time",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -181,11 +225,12 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}.
+   *
    * <ul>
-   *   <li>Then calls {@link StatsFactory#createTimer(String, String[])}.</li>
+   *   <li>Then calls {@link StatsFactory#createTimer(String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#recordEncodeTime(Class, long)}
    */
   @Test
   @DisplayName("Test recordEncodeTime(Class, long); then calls createTimer(String, String[])")
@@ -193,8 +238,15 @@ class FstStatsServiceImplDiffblueTest {
   @MethodsUnderTest({"void FstStatsServiceImpl.recordEncodeTime(Class, long)"})
   void testRecordEncodeTime_thenCallsCreateTimer() {
     // Arrange
-    when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class))).thenReturn(new NoopTimer(
-        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
+    when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new NoopTimer(
+                new Id(
+                    "Name",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -206,8 +258,8 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}.
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}
    */
   @Test
   @DisplayName("Test recordDecodeTime(Class, long)")
@@ -216,8 +268,14 @@ class FstStatsServiceImplDiffblueTest {
   void testRecordDecodeTime() {
     // Arrange
     when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new NoopTimer(new Id("fst_decode_time", Tags.empty(), "Base Unit",
-            "The characteristics of someone or something", Type.COUNTER)));
+        .thenReturn(
+            new NoopTimer(
+                new Id(
+                    "fst_decode_time",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
     Class<Object> clazz = Object.class;
 
     // Act
@@ -229,11 +287,12 @@ class FstStatsServiceImplDiffblueTest {
 
   /**
    * Test {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}.
+   *
    * <ul>
-   *   <li>Then calls {@link StatsFactory#createTimer(String, String[])}.</li>
+   *   <li>Then calls {@link StatsFactory#createTimer(String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}
+   *
+   * <p>Method under test: {@link FstStatsServiceImpl#recordDecodeTime(Class, long)}
    */
   @Test
   @DisplayName("Test recordDecodeTime(Class, long); then calls createTimer(String, String[])")
@@ -241,8 +300,15 @@ class FstStatsServiceImplDiffblueTest {
   @MethodsUnderTest({"void FstStatsServiceImpl.recordDecodeTime(Class, long)"})
   void testRecordDecodeTime_thenCallsCreateTimer() {
     // Arrange
-    when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class))).thenReturn(new NoopTimer(
-        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
+    when(statsFactory.createTimer(Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new NoopTimer(
+                new Id(
+                    "Name",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
     Class<Object> clazz = Object.class;
 
     // Act

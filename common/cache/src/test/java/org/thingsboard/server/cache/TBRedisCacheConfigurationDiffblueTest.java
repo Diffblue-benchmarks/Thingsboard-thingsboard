@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.time.Duration;
@@ -28,23 +27,23 @@ import redis.clients.jedis.JedisPoolConfig;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class TBRedisCacheConfigurationDiffblueTest {
-  @InjectMocks
-  private RedisSslCredentials redisSslCredentials;
+  @InjectMocks private RedisSslCredentials redisSslCredentials;
 
-  @InjectMocks
-  private TBRedisClusterConfiguration tBRedisClusterConfiguration;
+  @InjectMocks private TBRedisClusterConfiguration tBRedisClusterConfiguration;
 
   /**
    * Test {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}.
+   *
    * <ul>
-   *   <li>When {@link JedisConnectionFactory#JedisConnectionFactory()}.</li>
-   *   <li>Then CacheNames return {@link Set}.</li>
+   *   <li>When {@link JedisConnectionFactory#JedisConnectionFactory()}.
+   *   <li>Then CacheNames return {@link Set}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#cacheManager(RedisConnectionFactory)}
    */
   @Test
-  @DisplayName("Test cacheManager(RedisConnectionFactory); when JedisConnectionFactory(); then CacheNames return Set")
+  @DisplayName(
+      "Test cacheManager(RedisConnectionFactory); when JedisConnectionFactory(); then CacheNames return Set")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"CacheManager TBRedisCacheConfiguration.cacheManager(RedisConnectionFactory)"})
   void testCacheManager_whenJedisConnectionFactory_thenCacheNamesReturnSet() {
@@ -52,7 +51,8 @@ class TBRedisCacheConfigurationDiffblueTest {
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
     // Act
-    CacheManager actualCacheManagerResult = tbRedisClusterConfiguration.cacheManager(new JedisConnectionFactory());
+    CacheManager actualCacheManagerResult =
+        tbRedisClusterConfiguration.cacheManager(new JedisConnectionFactory());
 
     // Assert
     Collection<String> cacheNames = actualCacheManagerResult.getCacheNames();
@@ -66,8 +66,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#buildPoolConfig()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#buildPoolConfig()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#buildPoolConfig()}
    */
   @Test
   @DisplayName("Test buildPoolConfig()")
@@ -75,10 +75,12 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"JedisPoolConfig TBRedisCacheConfiguration.buildPoolConfig()"})
   void testBuildPoolConfig() {
     // Arrange and Act
-    JedisPoolConfig actualBuildPoolConfigResult = (new TBRedisClusterConfiguration()).buildPoolConfig();
+    JedisPoolConfig actualBuildPoolConfigResult =
+        new TBRedisClusterConfiguration().buildPoolConfig();
 
     // Assert
-    assertEquals("org.apache.commons.pool2.impl.DefaultEvictionPolicy",
+    assertEquals(
+        "org.apache.commons.pool2.impl.DefaultEvictionPolicy",
         actualBuildPoolConfigResult.getEvictionPolicyClassName());
     assertEquals("pool", actualBuildPoolConfigResult.getJmxNamePrefix());
     assertNull(actualBuildPoolConfigResult.getJmxNameBase());
@@ -107,12 +109,13 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#getNodes(String)}.
+   *
    * <ul>
-   *   <li>When {@code ,}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code ,}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
    */
   @Test
   @DisplayName("Test getNodes(String); when ','; then return Empty")
@@ -120,17 +123,18 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenComma_thenReturnEmpty() {
     // Arrange, Act and Assert
-    assertTrue((new TBRedisClusterConfiguration()).getNodes(",").isEmpty());
+    assertTrue(new TBRedisClusterConfiguration().getNodes(",").isEmpty());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getNodes(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When empty string.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
    */
   @Test
   @DisplayName("Test getNodes(String); when empty string; then return Empty")
@@ -138,17 +142,18 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenEmptyString_thenReturnEmpty() {
     // Arrange, Act and Assert
-    assertTrue((new TBRedisClusterConfiguration()).getNodes("").isEmpty());
+    assertTrue(new TBRedisClusterConfiguration().getNodes("").isEmpty());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getNodes(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
    */
   @Test
   @DisplayName("Test getNodes(String); when 'null'; then return Empty")
@@ -156,17 +161,18 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenNull_thenReturnEmpty() {
     // Arrange, Act and Assert
-    assertTrue((new TBRedisClusterConfiguration()).getNodes(null).isEmpty());
+    assertTrue(new TBRedisClusterConfiguration().getNodes(null).isEmpty());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getNodes(String)}.
+   *
    * <ul>
-   *   <li>When space.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When space.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getNodes(String)}
    */
   @Test
   @DisplayName("Test getNodes(String); when space; then return Empty")
@@ -174,121 +180,18 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"java.util.List TBRedisCacheConfiguration.getNodes(String)"})
   void testGetNodes_whenSpace_thenReturnEmpty() {
     // Arrange, Act and Assert
-    assertTrue((new TBRedisClusterConfiguration()).getNodes(" ").isEmpty());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is empty string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
-  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsEmptyString() {
-    // Arrange
-    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
-    redisSslCredentials2.setCertFile("TLS");
-    redisSslCredentials2.setUserCertFile("TLS");
-    redisSslCredentials2.setUserKeyFile("");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is {@code not empty}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is 'not empty'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
-  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsNotEmpty() {
-    // Arrange
-    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
-    redisSslCredentials2.setCertFile("Cert File");
-    redisSslCredentials2.setUserKeyFile("not empty");
-    redisSslCredentials2.setUserCertFile(" ");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is space.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is space")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
-  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsSpace() {
-    // Arrange
-    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
-    redisSslCredentials2.setCertFile("Cert File");
-    redisSslCredentials2.setUserKeyFile(" ");
-    redisSslCredentials2.setUserCertFile(" ");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
-  }
-
-  /**
-   * Test {@link TBRedisCacheConfiguration#createSslSocketFactory()}.
-   * <ul>
-   *   <li>Given {@link RedisSslCredentials} (default constructor) UserKeyFile is {@code TLS}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#createSslSocketFactory()}
-   */
-  @Test
-  @DisplayName("Test createSslSocketFactory(); given RedisSslCredentials (default constructor) UserKeyFile is 'TLS'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"javax.net.ssl.SSLSocketFactory TBRedisCacheConfiguration.createSslSocketFactory()"})
-  void testCreateSslSocketFactory_givenRedisSslCredentialsUserKeyFileIsTls() {
-    // Arrange
-    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
-    redisSslCredentials2.setCertFile("TLS");
-    redisSslCredentials2.setUserCertFile("TLS");
-    redisSslCredentials2.setUserKeyFile("TLS");
-
-    TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbRedisClusterConfiguration.createSslSocketFactory());
+    assertTrue(new TBRedisClusterConfiguration().getNodes(" ").isEmpty());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@code Other}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
@@ -296,20 +199,22 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).canEqual("Other"));
+    assertFalse(new TBRedisClusterConfiguration().canEqual("Other"));
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when TBRedisClusterConfiguration (default constructor); then return 'true'")
+  @DisplayName(
+      "Test canEqual(Object); when TBRedisClusterConfiguration (default constructor); then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.canEqual(Object)"})
   void testCanEqual_whenTBRedisClusterConfiguration_thenReturnTrue() {
@@ -321,13 +226,16 @@ class TBRedisCacheConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link TBRedisCacheConfiguration#hashCode()}.
+   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link
+   * TBRedisCacheConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TBRedisCacheConfiguration#equals(Object)}
    *   <li>{@link TBRedisCacheConfiguration#hashCode()}
@@ -336,7 +244,10 @@ class TBRedisCacheConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -349,13 +260,16 @@ class TBRedisCacheConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link TBRedisCacheConfiguration#hashCode()}.
+   * Test {@link TBRedisCacheConfiguration#equals(Object)}, and {@link
+   * TBRedisCacheConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TBRedisCacheConfiguration#equals(Object)}
    *   <li>{@link TBRedisCacheConfiguration#hashCode()}
@@ -364,7 +278,10 @@ class TBRedisCacheConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -377,17 +294,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TBRedisClusterConfiguration(), 1);
@@ -395,17 +316,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -417,17 +342,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -439,17 +368,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -461,17 +394,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -483,17 +420,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -505,17 +446,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -527,17 +472,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -549,17 +498,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -571,17 +524,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -593,17 +550,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -615,17 +576,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -637,17 +602,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -659,17 +628,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
@@ -681,26 +654,25 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("Cert File");
-    redisSslCredentials.setUserCertFile("User Cert File");
-    redisSslCredentials.setUserKeyFile("User Key File");
-
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
+    tbRedisClusterConfiguration.setRedisSslCredentials(new RedisSslCredentials());
 
     // Act and Assert
     assertNotEquals(tbRedisClusterConfiguration, new TBRedisClusterConfiguration());
@@ -708,28 +680,27 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
-    RedisSslCredentials redisSslCredentials = new RedisSslCredentials();
-    redisSslCredentials.setCertFile("Cert File");
-    redisSslCredentials.setUserCertFile("User Cert File");
-    redisSslCredentials.setUserKeyFile("User Key File");
-
     TBRedisClusterConfiguration tbRedisClusterConfiguration2 = new TBRedisClusterConfiguration();
-    tbRedisClusterConfiguration2.setRedisSslCredentials(redisSslCredentials);
+    tbRedisClusterConfiguration2.setRedisSslCredentials(new RedisSslCredentials());
 
     // Act and Assert
     assertNotEquals(tbRedisClusterConfiguration, tbRedisClusterConfiguration2);
@@ -737,17 +708,21 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TBRedisClusterConfiguration(), null);
@@ -755,26 +730,31 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TBRedisCacheConfiguration.equals(Object)", "int TBRedisCacheConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TBRedisCacheConfiguration.equals(Object)",
+    "int TBRedisCacheConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TBRedisClusterConfiguration(), "Different type to TBRedisCacheConfiguration");
+    assertNotEquals(
+        new TBRedisClusterConfiguration(), "Different type to TBRedisCacheConfiguration");
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getEvictTtlInMs()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getEvictTtlInMs()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getEvictTtlInMs()}
    */
   @Test
   @DisplayName("Test getEvictTtlInMs()")
@@ -782,13 +762,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"int TBRedisCacheConfiguration.getEvictTtlInMs()"})
   void testGetEvictTtlInMs() {
     // Arrange, Act and Assert
-    assertEquals(0, (new TBRedisClusterConfiguration()).getEvictTtlInMs());
+    assertEquals(0, new TBRedisClusterConfiguration().getEvictTtlInMs());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getEvictionRunsMs()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getEvictionRunsMs()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getEvictionRunsMs()}
    */
   @Test
   @DisplayName("Test getEvictionRunsMs()")
@@ -796,13 +776,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"long TBRedisCacheConfiguration.getEvictionRunsMs()"})
   void testGetEvictionRunsMs() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new TBRedisClusterConfiguration()).getEvictionRunsMs());
+    assertEquals(0L, new TBRedisClusterConfiguration().getEvictionRunsMs());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getMaxIdle()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getMaxIdle()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getMaxIdle()}
    */
   @Test
   @DisplayName("Test getMaxIdle()")
@@ -810,13 +790,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"int TBRedisCacheConfiguration.getMaxIdle()"})
   void testGetMaxIdle() {
     // Arrange, Act and Assert
-    assertEquals(0, (new TBRedisClusterConfiguration()).getMaxIdle());
+    assertEquals(0, new TBRedisClusterConfiguration().getMaxIdle());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getMaxTotal()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getMaxTotal()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getMaxTotal()}
    */
   @Test
   @DisplayName("Test getMaxTotal()")
@@ -824,13 +804,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"int TBRedisCacheConfiguration.getMaxTotal()"})
   void testGetMaxTotal() {
     // Arrange, Act and Assert
-    assertEquals(0, (new TBRedisClusterConfiguration()).getMaxTotal());
+    assertEquals(0, new TBRedisClusterConfiguration().getMaxTotal());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getMaxWaitMills()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getMaxWaitMills()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getMaxWaitMills()}
    */
   @Test
   @DisplayName("Test getMaxWaitMills()")
@@ -838,13 +818,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"long TBRedisCacheConfiguration.getMaxWaitMills()"})
   void testGetMaxWaitMills() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new TBRedisClusterConfiguration()).getMaxWaitMills());
+    assertEquals(0L, new TBRedisClusterConfiguration().getMaxWaitMills());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getMinEvictableMs()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getMinEvictableMs()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getMinEvictableMs()}
    */
   @Test
   @DisplayName("Test getMinEvictableMs()")
@@ -852,13 +832,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"long TBRedisCacheConfiguration.getMinEvictableMs()"})
   void testGetMinEvictableMs() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new TBRedisClusterConfiguration()).getMinEvictableMs());
+    assertEquals(0L, new TBRedisClusterConfiguration().getMinEvictableMs());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getMinIdle()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getMinIdle()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getMinIdle()}
    */
   @Test
   @DisplayName("Test getMinIdle()")
@@ -866,13 +846,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"int TBRedisCacheConfiguration.getMinIdle()"})
   void testGetMinIdle() {
     // Arrange, Act and Assert
-    assertEquals(0, (new TBRedisClusterConfiguration()).getMinIdle());
+    assertEquals(0, new TBRedisClusterConfiguration().getMinIdle());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getNumberTestsPerEvictionRun()}
    */
   @Test
   @DisplayName("Test getNumberTestsPerEvictionRun()")
@@ -880,13 +860,13 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"int TBRedisCacheConfiguration.getNumberTestsPerEvictionRun()"})
   void testGetNumberTestsPerEvictionRun() {
     // Arrange, Act and Assert
-    assertEquals(0, (new TBRedisClusterConfiguration()).getNumberTestsPerEvictionRun());
+    assertEquals(0, new TBRedisClusterConfiguration().getNumberTestsPerEvictionRun());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#getRedisSslCredentials()}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#getRedisSslCredentials()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#getRedisSslCredentials()}
    */
   @Test
   @DisplayName("Test getRedisSslCredentials()")
@@ -894,34 +874,37 @@ class TBRedisCacheConfigurationDiffblueTest {
   @MethodsUnderTest({"RedisSslCredentials TBRedisCacheConfiguration.getRedisSslCredentials()"})
   void testGetRedisSslCredentials() {
     // Arrange, Act and Assert
-    assertNull((new TBRedisClusterConfiguration()).getRedisSslCredentials());
+    assertNull(new TBRedisClusterConfiguration().getRedisSslCredentials());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}
    */
   @Test
-  @DisplayName("Test isBlockWhenExhausted(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isBlockWhenExhausted(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isBlockWhenExhausted()"})
   void testIsBlockWhenExhausted_givenTBRedisClusterConfiguration_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).isBlockWhenExhausted());
+    assertFalse(new TBRedisClusterConfiguration().isBlockWhenExhausted());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isBlockWhenExhausted()}
    */
   @Test
   @DisplayName("Test isBlockWhenExhausted(); then return 'true'")
@@ -938,15 +921,18 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#isSslEnabled()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) SslEnabled is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) SslEnabled is {@code
+   *       true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isSslEnabled()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isSslEnabled()}
    */
   @Test
-  @DisplayName("Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor) SslEnabled is 'true'; then return 'true'")
+  @DisplayName(
+      "Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor) SslEnabled is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isSslEnabled()"})
   void testIsSslEnabled_givenTBRedisClusterConfigurationSslEnabledIsTrue_thenReturnTrue() {
@@ -960,47 +946,52 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#isSslEnabled()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isSslEnabled()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isSslEnabled()}
    */
   @Test
-  @DisplayName("Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isSslEnabled(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isSslEnabled()"})
   void testIsSslEnabled_givenTBRedisClusterConfiguration_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).isSslEnabled());
+    assertFalse(new TBRedisClusterConfiguration().isSslEnabled());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestOnBorrow()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestOnBorrow()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestOnBorrow()}
    */
   @Test
-  @DisplayName("Test isTestOnBorrow(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isTestOnBorrow(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnBorrow()"})
   void testIsTestOnBorrow_givenTBRedisClusterConfiguration_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).isTestOnBorrow());
+    assertFalse(new TBRedisClusterConfiguration().isTestOnBorrow());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestOnBorrow()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestOnBorrow()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestOnBorrow()}
    */
   @Test
   @DisplayName("Test isTestOnBorrow(); then return 'true'")
@@ -1017,29 +1008,32 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestOnReturn()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestOnReturn()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestOnReturn()}
    */
   @Test
-  @DisplayName("Test isTestOnReturn(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isTestOnReturn(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestOnReturn()"})
   void testIsTestOnReturn_givenTBRedisClusterConfiguration_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).isTestOnReturn());
+    assertFalse(new TBRedisClusterConfiguration().isTestOnReturn());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestOnReturn()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestOnReturn()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestOnReturn()}
    */
   @Test
   @DisplayName("Test isTestOnReturn(); then return 'true'")
@@ -1056,29 +1050,32 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestWhileIdle()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestWhileIdle()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestWhileIdle()}
    */
   @Test
-  @DisplayName("Test isTestWhileIdle(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isTestWhileIdle(); given TBRedisClusterConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TBRedisCacheConfiguration.isTestWhileIdle()"})
   void testIsTestWhileIdle_givenTBRedisClusterConfiguration_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TBRedisClusterConfiguration()).isTestWhileIdle());
+    assertFalse(new TBRedisClusterConfiguration().isTestWhileIdle());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#isTestWhileIdle()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#isTestWhileIdle()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#isTestWhileIdle()}
    */
   @Test
   @DisplayName("Test isTestWhileIdle(); then return 'true'")
@@ -1095,8 +1092,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setBlockWhenExhausted(boolean)}
    */
   @Test
   @DisplayName("Test setBlockWhenExhausted(boolean)")
@@ -1115,8 +1112,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setEvictTtlInMs(int)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setEvictTtlInMs(int)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setEvictTtlInMs(int)}
    */
   @Test
   @DisplayName("Test setEvictTtlInMs(int)")
@@ -1135,8 +1132,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setEvictionRunsMs(long)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setEvictionRunsMs(long)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setEvictionRunsMs(long)}
    */
   @Test
   @DisplayName("Test setEvictionRunsMs(long)")
@@ -1155,8 +1152,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setMaxIdle(int)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setMaxIdle(int)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setMaxIdle(int)}
    */
   @Test
   @DisplayName("Test setMaxIdle(int)")
@@ -1175,8 +1172,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setMaxTotal(int)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setMaxTotal(int)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setMaxTotal(int)}
    */
   @Test
   @DisplayName("Test setMaxTotal(int)")
@@ -1195,8 +1192,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setMaxWaitMills(long)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setMaxWaitMills(long)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setMaxWaitMills(long)}
    */
   @Test
   @DisplayName("Test setMaxWaitMills(long)")
@@ -1215,8 +1212,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setMinEvictableMs(long)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setMinEvictableMs(long)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setMinEvictableMs(long)}
    */
   @Test
   @DisplayName("Test setMinEvictableMs(long)")
@@ -1235,8 +1232,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setMinIdle(int)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setMinIdle(int)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setMinIdle(int)}
    */
   @Test
   @DisplayName("Test setMinIdle(int)")
@@ -1255,8 +1252,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setNumberTestsPerEvictionRun(int)}
    */
   @Test
   @DisplayName("Test setNumberTestsPerEvictionRun(int)")
@@ -1275,8 +1272,9 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}
+   *
+   * <p>Method under test: {@link
+   * TBRedisCacheConfiguration#setRedisSslCredentials(RedisSslCredentials)}
    */
   @Test
   @DisplayName("Test setRedisSslCredentials(RedisSslCredentials)")
@@ -1286,22 +1284,17 @@ class TBRedisCacheConfigurationDiffblueTest {
     // Arrange
     TBRedisClusterConfiguration tbRedisClusterConfiguration = new TBRedisClusterConfiguration();
 
-    RedisSslCredentials redisSslCredentials2 = new RedisSslCredentials();
-    redisSslCredentials2.setCertFile("Cert File");
-    redisSslCredentials2.setUserCertFile("User Cert File");
-    redisSslCredentials2.setUserKeyFile("User Key File");
-
     // Act
-    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials2);
+    tbRedisClusterConfiguration.setRedisSslCredentials(redisSslCredentials);
 
     // Assert
-    assertSame(redisSslCredentials2, tbRedisClusterConfiguration.getRedisSslCredentials());
+    assertSame(redisSslCredentials, tbRedisClusterConfiguration.getRedisSslCredentials());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#setSslEnabled(boolean)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setSslEnabled(boolean)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setSslEnabled(boolean)}
    */
   @Test
   @DisplayName("Test setSslEnabled(boolean)")
@@ -1320,8 +1313,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setTestOnBorrow(boolean)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setTestOnBorrow(boolean)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setTestOnBorrow(boolean)}
    */
   @Test
   @DisplayName("Test setTestOnBorrow(boolean)")
@@ -1340,8 +1333,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setTestOnReturn(boolean)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setTestOnReturn(boolean)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setTestOnReturn(boolean)}
    */
   @Test
   @DisplayName("Test setTestOnReturn(boolean)")
@@ -1360,8 +1353,8 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}.
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#setTestWhileIdle(boolean)}
    */
   @Test
   @DisplayName("Test setTestWhileIdle(boolean)")
@@ -1380,11 +1373,12 @@ class TBRedisCacheConfigurationDiffblueTest {
 
   /**
    * Test {@link TBRedisCacheConfiguration#toString()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#toString()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#toString()}
    */
   @Test
   @DisplayName("Test toString(); given TBRedisClusterConfiguration (default constructor)")
@@ -1396,19 +1390,22 @@ class TBRedisCacheConfigurationDiffblueTest {
         "TBRedisCacheConfiguration(evictTtlInMs=0, maxTotal=0, maxIdle=0, minIdle=0, testOnBorrow=false,"
             + " testOnReturn=false, testWhileIdle=false, minEvictableMs=0, evictionRunsMs=0, maxWaitMills=0,"
             + " numberTestsPerEvictionRun=0, blockWhenExhausted=false, sslEnabled=false, redisSslCredentials=null)",
-        (new TBRedisClusterConfiguration()).toString());
+        new TBRedisClusterConfiguration().toString());
   }
 
   /**
    * Test {@link TBRedisCacheConfiguration#toString()}.
+   *
    * <ul>
-   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) TestOnBorrow is {@code true}.</li>
+   *   <li>Given {@link TBRedisClusterConfiguration} (default constructor) TestOnBorrow is {@code
+   *       true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TBRedisCacheConfiguration#toString()}
+   *
+   * <p>Method under test: {@link TBRedisCacheConfiguration#toString()}
    */
   @Test
-  @DisplayName("Test toString(); given TBRedisClusterConfiguration (default constructor) TestOnBorrow is 'true'")
+  @DisplayName(
+      "Test toString(); given TBRedisClusterConfiguration (default constructor) TestOnBorrow is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TBRedisCacheConfiguration.toString()"})
   void testToString_givenTBRedisClusterConfigurationTestOnBorrowIsTrue() {

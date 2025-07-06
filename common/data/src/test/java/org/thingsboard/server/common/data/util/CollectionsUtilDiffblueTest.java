@@ -18,16 +18,18 @@ import org.junit.jupiter.api.Test;
 class CollectionsUtilDiffblueTest {
   /**
    * Test {@link CollectionsUtil#isEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isEmpty(Collection)}
    */
   @Test
-  @DisplayName("Test isEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test isEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.isEmpty(Collection)"})
   void testIsEmpty_given42_whenArrayListAdd42_thenReturnFalse() {
@@ -41,16 +43,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isEmpty(Collection)}
    */
   @Test
-  @DisplayName("Test isEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test isEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.isEmpty(Collection)"})
   void testIsEmpty_given42_whenArrayListAdd42_thenReturnFalse2() {
@@ -65,12 +69,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isEmpty(Collection)}
    */
   @Test
   @DisplayName("Test isEmpty(Collection); when ArrayList(); then return 'true'")
@@ -83,12 +88,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isEmpty(Collection)}
    */
   @Test
   @DisplayName("Test isEmpty(Collection); when 'null'; then return 'true'")
@@ -101,16 +107,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isNotEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
    */
   @Test
-  @DisplayName("Test isNotEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.isNotEmpty(Collection)"})
   void testIsNotEmpty_given42_whenArrayListAdd42_thenReturnTrue() {
@@ -124,16 +132,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isNotEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
    */
   @Test
-  @DisplayName("Test isNotEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(Collection); given '42'; when ArrayList() add '42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.isNotEmpty(Collection)"})
   void testIsNotEmpty_given42_whenArrayListAdd42_thenReturnTrue2() {
@@ -148,12 +158,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isNotEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
    */
   @Test
   @DisplayName("Test isNotEmpty(Collection); when ArrayList(); then return 'false'")
@@ -166,12 +177,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#isNotEmpty(Collection)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#isNotEmpty(Collection)}
    */
   @Test
   @DisplayName("Test isNotEmpty(Collection); when 'null'; then return 'false'")
@@ -184,13 +196,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashSet#HashSet()} add {@code 42}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashSet#HashSet()} add {@code 42}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); given '42'; when HashSet() add '42'; then return Empty")
@@ -210,13 +223,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashSet#HashSet()} add {@code 42}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashSet#HashSet()} add {@code 42}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); given '42'; when HashSet() add '42'; then return Empty")
@@ -239,13 +253,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashSet#HashSet()}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashSet#HashSet()}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); given '42'; when HashSet(); then return size is one")
@@ -267,13 +282,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>Given two.</li>
-   *   <li>When {@link HashSet#HashSet()} add two.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given two.
+   *   <li>When {@link HashSet#HashSet()} add two.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); given two; when HashSet() add two; then return Empty")
@@ -294,13 +310,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>Given two.</li>
-   *   <li>When {@link HashSet#HashSet()} add two.</li>
-   *   <li>Then return {@link HashSet#HashSet()}.</li>
+   *   <li>Given two.
+   *   <li>When {@link HashSet#HashSet()} add two.
+   *   <li>Then return {@link HashSet#HashSet()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); given two; when HashSet() add two; then return HashSet()")
@@ -323,12 +340,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffSets(Set, Set)}.
+   *
    * <ul>
-   *   <li>When {@link HashSet#HashSet()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link HashSet#HashSet()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffSets(Set, Set)}
    */
   @Test
   @DisplayName("Test diffSets(Set, Set); when HashSet(); then return Empty")
@@ -347,16 +365,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
-  @DisplayName("Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
+  @DisplayName(
+      "Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List CollectionsUtil.diffLists(List, List)"})
   void testDiffLists_given42_whenArrayListAdd42_thenReturnEmpty() {
@@ -373,16 +393,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
-  @DisplayName("Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
+  @DisplayName(
+      "Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List CollectionsUtil.diffLists(List, List)"})
   void testDiffLists_given42_whenArrayListAdd42_thenReturnEmpty2() {
@@ -400,16 +422,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
-  @DisplayName("Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
+  @DisplayName(
+      "Test diffLists(List, List); given '42'; when ArrayList() add '42'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List CollectionsUtil.diffLists(List, List)"})
   void testDiffLists_given42_whenArrayListAdd42_thenReturnEmpty3() {
@@ -429,13 +453,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
   @DisplayName("Test diffLists(List, List); given '42'; when ArrayList(); then return ArrayList()")
@@ -458,13 +483,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
   @DisplayName("Test diffLists(List, List); given '42'; when ArrayList(); then return size is one")
@@ -487,12 +513,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#diffLists(List, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#diffLists(List, List)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#diffLists(List, List)}
    */
   @Test
   @DisplayName("Test diffLists(List, List); when ArrayList(); then return Empty")
@@ -511,13 +538,14 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#contains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#contains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#contains(Collection, Object)}
    */
   @Test
   @DisplayName("Test contains(Collection, Object); given '42'; when '42'; then return 'true'")
@@ -534,16 +562,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#contains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#contains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#contains(Collection, Object)}
    */
   @Test
-  @DisplayName("Test contains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test contains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.contains(Collection, Object)"})
   void testContains_given42_whenArrayListAdd42_thenReturnFalse() {
@@ -557,16 +587,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#contains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#contains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#contains(Collection, Object)}
    */
   @Test
-  @DisplayName("Test contains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test contains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.contains(Collection, Object)"})
   void testContains_given42_whenArrayListAdd42_thenReturnFalse2() {
@@ -581,12 +613,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#contains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#contains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#contains(Collection, Object)}
    */
   @Test
   @DisplayName("Test contains(Collection, Object); when ArrayList(); then return 'false'")
@@ -599,12 +632,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#contains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#contains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#contains(Collection, Object)}
    */
   @Test
   @DisplayName("Test contains(Collection, Object); when 'null'; then return 'false'")
@@ -617,12 +651,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#countNonNull(Object[])}.
+   *
    * <ul>
-   *   <li>When array of {@link Object} with {@code Array}.</li>
-   *   <li>Then return one.</li>
+   *   <li>When array of {@link Object} with {@code Array}.
+   *   <li>Then return one.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#countNonNull(Object[])}
+   *
+   * <p>Method under test: {@link CollectionsUtil#countNonNull(Object[])}
    */
   @Test
   @DisplayName("Test countNonNull(Object[]); when array of Object with 'Array'; then return one")
@@ -630,17 +665,18 @@ class CollectionsUtilDiffblueTest {
   @MethodsUnderTest({"int CollectionsUtil.countNonNull(Object[])"})
   void testCountNonNull_whenArrayOfObjectWithArray_thenReturnOne() {
     // Arrange, Act and Assert
-    assertEquals(1, CollectionsUtil.countNonNull(new Object[]{"Array"}));
+    assertEquals(1, CollectionsUtil.countNonNull(new Object[] {"Array"}));
   }
 
   /**
    * Test {@link CollectionsUtil#countNonNull(Object[])}.
+   *
    * <ul>
-   *   <li>When array of {@link Object} with {@code null}.</li>
-   *   <li>Then return zero.</li>
+   *   <li>When array of {@link Object} with {@code null}.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#countNonNull(Object[])}
+   *
+   * <p>Method under test: {@link CollectionsUtil#countNonNull(Object[])}
    */
   @Test
   @DisplayName("Test countNonNull(Object[]); when array of Object with 'null'; then return zero")
@@ -648,16 +684,17 @@ class CollectionsUtilDiffblueTest {
   @MethodsUnderTest({"int CollectionsUtil.countNonNull(Object[])"})
   void testCountNonNull_whenArrayOfObjectWithNull_thenReturnZero() {
     // Arrange, Act and Assert
-    assertEquals(0, CollectionsUtil.countNonNull(new Object[]{null}));
+    assertEquals(0, CollectionsUtil.countNonNull(new Object[] {null}));
   }
 
   /**
    * Test {@link CollectionsUtil#mapOf(Object[])}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#mapOf(Object[])}
+   *
+   * <p>Method under test: {@link CollectionsUtil#mapOf(Object[])}
    */
   @Test
   @DisplayName("Test mapOf(Object[]); then return Empty")
@@ -673,12 +710,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#mapOf(Object[])}.
+   *
    * <ul>
-   *   <li>When {@code Kvs} and {@code Kvs}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>When {@code Kvs} and {@code Kvs}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#mapOf(Object[])}
+   *
+   * <p>Method under test: {@link CollectionsUtil#mapOf(Object[])}
    */
   @Test
   @DisplayName("Test mapOf(Object[]); when 'Kvs' and 'Kvs'; then return size is one")
@@ -695,12 +733,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#mapOf(Object[])}.
+   *
    * <ul>
-   *   <li>When {@code Kvs}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Kvs}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#mapOf(Object[])}
+   *
+   * <p>Method under test: {@link CollectionsUtil#mapOf(Object[])}
    */
   @Test
   @DisplayName("Test mapOf(Object[]); when 'Kvs'; then throw IllegalArgumentException")
@@ -713,16 +752,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#emptyOrContains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
    */
   @Test
-  @DisplayName("Test emptyOrContains(Collection, Object); given '42'; when '42'; then return 'true'")
+  @DisplayName(
+      "Test emptyOrContains(Collection, Object); given '42'; when '42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.emptyOrContains(Collection, Object)"})
   void testEmptyOrContains_given42_when42_thenReturnTrue() {
@@ -736,16 +777,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#emptyOrContains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
    */
   @Test
-  @DisplayName("Test emptyOrContains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test emptyOrContains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.emptyOrContains(Collection, Object)"})
   void testEmptyOrContains_given42_whenArrayListAdd42_thenReturnFalse() {
@@ -759,16 +802,18 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#emptyOrContains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
    */
   @Test
-  @DisplayName("Test emptyOrContains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
+  @DisplayName(
+      "Test emptyOrContains(Collection, Object); given '42'; when ArrayList() add '42'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CollectionsUtil.emptyOrContains(Collection, Object)"})
   void testEmptyOrContains_given42_whenArrayListAdd42_thenReturnFalse2() {
@@ -783,12 +828,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#emptyOrContains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
    */
   @Test
   @DisplayName("Test emptyOrContains(Collection, Object); when ArrayList(); then return 'true'")
@@ -801,12 +847,13 @@ class CollectionsUtilDiffblueTest {
 
   /**
    * Test {@link CollectionsUtil#emptyOrContains(Collection, Object)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
+   *
+   * <p>Method under test: {@link CollectionsUtil#emptyOrContains(Collection, Object)}
    */
   @Test
   @DisplayName("Test emptyOrContains(Collection, Object); when 'null'; then return 'true'")

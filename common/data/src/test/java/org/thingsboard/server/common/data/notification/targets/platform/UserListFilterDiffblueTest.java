@@ -15,12 +15,14 @@ import org.junit.jupiter.api.Test;
 class UserListFilterDiffblueTest {
   /**
    * Test {@link UserListFilter#equals(Object)}, and {@link UserListFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserListFilter#equals(Object)}
    *   <li>{@link UserListFilter#hashCode()}
@@ -46,12 +48,14 @@ class UserListFilterDiffblueTest {
 
   /**
    * Test {@link UserListFilter#equals(Object)}, and {@link UserListFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserListFilter#equals(Object)}
    *   <li>{@link UserListFilter#hashCode()}
@@ -74,12 +78,13 @@ class UserListFilterDiffblueTest {
 
   /**
    * Test {@link UserListFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserListFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link UserListFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -102,12 +107,13 @@ class UserListFilterDiffblueTest {
 
   /**
    * Test {@link UserListFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserListFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link UserListFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -124,12 +130,13 @@ class UserListFilterDiffblueTest {
 
   /**
    * Test {@link UserListFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserListFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link UserListFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -146,8 +153,9 @@ class UserListFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link UserListFilter}
    *   <li>{@link UserListFilter#setUsersIds(List)}
@@ -159,8 +167,13 @@ class UserListFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserListFilter.<init>()", "UsersFilterType UserListFilter.getType()",
-      "List UserListFilter.getUsersIds()", "void UserListFilter.setUsersIds(List)", "String UserListFilter.toString()"})
+  @MethodsUnderTest({
+    "void UserListFilter.<init>()",
+    "UsersFilterType UserListFilter.getType()",
+    "List UserListFilter.getUsersIds()",
+    "void UserListFilter.setUsersIds(List)",
+    "String UserListFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     UserListFilter actualUserListFilter = new UserListFilter();

@@ -10,14 +10,14 @@ import org.thingsboard.server.common.data.EntityType;
 public class CustomerServiceImplDiffblueTest {
   /**
    * Test {@link CustomerServiceImpl#getEntityType()}.
-   * <p>
-   * Method under test: {@link CustomerServiceImpl#getEntityType()}
+   *
+   * <p>Method under test: {@link CustomerServiceImpl#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"EntityType CustomerServiceImpl.getEntityType()"})
   public void testGetEntityType() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.CUSTOMER, (new CustomerServiceImpl()).getEntityType());
+    assertEquals(EntityType.CUSTOMER, new CustomerServiceImpl().getEntityType());
   }
 }

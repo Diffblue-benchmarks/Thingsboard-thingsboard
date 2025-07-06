@@ -13,15 +13,17 @@ import org.junit.jupiter.api.Test;
 class OtpBasedTwoFaAccountConfigDiffblueTest {
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@link EmailTwoFaAccountConfig} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link EmailTwoFaAccountConfig} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when EmailTwoFaAccountConfig (default constructor); then return 'true'")
+  @DisplayName(
+      "Test canEqual(Object); when EmailTwoFaAccountConfig (default constructor); then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.canEqual(Object)"})
   void testCanEqual_whenEmailTwoFaAccountConfig_thenReturnTrue() {
@@ -34,12 +36,13 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@code Other}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
@@ -47,22 +50,27 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
   @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new EmailTwoFaAccountConfig()).canEqual("Other"));
+    assertFalse(new EmailTwoFaAccountConfig().canEqual("Other"));
   }
 
   /**
-   * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}, and {@link OtpBasedTwoFaAccountConfig#hashCode()}.
+   * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}, and {@link
+   * OtpBasedTwoFaAccountConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EmailTwoFaAccountConfig emailTwoFaAccountConfig = new EmailTwoFaAccountConfig();
@@ -75,18 +83,23 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
   }
 
   /**
-   * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}, and {@link OtpBasedTwoFaAccountConfig#hashCode()}.
+   * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}, and {@link
+   * OtpBasedTwoFaAccountConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EmailTwoFaAccountConfig emailTwoFaAccountConfig = new EmailTwoFaAccountConfig();
@@ -99,17 +112,21 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EmailTwoFaAccountConfig emailTwoFaAccountConfig = new EmailTwoFaAccountConfig();
@@ -125,17 +142,21 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EmailTwoFaAccountConfig emailTwoFaAccountConfig = new EmailTwoFaAccountConfig();
@@ -147,17 +168,21 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EmailTwoFaAccountConfig(), null);
@@ -165,17 +190,21 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtpBasedTwoFaAccountConfig.equals(Object)", "int OtpBasedTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtpBasedTwoFaAccountConfig.equals(Object)",
+    "int OtpBasedTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EmailTwoFaAccountConfig(), "Different type to OtpBasedTwoFaAccountConfig");
@@ -183,8 +212,8 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link OtpBasedTwoFaAccountConfig#toString()}.
-   * <p>
-   * Method under test: {@link OtpBasedTwoFaAccountConfig#toString()}
+   *
+   * <p>Method under test: {@link OtpBasedTwoFaAccountConfig#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -192,6 +221,6 @@ class OtpBasedTwoFaAccountConfigDiffblueTest {
   @MethodsUnderTest({"java.lang.String OtpBasedTwoFaAccountConfig.toString()"})
   void testToString() {
     // Arrange, Act and Assert
-    assertEquals("EmailTwoFaAccountConfig(email=null)", (new EmailTwoFaAccountConfig()).toString());
+    assertEquals("EmailTwoFaAccountConfig(email=null)", new EmailTwoFaAccountConfig().toString());
   }
 }

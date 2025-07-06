@@ -10,8 +10,8 @@ import org.thingsboard.monitoring.config.transport.TransportMonitoringTarget;
 class MonitoringTargetDiffblueTest {
   /**
    * Test {@link MonitoringTarget#getQueue()}.
-   * <p>
-   * Method under test: {@link MonitoringTarget#getQueue()}
+   *
+   * <p>Method under test: {@link MonitoringTarget#getQueue()}
    */
   @Test
   @DisplayName("Test getQueue()")
@@ -19,6 +19,6 @@ class MonitoringTargetDiffblueTest {
   @MethodsUnderTest({"java.lang.String MonitoringTarget.getQueue()"})
   void testGetQueue() {
     // Arrange, Act and Assert
-    assertEquals("Main", (new TransportMonitoringTarget()).getQueue());
+    assertEquals("Main", new TransportMonitoringTarget().getQueue());
   }
 }

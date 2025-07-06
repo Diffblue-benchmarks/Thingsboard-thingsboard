@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class AttributeExportDataDiffblueTest {
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -25,7 +27,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -54,12 +59,14 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -68,7 +75,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -97,12 +107,14 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -111,7 +123,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -140,12 +155,14 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -154,7 +171,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -183,12 +203,14 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -197,7 +219,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -226,12 +251,62 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link AttributeExportData#equals(Object)}
+   *   <li>{@link AttributeExportData#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
+    // Arrange
+    AttributeExportData attributeExportData = new AttributeExportData();
+    attributeExportData.setBooleanValue(true);
+    attributeExportData.setDoubleValue(10.0d);
+    attributeExportData.setJsonValue("42");
+    attributeExportData.setKey("Key");
+    attributeExportData.setLastUpdateTs(null);
+    attributeExportData.setLongValue(42L);
+    attributeExportData.setStrValue("42");
+
+    AttributeExportData attributeExportData2 = new AttributeExportData();
+    attributeExportData2.setBooleanValue(true);
+    attributeExportData2.setDoubleValue(10.0d);
+    attributeExportData2.setJsonValue("42");
+    attributeExportData2.setKey("Key");
+    attributeExportData2.setLastUpdateTs(null);
+    attributeExportData2.setLongValue(42L);
+    attributeExportData2.setStrValue("42");
+
+    // Act and Assert
+    assertEquals(attributeExportData, attributeExportData2);
+    int expectedHashCodeResult = attributeExportData.hashCode();
+    assertEquals(expectedHashCodeResult, attributeExportData2.hashCode());
+  }
+
+  /**
+   * Test {@link AttributeExportData#equals(Object)}, and {@link AttributeExportData#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeExportData#equals(Object)}
    *   <li>{@link AttributeExportData#hashCode()}
@@ -240,7 +315,10 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -260,17 +338,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -297,17 +379,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -334,17 +420,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -371,17 +461,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -408,17 +502,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -445,17 +543,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -482,17 +584,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -519,17 +625,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -556,17 +666,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -593,17 +707,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -630,17 +748,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -667,17 +789,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -704,17 +830,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -741,17 +871,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -778,17 +912,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -806,17 +944,21 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test {@link AttributeExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributeExportData.equals(Object)", "int AttributeExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeExportData.equals(Object)",
+    "int AttributeExportData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AttributeExportData attributeExportData = new AttributeExportData();
@@ -834,8 +976,9 @@ class AttributeExportDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AttributeExportData}
    *   <li>{@link AttributeExportData#setBooleanValue(Boolean)}
@@ -858,14 +1001,24 @@ class AttributeExportDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AttributeExportData.<init>()", "Boolean AttributeExportData.getBooleanValue()",
-      "Double AttributeExportData.getDoubleValue()", "String AttributeExportData.getJsonValue()",
-      "String AttributeExportData.getKey()", "Long AttributeExportData.getLastUpdateTs()",
-      "Long AttributeExportData.getLongValue()", "String AttributeExportData.getStrValue()",
-      "void AttributeExportData.setBooleanValue(Boolean)", "void AttributeExportData.setDoubleValue(Double)",
-      "void AttributeExportData.setJsonValue(String)", "void AttributeExportData.setKey(String)",
-      "void AttributeExportData.setLastUpdateTs(Long)", "void AttributeExportData.setLongValue(Long)",
-      "void AttributeExportData.setStrValue(String)", "String AttributeExportData.toString()"})
+  @MethodsUnderTest({
+    "void AttributeExportData.<init>()",
+    "Boolean AttributeExportData.getBooleanValue()",
+    "Double AttributeExportData.getDoubleValue()",
+    "String AttributeExportData.getJsonValue()",
+    "String AttributeExportData.getKey()",
+    "Long AttributeExportData.getLastUpdateTs()",
+    "Long AttributeExportData.getLongValue()",
+    "String AttributeExportData.getStrValue()",
+    "void AttributeExportData.setBooleanValue(Boolean)",
+    "void AttributeExportData.setDoubleValue(Double)",
+    "void AttributeExportData.setJsonValue(String)",
+    "void AttributeExportData.setKey(String)",
+    "void AttributeExportData.setLastUpdateTs(Long)",
+    "void AttributeExportData.setLongValue(Long)",
+    "void AttributeExportData.setStrValue(String)",
+    "String AttributeExportData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AttributeExportData actualAttributeExportData = new AttributeExportData();

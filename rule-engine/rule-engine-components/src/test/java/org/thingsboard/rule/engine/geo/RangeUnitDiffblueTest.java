@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class RangeUnitDiffblueTest {
   /**
    * Test {@link RangeUnit#fromKm(double)}.
-   * <p>
-   * Method under test: {@link RangeUnit#fromKm(double)}
+   *
+   * <p>Method under test: {@link RangeUnit#fromKm(double)}
    */
   @Test
   @DisplayName("Test fromKm(double)")

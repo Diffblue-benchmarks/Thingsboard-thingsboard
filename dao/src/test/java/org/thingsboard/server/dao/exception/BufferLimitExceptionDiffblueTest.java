@@ -10,8 +10,8 @@ import org.junit.experimental.categories.Category;
 public class BufferLimitExceptionDiffblueTest {
   /**
    * Test new {@link BufferLimitException} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link BufferLimitException}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link BufferLimitException}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

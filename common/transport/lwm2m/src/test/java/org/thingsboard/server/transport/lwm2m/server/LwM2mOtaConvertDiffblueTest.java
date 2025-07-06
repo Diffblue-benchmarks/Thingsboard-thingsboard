@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 class LwM2mOtaConvertDiffblueTest {
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mOtaConvert#equals(Object)}
    *   <li>{@link LwM2mOtaConvert#hashCode()}
@@ -45,12 +47,14 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mOtaConvert#equals(Object)}
    *   <li>{@link LwM2mOtaConvert#hashCode()}
@@ -78,12 +82,14 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mOtaConvert#equals(Object)}
    *   <li>{@link LwM2mOtaConvert#hashCode()}
@@ -111,12 +117,14 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}, and {@link LwM2mOtaConvert#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mOtaConvert#equals(Object)}
    *   <li>{@link LwM2mOtaConvert#hashCode()}
@@ -140,12 +148,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -167,12 +176,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -194,12 +204,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -225,12 +236,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -252,12 +264,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -275,12 +288,13 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test {@link LwM2mOtaConvert#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mOtaConvert#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mOtaConvert#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -298,8 +312,9 @@ class LwM2mOtaConvertDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2mOtaConvert}
    *   <li>{@link LwM2mOtaConvert#setCurrentType(Type)}
@@ -312,9 +327,14 @@ class LwM2mOtaConvertDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2mOtaConvert.<init>()", "Type LwM2mOtaConvert.getCurrentType()",
-      "Object LwM2mOtaConvert.getValue()", "void LwM2mOtaConvert.setCurrentType(Type)",
-      "void LwM2mOtaConvert.setValue(Object)", "String LwM2mOtaConvert.toString()"})
+  @MethodsUnderTest({
+    "void LwM2mOtaConvert.<init>()",
+    "Type LwM2mOtaConvert.getCurrentType()",
+    "Object LwM2mOtaConvert.getValue()",
+    "void LwM2mOtaConvert.setCurrentType(Type)",
+    "void LwM2mOtaConvert.setValue(Object)",
+    "String LwM2mOtaConvert.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2mOtaConvert actualLwM2mOtaConvert = new LwM2mOtaConvert();

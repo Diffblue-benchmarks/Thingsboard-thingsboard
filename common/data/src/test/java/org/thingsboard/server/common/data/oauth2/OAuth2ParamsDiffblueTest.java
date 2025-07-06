@@ -14,12 +14,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class OAuth2ParamsDiffblueTest {
   /**
    * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Params#equals(Object)}
    *   <li>{@link OAuth2Params#hashCode()}
@@ -42,12 +44,14 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Params#equals(Object)}
    *   <li>{@link OAuth2Params#hashCode()}
@@ -73,12 +77,14 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}, and {@link OAuth2Params#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Params#equals(Object)}
    *   <li>{@link OAuth2Params#hashCode()}
@@ -100,12 +106,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -118,12 +125,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -140,12 +148,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,12 +171,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -184,12 +194,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -206,12 +217,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -230,12 +242,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -248,12 +261,13 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Params#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Params#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -266,8 +280,9 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Params#OAuth2Params()}
    *   <li>{@link OAuth2Params#setEdgeEnabled(boolean)}
@@ -282,10 +297,16 @@ class OAuth2ParamsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2Params.<init>()", "TenantId OAuth2Params.getTenantId()",
-      "boolean OAuth2Params.isEdgeEnabled()", "boolean OAuth2Params.isEnabled()",
-      "void OAuth2Params.setEdgeEnabled(boolean)", "void OAuth2Params.setEnabled(boolean)",
-      "void OAuth2Params.setTenantId(TenantId)", "String OAuth2Params.toString()"})
+  @MethodsUnderTest({
+    "void OAuth2Params.<init>()",
+    "TenantId OAuth2Params.getTenantId()",
+    "boolean OAuth2Params.isEdgeEnabled()",
+    "boolean OAuth2Params.isEnabled()",
+    "void OAuth2Params.setEdgeEnabled(boolean)",
+    "void OAuth2Params.setEnabled(boolean)",
+    "void OAuth2Params.setTenantId(TenantId)",
+    "String OAuth2Params.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2Params actualOAuth2Params = new OAuth2Params();
@@ -298,7 +319,8 @@ class OAuth2ParamsDiffblueTest {
     boolean actualIsEnabledResult = actualOAuth2Params.isEnabled();
 
     // Assert
-    assertEquals("OAuth2Params(enabled=true, edgeEnabled=true, tenantId=13814000-1dd2-11b2-8080-808080808080)",
+    assertEquals(
+        "OAuth2Params(enabled=true, edgeEnabled=true, tenantId=13814000-1dd2-11b2-8080-808080808080)",
         actualToStringResult);
     assertNull(actualOAuth2Params.getId());
     assertEquals(0L, actualOAuth2Params.getCreatedTime());
@@ -309,8 +331,8 @@ class OAuth2ParamsDiffblueTest {
 
   /**
    * Test {@link OAuth2Params#OAuth2Params(OAuth2Params)}.
-   * <p>
-   * Method under test: {@link OAuth2Params#OAuth2Params(OAuth2Params)}
+   *
+   * <p>Method under test: {@link OAuth2Params#OAuth2Params(OAuth2Params)}
    */
   @Test
   @DisplayName("Test new OAuth2Params(OAuth2Params)")

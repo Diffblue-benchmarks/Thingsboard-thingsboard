@@ -11,21 +11,21 @@ import org.thingsboard.server.dao.model.sql.AssetEntity;
 public class BaseVersionedEntityDiffblueTest {
   /**
    * Test {@link BaseVersionedEntity#getVersion()}.
-   * <p>
-   * Method under test: {@link BaseVersionedEntity#getVersion()}
+   *
+   * <p>Method under test: {@link BaseVersionedEntity#getVersion()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"Long BaseVersionedEntity.getVersion()"})
   public void testGetVersion() {
     // Arrange, Act and Assert
-    assertNull((new AssetEntity()).getVersion());
+    assertNull(new AssetEntity().getVersion());
   }
 
   /**
    * Test {@link BaseVersionedEntity#setVersion(Long)}.
-   * <p>
-   * Method under test: {@link BaseVersionedEntity#setVersion(Long)}
+   *
+   * <p>Method under test: {@link BaseVersionedEntity#setVersion(Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

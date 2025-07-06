@@ -9,6 +9,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.POJONode;
+import java.io.UnsupportedEncodingException;
 import java.util.function.Consumer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -22,48 +23,56 @@ import org.thingsboard.server.common.data.TenantProfile;
 class TbMsgTimeseriesNodeDiffblueTest {
   /**
    * Test {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code foo}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code foo}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given IllegalArgumentException(String) with 'foo'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given IllegalArgumentException(String) with 'foo'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgTimeseriesNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenIllegalArgumentExceptionWithFoo_thenThrowIllegalArgumentException() throws TbNodeException {
+  void testInit_givenIllegalArgumentExceptionWithFoo_thenThrowIllegalArgumentException()
+      throws TbNodeException {
     // Arrange
     TbMsgTimeseriesNode tbMsgTimeseriesNode = new TbMsgTimeseriesNode();
     TbContext ctx = mock(TbContext.class);
-    doThrow(new IllegalArgumentException("foo")).when(ctx)
+    doThrow(new IllegalArgumentException("foo"))
+        .when(ctx)
         .addTenantProfileListener(Mockito.<Consumer<TenantProfile>>any());
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> tbMsgTimeseriesNode.init(ctx, new TbNodeConfiguration(new POJONode(null))));
     verify(ctx).addTenantProfileListener(isA(Consumer.class));
   }
 
   /**
    * Test {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()}.</li>
-   *   <li>Then calls {@link TbContext#getTenantProfile()}.</li>
+   *   <li>Then calls {@link TbContext#getTenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbMsgTimeseriesNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given TenantProfile(); then calls getTenantProfile()")
+  @DisplayName("Test init(TbContext, TbNodeConfiguration); then calls getTenantProfile()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgTimeseriesNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenTenantProfile_thenCallsGetTenantProfile() throws TbNodeException {
+  void testInit_thenCallsGetTenantProfile() throws UnsupportedEncodingException, TbNodeException {
     // Arrange
     TbMsgTimeseriesNode tbMsgTimeseriesNode = new TbMsgTimeseriesNode();
+
+    TenantProfile tenantProfile = new TenantProfile(new TenantProfile());
+    tenantProfile.setProfileDataBytes("AXAXAXAX".getBytes("UTF-8"));
     TbContext ctx = mock(TbContext.class);
-    when(ctx.getTenantProfile()).thenReturn(new TenantProfile());
+    when(ctx.getTenantProfile()).thenReturn(tenantProfile);
     doNothing().when(ctx).addTenantProfileListener(Mockito.<Consumer<TenantProfile>>any());
 
     // Act

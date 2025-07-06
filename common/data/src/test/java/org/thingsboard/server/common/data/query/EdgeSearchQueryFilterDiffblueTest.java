@@ -17,13 +17,16 @@ import org.thingsboard.server.common.data.relation.EntitySearchDirection;
 
 class EdgeSearchQueryFilterDiffblueTest {
   /**
-   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link EdgeSearchQueryFilter#hashCode()}.
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link
+   * EdgeSearchQueryFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeSearchQueryFilter#equals(Object)}
    *   <li>{@link EdgeSearchQueryFilter#hashCode()}
@@ -32,7 +35,10 @@ class EdgeSearchQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -58,13 +64,16 @@ class EdgeSearchQueryFilterDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link EdgeSearchQueryFilter#hashCode()}.
+   * Test {@link EdgeSearchQueryFilter#equals(Object)}, and {@link
+   * EdgeSearchQueryFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeSearchQueryFilter#equals(Object)}
    *   <li>{@link EdgeSearchQueryFilter#hashCode()}
@@ -73,7 +82,10 @@ class EdgeSearchQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -92,17 +104,21 @@ class EdgeSearchQueryFilterDiffblueTest {
 
   /**
    * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -127,17 +143,21 @@ class EdgeSearchQueryFilterDiffblueTest {
 
   /**
    * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<String> edgeTypes = new ArrayList<>();
@@ -165,17 +185,21 @@ class EdgeSearchQueryFilterDiffblueTest {
 
   /**
    * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -192,17 +216,21 @@ class EdgeSearchQueryFilterDiffblueTest {
 
   /**
    * Test {@link EdgeSearchQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSearchQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeSearchQueryFilter.equals(Object)", "int EdgeSearchQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeSearchQueryFilter.equals(Object)",
+    "int EdgeSearchQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EdgeSearchQueryFilter edgeSearchQueryFilter = new EdgeSearchQueryFilter();
@@ -219,8 +247,9 @@ class EdgeSearchQueryFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EdgeSearchQueryFilter}
    *   <li>{@link EdgeSearchQueryFilter#setEdgeTypes(List)}
@@ -232,9 +261,13 @@ class EdgeSearchQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeSearchQueryFilter.<init>()", "List EdgeSearchQueryFilter.getEdgeTypes()",
-      "EntityFilterType EdgeSearchQueryFilter.getType()", "void EdgeSearchQueryFilter.setEdgeTypes(List)",
-      "String EdgeSearchQueryFilter.toString()"})
+  @MethodsUnderTest({
+    "void EdgeSearchQueryFilter.<init>()",
+    "List EdgeSearchQueryFilter.getEdgeTypes()",
+    "EntityFilterType EdgeSearchQueryFilter.getType()",
+    "void EdgeSearchQueryFilter.setEdgeTypes(List)",
+    "String EdgeSearchQueryFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeSearchQueryFilter actualEdgeSearchQueryFilter = new EdgeSearchQueryFilter();

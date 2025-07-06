@@ -12,8 +12,8 @@ import org.thingsboard.server.transport.lwm2m.server.log.LwM2MTelemetryLogServic
 class DownlinkRequestCallbackDiffblueTest {
   /**
    * Test {@link DownlinkRequestCallback#onSent(Object)}.
-   * <p>
-   * Method under test: {@link DownlinkRequestCallback#onSent(Object)}
+   *
+   * <p>Method under test: {@link DownlinkRequestCallback#onSent(Object)}
    */
   @Test
   @DisplayName("Test onSent(Object)")
@@ -24,7 +24,9 @@ class DownlinkRequestCallbackDiffblueTest {
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
 
     // Act and Assert
-    assertTrue((new TbLwM2MCancelAllObserveCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"))).onSent(mock(TbLwM2MCancelAllRequest.class)));
+    assertTrue(
+        new TbLwM2MCancelAllObserveCallback(
+                logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"))
+            .onSent(mock(TbLwM2MCancelAllRequest.class)));
   }
 }

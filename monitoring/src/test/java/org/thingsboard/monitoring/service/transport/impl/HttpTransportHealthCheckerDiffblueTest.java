@@ -18,11 +18,12 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class HttpTransportHealthCheckerDiffblueTest {
   /**
    * Test {@link HttpTransportHealthChecker#initClient()}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.</li>
+   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.
    * </ul>
-   * <p>
-   * Method under test: {@link HttpTransportHealthChecker#initClient()}
+   *
+   * <p>Method under test: {@link HttpTransportHealthChecker#initClient()}
    */
   @Test
   @DisplayName("Test initClient(); then calls setCredentials(DeviceCredentials)")
@@ -45,7 +46,7 @@ class HttpTransportHealthCheckerDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    (new HttpTransportHealthChecker(new HttpTransportMonitoringConfig(), target)).initClient();
+    new HttpTransportHealthChecker(new HttpTransportMonitoringConfig(), target).initClient();
 
     // Assert
     verify(device).setCredentials(isA(DeviceCredentials.class));

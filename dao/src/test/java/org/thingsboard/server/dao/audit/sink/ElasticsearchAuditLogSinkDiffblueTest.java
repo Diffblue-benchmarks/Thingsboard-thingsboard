@@ -9,14 +9,14 @@ import org.junit.experimental.categories.Category;
 public class ElasticsearchAuditLogSinkDiffblueTest {
   /**
    * Test {@link ElasticsearchAuditLogSink#init()}.
-   * <p>
-   * Method under test: {@link ElasticsearchAuditLogSink#init()}
+   *
+   * <p>Method under test: {@link ElasticsearchAuditLogSink#init()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void ElasticsearchAuditLogSink.init()"})
   public void testInit() {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> (new ElasticsearchAuditLogSink()).init());
+    assertThrows(RuntimeException.class, () -> new ElasticsearchAuditLogSink().init());
   }
 }

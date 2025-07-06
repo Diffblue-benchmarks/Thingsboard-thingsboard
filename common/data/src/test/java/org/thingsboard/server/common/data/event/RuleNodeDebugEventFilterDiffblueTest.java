@@ -13,14 +13,17 @@ import org.junit.jupiter.api.Test;
 class RuleNodeDebugEventFilterDiffblueTest {
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) DataSearch is {@code Data Search}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) DataSearch is {@code Data
+   *       Search}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) DataSearch is 'Data Search'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) DataSearch is 'Data Search'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterDataSearchIsDataSearch() {
@@ -34,15 +37,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) EntityId is {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) EntityId is {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) EntityId is '42'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) EntityId is '42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterEntityIdIs42_thenReturnTrue() {
@@ -56,14 +61,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) EntityType is {@code Entity Type}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) EntityType is {@code Entity
+   *       Type}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) EntityType is 'Entity Type'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) EntityType is 'Entity Type'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterEntityTypeIsEntityType() {
@@ -77,20 +85,33 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) ErrorStr is {@code An error occurred}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) ErrorStr is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) ErrorStr is 'An error occurred'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
-  void testIsNotEmpty_givenRuleNodeDebugEventFilterErrorStrIsAnErrorOccurred() {
+  void testIsNotEmpty_givenRuleNodeDebugEventFilterErrorStrIsFoo_thenReturnTrue() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
-    ruleNodeDebugEventFilter.setErrorStr("An error occurred");
+    ruleNodeDebugEventFilter.setDataSearch("Data Search");
+    ruleNodeDebugEventFilter.setEntityId("42");
+    ruleNodeDebugEventFilter.setEntityType("Entity Type");
+    ruleNodeDebugEventFilter.setMetadataSearch("Metadata Search");
+    ruleNodeDebugEventFilter.setMsgDirectionType("Msg Direction Type");
+    ruleNodeDebugEventFilter.setMsgId("42");
+    ruleNodeDebugEventFilter.setMsgType("Msg Type");
+    ruleNodeDebugEventFilter.setRelationType("Relation Type");
+    ruleNodeDebugEventFilter.setServer("");
+    ruleNodeDebugEventFilter.setIsError(false);
+    ruleNodeDebugEventFilter.setErrorStr("foo");
 
     // Act and Assert
     assertTrue(ruleNodeDebugEventFilter.isNotEmpty());
@@ -98,15 +119,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) IsError is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) IsError is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) IsError is 'true'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) IsError is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterIsErrorIsTrue_thenReturnTrue() {
@@ -120,14 +143,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MetadataSearch is {@code Metadata Search}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MetadataSearch is {@code
+   *       Metadata Search}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MetadataSearch is 'Metadata Search'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MetadataSearch is 'Metadata Search'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterMetadataSearchIsMetadataSearch() {
@@ -141,36 +167,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MsgDirectionType is {@code Msg Direction Type}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MsgId is {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MsgDirectionType is 'Msg Direction Type'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
-  void testIsNotEmpty_givenRuleNodeDebugEventFilterMsgDirectionTypeIsMsgDirectionType() {
-    // Arrange
-    RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
-    ruleNodeDebugEventFilter.setMsgDirectionType("Msg Direction Type");
-
-    // Act and Assert
-    assertTrue(ruleNodeDebugEventFilter.isNotEmpty());
-  }
-
-  /**
-   * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
-   * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MsgId is {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
-   */
-  @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MsgId is '42'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MsgId is '42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterMsgIdIs42_thenReturnTrue() {
@@ -184,15 +191,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MsgType is {@code Msg Type}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) MsgType is {@code Msg Type}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MsgType is 'Msg Type'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) MsgType is 'Msg Type'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterMsgTypeIsMsgType_thenReturnTrue() {
@@ -206,14 +215,17 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) RelationType is {@code Relation Type}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) RelationType is {@code
+   *       Relation Type}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) RelationType is 'Relation Type'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) RelationType is 'Relation Type'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenRuleNodeDebugEventFilterRelationTypeIsRelationType() {
@@ -227,31 +239,33 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) Server is {@code Server}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) Server is empty string.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) Server is 'Server'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) Server is empty string; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
-  void testIsNotEmpty_givenRuleNodeDebugEventFilterServerIsServer_thenReturnTrue() {
+  void testIsNotEmpty_givenRuleNodeDebugEventFilterServerIsEmptyString_thenReturnTrue() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
-    ruleNodeDebugEventFilter.setErrorStr("An error occurred");
-    ruleNodeDebugEventFilter.setIsError(true);
-    ruleNodeDebugEventFilter.setServer("Server");
-    ruleNodeDebugEventFilter.setMsgDirectionType("");
-    ruleNodeDebugEventFilter.setEntityId("");
-    ruleNodeDebugEventFilter.setEntityType("");
-    ruleNodeDebugEventFilter.setMsgId("");
-    ruleNodeDebugEventFilter.setMsgType("");
-    ruleNodeDebugEventFilter.setRelationType("");
-    ruleNodeDebugEventFilter.setDataSearch("");
-    ruleNodeDebugEventFilter.setMetadataSearch("");
+    ruleNodeDebugEventFilter.setDataSearch("Data Search");
+    ruleNodeDebugEventFilter.setEntityId("42");
+    ruleNodeDebugEventFilter.setEntityType("Entity Type");
+    ruleNodeDebugEventFilter.setMetadataSearch("Metadata Search");
+    ruleNodeDebugEventFilter.setMsgDirectionType("Msg Direction Type");
+    ruleNodeDebugEventFilter.setMsgId("42");
+    ruleNodeDebugEventFilter.setMsgType("Msg Type");
+    ruleNodeDebugEventFilter.setRelationType("Relation Type");
+    ruleNodeDebugEventFilter.setServer("");
+    ruleNodeDebugEventFilter.setIsError(false);
+    ruleNodeDebugEventFilter.setErrorStr("");
 
     // Act and Assert
     assertTrue(ruleNodeDebugEventFilter.isNotEmpty());
@@ -259,51 +273,69 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor) Server is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor) Server is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
-  void testIsNotEmpty_givenRuleNodeDebugEventFilter_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse((new RuleNodeDebugEventFilter()).isNotEmpty());
+  void testIsNotEmpty_givenRuleNodeDebugEventFilterServerIsFoo_thenReturnTrue() {
+    // Arrange
+    RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
+    ruleNodeDebugEventFilter.setDataSearch("Data Search");
+    ruleNodeDebugEventFilter.setEntityId("42");
+    ruleNodeDebugEventFilter.setEntityType("Entity Type");
+    ruleNodeDebugEventFilter.setMetadataSearch("Metadata Search");
+    ruleNodeDebugEventFilter.setMsgDirectionType("Msg Direction Type");
+    ruleNodeDebugEventFilter.setMsgId("42");
+    ruleNodeDebugEventFilter.setMsgType("Msg Type");
+    ruleNodeDebugEventFilter.setRelationType("Relation Type");
+    ruleNodeDebugEventFilter.setServer("foo");
+    ruleNodeDebugEventFilter.setIsError(false);
+    ruleNodeDebugEventFilter.setErrorStr("");
+
+    // Act and Assert
+    assertTrue(ruleNodeDebugEventFilter.isNotEmpty());
   }
 
   /**
    * Test {@link RuleNodeDebugEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link RuleNodeDebugEventFilter} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given RuleNodeDebugEventFilter (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.isNotEmpty()"})
-  void testIsNotEmpty_thenReturnFalse() {
-    // Arrange
-    RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
-    ruleNodeDebugEventFilter.setMsgDirectionType("");
-
-    // Act and Assert
-    assertFalse(ruleNodeDebugEventFilter.isNotEmpty());
+  void testIsNotEmpty_givenRuleNodeDebugEventFilter_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(new RuleNodeDebugEventFilter().isNotEmpty());
   }
 
   /**
-   * Test {@link RuleNodeDebugEventFilter#equals(Object)}, and {@link RuleNodeDebugEventFilter#hashCode()}.
+   * Test {@link RuleNodeDebugEventFilter#equals(Object)}, and {@link
+   * RuleNodeDebugEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeDebugEventFilter#equals(Object)}
    *   <li>{@link RuleNodeDebugEventFilter#hashCode()}
@@ -312,7 +344,10 @@ class RuleNodeDebugEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -348,13 +383,16 @@ class RuleNodeDebugEventFilterDiffblueTest {
   }
 
   /**
-   * Test {@link RuleNodeDebugEventFilter#equals(Object)}, and {@link RuleNodeDebugEventFilter#hashCode()}.
+   * Test {@link RuleNodeDebugEventFilter#equals(Object)}, and {@link
+   * RuleNodeDebugEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeDebugEventFilter#equals(Object)}
    *   <li>{@link RuleNodeDebugEventFilter#hashCode()}
@@ -363,7 +401,10 @@ class RuleNodeDebugEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -387,17 +428,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -432,17 +477,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -477,17 +526,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -522,17 +575,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -567,17 +624,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -612,17 +673,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -657,17 +722,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -702,17 +771,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -747,17 +820,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -792,17 +869,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -837,17 +918,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -882,17 +967,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -927,17 +1016,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -972,17 +1065,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1017,17 +1114,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1062,17 +1163,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1107,17 +1212,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1152,17 +1261,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1184,17 +1297,21 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test {@link RuleNodeDebugEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeDebugEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleNodeDebugEventFilter.equals(Object)", "int RuleNodeDebugEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleNodeDebugEventFilter.equals(Object)",
+    "int RuleNodeDebugEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1216,8 +1333,9 @@ class RuleNodeDebugEventFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RuleNodeDebugEventFilter}
    *   <li>{@link RuleNodeDebugEventFilter#setDataSearch(String)}
@@ -1243,16 +1361,27 @@ class RuleNodeDebugEventFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleNodeDebugEventFilter.<init>()", "String RuleNodeDebugEventFilter.getDataSearch()",
-      "String RuleNodeDebugEventFilter.getEntityId()", "String RuleNodeDebugEventFilter.getEntityType()",
-      "EventType RuleNodeDebugEventFilter.getEventType()", "String RuleNodeDebugEventFilter.getMetadataSearch()",
-      "String RuleNodeDebugEventFilter.getMsgDirectionType()", "String RuleNodeDebugEventFilter.getMsgId()",
-      "String RuleNodeDebugEventFilter.getMsgType()", "String RuleNodeDebugEventFilter.getRelationType()",
-      "void RuleNodeDebugEventFilter.setDataSearch(String)", "void RuleNodeDebugEventFilter.setEntityId(String)",
-      "void RuleNodeDebugEventFilter.setEntityType(String)", "void RuleNodeDebugEventFilter.setMetadataSearch(String)",
-      "void RuleNodeDebugEventFilter.setMsgDirectionType(String)", "void RuleNodeDebugEventFilter.setMsgId(String)",
-      "void RuleNodeDebugEventFilter.setMsgType(String)", "void RuleNodeDebugEventFilter.setRelationType(String)",
-      "String RuleNodeDebugEventFilter.toString()"})
+  @MethodsUnderTest({
+    "void RuleNodeDebugEventFilter.<init>()",
+    "String RuleNodeDebugEventFilter.getDataSearch()",
+    "String RuleNodeDebugEventFilter.getEntityId()",
+    "String RuleNodeDebugEventFilter.getEntityType()",
+    "EventType RuleNodeDebugEventFilter.getEventType()",
+    "String RuleNodeDebugEventFilter.getMetadataSearch()",
+    "String RuleNodeDebugEventFilter.getMsgDirectionType()",
+    "String RuleNodeDebugEventFilter.getMsgId()",
+    "String RuleNodeDebugEventFilter.getMsgType()",
+    "String RuleNodeDebugEventFilter.getRelationType()",
+    "void RuleNodeDebugEventFilter.setDataSearch(String)",
+    "void RuleNodeDebugEventFilter.setEntityId(String)",
+    "void RuleNodeDebugEventFilter.setEntityType(String)",
+    "void RuleNodeDebugEventFilter.setMetadataSearch(String)",
+    "void RuleNodeDebugEventFilter.setMsgDirectionType(String)",
+    "void RuleNodeDebugEventFilter.setMsgId(String)",
+    "void RuleNodeDebugEventFilter.setMsgType(String)",
+    "void RuleNodeDebugEventFilter.setRelationType(String)",
+    "String RuleNodeDebugEventFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RuleNodeDebugEventFilter actualRuleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
@@ -1283,9 +1412,11 @@ class RuleNodeDebugEventFilterDiffblueTest {
     assertEquals("Msg Direction Type", actualMsgDirectionType);
     assertEquals("Msg Type", actualMsgType);
     assertEquals("Relation Type", actualRuleNodeDebugEventFilter.getRelationType());
-    assertEquals("RuleNodeDebugEventFilter(msgDirectionType=Msg Direction Type, entityId=42, entityType=Entity Type,"
-        + " msgId=42, msgType=Msg Type, relationType=Relation Type, dataSearch=Data Search, metadataSearch=Metadata"
-        + " Search)", actualToStringResult);
+    assertEquals(
+        "RuleNodeDebugEventFilter(msgDirectionType=Msg Direction Type, entityId=42, entityType=Entity Type,"
+            + " msgId=42, msgType=Msg Type, relationType=Relation Type, dataSearch=Data Search, metadataSearch=Metadata"
+            + " Search)",
+        actualToStringResult);
     assertNull(actualRuleNodeDebugEventFilter.getErrorStr());
     assertNull(actualRuleNodeDebugEventFilter.getServer());
     assertEquals(EventType.DEBUG_RULE_NODE, actualEventType);

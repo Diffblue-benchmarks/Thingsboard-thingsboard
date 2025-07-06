@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.housekeeper.HousekeeperTaskType;
 class HousekeeperConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link HousekeeperConfig#getDisabledTaskTypes()}
    *   <li>{@link HousekeeperConfig#getMaxReprocessingAttempts()}
@@ -25,9 +26,13 @@ class HousekeeperConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Set HousekeeperConfig.getDisabledTaskTypes()",
-      "int HousekeeperConfig.getMaxReprocessingAttempts()", "int HousekeeperConfig.getPollInterval()",
-      "int HousekeeperConfig.getTaskProcessingTimeout()", "int HousekeeperConfig.getTaskReprocessingDelay()"})
+  @MethodsUnderTest({
+    "Set HousekeeperConfig.getDisabledTaskTypes()",
+    "int HousekeeperConfig.getMaxReprocessingAttempts()",
+    "int HousekeeperConfig.getPollInterval()",
+    "int HousekeeperConfig.getTaskProcessingTimeout()",
+    "int HousekeeperConfig.getTaskReprocessingDelay()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HousekeeperConfig housekeeperConfig = new HousekeeperConfig();

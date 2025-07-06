@@ -39,9 +39,11 @@ import org.mockito.Mockito;
 
 class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   /**
-   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}.
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}
+   * Test {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}.
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)}
    */
   @Test
   @DisplayName("Test new LwM2MBootstrapConfigStoreTaskProvider(BootstrapConfigStore)")
@@ -52,8 +54,8 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
     BootstrapConfigStore store = mock(BootstrapConfigStore.class);
 
     // Act
-    LwM2MBootstrapConfigStoreTaskProvider actualLwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        store);
+    LwM2MBootstrapConfigStoreTaskProvider actualLwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(store);
 
     // Assert
     ReadWriteLock readWriteLock = actualLwM2MBootstrapConfigStoreTaskProvider.readWriteLock;
@@ -76,28 +78,39 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
 
   /**
    * Test {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}.
+   *
    * <ul>
-   *   <li>Given {@link BootstrapConfigStore} {@link BootstrapConfigStore#get(BootstrapSession)} return {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link BootstrapConfigStore} {@link BootstrapConfigStore#get(BootstrapSession)}
+   *       return {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession, List)}
+   *
+   * <p>Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#getTasks(BootstrapSession,
+   * List)}
    */
   @Test
-  @DisplayName("Test getTasks(BootstrapSession, List); given BootstrapConfigStore get(BootstrapSession) return 'null'; then return 'null'")
+  @DisplayName(
+      "Test getTasks(BootstrapSession, List); given BootstrapConfigStore get(BootstrapSession) return 'null'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "BootstrapTaskProvider.Tasks LwM2MBootstrapConfigStoreTaskProvider.getTasks(BootstrapSession, List)"})
-  void testGetTasks_givenBootstrapConfigStoreGetReturnNull_thenReturnNull() throws InvalidRequestException {
+    "BootstrapTaskProvider.Tasks LwM2MBootstrapConfigStoreTaskProvider.getTasks(BootstrapSession, List)"
+  })
+  void testGetTasks_givenBootstrapConfigStoreGetReturnNull_thenReturnNull()
+      throws InvalidRequestException {
     // Arrange
     BootstrapConfigStore store = mock(BootstrapConfigStore.class);
     when(store.get(Mockito.<BootstrapSession>any())).thenReturn(null);
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        store);
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(store);
     BootstrapRequest request = new BootstrapRequest("https://config.us-east-2.amazonaws.com");
     LwM2mPeer client = mock(LwM2mPeer.class);
-    DefaultBootstrapSession session = new DefaultBootstrapSession(request, client, true, new HashMap<>(),
-        Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri());
+    DefaultBootstrapSession session =
+        new DefaultBootstrapSession(
+            request,
+            client,
+            true,
+            new HashMap<>(),
+            Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri());
 
     // Act
     Tasks actualTasks = lwM2MBootstrapConfigStoreTaskProvider.getTasks(session, new ArrayList<>());
@@ -109,21 +122,25 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
 
   /**
    * Test {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
    */
   @Test
   @DisplayName("Test shouldStartWithDiscover(BootstrapConfig); given 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"})
+  @MethodsUnderTest({
+    "boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"
+  })
   void testShouldStartWithDiscover_givenTrue_thenReturnTrue() {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
     BootstrapConfig config = new BootstrapConfig();
     config.autoIdForSecurityObject = true;
 
@@ -133,96 +150,126 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
 
   /**
    * Test {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}.
+   *
    * <ul>
-   *   <li>When {@link BootstrapConfig} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link BootstrapConfig} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#shouldStartWithDiscover(BootstrapConfig)}
    */
   @Test
-  @DisplayName("Test shouldStartWithDiscover(BootstrapConfig); when BootstrapConfig (default constructor); then return 'false'")
+  @DisplayName(
+      "Test shouldStartWithDiscover(BootstrapConfig); when BootstrapConfig (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"})
+  @MethodsUnderTest({
+    "boolean LwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(BootstrapConfig)"
+  })
   void testShouldStartWithDiscover_whenBootstrapConfig_thenReturnFalse() {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
 
     // Act and Assert
-    assertFalse(lwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(new BootstrapConfig()));
+    assertFalse(
+        lwM2MBootstrapConfigStoreTaskProvider.shouldStartWithDiscover(new BootstrapConfig()));
   }
 
   /**
-   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse,
+   * String)}.
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
   @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
+  @MethodsUnderTest({
+    "void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"
+  })
   void testFindServerInstanceId() {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
+
+    ArrayList<LwM2mObjectInstance> instances = new ArrayList<>();
+    instances.add(new LwM2mObjectInstance(new ArrayList<>()));
     BootstrapReadResponse readResponse = mock(BootstrapReadResponse.class);
-    when(readResponse.getContent()).thenReturn(new LwM2mObject(1, new LwM2mObjectInstance(new ArrayList<>())));
+    when(readResponse.getContent()).thenReturn(new LwM2mObject(1, instances));
 
     // Act
-    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
+    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(
+        readResponse, "https://config.us-east-2.amazonaws.com");
 
     // Assert
     verify(readResponse).getContent();
   }
 
   /**
-   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse,
+   * String)}.
+   *
    * <ul>
-   *   <li>Given {@link LwM2mObjectInstance#LwM2mObjectInstance(Collection)} with resources is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link LwM2mObjectInstance#LwM2mObjectInstance(Collection)} with resources is
+   *       {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
-  @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObjectInstance(Collection) with resources is ArrayList()")
+  @DisplayName(
+      "Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObjectInstance(Collection) with resources is ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
+  @MethodsUnderTest({
+    "void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"
+  })
   void testFindServerInstanceId_givenLwM2mObjectInstanceWithResourcesIsArrayList() {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
     BootstrapReadResponse readResponse = mock(BootstrapReadResponse.class);
     when(readResponse.getContent()).thenReturn(new LwM2mObjectInstance(new ArrayList<>()));
 
     // Act
-    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
+    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(
+        readResponse, "https://config.us-east-2.amazonaws.com");
 
     // Assert
     verify(readResponse).getContent();
   }
 
   /**
-   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}.
+   * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse,
+   * String)}.
+   *
    * <ul>
-   *   <li>Given {@link LwM2mObject#LwM2mObject(int, Collection)} with id is one and instances is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link LwM2mObject#LwM2mObject(int, Collection)} with id is one and instances is
+   *       {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#findServerInstanceId(BootstrapReadResponse, String)}
    */
   @Test
-  @DisplayName("Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObject(int, Collection) with id is one and instances is ArrayList()")
+  @DisplayName(
+      "Test findServerInstanceId(BootstrapReadResponse, String); given LwM2mObject(int, Collection) with id is one and instances is ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"})
+  @MethodsUnderTest({
+    "void LwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(BootstrapReadResponse, String)"
+  })
   void testFindServerInstanceId_givenLwM2mObjectWithIdIsOneAndInstancesIsArrayList() {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
     BootstrapReadResponse readResponse = mock(BootstrapReadResponse.class);
     when(readResponse.getContent()).thenReturn(new LwM2mObject(1, new ArrayList<>()));
 
     // Act
-    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(readResponse, "https://config.us-east-2.amazonaws.com");
+    lwM2MBootstrapConfigStoreTaskProvider.findServerInstanceId(
+        readResponse, "https://config.us-east-2.amazonaws.com");
 
     // Assert
     verify(readResponse).getContent();
@@ -230,30 +277,36 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
 
   /**
    * Test {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MBootstrapConfigStoreTaskProvider#findBootstrapServerId(String)}
    */
   @Test
   @DisplayName("Test findBootstrapServerId(String); then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.Integer LwM2MBootstrapConfigStoreTaskProvider.findBootstrapServerId(String)"})
+  @MethodsUnderTest({
+    "java.lang.Integer LwM2MBootstrapConfigStoreTaskProvider.findBootstrapServerId(String)"
+  })
   void testFindBootstrapServerId_thenReturnNull() throws InvalidConfigurationException {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
     lwM2MBootstrapConfigStoreTaskProvider.put("https://config.us-east-2.amazonaws.com");
 
     // Act and Assert
-    assertNull(lwM2MBootstrapConfigStoreTaskProvider.findBootstrapServerId("https://config.us-east-2.amazonaws.com"));
+    assertNull(
+        lwM2MBootstrapConfigStoreTaskProvider.findBootstrapServerId(
+            "https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MBootstrapConfigStoreTaskProvider#put(String)}.
-   * <p>
-   * Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#put(String)}
+   *
+   * <p>Method under test: {@link LwM2MBootstrapConfigStoreTaskProvider#put(String)}
    */
   @Test
   @DisplayName("Test put(String)")
@@ -261,17 +314,18 @@ class LwM2MBootstrapConfigStoreTaskProviderDiffblueTest {
   @MethodsUnderTest({"void LwM2MBootstrapConfigStoreTaskProvider.put(String)"})
   void testPut() throws InvalidConfigurationException {
     // Arrange
-    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider = new LwM2MBootstrapConfigStoreTaskProvider(
-        mock(BootstrapConfigStore.class));
+    LwM2MBootstrapConfigStoreTaskProvider lwM2MBootstrapConfigStoreTaskProvider =
+        new LwM2MBootstrapConfigStoreTaskProvider(mock(BootstrapConfigStore.class));
 
     // Act
     lwM2MBootstrapConfigStoreTaskProvider.put("https://config.us-east-2.amazonaws.com");
 
     // Assert
-    Map<String, LwM2MBootstrapClientInstanceIds> stringLwM2MBootstrapClientInstanceIdsMap = lwM2MBootstrapConfigStoreTaskProvider.lwM2MBootstrapSessionClients;
+    Map<String, LwM2MBootstrapClientInstanceIds> stringLwM2MBootstrapClientInstanceIdsMap =
+        lwM2MBootstrapConfigStoreTaskProvider.lwM2MBootstrapSessionClients;
     assertEquals(1, stringLwM2MBootstrapClientInstanceIdsMap.size());
-    LwM2MBootstrapClientInstanceIds getResult = stringLwM2MBootstrapClientInstanceIdsMap
-        .get("https://config.us-east-2.amazonaws.com");
+    LwM2MBootstrapClientInstanceIds getResult =
+        stringLwM2MBootstrapClientInstanceIdsMap.get("https://config.us-east-2.amazonaws.com");
     assertTrue(getResult.getSecurityInstances().isEmpty());
     assertTrue(getResult.getServerInstances().isEmpty());
   }

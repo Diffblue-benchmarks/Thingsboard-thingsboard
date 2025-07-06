@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Test;
 class AuthenticationProtocolDiffblueTest {
   /**
    * Test {@link AuthenticationProtocol#forName(String)}.
+   *
    * <ul>
-   *   <li>When {@code MD5}.</li>
-   *   <li>Then return {@link Optional#get()} is {@code MD5}.</li>
+   *   <li>When {@code MD5}.
+   *   <li>Then return {@link Optional#get()} is {@code MD5}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuthenticationProtocol#forName(String)}
+   *
+   * <p>Method under test: {@link AuthenticationProtocol#forName(String)}
    */
   @Test
   @DisplayName("Test forName(String); when 'MD5'; then return get() is 'MD5'")
@@ -34,12 +35,13 @@ class AuthenticationProtocolDiffblueTest {
 
   /**
    * Test {@link AuthenticationProtocol#forName(String)}.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
-   *   <li>Then return not Present.</li>
+   *   <li>When {@code Name}.
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link AuthenticationProtocol#forName(String)}
+   *
+   * <p>Method under test: {@link AuthenticationProtocol#forName(String)}
    */
   @Test
   @DisplayName("Test forName(String); when 'Name'; then return not Present")

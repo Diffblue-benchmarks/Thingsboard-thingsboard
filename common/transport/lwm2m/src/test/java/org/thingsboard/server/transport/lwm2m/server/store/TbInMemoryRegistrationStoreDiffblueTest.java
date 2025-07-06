@@ -24,6 +24,7 @@ import org.eclipse.leshan.core.link.Link;
 import org.eclipse.leshan.core.node.InvalidLwM2mPathException;
 import org.eclipse.leshan.core.node.LwM2mIncompletePath;
 import org.eclipse.leshan.core.node.LwM2mPath;
+import org.eclipse.leshan.core.observation.CompositeObservation;
 import org.eclipse.leshan.core.observation.Observation;
 import org.eclipse.leshan.core.observation.ObservationIdentifier;
 import org.eclipse.leshan.core.observation.SingleObservation;
@@ -39,8 +40,8 @@ import org.junit.jupiter.api.Test;
 class TbInMemoryRegistrationStoreDiffblueTest {
   /**
    * Test {@link TbInMemoryRegistrationStore#TbInMemoryRegistrationStore()}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#TbInMemoryRegistrationStore()}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#TbInMemoryRegistrationStore()}
    */
   @Test
   @DisplayName("Test new TbInMemoryRegistrationStore()")
@@ -48,23 +49,26 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"void TbInMemoryRegistrationStore.<init>()"})
   void testNewTbInMemoryRegistrationStore() {
     // Arrange, Act and Assert
-    assertFalse((new TbInMemoryRegistrationStore()).getAllRegistrations().hasNext());
+    assertFalse(new TbInMemoryRegistrationStore().getAllRegistrations().hasNext());
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addRegistration(Registration)}.
+   *
    * <ul>
-   *   <li>Given createUnresolved {@code foo} and one.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given createUnresolved {@code foo} and one.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addRegistration(Registration)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addRegistration(Registration)}
    */
   @Test
-  @DisplayName("Test addRegistration(Registration); given createUnresolved 'foo' and one; then return 'null'")
+  @DisplayName(
+      "Test addRegistration(Registration); given createUnresolved 'foo' and one; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.addRegistration(Registration)"})
+    "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.addRegistration(Registration)"
+  })
   void testAddRegistration_givenCreateUnresolvedFooAndOne_thenReturnNull() {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
@@ -91,18 +95,59 @@ class TbInMemoryRegistrationStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addRegistration(Registration)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>Given {@link IllegalStateException#IllegalStateException(String)} with {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addRegistration(Registration)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addRegistration(Registration)}
    */
   @Test
-  @DisplayName("Test addRegistration(Registration); then throw IllegalStateException")
+  @DisplayName("Test addRegistration(Registration); given IllegalStateException(String) with 'foo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.addRegistration(Registration)"})
-  void testAddRegistration_thenThrowIllegalStateException() {
+    "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.addRegistration(Registration)"
+  })
+  void testAddRegistration_givenIllegalStateExceptionWithFoo() {
+    // Arrange
+    TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
+    LwM2mPeer lwM2mPeer = mock(LwM2mPeer.class);
+    when(lwM2mPeer.getIdentity()).thenReturn(mock(LwM2mIdentity.class));
+    Registration registration = mock(Registration.class);
+    when(registration.getSocketAddress()).thenThrow(new IllegalStateException("foo"));
+    when(registration.getEndpoint()).thenReturn("https://config.us-east-2.amazonaws.com");
+    when(registration.getId()).thenReturn("42");
+    when(registration.getClientTransportData()).thenReturn(lwM2mPeer);
+
+    // Act and Assert
+    assertThrows(
+        IllegalStateException.class,
+        () -> tbInMemoryRegistrationStore.addRegistration(registration));
+    verify(lwM2mPeer).getIdentity();
+    verify(registration).getClientTransportData();
+    verify(registration).getEndpoint();
+    verify(registration).getId();
+    verify(registration).getSocketAddress();
+  }
+
+  /**
+   * Test {@link TbInMemoryRegistrationStore#addRegistration(Registration)}.
+   *
+   * <ul>
+   *   <li>Given {@link LwM2mPeer} {@link LwM2mPeer#getIdentity()} throw {@link
+   *       IllegalStateException#IllegalStateException(String)} with {@code foo}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addRegistration(Registration)}
+   */
+  @Test
+  @DisplayName(
+      "Test addRegistration(Registration); given LwM2mPeer getIdentity() throw IllegalStateException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.addRegistration(Registration)"
+  })
+  void testAddRegistration_givenLwM2mPeerGetIdentityThrowIllegalStateExceptionWithFoo() {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
     LwM2mPeer lwM2mPeer = mock(LwM2mPeer.class);
@@ -113,7 +158,9 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     when(registration.getClientTransportData()).thenReturn(lwM2mPeer);
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addRegistration(registration));
+    assertThrows(
+        IllegalStateException.class,
+        () -> tbInMemoryRegistrationStore.addRegistration(registration));
     verify(lwM2mPeer).getIdentity();
     verify(registration).getClientTransportData();
     verify(registration).getEndpoint();
@@ -122,17 +169,20 @@ class TbInMemoryRegistrationStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemoryRegistrationStore#updateRegistration(RegistrationUpdate)}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#updateRegistration(RegistrationUpdate)}
+   *
+   * <p>Method under test: {@link
+   * TbInMemoryRegistrationStore#updateRegistration(RegistrationUpdate)}
    */
   @Test
   @DisplayName("Test updateRegistration(RegistrationUpdate); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.server.registration.UpdatedRegistration TbInMemoryRegistrationStore.updateRegistration(RegistrationUpdate)"})
+    "org.eclipse.leshan.server.registration.UpdatedRegistration TbInMemoryRegistrationStore.updateRegistration(RegistrationUpdate)"
+  })
   void testUpdateRegistration_thenReturnNull() {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
@@ -143,15 +193,27 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     HashMap<String, String> additionalAttributes = new HashMap<>();
 
     // Act and Assert
-    assertNull(tbInMemoryRegistrationStore.updateRegistration(new RegistrationUpdate("42", clientTransportData, 1L,
-        "42", null, new Link[]{new Link("Uri Reference", new ArrayList<>())}, "Alternate Path", supportedContentFormats,
-        supportedObjects, availableInstances, additionalAttributes, new HashMap<>())));
+    assertNull(
+        tbInMemoryRegistrationStore.updateRegistration(
+            new RegistrationUpdate(
+                "42",
+                clientTransportData,
+                1L,
+                "42",
+                null,
+                new Link[] {new Link("Uri Reference", new ArrayList<>())},
+                "Alternate Path",
+                supportedContentFormats,
+                supportedObjects,
+                availableInstances,
+                additionalAttributes,
+                new HashMap<>())));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getRegistration(String)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getRegistration(String)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getRegistration(String)}
    */
   @Test
   @DisplayName("Test getRegistration(String)")
@@ -159,13 +221,13 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"Registration TbInMemoryRegistrationStore.getRegistration(String)"})
   void testGetRegistration() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemoryRegistrationStore()).getRegistration("42"));
+    assertNull(new TbInMemoryRegistrationStore().getRegistration("42"));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getRegistrationByEndpoint(String)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getRegistrationByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getRegistrationByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getRegistrationByEndpoint(String)")
@@ -173,44 +235,55 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"Registration TbInMemoryRegistrationStore.getRegistrationByEndpoint(String)"})
   void testGetRegistrationByEndpoint() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemoryRegistrationStore()).getRegistrationByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertNull(
+        new TbInMemoryRegistrationStore()
+            .getRegistrationByEndpoint("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getRegistrationByAdress(InetSocketAddress)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getRegistrationByAdress(InetSocketAddress)}
+   *
+   * <p>Method under test: {@link
+   * TbInMemoryRegistrationStore#getRegistrationByAdress(InetSocketAddress)}
    */
   @Test
   @DisplayName("Test getRegistrationByAdress(InetSocketAddress)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Registration TbInMemoryRegistrationStore.getRegistrationByAdress(InetSocketAddress)"})
+  @MethodsUnderTest({
+    "Registration TbInMemoryRegistrationStore.getRegistrationByAdress(InetSocketAddress)"
+  })
   void testGetRegistrationByAdress() {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
 
     // Act and Assert
-    assertNull(tbInMemoryRegistrationStore.getRegistrationByAdress(InetSocketAddress.createUnresolved("foo", 1)));
+    assertNull(
+        tbInMemoryRegistrationStore.getRegistrationByAdress(
+            InetSocketAddress.createUnresolved("foo", 1)));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getRegistrationByIdentity(LwM2mIdentity)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getRegistrationByIdentity(LwM2mIdentity)}
+   *
+   * <p>Method under test: {@link
+   * TbInMemoryRegistrationStore#getRegistrationByIdentity(LwM2mIdentity)}
    */
   @Test
   @DisplayName("Test getRegistrationByIdentity(LwM2mIdentity)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Registration TbInMemoryRegistrationStore.getRegistrationByIdentity(LwM2mIdentity)"})
+  @MethodsUnderTest({
+    "Registration TbInMemoryRegistrationStore.getRegistrationByIdentity(LwM2mIdentity)"
+  })
   void testGetRegistrationByIdentity() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemoryRegistrationStore()).getRegistrationByIdentity(mock(LwM2mIdentity.class)));
+    assertNull(
+        new TbInMemoryRegistrationStore().getRegistrationByIdentity(mock(LwM2mIdentity.class)));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getAllRegistrations()}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getAllRegistrations()}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getAllRegistrations()}
    */
   @Test
   @DisplayName("Test getAllRegistrations()")
@@ -218,57 +291,80 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"Iterator TbInMemoryRegistrationStore.getAllRegistrations()"})
   void testGetAllRegistrations() {
     // Arrange, Act and Assert
-    assertFalse((new TbInMemoryRegistrationStore()).getAllRegistrations().hasNext());
+    assertFalse(new TbInMemoryRegistrationStore().getAllRegistrations().hasNext());
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#removeRegistration(String)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#removeRegistration(String)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#removeRegistration(String)}
    */
   @Test
   @DisplayName("Test removeRegistration(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.removeRegistration(String)"})
+    "org.eclipse.leshan.server.registration.Deregistration TbInMemoryRegistrationStore.removeRegistration(String)"
+  })
   void testRemoveRegistration() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemoryRegistrationStore()).removeRegistration("42"));
+    assertNull(new TbInMemoryRegistrationStore().removeRegistration("42"));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
   @DisplayName("Test addObservation(String, Observation, boolean)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation() throws UnsupportedEncodingException {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
     ObservationIdentifier id = new ObservationIdentifier("AXAXAXAX".getBytes("UTF-8"));
-    ContentFormat contentFormat = ContentFormat.fromCode(1);
+    ArrayList<LwM2mPath> paths = new ArrayList<>();
+    ContentFormat requestContentFormat = ContentFormat.fromCode(1);
+    ContentFormat responseContentFormat = ContentFormat.fromCode(1);
     HashMap<String, String> context = new HashMap<>();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addObservation("42",
-        new SingleObservation(id, "42", null, contentFormat, context, new HashMap<>()), true));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            tbInMemoryRegistrationStore.addObservation(
+                "42",
+                new CompositeObservation(
+                    id,
+                    "42",
+                    paths,
+                    requestContentFormat,
+                    responseContentFormat,
+                    context,
+                    new HashMap<>()),
+                false));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2mIncompletePath#LwM2mIncompletePath(int)} with objectId is one.</li>
+   *   <li>When {@link LwM2mIncompletePath#LwM2mIncompletePath(int)} with objectId is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test addObservation(String, Observation, boolean); when LwM2mIncompletePath(int) with objectId is one")
+  @DisplayName(
+      "Test addObservation(String, Observation, boolean); when LwM2mIncompletePath(int) with objectId is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation_whenLwM2mIncompletePathWithObjectIdIsOne()
       throws UnsupportedEncodingException, InvalidLwM2mPathException {
     // Arrange
@@ -279,22 +375,33 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     HashMap<String, String> context = new HashMap<>();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addObservation("42",
-        new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()), true));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            tbInMemoryRegistrationStore.addObservation(
+                "42",
+                new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()),
+                true));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2mIncompletePath#LwM2mIncompletePath(int, int)} with objectId is one and resourceId is one.</li>
+   *   <li>When {@link LwM2mIncompletePath#LwM2mIncompletePath(int, int)} with objectId is one and
+   *       resourceId is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test addObservation(String, Observation, boolean); when LwM2mIncompletePath(int, int) with objectId is one and resourceId is one")
+  @DisplayName(
+      "Test addObservation(String, Observation, boolean); when LwM2mIncompletePath(int, int) with objectId is one and resourceId is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation_whenLwM2mIncompletePathWithObjectIdIsOneAndResourceIdIsOne()
       throws UnsupportedEncodingException, InvalidLwM2mPathException {
     // Arrange
@@ -306,22 +413,32 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     HashMap<String, String> context = new HashMap<>();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addObservation("42",
-        new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()), true));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            tbInMemoryRegistrationStore.addObservation(
+                "42",
+                new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()),
+                true));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2mPath#LwM2mPath(int)} with objectId is one.</li>
+   *   <li>When {@link LwM2mPath#LwM2mPath(int)} with objectId is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test addObservation(String, Observation, boolean); when LwM2mPath(int) with objectId is one")
+  @DisplayName(
+      "Test addObservation(String, Observation, boolean); when LwM2mPath(int) with objectId is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation_whenLwM2mPathWithObjectIdIsOne()
       throws UnsupportedEncodingException, InvalidLwM2mPathException {
     // Arrange
@@ -332,22 +449,33 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     HashMap<String, String> context = new HashMap<>();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addObservation("42",
-        new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()), true));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            tbInMemoryRegistrationStore.addObservation(
+                "42",
+                new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()),
+                true));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2mPath#LwM2mPath(int, int)} with objectId is one and objectInstanceId is one.</li>
+   *   <li>When {@link LwM2mPath#LwM2mPath(int, int)} with objectId is one and objectInstanceId is
+   *       one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test addObservation(String, Observation, boolean); when LwM2mPath(int, int) with objectId is one and objectInstanceId is one")
+  @DisplayName(
+      "Test addObservation(String, Observation, boolean); when LwM2mPath(int, int) with objectId is one and objectInstanceId is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation_whenLwM2mPathWithObjectIdIsOneAndObjectInstanceIdIsOne()
       throws UnsupportedEncodingException, InvalidLwM2mPathException {
     // Arrange
@@ -359,67 +487,88 @@ class TbInMemoryRegistrationStoreDiffblueTest {
     HashMap<String, String> context = new HashMap<>();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbInMemoryRegistrationStore.addObservation("42",
-        new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()), true));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            tbInMemoryRegistrationStore.addObservation(
+                "42",
+                new SingleObservation(id, "42", path, contentFormat, context, new HashMap<>()),
+                true));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation, boolean)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#addObservation(String, Observation,
+   * boolean)}
    */
   @Test
   @DisplayName("Test addObservation(String, Observation, boolean); when 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"})
+  @MethodsUnderTest({
+    "Collection TbInMemoryRegistrationStore.addObservation(String, Observation, boolean)"
+  })
   void testAddObservation_whenNull() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> (new TbInMemoryRegistrationStore()).addObservation("42", null, true));
+    assertThrows(
+        IllegalStateException.class,
+        () -> new TbInMemoryRegistrationStore().addObservation("42", null, true));
   }
 
   /**
-   * Test {@link TbInMemoryRegistrationStore#getObservation(ObservationIdentifier)} with {@code observationId}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getObservation(ObservationIdentifier)}
+   * Test {@link TbInMemoryRegistrationStore#getObservation(ObservationIdentifier)} with {@code
+   * observationId}.
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getObservation(ObservationIdentifier)}
    */
   @Test
   @DisplayName("Test getObservation(ObservationIdentifier) with 'observationId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Observation TbInMemoryRegistrationStore.getObservation(ObservationIdentifier)"})
+  @MethodsUnderTest({
+    "Observation TbInMemoryRegistrationStore.getObservation(ObservationIdentifier)"
+  })
   void testGetObservationWithObservationId() throws UnsupportedEncodingException {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
 
     // Act and Assert
-    assertNull(tbInMemoryRegistrationStore.getObservation(new ObservationIdentifier("AXAXAXAX".getBytes("UTF-8"))));
+    assertNull(
+        tbInMemoryRegistrationStore.getObservation(
+            new ObservationIdentifier("AXAXAXAX".getBytes("UTF-8"))));
   }
 
   /**
-   * Test {@link TbInMemoryRegistrationStore#getObservation(String, ObservationIdentifier)} with {@code registrationId}, {@code observationId}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getObservation(String, ObservationIdentifier)}
+   * Test {@link TbInMemoryRegistrationStore#getObservation(String, ObservationIdentifier)} with
+   * {@code registrationId}, {@code observationId}.
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getObservation(String,
+   * ObservationIdentifier)}
    */
   @Test
-  @DisplayName("Test getObservation(String, ObservationIdentifier) with 'registrationId', 'observationId'")
+  @DisplayName(
+      "Test getObservation(String, ObservationIdentifier) with 'registrationId', 'observationId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Observation TbInMemoryRegistrationStore.getObservation(String, ObservationIdentifier)"})
+  @MethodsUnderTest({
+    "Observation TbInMemoryRegistrationStore.getObservation(String, ObservationIdentifier)"
+  })
   void testGetObservationWithRegistrationIdObservationId() throws UnsupportedEncodingException {
     // Arrange
     TbInMemoryRegistrationStore tbInMemoryRegistrationStore = new TbInMemoryRegistrationStore();
 
     // Act and Assert
     assertNull(
-        tbInMemoryRegistrationStore.getObservation("42", new ObservationIdentifier("AXAXAXAX".getBytes("UTF-8"))));
+        tbInMemoryRegistrationStore.getObservation(
+            "42", new ObservationIdentifier("AXAXAXAX".getBytes("UTF-8"))));
   }
 
   /**
    * Test {@link TbInMemoryRegistrationStore#getObservations(String)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#getObservations(String)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#getObservations(String)}
    */
   @Test
   @DisplayName("Test getObservations(String)")
@@ -427,7 +576,8 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.getObservations(String)"})
   void testGetObservations() {
     // Arrange and Act
-    Collection<Observation> actualObservations = (new TbInMemoryRegistrationStore()).getObservations("42");
+    Collection<Observation> actualObservations =
+        new TbInMemoryRegistrationStore().getObservations("42");
 
     // Assert
     assertTrue(actualObservations instanceof List);
@@ -436,8 +586,8 @@ class TbInMemoryRegistrationStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemoryRegistrationStore#removeObservations(String)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#removeObservations(String)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#removeObservations(String)}
    */
   @Test
   @DisplayName("Test removeObservations(String)")
@@ -445,8 +595,8 @@ class TbInMemoryRegistrationStoreDiffblueTest {
   @MethodsUnderTest({"Collection TbInMemoryRegistrationStore.removeObservations(String)"})
   void testRemoveObservations() {
     // Arrange and Act
-    Collection<Observation> actualRemoveObservationsResult = (new TbInMemoryRegistrationStore())
-        .removeObservations("42");
+    Collection<Observation> actualRemoveObservationsResult =
+        new TbInMemoryRegistrationStore().removeObservations("42");
 
     // Assert
     assertTrue(actualRemoveObservationsResult instanceof List);
@@ -455,8 +605,8 @@ class TbInMemoryRegistrationStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemoryRegistrationStore#removeFromMap(Map, Object, Object)}.
-   * <p>
-   * Method under test: {@link TbInMemoryRegistrationStore#removeFromMap(Map, Object, Object)}
+   *
+   * <p>Method under test: {@link TbInMemoryRegistrationStore#removeFromMap(Map, Object, Object)}
    */
   @Test
   @DisplayName("Test removeFromMap(Map, Object, Object)")

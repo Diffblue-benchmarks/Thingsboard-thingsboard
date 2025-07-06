@@ -11,8 +11,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EventInfoDiffblueTest {
   /**
    * Test {@link EventInfo#EventInfo(EventInfo)}.
-   * <p>
-   * Method under test: {@link EventInfo#EventInfo(EventInfo)}
+   *
+   * <p>Method under test: {@link EventInfo#EventInfo(EventInfo)}
    */
   @Test
   @DisplayName("Test new EventInfo(EventInfo)")
@@ -28,8 +28,8 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link EventInfo#getCreatedTime()}
+   *
+   * <p>Method under test: {@link EventInfo#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -37,17 +37,19 @@ class EventInfoDiffblueTest {
   @MethodsUnderTest({"long EventInfo.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new EventInfo()).getCreatedTime());
+    assertEquals(0L, new EventInfo().getCreatedTime());
   }
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -70,12 +72,14 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -101,12 +105,14 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -132,12 +138,14 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -163,12 +171,14 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -194,12 +204,14 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}, and {@link EventInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventInfo#equals(Object)}
    *   <li>{@link EventInfo#hashCode()}
@@ -221,12 +233,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -239,12 +252,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -261,12 +275,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -283,12 +298,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -305,12 +321,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -327,12 +344,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -351,12 +369,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -375,12 +394,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -399,12 +419,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -423,12 +444,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -441,12 +463,13 @@ class EventInfoDiffblueTest {
 
   /**
    * Test {@link EventInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EventInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EventInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

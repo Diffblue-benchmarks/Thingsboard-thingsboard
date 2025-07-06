@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class CoordinatesDiffblueTest {
   /**
    * Test {@link Coordinates#equals(Object)}, and {@link Coordinates#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Coordinates#equals(Object)}
    *   <li>{@link Coordinates#hashCode()}
@@ -38,12 +40,14 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#equals(Object)}, and {@link Coordinates#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Coordinates#equals(Object)}
    *   <li>{@link Coordinates#hashCode()}
@@ -65,12 +69,13 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Coordinates#equals(Object)}
+   *
+   * <p>Method under test: {@link Coordinates#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -86,12 +91,13 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Coordinates#equals(Object)}
+   *
+   * <p>Method under test: {@link Coordinates#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -107,12 +113,13 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Coordinates#equals(Object)}
+   *
+   * <p>Method under test: {@link Coordinates#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -125,12 +132,13 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Coordinates#equals(Object)}
+   *
+   * <p>Method under test: {@link Coordinates#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -143,8 +151,9 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Coordinates#toString()}
    *   <li>{@link Coordinates#getLatitude()}
@@ -154,8 +163,11 @@ class CoordinatesDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"double Coordinates.getLatitude()", "double Coordinates.getLongitude()",
-      "String Coordinates.toString()"})
+  @MethodsUnderTest({
+    "double Coordinates.getLatitude()",
+    "double Coordinates.getLongitude()",
+    "String Coordinates.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Coordinates coordinates = new Coordinates(10.0d, 10.0d);
@@ -172,8 +184,8 @@ class CoordinatesDiffblueTest {
 
   /**
    * Test {@link Coordinates#Coordinates(double, double)}.
-   * <p>
-   * Method under test: {@link Coordinates#Coordinates(double, double)}
+   *
+   * <p>Method under test: {@link Coordinates#Coordinates(double, double)}
    */
   @Test
   @DisplayName("Test new Coordinates(double, double)")

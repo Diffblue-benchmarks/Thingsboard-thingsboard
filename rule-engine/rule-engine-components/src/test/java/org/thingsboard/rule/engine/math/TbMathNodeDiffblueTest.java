@@ -1,66 +1,41 @@
 package org.thingsboard.rule.engine.math;
 
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.doNothing;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import java.util.UUID;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.rule.engine.api.TbContext;
-import org.thingsboard.server.common.data.id.CustomerId;
-import org.thingsboard.server.common.data.id.RuleChainId;
-import org.thingsboard.server.common.data.id.RuleNodeId;
-import org.thingsboard.server.common.data.msg.TbMsgType;
-import org.thingsboard.server.common.msg.TbMsg;
-import org.thingsboard.server.common.msg.TbMsgDataType;
-import org.thingsboard.server.common.msg.TbMsgMetaData;
-import org.thingsboard.server.common.msg.TbMsgProcessingCtx;
-import org.thingsboard.server.common.msg.queue.TbMsgCallback;
+import org.thingsboard.rule.engine.api.TbNodeConfiguration;
+import org.thingsboard.rule.engine.api.TbNodeException;
 
 class TbMathNodeDiffblueTest {
   /**
-   * Test {@link TbMathNode#onMsg(TbContext, TbMsg)}.
+   * Test {@link TbMathNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link TbContext} {@link TbContext#tellFailure(TbMsg, Throwable)}
-   * does nothing.</li>
-   *   <li>Then calls {@link TbContext#tellFailure(TbMsg, Throwable)}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNode#onMsg(TbContext, TbMsg)}
+   *
+   * <p>Method under test: {@link TbMathNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test onMsg(TbContext, TbMsg); given 'true'; when TbContext tellFailure(TbMsg, Throwable) does nothing; then calls tellFailure(TbMsg, Throwable)")
-  void testOnMsg_givenTrue_whenTbContextTellFailureDoesNothing_thenCallsTellFailure() {
+  @DisplayName("Test init(TbContext, TbNodeConfiguration); then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbMathNode.init(TbContext, TbNodeConfiguration)"})
+  void testInit_thenThrowRuntimeException() throws TbNodeException {
     // Arrange
     TbMathNode tbMathNode = new TbMathNode();
     TbContext ctx = mock(TbContext.class);
-    doNothing().when(ctx).tellFailure(Mockito.<TbMsg>any(), Mockito.<Throwable>any());
-    TbMsgCallback callback = mock(TbMsgCallback.class);
-    when(callback.isMsgValid()).thenReturn(true);
-    TbMsg.TbMsgBuilder callbackResult = TbMsg.builder().callback(callback);
-    TbMsg.TbMsgBuilder correlationIdResult = callbackResult.correlationId(UUID.randomUUID());
-    TbMsg.TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsg.TbMsgBuilder dataTypeResult = ctxResult.customerId(new CustomerId(UUID.randomUUID()))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsg.TbMsgBuilder internalTypeResult = dataTypeResult.id(UUID.randomUUID())
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST);
-    TbMsg.TbMsgBuilder queueNameResult = internalTypeResult.metaData(new TbMsgMetaData())
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsg.TbMsgBuilder ruleChainIdResult = queueNameResult.ruleChainId(new RuleChainId(UUID.randomUUID()));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.randomUUID())).ts(1L).type("Type").build();
+    ArrayNode data = mock(ArrayNode.class);
+    when(data.asToken()).thenThrow(new RuntimeException("foo"));
 
-    // Act
-    tbMathNode.onMsg(ctx, msg);
-
-    // Assert
-    verify(ctx).tellFailure(isA(TbMsg.class), isA(Throwable.class));
-    verify(callback).isMsgValid();
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> tbMathNode.init(ctx, new TbNodeConfiguration(data)));
+    verify(data).asToken();
   }
 }

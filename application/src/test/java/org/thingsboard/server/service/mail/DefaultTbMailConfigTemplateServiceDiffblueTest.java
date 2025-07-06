@@ -9,16 +9,17 @@ import org.junit.jupiter.api.Test;
 class DefaultTbMailConfigTemplateServiceDiffblueTest {
   /**
    * Test {@link DefaultTbMailConfigTemplateService#findAllMailConfigTemplates()}.
-   * <p>
-   * Method under test: {@link DefaultTbMailConfigTemplateService#findAllMailConfigTemplates()}
+   *
+   * <p>Method under test: {@link DefaultTbMailConfigTemplateService#findAllMailConfigTemplates()}
    */
   @Test
   @DisplayName("Test findAllMailConfigTemplates()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.fasterxml.jackson.databind.JsonNode DefaultTbMailConfigTemplateService.findAllMailConfigTemplates()"})
+    "com.fasterxml.jackson.databind.JsonNode DefaultTbMailConfigTemplateService.findAllMailConfigTemplates()"
+  })
   void testFindAllMailConfigTemplates() {
     // Arrange, Act and Assert
-    assertNull((new DefaultTbMailConfigTemplateService()).findAllMailConfigTemplates());
+    assertNull(new DefaultTbMailConfigTemplateService().findAllMailConfigTemplates());
   }
 }

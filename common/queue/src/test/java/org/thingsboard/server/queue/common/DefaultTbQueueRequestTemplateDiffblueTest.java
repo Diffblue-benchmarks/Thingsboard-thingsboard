@@ -12,8 +12,9 @@ import org.thingsboard.server.queue.common.DefaultTbQueueRequestTemplate.Respons
 class DefaultTbQueueRequestTemplateDiffblueTest {
   /**
    * Test ResponseMetaData getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ResponseMetaData#toString()}
    *   <li>{@link ResponseMetaData#getExpTime()}
@@ -25,9 +26,13 @@ class DefaultTbQueueRequestTemplateDiffblueTest {
   @Test
   @DisplayName("Test ResponseMetaData getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long ResponseMetaData.getExpTime()", "SettableFuture ResponseMetaData.getFuture()",
-      "long ResponseMetaData.getSubmitTime()", "long ResponseMetaData.getTimeout()",
-      "java.lang.String ResponseMetaData.toString()"})
+  @MethodsUnderTest({
+    "long ResponseMetaData.getExpTime()",
+    "SettableFuture ResponseMetaData.getFuture()",
+    "long ResponseMetaData.getSubmitTime()",
+    "long ResponseMetaData.getTimeout()",
+    "java.lang.String ResponseMetaData.toString()"
+  })
   void testResponseMetaDataGettersAndSetters() {
     // Arrange
     SettableFuture<Object> future = SettableFuture.create();
@@ -47,9 +52,11 @@ class DefaultTbQueueRequestTemplateDiffblueTest {
   }
 
   /**
-   * Test ResponseMetaData {@link ResponseMetaData#ResponseMetaData(long, SettableFuture, long, long)}.
-   * <p>
-   * Method under test: {@link ResponseMetaData#ResponseMetaData(long, SettableFuture, long, long)}
+   * Test ResponseMetaData {@link ResponseMetaData#ResponseMetaData(long, SettableFuture, long,
+   * long)}.
+   *
+   * <p>Method under test: {@link ResponseMetaData#ResponseMetaData(long, SettableFuture, long,
+   * long)}
    */
   @Test
   @DisplayName("Test ResponseMetaData new ResponseMetaData(long, SettableFuture, long, long)")

@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.POJONode;
 import java.util.Iterator;
 import org.junit.jupiter.api.DisplayName;
@@ -24,8 +23,8 @@ import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfi
 class QueueDiffblueTest {
   /**
    * Test {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}.
-   * <p>
-   * Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
+   *
+   * <p>Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
    */
   @Test
   @DisplayName("Test new Queue(TenantId, TenantProfileQueueConfiguration)")
@@ -56,7 +55,8 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    JsonNode additionalInfo = (new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).getAdditionalInfo();
+    JsonNode additionalInfo =
+        new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).getAdditionalInfo();
     assertTrue(additionalInfo instanceof ArrayNode);
     assertEquals("[ ]", additionalInfo.toPrettyString());
     assertEquals(0, additionalInfo.size());
@@ -66,15 +66,17 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}.
+   *
    * <ul>
-   *   <li>Given Instance.</li>
-   *   <li>Then return AdditionalInfo is Instance.</li>
+   *   <li>Given Instance.
+   *   <li>Then return AdditionalInfo is Instance.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
+   *
+   * <p>Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
    */
   @Test
-  @DisplayName("Test new Queue(TenantId, TenantProfileQueueConfiguration); given Instance; then return AdditionalInfo is Instance")
+  @DisplayName(
+      "Test new Queue(TenantId, TenantProfileQueueConfiguration); given Instance; then return AdditionalInfo is Instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Queue.<init>(TenantId, TenantProfileQueueConfiguration)"})
   void testNewQueue_givenInstance_thenReturnAdditionalInfoIsInstance() {
@@ -103,23 +105,26 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    assertSame(additionalInfo, (new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).getAdditionalInfo());
+    assertSame(
+        additionalInfo, new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).getAdditionalInfo());
   }
 
   /**
    * Test {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then AdditionalInfo return {@link NullNode}.</li>
+   *   <li>Given valueOf ten.
+   *   <li>Then return AdditionalInfo is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
+   *
+   * <p>Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
    */
   @Test
-  @DisplayName("Test new Queue(TenantId, TenantProfileQueueConfiguration); given 'null'; then AdditionalInfo return NullNode")
+  @DisplayName(
+      "Test new Queue(TenantId, TenantProfileQueueConfiguration); given valueOf ten; then return AdditionalInfo is valueOf ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Queue.<init>(TenantId, TenantProfileQueueConfiguration)"})
-  void testNewQueue_givenNull_thenAdditionalInfoReturnNullNode() {
+  void testNewQueue_givenValueOfTen_thenReturnAdditionalInfoIsValueOfTen() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -133,7 +138,8 @@ class QueueDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(null);
+    DoubleNode additionalInfo = DoubleNode.valueOf(10.0d);
+    queueConfiguration.setAdditionalInfo(additionalInfo);
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -144,24 +150,22 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    JsonNode additionalInfo = (new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
+    assertSame(
+        additionalInfo, new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).getAdditionalInfo());
   }
 
   /**
    * Test {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}.
+   *
    * <ul>
-   *   <li>Then AdditionalInfo elements next return {@link POJONode}.</li>
+   *   <li>Then AdditionalInfo elements next return {@link POJONode}.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
+   *
+   * <p>Method under test: {@link Queue#Queue(TenantId, TenantProfileQueueConfiguration)}
    */
   @Test
-  @DisplayName("Test new Queue(TenantId, TenantProfileQueueConfiguration); then AdditionalInfo elements next return POJONode")
+  @DisplayName(
+      "Test new Queue(TenantId, TenantProfileQueueConfiguration); then AdditionalInfo elements next return POJONode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Queue.<init>(TenantId, TenantProfileQueueConfiguration)"})
   void testNewQueue_thenAdditionalInfoElementsNextReturnPOJONode() {
@@ -192,7 +196,8 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    JsonNode additionalInfo2 = (new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).getAdditionalInfo();
+    JsonNode additionalInfo2 =
+        new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).getAdditionalInfo();
     assertTrue(additionalInfo2 instanceof ArrayNode);
     Iterator<JsonNode> elementsResult = additionalInfo2.elements();
     JsonNode nextResult = elementsResult.next();
@@ -209,14 +214,16 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#getCustomProperties()}.
+   *
    * <ul>
-   *   <li>Given {@link ProcessingStrategy} (default constructor) FailurePercentage is ten.</li>
+   *   <li>Given {@link ProcessingStrategy} (default constructor) FailurePercentage is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#getCustomProperties()}
+   *
+   * <p>Method under test: {@link Queue#getCustomProperties()}
    */
   @Test
-  @DisplayName("Test getCustomProperties(); given ProcessingStrategy (default constructor) FailurePercentage is ten")
+  @DisplayName(
+      "Test getCustomProperties(); given ProcessingStrategy (default constructor) FailurePercentage is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String Queue.getCustomProperties()"})
   void testGetCustomProperties_givenProcessingStrategyFailurePercentageIsTen() {
@@ -233,7 +240,7 @@ class QueueDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -244,16 +251,17 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    assertNull((new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).getCustomProperties());
+    assertNull(new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).getCustomProperties());
   }
 
   /**
    * Test {@link Queue#getCustomProperties()}.
+   *
    * <ul>
-   *   <li>Given {@link Queue#Queue()}.</li>
+   *   <li>Given {@link Queue#Queue()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#getCustomProperties()}
+   *
+   * <p>Method under test: {@link Queue#getCustomProperties()}
    */
   @Test
   @DisplayName("Test getCustomProperties(); given Queue()")
@@ -261,19 +269,21 @@ class QueueDiffblueTest {
   @MethodsUnderTest({"java.lang.String Queue.getCustomProperties()"})
   void testGetCustomProperties_givenQueue() {
     // Arrange, Act and Assert
-    assertNull((new Queue()).getCustomProperties());
+    assertNull(new Queue().getCustomProperties());
   }
 
   /**
    * Test {@link Queue#isDuplicateMsgToAllPartitions()}.
+   *
    * <ul>
-   *   <li>Given {@link ProcessingStrategy} (default constructor) FailurePercentage is ten.</li>
+   *   <li>Given {@link ProcessingStrategy} (default constructor) FailurePercentage is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#isDuplicateMsgToAllPartitions()}
+   *
+   * <p>Method under test: {@link Queue#isDuplicateMsgToAllPartitions()}
    */
   @Test
-  @DisplayName("Test isDuplicateMsgToAllPartitions(); given ProcessingStrategy (default constructor) FailurePercentage is ten")
+  @DisplayName(
+      "Test isDuplicateMsgToAllPartitions(); given ProcessingStrategy (default constructor) FailurePercentage is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Queue.isDuplicateMsgToAllPartitions()"})
   void testIsDuplicateMsgToAllPartitions_givenProcessingStrategyFailurePercentageIsTen() {
@@ -290,7 +300,7 @@ class QueueDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(15L);
@@ -301,16 +311,18 @@ class QueueDiffblueTest {
     queueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    assertFalse((new Queue(TenantId.SYS_TENANT_ID, queueConfiguration)).isDuplicateMsgToAllPartitions());
+    assertFalse(
+        new Queue(TenantId.SYS_TENANT_ID, queueConfiguration).isDuplicateMsgToAllPartitions());
   }
 
   /**
    * Test {@link Queue#isDuplicateMsgToAllPartitions()}.
+   *
    * <ul>
-   *   <li>Given {@link Queue#Queue()}.</li>
+   *   <li>Given {@link Queue#Queue()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#isDuplicateMsgToAllPartitions()}
+   *
+   * <p>Method under test: {@link Queue#isDuplicateMsgToAllPartitions()}
    */
   @Test
   @DisplayName("Test isDuplicateMsgToAllPartitions(); given Queue()")
@@ -318,17 +330,19 @@ class QueueDiffblueTest {
   @MethodsUnderTest({"boolean Queue.isDuplicateMsgToAllPartitions()"})
   void testIsDuplicateMsgToAllPartitions_givenQueue() {
     // Arrange, Act and Assert
-    assertFalse((new Queue()).isDuplicateMsgToAllPartitions());
+    assertFalse(new Queue().isDuplicateMsgToAllPartitions());
   }
 
   /**
    * Test {@link Queue#equals(Object)}, and {@link Queue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Queue#equals(Object)}
    *   <li>{@link Queue#hashCode()}
@@ -351,12 +365,14 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}, and {@link Queue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Queue#equals(Object)}
    *   <li>{@link Queue#hashCode()}
@@ -380,7 +396,7 @@ class QueueDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -403,7 +419,7 @@ class QueueDiffblueTest {
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration2 = new TenantProfileQueueConfiguration();
-    queueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration2.setConsumerPerPartition(true);
     queueConfiguration2.setName("Name");
     queueConfiguration2.setPackProcessingTimeout(1L);
@@ -422,12 +438,14 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}, and {@link Queue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Queue#equals(Object)}
    *   <li>{@link Queue#hashCode()}
@@ -449,12 +467,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -474,7 +493,7 @@ class QueueDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -491,12 +510,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -513,12 +533,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -535,12 +556,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -557,12 +579,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -579,12 +602,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -601,12 +625,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -623,12 +648,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -649,12 +675,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -678,12 +705,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -702,12 +730,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -726,12 +755,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -750,12 +780,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -778,12 +809,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -809,12 +841,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -827,12 +860,13 @@ class QueueDiffblueTest {
 
   /**
    * Test {@link Queue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Queue#equals(Object)}
+   *
+   * <p>Method under test: {@link Queue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

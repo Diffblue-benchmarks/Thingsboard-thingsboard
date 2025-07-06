@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class AutoCommitSettingsDiffblueTest {
   /**
    * Test new {@link AutoCommitSettings} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link AutoCommitSettings}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link AutoCommitSettings}
    */
   @Test
   @DisplayName("Test new AutoCommitSettings (default constructor)")
@@ -18,6 +18,6 @@ class AutoCommitSettingsDiffblueTest {
   @MethodsUnderTest({"void AutoCommitSettings.<init>()"})
   void testNewAutoCommitSettings() {
     // Arrange, Act and Assert
-    assertTrue((new AutoCommitSettings()).isEmpty());
+    assertTrue(new AutoCommitSettings().isEmpty());
   }
 }

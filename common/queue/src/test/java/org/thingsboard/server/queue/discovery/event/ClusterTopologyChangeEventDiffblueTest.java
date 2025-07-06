@@ -14,21 +14,24 @@ import org.thingsboard.server.queue.discovery.QueueKey;
 class ClusterTopologyChangeEventDiffblueTest {
   /**
    * Test {@link ClusterTopologyChangeEvent#ClusterTopologyChangeEvent(Object, Set)}.
+   *
    * <ul>
-   *   <li>When {@link HashSet#HashSet()}.</li>
-   *   <li>Then return QueueKeys Empty.</li>
+   *   <li>When {@link HashSet#HashSet()}.
+   *   <li>Then return QueueKeys Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ClusterTopologyChangeEvent#ClusterTopologyChangeEvent(Object, Set)}
+   *
+   * <p>Method under test: {@link ClusterTopologyChangeEvent#ClusterTopologyChangeEvent(Object,
+   * Set)}
    */
   @Test
-  @DisplayName("Test new ClusterTopologyChangeEvent(Object, Set); when HashSet(); then return QueueKeys Empty")
+  @DisplayName(
+      "Test new ClusterTopologyChangeEvent(Object, Set); when HashSet(); then return QueueKeys Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ClusterTopologyChangeEvent.<init>(Object, Set)"})
   void testNewClusterTopologyChangeEvent_whenHashSet_thenReturnQueueKeysEmpty() {
     // Arrange and Act
-    ClusterTopologyChangeEvent actualClusterTopologyChangeEvent = new ClusterTopologyChangeEvent("Source",
-        new HashSet<>());
+    ClusterTopologyChangeEvent actualClusterTopologyChangeEvent =
+        new ClusterTopologyChangeEvent("Source", new HashSet<>());
 
     // Assert
     assertEquals("Source", actualClusterTopologyChangeEvent.getSource());
@@ -37,8 +40,8 @@ class ClusterTopologyChangeEventDiffblueTest {
 
   /**
    * Test {@link ClusterTopologyChangeEvent#getQueueKeys()}.
-   * <p>
-   * Method under test: {@link ClusterTopologyChangeEvent#getQueueKeys()}
+   *
+   * <p>Method under test: {@link ClusterTopologyChangeEvent#getQueueKeys()}
    */
   @Test
   @DisplayName("Test getQueueKeys()")
@@ -49,7 +52,8 @@ class ClusterTopologyChangeEventDiffblueTest {
     HashSet<QueueKey> queueKeys = new HashSet<>();
 
     // Act
-    Set<QueueKey> actualQueueKeys = (new ClusterTopologyChangeEvent("Source", queueKeys)).getQueueKeys();
+    Set<QueueKey> actualQueueKeys =
+        new ClusterTopologyChangeEvent("Source", queueKeys).getQueueKeys();
 
     // Assert
     assertTrue(actualQueueKeys.isEmpty());

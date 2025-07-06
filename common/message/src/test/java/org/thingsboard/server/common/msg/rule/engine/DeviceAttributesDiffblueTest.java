@@ -16,14 +16,16 @@ import org.thingsboard.server.common.data.kv.JsonDataEntry;
 class DeviceAttributesDiffblueTest {
   /**
    * Test {@link DeviceAttributes#DeviceAttributes(List, List, List)}.
+   *
    * <ul>
-   *   <li>Then return ClientSideAttributes size is one.</li>
+   *   <li>Then return ClientSideAttributes size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
    */
   @Test
-  @DisplayName("Test new DeviceAttributes(List, List, List); then return ClientSideAttributes size is one")
+  @DisplayName(
+      "Test new DeviceAttributes(List, List, List); then return ClientSideAttributes size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceAttributes.<init>(List, List, List)"})
   void testNewDeviceAttributes_thenReturnClientSideAttributesSizeIsOne() {
@@ -38,8 +40,8 @@ class DeviceAttributesDiffblueTest {
     serverPublicAttributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act
-    DeviceAttributes actualDeviceAttributes = new DeviceAttributes(clientSideAttributes, serverPrivateAttributes,
-        serverPublicAttributes);
+    DeviceAttributes actualDeviceAttributes =
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, serverPublicAttributes);
 
     // Assert
     assertEquals(1, actualDeviceAttributes.getClientSideAttributes().size());
@@ -49,14 +51,16 @@ class DeviceAttributesDiffblueTest {
 
   /**
    * Test {@link DeviceAttributes#DeviceAttributes(List, List, List)}.
+   *
    * <ul>
-   *   <li>Then return ServerSidePublicAttributes size is one.</li>
+   *   <li>Then return ServerSidePublicAttributes size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
    */
   @Test
-  @DisplayName("Test new DeviceAttributes(List, List, List); then return ServerSidePublicAttributes size is one")
+  @DisplayName(
+      "Test new DeviceAttributes(List, List, List); then return ServerSidePublicAttributes size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceAttributes.<init>(List, List, List)"})
   void testNewDeviceAttributes_thenReturnServerSidePublicAttributesSizeIsOne() {
@@ -69,8 +73,8 @@ class DeviceAttributesDiffblueTest {
     serverPublicAttributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act
-    DeviceAttributes actualDeviceAttributes = new DeviceAttributes(clientSideAttributes, serverPrivateAttributes,
-        serverPublicAttributes);
+    DeviceAttributes actualDeviceAttributes =
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, serverPublicAttributes);
 
     // Assert
     assertEquals(1, actualDeviceAttributes.getServerSidePublicAttributes().size());
@@ -80,15 +84,17 @@ class DeviceAttributesDiffblueTest {
 
   /**
    * Test {@link DeviceAttributes#DeviceAttributes(List, List, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return ClientSideAttributes Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return ClientSideAttributes Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
    */
   @Test
-  @DisplayName("Test new DeviceAttributes(List, List, List); when ArrayList(); then return ClientSideAttributes Empty")
+  @DisplayName(
+      "Test new DeviceAttributes(List, List, List); when ArrayList(); then return ClientSideAttributes Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceAttributes.<init>(List, List, List)"})
   void testNewDeviceAttributes_whenArrayList_thenReturnClientSideAttributesEmpty() {
@@ -97,8 +103,8 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act
-    DeviceAttributes actualDeviceAttributes = new DeviceAttributes(clientSideAttributes, serverPrivateAttributes,
-        new ArrayList<>());
+    DeviceAttributes actualDeviceAttributes =
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>());
 
     // Assert
     assertTrue(actualDeviceAttributes.getClientSideAttributes().isEmpty());
@@ -108,15 +114,17 @@ class DeviceAttributesDiffblueTest {
 
   /**
    * Test {@link DeviceAttributes#DeviceAttributes(List, List, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return ClientSideAttributes size is one.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return ClientSideAttributes size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
    */
   @Test
-  @DisplayName("Test new DeviceAttributes(List, List, List); when ArrayList(); then return ClientSideAttributes size is one")
+  @DisplayName(
+      "Test new DeviceAttributes(List, List, List); when ArrayList(); then return ClientSideAttributes size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceAttributes.<init>(List, List, List)"})
   void testNewDeviceAttributes_whenArrayList_thenReturnClientSideAttributesSizeIsOne() {
@@ -127,8 +135,8 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act
-    DeviceAttributes actualDeviceAttributes = new DeviceAttributes(clientSideAttributes, serverPrivateAttributes,
-        new ArrayList<>());
+    DeviceAttributes actualDeviceAttributes =
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>());
 
     // Assert
     assertEquals(1, actualDeviceAttributes.getClientSideAttributes().size());
@@ -138,15 +146,17 @@ class DeviceAttributesDiffblueTest {
 
   /**
    * Test {@link DeviceAttributes#DeviceAttributes(List, List, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return ServerSideAttributes size is one.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return ServerSideAttributes size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#DeviceAttributes(List, List, List)}
    */
   @Test
-  @DisplayName("Test new DeviceAttributes(List, List, List); when ArrayList(); then return ServerSideAttributes size is one")
+  @DisplayName(
+      "Test new DeviceAttributes(List, List, List); when ArrayList(); then return ServerSideAttributes size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceAttributes.<init>(List, List, List)"})
   void testNewDeviceAttributes_whenArrayList_thenReturnServerSideAttributesSizeIsOne() {
@@ -158,8 +168,8 @@ class DeviceAttributesDiffblueTest {
     serverPrivateAttributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act
-    DeviceAttributes actualDeviceAttributes = new DeviceAttributes(clientSideAttributes, serverPrivateAttributes,
-        new ArrayList<>());
+    DeviceAttributes actualDeviceAttributes =
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>());
 
     // Assert
     assertEquals(1, actualDeviceAttributes.getServerSideAttributes().size());
@@ -169,8 +179,8 @@ class DeviceAttributesDiffblueTest {
 
   /**
    * Test {@link DeviceAttributes#getClientSideAttributes()}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getClientSideAttributes()}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getClientSideAttributes()}
    */
   @Test
   @DisplayName("Test getClientSideAttributes()")
@@ -182,15 +192,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertTrue((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getClientSideAttributes()
-        .isEmpty());
+    assertTrue(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getClientSideAttributes()
+            .isEmpty());
   }
 
   /**
    * Test {@link DeviceAttributes#getServerSideAttributes()}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getServerSideAttributes()}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getServerSideAttributes()}
    */
   @Test
   @DisplayName("Test getServerSideAttributes()")
@@ -202,15 +213,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertTrue((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getServerSideAttributes()
-        .isEmpty());
+    assertTrue(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getServerSideAttributes()
+            .isEmpty());
   }
 
   /**
    * Test {@link DeviceAttributes#getServerSidePublicAttributes()}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getServerSidePublicAttributes()}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getServerSidePublicAttributes()}
    */
   @Test
   @DisplayName("Test getServerSidePublicAttributes()")
@@ -222,15 +234,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertTrue((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getServerSidePublicAttributes()
-        .isEmpty());
+    assertTrue(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getServerSidePublicAttributes()
+            .isEmpty());
   }
 
   /**
    * Test {@link DeviceAttributes#getClientSideAttribute(String)}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getClientSideAttribute(String)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getClientSideAttribute(String)}
    */
   @Test
   @DisplayName("Test getClientSideAttribute(String)")
@@ -242,15 +255,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertFalse((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getClientSideAttribute("Attribute")
-        .isPresent());
+    assertFalse(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getClientSideAttribute("Attribute")
+            .isPresent());
   }
 
   /**
    * Test {@link DeviceAttributes#getServerPrivateAttribute(String)}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getServerPrivateAttribute(String)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getServerPrivateAttribute(String)}
    */
   @Test
   @DisplayName("Test getServerPrivateAttribute(String)")
@@ -262,15 +276,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertFalse((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getServerPrivateAttribute("Attribute")
-        .isPresent());
+    assertFalse(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getServerPrivateAttribute("Attribute")
+            .isPresent());
   }
 
   /**
    * Test {@link DeviceAttributes#getServerPublicAttribute(String)}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#getServerPublicAttribute(String)}
+   *
+   * <p>Method under test: {@link DeviceAttributes#getServerPublicAttribute(String)}
    */
   @Test
   @DisplayName("Test getServerPublicAttribute(String)")
@@ -282,15 +297,16 @@ class DeviceAttributesDiffblueTest {
     ArrayList<AttributeKvEntry> serverPrivateAttributes = new ArrayList<>();
 
     // Act and Assert
-    assertFalse((new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>()))
-        .getServerPublicAttribute("Attribute")
-        .isPresent());
+    assertFalse(
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .getServerPublicAttribute("Attribute")
+            .isPresent());
   }
 
   /**
    * Test {@link DeviceAttributes#toString()}.
-   * <p>
-   * Method under test: {@link DeviceAttributes#toString()}
+   *
+   * <p>Method under test: {@link DeviceAttributes#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -305,6 +321,7 @@ class DeviceAttributesDiffblueTest {
     assertEquals(
         "DeviceAttributes{clientSideAttributesMap={}, serverPrivateAttributesMap={}, serverPublicAttributesMap"
             + "={}}",
-        (new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())).toString());
+        new DeviceAttributes(clientSideAttributes, serverPrivateAttributes, new ArrayList<>())
+            .toString());
   }
 }

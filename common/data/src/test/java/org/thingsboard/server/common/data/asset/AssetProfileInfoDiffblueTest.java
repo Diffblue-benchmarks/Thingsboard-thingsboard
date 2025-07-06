@@ -20,8 +20,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AssetProfileInfoDiffblueTest {
   /**
    * Test {@link AssetProfileInfo#AssetProfileInfo(AssetProfile)}.
-   * <p>
-   * Method under test: {@link AssetProfileInfo#AssetProfileInfo(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#AssetProfileInfo(AssetProfile)}
    */
   @Test
   @DisplayName("Test new AssetProfileInfo(AssetProfile)")
@@ -41,14 +41,17 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String, UUID)}.
+   *
    * <ul>
-   *   <li>Then return DefaultDashboardId EntityType is {@code DASHBOARD}.</li>
+   *   <li>Then return DefaultDashboardId EntityType is {@code DASHBOARD}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String, UUID)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String,
+   * UUID)}
    */
   @Test
-  @DisplayName("Test new AssetProfileInfo(UUID, UUID, String, String, UUID); then return DefaultDashboardId EntityType is 'DASHBOARD'")
+  @DisplayName(
+      "Test new AssetProfileInfo(UUID, UUID, String, String, UUID); then return DefaultDashboardId EntityType is 'DASHBOARD'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileInfo.<init>(UUID, UUID, String, String, UUID)"})
   void testNewAssetProfileInfo_thenReturnDefaultDashboardIdEntityTypeIsDashboard() {
@@ -58,7 +61,8 @@ class AssetProfileInfoDiffblueTest {
     UUID defaultDashboardId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    AssetProfileInfo actualAssetProfileInfo = new AssetProfileInfo(uuid, tenantId, "Name", "Image", defaultDashboardId);
+    AssetProfileInfo actualAssetProfileInfo =
+        new AssetProfileInfo(uuid, tenantId, "Name", "Image", defaultDashboardId);
 
     // Assert
     EntityId id = actualAssetProfileInfo.getId();
@@ -81,15 +85,18 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return DefaultDashboardId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return DefaultDashboardId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String, UUID)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#AssetProfileInfo(UUID, UUID, String, String,
+   * UUID)}
    */
   @Test
-  @DisplayName("Test new AssetProfileInfo(UUID, UUID, String, String, UUID); when 'null'; then return DefaultDashboardId is 'null'")
+  @DisplayName(
+      "Test new AssetProfileInfo(UUID, UUID, String, String, UUID); when 'null'; then return DefaultDashboardId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileInfo.<init>(UUID, UUID, String, String, UUID)"})
   void testNewAssetProfileInfo_whenNull_thenReturnDefaultDashboardIdIsNull() {
@@ -98,7 +105,8 @@ class AssetProfileInfoDiffblueTest {
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    AssetProfileInfo actualAssetProfileInfo = new AssetProfileInfo(uuid, tenantId, "Name", "Image", null);
+    AssetProfileInfo actualAssetProfileInfo =
+        new AssetProfileInfo(uuid, tenantId, "Name", "Image", null);
 
     // Assert
     EntityId id = actualAssetProfileInfo.getId();
@@ -118,12 +126,14 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}, and {@link AssetProfileInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileInfo#equals(Object)}
    *   <li>{@link AssetProfileInfo#hashCode()}
@@ -146,12 +156,14 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}, and {@link AssetProfileInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileInfo#equals(Object)}
    *   <li>{@link AssetProfileInfo#hashCode()}
@@ -165,12 +177,22 @@ class AssetProfileInfoDiffblueTest {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    AssetProfileInfo assetProfileInfo = new AssetProfileInfo(uuid, tenantId, "Name", "Image",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    AssetProfileInfo assetProfileInfo =
+        new AssetProfileInfo(
+            uuid,
+            tenantId,
+            "Name",
+            "Image",
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID uuid2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    AssetProfileInfo assetProfileInfo2 = new AssetProfileInfo(uuid2, tenantId2, "Name", "Image",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    AssetProfileInfo assetProfileInfo2 =
+        new AssetProfileInfo(
+            uuid2,
+            tenantId2,
+            "Name",
+            "Image",
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(assetProfileInfo, assetProfileInfo2);
@@ -180,12 +202,14 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}, and {@link AssetProfileInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfileInfo#equals(Object)}
    *   <li>{@link AssetProfileInfo#hashCode()}
@@ -207,12 +231,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -222,8 +247,13 @@ class AssetProfileInfoDiffblueTest {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    AssetProfileInfo assetProfileInfo = new AssetProfileInfo(uuid, tenantId, "Name", "Image",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    AssetProfileInfo assetProfileInfo =
+        new AssetProfileInfo(
+            uuid,
+            tenantId,
+            "Name",
+            "Image",
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(assetProfileInfo, new AssetProfileInfo(new AssetProfile()));
@@ -231,12 +261,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -254,12 +285,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,12 +309,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -301,12 +334,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +359,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -339,24 +374,36 @@ class AssetProfileInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    AssetProfileInfo assetProfileInfo = new AssetProfileInfo(uuid,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Name", "Image", EntityId.NULL_UUID);
+    AssetProfileInfo assetProfileInfo =
+        new AssetProfileInfo(
+            uuid,
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"),
+            "Name",
+            "Image",
+            EntityId.NULL_UUID);
     UUID uuid2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(assetProfileInfo, new AssetProfileInfo(uuid2, tenantId, "Name", "Image",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        assetProfileInfo,
+        new AssetProfileInfo(
+            uuid2,
+            tenantId,
+            "Name",
+            "Image",
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -365,24 +412,32 @@ class AssetProfileInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    AssetProfileInfo assetProfileInfo = new AssetProfileInfo(uuid,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Name", "Image", null);
+    AssetProfileInfo assetProfileInfo =
+        new AssetProfileInfo(
+            uuid, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Name", "Image", null);
     UUID uuid2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(assetProfileInfo, new AssetProfileInfo(uuid2, tenantId, "Name", "Image",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        assetProfileInfo,
+        new AssetProfileInfo(
+            uuid2,
+            tenantId,
+            "Name",
+            "Image",
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -395,12 +450,13 @@ class AssetProfileInfoDiffblueTest {
 
   /**
    * Test {@link AssetProfileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

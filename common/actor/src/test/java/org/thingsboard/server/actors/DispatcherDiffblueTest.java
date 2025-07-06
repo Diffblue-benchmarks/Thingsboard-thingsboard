@@ -13,12 +13,14 @@ import org.junit.jupiter.api.Test;
 class DispatcherDiffblueTest {
   /**
    * Test {@link Dispatcher#equals(Object)}, and {@link Dispatcher#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dispatcher#equals(Object)}
    *   <li>{@link Dispatcher#hashCode()}
@@ -41,12 +43,14 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}, and {@link Dispatcher#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dispatcher#equals(Object)}
    *   <li>{@link Dispatcher#hashCode()}
@@ -69,12 +73,14 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}, and {@link Dispatcher#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dispatcher#equals(Object)}
    *   <li>{@link Dispatcher#hashCode()}
@@ -97,12 +103,14 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}, and {@link Dispatcher#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dispatcher#equals(Object)}
    *   <li>{@link Dispatcher#hashCode()}
@@ -124,12 +132,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -145,12 +154,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -166,12 +176,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -187,12 +198,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -208,12 +220,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -226,12 +239,13 @@ class DispatcherDiffblueTest {
 
   /**
    * Test {@link Dispatcher#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dispatcher#equals(Object)}
+   *
+   * <p>Method under test: {@link Dispatcher#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -239,13 +253,15 @@ class DispatcherDiffblueTest {
   @MethodsUnderTest({"boolean Dispatcher.equals(Object)", "int Dispatcher.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new Dispatcher("42", ForkJoinPool.commonPool()), "Different type to Dispatcher");
+    assertNotEquals(
+        new Dispatcher("42", ForkJoinPool.commonPool()), "Different type to Dispatcher");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dispatcher#Dispatcher(String, ExecutorService)}
    *   <li>{@link Dispatcher#toString()}
@@ -256,8 +272,12 @@ class DispatcherDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Dispatcher.<init>(String, ExecutorService)", "String Dispatcher.getDispatcherId()",
-      "ExecutorService Dispatcher.getExecutor()", "String Dispatcher.toString()"})
+  @MethodsUnderTest({
+    "void Dispatcher.<init>(String, ExecutorService)",
+    "String Dispatcher.getDispatcherId()",
+    "ExecutorService Dispatcher.getExecutor()",
+    "String Dispatcher.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ForkJoinPool executor = ForkJoinPool.commonPool();

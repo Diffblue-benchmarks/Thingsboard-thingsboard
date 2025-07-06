@@ -7,9 +7,10 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import java.util.ArrayList;
@@ -17,225 +18,280 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.thingsboard.server.common.data.AttributeScope;
-import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.data.id.UUIDBased;
 import org.thingsboard.server.common.data.kv.AttributeKvEntry;
 import org.thingsboard.server.common.data.kv.BaseAttributeKvEntry;
 import org.thingsboard.server.common.data.kv.JsonDataEntry;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
-import org.thingsboard.server.dao.sql.attributes.JpaAttributeDao;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BaseAttributesServiceDiffblueTest {
+  @Mock private AttributesDao attributesDao;
+
+  @InjectMocks private BaseAttributesService baseAttributesService;
+
   /**
-   * Test
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, String)}
-   * with {@code tenantId}, {@code entityId}, {@code scope}, {@code attributeKey}.
+   * Test {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, String)} with {@code
+   * tenantId}, {@code entityId}, {@code scope}, {@code attributeKey}.
+   *
    * <ul>
-   *   <li>Then return Done.</li>
+   *   <li>Then return Done.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, String)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope,
+   * String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, String)"
+  })
   public void testFindWithTenantIdEntityIdScopeAttributeKey_thenReturnDone()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    Optional<AttributeKvEntry> ofResult = Optional.of(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
-    when(attributesDao.find(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<String>any())).thenReturn(ofResult);
+    Optional<AttributeKvEntry> ofResult =
+        Optional.of(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
+    when(attributesDao.find(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<String>any()))
+        .thenReturn(ofResult);
 
     // Act
-    ListenableFuture<Optional<AttributeKvEntry>> actualFindResult = (new BaseAttributesService(attributesDao)).find(
-        ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, "Attribute Key");
+    ListenableFuture<Optional<AttributeKvEntry>> actualFindResult =
+        baseAttributesService.find(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            "Attribute Key");
 
     // Assert
-    verify(attributesDao).find(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        eq("Attribute Key"));
+    verify(attributesDao)
+        .find(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            eq("Attribute Key"));
     assertTrue(actualFindResult.isDone());
     assertSame(ofResult, actualFindResult.get());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
-   * with {@code tenantId}, {@code entityId}, {@code scope},
-   * {@code attributeKeys}.
+   * Test {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)} with
+   * {@code tenantId}, {@code entityId}, {@code scope}, {@code attributeKeys}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>Then calls {@link EntityId#getId()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope,
+   * Collection)}
    */
   @Test
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_given42_thenCallsGetId()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
+  })
+  public void testFindWithTenantIdEntityIdScopeAttributeKeys_given42_whenArrayListAdd42()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.find(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<Collection<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
+    when(attributesDao.find(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<Collection<String>>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<String> attributeKeys = new ArrayList<>();
     attributeKeys.add("42");
     attributeKeys.add("foo");
 
     // Act
-    ListenableFuture<List<AttributeKvEntry>> actualFindResult = baseAttributesService.find(ModelConstants.SYSTEM_TENANT,
-        entityId, AttributeScope.CLIENT_SCOPE, attributeKeys);
+    ListenableFuture<List<AttributeKvEntry>> actualFindResult =
+        baseAttributesService.find(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            attributeKeys);
 
     // Assert
-    verify(entityId).getId();
-    verify(attributesDao).find(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(Collection.class));
+    verify(attributesDao)
+        .find(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(Collection.class));
     assertTrue(actualFindResult.get().isEmpty());
     assertTrue(actualFindResult.isDone());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
-   * with {@code tenantId}, {@code entityId}, {@code scope},
-   * {@code attributeKeys}.
+   * Test {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)} with
+   * {@code tenantId}, {@code entityId}, {@code scope}, {@code attributeKeys}.
+   *
    * <ul>
-   *   <li>Given {@link ModelConstants#NULL_UUID}.</li>
-   *   <li>Then calls {@link EntityId#getId()}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope,
+   * Collection)}
    */
   @Test
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_givenNull_uuid_thenCallsGetId()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
+  })
+  public void testFindWithTenantIdEntityIdScopeAttributeKeys_givenFoo_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.find(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<Collection<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
+    when(attributesDao.find(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<Collection<String>>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<String> attributeKeys = new ArrayList<>();
     attributeKeys.add("foo");
 
     // Act
-    ListenableFuture<List<AttributeKvEntry>> actualFindResult = baseAttributesService.find(ModelConstants.SYSTEM_TENANT,
-        entityId, AttributeScope.CLIENT_SCOPE, attributeKeys);
+    ListenableFuture<List<AttributeKvEntry>> actualFindResult =
+        baseAttributesService.find(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            attributeKeys);
 
     // Assert
-    verify(entityId).getId();
-    verify(attributesDao).find(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(Collection.class));
+    verify(attributesDao)
+        .find(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(Collection.class));
     assertTrue(actualFindResult.get().isEmpty());
     assertTrue(actualFindResult.isDone());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
-   * with {@code tenantId}, {@code entityId}, {@code scope},
-   * {@code attributeKeys}.
+   * Test {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)} with
+   * {@code tenantId}, {@code entityId}, {@code scope}, {@code attributeKeys}.
+   *
    * <ul>
-   *   <li>When {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope, Collection)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#find(TenantId, EntityId, AttributeScope,
+   * Collection)}
    */
   @Test
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_whenNull_customer_id()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
+  })
+  public void testFindWithTenantIdEntityIdScopeAttributeKeys_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.find(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<Collection<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-
-    // Act
-    ListenableFuture<List<AttributeKvEntry>> actualFindResult = baseAttributesService.find(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, new ArrayList<>());
-
-    // Assert
-    verify(attributesDao).find(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(Collection.class));
-    assertTrue(actualFindResult.get().isEmpty());
-    assertTrue(actualFindResult.isDone());
-  }
-
-  /**
-   * Test
-   * {@link BaseAttributesService#findAll(TenantId, EntityId, AttributeScope)}.
-   * <ul>
-   *   <li>When {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
-   *   <li>Then return {@link Future#get()} Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAll(TenantId, EntityId, AttributeScope)}
-   */
-  @Test
-  public void testFindAll_whenNull_customer_id_thenReturnGetEmpty() throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.findAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any()))
+    when(attributesDao.find(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<Collection<String>>any()))
         .thenReturn(new ArrayList<>());
 
     // Act
-    ListenableFuture<List<AttributeKvEntry>> actualFindAllResult = (new BaseAttributesService(attributesDao))
-        .findAll(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE);
+    ListenableFuture<List<AttributeKvEntry>> actualFindResult =
+        baseAttributesService.find(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            new ArrayList<>());
 
     // Assert
-    verify(attributesDao).findAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE));
+    verify(attributesDao)
+        .find(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(Collection.class));
+    assertTrue(actualFindResult.get().isEmpty());
+    assertTrue(actualFindResult.isDone());
+  }
+
+  /**
+   * Test {@link BaseAttributesService#findAll(TenantId, EntityId, AttributeScope)}.
+   *
+   * <ul>
+   *   <li>When {@link BaseEntityService#NULL_CUSTOMER_ID}.
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAll(TenantId, EntityId, AttributeScope)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.findAll(TenantId, EntityId, AttributeScope)"
+  })
+  public void testFindAll_whenNull_customer_id_thenReturnGetEmpty()
+      throws InterruptedException, ExecutionException {
+    // Arrange
+    when(attributesDao.findAll(
+            Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any()))
+        .thenReturn(new ArrayList<>());
+
+    // Act
+    ListenableFuture<List<AttributeKvEntry>> actualFindAllResult =
+        baseAttributesService.findAll(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE);
+
+    // Assert
+    verify(attributesDao)
+        .findAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE));
     assertTrue(actualFindAllResult.get().isEmpty());
     assertTrue(actualFindAllResult.isDone());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#findAllKeysByDeviceProfileId(TenantId, DeviceProfileId)}.
+   * Test {@link BaseAttributesService#findAllKeysByDeviceProfileId(TenantId, DeviceProfileId)}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByDeviceProfileId(TenantId, DeviceProfileId)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByDeviceProfileId(TenantId,
+   * DeviceProfileId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "List BaseAttributesService.findAllKeysByDeviceProfileId(TenantId, DeviceProfileId)"
+  })
   public void testFindAllKeysByDeviceProfileId_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.findAllKeysByDeviceProfileId(Mockito.<TenantId>any(), Mockito.<DeviceProfileId>any()))
+    when(attributesDao.findAllKeysByDeviceProfileId(
+            Mockito.<TenantId>any(), Mockito.<DeviceProfileId>any()))
         .thenReturn(new ArrayList<>());
 
     // Act
-    List<String> actualFindAllKeysByDeviceProfileIdResult = (new BaseAttributesService(attributesDao))
-        .findAllKeysByDeviceProfileId(ModelConstants.SYSTEM_TENANT, null);
+    List<String> actualFindAllKeysByDeviceProfileIdResult =
+        baseAttributesService.findAllKeysByDeviceProfileId(ModelConstants.SYSTEM_TENANT, null);
 
     // Assert
     verify(attributesDao).findAllKeysByDeviceProfileId(isA(TenantId.class), isNull());
@@ -243,152 +299,186 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
-   * with {@code tenantId}, {@code entityIds}, {@code scope}.
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)} with {@code
+   * tenantId}, {@code entityIds}, {@code scope}.
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List,
+   * String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
   public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(),
-        Mockito.<String>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-
-    // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, new ArrayList<>(), "Scope");
-
-    // Assert
-    verify(attributesDao).findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
-    assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
-  }
-
-  /**
-   * Test
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
-   * with {@code tenantId}, {@code entityIds}, {@code scope}.
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
-   */
-  @Test
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIds(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
         .thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, new ArrayList<>(), "");
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, new ArrayList<>(), "Scope");
 
     // Assert
-    verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
+    verify(attributesDao)
+        .findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
     assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
-   * with {@code tenantId}, {@code entityIds}, {@code scope}.
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)} with {@code
+   * tenantId}, {@code entityIds}, {@code scope}.
+   *
    * <ul>
-   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
+   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List,
+   * String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
   public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(),
-        Mockito.<String>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<EntityId> entityIds = new ArrayList<>();
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds, "Scope");
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, entityIds, "Scope");
 
     // Assert
-    verify(attributesDao).findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
+    verify(attributesDao)
+        .findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
     assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
-   * with {@code tenantId}, {@code entityIds}, {@code scope}.
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)} with {@code
+   * tenantId}, {@code entityIds}, {@code scope}.
+   *
    * <ul>
-   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
+   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List,
+   * String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
   public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(),
-        Mockito.<String>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<EntityId> entityIds = new ArrayList<>();
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds, "Scope");
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, entityIds, "Scope");
 
     // Assert
-    verify(attributesDao).findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
+    verify(attributesDao)
+        .findAllKeysByEntityIdsAndAttributeType(isA(TenantId.class), isA(List.class), eq("Scope"));
     assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
   }
 
   /**
-   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
-   * with {@code tenantId}, {@code entityIds}.
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)} with {@code
+   * tenantId}, {@code entityIds}, {@code scope}.
+   *
    * <ul>
-   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List,
+   * String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
+  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenEmptyString() {
+    // Arrange
+    when(attributesDao.findAllKeysByEntityIds(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+        .thenReturn(new ArrayList<>());
+
+    // Act
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, new ArrayList<>(), "");
+
+    // Assert
+    verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
+    assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
+  }
+
+  /**
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List, String)} with {@code
+   * tenantId}, {@code entityIds}, {@code scope}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List,
+   * String)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
+  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenNull() {
+    // Arrange
+    when(attributesDao.findAllKeysByEntityIds(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+        .thenReturn(new ArrayList<>());
+
+    // Act
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, new ArrayList<>(), null);
+
+    // Assert
+    verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
+    assertTrue(actualFindAllKeysByEntityIdsResult.isEmpty());
+  }
+
+  /**
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)} with {@code
+   * tenantId}, {@code entityIds}.
+   *
+   * <ul>
+   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
   public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIds(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+    when(attributesDao.findAllKeysByEntityIds(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
         .thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
 
     ArrayList<EntityId> entityIds = new ArrayList<>();
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds);
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds);
 
     // Assert
     verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
@@ -396,32 +486,31 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
-   * with {@code tenantId}, {@code entityIds}.
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)} with {@code
+   * tenantId}, {@code entityIds}.
+   *
    * <ul>
-   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
+   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
   public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIds(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+    when(attributesDao.findAllKeysByEntityIds(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
         .thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
 
     ArrayList<EntityId> entityIds = new ArrayList<>();
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
     entityIds.add(BaseEntityService.NULL_CUSTOMER_ID);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds);
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, entityIds);
 
     // Assert
     verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
@@ -429,29 +518,28 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
-   * with {@code tenantId}, {@code entityIds}.
+   * Test {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)} with {@code
+   * tenantId}, {@code entityIds}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
    */
   @Test
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_whenArrayList_thenReturnEmpty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
+  public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_whenArrayList() {
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    when(attributesDao.findAllKeysByEntityIds(Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
+    when(attributesDao.findAllKeysByEntityIds(
+            Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
         .thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
 
     // Act
-    List<String> actualFindAllKeysByEntityIdsResult = baseAttributesService
-        .findAllKeysByEntityIds(ModelConstants.SYSTEM_TENANT, new ArrayList<>());
+    List<String> actualFindAllKeysByEntityIdsResult =
+        baseAttributesService.findAllKeysByEntityIds(
+            ModelConstants.SYSTEM_TENANT, new ArrayList<>());
 
     // Assert
     verify(attributesDao).findAllKeysByEntityIds(isA(TenantId.class), isA(List.class));
@@ -459,135 +547,160 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, AttributeKvEntry)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code AttributeKvEntry}.
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, AttributeKvEntry)}
+   * Test {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, AttributeKvEntry)}
+   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code AttributeKvEntry}.
+   *
+   * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope,
+   * AttributeKvEntry)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, AttributeKvEntry)"
+  })
   public void testSaveWithTenantIdEntityIdAttributeScopeAttributeKvEntry() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
     SettableFuture<Long> createResult = SettableFuture.create();
-    when(attributesDao.save(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<AttributeKvEntry>any())).thenReturn(createResult);
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.save(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<AttributeKvEntry>any()))
+        .thenReturn(createResult);
 
     // Act
-    ListenableFuture<Long> actualSaveResult = baseAttributesService.save(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE,
-        new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
+    ListenableFuture<Long> actualSaveResult =
+        baseAttributesService.save(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Assert
-    verify(attributesDao).save(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(AttributeKvEntry.class));
+    verify(attributesDao)
+        .save(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(AttributeKvEntry.class));
     assertTrue(actualSaveResult instanceof SettableFuture);
     assertSame(createResult, actualSaveResult);
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
-   * <ul>
-   *   <li>Then calls {@link EntityId#getId()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
+   * Test {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)} with {@code
+   * TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
+   * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope,
+   * List)}
    */
   @Test
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenCallsGetId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
+  })
+  public void testSaveWithTenantIdEntityIdAttributeScopeList() {
     // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
     SettableFuture<Long> createResult = SettableFuture.create();
-    when(attributesDao.save(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<AttributeKvEntry>any())).thenReturn(createResult);
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
-
-    ArrayList<AttributeKvEntry> attributes = new ArrayList<>();
-    attributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
-
-    // Act
-    baseAttributesService.save(ModelConstants.SYSTEM_TENANT, entityId, AttributeScope.CLIENT_SCOPE, attributes);
-
-    // Assert
-    verify(entityId).getId();
-    verify(attributesDao).save(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(AttributeKvEntry.class));
-  }
-
-  /**
-   * Test
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
-   * <ul>
-   *   <li>Then calls {@link EntityId#getId()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
-   */
-  @Test
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenCallsGetId2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AttributesDao attributesDao = mock(AttributesDao.class);
-    SettableFuture<Long> createResult = SettableFuture.create();
-    when(attributesDao.save(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<AttributeKvEntry>any())).thenReturn(createResult);
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
+    when(attributesDao.save(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<AttributeKvEntry>any()))
+        .thenReturn(createResult);
 
     ArrayList<AttributeKvEntry> attributes = new ArrayList<>();
     attributes.add(new BaseAttributeKvEntry(255L, new JsonDataEntry("Key", "42")));
     attributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act
-    baseAttributesService.save(ModelConstants.SYSTEM_TENANT, entityId, AttributeScope.CLIENT_SCOPE, attributes);
+    baseAttributesService.save(
+        ModelConstants.SYSTEM_TENANT,
+        BaseEntityService.NULL_CUSTOMER_ID,
+        AttributeScope.CLIENT_SCOPE,
+        attributes);
 
     // Assert
-    verify(entityId).getId();
-    verify(attributesDao, atLeast(1)).save(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        Mockito.<AttributeKvEntry>any());
+    verify(attributesDao, atLeast(1))
+        .save(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            Mockito.<AttributeKvEntry>any());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)} with {@code
+   * TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>Then return {@link Future#get()} Empty.</li>
+   *   <li>Then calls {@link AttributesDao#save(TenantId, EntityId, AttributeScope,
+   *       AttributeKvEntry)}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope,
+   * List)}
    */
   @Test
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenReturnGetEmpty()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
+  })
+  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenCallsSave() {
+    // Arrange
+    SettableFuture<Long> createResult = SettableFuture.create();
+    when(attributesDao.save(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<AttributeKvEntry>any()))
+        .thenReturn(createResult);
+
+    ArrayList<AttributeKvEntry> attributes = new ArrayList<>();
+    attributes.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
+
+    // Act
+    baseAttributesService.save(
+        ModelConstants.SYSTEM_TENANT,
+        BaseEntityService.NULL_CUSTOMER_ID,
+        AttributeScope.CLIENT_SCOPE,
+        attributes);
+
+    // Assert
+    verify(attributesDao)
+        .save(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(AttributeKvEntry.class));
+  }
+
+  /**
+   * Test {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)} with {@code
+   * TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
+   * <ul>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope,
+   * List)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
+  })
+  public void testSaveWithTenantIdEntityIdAttributeScopeList_whenArrayList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    BaseAttributesService baseAttributesService = new BaseAttributesService(new JpaAttributeDao());
-
-    // Act
-    ListenableFuture<List<Long>> actualSaveResult = baseAttributesService.save(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, new ArrayList<>());
+    // Arrange and Act
+    ListenableFuture<List<Long>> actualSaveResult =
+        baseAttributesService.save(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            new ArrayList<>());
 
     // Assert
     assertTrue(actualSaveResult.get().isEmpty());
@@ -595,51 +708,30 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#save(TenantId, EntityId, String, List)} with {@code
+   * TenantId}, {@code EntityId}, {@code String}, {@code List}.
+   *
    * <ul>
-   *   <li>Then return {@link Future#get()} Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
    */
   @Test
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenReturnGetEmpty2()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.save(TenantId, EntityId, String, List)"
+  })
+  public void testSaveWithTenantIdEntityIdStringList_whenArrayList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    BaseAttributesService baseAttributesService = new BaseAttributesService(mock(AttributesDao.class));
-
-    // Act
-    ListenableFuture<List<Long>> actualSaveResult = baseAttributesService.save(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, new ArrayList<>());
-
-    // Assert
-    assertTrue(actualSaveResult.get().isEmpty());
-    assertTrue(actualSaveResult.isDone());
-  }
-
-  /**
-   * Test {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code String}, {@code List}.
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
-   */
-  @Test
-  public void testSaveWithTenantIdEntityIdStringList() throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    BaseAttributesService baseAttributesService = new BaseAttributesService(mock(AttributesDao.class));
-
-    // Act
-    ListenableFuture<List<Long>> actualSaveResult = baseAttributesService.save(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, "Scope", new ArrayList<>());
+    // Arrange and Act
+    ListenableFuture<List<Long>> actualSaveResult =
+        baseAttributesService.save(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            "Scope",
+            new ArrayList<>());
 
     // Assert
     assertTrue(actualSaveResult.get().isEmpty());
@@ -647,265 +739,256 @@ public class BaseAttributesServiceDiffblueTest {
   }
 
   /**
-   * Test {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code String}, {@code List}.
+   * Test {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)} with
+   * {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>When {@link BaseEntityService#NULL_CUSTOMER_ID}.</li>
-   *   <li>Then return {@link Future#get()} Empty.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAll(TenantId, EntityId,
+   * AttributeScope, List)}
    */
   @Test
-  public void testSaveWithTenantIdEntityIdStringList_whenNull_customer_id_thenReturnGetEmpty()
-      throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    BaseAttributesService baseAttributesService = new BaseAttributesService(new JpaAttributeDao());
-
-    // Act
-    ListenableFuture<List<Long>> actualSaveResult = baseAttributesService.save(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, "Scope", new ArrayList<>());
-
-    // Assert
-    assertTrue(actualSaveResult.get().isEmpty());
-    assertTrue(actualSaveResult.isDone());
-  }
-
-  /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   */
-  @Test
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList() throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    BaseAttributesService baseAttributesService = new BaseAttributesService(new JpaAttributeDao());
-
-    // Act
-    ListenableFuture<List<String>> actualRemoveAllResult = baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, new ArrayList<>());
-
-    // Assert
-    assertTrue(actualRemoveAllResult.get().isEmpty());
-    assertTrue(actualRemoveAllResult.isDone());
-  }
-
-  /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
-   * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
+  })
   public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_given42_whenArrayListAdd42()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.removeAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<List<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
+    when(attributesDao.removeAll(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<List<String>>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<String> attributeKeys = new ArrayList<>();
     attributeKeys.add("42");
     attributeKeys.add("foo");
 
     // Act
-    ListenableFuture<List<String>> actualRemoveAllResult = baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT,
-        entityId, AttributeScope.CLIENT_SCOPE, attributeKeys);
+    ListenableFuture<List<String>> actualRemoveAllResult =
+        baseAttributesService.removeAll(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            attributeKeys);
 
     // Assert
-    verify(entityId).getId();
-    verify(attributesDao).removeAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(List.class));
+    verify(attributesDao)
+        .removeAll(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(List.class));
     assertTrue(actualRemoveAllResult.get().isEmpty());
     assertTrue(actualRemoveAllResult.isDone());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)} with
+   * {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add create.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add create.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAll(TenantId, EntityId,
+   * AttributeScope, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
+  })
   public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     ArrayList<ListenableFuture<String>> listenableFutureList = new ArrayList<>();
     SettableFuture<String> createResult = SettableFuture.create();
     listenableFutureList.add(createResult);
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.removeAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<List<String>>any())).thenReturn(listenableFutureList);
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.removeAll(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<List<String>>any()))
+        .thenReturn(listenableFutureList);
 
     // Act
-    baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-        AttributeScope.CLIENT_SCOPE, new ArrayList<>());
+    baseAttributesService.removeAll(
+        ModelConstants.SYSTEM_TENANT,
+        BaseEntityService.NULL_CUSTOMER_ID,
+        AttributeScope.CLIENT_SCOPE,
+        new ArrayList<>());
 
     // Assert
-    verify(attributesDao).removeAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(List.class));
+    verify(attributesDao)
+        .removeAll(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(List.class));
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)} with
+   * {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add create.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add create.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAll(TenantId, EntityId,
+   * AttributeScope, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
+  })
   public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate2() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     ArrayList<ListenableFuture<String>> listenableFutureList = new ArrayList<>();
     SettableFuture<String> createResult = SettableFuture.create();
     listenableFutureList.add(createResult);
     SettableFuture<String> createResult2 = SettableFuture.create();
     listenableFutureList.add(createResult2);
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.removeAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<List<String>>any())).thenReturn(listenableFutureList);
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.removeAll(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<List<String>>any()))
+        .thenReturn(listenableFutureList);
 
     // Act
-    baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-        AttributeScope.CLIENT_SCOPE, new ArrayList<>());
+    baseAttributesService.removeAll(
+        ModelConstants.SYSTEM_TENANT,
+        BaseEntityService.NULL_CUSTOMER_ID,
+        AttributeScope.CLIENT_SCOPE,
+        new ArrayList<>());
 
     // Assert
-    verify(attributesDao).removeAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(List.class));
+    verify(attributesDao)
+        .removeAll(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(List.class));
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)} with
+   * {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>Then calls {@link UUIDBased#getId()}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAll(TenantId, EntityId,
+   * AttributeScope, List)}
    */
   @Test
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_thenCallsGetId()
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
+  })
+  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenFoo_whenArrayListAddFoo()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.removeAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<List<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
-    AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getId()).thenReturn(ModelConstants.NULL_UUID);
+    when(attributesDao.removeAll(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<List<String>>any()))
+        .thenReturn(new ArrayList<>());
 
     ArrayList<String> attributeKeys = new ArrayList<>();
     attributeKeys.add("foo");
 
     // Act
-    ListenableFuture<List<String>> actualRemoveAllResult = baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT,
-        entityId, AttributeScope.CLIENT_SCOPE, attributeKeys);
+    ListenableFuture<List<String>> actualRemoveAllResult =
+        baseAttributesService.removeAll(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            attributeKeys);
 
     // Assert
-    verify(entityId).getId();
-    verify(attributesDao).removeAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(List.class));
+    verify(attributesDao)
+        .removeAll(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(List.class));
     assertTrue(actualRemoveAllResult.get().isEmpty());
     assertTrue(actualRemoveAllResult.isDone());
   }
 
   /**
-   * Test
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
-   * with {@code TenantId}, {@code EntityId}, {@code AttributeScope},
-   * {@code List}.
+   * Test {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)} with
+   * {@code TenantId}, {@code EntityId}, {@code AttributeScope}, {@code List}.
+   *
    * <ul>
-   *   <li>Then return {@link Future#get()} Empty.</li>
+   *   <li>Then return {@link ListenableFuture#get()} Empty.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAll(TenantId, EntityId, AttributeScope, List)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAll(TenantId, EntityId,
+   * AttributeScope, List)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
+  })
   public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
-    when(attributesDao.removeAll(Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<AttributeScope>any(),
-        Mockito.<List<String>>any())).thenReturn(new ArrayList<>());
-    BaseAttributesService baseAttributesService = new BaseAttributesService(attributesDao);
+    when(attributesDao.removeAll(
+            Mockito.<TenantId>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<AttributeScope>any(),
+            Mockito.<List<String>>any()))
+        .thenReturn(new ArrayList<>());
 
     // Act
-    ListenableFuture<List<String>> actualRemoveAllResult = baseAttributesService.removeAll(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, AttributeScope.CLIENT_SCOPE, new ArrayList<>());
+    ListenableFuture<List<String>> actualRemoveAllResult =
+        baseAttributesService.removeAll(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            AttributeScope.CLIENT_SCOPE,
+            new ArrayList<>());
 
     // Assert
-    verify(attributesDao).removeAll(isA(TenantId.class), isA(EntityId.class), eq(AttributeScope.CLIENT_SCOPE),
-        isA(List.class));
+    verify(attributesDao)
+        .removeAll(
+            isA(TenantId.class),
+            isA(EntityId.class),
+            eq(AttributeScope.CLIENT_SCOPE),
+            isA(List.class));
     assertTrue(actualRemoveAllResult.get().isEmpty());
     assertTrue(actualRemoveAllResult.isDone());
   }
 
   /**
    * Test {@link BaseAttributesService#removeAllByEntityId(TenantId, EntityId)}.
-   * <ul>
-   *   <li>Then return zero.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAttributesService#removeAllByEntityId(TenantId, EntityId)}
+   *
+   * <p>Method under test: {@link BaseAttributesService#removeAllByEntityId(TenantId, EntityId)}
    */
   @Test
-  public void testRemoveAllByEntityId_thenReturnZero() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"int BaseAttributesService.removeAllByEntityId(TenantId, EntityId)"})
+  public void testRemoveAllByEntityId() {
     // Arrange
-    JpaAttributeDao attributesDao = mock(JpaAttributeDao.class);
     when(attributesDao.removeAllByEntityId(Mockito.<TenantId>any(), Mockito.<EntityId>any()))
         .thenReturn(new ArrayList<>());
 
     // Act
-    int actualRemoveAllByEntityIdResult = (new BaseAttributesService(attributesDao))
-        .removeAllByEntityId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID);
+    int actualRemoveAllByEntityIdResult =
+        baseAttributesService.removeAllByEntityId(
+            ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID);
 
     // Assert
     verify(attributesDao).removeAllByEntityId(isA(TenantId.class), isA(EntityId.class));

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class RuleNodeStateIdDiffblueTest {
   /**
    * Test {@link RuleNodeStateId#RuleNodeStateId(UUID)}.
-   * <p>
-   * Method under test: {@link RuleNodeStateId#RuleNodeStateId(UUID)}
+   *
+   * <p>Method under test: {@link RuleNodeStateId#RuleNodeStateId(UUID)}
    */
   @Test
   @DisplayName("Test new RuleNodeStateId(UUID)")
@@ -23,7 +23,7 @@ class RuleNodeStateIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new RuleNodeStateId(id)).getId();
+    UUID id2 = new RuleNodeStateId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

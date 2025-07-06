@@ -11,8 +11,9 @@ import org.thingsboard.server.common.data.transport.snmp.SnmpCommunicationSpec;
 class ToDeviceRpcRequestSnmpCommunicationConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ToDeviceRpcRequestSnmpCommunicationConfig}
    *   <li>{@link ToDeviceRpcRequestSnmpCommunicationConfig#getSpec()}
@@ -21,11 +22,14 @@ class ToDeviceRpcRequestSnmpCommunicationConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ToDeviceRpcRequestSnmpCommunicationConfig.<init>()",
-      "SnmpCommunicationSpec ToDeviceRpcRequestSnmpCommunicationConfig.getSpec()"})
+  @MethodsUnderTest({
+    "void ToDeviceRpcRequestSnmpCommunicationConfig.<init>()",
+    "SnmpCommunicationSpec ToDeviceRpcRequestSnmpCommunicationConfig.getSpec()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    ToDeviceRpcRequestSnmpCommunicationConfig actualToDeviceRpcRequestSnmpCommunicationConfig = new ToDeviceRpcRequestSnmpCommunicationConfig();
+    ToDeviceRpcRequestSnmpCommunicationConfig actualToDeviceRpcRequestSnmpCommunicationConfig =
+        new ToDeviceRpcRequestSnmpCommunicationConfig();
     SnmpCommunicationSpec actualSpec = actualToDeviceRpcRequestSnmpCommunicationConfig.getSpec();
 
     // Assert

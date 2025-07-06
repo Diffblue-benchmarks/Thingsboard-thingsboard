@@ -12,13 +12,16 @@ import org.thingsboard.server.common.data.query.StringFilterPredicate.StringOper
 
 class StringFilterPredicateDiffblueTest {
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link
+   * StringFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StringFilterPredicate#equals(Object)}
    *   <li>{@link StringFilterPredicate#hashCode()}
@@ -27,7 +30,10 @@ class StringFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -49,13 +55,16 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link
+   * StringFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StringFilterPredicate#equals(Object)}
    *   <li>{@link StringFilterPredicate#hashCode()}
@@ -64,7 +73,10 @@ class StringFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -86,13 +98,16 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link
+   * StringFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StringFilterPredicate#equals(Object)}
    *   <li>{@link StringFilterPredicate#hashCode()}
@@ -101,7 +116,10 @@ class StringFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -121,13 +139,16 @@ class StringFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link StringFilterPredicate#equals(Object)}, and {@link StringFilterPredicate#hashCode()}.
+   * Test {@link StringFilterPredicate#equals(Object)}, and {@link
+   * StringFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StringFilterPredicate#equals(Object)}
    *   <li>{@link StringFilterPredicate#hashCode()}
@@ -136,7 +157,10 @@ class StringFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -153,17 +177,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -184,17 +212,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -215,17 +247,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -246,17 +282,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -277,17 +317,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -307,17 +351,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -332,17 +380,21 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test {@link StringFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StringFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link StringFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StringFilterPredicate.equals(Object)", "int StringFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StringFilterPredicate.equals(Object)",
+    "int StringFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StringFilterPredicate stringFilterPredicate = new StringFilterPredicate();
@@ -357,8 +409,9 @@ class StringFilterPredicateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link StringFilterPredicate}
    *   <li>{@link StringFilterPredicate#setIgnoreCase(boolean)}
@@ -374,11 +427,17 @@ class StringFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void StringFilterPredicate.<init>()", "StringOperation StringFilterPredicate.getOperation()",
-      "FilterPredicateType StringFilterPredicate.getType()", "FilterPredicateValue StringFilterPredicate.getValue()",
-      "boolean StringFilterPredicate.isIgnoreCase()", "void StringFilterPredicate.setIgnoreCase(boolean)",
-      "void StringFilterPredicate.setOperation(StringOperation)",
-      "void StringFilterPredicate.setValue(FilterPredicateValue)", "String StringFilterPredicate.toString()"})
+  @MethodsUnderTest({
+    "void StringFilterPredicate.<init>()",
+    "StringOperation StringFilterPredicate.getOperation()",
+    "FilterPredicateType StringFilterPredicate.getType()",
+    "FilterPredicateValue StringFilterPredicate.getValue()",
+    "boolean StringFilterPredicate.isIgnoreCase()",
+    "void StringFilterPredicate.setIgnoreCase(boolean)",
+    "void StringFilterPredicate.setOperation(StringOperation)",
+    "void StringFilterPredicate.setValue(FilterPredicateValue)",
+    "String StringFilterPredicate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     StringFilterPredicate actualStringFilterPredicate = new StringFilterPredicate();
@@ -392,8 +451,10 @@ class StringFilterPredicateDiffblueTest {
     FilterPredicateValue<String> actualValue = actualStringFilterPredicate.getValue();
 
     // Assert
-    assertEquals("StringFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=42, userValue=null,"
-        + " dynamicValue=null), ignoreCase=true)", actualToStringResult);
+    assertEquals(
+        "StringFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=42, userValue=null,"
+            + " dynamicValue=null), ignoreCase=true)",
+        actualToStringResult);
     assertEquals(FilterPredicateType.STRING, actualType);
     assertEquals(StringOperation.EQUAL, actualOperation);
     assertTrue(actualStringFilterPredicate.isIgnoreCase());

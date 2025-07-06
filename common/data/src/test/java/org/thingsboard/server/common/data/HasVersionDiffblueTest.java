@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class HasVersionDiffblueTest {
   /**
    * Test {@link HasVersion#setVersion(Long)}.
-   * <p>
-   * Method under test: {@link HasVersion#setVersion(Long)}
+   *
+   * <p>Method under test: {@link HasVersion#setVersion(Long)}
    */
   @Test
   @DisplayName("Test setVersion(Long)")

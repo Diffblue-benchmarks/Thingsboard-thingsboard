@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class CacheSpecsDiffblueTest {
   /**
    * Test {@link CacheSpecs#equals(Object)}, and {@link CacheSpecs#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecs#equals(Object)}
    *   <li>{@link CacheSpecs#hashCode()}
@@ -43,12 +45,14 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}, and {@link CacheSpecs#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecs#equals(Object)}
    *   <li>{@link CacheSpecs#hashCode()}
@@ -76,12 +80,14 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}, and {@link CacheSpecs#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecs#equals(Object)}
    *   <li>{@link CacheSpecs#hashCode()}
@@ -109,12 +115,14 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}, and {@link CacheSpecs#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecs#equals(Object)}
    *   <li>{@link CacheSpecs#hashCode()}
@@ -138,12 +146,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -165,12 +174,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -192,12 +202,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -219,12 +230,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -246,12 +258,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -269,12 +282,13 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test {@link CacheSpecs#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecs#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecs#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -292,8 +306,9 @@ class CacheSpecsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link CacheSpecs}
    *   <li>{@link CacheSpecs#setMaxSize(Integer)}
@@ -306,9 +321,14 @@ class CacheSpecsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CacheSpecs.<init>()", "Integer CacheSpecs.getMaxSize()",
-      "Integer CacheSpecs.getTimeToLiveInMinutes()", "void CacheSpecs.setMaxSize(Integer)",
-      "void CacheSpecs.setTimeToLiveInMinutes(Integer)", "String CacheSpecs.toString()"})
+  @MethodsUnderTest({
+    "void CacheSpecs.<init>()",
+    "Integer CacheSpecs.getMaxSize()",
+    "Integer CacheSpecs.getTimeToLiveInMinutes()",
+    "void CacheSpecs.setMaxSize(Integer)",
+    "void CacheSpecs.setTimeToLiveInMinutes(Integer)",
+    "String CacheSpecs.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     CacheSpecs actualCacheSpecs = new CacheSpecs();

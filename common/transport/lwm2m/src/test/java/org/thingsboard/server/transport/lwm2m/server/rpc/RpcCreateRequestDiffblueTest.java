@@ -15,12 +15,14 @@ import org.junit.jupiter.api.Test;
 class RpcCreateRequestDiffblueTest {
   /**
    * Test {@link RpcCreateRequest#equals(Object)}, and {@link RpcCreateRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcCreateRequest#equals(Object)}
    *   <li>{@link RpcCreateRequest#hashCode()}
@@ -54,12 +56,14 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}, and {@link RpcCreateRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcCreateRequest#equals(Object)}
    *   <li>{@link RpcCreateRequest#hashCode()}
@@ -86,12 +90,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -119,12 +124,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -155,12 +161,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -195,12 +202,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -228,12 +236,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -254,12 +263,13 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test {@link RpcCreateRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcCreateRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcCreateRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -280,8 +290,9 @@ class RpcCreateRequestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RpcCreateRequest}
    *   <li>{@link RpcCreateRequest#setContentFormat(String)}
@@ -296,10 +307,16 @@ class RpcCreateRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RpcCreateRequest.<init>()", "String RpcCreateRequest.getContentFormat()",
-      "Map RpcCreateRequest.getNodes()", "Object RpcCreateRequest.getValue()",
-      "void RpcCreateRequest.setContentFormat(String)", "void RpcCreateRequest.setNodes(Map)",
-      "void RpcCreateRequest.setValue(Object)", "String RpcCreateRequest.toString()"})
+  @MethodsUnderTest({
+    "void RpcCreateRequest.<init>()",
+    "String RpcCreateRequest.getContentFormat()",
+    "Map RpcCreateRequest.getNodes()",
+    "Object RpcCreateRequest.getValue()",
+    "void RpcCreateRequest.setContentFormat(String)",
+    "void RpcCreateRequest.setNodes(Map)",
+    "void RpcCreateRequest.setValue(Object)",
+    "String RpcCreateRequest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RpcCreateRequest actualRpcCreateRequest = new RpcCreateRequest();
@@ -313,7 +330,8 @@ class RpcCreateRequestDiffblueTest {
 
     // Assert
     assertEquals("Not all who wander are lost", actualContentFormat);
-    assertEquals("RpcCreateRequest(value=Value, contentFormat=Not all who wander are lost, nodes={})",
+    assertEquals(
+        "RpcCreateRequest(value=Value, contentFormat=Not all who wander are lost, nodes={})",
         actualToStringResult);
     assertEquals("Value", actualRpcCreateRequest.getValue());
     assertNull(actualRpcCreateRequest.getId());

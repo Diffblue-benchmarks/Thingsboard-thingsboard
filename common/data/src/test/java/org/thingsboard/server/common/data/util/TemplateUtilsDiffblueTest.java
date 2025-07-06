@@ -11,12 +11,13 @@ import org.junit.jupiter.api.Test;
 class TemplateUtilsDiffblueTest {
   /**
    * Test {@link TemplateUtils#processTemplate(String, Map)}.
+   *
    * <ul>
-   *   <li>When {@code Template}.</li>
-   *   <li>Then return {@code Template}.</li>
+   *   <li>When {@code Template}.
+   *   <li>Then return {@code Template}.
    * </ul>
-   * <p>
-   * Method under test: {@link TemplateUtils#processTemplate(String, Map)}
+   *
+   * <p>Method under test: {@link TemplateUtils#processTemplate(String, Map)}
    */
   @Test
   @DisplayName("Test processTemplate(String, Map); when 'Template'; then return 'Template'")
@@ -29,12 +30,13 @@ class TemplateUtilsDiffblueTest {
 
   /**
    * Test {@link TemplateUtils#processTemplate(String, Map)}.
+   *
    * <ul>
-   *   <li>When {@code ${UUU:U}}.</li>
-   *   <li>Then return {@code ${UUU:U}}.</li>
+   *   <li>When {@code ${UUU:U}}.
+   *   <li>Then return {@code ${UUU:U}}.
    * </ul>
-   * <p>
-   * Method under test: {@link TemplateUtils#processTemplate(String, Map)}
+   *
+   * <p>Method under test: {@link TemplateUtils#processTemplate(String, Map)}
    */
   @Test
   @DisplayName("Test processTemplate(String, Map); when '${UUU:U}'; then return '${UUU:U}'")

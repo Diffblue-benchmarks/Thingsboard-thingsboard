@@ -18,8 +18,8 @@ import org.thingsboard.server.service.entitiy.alarm.DefaultTbAlarmService;
 class AlarmsUnassignTaskProcessorDiffblueTest {
   /**
    * Test {@link AlarmsUnassignTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link AlarmsUnassignTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link AlarmsUnassignTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -27,15 +27,22 @@ class AlarmsUnassignTaskProcessorDiffblueTest {
   @MethodsUnderTest({"HousekeeperTaskType AlarmsUnassignTaskProcessor.getTaskType()"})
   void testGetTaskType() {
     // Arrange
-    DefaultTbAlarmService tbAlarmService = new DefaultTbAlarmService(
-        new DefaultTbAlarmCommentService(new BaseAlarmCommentService()));
+    DefaultTbAlarmService tbAlarmService =
+        new DefaultTbAlarmService(new DefaultTbAlarmCommentService(new BaseAlarmCommentService()));
     TenantServiceImpl tenantService = new TenantServiceImpl();
     JpaAlarmDao alarmDao = new JpaAlarmDao();
     BaseEntityService entityService = new BaseEntityService();
 
     // Act and Assert
-    assertEquals(HousekeeperTaskType.UNASSIGN_ALARMS, (new AlarmsUnassignTaskProcessor(tbAlarmService,
-        new BaseAlarmService(tenantService, alarmDao, entityService, new AlarmDataValidator(new TenantServiceImpl()))))
-        .getTaskType());
+    assertEquals(
+        HousekeeperTaskType.UNASSIGN_ALARMS,
+        new AlarmsUnassignTaskProcessor(
+                tbAlarmService,
+                new BaseAlarmService(
+                    tenantService,
+                    alarmDao,
+                    entityService,
+                    new AlarmDataValidator(new TenantServiceImpl())))
+            .getTaskType());
   }
 }

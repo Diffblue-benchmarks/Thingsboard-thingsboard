@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class UserMobileInfoDiffblueTest {
   /**
    * Test {@link UserMobileInfo#equals(Object)}, and {@link UserMobileInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserMobileInfo#equals(Object)}
    *   <li>{@link UserMobileInfo#hashCode()}
@@ -45,12 +47,14 @@ class UserMobileInfoDiffblueTest {
 
   /**
    * Test {@link UserMobileInfo#equals(Object)}, and {@link UserMobileInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserMobileInfo#equals(Object)}
    *   <li>{@link UserMobileInfo#hashCode()}
@@ -73,12 +77,13 @@ class UserMobileInfoDiffblueTest {
 
   /**
    * Test {@link UserMobileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMobileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UserMobileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -104,12 +109,13 @@ class UserMobileInfoDiffblueTest {
 
   /**
    * Test {@link UserMobileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMobileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UserMobileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -126,12 +132,13 @@ class UserMobileInfoDiffblueTest {
 
   /**
    * Test {@link UserMobileInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMobileInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UserMobileInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -148,8 +155,9 @@ class UserMobileInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link UserMobileInfo}
    *   <li>{@link UserMobileInfo#setSessions(Map)}
@@ -160,8 +168,12 @@ class UserMobileInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserMobileInfo.<init>()", "Map UserMobileInfo.getSessions()",
-      "void UserMobileInfo.setSessions(Map)", "String UserMobileInfo.toString()"})
+  @MethodsUnderTest({
+    "void UserMobileInfo.<init>()",
+    "Map UserMobileInfo.getSessions()",
+    "void UserMobileInfo.setSessions(Map)",
+    "String UserMobileInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     UserMobileInfo actualUserMobileInfo = new UserMobileInfo();

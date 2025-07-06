@@ -21,13 +21,13 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {EventDataValidator.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class EventDataValidatorDiffblueTest {
-  @Autowired
-  private EventDataValidator eventDataValidator;
+  @Autowired private EventDataValidator eventDataValidator;
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -35,12 +35,36 @@ public class EventDataValidatorDiffblueTest {
   public void testValidateDataImplWithTenantIdEvent() {
     // Arrange
     Event event = mock(Event.class);
+    when(event.getEntityId()).thenThrow(new DataValidationException("An error occurred"));
+    when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
+    verify(event).getEntityId();
+    verify(event).getTenantId();
+  }
+
+  /**
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void EventDataValidator.validateDataImpl(TenantId, Event)"})
+  public void testValidateDataImplWithTenantIdEvent2() {
+    // Arrange
+    Event event = mock(Event.class);
     when(event.getServiceId()).thenThrow(new DataValidationException("An error occurred"));
     when(event.getEntityId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
     verify(event).getEntityId();
     verify(event).getServiceId();
@@ -48,13 +72,15 @@ public class EventDataValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link Event} {@link Event#getServiceId()} return {@code 42}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link Event} {@link Event#getServiceId()} return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -76,12 +102,14 @@ public class EventDataValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
+   *   <li>Given empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -94,7 +122,8 @@ public class EventDataValidatorDiffblueTest {
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
     verify(event).getEntityId();
     verify(event).getServiceId();
@@ -102,13 +131,15 @@ public class EventDataValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link Event} {@link Event#getEntityId()} return {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link Event} {@link Event#getEntityId()} return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -120,20 +151,23 @@ public class EventDataValidatorDiffblueTest {
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
     verify(event).getEntityId();
     verify(event).getTenantId();
   }
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link Event} {@link Event#getServiceId()} return {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link Event} {@link Event#getServiceId()} return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -146,7 +180,8 @@ public class EventDataValidatorDiffblueTest {
     when(event.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
     verify(event).getEntityId();
     verify(event).getServiceId();
@@ -154,13 +189,15 @@ public class EventDataValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code Event}.
+   * Test {@link EventDataValidator#validateDataImpl(TenantId, Event)} with {@code TenantId}, {@code
+   * Event}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link Event} {@link Event#getTenantId()} return {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link Event} {@link Event#getTenantId()} return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
+   *
+   * <p>Method under test: {@link EventDataValidator#validateDataImpl(TenantId, Event)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -171,7 +208,8 @@ public class EventDataValidatorDiffblueTest {
     when(event.getTenantId()).thenReturn(null);
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> eventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, event));
     verify(event).getTenantId();
   }

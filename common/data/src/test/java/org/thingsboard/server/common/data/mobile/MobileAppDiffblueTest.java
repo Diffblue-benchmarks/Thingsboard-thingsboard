@@ -14,8 +14,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class MobileAppDiffblueTest {
   /**
    * Test {@link MobileApp#MobileApp(MobileApp)}.
-   * <p>
-   * Method under test: {@link MobileApp#MobileApp(MobileApp)}
+   *
+   * <p>Method under test: {@link MobileApp#MobileApp(MobileApp)}
    */
   @Test
   @DisplayName("Test new MobileApp(MobileApp)")
@@ -31,12 +31,14 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}, and {@link MobileApp#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileApp#equals(Object)}
    *   <li>{@link MobileApp#hashCode()}
@@ -59,12 +61,14 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}, and {@link MobileApp#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileApp#equals(Object)}
    *   <li>{@link MobileApp#hashCode()}
@@ -90,12 +94,14 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}, and {@link MobileApp#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileApp#equals(Object)}
    *   <li>{@link MobileApp#hashCode()}
@@ -121,12 +127,14 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}, and {@link MobileApp#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileApp#equals(Object)}
    *   <li>{@link MobileApp#hashCode()}
@@ -152,12 +160,14 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}, and {@link MobileApp#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileApp#equals(Object)}
    *   <li>{@link MobileApp#hashCode()}
@@ -179,12 +189,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -200,12 +211,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -221,12 +233,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -244,12 +257,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -266,12 +280,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -288,12 +303,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -310,12 +326,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -332,12 +349,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -356,12 +374,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -380,12 +399,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -404,12 +424,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -422,12 +443,13 @@ class MobileAppDiffblueTest {
 
   /**
    * Test {@link MobileApp#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApp#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileApp#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

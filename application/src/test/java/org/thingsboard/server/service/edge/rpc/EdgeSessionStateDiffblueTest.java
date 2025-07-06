@@ -21,17 +21,18 @@ import org.thingsboard.server.gen.edge.v1.DownlinkMsg;
 @ContextConfiguration(classes = {EdgeSessionState.class})
 @ExtendWith(SpringExtension.class)
 class EdgeSessionStateDiffblueTest {
-  @Autowired
-  private EdgeSessionState edgeSessionState;
+  @Autowired private EdgeSessionState edgeSessionState;
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}, and {@link EdgeSessionState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeSessionState#equals(Object)}
    *   <li>{@link EdgeSessionState#hashCode()}
@@ -57,12 +58,14 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}, and {@link EdgeSessionState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeSessionState#equals(Object)}
    *   <li>{@link EdgeSessionState#hashCode()}
@@ -86,12 +89,13 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSessionState#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSessionState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -113,12 +117,13 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSessionState#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSessionState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -139,12 +144,13 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSessionState#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSessionState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -162,12 +168,13 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test {@link EdgeSessionState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeSessionState#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeSessionState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -185,8 +192,9 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeSessionState#setScheduledSendDownlinkTask(ScheduledFuture)}
    *   <li>{@link EdgeSessionState#setSendDownlinkMsgsFuture(SettableFuture)}
@@ -199,12 +207,14 @@ class EdgeSessionStateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map EdgeSessionState.getPendingMsgsMap()",
-      "ScheduledFuture EdgeSessionState.getScheduledSendDownlinkTask()",
-      "SettableFuture EdgeSessionState.getSendDownlinkMsgsFuture()",
-      "void EdgeSessionState.setScheduledSendDownlinkTask(ScheduledFuture)",
-      "void EdgeSessionState.setSendDownlinkMsgsFuture(SettableFuture)",
-      "java.lang.String EdgeSessionState.toString()"})
+  @MethodsUnderTest({
+    "Map EdgeSessionState.getPendingMsgsMap()",
+    "ScheduledFuture EdgeSessionState.getScheduledSendDownlinkTask()",
+    "SettableFuture EdgeSessionState.getSendDownlinkMsgsFuture()",
+    "void EdgeSessionState.setScheduledSendDownlinkTask(ScheduledFuture)",
+    "void EdgeSessionState.setSendDownlinkMsgsFuture(SettableFuture)",
+    "java.lang.String EdgeSessionState.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     EdgeSessionState edgeSessionState = new EdgeSessionState();
@@ -215,8 +225,10 @@ class EdgeSessionStateDiffblueTest {
     edgeSessionState.setSendDownlinkMsgsFuture(sendDownlinkMsgsFuture);
     edgeSessionState.toString();
     Map<Integer, DownlinkMsg> actualPendingMsgsMap = edgeSessionState.getPendingMsgsMap();
-    ScheduledFuture<?> actualScheduledSendDownlinkTask = edgeSessionState.getScheduledSendDownlinkTask();
-    SettableFuture<Boolean> actualSendDownlinkMsgsFuture = edgeSessionState.getSendDownlinkMsgsFuture();
+    ScheduledFuture<?> actualScheduledSendDownlinkTask =
+        edgeSessionState.getScheduledSendDownlinkTask();
+    SettableFuture<Boolean> actualSendDownlinkMsgsFuture =
+        edgeSessionState.getSendDownlinkMsgsFuture();
 
     // Assert
     assertNull(actualScheduledSendDownlinkTask);
@@ -226,8 +238,8 @@ class EdgeSessionStateDiffblueTest {
 
   /**
    * Test new {@link EdgeSessionState} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link EdgeSessionState}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link EdgeSessionState}
    */
   @Test
   @DisplayName("Test new EdgeSessionState (default constructor)")

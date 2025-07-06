@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class X509BootstrapClientCredentialDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link X509BootstrapClientCredential}
    *   <li>{@link X509BootstrapClientCredential#getSecurityMode()}
@@ -20,11 +21,14 @@ class X509BootstrapClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void X509BootstrapClientCredential.<init>()",
-      "LwM2MSecurityMode X509BootstrapClientCredential.getSecurityMode()"})
+  @MethodsUnderTest({
+    "void X509BootstrapClientCredential.<init>()",
+    "LwM2MSecurityMode X509BootstrapClientCredential.getSecurityMode()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    X509BootstrapClientCredential actualX509BootstrapClientCredential = new X509BootstrapClientCredential();
+    X509BootstrapClientCredential actualX509BootstrapClientCredential =
+        new X509BootstrapClientCredential();
     LwM2MSecurityMode actualSecurityMode = actualX509BootstrapClientCredential.getSecurityMode();
 
     // Assert

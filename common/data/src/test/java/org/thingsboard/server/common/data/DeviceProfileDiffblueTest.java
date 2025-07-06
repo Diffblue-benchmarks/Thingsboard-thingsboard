@@ -15,6 +15,7 @@ import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.device.profile.AllowCreateNewDevicesDeviceProfileProvisionConfiguration;
 import org.thingsboard.server.common.data.device.profile.DefaultDeviceProfileConfiguration;
 import org.thingsboard.server.common.data.device.profile.DefaultDeviceProfileTransportConfiguration;
 import org.thingsboard.server.common.data.device.profile.DeviceProfileConfiguration;
@@ -30,25 +31,28 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DeviceProfileDiffblueTest {
   /**
    * Test {@link DeviceProfile#getExternalId()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getExternalId()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceProfileId DeviceProfile.getExternalId()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.id.DeviceProfileId DeviceProfile.getExternalId()"
+  })
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new DeviceProfile()).getExternalId());
+    assertNull(new DeviceProfile().getExternalId());
   }
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and three.</li>
+   *   <li>Given array of {@code byte} with {@code A} and three.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given array of byte with 'A' and three")
@@ -57,7 +61,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenArrayOfByteWithAAndThree() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -89,11 +93,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and zero.</li>
+   *   <li>Given array of {@code byte} with {@code A} and zero.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given array of byte with 'A' and zero")
@@ -102,7 +107,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenArrayOfByteWithAAndZero() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{'A', 0, 'A', 3, 'A', 3, 'A', 3});
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 0, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -134,11 +139,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code ;} and three.</li>
+   *   <li>Given array of {@code byte} with {@code ;} and three.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given array of byte with ';' and three")
@@ -147,7 +153,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenArrayOfByteWithSemicolonAndThree() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{';', 3, 'A', 3, 'A', 3, 'A', 3});
+    deviceProfile.setProfileDataBytes(new byte[] {';', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -179,11 +185,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with three and three.</li>
+   *   <li>Given array of {@code byte} with three and three.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given array of byte with three and three")
@@ -192,7 +199,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenArrayOfByteWithThreeAndThree() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{3, 3, 'A', 3, 'A', 3, 'A', 3});
+    deviceProfile.setProfileDataBytes(new byte[] {3, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -224,11 +231,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with zero and three.</li>
+   *   <li>Given array of {@code byte} with zero and three.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given array of byte with zero and three")
@@ -237,7 +245,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenArrayOfByteWithZeroAndThree() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{0, 3, 'A', 3, 'A', 3, 'A', 3});
+    deviceProfile.setProfileDataBytes(new byte[] {0, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -269,11 +277,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfile(DeviceProfile); given empty array of byte")
@@ -282,7 +291,7 @@ class DeviceProfileDiffblueTest {
   void testNewDeviceProfile_givenEmptyArrayOfByte() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{});
+    deviceProfile.setProfileDataBytes(new byte[] {});
 
     // Act
     DeviceProfile actualDeviceProfile = new DeviceProfile(deviceProfile);
@@ -314,15 +323,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link DeviceProfile#DeviceProfile()} Default is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link DeviceProfile#DeviceProfile()} Default is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
-  @DisplayName("Test new DeviceProfile(DeviceProfile); given 'true'; when DeviceProfile() Default is 'true'")
+  @DisplayName(
+      "Test new DeviceProfile(DeviceProfile); given 'true'; when DeviceProfile() Default is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.<init>(DeviceProfile)"})
   void testNewDeviceProfile_givenTrue_whenDeviceProfileDefaultIsTrue() {
@@ -336,15 +347,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#DeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>When {@link DeviceProfile#DeviceProfile()}.</li>
-   *   <li>Then return {@link DeviceProfile#DeviceProfile()}.</li>
+   *   <li>When {@link DeviceProfile#DeviceProfile()}.
+   *   <li>Then return {@link DeviceProfile#DeviceProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link DeviceProfile#DeviceProfile(DeviceProfile)}
    */
   @Test
-  @DisplayName("Test new DeviceProfile(DeviceProfile); when DeviceProfile(); then return DeviceProfile()")
+  @DisplayName(
+      "Test new DeviceProfile(DeviceProfile); when DeviceProfile(); then return DeviceProfile()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.<init>(DeviceProfile)"})
   void testNewDeviceProfile_whenDeviceProfile_thenReturnDeviceProfile() {
@@ -357,8 +370,8 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getId()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getId()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -366,13 +379,13 @@ class DeviceProfileDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceProfileId DeviceProfile.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new DeviceProfile()).getId());
+    assertNull(new DeviceProfile().getId());
   }
 
   /**
    * Test {@link DeviceProfile#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getCreatedTime()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -380,13 +393,13 @@ class DeviceProfileDiffblueTest {
   @MethodsUnderTest({"long DeviceProfile.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new DeviceProfile()).getCreatedTime());
+    assertEquals(0L, new DeviceProfile().getCreatedTime());
   }
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -395,7 +408,7 @@ class DeviceProfileDiffblueTest {
   void testGetProfileData() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
+    deviceProfile.setProfileDataBytes(new byte[] {'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(deviceProfile.getProfileData());
@@ -403,8 +416,8 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -413,7 +426,7 @@ class DeviceProfileDiffblueTest {
   void testGetProfileData2() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
+    deviceProfile.setProfileDataBytes(new byte[] {0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(deviceProfile.getProfileData());
@@ -421,8 +434,8 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -431,7 +444,7 @@ class DeviceProfileDiffblueTest {
   void testGetProfileData3() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
+    deviceProfile.setProfileDataBytes(new byte[] {0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(deviceProfile.getProfileData());
@@ -439,11 +452,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given DeviceProfile()")
@@ -451,25 +465,28 @@ class DeviceProfileDiffblueTest {
   @MethodsUnderTest({"DeviceProfileData DeviceProfile.getProfileData()"})
   void testGetProfileData_givenDeviceProfile() {
     // Arrange, Act and Assert
-    assertNull((new DeviceProfile()).getProfileData());
+    assertNull(new DeviceProfile().getProfileData());
   }
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is array of {@code byte} with zero and {@code X}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is array of {@code byte}
+   *       with zero and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given DeviceProfile() ProfileDataBytes is array of byte with zero and 'X'")
+  @DisplayName(
+      "Test getProfileData(); given DeviceProfile() ProfileDataBytes is array of byte with zero and 'X'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileData DeviceProfile.getProfileData()"})
   void testGetProfileData_givenDeviceProfileProfileDataBytesIsArrayOfByteWithZeroAndX() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    deviceProfile.setProfileDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(deviceProfile.getProfileData());
@@ -477,14 +494,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given DeviceProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getProfileData(); given DeviceProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileData DeviceProfile.getProfileData()"})
   void testGetProfileData_givenDeviceProfileProfileDataBytesIsAxaxaxaxBytesIsUtf8()
@@ -499,20 +519,23 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is empty array of {@code byte}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is empty array of {@code
+   *       byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given DeviceProfile() ProfileDataBytes is empty array of byte")
+  @DisplayName(
+      "Test getProfileData(); given DeviceProfile() ProfileDataBytes is empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileData DeviceProfile.getProfileData()"})
   void testGetProfileData_givenDeviceProfileProfileDataBytesIsEmptyArrayOfByte() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{});
+    deviceProfile.setProfileDataBytes(new byte[] {});
 
     // Act and Assert
     assertNull(deviceProfile.getProfileData());
@@ -520,17 +543,21 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code ;XAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code ;XAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link DeviceProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given DeviceProfile() ProfileDataBytes is ';XAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getProfileData(); given DeviceProfile() ProfileDataBytes is ';XAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileData DeviceProfile.getProfileData()"})
-  void testGetProfileData_givenDeviceProfileProfileDataBytesIsXaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
+  void testGetProfileData_givenDeviceProfileProfileDataBytesIsXaxaxaxBytesIsUtf8()
+      throws UnsupportedEncodingException {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
     deviceProfile.setProfileDataBytes(";XAXAXAX".getBytes("UTF-8"));
@@ -541,8 +568,8 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(DeviceProfileData)")
@@ -568,11 +595,12 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfileConfiguration}.</li>
+   *   <li>Given {@link DeviceProfileConfiguration}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(DeviceProfileData); given DeviceProfileConfiguration")
@@ -598,14 +626,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link DeviceProfile#DeviceProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); given DeviceProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); given DeviceProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_givenDeviceProfileProfileDataBytesIsAxaxaxaxBytesIsUtf8()
@@ -631,14 +662,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code foo} is {@link ObjectAttributes} (default constructor).</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code foo} is {@link ObjectAttributes} (default
+   *       constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); given HashMap() 'foo' is ObjectAttributes (default constructor)")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); given HashMap() 'foo' is ObjectAttributes (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_givenHashMapFooIsObjectAttributes() {
@@ -664,10 +698,12 @@ class DeviceProfileDiffblueTest {
     HashMap<String, String> keyName = new HashMap<>();
     HashSet<String> observe = new HashSet<>();
     HashSet<String> attribute = new HashSet<>();
-    TelemetryMappingConfiguration observeAttr = new TelemetryMappingConfiguration(keyName, observe, attribute,
-        new HashSet<>(), attributeLwm2m);
+    TelemetryMappingConfiguration observeAttr =
+        new TelemetryMappingConfiguration(
+            keyName, observe, attribute, new HashSet<>(), attributeLwm2m);
 
-    Lwm2mDeviceProfileTransportConfiguration transportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
+    Lwm2mDeviceProfileTransportConfiguration transportConfiguration =
+        new Lwm2mDeviceProfileTransportConfiguration();
     transportConfiguration.setObserveAttr(observeAttr);
 
     DeviceProfileData data = new DeviceProfileData();
@@ -686,14 +722,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code null} is {@link ObjectAttributes} (default constructor).</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code null} is {@link ObjectAttributes} (default
+   *       constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); given HashMap() 'null' is ObjectAttributes (default constructor)")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); given HashMap() 'null' is ObjectAttributes (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_givenHashMapNullIsObjectAttributes() {
@@ -719,10 +758,12 @@ class DeviceProfileDiffblueTest {
     HashMap<String, String> keyName = new HashMap<>();
     HashSet<String> observe = new HashSet<>();
     HashSet<String> attribute = new HashSet<>();
-    TelemetryMappingConfiguration observeAttr = new TelemetryMappingConfiguration(keyName, observe, attribute,
-        new HashSet<>(), attributeLwm2m);
+    TelemetryMappingConfiguration observeAttr =
+        new TelemetryMappingConfiguration(
+            keyName, observe, attribute, new HashSet<>(), attributeLwm2m);
 
-    Lwm2mDeviceProfileTransportConfiguration transportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
+    Lwm2mDeviceProfileTransportConfiguration transportConfiguration =
+        new Lwm2mDeviceProfileTransportConfiguration();
     transportConfiguration.setObserveAttr(observeAttr);
 
     DeviceProfileData data = new DeviceProfileData();
@@ -741,21 +782,24 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is four hundred thirty-eight.</li>
+   *   <li>Then array length is four hundred thirty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); then array length is four hundred thirty-eight")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); then array length is four hundred thirty-eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_thenArrayLengthIsFourHundredThirtyEight() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
 
-    Lwm2mDeviceProfileTransportConfiguration transportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
+    Lwm2mDeviceProfileTransportConfiguration transportConfiguration =
+        new Lwm2mDeviceProfileTransportConfiguration();
     transportConfiguration.setObserveAttr(new TelemetryMappingConfiguration());
 
     DeviceProfileData data = new DeviceProfileData();
@@ -773,27 +817,30 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is four hundred twenty-eight.</li>
+   *   <li>Then array length is four hundred twenty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); then array length is four hundred twenty-eight")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); then array length is four hundred twenty-eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_thenArrayLengthIsFourHundredTwentyEight() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
 
-    Lwm2mDeviceProfileTransportConfiguration transportConfiguration = new Lwm2mDeviceProfileTransportConfiguration();
+    Lwm2mDeviceProfileTransportConfiguration transportConfiguration =
+        new Lwm2mDeviceProfileTransportConfiguration();
     HashMap<String, String> keyName = new HashMap<>();
     HashSet<String> observe = new HashSet<>();
     HashSet<String> attribute = new HashSet<>();
     HashSet<String> telemetry = new HashSet<>();
-    transportConfiguration
-        .setObserveAttr(new TelemetryMappingConfiguration(keyName, observe, attribute, telemetry, new HashMap<>()));
+    transportConfiguration.setObserveAttr(
+        new TelemetryMappingConfiguration(keyName, observe, attribute, telemetry, new HashMap<>()));
 
     DeviceProfileData data = new DeviceProfileData();
     data.setAlarms(new ArrayList<>());
@@ -810,14 +857,16 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is three hundred fifty-five.</li>
+   *   <li>Then array length is three hundred fifty-five.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); then array length is three hundred fifty-five")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); then array length is three hundred fifty-five")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_thenArrayLengthIsThreeHundredFiftyFive() {
@@ -839,14 +888,16 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is two hundred fifty-eight.</li>
+   *   <li>Then array length is two hundred fifty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); then array length is two hundred fifty-eight")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); then array length is two hundred fifty-eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_thenArrayLengthIsTwoHundredFiftyEight() {
@@ -868,14 +919,49 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>Then {@link DeviceProfile#DeviceProfile()} ProfileData is {@link DeviceProfileData} (default constructor).</li>
+   *   <li>Then array length is two hundred seventeen.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); then DeviceProfile() ProfileData is DeviceProfileData (default constructor)")
+  @DisplayName("Test setProfileData(DeviceProfileData); then array length is two hundred seventeen")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
+  void testSetProfileData_thenArrayLengthIsTwoHundredSeventeen() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+
+    DeviceProfileData data = new DeviceProfileData();
+    data.setAlarms(new ArrayList<>());
+    data.setConfiguration(new DefaultDeviceProfileConfiguration());
+    data.setProvisionConfiguration(
+        new AllowCreateNewDevicesDeviceProfileProvisionConfiguration(
+            "Can't serialize device profile data: "));
+    data.setTransportConfiguration(new DefaultDeviceProfileTransportConfiguration());
+
+    // Act
+    deviceProfile.setProfileData(data);
+
+    // Assert
+    assertEquals(217, deviceProfile.getProfileDataBytes().length);
+  }
+
+  /**
+   * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
+   * <ul>
+   *   <li>Then {@link DeviceProfile#DeviceProfile()} ProfileData is {@link DeviceProfileData}
+   *       (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   */
+  @Test
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); then DeviceProfile() ProfileData is DeviceProfileData (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_thenDeviceProfileProfileDataIsDeviceProfileData() {
@@ -898,15 +984,17 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#setProfileData(DeviceProfileData)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link DeviceProfile#DeviceProfile()} ProfileData is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then {@link DeviceProfile#DeviceProfile()} ProfileData is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
+   *
+   * <p>Method under test: {@link DeviceProfile#setProfileData(DeviceProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(DeviceProfileData); when 'null'; then DeviceProfile() ProfileData is 'null'")
+  @DisplayName(
+      "Test setProfileData(DeviceProfileData); when 'null'; then DeviceProfile() ProfileData is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfile.setProfileData(DeviceProfileData)"})
   void testSetProfileData_whenNull_thenDeviceProfileProfileDataIsNull() {
@@ -923,12 +1011,14 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}, and {@link DeviceProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfile#equals(Object)}
    *   <li>{@link DeviceProfile#hashCode()}
@@ -951,12 +1041,14 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}, and {@link DeviceProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfile#equals(Object)}
    *   <li>{@link DeviceProfile#hashCode()}
@@ -978,12 +1070,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -996,12 +1089,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1018,12 +1112,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1040,12 +1135,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1062,12 +1158,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1084,12 +1181,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1106,12 +1204,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1128,12 +1227,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1150,12 +1250,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1172,12 +1273,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1186,7 +1288,8 @@ class DeviceProfileDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setDefaultRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setDefaultRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(deviceProfile, new DeviceProfile());
@@ -1194,12 +1297,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1216,12 +1320,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1238,12 +1343,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1252,7 +1358,8 @@ class DeviceProfileDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setDefaultEdgeRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setDefaultEdgeRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(deviceProfile, new DeviceProfile());
@@ -1260,12 +1367,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1282,12 +1390,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1296,7 +1405,7 @@ class DeviceProfileDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
 
     // Act and Assert
     assertNotEquals(deviceProfile, new DeviceProfile());
@@ -1304,12 +1413,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1326,12 +1436,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1350,12 +1461,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1374,12 +1486,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1398,12 +1511,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1422,12 +1536,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1446,12 +1561,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1470,12 +1586,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1494,12 +1611,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1510,7 +1628,8 @@ class DeviceProfileDiffblueTest {
     DeviceProfile deviceProfile = new DeviceProfile();
 
     DeviceProfile deviceProfile2 = new DeviceProfile();
-    deviceProfile2.setDefaultRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile2.setDefaultRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(deviceProfile, deviceProfile2);
@@ -1518,12 +1637,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1542,12 +1662,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1566,12 +1687,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1582,7 +1704,8 @@ class DeviceProfileDiffblueTest {
     DeviceProfile deviceProfile = new DeviceProfile();
 
     DeviceProfile deviceProfile2 = new DeviceProfile();
-    deviceProfile2.setDefaultEdgeRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile2.setDefaultEdgeRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(deviceProfile, deviceProfile2);
@@ -1590,12 +1713,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1614,12 +1738,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1632,12 +1757,13 @@ class DeviceProfileDiffblueTest {
 
   /**
    * Test {@link DeviceProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

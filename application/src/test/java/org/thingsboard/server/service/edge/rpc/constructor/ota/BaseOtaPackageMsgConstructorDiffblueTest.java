@@ -15,20 +15,24 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseOtaPackageMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseOtaPackageMsgConstructor#constructOtaPackageDeleteMsg(OtaPackageId)}.
-   * <p>
-   * Method under test: {@link BaseOtaPackageMsgConstructor#constructOtaPackageDeleteMsg(OtaPackageId)}
+   *
+   * <p>Method under test: {@link
+   * BaseOtaPackageMsgConstructor#constructOtaPackageDeleteMsg(OtaPackageId)}
    */
   @Test
   @DisplayName("Test constructOtaPackageDeleteMsg(OtaPackageId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"OtaPackageUpdateMsg BaseOtaPackageMsgConstructor.constructOtaPackageDeleteMsg(OtaPackageId)"})
+  @MethodsUnderTest({
+    "OtaPackageUpdateMsg BaseOtaPackageMsgConstructor.constructOtaPackageDeleteMsg(OtaPackageId)"
+  })
   void testConstructOtaPackageDeleteMsg() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageDeleteMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageDeleteMsg(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    OtaPackageUpdateMsg actualConstructOtaPackageDeleteMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageDeleteMsg(
+            new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructOtaPackageDeleteMsgResult.getInitializationErrorString());
@@ -51,7 +55,9 @@ class BaseOtaPackageMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructOtaPackageDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructOtaPackageDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructOtaPackageDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructOtaPackageDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructOtaPackageDeleteMsgResult.getMsgType());
     assertFalse(actualConstructOtaPackageDeleteMsgResult.hasAdditionalInfo());
     assertFalse(actualConstructOtaPackageDeleteMsgResult.hasChecksum());
     assertFalse(actualConstructOtaPackageDeleteMsgResult.hasChecksumAlgorithm());

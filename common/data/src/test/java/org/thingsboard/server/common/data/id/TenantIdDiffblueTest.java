@@ -14,19 +14,22 @@ import org.thingsboard.server.common.data.EntityType;
 class TenantIdDiffblueTest {
   /**
    * Test {@link TenantId#fromUUID(UUID)}.
+   *
    * <ul>
-   *   <li>Then return Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantId#fromUUID(UUID)}
+   *
+   * <p>Method under test: {@link TenantId#fromUUID(UUID)}
    */
   @Test
-  @DisplayName("Test fromUUID(UUID); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test fromUUID(UUID); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId TenantId.fromUUID(UUID)"})
   void testFromUUID_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
-    TenantId actualFromUUIDResult = TenantId.fromUUID(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TenantId actualFromUUIDResult =
+        TenantId.fromUUID(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualFromUUIDResult.getId().toString());
@@ -37,12 +40,13 @@ class TenantIdDiffblueTest {
 
   /**
    * Test {@link TenantId#fromUUID(UUID)}.
+   *
    * <ul>
-   *   <li>When {@link EntityId#NULL_UUID}.</li>
-   *   <li>Then return NullUid.</li>
+   *   <li>When {@link EntityId#NULL_UUID}.
+   *   <li>Then return NullUid.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantId#fromUUID(UUID)}
+   *
+   * <p>Method under test: {@link TenantId#fromUUID(UUID)}
    */
   @Test
   @DisplayName("Test fromUUID(UUID); when NULL_UUID; then return NullUid")
@@ -64,8 +68,9 @@ class TenantIdDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantId#TenantId(UUID)}
    *   <li>{@link TenantId#getEntityType()}
@@ -92,12 +97,13 @@ class TenantIdDiffblueTest {
 
   /**
    * Test {@link TenantId#isSysTenantId()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TenantId#SYS_TENANT_ID}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantId#isSysTenantId()}
+   *
+   * <p>Method under test: {@link TenantId#isSysTenantId()}
    */
   @Test
   @DisplayName("Test isSysTenantId(); given SYS_TENANT_ID; then return 'true'")
@@ -110,11 +116,12 @@ class TenantIdDiffblueTest {
 
   /**
    * Test {@link TenantId#isSysTenantId()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantId#isSysTenantId()}
+   *
+   * <p>Method under test: {@link TenantId#isSysTenantId()}
    */
   @Test
   @DisplayName("Test isSysTenantId(); then return 'false'")
@@ -122,6 +129,7 @@ class TenantIdDiffblueTest {
   @MethodsUnderTest({"boolean TenantId.isSysTenantId()"})
   void testIsSysTenantId_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))).isSysTenantId());
+    assertFalse(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")).isSysTenantId());
   }
 }

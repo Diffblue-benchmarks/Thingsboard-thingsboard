@@ -15,8 +15,9 @@ import org.springframework.cache.Cache.ValueWrapper;
 class SimpleTbCacheValueWrapperDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SimpleTbCacheValueWrapper#toString()}
    *   <li>{@link SimpleTbCacheValueWrapper#get()}
@@ -25,7 +26,10 @@ class SimpleTbCacheValueWrapperDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object SimpleTbCacheValueWrapper.get()", "String SimpleTbCacheValueWrapper.toString()"})
+  @MethodsUnderTest({
+    "Object SimpleTbCacheValueWrapper.get()",
+    "String SimpleTbCacheValueWrapper.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     SimpleTbCacheValueWrapper<Object> emptyResult = SimpleTbCacheValueWrapper.empty();
@@ -40,8 +44,8 @@ class SimpleTbCacheValueWrapperDiffblueTest {
 
   /**
    * Test {@link SimpleTbCacheValueWrapper#empty()}.
-   * <p>
-   * Method under test: {@link SimpleTbCacheValueWrapper#empty()}
+   *
+   * <p>Method under test: {@link SimpleTbCacheValueWrapper#empty()}
    */
   @Test
   @DisplayName("Test empty()")
@@ -57,16 +61,18 @@ class SimpleTbCacheValueWrapperDiffblueTest {
 
   /**
    * Test {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)} with {@code source}.
+   *
    * <ul>
-   *   <li>Given {@code Get}.</li>
-   *   <li>When {@link ValueWrapper} {@link ValueWrapper#get()} return {@code Get}.</li>
-   *   <li>Then return {@link SimpleTbCacheValueWrapper#get()} is {@code Get}.</li>
+   *   <li>Given {@code Get}.
+   *   <li>When {@link ValueWrapper} {@link ValueWrapper#get()} return {@code Get}.
+   *   <li>Then return {@link SimpleTbCacheValueWrapper#get()} is {@code Get}.
    * </ul>
-   * <p>
-   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
+   *
+   * <p>Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
    */
   @Test
-  @DisplayName("Test wrap(ValueWrapper) with 'source'; given 'Get'; when ValueWrapper get() return 'Get'; then return get() is 'Get'")
+  @DisplayName(
+      "Test wrap(ValueWrapper) with 'source'; given 'Get'; when ValueWrapper get() return 'Get'; then return get() is 'Get'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.wrap(ValueWrapper)"})
   void testWrapWithSource_givenGet_whenValueWrapperGetReturnGet_thenReturnGetIsGet() {
@@ -85,12 +91,13 @@ class SimpleTbCacheValueWrapperDiffblueTest {
 
   /**
    * Test {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)} with {@code source}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
+   *
+   * <p>Method under test: {@link SimpleTbCacheValueWrapper#wrap(ValueWrapper)}
    */
   @Test
   @DisplayName("Test wrap(ValueWrapper) with 'source'; when 'null'; then 'null'")
@@ -98,7 +105,8 @@ class SimpleTbCacheValueWrapperDiffblueTest {
   @MethodsUnderTest({"SimpleTbCacheValueWrapper SimpleTbCacheValueWrapper.wrap(ValueWrapper)"})
   void testWrapWithSource_whenNull_thenNull() {
     // Arrange and Act
-    SimpleTbCacheValueWrapper<Object> actualWrapResult = SimpleTbCacheValueWrapper.wrap((ValueWrapper) null);
+    SimpleTbCacheValueWrapper<Object> actualWrapResult =
+        SimpleTbCacheValueWrapper.wrap((ValueWrapper) null);
 
     // Assert
     assertNull(null);
@@ -107,8 +115,8 @@ class SimpleTbCacheValueWrapperDiffblueTest {
 
   /**
    * Test {@link SimpleTbCacheValueWrapper#wrap(Object)} with {@code value}.
-   * <p>
-   * Method under test: {@link SimpleTbCacheValueWrapper#wrap(Object)}
+   *
+   * <p>Method under test: {@link SimpleTbCacheValueWrapper#wrap(Object)}
    */
   @Test
   @DisplayName("Test wrap(Object) with 'value'")

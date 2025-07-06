@@ -18,14 +18,16 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DeviceIdInfoDiffblueTest {
   /**
    * Test {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId EntityType is {@code CUSTOMER}.</li>
+   *   <li>Then return CustomerId EntityType is {@code CUSTOMER}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}
    */
   @Test
-  @DisplayName("Test new DeviceIdInfo(UUID, UUID, UUID); then return CustomerId EntityType is 'CUSTOMER'")
+  @DisplayName(
+      "Test new DeviceIdInfo(UUID, UUID, UUID); then return CustomerId EntityType is 'CUSTOMER'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceIdInfo.<init>(UUID, UUID, UUID)"})
   void testNewDeviceIdInfo_thenReturnCustomerIdEntityTypeIsCustomer() {
@@ -55,15 +57,17 @@ class DeviceIdInfoDiffblueTest {
 
   /**
    * Test {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#DeviceIdInfo(UUID, UUID, UUID)}
    */
   @Test
-  @DisplayName("Test new DeviceIdInfo(UUID, UUID, UUID); when 'null'; then return CustomerId is 'null'")
+  @DisplayName(
+      "Test new DeviceIdInfo(UUID, UUID, UUID); when 'null'; then return CustomerId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceIdInfo.<init>(UUID, UUID, UUID)"})
   void testNewDeviceIdInfo_whenNull_thenReturnCustomerIdIsNull() {
@@ -89,12 +93,14 @@ class DeviceIdInfoDiffblueTest {
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceIdInfo#equals(Object)}
    *   <li>{@link DeviceIdInfo#hashCode()}
@@ -108,12 +114,14 @@ class DeviceIdInfoDiffblueTest {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, customerId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(
+            tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo2 = new DeviceIdInfo(tenantId2, customerId2,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo2 =
+        new DeviceIdInfo(
+            tenantId2, customerId2, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(deviceIdInfo, deviceIdInfo2);
@@ -123,12 +131,14 @@ class DeviceIdInfoDiffblueTest {
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceIdInfo#equals(Object)}
    *   <li>{@link DeviceIdInfo#hashCode()}
@@ -141,11 +151,11 @@ class DeviceIdInfoDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, null,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(tenantId, null, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo2 = new DeviceIdInfo(tenantId2, null,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo2 =
+        new DeviceIdInfo(tenantId2, null, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(deviceIdInfo, deviceIdInfo2);
@@ -155,12 +165,14 @@ class DeviceIdInfoDiffblueTest {
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}, and {@link DeviceIdInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceIdInfo#equals(Object)}
    *   <li>{@link DeviceIdInfo#hashCode()}
@@ -174,8 +186,9 @@ class DeviceIdInfoDiffblueTest {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, customerId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(
+            tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(deviceIdInfo, deviceIdInfo);
@@ -185,12 +198,13 @@ class DeviceIdInfoDiffblueTest {
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -199,24 +213,30 @@ class DeviceIdInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(EntityId.NULL_UUID, customerId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(
+            EntityId.NULL_UUID,
+            customerId,
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(deviceIdInfo,
-        new DeviceIdInfo(tenantId, customerId2, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        deviceIdInfo,
+        new DeviceIdInfo(
+            tenantId, customerId2, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -225,24 +245,28 @@ class DeviceIdInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, EntityId.NULL_UUID,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(
+            tenantId, EntityId.NULL_UUID, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(deviceIdInfo,
-        new DeviceIdInfo(tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        deviceIdInfo,
+        new DeviceIdInfo(
+            tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -251,24 +275,27 @@ class DeviceIdInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, null,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(tenantId, null, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(deviceIdInfo,
-        new DeviceIdInfo(tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        deviceIdInfo,
+        new DeviceIdInfo(
+            tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,24 +304,28 @@ class DeviceIdInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    DeviceIdInfo deviceIdInfo = new DeviceIdInfo(tenantId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"),
-        EntityId.NULL_UUID);
+    DeviceIdInfo deviceIdInfo =
+        new DeviceIdInfo(
+            tenantId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), EntityId.NULL_UUID);
     UUID tenantId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(deviceIdInfo,
-        new DeviceIdInfo(tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        deviceIdInfo,
+        new DeviceIdInfo(
+            tenantId2, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -306,18 +337,21 @@ class DeviceIdInfoDiffblueTest {
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(new DeviceIdInfo(tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+    assertNotEquals(
+        new DeviceIdInfo(
+            tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
         null);
   }
 
   /**
    * Test {@link DeviceIdInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceIdInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceIdInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -329,14 +363,17 @@ class DeviceIdInfoDiffblueTest {
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(new DeviceIdInfo(tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+    assertNotEquals(
+        new DeviceIdInfo(
+            tenantId, customerId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
         "Different type to DeviceIdInfo");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceIdInfo#toString()}
    *   <li>{@link DeviceIdInfo#getCustomerId()}
@@ -347,8 +384,12 @@ class DeviceIdInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"CustomerId DeviceIdInfo.getCustomerId()", "DeviceId DeviceIdInfo.getDeviceId()",
-      "TenantId DeviceIdInfo.getTenantId()", "String DeviceIdInfo.toString()"})
+  @MethodsUnderTest({
+    "CustomerId DeviceIdInfo.getCustomerId()",
+    "DeviceId DeviceIdInfo.getDeviceId()",
+    "TenantId DeviceIdInfo.getTenantId()",
+    "String DeviceIdInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

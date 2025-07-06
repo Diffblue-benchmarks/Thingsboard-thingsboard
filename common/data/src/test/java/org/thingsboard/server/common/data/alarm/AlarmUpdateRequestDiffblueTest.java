@@ -12,15 +12,17 @@ import org.thingsboard.server.common.data.id.UserId;
 class AlarmUpdateRequestDiffblueTest {
   /**
    * Test {@link AlarmUpdateRequest#fromAlarm(Alarm, UserId)} with {@code a}, {@code userId}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Details is {@code null}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Details is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmUpdateRequest#fromAlarm(Alarm, UserId)}
+   *
+   * <p>Method under test: {@link AlarmUpdateRequest#fromAlarm(Alarm, UserId)}
    */
   @Test
-  @DisplayName("Test fromAlarm(Alarm, UserId) with 'a', 'userId'; when Alarm(); then return Details is 'null'")
+  @DisplayName(
+      "Test fromAlarm(Alarm, UserId) with 'a', 'userId'; when Alarm(); then return Details is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmUpdateRequest AlarmUpdateRequest.fromAlarm(Alarm, UserId)"})
   void testFromAlarmWithAUserId_whenAlarm_thenReturnDetailsIsNull() {
@@ -44,12 +46,13 @@ class AlarmUpdateRequestDiffblueTest {
 
   /**
    * Test {@link AlarmUpdateRequest#fromAlarm(Alarm)} with {@code a}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Details is {@code null}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Details is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmUpdateRequest#fromAlarm(Alarm)}
+   *
+   * <p>Method under test: {@link AlarmUpdateRequest#fromAlarm(Alarm)}
    */
   @Test
   @DisplayName("Test fromAlarm(Alarm) with 'a'; when Alarm(); then return Details is 'null'")

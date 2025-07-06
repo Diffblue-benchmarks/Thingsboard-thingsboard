@@ -14,12 +14,14 @@ import org.thingsboard.server.common.data.id.CustomerId;
 class ReclaimResultDiffblueTest {
   /**
    * Test {@link ReclaimResult#equals(Object)}, and {@link ReclaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ReclaimResult#equals(Object)}
    *   <li>{@link ReclaimResult#hashCode()}
@@ -42,12 +44,14 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}, and {@link ReclaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ReclaimResult#equals(Object)}
    *   <li>{@link ReclaimResult#hashCode()}
@@ -70,12 +74,14 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}, and {@link ReclaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ReclaimResult#equals(Object)}
    *   <li>{@link ReclaimResult#hashCode()}
@@ -97,12 +103,13 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ReclaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ReclaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -118,12 +125,13 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ReclaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ReclaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -131,8 +139,9 @@ class ReclaimResultDiffblueTest {
   @MethodsUnderTest({"boolean ReclaimResult.equals(Object)", "int ReclaimResult.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ReclaimResult reclaimResult = new ReclaimResult(
-        new Customer(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    ReclaimResult reclaimResult =
+        new ReclaimResult(
+            new Customer(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
 
     // Act and Assert
     assertNotEquals(reclaimResult, new ReclaimResult(new Customer()));
@@ -140,12 +149,13 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ReclaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ReclaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -158,12 +168,13 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test {@link ReclaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ReclaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ReclaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -176,8 +187,9 @@ class ReclaimResultDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ReclaimResult#ReclaimResult(Customer)}
    *   <li>{@link ReclaimResult#setUnassignedCustomer(Customer)}
@@ -188,8 +200,12 @@ class ReclaimResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ReclaimResult.<init>(Customer)", "Customer ReclaimResult.getUnassignedCustomer()",
-      "void ReclaimResult.setUnassignedCustomer(Customer)", "String ReclaimResult.toString()"})
+  @MethodsUnderTest({
+    "void ReclaimResult.<init>(Customer)",
+    "Customer ReclaimResult.getUnassignedCustomer()",
+    "void ReclaimResult.setUnassignedCustomer(Customer)",
+    "String ReclaimResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ReclaimResult actualReclaimResult = new ReclaimResult(new Customer());

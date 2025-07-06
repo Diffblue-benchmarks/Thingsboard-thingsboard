@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.protobuf.ByteString;
-import com.google.protobuf.ByteString.ByteIterator;
+import com.google.protobuf.Descriptors;
+import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.UnknownFieldSet;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.Device;
 import org.thingsboard.server.common.data.id.CustomerId;
+import org.thingsboard.server.common.data.id.DeviceCredentialsId;
 import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.security.DeviceCredentials;
 import org.thingsboard.server.common.data.security.DeviceCredentialsType;
@@ -26,25 +28,28 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 
 @ExtendWith(MockitoExtension.class)
 class DeviceMsgConstructorV1DiffblueTest {
-  @InjectMocks
-  private DeviceMsgConstructorV1 deviceMsgConstructorV1;
+  @InjectMocks private DeviceMsgConstructorV1 deviceMsgConstructorV1;
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
   @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); given 'A'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_givenA() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    device.setDeviceDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
     device.setLabel("Label");
     device.setCustomerId(null);
     device.setType("Type");
@@ -52,8 +57,9 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     assertEquals("", actualConstructDeviceUpdatedMsgResult.getAdditionalInfo());
@@ -66,20 +72,24 @@ class DeviceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
   @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); given empty array of byte")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_givenEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{});
+    device.setDeviceDataBytes(new byte[] {});
     device.setLabel("Label");
     device.setCustomerId(null);
     device.setType("Type");
@@ -87,8 +97,9 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     assertEquals("", actualConstructDeviceUpdatedMsgResult.getAdditionalInfo());
@@ -101,16 +112,21 @@ class DeviceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>Then return AdditionalInfo is empty string.</li>
+   *   <li>Then return AdditionalInfo is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
-  @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); then return AdditionalInfo is empty string")
+  @DisplayName(
+      "Test constructDeviceUpdatedMsg(UpdateMsgType, Device); then return AdditionalInfo is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_thenReturnAdditionalInfoIsEmptyString() {
     // Arrange
     Device device = new Device();
@@ -121,8 +137,9 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     assertEquals("", actualConstructDeviceUpdatedMsgResult.getAdditionalInfo());
@@ -135,16 +152,21 @@ class DeviceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>Then return CustomerIdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Then return CustomerIdLSB is {@code -7476899250389416711}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
-  @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); then return CustomerIdLSB is '-7476899250389416711'")
+  @DisplayName(
+      "Test constructDeviceUpdatedMsg(UpdateMsgType, Device); then return CustomerIdLSB is '-7476899250389416711'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_thenReturnCustomerIdLSBIs7476899250389416711() {
     // Arrange
     Device device = new Device();
@@ -154,8 +176,9 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     assertEquals(-7476899250389416711L, actualConstructDeviceUpdatedMsgResult.getCustomerIdLSB());
@@ -167,17 +190,22 @@ class DeviceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()} Type is {@code Type}.</li>
-   *   <li>Then return Label is empty string.</li>
+   *   <li>When {@link Device#Device()} Type is {@code Type}.
+   *   <li>Then return Label is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
-  @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device() Type is 'Type'; then return Label is empty string")
+  @DisplayName(
+      "Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device() Type is 'Type'; then return Label is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_whenDeviceTypeIsType_thenReturnLabelIsEmptyString() {
     // Arrange
     Device device = new Device();
@@ -186,8 +214,9 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     assertEquals("", actualConstructDeviceUpdatedMsgResult.getLabel());
@@ -198,16 +227,21 @@ class DeviceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
-  @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device(Device) with device is Device()")
+  @DisplayName(
+      "Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device(Device) with device is Device()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_whenDeviceWithDeviceIsDevice() {
     // Arrange
     Device device = new Device(new Device(new Device()));
@@ -218,31 +252,41 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructDeviceUpdatedMsgResult.getUnknownFields();
-    DeviceUpdateMsg defaultInstanceForType = actualConstructDeviceUpdatedMsgResult.getDefaultInstanceForType();
+    DeviceUpdateMsg defaultInstanceForType =
+        actualConstructDeviceUpdatedMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     ByteString expectedDeviceDataBytes = actualConstructDeviceUpdatedMsgResult.getDeviceDataBytes();
     assertSame(expectedDeviceDataBytes, defaultInstanceForType.getDeviceDataBytes());
   }
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()} Label is {@code Label}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()} Label is {@code
+   *       Label}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType, Device)}
+   *
+   * <p>Method under test: {@link DeviceMsgConstructorV1#constructDeviceUpdatedMsg(UpdateMsgType,
+   * Device)}
    */
   @Test
-  @DisplayName("Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device(Device) with device is Device() Label is 'Label'")
+  @DisplayName(
+      "Test constructDeviceUpdatedMsg(UpdateMsgType, Device); when Device(Device) with device is Device() Label is 'Label'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"})
+  @MethodsUnderTest({
+    "DeviceUpdateMsg DeviceMsgConstructorV1.constructDeviceUpdatedMsg(UpdateMsgType, Device)"
+  })
   void testConstructDeviceUpdatedMsg_whenDeviceWithDeviceIsDeviceLabelIsLabel() {
     // Arrange
     Device device = new Device(new Device());
@@ -253,117 +297,142 @@ class DeviceMsgConstructorV1DiffblueTest {
     device.setId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
+    DeviceUpdateMsg actualConstructDeviceUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, device);
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructDeviceUpdatedMsgResult.getUnknownFields();
-    DeviceUpdateMsg defaultInstanceForType = actualConstructDeviceUpdatedMsgResult.getDefaultInstanceForType();
+    DeviceUpdateMsg defaultInstanceForType =
+        actualConstructDeviceUpdatedMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     ByteString expectedDeviceDataBytes = actualConstructDeviceUpdatedMsgResult.getDeviceDataBytes();
     assertSame(expectedDeviceDataBytes, defaultInstanceForType.getDeviceDataBytes());
   }
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}.
-   * <ul>
-   *   <li>Then return AllFields size is three.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
+   *
+   * <p>Method under test: {@link
+   * DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
    */
   @Test
-  @DisplayName("Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials); then return AllFields size is three")
+  @DisplayName("Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"})
-  void testConstructDeviceCredentialsUpdatedMsg_thenReturnAllFieldsSizeIsThree() {
+    "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"
+  })
+  void testConstructDeviceCredentialsUpdatedMsg() {
     // Arrange
     DeviceCredentials deviceCredentials = new DeviceCredentials();
-    deviceCredentials.setCredentialsValue("42");
-    deviceCredentials.setDeviceId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setDeviceId(
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceCredentialsUpdatedMsg(deviceCredentials);
+    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(deviceCredentials);
 
     // Assert
+    Descriptor descriptorForType =
+        actualConstructDeviceCredentialsUpdatedMsgResult.getDescriptorForType();
+    assertEquals(1, descriptorForType.getOneofs().size());
+    assertEquals(2, actualConstructDeviceCredentialsUpdatedMsgResult.getAllFields().size());
+    assertEquals(21, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
+    DeviceCredentialsUpdateMsg defaultInstanceForType =
+        actualConstructDeviceCredentialsUpdatedMsgResult.getDefaultInstanceForType();
+    assertSame(descriptorForType, defaultInstanceForType.getDescriptorForType());
+    UnknownFieldSet unknownFields =
+        actualConstructDeviceCredentialsUpdatedMsgResult.getUnknownFields();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}.
+   *
+   * <p>Method under test: {@link
+   * DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
+   */
+  @Test
+  @DisplayName("Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"
+  })
+  void testConstructDeviceCredentialsUpdatedMsg2() {
+    // Arrange
+    DeviceCredentials deviceCredentials =
+        new DeviceCredentials(
+            new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setCredentialsType(null);
+    deviceCredentials.setCredentialsValue("Device Credentials");
+    deviceCredentials.setCredentialsId(null);
+    deviceCredentials.setDeviceId(
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(deviceCredentials);
+
+    // Assert
+    ByteString credentialsValueBytes =
+        actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsValueBytes();
+    assertEquals("Device Credentials", credentialsValueBytes.toStringUtf8());
+    assertEquals(
+        "Device Credentials",
+        actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsValue());
     assertEquals(3, actualConstructDeviceCredentialsUpdatedMsgResult.getAllFields().size());
-    assertEquals("42", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsValue());
-    ByteString credentialsValueBytes = actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsValueBytes();
+    assertEquals(41, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
     assertFalse(credentialsValueBytes.isEmpty());
-    ByteIterator iteratorResult = credentialsValueBytes.iterator();
-    Byte nextResult = iteratorResult.next();
-    Byte nextResult2 = iteratorResult.next();
-    assertFalse(iteratorResult.hasNext());
-    assertEquals('4', nextResult.byteValue());
-    assertEquals('2', nextResult2.byteValue());
-    assertEquals("42", credentialsValueBytes.toStringUtf8());
-    assertEquals(25, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
+    assertTrue(credentialsValueBytes.iterator().hasNext());
     assertTrue(actualConstructDeviceCredentialsUpdatedMsgResult.hasCredentialsValue());
   }
 
   /**
    * Test {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}.
+   *
    * <ul>
-   *   <li>Then return CredentialsId is {@code 42}.</li>
+   *   <li>Then return CredentialsType is {@code ACCESS_TOKEN}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
+   *
+   * <p>Method under test: {@link
+   * DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
    */
   @Test
-  @DisplayName("Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials); then return CredentialsId is '42'")
+  @DisplayName(
+      "Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials); then return CredentialsType is 'ACCESS_TOKEN'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"})
-  void testConstructDeviceCredentialsUpdatedMsg_thenReturnCredentialsIdIs42() {
+    "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"
+  })
+  void testConstructDeviceCredentialsUpdatedMsg_thenReturnCredentialsTypeIsAccessToken() {
     // Arrange
-    DeviceCredentials deviceCredentials = new DeviceCredentials();
-    deviceCredentials.setCredentialsId("42");
+    DeviceCredentials deviceCredentials =
+        new DeviceCredentials(
+            new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
-    deviceCredentials.setDeviceId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setCredentialsValue(null);
+    deviceCredentials.setCredentialsId("Device Credentials");
+    deviceCredentials.setDeviceId(
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceCredentialsUpdatedMsg(deviceCredentials);
+    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult =
+        deviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(deviceCredentials);
 
     // Assert
-    assertEquals("42", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsId());
-    assertEquals("ACCESS_TOKEN", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsType());
-    assertEquals(39, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
+    assertEquals(
+        "ACCESS_TOKEN", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsType());
+    assertEquals(
+        "Device Credentials", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsId());
     assertEquals(4, actualConstructDeviceCredentialsUpdatedMsgResult.getAllFields().size());
-  }
-
-  /**
-   * Test {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}.
-   * <ul>
-   *   <li>Then return CredentialsId is empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceMsgConstructorV1#constructDeviceCredentialsUpdatedMsg(DeviceCredentials)}
-   */
-  @Test
-  @DisplayName("Test constructDeviceCredentialsUpdatedMsg(DeviceCredentials); then return CredentialsId is empty string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "DeviceCredentialsUpdateMsg DeviceMsgConstructorV1.constructDeviceCredentialsUpdatedMsg(DeviceCredentials)"})
-  void testConstructDeviceCredentialsUpdatedMsg_thenReturnCredentialsIdIsEmptyString() {
-    // Arrange
-    DeviceCredentials deviceCredentials = new DeviceCredentials();
-    deviceCredentials.setDeviceId(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act
-    DeviceCredentialsUpdateMsg actualConstructDeviceCredentialsUpdatedMsgResult = deviceMsgConstructorV1
-        .constructDeviceCredentialsUpdatedMsg(deviceCredentials);
-
-    // Assert
-    assertEquals("", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsId());
-    assertEquals("", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsType());
-    assertEquals("", actualConstructDeviceCredentialsUpdatedMsgResult.getCredentialsValue());
-    assertEquals(2, actualConstructDeviceCredentialsUpdatedMsgResult.getAllFields().size());
-    assertEquals(21, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
-    assertFalse(actualConstructDeviceCredentialsUpdatedMsgResult.hasCredentialsValue());
+    assertEquals(55, actualConstructDeviceCredentialsUpdatedMsgResult.getSerializedSize());
   }
 }

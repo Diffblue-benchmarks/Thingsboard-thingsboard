@@ -23,12 +23,14 @@ import org.thingsboard.server.common.data.id.TbResourceId;
 class TbResourceDiffblueTest {
   /**
    * Test {@link TbResource#equals(Object)}, and {@link TbResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResource#equals(Object)}
    *   <li>{@link TbResource#hashCode()}
@@ -51,12 +53,14 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}, and {@link TbResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResource#equals(Object)}
    *   <li>{@link TbResource#hashCode()}
@@ -78,12 +82,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -91,7 +96,8 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"boolean TbResource.equals(Object)", "int TbResource.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TbResource tbResource = new TbResource(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResource tbResource =
+        new TbResource(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbResource, new TbResource());
@@ -99,12 +105,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -121,12 +128,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -143,12 +151,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -161,12 +170,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -179,8 +189,9 @@ class TbResourceDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResource#TbResource(TbResourceId)}
    *   <li>{@link TbResource#setData(byte[])}
@@ -193,9 +204,15 @@ class TbResourceDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResource.<init>()", "void TbResource.<init>(TbResourceId)", "byte[] TbResource.getData()",
-      "byte[] TbResource.getPreview()", "void TbResource.setData(byte[])", "void TbResource.setPreview(byte[])",
-      "String TbResource.toString()"})
+  @MethodsUnderTest({
+    "void TbResource.<init>()",
+    "void TbResource.<init>(TbResourceId)",
+    "byte[] TbResource.getData()",
+    "byte[] TbResource.getPreview()",
+    "void TbResource.setData(byte[])",
+    "void TbResource.setPreview(byte[])",
+    "String TbResource.toString()"
+  })
   void testGettersAndSetters() throws UnsupportedEncodingException {
     // Arrange
     TbResourceId id = new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -211,9 +228,11 @@ class TbResourceDiffblueTest {
     byte[] actualPreview = actualTbResource.getPreview();
 
     // Assert
-    assertEquals("TbResourceInfo(tenantId=null, title=null, resourceType=null, resourceSubType=null, resourceKey=null,"
-        + " isPublic=false, publicResourceKey=null, searchText=null, etag=null, fileName=null, descriptor=null,"
-        + " externalId=null)", actualToStringResult);
+    assertEquals(
+        "TbResourceInfo(tenantId=null, title=null, resourceType=null, resourceSubType=null, resourceKey=null,"
+            + " isPublic=false, publicResourceKey=null, searchText=null, etag=null, fileName=null, descriptor=null,"
+            + " externalId=null)",
+        actualToStringResult);
     assertNull(actualTbResource.getDescriptor());
     assertNull(actualTbResource.getEtag());
     assertNull(actualTbResource.getFileName());
@@ -237,11 +256,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResource#TbResource()}
    *   <li>{@link TbResource#setData(byte[])}
@@ -254,9 +275,15 @@ class TbResourceDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResource.<init>()", "void TbResource.<init>(TbResourceId)", "byte[] TbResource.getData()",
-      "byte[] TbResource.getPreview()", "void TbResource.setData(byte[])", "void TbResource.setPreview(byte[])",
-      "String TbResource.toString()"})
+  @MethodsUnderTest({
+    "void TbResource.<init>()",
+    "void TbResource.<init>(TbResourceId)",
+    "byte[] TbResource.getData()",
+    "byte[] TbResource.getPreview()",
+    "void TbResource.setData(byte[])",
+    "void TbResource.setPreview(byte[])",
+    "String TbResource.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() throws UnsupportedEncodingException {
     // Arrange and Act
     TbResource actualTbResource = new TbResource();
@@ -269,9 +296,11 @@ class TbResourceDiffblueTest {
     byte[] actualPreview = actualTbResource.getPreview();
 
     // Assert
-    assertEquals("TbResourceInfo(tenantId=null, title=null, resourceType=null, resourceSubType=null, resourceKey=null,"
-        + " isPublic=false, publicResourceKey=null, searchText=null, etag=null, fileName=null, descriptor=null,"
-        + " externalId=null)", actualToStringResult);
+    assertEquals(
+        "TbResourceInfo(tenantId=null, title=null, resourceType=null, resourceSubType=null, resourceKey=null,"
+            + " isPublic=false, publicResourceKey=null, searchText=null, etag=null, fileName=null, descriptor=null,"
+            + " externalId=null)",
+        actualToStringResult);
     assertNull(actualTbResource.getDescriptor());
     assertNull(actualTbResource.getEtag());
     assertNull(actualTbResource.getFileName());
@@ -295,24 +324,26 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code Resource Info}.</li>
-   *   <li>Then Descriptor return {@link TextNode}.</li>
+   *   <li>Given {@code Resource Info}.
+   *   <li>Then Descriptor return {@link TextNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResourceInfo)}
    */
   @Test
-  @DisplayName("Test new TbResource(TbResourceInfo); given 'Resource Info'; then Descriptor return TextNode")
+  @DisplayName(
+      "Test new TbResource(TbResourceInfo); given 'Resource Info'; then Descriptor return TextNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResource.<init>(TbResourceInfo)"})
   void testNewTbResource_givenResourceInfo_thenDescriptorReturnTextNode() {
     // Arrange
-    TbResourceInfo resourceInfo = new TbResourceInfo();
+    TbResourceInfo resourceInfo = new TbResourceInfo(new TbResourceInfo());
     resourceInfo.setDescriptorValue("Resource Info");
 
     // Act and Assert
-    JsonNode descriptor = (new TbResource(resourceInfo)).getDescriptor();
+    JsonNode descriptor = new TbResource(resourceInfo).getDescriptor();
     assertTrue(descriptor instanceof TextNode);
     assertEquals("\"Resource Info\"", descriptor.toPrettyString());
     assertEquals(0, descriptor.size());
@@ -327,12 +358,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResource)}.
+   *
    * <ul>
-   *   <li>Given {@code Resource}.</li>
-   *   <li>Then Descriptor return {@link TextNode}.</li>
+   *   <li>Given {@code Resource}.
+   *   <li>Then Descriptor return {@link TextNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResource)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResource)}
    */
   @Test
   @DisplayName("Test new TbResource(TbResource); given 'Resource'; then Descriptor return TextNode")
@@ -340,11 +372,11 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"void TbResource.<init>(TbResource)"})
   void testNewTbResource_givenResource_thenDescriptorReturnTextNode() {
     // Arrange
-    TbResource resource = new TbResource();
+    TbResource resource = new TbResource(new TbResource());
     resource.setDescriptorValue("Resource");
 
     // Act and Assert
-    JsonNode descriptor = (new TbResource(resource)).getDescriptor();
+    JsonNode descriptor = new TbResource(resource).getDescriptor();
     assertTrue(descriptor instanceof TextNode);
     assertEquals("\"Resource\"", descriptor.toPrettyString());
     assertEquals(0, descriptor.size());
@@ -359,11 +391,12 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResource)}.
+   *
    * <ul>
-   *   <li>Then Descriptor return {@link ObjectNode}.</li>
+   *   <li>Then Descriptor return {@link ObjectNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResource)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResource)}
    */
   @Test
   @DisplayName("Test new TbResource(TbResource); then Descriptor return ObjectNode")
@@ -371,16 +404,18 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"void TbResource.<init>(TbResource)"})
   void testNewTbResource_thenDescriptorReturnObjectNode() {
     // Arrange
-    TbResource resource = new TbResource();
-    resource.setDescriptorValue(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResource resource = new TbResource(new TbResource());
+    resource.setDescriptorValue(
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
-    JsonNode descriptor = (new TbResource(resource)).getDescriptor();
+    JsonNode descriptor = new TbResource(resource).getDescriptor();
     assertTrue(descriptor instanceof ObjectNode);
     Iterator<JsonNode> iteratorResult = descriptor.iterator();
     assertTrue(iteratorResult.next() instanceof TextNode);
     assertTrue(iteratorResult.next() instanceof TextNode);
-    assertEquals("{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
+    assertEquals(
+        "{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
         descriptor.toPrettyString());
     assertEquals(2, descriptor.size());
     assertEquals(JsonNodeType.OBJECT, descriptor.getNodeType());
@@ -394,11 +429,12 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>Then Descriptor return {@link ObjectNode}.</li>
+   *   <li>Then Descriptor return {@link ObjectNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResourceInfo)}
    */
   @Test
   @DisplayName("Test new TbResource(TbResourceInfo); then Descriptor return ObjectNode")
@@ -406,16 +442,18 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"void TbResource.<init>(TbResourceInfo)"})
   void testNewTbResource_thenDescriptorReturnObjectNode2() {
     // Arrange
-    TbResourceInfo resourceInfo = new TbResourceInfo();
-    resourceInfo.setDescriptorValue(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResourceInfo resourceInfo = new TbResourceInfo(new TbResourceInfo());
+    resourceInfo.setDescriptorValue(
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
-    JsonNode descriptor = (new TbResource(resourceInfo)).getDescriptor();
+    JsonNode descriptor = new TbResource(resourceInfo).getDescriptor();
     assertTrue(descriptor instanceof ObjectNode);
     Iterator<JsonNode> iteratorResult = descriptor.iterator();
     assertTrue(iteratorResult.next() instanceof TextNode);
     assertTrue(iteratorResult.next() instanceof TextNode);
-    assertEquals("{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
+    assertEquals(
+        "{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
         descriptor.toPrettyString());
     assertEquals(2, descriptor.size());
     assertEquals(JsonNodeType.OBJECT, descriptor.getNodeType());
@@ -429,15 +467,17 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>When {@link TbResourceInfo#TbResourceInfo()}.</li>
-   *   <li>Then return Data is {@code null}.</li>
+   *   <li>When {@link TbResourceInfo#TbResourceInfo()}.
+   *   <li>Then return Data is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResourceInfo)}
    */
   @Test
-  @DisplayName("Test new TbResource(TbResourceInfo); when TbResourceInfo(); then return Data is 'null'")
+  @DisplayName(
+      "Test new TbResource(TbResourceInfo); when TbResourceInfo(); then return Data is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResource.<init>(TbResourceInfo)"})
   void testNewTbResource_whenTbResourceInfo_thenReturnDataIsNull() {
@@ -471,12 +511,13 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#TbResource(TbResource)}.
+   *
    * <ul>
-   *   <li>When {@link TbResource#TbResource()}.</li>
-   *   <li>Then return {@link TbResource#TbResource()}.</li>
+   *   <li>When {@link TbResource#TbResource()}.
+   *   <li>Then return {@link TbResource#TbResource()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#TbResource(TbResource)}
+   *
+   * <p>Method under test: {@link TbResource#TbResource(TbResource)}
    */
   @Test
   @DisplayName("Test new TbResource(TbResource); when TbResource(); then return TbResource()")
@@ -492,8 +533,8 @@ class TbResourceDiffblueTest {
 
   /**
    * Test {@link TbResource#getEncodedData()}.
-   * <p>
-   * Method under test: {@link TbResource#getEncodedData()}
+   *
+   * <p>Method under test: {@link TbResource#getEncodedData()}
    */
   @Test
   @DisplayName("Test getEncodedData()")
@@ -501,17 +542,18 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"String TbResource.getEncodedData()"})
   void testGetEncodedData() {
     // Arrange, Act and Assert
-    assertNull((new TbResource()).getEncodedData());
+    assertNull(new TbResource().getEncodedData());
   }
 
   /**
    * Test {@link TbResource#setEncodedData(String)}.
+   *
    * <ul>
-   *   <li>When {@code Data}.</li>
-   *   <li>Then {@link TbResource#TbResource()} EncodedData is {@code Data}.</li>
+   *   <li>When {@code Data}.
+   *   <li>Then {@link TbResource#TbResource()} EncodedData is {@code Data}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#setEncodedData(String)}
+   *
+   * <p>Method under test: {@link TbResource#setEncodedData(String)}
    */
   @Test
   @DisplayName("Test setEncodedData(String); when 'Data'; then TbResource() EncodedData is 'Data'")
@@ -526,13 +568,13 @@ class TbResourceDiffblueTest {
 
     // Assert
     assertEquals("Data", tbResource.getEncodedData());
-    assertArrayEquals(new byte[]{'\r', -85, 'Z'}, tbResource.getData());
+    assertArrayEquals(new byte[] {'\r', -85, 'Z'}, tbResource.getData());
   }
 
   /**
    * Test {@link TbResource#getEncodedPreview()}.
-   * <p>
-   * Method under test: {@link TbResource#getEncodedPreview()}
+   *
+   * <p>Method under test: {@link TbResource#getEncodedPreview()}
    */
   @Test
   @DisplayName("Test getEncodedPreview()")
@@ -540,20 +582,22 @@ class TbResourceDiffblueTest {
   @MethodsUnderTest({"String TbResource.getEncodedPreview()"})
   void testGetEncodedPreview() {
     // Arrange, Act and Assert
-    assertNull((new TbResource()).getEncodedPreview());
+    assertNull(new TbResource().getEncodedPreview());
   }
 
   /**
    * Test {@link TbResource#setEncodedPreview(String)}.
+   *
    * <ul>
-   *   <li>When {@code Preview}.</li>
-   *   <li>Then {@link TbResource#TbResource()} EncodedPreview is {@code Preview=}.</li>
+   *   <li>When {@code Preview}.
+   *   <li>Then {@link TbResource#TbResource()} EncodedPreview is {@code Preview=}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResource#setEncodedPreview(String)}
+   *
+   * <p>Method under test: {@link TbResource#setEncodedPreview(String)}
    */
   @Test
-  @DisplayName("Test setEncodedPreview(String); when 'Preview'; then TbResource() EncodedPreview is 'Preview='")
+  @DisplayName(
+      "Test setEncodedPreview(String); when 'Preview'; then TbResource() EncodedPreview is 'Preview='")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResource.setEncodedPreview(String)"})
   void testSetEncodedPreview_whenPreview_thenTbResourceEncodedPreviewIsPreview() {
@@ -565,6 +609,6 @@ class TbResourceDiffblueTest {
 
     // Assert
     assertEquals("Preview=", tbResource.getEncodedPreview());
-    assertArrayEquals(new byte[]{'>', -73, -81, -119, -20}, tbResource.getPreview());
+    assertArrayEquals(new byte[] {'>', -73, -81, -119, -20}, tbResource.getPreview());
   }
 }

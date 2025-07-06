@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 class JsScriptExecutionTaskDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptExecutionTask#JsScriptExecutionTask(ListenableFuture)}
    *   <li>{@link JsScriptExecutionTask#stop()}
@@ -22,7 +23,10 @@ class JsScriptExecutionTaskDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JsScriptExecutionTask.<init>(ListenableFuture)", "void JsScriptExecutionTask.stop()"})
+  @MethodsUnderTest({
+    "void JsScriptExecutionTask.<init>(ListenableFuture)",
+    "void JsScriptExecutionTask.stop()"
+  })
   void testGettersAndSetters() {
     // Arrange
     SettableFuture<Object> resultFuture = SettableFuture.create();

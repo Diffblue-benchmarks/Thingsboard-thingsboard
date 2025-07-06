@@ -15,21 +15,25 @@ import org.thingsboard.server.common.data.edge.EdgeEventType;
 
 class EntityIdFactoryDiffblueTest {
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return ApiUsageStateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return ApiUsageStateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnApiUsageStateId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.API_USAGE_STATE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.API_USAGE_STATE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof ApiUsageStateId);
@@ -39,21 +43,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return AssetProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return AssetProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnAssetProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.ASSET_PROFILE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.ASSET_PROFILE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AssetProfileId);
@@ -63,21 +71,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return DeviceProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnDeviceProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.DEVICE_PROFILE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.DEVICE_PROFILE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DeviceProfileId);
@@ -87,21 +99,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationId}.</li>
+   *   <li>Then return {@link NotificationId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.NOTIFICATION, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationId);
@@ -111,21 +127,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRequestId}.</li>
+   *   <li>Then return {@link NotificationRequestId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationRequestId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationRequestId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationRequestId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_REQUEST,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.NOTIFICATION_REQUEST, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationRequestId);
@@ -135,21 +155,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRuleId}.</li>
+   *   <li>Then return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationRuleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationRuleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationRuleId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_RULE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.NOTIFICATION_RULE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationRuleId);
@@ -159,21 +183,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTargetId}.</li>
+   *   <li>Then return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationTargetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationTargetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationTargetId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TARGET,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.NOTIFICATION_TARGET, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationTargetId);
@@ -183,21 +211,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTemplateId}.</li>
+   *   <li>Then return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationTemplateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return NotificationTemplateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationTemplateId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TEMPLATE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.NOTIFICATION_TEMPLATE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationTemplateId);
@@ -207,21 +239,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link OAuth2ClientId}.</li>
+   *   <li>Then return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return OAuth2ClientId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return OAuth2ClientId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnOAuth2ClientId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.OAUTH2_CLIENT,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.OAUTH2_CLIENT, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof OAuth2ClientId);
@@ -231,21 +267,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return TenantProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnTenantProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.TENANT_PROFILE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.TENANT_PROFILE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantProfileId);
@@ -255,21 +295,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return WidgetsBundleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; then return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_thenReturnWidgetsBundleId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.WIDGETS_BUNDLE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.WIDGETS_BUNDLE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof WidgetsBundleId);
@@ -279,22 +323,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ALARM'; then return AlarmId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ALARM'; then return AlarmId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenAlarm_thenReturnAlarmId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.ALARM,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.ALARM, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AlarmId);
@@ -304,22 +351,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ASSET'; then return AssetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ASSET'; then return AssetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenAsset_thenReturnAssetId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.ASSET,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.ASSET, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AssetId);
@@ -329,22 +379,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'CUSTOMER'; then return CustomerId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'CUSTOMER'; then return CustomerId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenCustomer_thenReturnCustomerId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.CUSTOMER,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.CUSTOMER, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof CustomerId);
@@ -354,22 +408,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DASHBOARD'; then return DashboardId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DASHBOARD'; then return DashboardId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenDashboard_thenReturnDashboardId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.DASHBOARD,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.DASHBOARD, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DashboardId);
@@ -379,22 +437,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DEVICE'; then return DeviceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DEVICE'; then return DeviceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenDevice_thenReturnDeviceId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.DEVICE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.DEVICE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DeviceId);
@@ -404,22 +465,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code DOMAIN}.</li>
-   *   <li>Then return {@link DomainId}.</li>
+   *   <li>When {@code DOMAIN}.
+   *   <li>Then return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DOMAIN'; then return DomainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'DOMAIN'; then return DomainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenDomain_thenReturnDomainId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.DOMAIN,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.DOMAIN, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DomainId);
@@ -429,22 +493,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then return {@link EdgeId}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'EDGE'; then return EdgeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'EDGE'; then return EdgeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenEdge_thenReturnEdgeId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.EDGE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.EDGE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof EdgeId);
@@ -454,22 +521,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ENTITY_VIEW'; then return EntityViewId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'ENTITY_VIEW'; then return EntityViewId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenEntityView_thenReturnEntityViewId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.ENTITY_VIEW,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.ENTITY_VIEW, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof EntityViewId);
@@ -479,22 +550,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code MOBILE_APP}.</li>
-   *   <li>Then return {@link MobileAppId}.</li>
+   *   <li>When {@code MOBILE_APP}.
+   *   <li>Then return {@link MobileAppId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'MOBILE_APP'; then return MobileAppId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'MOBILE_APP'; then return MobileAppId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenMobileApp_thenReturnMobileAppId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.MOBILE_APP,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.MOBILE_APP, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof MobileAppId);
@@ -504,22 +579,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'OTA_PACKAGE'; then return OtaPackageId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'OTA_PACKAGE'; then return OtaPackageId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenOtaPackage_thenReturnOtaPackageId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.OTA_PACKAGE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.OTA_PACKAGE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof OtaPackageId);
@@ -529,22 +608,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE_STATS}.</li>
-   *   <li>Then return {@link QueueStatsId}.</li>
+   *   <li>When {@code QUEUE_STATS}.
+   *   <li>Then return {@link QueueStatsId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'QUEUE_STATS'; then return QueueStatsId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'QUEUE_STATS'; then return QueueStatsId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenQueueStats_thenReturnQueueStatsId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.QUEUE_STATS,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.QUEUE_STATS, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof QueueStatsId);
@@ -554,22 +637,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE}.</li>
-   *   <li>Then return {@link QueueId}.</li>
+   *   <li>When {@code QUEUE}.
+   *   <li>Then return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'QUEUE'; then return QueueId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'QUEUE'; then return QueueId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenQueue_thenReturnQueueId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.QUEUE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.QUEUE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof QueueId);
@@ -579,22 +665,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code RPC}.</li>
-   *   <li>Then return {@link RpcId}.</li>
+   *   <li>When {@code RPC}.
+   *   <li>Then return {@link RpcId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RPC'; then return RpcId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RPC'; then return RpcId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenRpc_thenReturnRpcId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.RPC,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.RPC, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof RpcId);
@@ -604,22 +693,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RULE_CHAIN'; then return RuleChainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RULE_CHAIN'; then return RuleChainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenRuleChain_thenReturnRuleChainId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.RULE_CHAIN,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.RULE_CHAIN, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof RuleChainId);
@@ -629,22 +722,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code RULE_NODE}.</li>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>When {@code RULE_NODE}.
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RULE_NODE'; then return RuleNodeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'RULE_NODE'; then return RuleNodeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenRuleNode_thenReturnRuleNodeId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.RULE_NODE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.RULE_NODE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof RuleNodeId);
@@ -654,22 +751,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'TB_RESOURCE'; then return TbResourceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'TB_RESOURCE'; then return TbResourceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenTbResource_thenReturnTbResourceId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.TB_RESOURCE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.TB_RESOURCE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TbResourceId);
@@ -679,22 +780,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code TENANT}.</li>
-   *   <li>Then return {@link TenantId}.</li>
+   *   <li>When {@code TENANT}.
+   *   <li>Then return {@link TenantId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'TENANT'; then return TenantId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'TENANT'; then return TenantId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenTenant_thenReturnTenantId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.TENANT,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.TENANT, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantId);
@@ -705,22 +809,25 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'USER'; then return UserId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'USER'; then return UserId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenUser_thenReturnUserId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.USER,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.USER, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof UserId);
@@ -730,22 +837,26 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType}, {@code String}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)} with {@code EntityType},
+   * {@code String}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'WIDGET_TYPE'; then return WidgetTypeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, String) with 'EntityType', 'String'; when 'WIDGET_TYPE'; then return WidgetTypeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, String)"})
   void testGetByTypeAndUuidWithEntityTypeString_whenWidgetType_thenReturnWidgetTypeId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.WIDGET_TYPE,
-        "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.WIDGET_TYPE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof WidgetTypeId);
@@ -755,9 +866,10 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
   @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'")
@@ -765,8 +877,9 @@ class EntityIdFactoryDiffblueTest {
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.TENANT,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            EntityType.TENANT, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantId);
@@ -776,15 +889,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return ApiUsageStateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return ApiUsageStateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnApiUsageStateId() {
@@ -792,7 +908,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.API_USAGE_STATE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.API_USAGE_STATE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof ApiUsageStateId);
@@ -802,15 +919,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return DeviceProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnDeviceProfileId() {
@@ -818,7 +938,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.DEVICE_PROFILE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.DEVICE_PROFILE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DeviceProfileId);
@@ -828,15 +949,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRequestId}.</li>
+   *   <li>Then return {@link NotificationRequestId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationRequestId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationRequestId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationRequestId() {
@@ -844,7 +968,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_REQUEST, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_REQUEST, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationRequestId);
@@ -854,15 +979,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationRuleId}.</li>
+   *   <li>Then return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationRuleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationRuleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationRuleId() {
@@ -870,7 +998,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_RULE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_RULE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationRuleId);
@@ -880,15 +1009,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTargetId}.</li>
+   *   <li>Then return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationTargetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationTargetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationTargetId() {
@@ -896,7 +1028,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TARGET, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TARGET, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationTargetId);
@@ -906,15 +1039,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTemplateId}.</li>
+   *   <li>Then return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationTemplateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return NotificationTemplateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationTemplateId() {
@@ -922,7 +1058,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TEMPLATE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.NOTIFICATION_TEMPLATE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof NotificationTemplateId);
@@ -932,15 +1069,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return TenantProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnTenantProfileId() {
@@ -948,7 +1088,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.TENANT_PROFILE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.TENANT_PROFILE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantProfileId);
@@ -958,15 +1099,18 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return WidgetsBundleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; then return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_thenReturnWidgetsBundleId() {
@@ -974,7 +1118,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(EntityType.WIDGETS_BUNDLE, uuid);
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(EntityType.WIDGETS_BUNDLE, uuid);
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof WidgetsBundleId);
@@ -984,16 +1129,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ALARM'; then return AlarmId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ALARM'; then return AlarmId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenAlarm_thenReturnAlarmId() {
@@ -1011,16 +1159,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code ASSET_PROFILE}.</li>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>When {@code ASSET_PROFILE}.
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ASSET_PROFILE'; then return AssetProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ASSET_PROFILE'; then return AssetProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenAssetProfile_thenReturnAssetProfileId() {
@@ -1038,16 +1189,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ASSET'; then return AssetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ASSET'; then return AssetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenAsset_thenReturnAssetId() {
@@ -1065,16 +1219,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'CUSTOMER'; then return CustomerId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'CUSTOMER'; then return CustomerId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenCustomer_thenReturnCustomerId() {
@@ -1092,16 +1249,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DASHBOARD'; then return DashboardId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DASHBOARD'; then return DashboardId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenDashboard_thenReturnDashboardId() {
@@ -1119,16 +1279,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DEVICE'; then return DeviceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DEVICE'; then return DeviceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenDevice_thenReturnDeviceId() {
@@ -1146,16 +1309,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code DOMAIN}.</li>
-   *   <li>Then return {@link DomainId}.</li>
+   *   <li>When {@code DOMAIN}.
+   *   <li>Then return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DOMAIN'; then return DomainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'DOMAIN'; then return DomainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenDomain_thenReturnDomainId() {
@@ -1173,16 +1339,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then return {@link EdgeId}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'EDGE'; then return EdgeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'EDGE'; then return EdgeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenEdge_thenReturnEdgeId() {
@@ -1200,16 +1369,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ENTITY_VIEW'; then return EntityViewId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'ENTITY_VIEW'; then return EntityViewId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenEntityView_thenReturnEntityViewId() {
@@ -1227,16 +1399,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code MOBILE_APP}.</li>
-   *   <li>Then return {@link MobileAppId}.</li>
+   *   <li>When {@code MOBILE_APP}.
+   *   <li>Then return {@link MobileAppId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'MOBILE_APP'; then return MobileAppId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'MOBILE_APP'; then return MobileAppId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenMobileApp_thenReturnMobileAppId() {
@@ -1254,16 +1429,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION}.</li>
-   *   <li>Then return {@link NotificationId}.</li>
+   *   <li>When {@code NOTIFICATION}.
+   *   <li>Then return {@link NotificationId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'NOTIFICATION'; then return NotificationId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'NOTIFICATION'; then return NotificationId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenNotification_thenReturnNotificationId() {
@@ -1281,16 +1459,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code OAUTH2_CLIENT}.</li>
-   *   <li>Then return {@link OAuth2ClientId}.</li>
+   *   <li>When {@code OAUTH2_CLIENT}.
+   *   <li>Then return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'OAUTH2_CLIENT'; then return OAuth2ClientId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'OAUTH2_CLIENT'; then return OAuth2ClientId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenOauth2Client_thenReturnOAuth2ClientId() {
@@ -1308,16 +1489,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'OTA_PACKAGE'; then return OtaPackageId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'OTA_PACKAGE'; then return OtaPackageId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenOtaPackage_thenReturnOtaPackageId() {
@@ -1335,16 +1519,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE_STATS}.</li>
-   *   <li>Then return {@link QueueStatsId}.</li>
+   *   <li>When {@code QUEUE_STATS}.
+   *   <li>Then return {@link QueueStatsId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'QUEUE_STATS'; then return QueueStatsId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'QUEUE_STATS'; then return QueueStatsId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenQueueStats_thenReturnQueueStatsId() {
@@ -1362,16 +1549,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE}.</li>
-   *   <li>Then return {@link QueueId}.</li>
+   *   <li>When {@code QUEUE}.
+   *   <li>Then return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'QUEUE'; then return QueueId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'QUEUE'; then return QueueId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenQueue_thenReturnQueueId() {
@@ -1389,16 +1579,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When randomUUID.</li>
-   *   <li>Then return Id is randomUUID.</li>
+   *   <li>When randomUUID.
+   *   <li>Then return Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when randomUUID; then return Id is randomUUID")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when randomUUID; then return Id is randomUUID")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenRandomUUID_thenReturnIdIsRandomUUID() {
@@ -1416,16 +1609,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code RPC}.</li>
-   *   <li>Then return {@link RpcId}.</li>
+   *   <li>When {@code RPC}.
+   *   <li>Then return {@link RpcId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RPC'; then return RpcId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RPC'; then return RpcId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenRpc_thenReturnRpcId() {
@@ -1443,16 +1639,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RULE_CHAIN'; then return RuleChainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RULE_CHAIN'; then return RuleChainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenRuleChain_thenReturnRuleChainId() {
@@ -1470,16 +1669,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code RULE_NODE}.</li>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>When {@code RULE_NODE}.
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RULE_NODE'; then return RuleNodeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'RULE_NODE'; then return RuleNodeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenRuleNode_thenReturnRuleNodeId() {
@@ -1497,16 +1699,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'TB_RESOURCE'; then return TbResourceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'TB_RESOURCE'; then return TbResourceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenTbResource_thenReturnTbResourceId() {
@@ -1524,16 +1729,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'USER'; then return UserId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'USER'; then return UserId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenUser_thenReturnUserId() {
@@ -1551,16 +1759,19 @@ class EntityIdFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code UUID}.
+   * Test {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)} with {@code EntityType}, {@code
+   * UUID}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(EntityType, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'WIDGET_TYPE'; then return WidgetTypeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(EntityType, UUID) with 'EntityType', 'UUID'; when 'WIDGET_TYPE'; then return WidgetTypeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(EntityType, UUID)"})
   void testGetByTypeAndUuidWithEntityTypeUuid_whenWidgetType_thenReturnWidgetTypeId() {
@@ -1579,20 +1790,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When eight.</li>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>When eight.
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when eight; then return RuleNodeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when eight; then return RuleNodeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenEight_thenReturnRuleNodeId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(8, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(8, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof RuleNodeId);
@@ -1603,20 +1817,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When eleven.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When eleven.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when eleven; then return WidgetTypeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when eleven; then return WidgetTypeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenEleven_thenReturnWidgetTypeId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(11, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(11, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof WidgetTypeId);
@@ -1627,20 +1844,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When fifteen.</li>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>When fifteen.
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when fifteen; then return ApiUsageStateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when fifteen; then return ApiUsageStateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenFifteen_thenReturnApiUsageStateId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(15, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(15, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof ApiUsageStateId);
@@ -1651,20 +1871,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When five.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when five; then return DeviceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when five; then return DeviceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenFive_thenReturnDeviceId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(5, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(5, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DeviceId);
@@ -1675,20 +1898,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When four.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when four; then return AssetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when four; then return AssetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenFour_thenReturnAssetId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(4, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(4, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AssetId);
@@ -1699,20 +1925,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When fourteen.</li>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>When fourteen.
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when fourteen; then return AssetProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when fourteen; then return AssetProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenFourteen_thenReturnAssetProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(14, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(14, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AssetProfileId);
@@ -1723,20 +1952,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When nine.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When nine.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when nine; then return EntityViewId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when nine; then return EntityViewId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenNine_thenReturnEntityViewId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(9, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(9, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof EntityViewId);
@@ -1747,20 +1979,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When one.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when one; then return CustomerId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when one; then return CustomerId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenOne_thenReturnCustomerId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(1, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(1, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof CustomerId);
@@ -1771,20 +2006,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when seven; then return RuleChainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when seven; then return RuleChainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenSeven_thenReturnRuleChainId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(7, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(7, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof RuleChainId);
@@ -1795,20 +2033,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When seventeen.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When seventeen.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when seventeen; then return OtaPackageId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when seventeen; then return OtaPackageId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenSeventeen_thenReturnOtaPackageId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(17, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(17, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof OtaPackageId);
@@ -1819,20 +2060,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When six.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When six.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when six; then return AlarmId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when six; then return AlarmId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenSix_thenReturnAlarmId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(6, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(6, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof AlarmId);
@@ -1843,20 +2087,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When {@link Short#SIZE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@link Short#SIZE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when SIZE; then return TbResourceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when SIZE; then return TbResourceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenSize_thenReturnTbResourceId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(Short.SIZE, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(Short.SIZE, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TbResourceId);
@@ -1867,20 +2114,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When ten.</li>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>When ten.
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when ten; then return WidgetsBundleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when ten; then return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenTen_thenReturnWidgetsBundleId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(10, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(10, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof WidgetsBundleId);
@@ -1891,20 +2141,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When thirteen.</li>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>When thirteen.
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when thirteen; then return DeviceProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when thirteen; then return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenThirteen_thenReturnDeviceProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(13, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(13, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DeviceProfileId);
@@ -1915,20 +2168,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When three.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when three; then return DashboardId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when three; then return DashboardId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenThree_thenReturnDashboardId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(3, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(3, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof DashboardId);
@@ -1939,20 +2195,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When twelve.</li>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>When twelve.
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when twelve; then return TenantProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when twelve; then return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenTwelve_thenReturnTenantProfileId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(12, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(12, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantProfileId);
@@ -1963,20 +2222,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When two.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when two; then return UserId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when two; then return UserId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenTwo_thenReturnUserId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(2, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(2, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof UserId);
@@ -1987,20 +2249,23 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, String)} with {@code int}, {@code String}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@link TenantId}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@link TenantId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, String)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, String) with 'int', 'String'; when zero; then return TenantId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, String) with 'int', 'String'; when zero; then return TenantId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, String)"})
   void testGetByTypeAndUuidWithIntString_whenZero_thenReturnTenantId() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(0, "01234567-89AB-CDEF-FEDC-BA9876543210");
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(0, "01234567-89AB-CDEF-FEDC-BA9876543210");
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantId);
@@ -2012,8 +2277,8 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
   @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'")
@@ -2021,8 +2286,9 @@ class EntityIdFactoryDiffblueTest {
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid() {
     // Arrange and Act
-    EntityId actualByTypeAndUuid = EntityIdFactory.getByTypeAndUuid(0,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityId actualByTypeAndUuid =
+        EntityIdFactory.getByTypeAndUuid(
+            0, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertTrue(actualByTypeAndUuid instanceof TenantId);
@@ -2033,15 +2299,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When eight.</li>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>When eight.
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when eight; then return RuleNodeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when eight; then return RuleNodeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenEight_thenReturnRuleNodeId() {
@@ -2060,15 +2328,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When eleven.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When eleven.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when eleven; then return WidgetTypeId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when eleven; then return WidgetTypeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenEleven_thenReturnWidgetTypeId() {
@@ -2087,15 +2357,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When fifteen.</li>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>When fifteen.
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when fifteen; then return ApiUsageStateId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when fifteen; then return ApiUsageStateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenFifteen_thenReturnApiUsageStateId() {
@@ -2114,15 +2386,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When five.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when five; then return DeviceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when five; then return DeviceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenFive_thenReturnDeviceId() {
@@ -2141,15 +2415,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When four.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when four; then return AssetId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when four; then return AssetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenFour_thenReturnAssetId() {
@@ -2168,15 +2444,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When fourteen.</li>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>When fourteen.
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when fourteen; then return AssetProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when fourteen; then return AssetProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenFourteen_thenReturnAssetProfileId() {
@@ -2195,15 +2473,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When nine.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When nine.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when nine; then return EntityViewId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when nine; then return EntityViewId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenNine_thenReturnEntityViewId() {
@@ -2222,15 +2502,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When {@link EntityId#NULL_UUID}.</li>
-   *   <li>Then return NullUid.</li>
+   *   <li>When {@link EntityId#NULL_UUID}.
+   *   <li>Then return NullUid.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when NULL_UUID; then return NullUid")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when NULL_UUID; then return NullUid")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenNull_uuid_thenReturnNullUid() {
@@ -2250,15 +2532,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When one.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when one; then return CustomerId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when one; then return CustomerId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenOne_thenReturnCustomerId() {
@@ -2277,15 +2561,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when seven; then return RuleChainId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when seven; then return RuleChainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenSeven_thenReturnRuleChainId() {
@@ -2304,15 +2590,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When seventeen.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When seventeen.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when seventeen; then return OtaPackageId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when seventeen; then return OtaPackageId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenSeventeen_thenReturnOtaPackageId() {
@@ -2331,12 +2619,13 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When six.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When six.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
   @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when six; then return AlarmId")
@@ -2358,15 +2647,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When {@link Short#SIZE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@link Short#SIZE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when SIZE; then return TbResourceId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when SIZE; then return TbResourceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenSize_thenReturnTbResourceId() {
@@ -2385,15 +2676,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When ten.</li>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>When ten.
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when ten; then return WidgetsBundleId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when ten; then return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenTen_thenReturnWidgetsBundleId() {
@@ -2412,15 +2705,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When thirteen.</li>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>When thirteen.
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when thirteen; then return DeviceProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when thirteen; then return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenThirteen_thenReturnDeviceProfileId() {
@@ -2439,15 +2734,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When three.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when three; then return DashboardId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when three; then return DashboardId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenThree_thenReturnDashboardId() {
@@ -2466,15 +2763,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When twelve.</li>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>When twelve.
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
-  @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when twelve; then return TenantProfileId")
+  @DisplayName(
+      "Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when twelve; then return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByTypeAndUuid(int, UUID)"})
   void testGetByTypeAndUuidWithIntUuid_whenTwelve_thenReturnTenantProfileId() {
@@ -2493,12 +2792,13 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByTypeAndUuid(int, UUID)} with {@code int}, {@code UUID}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When two.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByTypeAndUuid(int, UUID)}
    */
   @Test
   @DisplayName("Test getByTypeAndUuid(int, UUID) with 'int', 'UUID'; when two; then return UserId")
@@ -2520,14 +2820,16 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTargetId}.</li>
+   *   <li>Then return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); then return NotificationTargetId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); then return NotificationTargetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_thenReturnNotificationTargetId() {
@@ -2535,8 +2837,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_TARGET,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_TARGET, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof NotificationTargetId);
@@ -2547,14 +2849,16 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>Then return {@link NotificationTemplateId}.</li>
+   *   <li>Then return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); then return NotificationTemplateId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); then return NotificationTemplateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_thenReturnNotificationTemplateId() {
@@ -2562,8 +2866,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory
-        .getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_TEMPLATE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_TEMPLATE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof NotificationTemplateId);
@@ -2574,35 +2878,42 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM_COMMENT}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ALARM_COMMENT}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ALARM_COMMENT'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ALARM_COMMENT'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenAlarmComment_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ALARM_COMMENT,
-            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            EntityIdFactory.getByEdgeEventTypeAndUuid(
+                EdgeEventType.ALARM_COMMENT,
+                UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ALARM'; then return AlarmId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ALARM'; then return AlarmId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenAlarm_thenReturnAlarmId() {
@@ -2610,7 +2921,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ALARM, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ALARM, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof AlarmId);
@@ -2621,15 +2933,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET_PROFILE}.</li>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>When {@code ASSET_PROFILE}.
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ASSET_PROFILE'; then return AssetProfileId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ASSET_PROFILE'; then return AssetProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenAssetProfile_thenReturnAssetProfileId() {
@@ -2637,8 +2951,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ASSET_PROFILE,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ASSET_PROFILE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof AssetProfileId);
@@ -2649,15 +2963,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ASSET'; then return AssetId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ASSET'; then return AssetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenAsset_thenReturnAssetId() {
@@ -2665,7 +2981,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ASSET, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ASSET, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof AssetId);
@@ -2676,15 +2993,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'CUSTOMER'; then return CustomerId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'CUSTOMER'; then return CustomerId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenCustomer_thenReturnCustomerId() {
@@ -2692,7 +3011,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.CUSTOMER, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.CUSTOMER, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof CustomerId);
@@ -2703,15 +3023,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DASHBOARD'; then return DashboardId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DASHBOARD'; then return DashboardId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenDashboard_thenReturnDashboardId() {
@@ -2719,7 +3041,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DASHBOARD, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DASHBOARD, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof DashboardId);
@@ -2730,15 +3053,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE_PROFILE}.</li>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>When {@code DEVICE_PROFILE}.
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DEVICE_PROFILE'; then return DeviceProfileId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DEVICE_PROFILE'; then return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenDeviceProfile_thenReturnDeviceProfileId() {
@@ -2746,8 +3071,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DEVICE_PROFILE,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DEVICE_PROFILE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof DeviceProfileId);
@@ -2758,15 +3083,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DEVICE'; then return DeviceId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DEVICE'; then return DeviceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenDevice_thenReturnDeviceId() {
@@ -2774,7 +3101,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DEVICE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DEVICE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof DeviceId);
@@ -2785,15 +3113,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code DOMAIN}.</li>
-   *   <li>Then return {@link DomainId}.</li>
+   *   <li>When {@code DOMAIN}.
+   *   <li>Then return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DOMAIN'; then return DomainId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'DOMAIN'; then return DomainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenDomain_thenReturnDomainId() {
@@ -2801,7 +3131,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DOMAIN, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.DOMAIN, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof DomainId);
@@ -2812,15 +3143,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then return {@link EdgeId}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'EDGE'; then return EdgeId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'EDGE'; then return EdgeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenEdge_thenReturnEdgeId() {
@@ -2828,7 +3161,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.EDGE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.EDGE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof EdgeId);
@@ -2839,15 +3173,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ENTITY_VIEW'; then return EntityViewId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'ENTITY_VIEW'; then return EntityViewId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenEntityView_thenReturnEntityViewId() {
@@ -2855,7 +3191,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ENTITY_VIEW, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.ENTITY_VIEW, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof EntityViewId);
@@ -2866,15 +3203,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_RULE}.</li>
-   *   <li>Then return {@link NotificationRuleId}.</li>
+   *   <li>When {@code NOTIFICATION_RULE}.
+   *   <li>Then return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'NOTIFICATION_RULE'; then return NotificationRuleId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'NOTIFICATION_RULE'; then return NotificationRuleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenNotificationRule_thenReturnNotificationRuleId() {
@@ -2882,8 +3221,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_RULE,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.NOTIFICATION_RULE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof NotificationRuleId);
@@ -2894,15 +3233,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code OAUTH2_CLIENT}.</li>
-   *   <li>Then return {@link OAuth2ClientId}.</li>
+   *   <li>When {@code OAUTH2_CLIENT}.
+   *   <li>Then return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'OAUTH2_CLIENT'; then return OAuth2ClientId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'OAUTH2_CLIENT'; then return OAuth2ClientId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenOauth2Client_thenReturnOAuth2ClientId() {
@@ -2910,8 +3251,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.OAUTH2_CLIENT,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.OAUTH2_CLIENT, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof OAuth2ClientId);
@@ -2922,15 +3263,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'OTA_PACKAGE'; then return OtaPackageId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'OTA_PACKAGE'; then return OtaPackageId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenOtaPackage_thenReturnOtaPackageId() {
@@ -2938,7 +3281,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.OTA_PACKAGE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.OTA_PACKAGE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof OtaPackageId);
@@ -2949,15 +3293,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE}.</li>
-   *   <li>Then return {@link QueueId}.</li>
+   *   <li>When {@code QUEUE}.
+   *   <li>Then return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'QUEUE'; then return QueueId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'QUEUE'; then return QueueId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenQueue_thenReturnQueueId() {
@@ -2965,7 +3311,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.QUEUE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.QUEUE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof QueueId);
@@ -2976,15 +3323,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'RULE_CHAIN'; then return RuleChainId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'RULE_CHAIN'; then return RuleChainId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenRuleChain_thenReturnRuleChainId() {
@@ -2992,7 +3341,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.RULE_CHAIN, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.RULE_CHAIN, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof RuleChainId);
@@ -3003,15 +3353,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TB_RESOURCE'; then return TbResourceId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TB_RESOURCE'; then return TbResourceId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenTbResource_thenReturnTbResourceId() {
@@ -3019,7 +3371,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TB_RESOURCE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TB_RESOURCE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof TbResourceId);
@@ -3030,15 +3383,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code TENANT_PROFILE}.</li>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>When {@code TENANT_PROFILE}.
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TENANT_PROFILE'; then return TenantProfileId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TENANT_PROFILE'; then return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenTenantProfile_thenReturnTenantProfileId() {
@@ -3046,8 +3401,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TENANT_PROFILE,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TENANT_PROFILE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof TenantProfileId);
@@ -3058,15 +3413,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code TENANT}.</li>
-   *   <li>Then return {@link TenantId}.</li>
+   *   <li>When {@code TENANT}.
+   *   <li>Then return {@link TenantId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TENANT'; then return TenantId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'TENANT'; then return TenantId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenTenant_thenReturnTenantId() {
@@ -3074,7 +3431,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TENANT, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.TENANT, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof TenantId);
@@ -3086,15 +3444,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'USER'; then return UserId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'USER'; then return UserId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenUser_thenReturnUserId() {
@@ -3102,7 +3462,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.USER, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.USER, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof UserId);
@@ -3113,15 +3474,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'WIDGET_TYPE'; then return WidgetTypeId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'WIDGET_TYPE'; then return WidgetTypeId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenWidgetType_thenReturnWidgetTypeId() {
@@ -3129,7 +3492,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.WIDGET_TYPE, uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.WIDGET_TYPE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof WidgetTypeId);
@@ -3140,15 +3504,17 @@ class EntityIdFactoryDiffblueTest {
 
   /**
    * Test {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGETS_BUNDLE}.</li>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>When {@code WIDGETS_BUNDLE}.
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
+   *
+   * <p>Method under test: {@link EntityIdFactory#getByEdgeEventTypeAndUuid(EdgeEventType, UUID)}
    */
   @Test
-  @DisplayName("Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'WIDGETS_BUNDLE'; then return WidgetsBundleId")
+  @DisplayName(
+      "Test getByEdgeEventTypeAndUuid(EdgeEventType, UUID); when 'WIDGETS_BUNDLE'; then return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityId EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType, UUID)"})
   void testGetByEdgeEventTypeAndUuid_whenWidgetsBundle_thenReturnWidgetsBundleId() {
@@ -3156,8 +3522,8 @@ class EntityIdFactoryDiffblueTest {
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityId actualByEdgeEventTypeAndUuid = EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.WIDGETS_BUNDLE,
-        uuid);
+    EntityId actualByEdgeEventTypeAndUuid =
+        EntityIdFactory.getByEdgeEventTypeAndUuid(EdgeEventType.WIDGETS_BUNDLE, uuid);
 
     // Assert
     assertTrue(actualByEdgeEventTypeAndUuid instanceof WidgetsBundleId);

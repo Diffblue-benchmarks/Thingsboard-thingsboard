@@ -17,13 +17,16 @@ import org.thingsboard.server.common.data.notification.NotificationDeliveryMetho
 
 class AccountNotificationSettingsDiffblueTest {
   /**
-   * Test {@link AccountNotificationSettings#equals(Object)}, and {@link AccountNotificationSettings#hashCode()}.
+   * Test {@link AccountNotificationSettings#equals(Object)}, and {@link
+   * AccountNotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AccountNotificationSettings#equals(Object)}
    *   <li>{@link AccountNotificationSettings#hashCode()}
@@ -32,8 +35,10 @@ class AccountNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AccountNotificationSettings.equals(Object)",
-      "int AccountNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AccountNotificationSettings.equals(Object)",
+    "int AccountNotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AccountNotificationSettings accountNotificationSettings = new AccountNotificationSettings();
@@ -51,13 +56,16 @@ class AccountNotificationSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link AccountNotificationSettings#equals(Object)}, and {@link AccountNotificationSettings#hashCode()}.
+   * Test {@link AccountNotificationSettings#equals(Object)}, and {@link
+   * AccountNotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AccountNotificationSettings#equals(Object)}
    *   <li>{@link AccountNotificationSettings#hashCode()}
@@ -66,17 +74,21 @@ class AccountNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AccountNotificationSettings.equals(Object)",
-      "int AccountNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AccountNotificationSettings.equals(Object)",
+    "int AccountNotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AccountNotificationSettings accountNotificationSettings = new AccountNotificationSettings();
     accountNotificationSettings.setAllowedNotifications(new HashSet<>());
-    accountNotificationSettings.setUserId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    accountNotificationSettings.setUserId(
+        new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     AccountNotificationSettings accountNotificationSettings2 = new AccountNotificationSettings();
     accountNotificationSettings2.setAllowedNotifications(new HashSet<>());
-    accountNotificationSettings2.setUserId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    accountNotificationSettings2.setUserId(
+        new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(accountNotificationSettings, accountNotificationSettings2);
@@ -86,18 +98,21 @@ class AccountNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link AccountNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AccountNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AccountNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AccountNotificationSettings.equals(Object)",
-      "int AccountNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AccountNotificationSettings.equals(Object)",
+    "int AccountNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<NotificationDeliveryMethod> allowedNotifications = new HashSet<>();
@@ -117,23 +132,27 @@ class AccountNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link AccountNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AccountNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AccountNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AccountNotificationSettings.equals(Object)",
-      "int AccountNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AccountNotificationSettings.equals(Object)",
+    "int AccountNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AccountNotificationSettings accountNotificationSettings = new AccountNotificationSettings();
     accountNotificationSettings.setAllowedNotifications(new HashSet<>());
-    accountNotificationSettings.setUserId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    accountNotificationSettings.setUserId(
+        new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     AccountNotificationSettings accountNotificationSettings2 = new AccountNotificationSettings();
     accountNotificationSettings2.setAllowedNotifications(new HashSet<>());
@@ -145,18 +164,21 @@ class AccountNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link AccountNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AccountNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AccountNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AccountNotificationSettings.equals(Object)",
-      "int AccountNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AccountNotificationSettings.equals(Object)",
+    "int AccountNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     HashSet<NotificationDeliveryMethod> allowedNotifications = new HashSet<>();
@@ -168,7 +190,8 @@ class AccountNotificationSettingsDiffblueTest {
 
     AccountNotificationSettings accountNotificationSettings2 = new AccountNotificationSettings();
     accountNotificationSettings2.setAllowedNotifications(new HashSet<>());
-    accountNotificationSettings2.setUserId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    accountNotificationSettings2.setUserId(
+        new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(accountNotificationSettings, accountNotificationSettings2);
@@ -176,8 +199,9 @@ class AccountNotificationSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AccountNotificationSettings}
    *   <li>{@link AccountNotificationSettings#setAllowedNotifications(Set)}
@@ -189,21 +213,27 @@ class AccountNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AccountNotificationSettings.<init>()",
-      "Set AccountNotificationSettings.getAllowedNotifications()", "UserId AccountNotificationSettings.getUserId()",
-      "void AccountNotificationSettings.setAllowedNotifications(Set)",
-      "void AccountNotificationSettings.setUserId(UserId)", "String AccountNotificationSettings.toString()"})
+  @MethodsUnderTest({
+    "void AccountNotificationSettings.<init>()",
+    "Set AccountNotificationSettings.getAllowedNotifications()",
+    "UserId AccountNotificationSettings.getUserId()",
+    "void AccountNotificationSettings.setAllowedNotifications(Set)",
+    "void AccountNotificationSettings.setUserId(UserId)",
+    "String AccountNotificationSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    AccountNotificationSettings actualAccountNotificationSettings = new AccountNotificationSettings();
+    AccountNotificationSettings actualAccountNotificationSettings =
+        new AccountNotificationSettings();
     HashSet<NotificationDeliveryMethod> allowedNotifications = new HashSet<>();
     actualAccountNotificationSettings.setAllowedNotifications(allowedNotifications);
     String actualToStringResult = actualAccountNotificationSettings.toString();
-    Set<NotificationDeliveryMethod> actualAllowedNotifications = actualAccountNotificationSettings
-        .getAllowedNotifications();
+    Set<NotificationDeliveryMethod> actualAllowedNotifications =
+        actualAccountNotificationSettings.getAllowedNotifications();
 
     // Assert
-    assertEquals("AccountNotificationSettings(userId=null, allowedNotifications=[])", actualToStringResult);
+    assertEquals(
+        "AccountNotificationSettings(userId=null, allowedNotifications=[])", actualToStringResult);
     assertNull(actualAccountNotificationSettings.getUserId());
     assertTrue(actualAllowedNotifications.isEmpty());
     assertSame(allowedNotifications, actualAllowedNotifications);

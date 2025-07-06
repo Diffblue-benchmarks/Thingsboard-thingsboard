@@ -11,12 +11,14 @@ import org.thingsboard.server.common.data.security.Authority;
 class JwtPairDiffblueTest {
   /**
    * Test {@link JwtPair#equals(Object)}, and {@link JwtPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#equals(Object)}
    *   <li>{@link JwtPair#hashCode()}
@@ -39,12 +41,14 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}, and {@link JwtPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#equals(Object)}
    *   <li>{@link JwtPair#hashCode()}
@@ -67,12 +71,14 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}, and {@link JwtPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#equals(Object)}
    *   <li>{@link JwtPair#hashCode()}
@@ -95,12 +101,14 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}, and {@link JwtPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#equals(Object)}
    *   <li>{@link JwtPair#hashCode()}
@@ -126,12 +134,14 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}, and {@link JwtPair#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#equals(Object)}
    *   <li>{@link JwtPair#hashCode()}
@@ -153,12 +163,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -174,12 +185,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -195,12 +207,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -216,12 +229,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,12 +251,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -259,12 +274,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -283,12 +299,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -301,12 +318,13 @@ class JwtPairDiffblueTest {
 
   /**
    * Test {@link JwtPair#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtPair#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtPair#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -319,8 +337,9 @@ class JwtPairDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#JwtPair()}
    *   <li>{@link JwtPair#setRefreshToken(String)}
@@ -335,9 +354,17 @@ class JwtPairDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JwtPair.<init>()", "void JwtPair.<init>(String, String)", "String JwtPair.getRefreshToken()",
-      "Authority JwtPair.getScope()", "String JwtPair.getToken()", "void JwtPair.setRefreshToken(String)",
-      "void JwtPair.setScope(Authority)", "void JwtPair.setToken(String)", "String JwtPair.toString()"})
+  @MethodsUnderTest({
+    "void JwtPair.<init>()",
+    "void JwtPair.<init>(String, String)",
+    "String JwtPair.getRefreshToken()",
+    "Authority JwtPair.getScope()",
+    "String JwtPair.getToken()",
+    "void JwtPair.setRefreshToken(String)",
+    "void JwtPair.setScope(Authority)",
+    "void JwtPair.setToken(String)",
+    "String JwtPair.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     JwtPair actualJwtPair = new JwtPair();
@@ -351,17 +378,20 @@ class JwtPairDiffblueTest {
     // Assert
     assertEquals("ABC123", actualRefreshToken);
     assertEquals("ABC123", actualJwtPair.getToken());
-    assertEquals("JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);
+    assertEquals(
+        "JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);
     assertEquals(Authority.SYS_ADMIN, actualScope);
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code ABC123}.</li>
+   *   <li>When {@code ABC123}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtPair#JwtPair(String, String)}
    *   <li>{@link JwtPair#setRefreshToken(String)}
@@ -376,9 +406,17 @@ class JwtPairDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'ABC123'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JwtPair.<init>()", "void JwtPair.<init>(String, String)", "String JwtPair.getRefreshToken()",
-      "Authority JwtPair.getScope()", "String JwtPair.getToken()", "void JwtPair.setRefreshToken(String)",
-      "void JwtPair.setScope(Authority)", "void JwtPair.setToken(String)", "String JwtPair.toString()"})
+  @MethodsUnderTest({
+    "void JwtPair.<init>()",
+    "void JwtPair.<init>(String, String)",
+    "String JwtPair.getRefreshToken()",
+    "Authority JwtPair.getScope()",
+    "String JwtPair.getToken()",
+    "void JwtPair.setRefreshToken(String)",
+    "void JwtPair.setScope(Authority)",
+    "void JwtPair.setToken(String)",
+    "String JwtPair.toString()"
+  })
   void testGettersAndSetters_whenAbc123() {
     // Arrange and Act
     JwtPair actualJwtPair = new JwtPair("ABC123", "ABC123");
@@ -392,7 +430,8 @@ class JwtPairDiffblueTest {
     // Assert
     assertEquals("ABC123", actualRefreshToken);
     assertEquals("ABC123", actualJwtPair.getToken());
-    assertEquals("JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);
+    assertEquals(
+        "JwtPair(token=ABC123, refreshToken=ABC123, scope=SYS_ADMIN)", actualToStringResult);
     assertEquals(Authority.SYS_ADMIN, actualScope);
   }
 }

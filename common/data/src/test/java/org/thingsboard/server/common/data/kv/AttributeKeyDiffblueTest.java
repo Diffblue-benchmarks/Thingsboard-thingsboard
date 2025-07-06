@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class AttributeKeyDiffblueTest {
   /**
    * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKey#equals(Object)}
    *   <li>{@link AttributeKey#hashCode()}
@@ -38,12 +40,14 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKey#equals(Object)}
    *   <li>{@link AttributeKey#hashCode()}
@@ -66,12 +70,14 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKey#equals(Object)}
    *   <li>{@link AttributeKey#hashCode()}
@@ -94,12 +100,14 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}, and {@link AttributeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKey#equals(Object)}
    *   <li>{@link AttributeKey#hashCode()}
@@ -121,12 +129,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -142,12 +151,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -163,12 +173,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -184,12 +195,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -205,12 +217,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -223,12 +236,13 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -241,8 +255,9 @@ class AttributeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKey#AttributeKey(String, String)}
    *   <li>{@link AttributeKey#toString()}
@@ -253,8 +268,12 @@ class AttributeKeyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AttributeKey.<init>(String, String)", "String AttributeKey.getAttributeKey()",
-      "String AttributeKey.getScope()", "String AttributeKey.toString()"})
+  @MethodsUnderTest({
+    "void AttributeKey.<init>(String, String)",
+    "String AttributeKey.getAttributeKey()",
+    "String AttributeKey.getScope()",
+    "String AttributeKey.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AttributeKey actualAttributeKey = new AttributeKey("Scope", "Attribute Key");

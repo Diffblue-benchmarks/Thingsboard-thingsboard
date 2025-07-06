@@ -24,13 +24,13 @@ import org.thingsboard.server.common.data.notification.info.EntitiesLimitNotific
 @ContextConfiguration(classes = {EntitiesLimitNotificationInfoBuilder.class})
 @ExtendWith(SpringExtension.class)
 class EntitiesLimitNotificationInfoDiffblueTest {
-  @Autowired
-  private EntitiesLimitNotificationInfoBuilder entitiesLimitNotificationInfoBuilder;
+  @Autowired private EntitiesLimitNotificationInfoBuilder entitiesLimitNotificationInfoBuilder;
 
   /**
    * Test EntitiesLimitNotificationInfoBuilder {@link EntitiesLimitNotificationInfoBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitiesLimitNotificationInfoBuilder#build()}
    *   <li>{@link EntitiesLimitNotificationInfoBuilder#currentCount(long)}
@@ -44,25 +44,28 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test EntitiesLimitNotificationInfoBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntitiesLimitNotificationInfoBuilder.<init>()",
-      "EntitiesLimitNotificationInfo EntitiesLimitNotificationInfoBuilder.build()",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.currentCount(long)",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.entityType(EntityType)",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.limit(long)",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.percents(int)",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.tenantId(TenantId)",
-      "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.tenantName(String)",
-      "String EntitiesLimitNotificationInfoBuilder.toString()"})
+  @MethodsUnderTest({
+    "void EntitiesLimitNotificationInfoBuilder.<init>()",
+    "EntitiesLimitNotificationInfo EntitiesLimitNotificationInfoBuilder.build()",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.currentCount(long)",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.entityType(EntityType)",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.limit(long)",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.percents(int)",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.tenantId(TenantId)",
+    "EntitiesLimitNotificationInfoBuilder EntitiesLimitNotificationInfoBuilder.tenantName(String)",
+    "String EntitiesLimitNotificationInfoBuilder.toString()"
+  })
   void testEntitiesLimitNotificationInfoBuilderBuild() {
     // Arrange and Act
-    EntitiesLimitNotificationInfo actualBuildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo actualBuildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Assert
     Map<String, String> templateData = actualBuildResult.getTemplateData();
@@ -91,11 +94,12 @@ class EntitiesLimitNotificationInfoDiffblueTest {
 
   /**
    * Test {@link EntitiesLimitNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is six.</li>
+   *   <li>Then return size is six.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesLimitNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link EntitiesLimitNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is six")
@@ -103,14 +107,15 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map EntitiesLimitNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsSix() {
     // Arrange
-    EntitiesLimitNotificationInfo buildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act
     Map<String, String> actualTemplateData = buildResult.getTemplateData();
@@ -126,13 +131,16 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntitiesLimitNotificationInfo#equals(Object)}, and {@link EntitiesLimitNotificationInfo#hashCode()}.
+   * Test {@link EntitiesLimitNotificationInfo#equals(Object)}, and {@link
+   * EntitiesLimitNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitiesLimitNotificationInfo#equals(Object)}
    *   <li>{@link EntitiesLimitNotificationInfo#hashCode()}
@@ -141,26 +149,30 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntitiesLimitNotificationInfo.equals(Object)",
-      "int EntitiesLimitNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntitiesLimitNotificationInfo.equals(Object)",
+    "int EntitiesLimitNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntitiesLimitNotificationInfo buildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
-    EntitiesLimitNotificationInfo buildResult2 = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
+    EntitiesLimitNotificationInfo buildResult2 =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -169,13 +181,16 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntitiesLimitNotificationInfo#equals(Object)}, and {@link EntitiesLimitNotificationInfo#hashCode()}.
+   * Test {@link EntitiesLimitNotificationInfo#equals(Object)}, and {@link
+   * EntitiesLimitNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitiesLimitNotificationInfo#equals(Object)}
    *   <li>{@link EntitiesLimitNotificationInfo#hashCode()}
@@ -184,18 +199,21 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntitiesLimitNotificationInfo.equals(Object)",
-      "int EntitiesLimitNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntitiesLimitNotificationInfo.equals(Object)",
+    "int EntitiesLimitNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntitiesLimitNotificationInfo buildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -205,39 +223,45 @@ class EntitiesLimitNotificationInfoDiffblueTest {
 
   /**
    * Test {@link EntitiesLimitNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntitiesLimitNotificationInfo.equals(Object)",
-      "int EntitiesLimitNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntitiesLimitNotificationInfo.equals(Object)",
+    "int EntitiesLimitNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationInfoBuilder entitiesLimitNotificationInfoBuilder = mock(
-        EntitiesLimitNotificationInfoBuilder.class);
+    EntitiesLimitNotificationInfoBuilder entitiesLimitNotificationInfoBuilder =
+        mock(EntitiesLimitNotificationInfoBuilder.class);
     when(entitiesLimitNotificationInfoBuilder.currentCount(anyLong()))
         .thenReturn(EntitiesLimitNotificationInfo.builder());
-    EntitiesLimitNotificationInfo buildResult = entitiesLimitNotificationInfoBuilder.currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
-    EntitiesLimitNotificationInfo buildResult2 = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        entitiesLimitNotificationInfoBuilder
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
+    EntitiesLimitNotificationInfo buildResult2 =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -245,28 +269,32 @@ class EntitiesLimitNotificationInfoDiffblueTest {
 
   /**
    * Test {@link EntitiesLimitNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntitiesLimitNotificationInfo.equals(Object)",
-      "int EntitiesLimitNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntitiesLimitNotificationInfo.equals(Object)",
+    "int EntitiesLimitNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationInfo buildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -274,28 +302,32 @@ class EntitiesLimitNotificationInfoDiffblueTest {
 
   /**
    * Test {@link EntitiesLimitNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitiesLimitNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntitiesLimitNotificationInfo.equals(Object)",
-      "int EntitiesLimitNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntitiesLimitNotificationInfo.equals(Object)",
+    "int EntitiesLimitNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntitiesLimitNotificationInfo buildResult = EntitiesLimitNotificationInfo.builder()
-        .currentCount(3L)
-        .entityType(EntityType.TENANT)
-        .limit(1L)
-        .percents(1)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .tenantName("Tenant Name")
-        .build();
+    EntitiesLimitNotificationInfo buildResult =
+        EntitiesLimitNotificationInfo.builder()
+            .currentCount(3L)
+            .entityType(EntityType.TENANT)
+            .limit(1L)
+            .percents(1)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .tenantName("Tenant Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to EntitiesLimitNotificationInfo");
@@ -303,8 +335,9 @@ class EntitiesLimitNotificationInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitiesLimitNotificationInfo#EntitiesLimitNotificationInfo()}
    *   <li>{@link EntitiesLimitNotificationInfo#setCurrentCount(long)}
@@ -326,20 +359,27 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntitiesLimitNotificationInfo.<init>()",
-      "TenantId EntitiesLimitNotificationInfo.getAffectedTenantId()",
-      "long EntitiesLimitNotificationInfo.getCurrentCount()",
-      "EntityType EntitiesLimitNotificationInfo.getEntityType()", "long EntitiesLimitNotificationInfo.getLimit()",
-      "int EntitiesLimitNotificationInfo.getPercents()", "TenantId EntitiesLimitNotificationInfo.getTenantId()",
-      "String EntitiesLimitNotificationInfo.getTenantName()",
-      "void EntitiesLimitNotificationInfo.setCurrentCount(long)",
-      "void EntitiesLimitNotificationInfo.setEntityType(EntityType)",
-      "void EntitiesLimitNotificationInfo.setLimit(long)", "void EntitiesLimitNotificationInfo.setPercents(int)",
-      "void EntitiesLimitNotificationInfo.setTenantId(TenantId)",
-      "void EntitiesLimitNotificationInfo.setTenantName(String)", "String EntitiesLimitNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void EntitiesLimitNotificationInfo.<init>()",
+    "TenantId EntitiesLimitNotificationInfo.getAffectedTenantId()",
+    "long EntitiesLimitNotificationInfo.getCurrentCount()",
+    "EntityType EntitiesLimitNotificationInfo.getEntityType()",
+    "long EntitiesLimitNotificationInfo.getLimit()",
+    "int EntitiesLimitNotificationInfo.getPercents()",
+    "TenantId EntitiesLimitNotificationInfo.getTenantId()",
+    "String EntitiesLimitNotificationInfo.getTenantName()",
+    "void EntitiesLimitNotificationInfo.setCurrentCount(long)",
+    "void EntitiesLimitNotificationInfo.setEntityType(EntityType)",
+    "void EntitiesLimitNotificationInfo.setLimit(long)",
+    "void EntitiesLimitNotificationInfo.setPercents(int)",
+    "void EntitiesLimitNotificationInfo.setTenantId(TenantId)",
+    "void EntitiesLimitNotificationInfo.setTenantName(String)",
+    "String EntitiesLimitNotificationInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    EntitiesLimitNotificationInfo actualEntitiesLimitNotificationInfo = new EntitiesLimitNotificationInfo();
+    EntitiesLimitNotificationInfo actualEntitiesLimitNotificationInfo =
+        new EntitiesLimitNotificationInfo();
     actualEntitiesLimitNotificationInfo.setCurrentCount(3L);
     actualEntitiesLimitNotificationInfo.setEntityType(EntityType.TENANT);
     actualEntitiesLimitNotificationInfo.setLimit(1L);
@@ -370,21 +410,27 @@ class EntitiesLimitNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link EntitiesLimitNotificationInfo#EntitiesLimitNotificationInfo(EntityType, long, long, int, TenantId, String)}.
-   * <p>
-   * Method under test: {@link EntitiesLimitNotificationInfo#EntitiesLimitNotificationInfo(EntityType, long, long, int, TenantId, String)}
+   * Test {@link EntitiesLimitNotificationInfo#EntitiesLimitNotificationInfo(EntityType, long, long,
+   * int, TenantId, String)}.
+   *
+   * <p>Method under test: {@link
+   * EntitiesLimitNotificationInfo#EntitiesLimitNotificationInfo(EntityType, long, long, int,
+   * TenantId, String)}
    */
   @Test
-  @DisplayName("Test new EntitiesLimitNotificationInfo(EntityType, long, long, int, TenantId, String)")
+  @DisplayName(
+      "Test new EntitiesLimitNotificationInfo(EntityType, long, long, int, TenantId, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntitiesLimitNotificationInfo.<init>(EntityType, long, long, int, TenantId, String)"})
+  @MethodsUnderTest({
+    "void EntitiesLimitNotificationInfo.<init>(EntityType, long, long, int, TenantId, String)"
+  })
   void testNewEntitiesLimitNotificationInfo() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
 
     // Act
-    EntitiesLimitNotificationInfo actualEntitiesLimitNotificationInfo = new EntitiesLimitNotificationInfo(
-        EntityType.TENANT, 3L, 1L, 1, tenantId, "Tenant Name");
+    EntitiesLimitNotificationInfo actualEntitiesLimitNotificationInfo =
+        new EntitiesLimitNotificationInfo(EntityType.TENANT, 3L, 1L, 1, tenantId, "Tenant Name");
 
     // Assert
     assertEquals("Tenant Name", actualEntitiesLimitNotificationInfo.getTenantName());

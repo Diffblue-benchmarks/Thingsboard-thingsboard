@@ -16,12 +16,14 @@ import org.thingsboard.server.dao.ota.OtaPackageCacheKey.OtaPackageCacheKeyBuild
 public class OtaPackageCacheKeyDiffblueTest {
   /**
    * Test {@link OtaPackageCacheKey#equals(Object)}, and {@link OtaPackageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageCacheKey#equals(Object)}
    *   <li>{@link OtaPackageCacheKey#hashCode()}
@@ -29,7 +31,10 @@ public class OtaPackageCacheKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheKey.equals(Object)", "int OtaPackageCacheKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheKey.equals(Object)",
+    "int OtaPackageCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OtaPackageCacheKey buildResult = OtaPackageCacheKey.builder().id(null).build();
@@ -43,12 +48,14 @@ public class OtaPackageCacheKeyDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheKey#equals(Object)}, and {@link OtaPackageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageCacheKey#equals(Object)}
    *   <li>{@link OtaPackageCacheKey#hashCode()}
@@ -56,17 +63,22 @@ public class OtaPackageCacheKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheKey.equals(Object)", "int OtaPackageCacheKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheKey.equals(Object)",
+    "int OtaPackageCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     OtaPackageCacheKeyBuilder builderResult = OtaPackageCacheKey.builder();
-    OtaPackageCacheKey buildResult = builderResult
-        .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    OtaPackageCacheKey buildResult =
+        builderResult
+            .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
     OtaPackageCacheKeyBuilder builderResult2 = OtaPackageCacheKey.builder();
-    OtaPackageCacheKey buildResult2 = builderResult2
-        .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    OtaPackageCacheKey buildResult2 =
+        builderResult2
+            .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -76,22 +88,27 @@ public class OtaPackageCacheKeyDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheKey.equals(Object)", "int OtaPackageCacheKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheKey.equals(Object)",
+    "int OtaPackageCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OtaPackageCacheKeyBuilder builderResult = OtaPackageCacheKey.builder();
-    OtaPackageCacheKey buildResult = builderResult
-        .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    OtaPackageCacheKey buildResult =
+        builderResult
+            .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
     OtaPackageCacheKey buildResult2 = OtaPackageCacheKey.builder().id(null).build();
 
     // Act and Assert
@@ -100,27 +117,34 @@ public class OtaPackageCacheKeyDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheKey.equals(Object)", "int OtaPackageCacheKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheKey.equals(Object)",
+    "int OtaPackageCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OtaPackageCacheKeyBuilder otaPackageCacheKeyBuilder = mock(OtaPackageCacheKeyBuilder.class);
-    when(otaPackageCacheKeyBuilder.id(Mockito.<OtaPackageId>any())).thenReturn(OtaPackageCacheKey.builder());
-    OtaPackageCacheKey buildResult = otaPackageCacheKeyBuilder
-        .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    when(otaPackageCacheKeyBuilder.id(Mockito.<OtaPackageId>any()))
+        .thenReturn(OtaPackageCacheKey.builder());
+    OtaPackageCacheKey buildResult =
+        otaPackageCacheKeyBuilder
+            .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
     OtaPackageCacheKeyBuilder builderResult = OtaPackageCacheKey.builder();
-    OtaPackageCacheKey buildResult2 = builderResult
-        .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .build();
+    OtaPackageCacheKey buildResult2 =
+        builderResult
+            .id(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);

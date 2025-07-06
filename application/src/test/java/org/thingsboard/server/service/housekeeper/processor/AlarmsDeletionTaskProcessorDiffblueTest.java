@@ -15,8 +15,8 @@ import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 class AlarmsDeletionTaskProcessorDiffblueTest {
   /**
    * Test {@link AlarmsDeletionTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link AlarmsDeletionTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link AlarmsDeletionTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -29,8 +29,14 @@ class AlarmsDeletionTaskProcessorDiffblueTest {
     BaseEntityService entityService = new BaseEntityService();
 
     // Act and Assert
-    assertEquals(HousekeeperTaskType.DELETE_ALARMS, (new AlarmsDeletionTaskProcessor(
-        new BaseAlarmService(tenantService, alarmDao, entityService, new AlarmDataValidator(new TenantServiceImpl()))))
-        .getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_ALARMS,
+        new AlarmsDeletionTaskProcessor(
+                new BaseAlarmService(
+                    tenantService,
+                    alarmDao,
+                    entityService,
+                    new AlarmDataValidator(new TenantServiceImpl())))
+            .getTaskType());
   }
 }

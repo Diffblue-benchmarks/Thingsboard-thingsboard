@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 class DoubleDataEntryDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DoubleDataEntry#DoubleDataEntry(String, Double)}
    *   <li>{@link DoubleDataEntry#toString()}
@@ -24,8 +25,12 @@ class DoubleDataEntryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DoubleDataEntry.<init>(String, Double)", "DataType DoubleDataEntry.getDataType()",
-      "Object DoubleDataEntry.getValue()", "String DoubleDataEntry.toString()"})
+  @MethodsUnderTest({
+    "void DoubleDataEntry.<init>(String, Double)",
+    "DataType DoubleDataEntry.getDataType()",
+    "Object DoubleDataEntry.getValue()",
+    "String DoubleDataEntry.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DoubleDataEntry actualDoubleDataEntry = new DoubleDataEntry("Key", 10.0d);
@@ -42,8 +47,8 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#getDoubleValue()}.
-   * <p>
-   * Method under test: {@link DoubleDataEntry#getDoubleValue()}
+   *
+   * <p>Method under test: {@link DoubleDataEntry#getDoubleValue()}
    */
   @Test
   @DisplayName("Test getDoubleValue()")
@@ -51,7 +56,7 @@ class DoubleDataEntryDiffblueTest {
   @MethodsUnderTest({"Optional DoubleDataEntry.getDoubleValue()"})
   void testGetDoubleValue() {
     // Arrange and Act
-    Optional<Double> actualDoubleValue = (new DoubleDataEntry("Key", 10.0d)).getDoubleValue();
+    Optional<Double> actualDoubleValue = new DoubleDataEntry("Key", 10.0d).getDoubleValue();
 
     // Assert
     assertEquals(10.0d, actualDoubleValue.get().doubleValue());
@@ -60,12 +65,14 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#equals(Object)}, and {@link DoubleDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DoubleDataEntry#equals(Object)}
    *   <li>{@link DoubleDataEntry#hashCode()}
@@ -88,12 +95,14 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#equals(Object)}, and {@link DoubleDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DoubleDataEntry#equals(Object)}
    *   <li>{@link DoubleDataEntry#hashCode()}
@@ -115,12 +124,13 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DoubleDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link DoubleDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -128,8 +138,8 @@ class DoubleDataEntryDiffblueTest {
   @MethodsUnderTest({"boolean DoubleDataEntry.equals(Object)", "int DoubleDataEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DoubleDataEntry doubleDataEntry = new DoubleDataEntry("org.thingsboard.server.common.data.kv.DoubleDataEntry",
-        10.0d);
+    DoubleDataEntry doubleDataEntry =
+        new DoubleDataEntry("org.thingsboard.server.common.data.kv.DoubleDataEntry", 10.0d);
 
     // Act and Assert
     assertNotEquals(doubleDataEntry, new DoubleDataEntry("Key", 10.0d));
@@ -137,12 +147,13 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DoubleDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link DoubleDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -155,12 +166,13 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DoubleDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link DoubleDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -173,8 +185,8 @@ class DoubleDataEntryDiffblueTest {
 
   /**
    * Test {@link DoubleDataEntry#getValueAsString()}.
-   * <p>
-   * Method under test: {@link DoubleDataEntry#getValueAsString()}
+   *
+   * <p>Method under test: {@link DoubleDataEntry#getValueAsString()}
    */
   @Test
   @DisplayName("Test getValueAsString()")
@@ -182,6 +194,6 @@ class DoubleDataEntryDiffblueTest {
   @MethodsUnderTest({"String DoubleDataEntry.getValueAsString()"})
   void testGetValueAsString() {
     // Arrange, Act and Assert
-    assertEquals("10.0", (new DoubleDataEntry("Key", 10.0d)).getValueAsString());
+    assertEquals("10.0", new DoubleDataEntry("Key", 10.0d).getValueAsString());
   }
 }

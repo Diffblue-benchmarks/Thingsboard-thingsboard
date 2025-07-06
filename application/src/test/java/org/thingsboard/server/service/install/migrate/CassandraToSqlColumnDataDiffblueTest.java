@@ -21,17 +21,19 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(SpringExtension.class)
 class CassandraToSqlColumnDataDiffblueTest {
-  @Autowired
-  private CassandraToSqlColumnData cassandraToSqlColumnData;
+  @Autowired private CassandraToSqlColumnData cassandraToSqlColumnData;
 
   /**
-   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link CassandraToSqlColumnData#hashCode()}.
+   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link
+   * CassandraToSqlColumnData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumnData#equals(Object)}
    *   <li>{@link CassandraToSqlColumnData#hashCode()}
@@ -40,7 +42,10 @@ class CassandraToSqlColumnDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("42");
@@ -53,13 +58,16 @@ class CassandraToSqlColumnDataDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link CassandraToSqlColumnData#hashCode()}.
+   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link
+   * CassandraToSqlColumnData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumnData#equals(Object)}
    *   <li>{@link CassandraToSqlColumnData#hashCode()}
@@ -68,7 +76,10 @@ class CassandraToSqlColumnDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData(null);
@@ -81,13 +92,16 @@ class CassandraToSqlColumnDataDiffblueTest {
   }
 
   /**
-   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link CassandraToSqlColumnData#hashCode()}.
+   * Test {@link CassandraToSqlColumnData#equals(Object)}, and {@link
+   * CassandraToSqlColumnData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumnData#equals(Object)}
    *   <li>{@link CassandraToSqlColumnData#hashCode()}
@@ -96,7 +110,10 @@ class CassandraToSqlColumnDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("42");
@@ -109,17 +126,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("Value");
@@ -130,17 +151,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData(null);
@@ -151,17 +176,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("42");
@@ -173,17 +202,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("Value");
@@ -195,17 +228,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData(null);
@@ -217,17 +254,21 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CassandraToSqlColumnData("42"), null);
@@ -235,26 +276,32 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#equals(Object)}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CassandraToSqlColumnData.equals(Object)", "int CassandraToSqlColumnData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CassandraToSqlColumnData.equals(Object)",
+    "int CassandraToSqlColumnData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new CassandraToSqlColumnData("42"), "Different type to CassandraToSqlColumnData");
+    assertNotEquals(
+        new CassandraToSqlColumnData("42"), "Different type to CassandraToSqlColumnData");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CassandraToSqlColumnData#CassandraToSqlColumnData(String)}
    *   <li>{@link CassandraToSqlColumnData#setConstraintCounter(int)}
@@ -270,12 +317,17 @@ class CassandraToSqlColumnDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CassandraToSqlColumnData.<init>(String)",
-      "int CassandraToSqlColumnData.getConstraintCounter()", "String CassandraToSqlColumnData.getOriginalValue()",
-      "String CassandraToSqlColumnData.getValue()", "int CassandraToSqlColumnData.nextContraintCounter()",
-      "void CassandraToSqlColumnData.setConstraintCounter(int)",
-      "void CassandraToSqlColumnData.setOriginalValue(String)", "void CassandraToSqlColumnData.setValue(String)",
-      "String CassandraToSqlColumnData.toString()"})
+  @MethodsUnderTest({
+    "void CassandraToSqlColumnData.<init>(String)",
+    "int CassandraToSqlColumnData.getConstraintCounter()",
+    "String CassandraToSqlColumnData.getOriginalValue()",
+    "String CassandraToSqlColumnData.getValue()",
+    "int CassandraToSqlColumnData.nextContraintCounter()",
+    "void CassandraToSqlColumnData.setConstraintCounter(int)",
+    "void CassandraToSqlColumnData.setOriginalValue(String)",
+    "void CassandraToSqlColumnData.setValue(String)",
+    "String CassandraToSqlColumnData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     CassandraToSqlColumnData actualCassandraToSqlColumnData = new CassandraToSqlColumnData("42");
@@ -290,31 +342,39 @@ class CassandraToSqlColumnDataDiffblueTest {
     // Assert
     assertEquals("42", actualOriginalValue);
     assertEquals("42", actualCassandraToSqlColumnData.getValue());
-    assertEquals("CassandraToSqlColumnData(value=42, originalValue=42, constraintCounter=4)", actualToStringResult);
+    assertEquals(
+        "CassandraToSqlColumnData(value=42, originalValue=42, constraintCounter=4)",
+        actualToStringResult);
     assertEquals(4, actualConstraintCounter);
     assertEquals(4, actualNextContraintCounterResult);
   }
 
   /**
    * Test {@link CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}.
+   *
    * <ul>
-   *   <li>Given three.</li>
-   *   <li>Then return {@code 1}.</li>
+   *   <li>Given three.
+   *   <li>Then return {@code 1}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}
+   *
+   * <p>Method under test: {@link
+   * CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}
    */
   @Test
-  @DisplayName("Test getNextConstraintStringValue(CassandraToSqlColumn); given three; then return '1'")
+  @DisplayName(
+      "Test getNextConstraintStringValue(CassandraToSqlColumn); given three; then return '1'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String CassandraToSqlColumnData.getNextConstraintStringValue(CassandraToSqlColumn)"})
+  @MethodsUnderTest({
+    "String CassandraToSqlColumnData.getNextConstraintStringValue(CassandraToSqlColumn)"
+  })
   void testGetNextConstraintStringValue_givenThree_thenReturn1() {
     // Arrange
     CassandraToSqlColumn column = mock(CassandraToSqlColumn.class);
     when(column.getSize()).thenReturn(3);
 
     // Act
-    String actualNextConstraintStringValue = cassandraToSqlColumnData.getNextConstraintStringValue(column);
+    String actualNextConstraintStringValue =
+        cassandraToSqlColumnData.getNextConstraintStringValue(column);
 
     // Assert
     verify(column).getSize();
@@ -324,16 +384,20 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}.
+   *
    * <ul>
-   *   <li>Then return {@code Va1}.</li>
+   *   <li>Then return {@code Va1}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}
+   *
+   * <p>Method under test: {@link
+   * CassandraToSqlColumnData#getNextConstraintStringValue(CassandraToSqlColumn)}
    */
   @Test
   @DisplayName("Test getNextConstraintStringValue(CassandraToSqlColumn); then return 'Va1'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String CassandraToSqlColumnData.getNextConstraintStringValue(CassandraToSqlColumn)"})
+  @MethodsUnderTest({
+    "String CassandraToSqlColumnData.getNextConstraintStringValue(CassandraToSqlColumn)"
+  })
   void testGetNextConstraintStringValue_thenReturnVa1() {
     // Arrange
     CassandraToSqlColumnData cassandraToSqlColumnData = new CassandraToSqlColumnData("Value");
@@ -341,7 +405,8 @@ class CassandraToSqlColumnDataDiffblueTest {
     when(column.getSize()).thenReturn(3);
 
     // Act
-    String actualNextConstraintStringValue = cassandraToSqlColumnData.getNextConstraintStringValue(column);
+    String actualNextConstraintStringValue =
+        cassandraToSqlColumnData.getNextConstraintStringValue(column);
 
     // Assert
     verify(column).getSize();
@@ -351,15 +416,17 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#getLogValue()}.
+   *
    * <ul>
-   *   <li>Given {@link CassandraToSqlColumnData} Value is {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link CassandraToSqlColumnData} Value is {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#getLogValue()}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#getLogValue()}
    */
   @Test
-  @DisplayName("Test getLogValue(); given CassandraToSqlColumnData Value is 'null'; then return 'null'")
+  @DisplayName(
+      "Test getLogValue(); given CassandraToSqlColumnData Value is 'null'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String CassandraToSqlColumnData.getLogValue()"})
   void testGetLogValue_givenCassandraToSqlColumnDataValueIsNull_thenReturnNull() {
@@ -372,12 +439,13 @@ class CassandraToSqlColumnDataDiffblueTest {
 
   /**
    * Test {@link CassandraToSqlColumnData#getLogValue()}.
+   *
    * <ul>
-   *   <li>Given {@link CassandraToSqlColumnData}.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>Given {@link CassandraToSqlColumnData}.
+   *   <li>Then return empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link CassandraToSqlColumnData#getLogValue()}
+   *
+   * <p>Method under test: {@link CassandraToSqlColumnData#getLogValue()}
    */
   @Test
   @DisplayName("Test getLogValue(); given CassandraToSqlColumnData; then return empty string")

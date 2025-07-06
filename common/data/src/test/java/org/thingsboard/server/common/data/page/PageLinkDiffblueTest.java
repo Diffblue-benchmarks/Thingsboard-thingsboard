@@ -25,12 +25,14 @@ import org.springframework.data.domain.Sort.Order;
 class PageLinkDiffblueTest {
   /**
    * Test {@link PageLink#equals(Object)}, and {@link PageLink#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#equals(Object)}
    *   <li>{@link PageLink#hashCode()}
@@ -53,12 +55,49 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}, and {@link PageLink#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PageLink#equals(Object)}
+   *   <li>{@link PageLink#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageLink.equals(Object)", "int PageLink.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    PageLink pageLink = new PageLink(3, 1);
+    TimePageLink timePageLink = mock(TimePageLink.class);
+    when(timePageLink.getTextSearch()).thenReturn(null);
+    when(timePageLink.getSortOrder()).thenReturn(null);
+    when(timePageLink.getPage()).thenReturn(1);
+    when(timePageLink.getPageSize()).thenReturn(3);
+    when(timePageLink.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertEquals(pageLink, timePageLink);
+    int notExpectedHashCodeResult = pageLink.hashCode();
+    assertNotEquals(notExpectedHashCodeResult, timePageLink.hashCode());
+  }
+
+  /**
+   * Test {@link PageLink#equals(Object)}, and {@link PageLink#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#equals(Object)}
    *   <li>{@link PageLink#hashCode()}
@@ -80,12 +119,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -101,12 +141,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -122,12 +163,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -143,12 +185,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -158,9 +201,9 @@ class PageLinkDiffblueTest {
     // Arrange
     PageLink pageLink = new PageLink(3);
     TimePageLink timePageLink = mock(TimePageLink.class);
+    when(timePageLink.getTextSearch()).thenReturn(null);
+    when(timePageLink.getSortOrder()).thenReturn(null);
     when(timePageLink.getPage()).thenReturn(1);
-    when(timePageLink.getTextSearch()).thenReturn("Text Search");
-    when(timePageLink.getSortOrder()).thenReturn(SortOrder.BY_CREATED_TIME_DESC);
     when(timePageLink.getPageSize()).thenReturn(3);
     when(timePageLink.canEqual(Mockito.<Object>any())).thenReturn(true);
 
@@ -170,18 +213,47 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean PageLink.equals(Object)", "int PageLink.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    PageLink pageLink = new PageLink(3, 1, "Text Search");
+    TimePageLink timePageLink = mock(TimePageLink.class);
+    when(timePageLink.getTextSearch()).thenReturn(null);
+    when(timePageLink.getSortOrder()).thenReturn(null);
+    when(timePageLink.getPage()).thenReturn(1);
+    when(timePageLink.getPageSize()).thenReturn(3);
+    when(timePageLink.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(pageLink, timePageLink);
+  }
+
+  /**
+   * Test {@link PageLink#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean PageLink.equals(Object)", "int PageLink.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     PageLink pageLink = new PageLink(3, 1);
     TimePageLink timePageLink = mock(TimePageLink.class);
@@ -197,18 +269,19 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean PageLink.equals(Object)", "int PageLink.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     PageLink pageLink = new PageLink(3, 1, "Text Search");
     TimePageLink timePageLink = mock(TimePageLink.class);
@@ -224,39 +297,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PageLink.equals(Object)", "int PageLink.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
-    // Arrange
-    PageLink pageLink = new PageLink(3, 1, "id");
-    TimePageLink timePageLink = mock(TimePageLink.class);
-    when(timePageLink.getPage()).thenReturn(1);
-    when(timePageLink.getTextSearch()).thenReturn("Text Search");
-    when(timePageLink.getSortOrder()).thenReturn(SortOrder.BY_CREATED_TIME_DESC);
-    when(timePageLink.getPageSize()).thenReturn(3);
-    when(timePageLink.canEqual(Mockito.<Object>any())).thenReturn(true);
-
-    // Act and Assert
-    assertNotEquals(pageLink, timePageLink);
-  }
-
-  /**
-   * Test {@link PageLink#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -269,12 +316,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#equals(Object)}
+   *
+   * <p>Method under test: {@link PageLink#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -287,8 +335,9 @@ class PageLinkDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#PageLink(int)}
    *   <li>{@link PageLink#toString()}
@@ -301,10 +350,17 @@ class PageLinkDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PageLink.<init>(int)", "void PageLink.<init>(int, int)",
-      "void PageLink.<init>(int, int, String)", "void PageLink.<init>(int, int, String, SortOrder)",
-      "int PageLink.getPage()", "int PageLink.getPageSize()", "SortOrder PageLink.getSortOrder()",
-      "String PageLink.getTextSearch()", "String PageLink.toString()"})
+  @MethodsUnderTest({
+    "void PageLink.<init>(int)",
+    "void PageLink.<init>(int, int)",
+    "void PageLink.<init>(int, int, String)",
+    "void PageLink.<init>(int, int, String, SortOrder)",
+    "int PageLink.getPage()",
+    "int PageLink.getPageSize()",
+    "SortOrder PageLink.getSortOrder()",
+    "String PageLink.getTextSearch()",
+    "String PageLink.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PageLink actualPageLink = new PageLink(3);
@@ -314,7 +370,8 @@ class PageLinkDiffblueTest {
     SortOrder actualSortOrder = actualPageLink.getSortOrder();
 
     // Assert
-    assertEquals("PageLink(textSearch=null, pageSize=3, page=0, sortOrder=null)", actualToStringResult);
+    assertEquals(
+        "PageLink(textSearch=null, pageSize=3, page=0, sortOrder=null)", actualToStringResult);
     assertNull(actualPageLink.getTextSearch());
     assertNull(actualSortOrder);
     assertEquals(0, actualPage);
@@ -323,8 +380,9 @@ class PageLinkDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#PageLink(int, int)}
    *   <li>{@link PageLink#toString()}
@@ -337,10 +395,17 @@ class PageLinkDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PageLink.<init>(int)", "void PageLink.<init>(int, int)",
-      "void PageLink.<init>(int, int, String)", "void PageLink.<init>(int, int, String, SortOrder)",
-      "int PageLink.getPage()", "int PageLink.getPageSize()", "SortOrder PageLink.getSortOrder()",
-      "String PageLink.getTextSearch()", "String PageLink.toString()"})
+  @MethodsUnderTest({
+    "void PageLink.<init>(int)",
+    "void PageLink.<init>(int, int)",
+    "void PageLink.<init>(int, int, String)",
+    "void PageLink.<init>(int, int, String, SortOrder)",
+    "int PageLink.getPage()",
+    "int PageLink.getPageSize()",
+    "SortOrder PageLink.getSortOrder()",
+    "String PageLink.getTextSearch()",
+    "String PageLink.toString()"
+  })
   void testGettersAndSetters2() {
     // Arrange and Act
     PageLink actualPageLink = new PageLink(3, 1);
@@ -350,7 +415,8 @@ class PageLinkDiffblueTest {
     SortOrder actualSortOrder = actualPageLink.getSortOrder();
 
     // Assert
-    assertEquals("PageLink(textSearch=null, pageSize=3, page=1, sortOrder=null)", actualToStringResult);
+    assertEquals(
+        "PageLink(textSearch=null, pageSize=3, page=1, sortOrder=null)", actualToStringResult);
     assertNull(actualPageLink.getTextSearch());
     assertNull(actualSortOrder);
     assertEquals(1, actualPage);
@@ -359,8 +425,9 @@ class PageLinkDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#PageLink(int, int, String)}
    *   <li>{@link PageLink#toString()}
@@ -373,10 +440,17 @@ class PageLinkDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PageLink.<init>(int)", "void PageLink.<init>(int, int)",
-      "void PageLink.<init>(int, int, String)", "void PageLink.<init>(int, int, String, SortOrder)",
-      "int PageLink.getPage()", "int PageLink.getPageSize()", "SortOrder PageLink.getSortOrder()",
-      "String PageLink.getTextSearch()", "String PageLink.toString()"})
+  @MethodsUnderTest({
+    "void PageLink.<init>(int)",
+    "void PageLink.<init>(int, int)",
+    "void PageLink.<init>(int, int, String)",
+    "void PageLink.<init>(int, int, String, SortOrder)",
+    "int PageLink.getPage()",
+    "int PageLink.getPageSize()",
+    "SortOrder PageLink.getSortOrder()",
+    "String PageLink.getTextSearch()",
+    "String PageLink.toString()"
+  })
   void testGettersAndSetters3() {
     // Arrange and Act
     PageLink actualPageLink = new PageLink(3, 1, "Text Search");
@@ -386,7 +460,9 @@ class PageLinkDiffblueTest {
     SortOrder actualSortOrder = actualPageLink.getSortOrder();
 
     // Assert
-    assertEquals("PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=null)", actualToStringResult);
+    assertEquals(
+        "PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=null)",
+        actualToStringResult);
     assertEquals("Text Search", actualPageLink.getTextSearch());
     assertNull(actualSortOrder);
     assertEquals(1, actualPage);
@@ -395,12 +471,14 @@ class PageLinkDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link SortOrder#BY_CREATED_TIME_DESC}.</li>
-   *   <li>Then return toString is a string.</li>
+   *   <li>When {@link SortOrder#BY_CREATED_TIME_DESC}.
+   *   <li>Then return toString is a string.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageLink#PageLink(int, int, String, SortOrder)}
    *   <li>{@link PageLink#toString()}
@@ -411,12 +489,20 @@ class PageLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when BY_CREATED_TIME_DESC; then return toString is a string")
+  @DisplayName(
+      "Test getters and setters; when BY_CREATED_TIME_DESC; then return toString is a string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PageLink.<init>(int)", "void PageLink.<init>(int, int)",
-      "void PageLink.<init>(int, int, String)", "void PageLink.<init>(int, int, String, SortOrder)",
-      "int PageLink.getPage()", "int PageLink.getPageSize()", "SortOrder PageLink.getSortOrder()",
-      "String PageLink.getTextSearch()", "String PageLink.toString()"})
+  @MethodsUnderTest({
+    "void PageLink.<init>(int)",
+    "void PageLink.<init>(int, int)",
+    "void PageLink.<init>(int, int, String)",
+    "void PageLink.<init>(int, int, String, SortOrder)",
+    "int PageLink.getPage()",
+    "int PageLink.getPageSize()",
+    "SortOrder PageLink.getSortOrder()",
+    "String PageLink.getTextSearch()",
+    "String PageLink.toString()"
+  })
   void testGettersAndSetters_whenBy_created_time_desc_thenReturnToStringIsAString() {
     // Arrange and Act
     PageLink actualPageLink = new PageLink(3, 1, "Text Search", SortOrder.BY_CREATED_TIME_DESC);
@@ -426,8 +512,10 @@ class PageLinkDiffblueTest {
     SortOrder actualSortOrder = actualPageLink.getSortOrder();
 
     // Assert
-    assertEquals("PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=SortOrder(property=createdTime,"
-        + " direction=DESC))", actualToStringResult);
+    assertEquals(
+        "PageLink(textSearch=Text Search, pageSize=3, page=1, sortOrder=SortOrder(property=createdTime,"
+            + " direction=DESC))",
+        actualToStringResult);
     assertEquals("Text Search", actualPageLink.getTextSearch());
     assertEquals(1, actualPage);
     assertEquals(3, actualPageSize);
@@ -436,11 +524,12 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#PageLink(PageLink)}.
+   *
    * <ul>
-   *   <li>Then return {@link PageLink#PageLink(int)} with pageSize is three.</li>
+   *   <li>Then return {@link PageLink#PageLink(int)} with pageSize is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#PageLink(PageLink)}
+   *
+   * <p>Method under test: {@link PageLink#PageLink(PageLink)}
    */
   @Test
   @DisplayName("Test new PageLink(PageLink); then return PageLink(int) with pageSize is three")
@@ -456,11 +545,12 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#nextPageLink()}.
+   *
    * <ul>
-   *   <li>Given {@link PageLink#PageLink(int)} with pageSize is three.</li>
+   *   <li>Given {@link PageLink#PageLink(int)} with pageSize is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#nextPageLink()}
+   *
+   * <p>Method under test: {@link PageLink#nextPageLink()}
    */
   @Test
   @DisplayName("Test nextPageLink(); given PageLink(int) with pageSize is three")
@@ -468,7 +558,7 @@ class PageLinkDiffblueTest {
   @MethodsUnderTest({"PageLink PageLink.nextPageLink()"})
   void testNextPageLink_givenPageLinkWithPageSizeIsThree() {
     // Arrange and Act
-    PageLink actualNextPageLinkResult = (new PageLink(3)).nextPageLink();
+    PageLink actualNextPageLinkResult = new PageLink(3).nextPageLink();
 
     // Assert
     assertNull(actualNextPageLinkResult.getTextSearch());
@@ -479,20 +569,22 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#nextPageLink()}.
+   *
    * <ul>
-   *   <li>Given {@link TimePageLink#TimePageLink(int)} with pageSize is three.</li>
-   *   <li>Then return {@link TimePageLink}.</li>
+   *   <li>Given {@link TimePageLink#TimePageLink(int)} with pageSize is three.
+   *   <li>Then return {@link TimePageLink}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#nextPageLink()}
+   *
+   * <p>Method under test: {@link PageLink#nextPageLink()}
    */
   @Test
-  @DisplayName("Test nextPageLink(); given TimePageLink(int) with pageSize is three; then return TimePageLink")
+  @DisplayName(
+      "Test nextPageLink(); given TimePageLink(int) with pageSize is three; then return TimePageLink")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageLink PageLink.nextPageLink()"})
   void testNextPageLink_givenTimePageLinkWithPageSizeIsThree_thenReturnTimePageLink() {
     // Arrange and Act
-    TimePageLink actualNextPageLinkResult = (new TimePageLink(3)).nextPageLink();
+    TimePageLink actualNextPageLinkResult = new TimePageLink(3).nextPageLink();
 
     // Assert
     assertTrue(actualNextPageLinkResult instanceof TimePageLink);
@@ -505,12 +597,14 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code columnMap}, {@code addDefaultSorting}.
-   * <p>
-   * Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
+   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code
+   * columnMap}, {@code addDefaultSorting}.
+   *
+   * <p>Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'")
+  @DisplayName(
+      "Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(SortOrder, Map, boolean)"})
   void testToSortWithSortOrderColumnMapAddDefaultSorting() {
@@ -521,19 +615,24 @@ class PageLinkDiffblueTest {
     // Act and Assert
     List<Order> toListResult = pageLink.toSort(sortOrder, new HashMap<>(), true).toList();
     assertEquals(1, toListResult.size());
-    assertEquals(toListResult.get(0).ignoreCase().ignoreCase(), toListResult.get(0).ignoreCase().ignoreCase());
+    assertEquals(
+        toListResult.get(0).ignoreCase().ignoreCase(),
+        toListResult.get(0).ignoreCase().ignoreCase());
   }
 
   /**
-   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code
+   * columnMap}, {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Then return toList size is two.</li>
+   *   <li>Then return toList size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; then return toList size is two")
+  @DisplayName(
+      "Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; then return toList size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(SortOrder, Map, boolean)"})
   void testToSortWithSortOrderColumnMapAddDefaultSorting_thenReturnToListSizeIsTwo() {
@@ -541,7 +640,8 @@ class PageLinkDiffblueTest {
     PageLink pageLink = new PageLink(3);
 
     // Act and Assert
-    List<Order> toListResult = pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, new HashMap<>(), true).toList();
+    List<Order> toListResult =
+        pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, new HashMap<>(), true).toList();
     assertEquals(2, toListResult.size());
     Order getResult = toListResult.get(1);
     assertEquals("id", getResult.getProperty());
@@ -557,20 +657,25 @@ class PageLinkDiffblueTest {
     assertTrue(getResult.isAscending());
     assertTrue(ignoreCaseResult.isAscending());
     assertTrue(ignoreCaseResult.isIgnoreCase());
-    assertEquals(toListResult.get(0).ignoreCase().ignoreCase(), toListResult.get(0).ignoreCase().ignoreCase());
+    assertEquals(
+        toListResult.get(0).ignoreCase().ignoreCase(),
+        toListResult.get(0).ignoreCase().ignoreCase());
     assertEquals(ignoreCaseResult.ignoreCase(), ignoreCaseResult.ignoreCase());
   }
 
   /**
-   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code
+   * columnMap}, {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>When {@code false}.</li>
+   *   <li>When {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when 'false'")
+  @DisplayName(
+      "Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(SortOrder, Map, boolean)"})
   void testToSortWithSortOrderColumnMapAddDefaultSorting_whenFalse() {
@@ -578,21 +683,27 @@ class PageLinkDiffblueTest {
     PageLink pageLink = new PageLink(3);
 
     // Act and Assert
-    List<Order> toListResult = pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, new HashMap<>(), false).toList();
+    List<Order> toListResult =
+        pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, new HashMap<>(), false).toList();
     assertEquals(1, toListResult.size());
-    assertEquals(toListResult.get(0).ignoreCase().ignoreCase(), toListResult.get(0).ignoreCase().ignoreCase());
+    assertEquals(
+        toListResult.get(0).ignoreCase().ignoreCase(),
+        toListResult.get(0).ignoreCase().ignoreCase());
   }
 
   /**
-   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code
+   * columnMap}, {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()} {@code id} is {@code id}.</li>
+   *   <li>When {@link HashMap#HashMap()} {@code id} is {@code id}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when HashMap() 'id' is 'id'")
+  @DisplayName(
+      "Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when HashMap() 'id' is 'id'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(SortOrder, Map, boolean)"})
   void testToSortWithSortOrderColumnMapAddDefaultSorting_whenHashMapIdIsId() {
@@ -603,7 +714,8 @@ class PageLinkDiffblueTest {
     columnMap.put("id", "id");
 
     // Act and Assert
-    List<Order> toListResult = pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, columnMap, true).toList();
+    List<Order> toListResult =
+        pageLink.toSort(SortOrder.BY_CREATED_TIME_DESC, columnMap, true).toList();
     assertEquals(2, toListResult.size());
     Order getResult = toListResult.get(1);
     assertEquals("id", getResult.getProperty());
@@ -619,20 +731,25 @@ class PageLinkDiffblueTest {
     assertTrue(getResult.isAscending());
     assertTrue(ignoreCaseResult.isAscending());
     assertTrue(ignoreCaseResult.isIgnoreCase());
-    assertEquals(toListResult.get(0).ignoreCase().ignoreCase(), toListResult.get(0).ignoreCase().ignoreCase());
+    assertEquals(
+        toListResult.get(0).ignoreCase().ignoreCase(),
+        toListResult.get(0).ignoreCase().ignoreCase());
     assertEquals(ignoreCaseResult.ignoreCase(), ignoreCaseResult.ignoreCase());
   }
 
   /**
-   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(SortOrder, Map, boolean)} with {@code sortOrder}, {@code
+   * columnMap}, {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(SortOrder, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when 'null'")
+  @DisplayName(
+      "Test toSort(SortOrder, Map, boolean) with 'sortOrder', 'columnMap', 'addDefaultSorting'; when 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(SortOrder, Map, boolean)"})
   void testToSortWithSortOrderColumnMapAddDefaultSorting_whenNull() {
@@ -642,16 +759,20 @@ class PageLinkDiffblueTest {
     // Act and Assert
     List<Order> toListResult = pageLink.toSort((SortOrder) null, new HashMap<>(), true).toList();
     assertEquals(1, toListResult.size());
-    assertEquals(toListResult.get(0).ignoreCase().ignoreCase(), toListResult.get(0).ignoreCase().ignoreCase());
+    assertEquals(
+        toListResult.get(0).ignoreCase().ignoreCase(),
+        toListResult.get(0).ignoreCase().ignoreCase());
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting() {
@@ -682,16 +803,19 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Given {@code id}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code id} is {@code id}.</li>
+   *   <li>Given {@code id}.
+   *   <li>When {@link HashMap#HashMap()} {@code id} is {@code id}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; given 'id'; when HashMap() 'id' is 'id'")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; given 'id'; when HashMap() 'id' is 'id'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting_givenId_whenHashMapIdIsId() {
@@ -723,15 +847,18 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Then return toList Empty.</li>
+   *   <li>Then return toList Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList Empty")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting_thenReturnToListEmpty() {
@@ -744,15 +871,18 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Then return toList size is one.</li>
+   *   <li>Then return toList size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is one")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting_thenReturnToListSizeIsOne() {
@@ -781,15 +911,18 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Then return toList size is three.</li>
+   *   <li>Then return toList size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is three")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting_thenReturnToListSizeIsThree() {
@@ -814,15 +947,18 @@ class PageLinkDiffblueTest {
   }
 
   /**
-   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap}, {@code addDefaultSorting}.
+   * Test {@link PageLink#toSort(List, Map, boolean)} with {@code sortOrders}, {@code columnMap},
+   * {@code addDefaultSorting}.
+   *
    * <ul>
-   *   <li>Then return toList size is two.</li>
+   *   <li>Then return toList size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#toSort(List, Map, boolean)}
+   *
+   * <p>Method under test: {@link PageLink#toSort(List, Map, boolean)}
    */
   @Test
-  @DisplayName("Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is two")
+  @DisplayName(
+      "Test toSort(List, Map, boolean) with 'sortOrders', 'columnMap', 'addDefaultSorting'; then return toList size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Sort PageLink.toSort(List, Map, boolean)"})
   void testToSortWithSortOrdersColumnMapAddDefaultSorting_thenReturnToListSizeIsTwo() {
@@ -852,11 +988,12 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#isDefaultSortOrderAvailable(List)}.
+   *
    * <ul>
-   *   <li>Given {@link SortOrder#BY_CREATED_TIME_DESC}.</li>
+   *   <li>Given {@link SortOrder#BY_CREATED_TIME_DESC}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
+   *
+   * <p>Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
    */
   @Test
   @DisplayName("Test isDefaultSortOrderAvailable(List); given BY_CREATED_TIME_DESC")
@@ -875,11 +1012,12 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#isDefaultSortOrderAvailable(List)}.
+   *
    * <ul>
-   *   <li>Given {@link SortOrder#BY_CREATED_TIME_DESC}.</li>
+   *   <li>Given {@link SortOrder#BY_CREATED_TIME_DESC}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
+   *
+   * <p>Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
    */
   @Test
   @DisplayName("Test isDefaultSortOrderAvailable(List); given BY_CREATED_TIME_DESC")
@@ -899,11 +1037,12 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#isDefaultSortOrderAvailable(List)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
+   *
+   * <p>Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
    */
   @Test
   @DisplayName("Test isDefaultSortOrderAvailable(List); then return 'true'")
@@ -922,12 +1061,13 @@ class PageLinkDiffblueTest {
 
   /**
    * Test {@link PageLink#isDefaultSortOrderAvailable(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
+   *
+   * <p>Method under test: {@link PageLink#isDefaultSortOrderAvailable(List)}
    */
   @Test
   @DisplayName("Test isDefaultSortOrderAvailable(List); when ArrayList(); then return 'false'")

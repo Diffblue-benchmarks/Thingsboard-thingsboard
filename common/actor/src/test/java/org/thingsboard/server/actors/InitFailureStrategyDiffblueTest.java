@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class InitFailureStrategyDiffblueTest {
   /**
    * Test {@link InitFailureStrategy#retryImmediately()}.
-   * <p>
-   * Method under test: {@link InitFailureStrategy#retryImmediately()}
+   *
+   * <p>Method under test: {@link InitFailureStrategy#retryImmediately()}
    */
   @Test
   @DisplayName("Test retryImmediately()")
@@ -29,8 +29,8 @@ class InitFailureStrategyDiffblueTest {
 
   /**
    * Test {@link InitFailureStrategy#retryWithDelay(long)}.
-   * <p>
-   * Method under test: {@link InitFailureStrategy#retryWithDelay(long)}
+   *
+   * <p>Method under test: {@link InitFailureStrategy#retryWithDelay(long)}
    */
   @Test
   @DisplayName("Test retryWithDelay(long)")
@@ -47,8 +47,8 @@ class InitFailureStrategyDiffblueTest {
 
   /**
    * Test {@link InitFailureStrategy#stop()}.
-   * <p>
-   * Method under test: {@link InitFailureStrategy#stop()}
+   *
+   * <p>Method under test: {@link InitFailureStrategy#stop()}
    */
   @Test
   @DisplayName("Test stop()")
@@ -65,8 +65,9 @@ class InitFailureStrategyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link InitFailureStrategy#toString()}
    *   <li>{@link InitFailureStrategy#getRetryDelay()}
@@ -76,8 +77,11 @@ class InitFailureStrategyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long InitFailureStrategy.getRetryDelay()", "boolean InitFailureStrategy.isStop()",
-      "String InitFailureStrategy.toString()"})
+  @MethodsUnderTest({
+    "long InitFailureStrategy.getRetryDelay()",
+    "boolean InitFailureStrategy.isStop()",
+    "String InitFailureStrategy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     InitFailureStrategy retryImmediatelyResult = InitFailureStrategy.retryImmediately();

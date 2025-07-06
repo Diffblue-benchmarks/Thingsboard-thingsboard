@@ -5,26 +5,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
 import java.util.concurrent.Executor;
 import org.eclipse.californium.core.coap.CoAP;
 import org.eclipse.californium.core.coap.CoAP.Code;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.coap.OptionSet;
 import org.eclipse.californium.core.coap.Request;
+import org.eclipse.californium.core.coap.Response;
+import org.eclipse.californium.core.network.Endpoint;
 import org.eclipse.californium.core.network.Exchange;
 import org.eclipse.californium.core.network.Exchange.Origin;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class CoapEfentoCallbackDiffblueTest {
   /**
    * Test {@link CoapEfentoCallback#CoapEfentoCallback(CoapExchange, ResponseCode, ResponseCode)}.
-   * <p>
-   * Method under test: {@link CoapEfentoCallback#CoapEfentoCallback(CoapExchange, ResponseCode, ResponseCode)}
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#CoapEfentoCallback(CoapExchange, ResponseCode,
+   * ResponseCode)}
    */
   @Test
   @DisplayName("Test new CoapEfentoCallback(CoapExchange, ResponseCode, ResponseCode)")
@@ -32,9 +41,14 @@ class CoapEfentoCallbackDiffblueTest {
   @MethodsUnderTest({"void CoapEfentoCallback.<init>(CoapExchange, ResponseCode, ResponseCode)"})
   void testNewCoapEfentoCallback() {
     // Arrange, Act and Assert
-    CoapExchange coapExchange = (new CoapEfentoCallback(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)).exchange;
+    CoapExchange coapExchange =
+        new CoapEfentoCallback(
+                new CoapExchange(
+                    new Exchange(
+                        Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+                ResponseCode._UNKNOWN_SUCCESS_CODE,
+                ResponseCode._UNKNOWN_SUCCESS_CODE)
+            .exchange;
     OptionSet requestOptions = coapExchange.getRequestOptions();
     assertEquals("", requestOptions.getLocationPathString());
     assertEquals("", requestOptions.getLocationQueryString());
@@ -89,16 +103,626 @@ class CoapEfentoCallbackDiffblueTest {
     assertTrue(requestOptions.getOthers().isEmpty());
     assertTrue(requestOptions.getUriPath().isEmpty());
     assertTrue(requestOptions.getUriQuery().isEmpty());
-    assertArrayEquals(new byte[]{}, coapExchange.getRequestPayload());
+    assertArrayEquals(new byte[] {}, coapExchange.getRequestPayload());
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Query");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@code A}.
+   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given 'A'; then calls sendResponse(Exchange, Response)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenA_thenCallsSendResponse() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag(new byte[] {'A', 6, 'A', 6, 'A', 6, 'A', 6});
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@code A}.
+   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given 'A'; then calls sendResponse(Exchange, Response)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenA_thenCallsSendResponse2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag(new byte[] {'A', 6, 'A', 6, 'A', 6, 'A', 6});
+    exchange2.setLocationQuery("");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenCoapExchangeWithExchangeIsExchange() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    // Act
+    new CoapEfentoCallback(
+            new CoapExchange(exchange),
+            ResponseCode._UNKNOWN_SUCCESS_CODE,
+            ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationPath is {@code Path}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationPath is 'Path'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenCoapExchangeWithExchangeIsExchangeLocationPathIsPath() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationPath is {@code Path}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationPath is 'Path'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenCoapExchangeWithExchangeIsExchangeLocationPathIsPath2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+    exchange2.setLocationQuery("");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is six.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is six")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenCoapExchangeWithExchangeIsExchangeMaxAgeIsSix() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(6L);
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is six.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is six")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenCoapExchangeWithExchangeIsExchangeMaxAgeIsSix2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(6L);
+    exchange2.setLocationQuery("");
+
+    // Act
+    new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given newDelete LocalAddress createUnresolved {@code foo} and six is {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given newDelete LocalAddress createUnresolved 'foo' and six is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenNewDeleteLocalAddressCreateUnresolvedFooAndSixIsTrue() {
+    // Arrange
+    Request request = Request.newDelete();
+    request.setLocalAddress(InetSocketAddress.createUnresolved("foo", 6), true);
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange = new Exchange(request, "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    // Act
+    new CoapEfentoCallback(
+            new CoapExchange(exchange),
+            ResponseCode._UNKNOWN_SUCCESS_CODE,
+            ResponseCode._UNKNOWN_SUCCESS_CODE)
+        .onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} ETag is {@code AXAXAXAX} Bytes is
+   *       {@code UTF-8}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) ETag is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeETagIsAxaxaxaxBytesIsUtf8()
+      throws UnsupportedEncodingException {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag("AXAXAXAX".getBytes("UTF-8"));
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationPath is {@code Path}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationPath is 'Path'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeLocationPathIsPath() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationQuery is empty string.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationQuery is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeLocationQueryIsEmptyString() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("");
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationQuery is {@code Query}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationQuery is 'Query'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeLocationQueryIsQuery() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Query");
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeMaxAgeIsOne() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(1L);
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            exchange2, ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
+   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor); then calls sendResponse(Exchange, Response)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchange_thenCallsSendResponse() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            new CoapExchange(exchange),
+            ResponseCode._UNKNOWN_SUCCESS_CODE,
+            ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given newDelete LocalAddress createUnresolved {@code foo} and one is {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given newDelete LocalAddress createUnresolved 'foo' and one is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoCallback.onError(Throwable)"})
+  void testOnError_givenNewDeleteLocalAddressCreateUnresolvedFooAndOneIsTrue() {
+    // Arrange
+    Request request = Request.newDelete();
+    request.setLocalAddress(InetSocketAddress.createUnresolved("foo", 1), true);
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange = new Exchange(request, "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapEfentoCallback coapEfentoCallback =
+        new CoapEfentoCallback(
+            new CoapExchange(exchange),
+            ResponseCode._UNKNOWN_SUCCESS_CODE,
+            ResponseCode._UNKNOWN_SUCCESS_CODE);
+
+    // Act
+    coapEfentoCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
   }
 
   /**
    * Test {@link CoapEfentoCallback#isConRequest()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoCallback#isConRequest()}
+   *
+   * <p>Method under test: {@link CoapEfentoCallback#isConRequest()}
    */
   @Test
   @DisplayName("Test isConRequest(); then return 'true'")
@@ -106,8 +730,13 @@ class CoapEfentoCallbackDiffblueTest {
   @MethodsUnderTest({"boolean CoapEfentoCallback.isConRequest()"})
   void testIsConRequest_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new CoapEfentoCallback(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        ResponseCode._UNKNOWN_SUCCESS_CODE, ResponseCode._UNKNOWN_SUCCESS_CODE)).isConRequest());
+    assertTrue(
+        new CoapEfentoCallback(
+                new CoapExchange(
+                    new Exchange(
+                        Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+                ResponseCode._UNKNOWN_SUCCESS_CODE,
+                ResponseCode._UNKNOWN_SUCCESS_CODE)
+            .isConRequest());
   }
 }

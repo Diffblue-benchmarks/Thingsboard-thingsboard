@@ -10,75 +10,94 @@ import org.junit.jupiter.api.Test;
 class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbSendRestApiCallReplyNodeConfiguration TbSendRestApiCallReplyNodeConfiguration.defaultConfiguration()"})
+    "TbSendRestApiCallReplyNodeConfiguration TbSendRestApiCallReplyNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbSendRestApiCallReplyNodeConfiguration,
+    assertEquals(
+        tbSendRestApiCallReplyNodeConfiguration,
         tbSendRestApiCallReplyNodeConfiguration.defaultConfiguration());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getServiceIdMetaDataAttribute()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"
+  })
   void testGetServiceIdMetaDataAttribute() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
     tbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute("");
 
     // Act and Assert
-    assertEquals(TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID,
+    assertEquals(
+        TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID,
         tbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Given {@link TbSendRestApiCallReplyNodeConfiguration} (default constructor).</li>
+   *   <li>Given {@link TbSendRestApiCallReplyNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
-  @DisplayName("Test getServiceIdMetaDataAttribute(); given TbSendRestApiCallReplyNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test getServiceIdMetaDataAttribute(); given TbSendRestApiCallReplyNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"
+  })
   void testGetServiceIdMetaDataAttribute_givenTbSendRestApiCallReplyNodeConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID,
-        (new TbSendRestApiCallReplyNodeConfiguration()).getServiceIdMetaDataAttribute());
+    assertEquals(
+        TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID,
+        new TbSendRestApiCallReplyNodeConfiguration().getServiceIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getServiceIdMetaDataAttribute(); then return 'foo'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getServiceIdMetaDataAttribute()"
+  })
   void testGetServiceIdMetaDataAttribute_thenReturnFoo() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
     tbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute("foo");
 
     // Act and Assert
@@ -87,56 +106,72 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getRequestIdMetaDataAttribute()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"
+  })
   void testGetRequestIdMetaDataAttribute() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
     tbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute("");
 
     // Act and Assert
-    assertEquals(TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID,
+    assertEquals(
+        TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID,
         tbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Given {@link TbSendRestApiCallReplyNodeConfiguration} (default constructor).</li>
+   *   <li>Given {@link TbSendRestApiCallReplyNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
-  @DisplayName("Test getRequestIdMetaDataAttribute(); given TbSendRestApiCallReplyNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test getRequestIdMetaDataAttribute(); given TbSendRestApiCallReplyNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"
+  })
   void testGetRequestIdMetaDataAttribute_givenTbSendRestApiCallReplyNodeConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID,
-        (new TbSendRestApiCallReplyNodeConfiguration()).getRequestIdMetaDataAttribute());
+    assertEquals(
+        TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID,
+        new TbSendRestApiCallReplyNodeConfiguration().getRequestIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link
+   * TbSendRestApiCallReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getRequestIdMetaDataAttribute(); then return 'foo'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
+  @MethodsUnderTest({
+    "String TbSendRestApiCallReplyNodeConfiguration.getRequestIdMetaDataAttribute()"
+  })
   void testGetRequestIdMetaDataAttribute_thenReturnFoo() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
     tbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute("foo");
 
     // Act and Assert
@@ -144,13 +179,16 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}
@@ -159,12 +197,16 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration2 = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration2 =
+        new TbSendRestApiCallReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRestApiCallReplyNodeConfiguration, tbSendRestApiCallReplyNodeConfiguration2);
@@ -173,13 +215,16 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}
@@ -188,14 +233,18 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
-    tbSendRestApiCallReplyNodeConfiguration
-        .setServiceIdMetaDataAttribute(TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID);
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration2 = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
+    tbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID);
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration2 =
+        new TbSendRestApiCallReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRestApiCallReplyNodeConfiguration, tbSendRestApiCallReplyNodeConfiguration2);
@@ -204,13 +253,16 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRestApiCallReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#hashCode()}
@@ -219,11 +271,14 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRestApiCallReplyNodeConfiguration, tbSendRestApiCallReplyNodeConfiguration);
@@ -233,18 +288,21 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRestApiCallReplyNodeConfiguration(), 1);
@@ -252,66 +310,79 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
-    tbSendRestApiCallReplyNodeConfiguration
-        .setRequestIdMetaDataAttribute(TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID);
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
+    tbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute(
+        TbSendRestApiCallReplyNodeConfiguration.SERVICE_ID);
 
     // Act and Assert
-    assertNotEquals(tbSendRestApiCallReplyNodeConfiguration, new TbSendRestApiCallReplyNodeConfiguration());
+    assertNotEquals(
+        tbSendRestApiCallReplyNodeConfiguration, new TbSendRestApiCallReplyNodeConfiguration());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
-    tbSendRestApiCallReplyNodeConfiguration
-        .setServiceIdMetaDataAttribute(TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID);
+    TbSendRestApiCallReplyNodeConfiguration tbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
+    tbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        TbSendRestApiCallReplyNodeConfiguration.REQUEST_UUID);
 
     // Act and Assert
-    assertNotEquals(tbSendRestApiCallReplyNodeConfiguration, new TbSendRestApiCallReplyNodeConfiguration());
+    assertNotEquals(
+        tbSendRestApiCallReplyNodeConfiguration, new TbSendRestApiCallReplyNodeConfiguration());
   }
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRestApiCallReplyNodeConfiguration(), null);
@@ -319,28 +390,33 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRestApiCallReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
-      "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRestApiCallReplyNodeConfiguration.equals(Object)",
+    "int TbSendRestApiCallReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbSendRestApiCallReplyNodeConfiguration(),
+    assertNotEquals(
+        new TbSendRestApiCallReplyNodeConfiguration(),
         "Different type to TbSendRestApiCallReplyNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbSendRestApiCallReplyNodeConfiguration}
    *   <li>{@link TbSendRestApiCallReplyNodeConfiguration#setRequestIdMetaDataAttribute(String)}
@@ -351,15 +427,20 @@ class TbSendRestApiCallReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbSendRestApiCallReplyNodeConfiguration.<init>()",
-      "void TbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute(String)",
-      "void TbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute(String)",
-      "String TbSendRestApiCallReplyNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbSendRestApiCallReplyNodeConfiguration.<init>()",
+    "void TbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute(String)",
+    "void TbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute(String)",
+    "String TbSendRestApiCallReplyNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbSendRestApiCallReplyNodeConfiguration actualTbSendRestApiCallReplyNodeConfiguration = new TbSendRestApiCallReplyNodeConfiguration();
-    actualTbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute("Request Id Meta Data Attribute");
-    actualTbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute("Service Id Meta Data Attribute");
+    TbSendRestApiCallReplyNodeConfiguration actualTbSendRestApiCallReplyNodeConfiguration =
+        new TbSendRestApiCallReplyNodeConfiguration();
+    actualTbSendRestApiCallReplyNodeConfiguration.setRequestIdMetaDataAttribute(
+        "Request Id Meta Data Attribute");
+    actualTbSendRestApiCallReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        "Service Id Meta Data Attribute");
 
     // Assert
     assertEquals(

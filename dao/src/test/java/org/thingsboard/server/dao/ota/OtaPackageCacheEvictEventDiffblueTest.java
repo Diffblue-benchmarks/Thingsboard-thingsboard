@@ -11,13 +11,16 @@ import org.thingsboard.server.common.data.id.OtaPackageId;
 
 public class OtaPackageCacheEvictEventDiffblueTest {
   /**
-   * Test {@link OtaPackageCacheEvictEvent#equals(Object)}, and {@link OtaPackageCacheEvictEvent#hashCode()}.
+   * Test {@link OtaPackageCacheEvictEvent#equals(Object)}, and {@link
+   * OtaPackageCacheEvictEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageCacheEvictEvent#equals(Object)}
    *   <li>{@link OtaPackageCacheEvictEvent#hashCode()}
@@ -25,7 +28,10 @@ public class OtaPackageCacheEvictEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheEvictEvent.equals(Object)", "int OtaPackageCacheEvictEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheEvictEvent.equals(Object)",
+    "int OtaPackageCacheEvictEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OtaPackageCacheEvictEvent otaPackageCacheEvictEvent = new OtaPackageCacheEvictEvent(null);
@@ -38,13 +44,16 @@ public class OtaPackageCacheEvictEventDiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageCacheEvictEvent#equals(Object)}, and {@link OtaPackageCacheEvictEvent#hashCode()}.
+   * Test {@link OtaPackageCacheEvictEvent#equals(Object)}, and {@link
+   * OtaPackageCacheEvictEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageCacheEvictEvent#equals(Object)}
    *   <li>{@link OtaPackageCacheEvictEvent#hashCode()}
@@ -52,13 +61,18 @@ public class OtaPackageCacheEvictEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheEvictEvent.equals(Object)", "int OtaPackageCacheEvictEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheEvictEvent.equals(Object)",
+    "int OtaPackageCacheEvictEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent = new OtaPackageCacheEvictEvent(
-        new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent2 = new OtaPackageCacheEvictEvent(
-        new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent =
+        new OtaPackageCacheEvictEvent(
+            new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent2 =
+        new OtaPackageCacheEvictEvent(
+            new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(otaPackageCacheEvictEvent, otaPackageCacheEvictEvent2);
@@ -68,20 +82,25 @@ public class OtaPackageCacheEvictEventDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheEvictEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheEvictEvent.equals(Object)", "int OtaPackageCacheEvictEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheEvictEvent.equals(Object)",
+    "int OtaPackageCacheEvictEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent = new OtaPackageCacheEvictEvent(
-        new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    OtaPackageCacheEvictEvent otaPackageCacheEvictEvent =
+        new OtaPackageCacheEvictEvent(
+            new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(otaPackageCacheEvictEvent, new OtaPackageCacheEvictEvent(null));
@@ -89,16 +108,20 @@ public class OtaPackageCacheEvictEventDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheEvictEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheEvictEvent.equals(Object)", "int OtaPackageCacheEvictEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheEvictEvent.equals(Object)",
+    "int OtaPackageCacheEvictEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange, Act and Assert
     assertNotEquals(new OtaPackageCacheEvictEvent(null), 1);
@@ -106,22 +129,28 @@ public class OtaPackageCacheEvictEventDiffblueTest {
 
   /**
    * Test {@link OtaPackageCacheEvictEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageCacheEvictEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean OtaPackageCacheEvictEvent.equals(Object)", "int OtaPackageCacheEvictEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OtaPackageCacheEvictEvent.equals(Object)",
+    "int OtaPackageCacheEvictEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OtaPackageCacheEvictEvent otaPackageCacheEvictEvent = new OtaPackageCacheEvictEvent(null);
 
     // Act and Assert
-    assertNotEquals(otaPackageCacheEvictEvent,
-        new OtaPackageCacheEvictEvent(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    assertNotEquals(
+        otaPackageCacheEvictEvent,
+        new OtaPackageCacheEvictEvent(
+            new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 }

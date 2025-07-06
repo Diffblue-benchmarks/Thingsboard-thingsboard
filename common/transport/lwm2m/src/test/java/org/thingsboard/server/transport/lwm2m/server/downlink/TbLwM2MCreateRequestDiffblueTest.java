@@ -20,13 +20,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MCreateReque
 @ContextConfiguration(classes = {TbLwM2MCreateRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MCreateRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MCreateRequestBuilder tbLwM2MCreateRequestBuilder;
+  @Autowired private TbLwM2MCreateRequestBuilder tbLwM2MCreateRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MCreateRequest#getNodes()}
    *   <li>{@link TbLwM2MCreateRequest#getObjectContentFormat()}
@@ -37,20 +37,25 @@ class TbLwM2MCreateRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map TbLwM2MCreateRequest.getNodes()",
-      "ContentFormat TbLwM2MCreateRequest.getObjectContentFormat()",
-      "LwM2MOperationType TbLwM2MCreateRequest.getType()", "Object TbLwM2MCreateRequest.getValue()"})
+  @MethodsUnderTest({
+    "Map TbLwM2MCreateRequest.getNodes()",
+    "ContentFormat TbLwM2MCreateRequest.getObjectContentFormat()",
+    "LwM2MOperationType TbLwM2MCreateRequest.getType()",
+    "Object TbLwM2MCreateRequest.getValue()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MCreateRequestBuilder builderResult = TbLwM2MCreateRequest.builder();
     HashMap<String, Object> nodes = new HashMap<>();
     TbLwM2MCreateRequestBuilder nodesResult = builderResult.nodes(nodes);
     ContentFormat objectContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MCreateRequest buildResult = nodesResult.objectContentFormat(objectContentFormat)
-        .timeout(10L)
-        .value("Value")
-        .versionedId("42")
-        .build();
+    TbLwM2MCreateRequest buildResult =
+        nodesResult
+            .objectContentFormat(objectContentFormat)
+            .timeout(10L)
+            .value("Value")
+            .versionedId("42")
+            .build();
 
     // Act
     Map<String, Object> actualNodes = buildResult.getNodes();
@@ -67,8 +72,9 @@ class TbLwM2MCreateRequestDiffblueTest {
 
   /**
    * Test TbLwM2MCreateRequestBuilder {@link TbLwM2MCreateRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MCreateRequestBuilder#build()}
    *   <li>{@link TbLwM2MCreateRequestBuilder#nodes(Map)}
@@ -81,14 +87,16 @@ class TbLwM2MCreateRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MCreateRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MCreateRequestBuilder.<init>()",
-      "TbLwM2MCreateRequest TbLwM2MCreateRequestBuilder.build()",
-      "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.nodes(Map)",
-      "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.objectContentFormat(ContentFormat)",
-      "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.timeout(long)",
-      "String TbLwM2MCreateRequestBuilder.toString()",
-      "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.value(Object)",
-      "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MCreateRequestBuilder.<init>()",
+    "TbLwM2MCreateRequest TbLwM2MCreateRequestBuilder.build()",
+    "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.nodes(Map)",
+    "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.objectContentFormat(ContentFormat)",
+    "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.timeout(long)",
+    "String TbLwM2MCreateRequestBuilder.toString()",
+    "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.value(Object)",
+    "TbLwM2MCreateRequestBuilder TbLwM2MCreateRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MCreateRequestBuilderBuild() {
     // Arrange
     TbLwM2MCreateRequestBuilder builderResult = TbLwM2MCreateRequest.builder();
@@ -97,11 +105,13 @@ class TbLwM2MCreateRequestDiffblueTest {
     ContentFormat objectContentFormat = ContentFormat.fromCode(1);
 
     // Act
-    TbLwM2MCreateRequest actualBuildResult = nodesResult.objectContentFormat(objectContentFormat)
-        .timeout(10L)
-        .value("Value")
-        .versionedId("42")
-        .build();
+    TbLwM2MCreateRequest actualBuildResult =
+        nodesResult
+            .objectContentFormat(objectContentFormat)
+            .timeout(10L)
+            .value("Value")
+            .versionedId("42")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

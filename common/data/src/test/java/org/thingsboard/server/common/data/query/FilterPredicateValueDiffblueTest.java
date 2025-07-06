@@ -13,12 +13,14 @@ import org.junit.jupiter.api.Test;
 class FilterPredicateValueDiffblueTest {
   /**
    * Test {@link FilterPredicateValue#equals(Object)}, and {@link FilterPredicateValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#equals(Object)}
    *   <li>{@link FilterPredicateValue#hashCode()}
@@ -27,13 +29,22 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
-    FilterPredicateValue<Object> filterPredicateValue2 = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals(filterPredicateValue, filterPredicateValue2);
@@ -43,12 +54,14 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}, and {@link FilterPredicateValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#equals(Object)}
    *   <li>{@link FilterPredicateValue#hashCode()}
@@ -57,13 +70,22 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>(null, "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
-    FilterPredicateValue<Object> filterPredicateValue2 = new FilterPredicateValue<>(null, "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            null,
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>(
+            null,
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals(filterPredicateValue, filterPredicateValue2);
@@ -73,12 +95,14 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}, and {@link FilterPredicateValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#equals(Object)}
    *   <li>{@link FilterPredicateValue#hashCode()}
@@ -87,13 +111,22 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", null,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
-    FilterPredicateValue<Object> filterPredicateValue2 = new FilterPredicateValue<>("Default Value", null,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            null,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>(
+            "Default Value",
+            null,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals(filterPredicateValue, filterPredicateValue2);
@@ -103,12 +136,49 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}, and {@link FilterPredicateValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link FilterPredicateValue#equals(Object)}
+   *   <li>{@link FilterPredicateValue#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>("Default Value", "User Value", null);
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>("Default Value", "User Value", null);
+
+    // Act and Assert
+    assertEquals(filterPredicateValue, filterPredicateValue2);
+    int expectedHashCodeResult = filterPredicateValue.hashCode();
+    assertEquals(expectedHashCodeResult, filterPredicateValue2.hashCode());
+  }
+
+  /**
+   * Test {@link FilterPredicateValue#equals(Object)}, and {@link FilterPredicateValue#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#equals(Object)}
    *   <li>{@link FilterPredicateValue#hashCode()}
@@ -117,11 +187,17 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals(filterPredicateValue, filterPredicateValue);
@@ -131,210 +207,307 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>(42, "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            42,
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Default Value"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Default Value"));
 
-    FilterPredicateValue<Object> filterPredicateValue2 = new FilterPredicateValue<>(filterPredicateValue, "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>(
+            filterPredicateValue,
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue2, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue2,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>(null, "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            null,
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", 42,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            42,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Default Value"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Default Value"));
 
-    FilterPredicateValue<Object> filterPredicateValue2 = new FilterPredicateValue<>("Default Value",
-        filterPredicateValue, new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue2 =
+        new FilterPredicateValue<>(
+            "Default Value",
+            filterPredicateValue,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue2, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue2,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", null,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            null,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(null, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value", "User Value", new DynamicValue<>(null, "Source Attribute"));
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value", null);
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>("Default Value", "User Value", null);
 
     // Act and Assert
-    assertNotEquals(filterPredicateValue, new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    assertNotEquals(
+        filterPredicateValue,
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
   }
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertNotEquals(filterPredicateValue, null);
@@ -342,21 +515,28 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#equals(Object)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FilterPredicateValue.equals(Object)", "int FilterPredicateValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FilterPredicateValue.equals(Object)",
+    "int FilterPredicateValue.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertNotEquals(filterPredicateValue, "Different type to FilterPredicateValue");
@@ -364,8 +544,9 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#FilterPredicateValue(Object)}
    *   <li>{@link FilterPredicateValue#toString()}
@@ -377,20 +558,26 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void FilterPredicateValue.<init>(Object)",
-      "void FilterPredicateValue.<init>(Object, Object, DynamicValue)", "Object FilterPredicateValue.getDefaultValue()",
-      "DynamicValue FilterPredicateValue.getDynamicValue()", "Object FilterPredicateValue.getUserValue()",
-      "String FilterPredicateValue.toString()"})
+  @MethodsUnderTest({
+    "void FilterPredicateValue.<init>(Object)",
+    "void FilterPredicateValue.<init>(Object, Object, DynamicValue)",
+    "Object FilterPredicateValue.getDefaultValue()",
+    "DynamicValue FilterPredicateValue.getDynamicValue()",
+    "Object FilterPredicateValue.getUserValue()",
+    "String FilterPredicateValue.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    FilterPredicateValue<Object> actualFilterPredicateValue = new FilterPredicateValue<>("Default Value");
+    FilterPredicateValue<Object> actualFilterPredicateValue =
+        new FilterPredicateValue<>("Default Value");
     String actualToStringResult = actualFilterPredicateValue.toString();
     Object actualDefaultValue = actualFilterPredicateValue.getDefaultValue();
     DynamicValue<Object> actualDynamicValue = actualFilterPredicateValue.getDynamicValue();
 
     // Assert
     assertEquals("Default Value", actualDefaultValue);
-    assertEquals("FilterPredicateValue(defaultValue=Default Value, userValue=null, dynamicValue=null)",
+    assertEquals(
+        "FilterPredicateValue(defaultValue=Default Value, userValue=null, dynamicValue=null)",
         actualToStringResult);
     assertNull(actualFilterPredicateValue.getUserValue());
     assertNull(actualDynamicValue);
@@ -398,12 +585,14 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code User Value}.</li>
-   *   <li>Then return toString is a string.</li>
+   *   <li>When {@code User Value}.
+   *   <li>Then return toString is a string.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FilterPredicateValue#FilterPredicateValue(Object, Object, DynamicValue)}
    *   <li>{@link FilterPredicateValue#toString()}
@@ -415,17 +604,22 @@ class FilterPredicateValueDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'User Value'; then return toString is a string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void FilterPredicateValue.<init>(Object)",
-      "void FilterPredicateValue.<init>(Object, Object, DynamicValue)", "Object FilterPredicateValue.getDefaultValue()",
-      "DynamicValue FilterPredicateValue.getDynamicValue()", "Object FilterPredicateValue.getUserValue()",
-      "String FilterPredicateValue.toString()"})
+  @MethodsUnderTest({
+    "void FilterPredicateValue.<init>(Object)",
+    "void FilterPredicateValue.<init>(Object, Object, DynamicValue)",
+    "Object FilterPredicateValue.getDefaultValue()",
+    "DynamicValue FilterPredicateValue.getDynamicValue()",
+    "Object FilterPredicateValue.getUserValue()",
+    "String FilterPredicateValue.toString()"
+  })
   void testGettersAndSetters_whenUserValue_thenReturnToStringIsAString() {
     // Arrange
-    DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
+    DynamicValue<Object> dynamicValue =
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
 
     // Act
-    FilterPredicateValue<Object> actualFilterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        dynamicValue);
+    FilterPredicateValue<Object> actualFilterPredicateValue =
+        new FilterPredicateValue<>("Default Value", "User Value", dynamicValue);
     String actualToStringResult = actualFilterPredicateValue.toString();
     Object actualDefaultValue = actualFilterPredicateValue.getDefaultValue();
     DynamicValue<Object> actualDynamicValue = actualFilterPredicateValue.getDynamicValue();
@@ -442,16 +636,23 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#getValue()}.
-   * <p>
-   * Method under test: {@link FilterPredicateValue#getValue()}
+   *
+   * <ul>
+   *   <li>Given {@link FilterPredicateValue#FilterPredicateValue(Object)} with {@code Default
+   *       Value}.
+   *   <li>Then return {@code Default Value}.
+   * </ul>
+   *
+   * <p>Method under test: {@link FilterPredicateValue#getValue()}
    */
   @Test
-  @DisplayName("Test getValue()")
+  @DisplayName(
+      "Test getValue(); given FilterPredicateValue(Object) with 'Default Value'; then return 'Default Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object FilterPredicateValue.getValue()"})
-  void testGetValue() {
+  void testGetValue_givenFilterPredicateValueWithDefaultValue_thenReturnDefaultValue() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", null, null);
+    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value");
 
     // Act and Assert
     assertEquals("Default Value", filterPredicateValue.getValue());
@@ -459,11 +660,12 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#getValue()}.
+   *
    * <ul>
-   *   <li>Then return {@code Default Value}.</li>
+   *   <li>Then return {@code Default Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#getValue()}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#getValue()}
    */
   @Test
   @DisplayName("Test getValue(); then return 'Default Value'")
@@ -471,8 +673,11 @@ class FilterPredicateValueDiffblueTest {
   @MethodsUnderTest({"Object FilterPredicateValue.getValue()"})
   void testGetValue_thenReturnDefaultValue() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", null,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            null,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals("Default Value", filterPredicateValue.getValue());
@@ -480,33 +685,37 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#getValue()}.
+   *
    * <ul>
-   *   <li>Then return {@code Dynamic Value}.</li>
+   *   <li>Then return {@code Resolved Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#getValue()}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#getValue()}
    */
   @Test
-  @DisplayName("Test getValue(); then return 'Dynamic Value'")
+  @DisplayName("Test getValue(); then return 'Resolved Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object FilterPredicateValue.getValue()"})
-  void testGetValue_thenReturnDynamicValue() {
+  void testGetValue_thenReturnResolvedValue() {
     // Arrange
-    DynamicValue<Object> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
-    dynamicValue.setResolvedValue("Dynamic Value");
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", null, dynamicValue);
+    DynamicValue<Object> dynamicValue =
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
+    dynamicValue.setResolvedValue("Resolved Value");
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>("Default Value", null, dynamicValue);
 
     // Act and Assert
-    assertEquals("Dynamic Value", filterPredicateValue.getValue());
+    assertEquals("Resolved Value", filterPredicateValue.getValue());
   }
 
   /**
    * Test {@link FilterPredicateValue#getValue()}.
+   *
    * <ul>
-   *   <li>Then return {@code User Value}.</li>
+   *   <li>Then return {@code User Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link FilterPredicateValue#getValue()}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#getValue()}
    */
   @Test
   @DisplayName("Test getValue(); then return 'User Value'")
@@ -514,8 +723,11 @@ class FilterPredicateValueDiffblueTest {
   @MethodsUnderTest({"Object FilterPredicateValue.getValue()"})
   void testGetValue_thenReturnUserValue() {
     // Arrange
-    FilterPredicateValue<Object> filterPredicateValue = new FilterPredicateValue<>("Default Value", "User Value",
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Object> filterPredicateValue =
+        new FilterPredicateValue<>(
+            "Default Value",
+            "User Value",
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     // Act and Assert
     assertEquals("User Value", filterPredicateValue.getValue());
@@ -523,8 +735,8 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#fromDouble(double)}.
-   * <p>
-   * Method under test: {@link FilterPredicateValue#fromDouble(double)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#fromDouble(double)}
    */
   @Test
   @DisplayName("Test fromDouble(double)")
@@ -543,8 +755,8 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#fromString(String)}.
-   * <p>
-   * Method under test: {@link FilterPredicateValue#fromString(String)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#fromString(String)}
    */
   @Test
   @DisplayName("Test fromString(String)")
@@ -563,8 +775,8 @@ class FilterPredicateValueDiffblueTest {
 
   /**
    * Test {@link FilterPredicateValue#fromBoolean(boolean)}.
-   * <p>
-   * Method under test: {@link FilterPredicateValue#fromBoolean(boolean)}
+   *
+   * <p>Method under test: {@link FilterPredicateValue#fromBoolean(boolean)}
    */
   @Test
   @DisplayName("Test fromBoolean(boolean)")

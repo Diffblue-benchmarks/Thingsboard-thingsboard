@@ -16,26 +16,52 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class DeviceProfileControllerDiffblueTest {
-  @InjectMocks
-  private DeviceProfileController deviceProfileController;
+  @InjectMocks private DeviceProfileController deviceProfileController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+
+  /**
+   * Test {@link DeviceProfileController#getDeviceProfileById(String, boolean)}.
+   *
+   * <p>Method under test: {@link DeviceProfileController#getDeviceProfileById(String, boolean)}
+   */
+  @Test
+  @DisplayName("Test getDeviceProfileById(String, boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.DeviceProfile DeviceProfileController.getDeviceProfileById(String, boolean)"
+  })
+  void testGetDeviceProfileById() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/deviceProfile/{deviceProfileId}", "42")
+            .param("inlineImages", "https://example.org/example");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(deviceProfileController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
 
   /**
    * Test {@link DeviceProfileController#getDeviceProfiles(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link DeviceProfileController#getDeviceProfiles(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link DeviceProfileController#getDeviceProfiles(int, int, String,
+   * String, String)}
    */
   @Test
   @DisplayName("Test getDeviceProfiles(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DeviceProfileController.getDeviceProfiles(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DeviceProfileController.getDeviceProfiles(int, int, String, String, String)"
+  })
   void testGetDeviceProfiles() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/deviceProfiles")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/deviceProfiles")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -47,19 +73,23 @@ class DeviceProfileControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceProfileController#getDeviceProfileInfos(int, int, String, String, String, String)}.
-   * <p>
-   * Method under test: {@link DeviceProfileController#getDeviceProfileInfos(int, int, String, String, String, String)}
+   * Test {@link DeviceProfileController#getDeviceProfileInfos(int, int, String, String, String,
+   * String)}.
+   *
+   * <p>Method under test: {@link DeviceProfileController#getDeviceProfileInfos(int, int, String,
+   * String, String, String)}
    */
   @Test
   @DisplayName("Test getDeviceProfileInfos(int, int, String, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DeviceProfileController.getDeviceProfileInfos(int, int, String, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DeviceProfileController.getDeviceProfileInfos(int, int, String, String, String, String)"
+  })
   void testGetDeviceProfileInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/deviceProfileInfos")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/deviceProfileInfos")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -72,8 +102,8 @@ class DeviceProfileControllerDiffblueTest {
 
   /**
    * Test {@link DeviceProfileController#getDeviceProfileNames(boolean)}.
-   * <p>
-   * Method under test: {@link DeviceProfileController#getDeviceProfileNames(boolean)}
+   *
+   * <p>Method under test: {@link DeviceProfileController#getDeviceProfileNames(boolean)}
    */
   @Test
   @DisplayName("Test getDeviceProfileNames(boolean)")
@@ -81,8 +111,9 @@ class DeviceProfileControllerDiffblueTest {
   @MethodsUnderTest({"java.util.List DeviceProfileController.getDeviceProfileNames(boolean)"})
   void testGetDeviceProfileNames() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/deviceProfile/names")
-        .param("activeOnly", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/deviceProfile/names")
+            .param("activeOnly", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(deviceProfileController)

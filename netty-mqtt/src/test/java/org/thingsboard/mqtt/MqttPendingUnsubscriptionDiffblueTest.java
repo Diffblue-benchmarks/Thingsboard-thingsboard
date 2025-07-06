@@ -28,27 +28,37 @@ import org.junit.jupiter.api.Test;
 
 class MqttPendingUnsubscriptionDiffblueTest {
   /**
-   * Test {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}.
-   * <p>
-   * Method under test: {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)}
+   * Test {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise, String,
+   * MqttUnsubscribeMessage, PendingOperation)}.
+   *
+   * <p>Method under test: {@link MqttPendingUnsubscription#MqttPendingUnsubscription(Promise,
+   * String, MqttUnsubscribeMessage, PendingOperation)}
    */
   @Test
-  @DisplayName("Test new MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)")
+  @DisplayName(
+      "Test new MqttPendingUnsubscription(Promise, String, MqttUnsubscribeMessage, PendingOperation)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void MqttPendingUnsubscription.<init>(Promise, String, MqttUnsubscribeMessage, PendingOperation)"})
+    "void MqttPendingUnsubscription.<init>(Promise, String, MqttUnsubscribeMessage, PendingOperation)"
+  })
   void testNewMqttPendingUnsubscription() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
     // Act
-    MqttPendingUnsubscription actualMqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        mock(PendingOperation.class));
+    MqttPendingUnsubscription actualMqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            mock(PendingOperation.class));
 
     // Assert
     Promise<Void> future2 = actualMqttPendingUnsubscription.getFuture();
@@ -59,8 +69,9 @@ class MqttPendingUnsubscriptionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MqttPendingUnsubscription#getFuture()}
    *   <li>{@link MqttPendingUnsubscription#getTopic()}
@@ -69,18 +80,27 @@ class MqttPendingUnsubscriptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Promise MqttPendingUnsubscription.getFuture()", "String MqttPendingUnsubscription.getTopic()"})
+  @MethodsUnderTest({
+    "Promise MqttPendingUnsubscription.getFuture()",
+    "String MqttPendingUnsubscription.getTopic()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingUnsubscription mqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        mock(PendingOperation.class));
+    MqttPendingUnsubscription mqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            mock(PendingOperation.class));
 
     // Act
     Promise<Void> actualFuture = mqttPendingUnsubscription.getFuture();
@@ -93,32 +113,44 @@ class MqttPendingUnsubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
+   *
    * <ul>
-   *   <li>Given {@link PendingOperation} {@link PendingOperation#isCanceled()} return {@code true}.</li>
+   *   <li>Given {@link PendingOperation} {@link PendingOperation#isCanceled()} return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
+   *
+   * <p>Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop,
+   * Consumer)}
    */
   @Test
-  @DisplayName("Test startRetransmissionTimer(EventLoop, Consumer); given PendingOperation isCanceled() return 'true'")
+  @DisplayName(
+      "Test startRetransmissionTimer(EventLoop, Consumer); given PendingOperation isCanceled() return 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"})
+  @MethodsUnderTest({
+    "void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"
+  })
   void testStartRetransmissionTimer_givenPendingOperationIsCanceledReturnTrue() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(true);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingUnsubscription mqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        operation);
+    MqttPendingUnsubscription mqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            operation);
 
     // Act
-    mqttPendingUnsubscription.startRetransmissionTimer(new DefaultEventLoop(), mock(Consumer.class));
+    mqttPendingUnsubscription.startRetransmissionTimer(
+        new DefaultEventLoop(), mock(Consumer.class));
 
     // Assert
     verify(operation).isCanceled();
@@ -126,29 +158,40 @@ class MqttPendingUnsubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}.
+   *
    * <ul>
-   *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
+   *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop, Consumer)}
+   *
+   * <p>Method under test: {@link MqttPendingUnsubscription#startRetransmissionTimer(EventLoop,
+   * Consumer)}
    */
   @Test
-  @DisplayName("Test startRetransmissionTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @DisplayName(
+      "Test startRetransmissionTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"})
+  @MethodsUnderTest({
+    "void MqttPendingUnsubscription.startRetransmissionTimer(EventLoop, Consumer)"
+  })
   void testStartRetransmissionTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(false);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingUnsubscription mqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        operation);
+    MqttPendingUnsubscription mqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            operation);
     DefaultEventLoop eventLoop = new DefaultEventLoop();
 
     // Act
@@ -161,11 +204,12 @@ class MqttPendingUnsubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingUnsubscription#onUnsubackReceived()}.
+   *
    * <ul>
-   *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
+   *   <li>Then calls {@link PendingOperation#isCanceled()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingUnsubscription#onUnsubackReceived()}
+   *
+   * <p>Method under test: {@link MqttPendingUnsubscription#onUnsubackReceived()}
    */
   @Test
   @DisplayName("Test onUnsubackReceived(); then calls isCanceled()")
@@ -175,16 +219,23 @@ class MqttPendingUnsubscriptionDiffblueTest {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(false);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingUnsubscription mqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        operation);
-    mqttPendingUnsubscription.startRetransmissionTimer(new DefaultEventLoop(), mock(Consumer.class));
+    MqttPendingUnsubscription mqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            operation);
+    mqttPendingUnsubscription.startRetransmissionTimer(
+        new DefaultEventLoop(), mock(Consumer.class));
 
     // Act
     mqttPendingUnsubscription.onUnsubackReceived();
@@ -195,11 +246,12 @@ class MqttPendingUnsubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingUnsubscription#onChannelClosed()}.
+   *
    * <ul>
-   *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
+   *   <li>Then calls {@link PendingOperation#isCanceled()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingUnsubscription#onChannelClosed()}
+   *
+   * <p>Method under test: {@link MqttPendingUnsubscription#onChannelClosed()}
    */
   @Test
   @DisplayName("Test onChannelClosed(); then calls isCanceled()")
@@ -209,16 +261,23 @@ class MqttPendingUnsubscriptionDiffblueTest {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(false);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingUnsubscription mqttPendingUnsubscription = new MqttPendingUnsubscription(future, "Topic",
-        new MqttUnsubscribeMessage(mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
-        operation);
-    mqttPendingUnsubscription.startRetransmissionTimer(new DefaultEventLoop(), mock(Consumer.class));
+    MqttPendingUnsubscription mqttPendingUnsubscription =
+        new MqttPendingUnsubscription(
+            future,
+            "Topic",
+            new MqttUnsubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttUnsubscribePayload(new ArrayList<>())),
+            operation);
+    mqttPendingUnsubscription.startRetransmissionTimer(
+        new DefaultEventLoop(), mock(Consumer.class));
 
     // Act
     mqttPendingUnsubscription.onChannelClosed();

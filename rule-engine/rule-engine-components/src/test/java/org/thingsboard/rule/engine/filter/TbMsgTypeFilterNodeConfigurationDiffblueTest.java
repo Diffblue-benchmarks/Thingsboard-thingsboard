@@ -14,16 +14,19 @@ import org.junit.jupiter.api.Test;
 class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsgTypeFilterNodeConfiguration TbMsgTypeFilterNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbMsgTypeFilterNodeConfiguration TbMsgTypeFilterNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
-    List<String> messageTypes = (new TbMsgTypeFilterNodeConfiguration()).defaultConfiguration().getMessageTypes();
+    List<String> messageTypes =
+        new TbMsgTypeFilterNodeConfiguration().defaultConfiguration().getMessageTypes();
     assertEquals(3, messageTypes.size());
     assertEquals("POST_ATTRIBUTES_REQUEST", messageTypes.get(0));
     assertEquals("POST_TELEMETRY_REQUEST", messageTypes.get(1));
@@ -31,13 +34,16 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#hashCode()}
@@ -46,12 +52,16 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 =
+        new TbMsgTypeFilterNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbMsgTypeFilterNodeConfiguration, tbMsgTypeFilterNodeConfiguration2);
@@ -60,13 +70,16 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#hashCode()}
@@ -75,14 +88,18 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
     tbMsgTypeFilterNodeConfiguration.setMessageTypes(new ArrayList<>());
 
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 =
+        new TbMsgTypeFilterNodeConfiguration();
     tbMsgTypeFilterNodeConfiguration2.setMessageTypes(new ArrayList<>());
 
     // Act and Assert
@@ -92,13 +109,16 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgTypeFilterNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#hashCode()}
@@ -107,11 +127,14 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbMsgTypeFilterNodeConfiguration, tbMsgTypeFilterNodeConfiguration);
@@ -121,18 +144,21 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgTypeFilterNodeConfiguration(), 1);
@@ -140,21 +166,25 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
     tbMsgTypeFilterNodeConfiguration.setMessageTypes(new ArrayList<>());
 
     // Act and Assert
@@ -163,23 +193,28 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
 
-    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration tbMsgTypeFilterNodeConfiguration2 =
+        new TbMsgTypeFilterNodeConfiguration();
     tbMsgTypeFilterNodeConfiguration2.setMessageTypes(new ArrayList<>());
 
     // Act and Assert
@@ -188,18 +223,21 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgTypeFilterNodeConfiguration(), null);
@@ -207,27 +245,33 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgTypeFilterNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
-      "int TbMsgTypeFilterNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgTypeFilterNodeConfiguration.equals(Object)",
+    "int TbMsgTypeFilterNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbMsgTypeFilterNodeConfiguration(), "Different type to TbMsgTypeFilterNodeConfiguration");
+    assertNotEquals(
+        new TbMsgTypeFilterNodeConfiguration(),
+        "Different type to TbMsgTypeFilterNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbMsgTypeFilterNodeConfiguration}
    *   <li>{@link TbMsgTypeFilterNodeConfiguration#setMessageTypes(List)}
@@ -238,13 +282,16 @@ class TbMsgTypeFilterNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgTypeFilterNodeConfiguration.<init>()",
-      "List TbMsgTypeFilterNodeConfiguration.getMessageTypes()",
-      "void TbMsgTypeFilterNodeConfiguration.setMessageTypes(List)",
-      "String TbMsgTypeFilterNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbMsgTypeFilterNodeConfiguration.<init>()",
+    "List TbMsgTypeFilterNodeConfiguration.getMessageTypes()",
+    "void TbMsgTypeFilterNodeConfiguration.setMessageTypes(List)",
+    "String TbMsgTypeFilterNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbMsgTypeFilterNodeConfiguration actualTbMsgTypeFilterNodeConfiguration = new TbMsgTypeFilterNodeConfiguration();
+    TbMsgTypeFilterNodeConfiguration actualTbMsgTypeFilterNodeConfiguration =
+        new TbMsgTypeFilterNodeConfiguration();
     ArrayList<String> messageTypes = new ArrayList<>();
     actualTbMsgTypeFilterNodeConfiguration.setMessageTypes(messageTypes);
     String actualToStringResult = actualTbMsgTypeFilterNodeConfiguration.toString();

@@ -18,8 +18,8 @@ import org.thingsboard.server.common.data.widget.BaseWidgetType;
 public class AbstractWidgetTypeEntityDiffblueTest {
   /**
    * Test {@link AbstractWidgetTypeEntity#toBaseWidgetType()}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -39,19 +39,20 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#toBaseWidgetType()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.</li>
-   *   <li>Then return Version is {@code null}.</li>
+   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.
+   *   <li>Then return Version is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"BaseWidgetType AbstractWidgetTypeEntity.toBaseWidgetType()"})
   public void testToBaseWidgetType_givenWidgetTypeDetailsEntity_thenReturnVersionIsNull() {
     // Arrange and Act
-    BaseWidgetType actualToBaseWidgetTypeResult = (new WidgetTypeDetailsEntity()).toBaseWidgetType();
+    BaseWidgetType actualToBaseWidgetTypeResult = new WidgetTypeDetailsEntity().toBaseWidgetType();
 
     // Assert
     assertNull(actualToBaseWidgetTypeResult.getVersion());
@@ -70,11 +71,12 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#toBaseWidgetType()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -95,51 +97,53 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#getFqn()}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#getFqn()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#getFqn()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String AbstractWidgetTypeEntity.getFqn()"})
   public void testGetFqn() {
     // Arrange, Act and Assert
-    assertNull((new WidgetTypeDetailsEntity()).getFqn());
+    assertNull(new WidgetTypeDetailsEntity().getFqn());
   }
 
   /**
    * Test {@link AbstractWidgetTypeEntity#getName()}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#getName()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#getName()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String AbstractWidgetTypeEntity.getName()"})
   public void testGetName() {
     // Arrange, Act and Assert
-    assertNull((new WidgetTypeDetailsEntity()).getName());
+    assertNull(new WidgetTypeDetailsEntity().getName());
   }
 
   /**
    * Test {@link AbstractWidgetTypeEntity#getTenantId()}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#getTenantId()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#getTenantId()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"UUID AbstractWidgetTypeEntity.getTenantId()"})
   public void testGetTenantId() {
     // Arrange, Act and Assert
-    assertNull((new WidgetTypeDetailsEntity()).getTenantId());
+    assertNull(new WidgetTypeDetailsEntity().getTenantId());
   }
 
   /**
    * Test {@link AbstractWidgetTypeEntity#isDeprecated()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()} Deprecated is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()} Deprecated is {@code
+   *       true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -155,29 +159,31 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#isDeprecated()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isDeprecated()"})
   public void testIsDeprecated_givenWidgetTypeDetailsEntity_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new WidgetTypeDetailsEntity()).isDeprecated());
+    assertFalse(new WidgetTypeDetailsEntity().isDeprecated());
   }
 
   /**
    * Test {@link AbstractWidgetTypeEntity#isScada()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()} Scada is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()} Scada is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#isScada()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#isScada()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -193,25 +199,26 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#isScada()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link WidgetTypeDetailsEntity#WidgetTypeDetailsEntity()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#isScada()}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#isScada()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isScada()"})
   public void testIsScada_givenWidgetTypeDetailsEntity_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new WidgetTypeDetailsEntity()).isScada());
+    assertFalse(new WidgetTypeDetailsEntity().isScada());
   }
 
   /**
    * Test {@link AbstractWidgetTypeEntity#setDeprecated(boolean)}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#setDeprecated(boolean)}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#setDeprecated(boolean)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -229,8 +236,8 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#setFqn(String)}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#setFqn(String)}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#setFqn(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -248,8 +255,8 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#setName(String)}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#setName(String)}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#setName(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -267,8 +274,8 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#setScada(boolean)}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#setScada(boolean)}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#setScada(boolean)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -286,8 +293,8 @@ public class AbstractWidgetTypeEntityDiffblueTest {
 
   /**
    * Test {@link AbstractWidgetTypeEntity#setTenantId(UUID)}.
-   * <p>
-   * Method under test: {@link AbstractWidgetTypeEntity#setTenantId(UUID)}
+   *
+   * <p>Method under test: {@link AbstractWidgetTypeEntity#setTenantId(UUID)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

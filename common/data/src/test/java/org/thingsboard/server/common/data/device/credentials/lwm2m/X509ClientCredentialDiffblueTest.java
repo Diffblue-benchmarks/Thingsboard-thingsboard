@@ -12,35 +12,40 @@ import org.junit.jupiter.api.Test;
 class X509ClientCredentialDiffblueTest {
   /**
    * Test {@link X509ClientCredential#getDecoded()}.
+   *
    * <ul>
-   *   <li>Given {@link X509ClientCredential} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link X509ClientCredential} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link X509ClientCredential#getDecoded()}
+   *
+   * <p>Method under test: {@link X509ClientCredential#getDecoded()}
    */
   @Test
-  @DisplayName("Test getDecoded(); given X509ClientCredential (default constructor); then return 'null'")
+  @DisplayName(
+      "Test getDecoded(); given X509ClientCredential (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] X509ClientCredential.getDecoded()"})
-  void testGetDecoded_givenX509ClientCredential_thenReturnNull() throws IllegalArgumentException, DecoderException {
+  void testGetDecoded_givenX509ClientCredential_thenReturnNull()
+      throws IllegalArgumentException, DecoderException {
     // Arrange, Act and Assert
-    assertNull((new X509ClientCredential()).getDecoded());
+    assertNull(new X509ClientCredential().getDecoded());
   }
 
   /**
    * Test {@link X509ClientCredential#getDecoded()}.
+   *
    * <ul>
-   *   <li>Then return array of {@code byte} with minus twenty-nine.</li>
+   *   <li>Then return array of {@code byte} with minus twenty-nine.
    * </ul>
-   * <p>
-   * Method under test: {@link X509ClientCredential#getDecoded()}
+   *
+   * <p>Method under test: {@link X509ClientCredential#getDecoded()}
    */
   @Test
   @DisplayName("Test getDecoded(); then return array of byte with minus twenty-nine")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] X509ClientCredential.getDecoded()"})
-  void testGetDecoded_thenReturnArrayOfByteWithMinusTwentyNine() throws IllegalArgumentException, DecoderException {
+  void testGetDecoded_thenReturnArrayOfByteWithMinusTwentyNine()
+      throws IllegalArgumentException, DecoderException {
     // Arrange
     X509ClientCredential x509ClientCredential = new X509ClientCredential();
     x509ClientCredential.setCert("42");
@@ -48,16 +53,17 @@ class X509ClientCredentialDiffblueTest {
     x509ClientCredential.setKey("Key");
 
     // Act and Assert
-    assertArrayEquals(new byte[]{-29}, x509ClientCredential.getDecoded());
+    assertArrayEquals(new byte[] {-29}, x509ClientCredential.getDecoded());
   }
 
   /**
    * Test {@link X509ClientCredential#getDecoded()}.
+   *
    * <ul>
-   *   <li>Then return array of {@code byte} with tab and minus twenty-two.</li>
+   *   <li>Then return array of {@code byte} with tab and minus twenty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link X509ClientCredential#getDecoded()}
+   *
+   * <p>Method under test: {@link X509ClientCredential#getDecoded()}
    */
   @Test
   @DisplayName("Test getDecoded(); then return array of byte with tab and minus twenty-two")
@@ -72,22 +78,24 @@ class X509ClientCredentialDiffblueTest {
     x509ClientCredential.setKey("Key");
 
     // Act and Assert
-    assertArrayEquals(new byte[]{'\t', -22, -19}, x509ClientCredential.getDecoded());
+    assertArrayEquals(new byte[] {'\t', -22, -19}, x509ClientCredential.getDecoded());
   }
 
   /**
    * Test {@link X509ClientCredential#getDecoded()}.
+   *
    * <ul>
-   *   <li>Then return empty array of {@code byte}.</li>
+   *   <li>Then return empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link X509ClientCredential#getDecoded()}
+   *
+   * <p>Method under test: {@link X509ClientCredential#getDecoded()}
    */
   @Test
   @DisplayName("Test getDecoded(); then return empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] X509ClientCredential.getDecoded()"})
-  void testGetDecoded_thenReturnEmptyArrayOfByte() throws IllegalArgumentException, DecoderException {
+  void testGetDecoded_thenReturnEmptyArrayOfByte()
+      throws IllegalArgumentException, DecoderException {
     // Arrange
     X509ClientCredential x509ClientCredential = new X509ClientCredential();
     x509ClientCredential.setCert("");
@@ -95,13 +103,14 @@ class X509ClientCredentialDiffblueTest {
     x509ClientCredential.setKey("Key");
 
     // Act and Assert
-    assertArrayEquals(new byte[]{}, x509ClientCredential.getDecoded());
+    assertArrayEquals(new byte[] {}, x509ClientCredential.getDecoded());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link X509ClientCredential}
    *   <li>{@link X509ClientCredential#setCert(String)}
@@ -112,15 +121,19 @@ class X509ClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void X509ClientCredential.<init>()", "String X509ClientCredential.getCert()",
-      "LwM2MSecurityMode X509ClientCredential.getSecurityConfigClientMode()",
-      "void X509ClientCredential.setCert(String)"})
+  @MethodsUnderTest({
+    "void X509ClientCredential.<init>()",
+    "String X509ClientCredential.getCert()",
+    "LwM2MSecurityMode X509ClientCredential.getSecurityConfigClientMode()",
+    "void X509ClientCredential.setCert(String)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     X509ClientCredential actualX509ClientCredential = new X509ClientCredential();
     actualX509ClientCredential.setCert("Cert");
     String actualCert = actualX509ClientCredential.getCert();
-    LwM2MSecurityMode actualSecurityConfigClientMode = actualX509ClientCredential.getSecurityConfigClientMode();
+    LwM2MSecurityMode actualSecurityConfigClientMode =
+        actualX509ClientCredential.getSecurityConfigClientMode();
 
     // Assert
     assertEquals("Cert", actualCert);

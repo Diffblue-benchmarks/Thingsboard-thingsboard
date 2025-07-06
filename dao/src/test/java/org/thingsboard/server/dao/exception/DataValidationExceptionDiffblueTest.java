@@ -11,20 +11,24 @@ import org.junit.experimental.categories.Category;
 public class DataValidationExceptionDiffblueTest {
   /**
    * Test {@link DataValidationException#DataValidationException(String)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
-   *   <li>Then return Cause is {@code null}.</li>
+   *   <li>When {@code An error occurred}.
+   *   <li>Then return Cause is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataValidationException#DataValidationException(String)}
+   *
+   * <p>Method under test: {@link DataValidationException#DataValidationException(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DataValidationException.<init>(String)",
-      "void DataValidationException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void DataValidationException.<init>(String)",
+    "void DataValidationException.<init>(String, Throwable)"
+  })
   public void testNewDataValidationException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
-    DataValidationException actualDataValidationException = new DataValidationException("An error occurred");
+    DataValidationException actualDataValidationException =
+        new DataValidationException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualDataValidationException.getMessage());
@@ -34,23 +38,28 @@ public class DataValidationExceptionDiffblueTest {
 
   /**
    * Test {@link DataValidationException#DataValidationException(String, Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Cause is {@link Throwable#Throwable()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataValidationException#DataValidationException(String, Throwable)}
+   *
+   * <p>Method under test: {@link DataValidationException#DataValidationException(String,
+   * Throwable)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DataValidationException.<init>(String)",
-      "void DataValidationException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void DataValidationException.<init>(String)",
+    "void DataValidationException.<init>(String, Throwable)"
+  })
   public void testNewDataValidationException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();
 
     // Act
-    DataValidationException actualDataValidationException = new DataValidationException("An error occurred", cause);
+    DataValidationException actualDataValidationException =
+        new DataValidationException("An error occurred", cause);
 
     // Assert
     assertEquals("An error occurred", actualDataValidationException.getMessage());

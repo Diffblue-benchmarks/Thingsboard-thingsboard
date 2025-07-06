@@ -14,13 +14,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {DefaultDbTypeInfoComponent.class})
 @ExtendWith(SpringExtension.class)
 class DefaultDbTypeInfoComponentDiffblueTest {
-  @Autowired
-  private DefaultDbTypeInfoComponent defaultDbTypeInfoComponent;
+  @Autowired private DefaultDbTypeInfoComponent defaultDbTypeInfoComponent;
 
   /**
    * Test {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}.
-   * <p>
-   * Method under test: {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}
+   *
+   * <p>Method under test: {@link DefaultDbTypeInfoComponent#isLatestTsDaoStoredToSql()}
    */
   @Test
   @DisplayName("Test isLatestTsDaoStoredToSql()")
@@ -33,8 +32,8 @@ class DefaultDbTypeInfoComponentDiffblueTest {
 
   /**
    * Test {@link DefaultDbTypeInfoComponent#getLatestTsDbType()}.
-   * <p>
-   * Method under test: {@link DefaultDbTypeInfoComponent#getLatestTsDbType()}
+   *
+   * <p>Method under test: {@link DefaultDbTypeInfoComponent#getLatestTsDbType()}
    */
   @Test
   @DisplayName("Test getLatestTsDbType()")
@@ -42,6 +41,6 @@ class DefaultDbTypeInfoComponentDiffblueTest {
   @MethodsUnderTest({"java.lang.String DefaultDbTypeInfoComponent.getLatestTsDbType()"})
   void testGetLatestTsDbType() {
     // Arrange, Act and Assert
-    assertNull((new DefaultDbTypeInfoComponent()).getLatestTsDbType());
+    assertNull(new DefaultDbTypeInfoComponent().getLatestTsDbType());
   }
 }

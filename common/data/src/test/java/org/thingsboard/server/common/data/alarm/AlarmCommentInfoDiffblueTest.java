@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class AlarmCommentInfoDiffblueTest {
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#equals(Object)}
    *   <li>{@link AlarmCommentInfo#hashCode()}
@@ -39,12 +41,14 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#equals(Object)}
    *   <li>{@link AlarmCommentInfo#hashCode()}
@@ -70,12 +74,14 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#equals(Object)}
    *   <li>{@link AlarmCommentInfo#hashCode()}
@@ -101,12 +107,14 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#equals(Object)}
    *   <li>{@link AlarmCommentInfo#hashCode()}
@@ -132,12 +140,14 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}, and {@link AlarmCommentInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#equals(Object)}
    *   <li>{@link AlarmCommentInfo#hashCode()}
@@ -159,12 +169,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -177,12 +188,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -199,12 +211,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -221,12 +234,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -243,12 +257,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -265,12 +280,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -289,12 +305,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -313,12 +330,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -337,12 +355,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -355,12 +374,13 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -373,8 +393,9 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCommentInfo#AlarmCommentInfo()}
    *   <li>{@link AlarmCommentInfo#setEmail(String)}
@@ -389,10 +410,16 @@ class AlarmCommentInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCommentInfo.<init>()", "String AlarmCommentInfo.getEmail()",
-      "String AlarmCommentInfo.getFirstName()", "String AlarmCommentInfo.getLastName()",
-      "void AlarmCommentInfo.setEmail(String)", "void AlarmCommentInfo.setFirstName(String)",
-      "void AlarmCommentInfo.setLastName(String)", "String AlarmCommentInfo.toString()"})
+  @MethodsUnderTest({
+    "void AlarmCommentInfo.<init>()",
+    "String AlarmCommentInfo.getEmail()",
+    "String AlarmCommentInfo.getFirstName()",
+    "String AlarmCommentInfo.getLastName()",
+    "void AlarmCommentInfo.setEmail(String)",
+    "void AlarmCommentInfo.setFirstName(String)",
+    "void AlarmCommentInfo.setLastName(String)",
+    "String AlarmCommentInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmCommentInfo actualAlarmCommentInfo = new AlarmCommentInfo();
@@ -404,7 +431,9 @@ class AlarmCommentInfoDiffblueTest {
     String actualFirstName = actualAlarmCommentInfo.getFirstName();
 
     // Assert
-    assertEquals("AlarmCommentInfo(firstName=Jane, lastName=Doe, email=jane.doe@example.org)", actualToStringResult);
+    assertEquals(
+        "AlarmCommentInfo(firstName=Jane, lastName=Doe, email=jane.doe@example.org)",
+        actualToStringResult);
     assertEquals("Doe", actualAlarmCommentInfo.getLastName());
     assertEquals("Jane", actualFirstName);
     assertEquals("jane.doe@example.org", actualEmail);
@@ -418,8 +447,8 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment)}.
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment)}
    */
   @Test
   @DisplayName("Test new AlarmCommentInfo(AlarmComment)")
@@ -444,8 +473,9 @@ class AlarmCommentInfoDiffblueTest {
 
   /**
    * Test {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}.
-   * <p>
-   * Method under test: {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String, String)}
+   *
+   * <p>Method under test: {@link AlarmCommentInfo#AlarmCommentInfo(AlarmComment, String, String,
+   * String)}
    */
   @Test
   @DisplayName("Test new AlarmCommentInfo(AlarmComment, String, String, String)")
@@ -453,8 +483,8 @@ class AlarmCommentInfoDiffblueTest {
   @MethodsUnderTest({"void AlarmCommentInfo.<init>(AlarmComment, String, String, String)"})
   void testNewAlarmCommentInfo2() {
     // Arrange and Act
-    AlarmCommentInfo actualAlarmCommentInfo = new AlarmCommentInfo(new AlarmComment(), "Jane", "Doe",
-        "jane.doe@example.org");
+    AlarmCommentInfo actualAlarmCommentInfo =
+        new AlarmCommentInfo(new AlarmComment(), "Jane", "Doe", "jane.doe@example.org");
 
     // Assert
     assertEquals("Doe", actualAlarmCommentInfo.getLastName());

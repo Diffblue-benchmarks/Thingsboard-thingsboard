@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 class UUIDBasedDiffblueTest {
   /**
    * Test {@link UUIDBased#getId()}.
-   * <p>
-   * Method under test: {@link UUIDBased#getId()}
+   *
+   * <p>Method under test: {@link UUIDBased#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -24,7 +24,7 @@ class UUIDBasedDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    UUID actualId = (new AdminSettingsId(id)).getId();
+    UUID actualId = new AdminSettingsId(id).getId();
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualId.toString());
@@ -33,12 +33,14 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}, and {@link UUIDBased#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UUIDBased#equals(Object)}
    *   <li>{@link UUIDBased#hashCode()}
@@ -61,12 +63,14 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}, and {@link UUIDBased#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UUIDBased#equals(Object)}
    *   <li>{@link UUIDBased#hashCode()}
@@ -89,12 +93,14 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}, and {@link UUIDBased#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UUIDBased#equals(Object)}
    *   <li>{@link UUIDBased#hashCode()}
@@ -116,12 +122,13 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDBased#equals(Object)}
+   *
+   * <p>Method under test: {@link UUIDBased#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -129,17 +136,20 @@ class UUIDBasedDiffblueTest {
   @MethodsUnderTest({"boolean UUIDBased.equals(Object)", "int UUIDBased.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), TenantId.SYS_TENANT_ID);
+    assertNotEquals(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+        TenantId.SYS_TENANT_ID);
   }
 
   /**
    * Test {@link UUIDBased#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDBased#equals(Object)}
+   *
+   * <p>Method under test: {@link UUIDBased#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -152,12 +162,13 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDBased#equals(Object)}
+   *
+   * <p>Method under test: {@link UUIDBased#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -170,12 +181,13 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDBased#equals(Object)}
+   *
+   * <p>Method under test: {@link UUIDBased#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -188,8 +200,8 @@ class UUIDBasedDiffblueTest {
 
   /**
    * Test {@link UUIDBased#toString()}.
-   * <p>
-   * Method under test: {@link UUIDBased#toString()}
+   *
+   * <p>Method under test: {@link UUIDBased#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -197,7 +209,8 @@ class UUIDBasedDiffblueTest {
   @MethodsUnderTest({"java.lang.String UUIDBased.toString()"})
   void testToString() {
     // Arrange, Act and Assert
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9",
-        (new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))).toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")).toString());
   }
 }

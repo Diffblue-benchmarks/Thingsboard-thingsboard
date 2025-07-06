@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.DeviceInfo;
 class ClaimResultDiffblueTest {
   /**
    * Test {@link ClaimResult#equals(Object)}, and {@link ClaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ClaimResult#equals(Object)}
    *   <li>{@link ClaimResult#hashCode()}
@@ -41,12 +43,14 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}, and {@link ClaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ClaimResult#equals(Object)}
    *   <li>{@link ClaimResult#hashCode()}
@@ -69,12 +73,14 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}, and {@link ClaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ClaimResult#equals(Object)}
    *   <li>{@link ClaimResult#hashCode()}
@@ -97,12 +103,14 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}, and {@link ClaimResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ClaimResult#equals(Object)}
    *   <li>{@link ClaimResult#hashCode()}
@@ -124,12 +132,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -145,12 +154,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -166,12 +176,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -187,12 +198,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -208,12 +220,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -226,12 +239,13 @@ class ClaimResultDiffblueTest {
 
   /**
    * Test {@link ClaimResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ClaimResult#equals(Object)}
+   *
+   * <p>Method under test: {@link ClaimResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -239,13 +253,15 @@ class ClaimResultDiffblueTest {
   @MethodsUnderTest({"boolean ClaimResult.equals(Object)", "int ClaimResult.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ClaimResult(new Device(), ClaimResponse.SUCCESS), "Different type to ClaimResult");
+    assertNotEquals(
+        new ClaimResult(new Device(), ClaimResponse.SUCCESS), "Different type to ClaimResult");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ClaimResult#ClaimResult(Device, ClaimResponse)}
    *   <li>{@link ClaimResult#setDevice(Device)}
@@ -258,9 +274,14 @@ class ClaimResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ClaimResult.<init>(Device, ClaimResponse)", "Device ClaimResult.getDevice()",
-      "ClaimResponse ClaimResult.getResponse()", "void ClaimResult.setDevice(Device)",
-      "void ClaimResult.setResponse(ClaimResponse)", "String ClaimResult.toString()"})
+  @MethodsUnderTest({
+    "void ClaimResult.<init>(Device, ClaimResponse)",
+    "Device ClaimResult.getDevice()",
+    "ClaimResponse ClaimResult.getResponse()",
+    "void ClaimResult.setDevice(Device)",
+    "void ClaimResult.setResponse(ClaimResponse)",
+    "String ClaimResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ClaimResult actualClaimResult = new ClaimResult(new Device(), ClaimResponse.SUCCESS);

@@ -29,12 +29,13 @@ import org.thingsboard.server.common.data.kv.StringDataEntry;
 public class AttributeKvEntityDiffblueTest {
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) BooleanValue is {@code true}.</li>
-   *   <li>Then Kv return {@link BooleanDataEntry}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) BooleanValue is {@code true}.
+   *   <li>Then Kv return {@link BooleanDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -76,12 +77,13 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) DoubleValue is ten.</li>
-   *   <li>Then Kv return {@link DoubleDataEntry}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) DoubleValue is ten.
+   *   <li>Then Kv return {@link DoubleDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -125,12 +127,13 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) JsonValue is {@code foo}.</li>
-   *   <li>Then Kv return {@link JsonDataEntry}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) JsonValue is {@code foo}.
+   *   <li>Then Kv return {@link JsonDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -172,12 +175,13 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) LongValue is one.</li>
-   *   <li>Then Kv return {@link LongDataEntry}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) LongValue is one.
+   *   <li>Then Kv return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -221,12 +225,13 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) StrValue is {@code foo}.</li>
-   *   <li>Then Kv return {@link StringDataEntry}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) StrValue is {@code foo}.
+   *   <li>Then Kv return {@link StringDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -268,12 +273,13 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntity} (default constructor) StrValue is {@code null}.</li>
-   *   <li>Then return Kv is {@code null}.</li>
+   *   <li>Given {@link AttributeKvEntity} (default constructor) StrValue is {@code null}.
+   *   <li>Then return Kv is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#toData()}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -308,12 +314,14 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}, and {@link AttributeKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvEntity#equals(Object)}
    *   <li>{@link AttributeKvEntity#hashCode()}
@@ -321,7 +329,10 @@ public class AttributeKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -364,12 +375,14 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}, and {@link AttributeKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvEntity#equals(Object)}
    *   <li>{@link AttributeKvEntity#hashCode()}
@@ -377,7 +390,10 @@ public class AttributeKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -404,16 +420,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -454,16 +474,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -504,16 +528,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -554,16 +582,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -604,16 +636,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -657,16 +693,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -710,16 +750,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -763,16 +807,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -816,16 +864,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -869,16 +921,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -922,16 +978,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -975,16 +1035,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -1028,16 +1092,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AttributeKvCompositeKey id = mock(AttributeKvCompositeKey.class);
@@ -1081,16 +1149,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -1115,16 +1187,20 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test {@link AttributeKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvEntity.equals(Object)", "int AttributeKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvEntity.equals(Object)",
+    "int AttributeKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey id = new AttributeKvCompositeKey();
@@ -1149,8 +1225,9 @@ public class AttributeKvEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AttributeKvEntity}
    *   <li>{@link AttributeKvEntity#setBooleanValue(Boolean)}
@@ -1176,16 +1253,28 @@ public class AttributeKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AttributeKvEntity.<init>()", "Boolean AttributeKvEntity.getBooleanValue()",
-      "Double AttributeKvEntity.getDoubleValue()", "AttributeKvCompositeKey AttributeKvEntity.getId()",
-      "String AttributeKvEntity.getJsonValue()", "Long AttributeKvEntity.getLastUpdateTs()",
-      "Long AttributeKvEntity.getLongValue()", "String AttributeKvEntity.getStrKey()",
-      "String AttributeKvEntity.getStrValue()", "Long AttributeKvEntity.getVersion()",
-      "void AttributeKvEntity.setBooleanValue(Boolean)", "void AttributeKvEntity.setDoubleValue(Double)",
-      "void AttributeKvEntity.setId(AttributeKvCompositeKey)", "void AttributeKvEntity.setJsonValue(String)",
-      "void AttributeKvEntity.setLastUpdateTs(Long)", "void AttributeKvEntity.setLongValue(Long)",
-      "void AttributeKvEntity.setStrKey(String)", "void AttributeKvEntity.setStrValue(String)",
-      "void AttributeKvEntity.setVersion(Long)", "String AttributeKvEntity.toString()"})
+  @MethodsUnderTest({
+    "void AttributeKvEntity.<init>()",
+    "Boolean AttributeKvEntity.getBooleanValue()",
+    "Double AttributeKvEntity.getDoubleValue()",
+    "AttributeKvCompositeKey AttributeKvEntity.getId()",
+    "String AttributeKvEntity.getJsonValue()",
+    "Long AttributeKvEntity.getLastUpdateTs()",
+    "Long AttributeKvEntity.getLongValue()",
+    "String AttributeKvEntity.getStrKey()",
+    "String AttributeKvEntity.getStrValue()",
+    "Long AttributeKvEntity.getVersion()",
+    "void AttributeKvEntity.setBooleanValue(Boolean)",
+    "void AttributeKvEntity.setDoubleValue(Double)",
+    "void AttributeKvEntity.setId(AttributeKvCompositeKey)",
+    "void AttributeKvEntity.setJsonValue(String)",
+    "void AttributeKvEntity.setLastUpdateTs(Long)",
+    "void AttributeKvEntity.setLongValue(Long)",
+    "void AttributeKvEntity.setStrKey(String)",
+    "void AttributeKvEntity.setStrValue(String)",
+    "void AttributeKvEntity.setVersion(Long)",
+    "String AttributeKvEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     AttributeKvEntity actualAttributeKvEntity = new AttributeKvEntity();

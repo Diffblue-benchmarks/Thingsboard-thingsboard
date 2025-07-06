@@ -9,8 +9,9 @@ import org.junit.experimental.categories.Category;
 public class AuditLogLevelMaskDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AuditLogLevelMask#isRead()}
    *   <li>{@link AuditLogLevelMask#isWrite()}

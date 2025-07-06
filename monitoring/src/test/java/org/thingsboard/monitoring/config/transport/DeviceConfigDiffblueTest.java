@@ -15,12 +15,14 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class DeviceConfigDiffblueTest {
   /**
    * Test {@link DeviceConfig#equals(Object)}, and {@link DeviceConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceConfig#equals(Object)}
    *   <li>{@link DeviceConfig#hashCode()}
@@ -50,12 +52,14 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}, and {@link DeviceConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceConfig#equals(Object)}
    *   <li>{@link DeviceConfig#hashCode()}
@@ -85,12 +89,14 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}, and {@link DeviceConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceConfig#equals(Object)}
    *   <li>{@link DeviceConfig#hashCode()}
@@ -120,12 +126,13 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -149,12 +156,13 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -164,7 +172,8 @@ class DeviceConfigDiffblueTest {
     // Arrange
     DeviceConfig deviceConfig = new DeviceConfig();
     deviceConfig.setCredentials(
-        new DeviceCredentials(new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+        new DeviceCredentials(
+            new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
     deviceConfig.setId("");
     deviceConfig.setName("Name");
 
@@ -179,12 +188,13 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -208,12 +218,13 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test {@link DeviceConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,8 +248,9 @@ class DeviceConfigDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceConfig}
    *   <li>{@link DeviceConfig#setCredentials(DeviceCredentials)}
@@ -252,10 +264,15 @@ class DeviceConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceConfig.<init>()", "DeviceCredentials DeviceConfig.getCredentials()",
-      "UUID DeviceConfig.getId()", "String DeviceConfig.getName()",
-      "void DeviceConfig.setCredentials(DeviceCredentials)", "void DeviceConfig.setName(String)",
-      "String DeviceConfig.toString()"})
+  @MethodsUnderTest({
+    "void DeviceConfig.<init>()",
+    "DeviceCredentials DeviceConfig.getCredentials()",
+    "UUID DeviceConfig.getId()",
+    "String DeviceConfig.getName()",
+    "void DeviceConfig.setCredentials(DeviceCredentials)",
+    "void DeviceConfig.setName(String)",
+    "String DeviceConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceConfig actualDeviceConfig = new DeviceConfig();
@@ -267,8 +284,10 @@ class DeviceConfigDiffblueTest {
     UUID actualId = actualDeviceConfig.getId();
 
     // Assert
-    assertEquals("DeviceConfig(id=null, name=Name, credentials=DeviceCredentials [deviceId=null, credentialsType=null,"
-        + " credentialsId=null, credentialsValue=null, createdTime=0, id=null])", actualToStringResult);
+    assertEquals(
+        "DeviceConfig(id=null, name=Name, credentials=DeviceCredentials [deviceId=null, credentialsType=null,"
+            + " credentialsId=null, credentialsValue=null, createdTime=0, id=null])",
+        actualToStringResult);
     assertEquals("Name", actualDeviceConfig.getName());
     assertNull(actualId);
     assertSame(credentials, actualCredentials);

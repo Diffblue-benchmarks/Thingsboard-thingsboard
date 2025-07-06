@@ -16,23 +16,27 @@ import org.thingsboard.server.gen.edge.v1.DeviceProfileUpdateMsg;
 
 @ExtendWith(MockitoExtension.class)
 class DeviceProfileEdgeProcessorV1DiffblueTest {
-  @InjectMocks
-  private DeviceProfileEdgeProcessorV1 deviceProfileEdgeProcessorV1;
+  @InjectMocks private DeviceProfileEdgeProcessorV1 deviceProfileEdgeProcessorV1;
 
   /**
-   * Test {@link DeviceProfileEdgeProcessorV1#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}.
-   * <p>
-   * Method under test: {@link DeviceProfileEdgeProcessorV1#setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)}
+   * Test {@link DeviceProfileEdgeProcessorV1#setDefaultRuleChainId(TenantId, DeviceProfile,
+   * RuleChainId)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEdgeProcessorV1#setDefaultRuleChainId(TenantId,
+   * DeviceProfile, RuleChainId)}
    */
   @Test
   @DisplayName("Test setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceProfileEdgeProcessorV1.setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)"})
+  @MethodsUnderTest({
+    "void DeviceProfileEdgeProcessorV1.setDefaultRuleChainId(TenantId, DeviceProfile, RuleChainId)"
+  })
   void testSetDefaultRuleChainId() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     DeviceProfile deviceProfile = new DeviceProfile();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     deviceProfileEdgeProcessorV1.setDefaultRuleChainId(tenantId, deviceProfile, ruleChainId);
@@ -42,23 +46,28 @@ class DeviceProfileEdgeProcessorV1DiffblueTest {
   }
 
   /**
-   * Test {@link DeviceProfileEdgeProcessorV1#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}.
-   * <p>
-   * Method under test: {@link DeviceProfileEdgeProcessorV1#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)}
+   * Test {@link DeviceProfileEdgeProcessorV1#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId,
+   * DeviceProfileUpdateMsg)}.
+   *
+   * <p>Method under test: {@link
+   * DeviceProfileEdgeProcessorV1#setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId,
+   * DeviceProfileUpdateMsg)}
    */
   @Test
   @DisplayName("Test setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DeviceProfileEdgeProcessorV1.setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)"})
+    "void DeviceProfileEdgeProcessorV1.setDefaultEdgeRuleChainId(DeviceProfile, RuleChainId, DeviceProfileUpdateMsg)"
+  })
   void testSetDefaultEdgeRuleChainId() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    deviceProfileEdgeProcessorV1.setDefaultEdgeRuleChainId(deviceProfile, ruleChainId,
-        DeviceProfileUpdateMsg.getDefaultInstance());
+    deviceProfileEdgeProcessorV1.setDefaultEdgeRuleChainId(
+        deviceProfile, ruleChainId, DeviceProfileUpdateMsg.getDefaultInstance());
 
     // Assert
     assertSame(ruleChainId, deviceProfile.getDefaultEdgeRuleChainId());

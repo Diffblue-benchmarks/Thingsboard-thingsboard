@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {EntityNotFoundException.class, String.class})
 @ExtendWith(SpringExtension.class)
 class EntityNotFoundExceptionDiffblueTest {
-  @Autowired
-  private EntityNotFoundException entityNotFoundException;
+  @Autowired private EntityNotFoundException entityNotFoundException;
 
   /**
    * Test {@link EntityNotFoundException#EntityNotFoundException(String)}.
-   * <p>
-   * Method under test: {@link EntityNotFoundException#EntityNotFoundException(String)}
+   *
+   * <p>Method under test: {@link EntityNotFoundException#EntityNotFoundException(String)}
    */
   @Test
   @DisplayName("Test new EntityNotFoundException(String)")
@@ -32,7 +31,8 @@ class EntityNotFoundExceptionDiffblueTest {
   @MethodsUnderTest({"void EntityNotFoundException.<init>(String)"})
   void testNewEntityNotFoundException() {
     // Arrange and Act
-    EntityNotFoundException actualEntityNotFoundException = new EntityNotFoundException("An error occurred");
+    EntityNotFoundException actualEntityNotFoundException =
+        new EntityNotFoundException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualEntityNotFoundException.getMessage());
@@ -42,8 +42,8 @@ class EntityNotFoundExceptionDiffblueTest {
 
   /**
    * Test {@link EntityNotFoundException#toErrorResponseEntity()}.
-   * <p>
-   * Method under test: {@link EntityNotFoundException#toErrorResponseEntity()}
+   *
+   * <p>Method under test: {@link EntityNotFoundException#toErrorResponseEntity()}
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
@@ -51,7 +51,8 @@ class EntityNotFoundExceptionDiffblueTest {
   @MethodsUnderTest({"ResponseEntity EntityNotFoundException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
-    ResponseEntity<String> actualToErrorResponseEntityResult = entityNotFoundException.toErrorResponseEntity();
+    ResponseEntity<String> actualToErrorResponseEntityResult =
+        entityNotFoundException.toErrorResponseEntity();
 
     // Assert
     HttpStatusCode statusCode = actualToErrorResponseEntityResult.getStatusCode();

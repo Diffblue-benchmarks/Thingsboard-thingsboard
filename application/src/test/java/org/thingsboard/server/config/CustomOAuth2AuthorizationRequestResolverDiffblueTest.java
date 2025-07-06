@@ -8,7 +8,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import jakarta.servlet.ServletRequestWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import java.util.ArrayList;
@@ -32,124 +31,242 @@ import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequ
 
 @ExtendWith(MockitoExtension.class)
 class CustomOAuth2AuthorizationRequestResolverDiffblueTest {
-  @Mock
-  private ClientRegistrationRepository clientRegistrationRepository;
+  @Mock private ClientRegistrationRepository clientRegistrationRepository;
 
   @InjectMocks
   private CustomOAuth2AuthorizationRequestResolver customOAuth2AuthorizationRequestResolver;
 
   /**
-   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with {@code request}, {@code registrationId}.
-   * <ul>
-   *   <li>Given empty string.</li>
-   *   <li>Then calls {@link ServletRequestWrapper#getParameter(String)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with
+   * {@code request}, {@code registrationId}.
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
    */
   @Test
-  @DisplayName("Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; given empty string; then calls getParameter(String)")
+  @DisplayName("Test resolve(HttpServletRequest, String) with 'request', 'registrationId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"})
-  void testResolveWithRequestRegistrationId_givenEmptyString_thenCallsGetParameter() {
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"
+  })
+  void testResolveWithRequestRegistrationId() {
     // Arrange
-    Builder withRegistrationIdResult = ClientRegistration.withRegistrationId("42");
-    Builder authorizationUriResult = withRegistrationIdResult.authorizationGrantType(new AuthorizationGrantType("42"))
-        .authorizationUri("JaneDoe");
-    Builder clientSecretResult = authorizationUriResult.clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
-        .clientId("42")
-        .clientName("Dr Jane Doe")
-        .clientSecret("Client Secret");
-    Builder registrationIdResult = clientSecretResult.providerConfigurationMetadata(new HashMap<>())
-        .jwkSetUri("Jwk Set Uri")
-        .redirectUri("Redirect Uri")
-        .registrationId("42");
-    Builder tokenUriResult = registrationIdResult.scope(new ArrayList<>()).tokenUri("ABC123");
-    ClientRegistration buildResult = tokenUriResult.userInfoAuthenticationMethod(new AuthenticationMethod("42"))
-        .userInfoUri("User Info Uri")
-        .userNameAttributeName("janedoe")
-        .build();
-    when(clientRegistrationRepository.findByRegistrationId(Mockito.<String>any())).thenReturn(buildResult);
-    HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
-    when(request.getParameter(Mockito.<String>any())).thenReturn("");
+    when(clientRegistrationRepository.findByRegistrationId(Mockito.<String>any()))
+        .thenThrow(new IllegalArgumentException("authorize"));
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> customOAuth2AuthorizationRequestResolver.resolve(request, "42"));
-    verify(request, atLeast(1)).getParameter(Mockito.<String>any());
-    verify(clientRegistrationRepository).findByRegistrationId(eq("42"));
-  }
-
-  /**
-   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with {@code request}, {@code registrationId}.
-   * <ul>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
-   */
-  @Test
-  @DisplayName("Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"})
-  void testResolveWithRequestRegistrationId_thenReturnNull() {
-    // Arrange, Act and Assert
-    assertNull(customOAuth2AuthorizationRequestResolver.resolve(mock(HttpServletRequestWrapper.class), null));
-  }
-
-  /**
-   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with {@code request}, {@code registrationId}.
-   * <ul>
-   *   <li>When {@link MockHttpServletRequest#MockHttpServletRequest()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
-   */
-  @Test
-  @DisplayName("Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; when MockHttpServletRequest()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"})
-  void testResolveWithRequestRegistrationId_whenMockHttpServletRequest() {
-    // Arrange
-    Builder withRegistrationIdResult = ClientRegistration.withRegistrationId("42");
-    Builder authorizationUriResult = withRegistrationIdResult.authorizationGrantType(new AuthorizationGrantType("42"))
-        .authorizationUri("JaneDoe");
-    Builder clientSecretResult = authorizationUriResult.clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
-        .clientId("42")
-        .clientName("Dr Jane Doe")
-        .clientSecret("Client Secret");
-    Builder registrationIdResult = clientSecretResult.providerConfigurationMetadata(new HashMap<>())
-        .jwkSetUri("Jwk Set Uri")
-        .redirectUri("Redirect Uri")
-        .registrationId("42");
-    Builder tokenUriResult = registrationIdResult.scope(new ArrayList<>()).tokenUri("ABC123");
-    ClientRegistration buildResult = tokenUriResult.userInfoAuthenticationMethod(new AuthenticationMethod("42"))
-        .userInfoUri("User Info Uri")
-        .userNameAttributeName("janedoe")
-        .build();
-    when(clientRegistrationRepository.findByRegistrationId(Mockito.<String>any())).thenReturn(buildResult);
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> customOAuth2AuthorizationRequestResolver.resolve(new MockHttpServletRequest(), "42"));
     verify(clientRegistrationRepository).findByRegistrationId(eq("42"));
   }
 
   /**
-   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)} with {@code request}.
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with
+   * {@code request}, {@code registrationId}.
+   *
    * <ul>
-   *   <li>Given {@code Parameter}.</li>
-   *   <li>Then calls {@link ServletRequestWrapper#getParameter(String)}.</li>
+   *   <li>Given empty string.
+   *   <li>Then calls {@link HttpServletRequestWrapper#getParameter(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
    */
   @Test
-  @DisplayName("Test resolve(HttpServletRequest) with 'request'; given 'Parameter'; then calls getParameter(String)")
+  @DisplayName(
+      "Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; given empty string; then calls getParameter(String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest)"})
+  @MethodsUnderTest({
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"
+  })
+  void testResolveWithRequestRegistrationId_givenEmptyString_thenCallsGetParameter() {
+    // Arrange
+    Builder withRegistrationIdResult = ClientRegistration.withRegistrationId("42");
+    Builder authorizationUriResult =
+        withRegistrationIdResult
+            .authorizationGrantType(new AuthorizationGrantType("42"))
+            .authorizationUri("JaneDoe");
+    Builder clientSecretResult =
+        authorizationUriResult
+            .clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
+            .clientId("42")
+            .clientName("Dr Jane Doe")
+            .clientSecret("Client Secret");
+    Builder registrationIdResult =
+        clientSecretResult
+            .providerConfigurationMetadata(new HashMap<>())
+            .jwkSetUri("Jwk Set Uri")
+            .redirectUri("Redirect Uri")
+            .registrationId("42");
+    Builder tokenUriResult = registrationIdResult.scope(new ArrayList<>()).tokenUri("ABC123");
+    ClientRegistration clientRegistration =
+        tokenUriResult
+            .userInfoAuthenticationMethod(new AuthenticationMethod("42"))
+            .userInfoUri("User Info Uri")
+            .userNameAttributeName("janedoe")
+            .build();
+    Builder withClientRegistrationResult =
+        ClientRegistration.withClientRegistration(clientRegistration);
+    Builder authorizationUriResult2 =
+        withClientRegistrationResult
+            .authorizationGrantType(new AuthorizationGrantType("42"))
+            .authorizationUri("JaneDoe");
+    Builder clientSecretResult2 =
+        authorizationUriResult2
+            .clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
+            .clientId("42")
+            .clientName("Dr Jane Doe")
+            .clientSecret("Client Secret");
+    Builder registrationIdResult2 =
+        clientSecretResult2
+            .providerConfigurationMetadata(new HashMap<>())
+            .jwkSetUri("Jwk Set Uri")
+            .redirectUri("Redirect Uri")
+            .registrationId("42");
+    Builder tokenUriResult2 = registrationIdResult2.scope(new ArrayList<>()).tokenUri("ABC123");
+    ClientRegistration buildResult =
+        tokenUriResult2
+            .userInfoAuthenticationMethod(new AuthenticationMethod("42"))
+            .userInfoUri("User Info Uri")
+            .userNameAttributeName("janedoe")
+            .build();
+    when(clientRegistrationRepository.findByRegistrationId(Mockito.<String>any()))
+        .thenReturn(buildResult);
+    HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
+    when(request.getParameter(Mockito.<String>any())).thenReturn("");
+
+    // Act and Assert
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> customOAuth2AuthorizationRequestResolver.resolve(request, "42"));
+    verify(request, atLeast(1)).getParameter(Mockito.<String>any());
+    verify(clientRegistrationRepository).findByRegistrationId(eq("42"));
+  }
+
+  /**
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with
+   * {@code request}, {@code registrationId}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IllegalArgumentException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"
+  })
+  void testResolveWithRequestRegistrationId_thenThrowIllegalArgumentException() {
+    // Arrange
+    Builder withRegistrationIdResult = ClientRegistration.withRegistrationId("42");
+    Builder authorizationUriResult =
+        withRegistrationIdResult
+            .authorizationGrantType(new AuthorizationGrantType("42"))
+            .authorizationUri("JaneDoe");
+    Builder clientSecretResult =
+        authorizationUriResult
+            .clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
+            .clientId("42")
+            .clientName("Dr Jane Doe")
+            .clientSecret("Client Secret");
+    Builder registrationIdResult =
+        clientSecretResult
+            .providerConfigurationMetadata(new HashMap<>())
+            .jwkSetUri("Jwk Set Uri")
+            .redirectUri("Redirect Uri")
+            .registrationId("42");
+    Builder tokenUriResult = registrationIdResult.scope(new ArrayList<>()).tokenUri("ABC123");
+    ClientRegistration clientRegistration =
+        tokenUriResult
+            .userInfoAuthenticationMethod(new AuthenticationMethod("42"))
+            .userInfoUri("User Info Uri")
+            .userNameAttributeName("janedoe")
+            .build();
+    Builder withClientRegistrationResult =
+        ClientRegistration.withClientRegistration(clientRegistration);
+    Builder authorizationUriResult2 =
+        withClientRegistrationResult
+            .authorizationGrantType(new AuthorizationGrantType("42"))
+            .authorizationUri("JaneDoe");
+    Builder clientSecretResult2 =
+        authorizationUriResult2
+            .clientAuthenticationMethod(new ClientAuthenticationMethod("42"))
+            .clientId("42")
+            .clientName("Dr Jane Doe")
+            .clientSecret("Client Secret");
+    Builder registrationIdResult2 =
+        clientSecretResult2
+            .providerConfigurationMetadata(new HashMap<>())
+            .jwkSetUri("Jwk Set Uri")
+            .redirectUri("Redirect Uri")
+            .registrationId("42");
+    Builder tokenUriResult2 = registrationIdResult2.scope(new ArrayList<>()).tokenUri("ABC123");
+    ClientRegistration buildResult =
+        tokenUriResult2
+            .userInfoAuthenticationMethod(new AuthenticationMethod("42"))
+            .userInfoUri("User Info Uri")
+            .userNameAttributeName("janedoe")
+            .build();
+    when(clientRegistrationRepository.findByRegistrationId(Mockito.<String>any()))
+        .thenReturn(buildResult);
+
+    // Act and Assert
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> customOAuth2AuthorizationRequestResolver.resolve(new MockHttpServletRequest(), "42"));
+    verify(clientRegistrationRepository).findByRegistrationId(eq("42"));
+  }
+
+  /**
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)} with
+   * {@code request}, {@code registrationId}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test resolve(HttpServletRequest, String) with 'request', 'registrationId'; when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest, String)"
+  })
+  void testResolveWithRequestRegistrationId_whenNull_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(
+        customOAuth2AuthorizationRequestResolver.resolve(new MockHttpServletRequest(), null));
+  }
+
+  /**
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)} with {@code
+   * request}.
+   *
+   * <ul>
+   *   <li>Given {@code Parameter}.
+   *   <li>Then calls {@link HttpServletRequestWrapper#getParameter(String)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)}
+   */
+  @Test
+  @DisplayName(
+      "Test resolve(HttpServletRequest) with 'request'; given 'Parameter'; then calls getParameter(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest)"
+  })
   void testResolveWithRequest_givenParameter_thenCallsGetParameter() {
     // Arrange
     HttpServletRequestWrapper request = mock(HttpServletRequestWrapper.class);
@@ -158,7 +275,8 @@ class CustomOAuth2AuthorizationRequestResolverDiffblueTest {
     when(request.getServletPath()).thenReturn("https://example.org/example");
 
     // Act
-    OAuth2AuthorizationRequest actualResolveResult = customOAuth2AuthorizationRequestResolver.resolve(request);
+    OAuth2AuthorizationRequest actualResolveResult =
+        customOAuth2AuthorizationRequestResolver.resolve(request);
 
     // Assert
     verify(request, atLeast(1)).getParameter(Mockito.<String>any());
@@ -168,18 +286,24 @@ class CustomOAuth2AuthorizationRequestResolverDiffblueTest {
   }
 
   /**
-   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)} with {@code request}.
+   * Test {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)} with {@code
+   * request}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequest#MockHttpServletRequest()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link MockHttpServletRequest#MockHttpServletRequest()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * CustomOAuth2AuthorizationRequestResolver#resolve(HttpServletRequest)}
    */
   @Test
-  @DisplayName("Test resolve(HttpServletRequest) with 'request'; when MockHttpServletRequest(); then return 'null'")
+  @DisplayName(
+      "Test resolve(HttpServletRequest) with 'request'; when MockHttpServletRequest(); then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest)"})
+  @MethodsUnderTest({
+    "OAuth2AuthorizationRequest CustomOAuth2AuthorizationRequestResolver.resolve(HttpServletRequest)"
+  })
   void testResolveWithRequest_whenMockHttpServletRequest_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(customOAuth2AuthorizationRequestResolver.resolve(new MockHttpServletRequest()));

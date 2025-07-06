@@ -3,7 +3,7 @@ package org.thingsboard.server.common.data.oauth2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,8 +14,8 @@ import org.thingsboard.server.common.data.oauth2.OAuth2MapperConfig.OAuth2Mapper
 class OAuth2ClientDiffblueTest {
   /**
    * Test {@link OAuth2Client#OAuth2Client(OAuth2Client)}.
-   * <p>
-   * Method under test: {@link OAuth2Client#OAuth2Client(OAuth2Client)}
+   *
+   * <p>Method under test: {@link OAuth2Client#OAuth2Client(OAuth2Client)}
    */
   @Test
   @DisplayName("Test new OAuth2Client(OAuth2Client)")
@@ -31,12 +31,14 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}, and {@link OAuth2Client#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Client#equals(Object)}
    *   <li>{@link OAuth2Client#hashCode()}
@@ -59,12 +61,14 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}, and {@link OAuth2Client#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2Client#equals(Object)}
    *   <li>{@link OAuth2Client#hashCode()}
@@ -86,12 +90,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -104,12 +109,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -126,12 +132,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -148,12 +155,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,26 +170,27 @@ class OAuth2ClientDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     oAuth2Client.setMapperConfig(mapperConfig);
 
@@ -191,12 +200,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -213,12 +223,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -235,12 +246,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -257,12 +269,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -279,12 +292,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -301,12 +315,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -323,12 +338,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -345,12 +361,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -367,12 +384,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -389,12 +407,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -411,12 +430,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -433,12 +453,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -455,12 +476,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -469,7 +491,7 @@ class OAuth2ClientDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
-    oAuth2Client.setAdditionalInfo(MissingNode.getInstance());
+    oAuth2Client.setAdditionalInfo(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(oAuth2Client, new OAuth2Client());
@@ -477,12 +499,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -499,12 +522,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -523,12 +547,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -547,12 +572,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -563,26 +589,27 @@ class OAuth2ClientDiffblueTest {
     OAuth2Client oAuth2Client = new OAuth2Client();
 
     OAuth2Client oAuth2Client2 = new OAuth2Client();
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     oAuth2Client2.setMapperConfig(mapperConfig);
 
@@ -592,12 +619,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -616,12 +644,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -640,12 +669,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -664,12 +694,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -688,12 +719,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -712,12 +744,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -736,12 +769,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -760,12 +794,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -784,12 +819,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -808,12 +844,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -832,12 +869,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -856,12 +894,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -880,12 +919,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -896,7 +936,7 @@ class OAuth2ClientDiffblueTest {
     OAuth2Client oAuth2Client = new OAuth2Client();
 
     OAuth2Client oAuth2Client2 = new OAuth2Client();
-    oAuth2Client2.setAdditionalInfo(MissingNode.getInstance());
+    oAuth2Client2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(oAuth2Client, oAuth2Client2);
@@ -904,12 +944,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -922,12 +963,13 @@ class OAuth2ClientDiffblueTest {
 
   /**
    * Test {@link OAuth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

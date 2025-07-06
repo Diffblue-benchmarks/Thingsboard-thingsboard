@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EntitySubtypeDiffblueTest {
   /**
    * Test {@link EntitySubtype#equals(Object)}, and {@link EntitySubtype#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#equals(Object)}
    *   <li>{@link EntitySubtype#hashCode()}
@@ -30,8 +32,10 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
-    EntitySubtype entitySubtype2 = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
+    EntitySubtype entitySubtype2 =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
 
     // Act and Assert
     assertEquals(entitySubtype, entitySubtype2);
@@ -41,12 +45,14 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}, and {@link EntitySubtype#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#equals(Object)}
    *   <li>{@link EntitySubtype#hashCode()}
@@ -69,12 +75,14 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}, and {@link EntitySubtype#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#equals(Object)}
    *   <li>{@link EntitySubtype#hashCode()}
@@ -97,12 +105,14 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}, and {@link EntitySubtype#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#equals(Object)}
    *   <li>{@link EntitySubtype#hashCode()}
@@ -114,8 +124,10 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
-    EntitySubtype entitySubtype2 = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
+    EntitySubtype entitySubtype2 =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
 
     // Act and Assert
     assertEquals(entitySubtype, entitySubtype2);
@@ -125,12 +137,14 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}, and {@link EntitySubtype#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#equals(Object)}
    *   <li>{@link EntitySubtype#hashCode()}
@@ -142,7 +156,8 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
 
     // Act and Assert
     assertEquals(entitySubtype, entitySubtype);
@@ -152,12 +167,13 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -165,21 +181,26 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), EntityType.TENANT, "Type");
+    EntitySubtype entitySubtype =
+        new EntitySubtype(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            EntityType.TENANT,
+            "Type");
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -190,17 +211,19 @@ class EntitySubtypeDiffblueTest {
     EntitySubtype entitySubtype = new EntitySubtype(null, EntityType.TENANT, "Type");
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -211,17 +234,19 @@ class EntitySubtypeDiffblueTest {
     EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, null, "Type");
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -229,20 +254,23 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.CUSTOMER, "Type");
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.CUSTOMER, "Type");
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -250,20 +278,23 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, null);
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -271,20 +302,23 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    EntitySubtype entitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "EntitySubtype{");
+    EntitySubtype entitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "EntitySubtype{");
 
     // Act and Assert
-    assertNotEquals(entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
+    assertNotEquals(
+        entitySubtype, new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"));
   }
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -297,12 +331,13 @@ class EntitySubtypeDiffblueTest {
 
   /**
    * Test {@link EntitySubtype#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitySubtype#equals(Object)}
+   *
+   * <p>Method under test: {@link EntitySubtype#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -310,14 +345,16 @@ class EntitySubtypeDiffblueTest {
   @MethodsUnderTest({"boolean EntitySubtype.equals(Object)", "int EntitySubtype.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"),
+    assertNotEquals(
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type"),
         "Different type to EntitySubtype");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitySubtype#EntitySubtype(TenantId, EntityType, String)}
    *   <li>{@link EntitySubtype#toString()}
@@ -329,18 +366,24 @@ class EntitySubtypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntitySubtype.<init>(TenantId, EntityType, String)",
-      "EntityType EntitySubtype.getEntityType()", "TenantId EntitySubtype.getTenantId()",
-      "String EntitySubtype.getType()", "String EntitySubtype.toString()"})
+  @MethodsUnderTest({
+    "void EntitySubtype.<init>(TenantId, EntityType, String)",
+    "EntityType EntitySubtype.getEntityType()",
+    "TenantId EntitySubtype.getTenantId()",
+    "String EntitySubtype.getType()",
+    "String EntitySubtype.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    EntitySubtype actualEntitySubtype = new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
+    EntitySubtype actualEntitySubtype =
+        new EntitySubtype(TenantId.SYS_TENANT_ID, EntityType.TENANT, "Type");
     String actualToStringResult = actualEntitySubtype.toString();
     EntityType actualEntityType = actualEntitySubtype.getEntityType();
     TenantId actualTenantId = actualEntitySubtype.getTenantId();
 
     // Assert
-    assertEquals("EntitySubtype{tenantId=13814000-1dd2-11b2-8080-808080808080, entityType=TENANT, type='Type'}",
+    assertEquals(
+        "EntitySubtype{tenantId=13814000-1dd2-11b2-8080-808080808080, entityType=TENANT, type='Type'}",
         actualToStringResult);
     assertEquals("Type", actualEntitySubtype.getType());
     assertEquals(EntityType.TENANT, actualEntityType);

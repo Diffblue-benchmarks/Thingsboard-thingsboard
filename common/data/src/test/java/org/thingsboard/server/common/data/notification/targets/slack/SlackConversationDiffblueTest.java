@@ -19,13 +19,12 @@ import org.thingsboard.server.common.data.notification.targets.slack.SlackConver
 @ContextConfiguration(classes = {SlackConversationBuilder.class})
 @ExtendWith(SpringExtension.class)
 class SlackConversationDiffblueTest {
-  @Autowired
-  private SlackConversationBuilder slackConversationBuilder;
+  @Autowired private SlackConversationBuilder slackConversationBuilder;
 
   /**
    * Test {@link SlackConversation#getTitle()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getTitle()}
+   *
+   * <p>Method under test: {@link SlackConversation#getTitle()}
    */
   @Test
   @DisplayName("Test getTitle()")
@@ -33,14 +32,17 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getTitle()"})
   void testGetTitle() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "", "jane.doe@example.org")).getTitle());
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "", "jane.doe@example.org")
+            .getTitle());
   }
 
   /**
    * Test {@link SlackConversation#getTitle()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getTitle()}
+   *
+   * <p>Method under test: {@link SlackConversation#getTitle()}
    */
   @Test
   @DisplayName("Test getTitle()")
@@ -48,14 +50,17 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getTitle()"})
   void testGetTitle2() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org")).getTitle());
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org")
+            .getTitle());
   }
 
   /**
    * Test {@link SlackConversation#getTitle()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getTitle()}
+   *
+   * <p>Method under test: {@link SlackConversation#getTitle()}
    */
   @Test
   @DisplayName("Test getTitle()")
@@ -63,17 +68,25 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getTitle()"})
   void testGetTitle3() {
     // Arrange, Act and Assert
-    assertEquals("Name", (new SlackConversation(SlackConversationType.PUBLIC_CHANNEL, "42", "Name", "Whole Name",
-        "jane.doe@example.org")).getTitle());
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.PUBLIC_CHANNEL,
+                "42",
+                "Name",
+                "Whole Name",
+                "jane.doe@example.org")
+            .getTitle());
   }
 
   /**
    * Test {@link SlackConversation#getTitle()}.
+   *
    * <ul>
-   *   <li>Then return {@code Whole Name}.</li>
+   *   <li>Then return {@code Whole Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#getTitle()}
+   *
+   * <p>Method under test: {@link SlackConversation#getTitle()}
    */
   @Test
   @DisplayName("Test getTitle(); then return 'Whole Name'")
@@ -81,15 +94,17 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getTitle()"})
   void testGetTitle_thenReturnWholeName() {
     // Arrange, Act and Assert
-    assertEquals("Whole Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org"))
+    assertEquals(
+        "Whole Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org")
             .getTitle());
   }
 
   /**
    * Test {@link SlackConversation#getFirstName()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getFirstName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getFirstName()}
    */
   @Test
   @DisplayName("Test getFirstName()")
@@ -97,14 +112,17 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getFirstName()"})
   void testGetFirstName() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "", "jane.doe@example.org")).getFirstName());
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "", "jane.doe@example.org")
+            .getFirstName());
   }
 
   /**
    * Test {@link SlackConversation#getFirstName()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getFirstName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getFirstName()}
    */
   @Test
   @DisplayName("Test getFirstName()")
@@ -112,18 +130,21 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getFirstName()"})
   void testGetFirstName2() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org"))
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org")
             .getFirstName());
   }
 
   /**
    * Test {@link SlackConversation#getFirstName()}.
+   *
    * <ul>
-   *   <li>Then return {@code Whole}.</li>
+   *   <li>Then return {@code Whole}.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#getFirstName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getFirstName()}
    */
   @Test
   @DisplayName("Test getFirstName(); then return 'Whole'")
@@ -131,15 +152,17 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getFirstName()"})
   void testGetFirstName_thenReturnWhole() {
     // Arrange, Act and Assert
-    assertEquals("Whole",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org"))
+    assertEquals(
+        "Whole",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org")
             .getFirstName());
   }
 
   /**
    * Test {@link SlackConversation#getLastName()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getLastName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getLastName()}
    */
   @Test
   @DisplayName("Test getLastName()")
@@ -147,41 +170,41 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getLastName()"})
   void testGetLastName() {
     // Arrange, Act and Assert
-    assertNull((new SlackConversation(SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org"))
-        .getLastName());
+    assertNull(
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", null, "jane.doe@example.org")
+            .getLastName());
   }
 
   /**
    * Test {@link SlackConversation#getLastName()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getLastName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getLastName()}
    */
   @Test
   @DisplayName("Test getLastName()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String SlackConversation.getLastName()"})
   void testGetLastName2() {
-    // Arrange
-    SlackConversation buildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    buildResult.setWholeName("foo");
-
-    // Act and Assert
-    assertNull(buildResult.getLastName());
+    // Arrange, Act and Assert
+    assertNull(
+        new SlackConversation(
+                SlackConversationType.DIRECT,
+                "42",
+                "Name",
+                "org.thingsboard.server.common.data.notification.targets.slack.SlackConversation",
+                "jane.doe@example.org")
+            .getLastName());
   }
 
   /**
    * Test {@link SlackConversation#getLastName()}.
+   *
    * <ul>
-   *   <li>Then return {@code Name}.</li>
+   *   <li>Then return {@code Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#getLastName()}
+   *
+   * <p>Method under test: {@link SlackConversation#getLastName()}
    */
   @Test
   @DisplayName("Test getLastName(); then return 'Name'")
@@ -189,18 +212,21 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getLastName()"})
   void testGetLastName_thenReturnName() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org"))
+    assertEquals(
+        "Name",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org")
             .getLastName());
   }
 
   /**
    * Test {@link SlackConversation#getPointer()}.
+   *
    * <ul>
-   *   <li>Then return {@code @}.</li>
+   *   <li>Then return {@code @}.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#getPointer()}
+   *
+   * <p>Method under test: {@link SlackConversation#getPointer()}
    */
   @Test
   @DisplayName("Test getPointer(); then return '@'")
@@ -208,18 +234,21 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getPointer()"})
   void testGetPointer_thenReturnCommercialAt() {
     // Arrange, Act and Assert
-    assertEquals("@",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org"))
+    assertEquals(
+        "@",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org")
             .getPointer());
   }
 
   /**
    * Test {@link SlackConversation#getPointer()}.
+   *
    * <ul>
-   *   <li>Then return {@code #}.</li>
+   *   <li>Then return {@code #}.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#getPointer()}
+   *
+   * <p>Method under test: {@link SlackConversation#getPointer()}
    */
   @Test
   @DisplayName("Test getPointer(); then return '#'")
@@ -227,18 +256,27 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getPointer()"})
   void testGetPointer_thenReturnNumberSign() {
     // Arrange, Act and Assert
-    assertEquals("#", (new SlackConversation(SlackConversationType.PUBLIC_CHANNEL, "42", "Name", "Whole Name",
-        "jane.doe@example.org")).getPointer());
+    assertEquals(
+        "#",
+        new SlackConversation(
+                SlackConversationType.PUBLIC_CHANNEL,
+                "42",
+                "Name",
+                "Whole Name",
+                "jane.doe@example.org")
+            .getPointer());
   }
 
   /**
    * Test {@link SlackConversation#equals(Object)}, and {@link SlackConversation#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SlackConversation#equals(Object)}
    *   <li>{@link SlackConversation#hashCode()}
@@ -247,23 +285,28 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    SlackConversation buildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    SlackConversation buildResult =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -273,12 +316,14 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}, and {@link SlackConversation#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SlackConversation#equals(Object)}
    *   <li>{@link SlackConversation#hashCode()}
@@ -287,29 +332,39 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.name(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.name(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
     SlackConversationBuilder slackConversationBuilder4 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder4.email(Mockito.<String>any())).thenReturn(SlackConversation.builder());
-    SlackConversation buildResult2 = slackConversationBuilder4.email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder4.email(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
+    SlackConversation buildResult2 =
+        slackConversationBuilder4
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -319,12 +374,14 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}, and {@link SlackConversation#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SlackConversation#equals(Object)}
    *   <li>{@link SlackConversation#hashCode()}
@@ -333,16 +390,20 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    SlackConversation buildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    SlackConversation buildResult =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -352,34 +413,42 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.email(Mockito.<String>any())).thenReturn(SlackConversation.builder());
-    SlackConversation buildResult = slackConversationBuilder.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder.email(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
+    SlackConversation buildResult =
+        slackConversationBuilder
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -387,36 +456,45 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.id(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.id(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder2.email(Mockito.<String>any())).thenReturn(slackConversationBuilder);
-    SlackConversation buildResult = slackConversationBuilder2.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder2.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder);
+    SlackConversation buildResult =
+        slackConversationBuilder2
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -424,36 +502,45 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.id(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.id(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder2.email(Mockito.<String>any())).thenReturn(slackConversationBuilder);
-    SlackConversation buildResult = slackConversationBuilder2.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(null)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder2.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder);
+    SlackConversation buildResult =
+        slackConversationBuilder2
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(null)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -461,36 +548,45 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.id(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.id(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder2.email(Mockito.<String>any())).thenReturn(slackConversationBuilder);
-    SlackConversation buildResult = slackConversationBuilder2.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.PUBLIC_CHANNEL)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder2.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder);
+    SlackConversation buildResult =
+        slackConversationBuilder2
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.PUBLIC_CHANNEL)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -498,36 +594,45 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.id(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.id(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder2.email(Mockito.<String>any())).thenReturn(slackConversationBuilder);
-    SlackConversation buildResult = slackConversationBuilder2.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder2.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder);
+    SlackConversation buildResult =
+        slackConversationBuilder2
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -535,36 +640,45 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.id(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.id(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder2.email(Mockito.<String>any())).thenReturn(slackConversationBuilder);
-    SlackConversation buildResult = slackConversationBuilder2.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(null)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(null)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder2.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder);
+    SlackConversation buildResult =
+        slackConversationBuilder2
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(null)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(null)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -572,38 +686,47 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.name(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.name(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -611,38 +734,47 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.name(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.name(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -650,17 +782,21 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SlackConversationBuilder builderResult = SlackConversation.builder();
@@ -670,20 +806,24 @@ class SlackConversationDiffblueTest {
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -691,38 +831,47 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.name(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.name(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName(null)
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName(null)
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -730,38 +879,47 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SlackConversationBuilder slackConversationBuilder = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder.name(Mockito.<String>any())).thenReturn(SlackConversation.builder());
+    when(slackConversationBuilder.name(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("42")
-        .build();
-    SlackConversation buildResult2 = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("42")
+            .build();
+    SlackConversation buildResult2 =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -769,17 +927,21 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SlackConversationBuilder builderResult = SlackConversation.builder();
@@ -789,21 +951,27 @@ class SlackConversationDiffblueTest {
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
     SlackConversationBuilder slackConversationBuilder4 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder4.email(Mockito.<String>any())).thenReturn(SlackConversation.builder());
-    SlackConversation buildResult2 = slackConversationBuilder4.email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder4.email(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
+    SlackConversation buildResult2 =
+        slackConversationBuilder4
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -811,17 +979,21 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     SlackConversationBuilder builderResult = SlackConversation.builder();
@@ -831,21 +1003,27 @@ class SlackConversationDiffblueTest {
     SlackConversationBuilder slackConversationBuilder2 = mock(SlackConversationBuilder.class);
     when(slackConversationBuilder2.id(Mockito.<String>any())).thenReturn(slackConversationBuilder);
     SlackConversationBuilder slackConversationBuilder3 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder3.email(Mockito.<String>any())).thenReturn(slackConversationBuilder2);
-    SlackConversation buildResult = slackConversationBuilder3.email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder3.email(Mockito.<String>any()))
+        .thenReturn(slackConversationBuilder2);
+    SlackConversation buildResult =
+        slackConversationBuilder3
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
     SlackConversationBuilder slackConversationBuilder4 = mock(SlackConversationBuilder.class);
-    when(slackConversationBuilder4.email(Mockito.<String>any())).thenReturn(SlackConversation.builder());
-    SlackConversation buildResult2 = slackConversationBuilder4.email("jane.doe@example.org")
-        .id(null)
-        .name(null)
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    when(slackConversationBuilder4.email(Mockito.<String>any()))
+        .thenReturn(SlackConversation.builder());
+    SlackConversation buildResult2 =
+        slackConversationBuilder4
+            .email("jane.doe@example.org")
+            .id(null)
+            .name(null)
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -853,26 +1031,31 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    SlackConversation buildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    SlackConversation buildResult =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -880,26 +1063,31 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SlackConversation#equals(Object)}
+   *
+   * <p>Method under test: {@link SlackConversation#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SlackConversation.equals(Object)", "int SlackConversation.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SlackConversation.equals(Object)",
+    "int SlackConversation.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    SlackConversation buildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    SlackConversation buildResult =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to SlackConversation");
@@ -907,8 +1095,8 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test {@link SlackConversation#getId()}.
-   * <p>
-   * Method under test: {@link SlackConversation#getId()}
+   *
+   * <p>Method under test: {@link SlackConversation#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -916,15 +1104,18 @@ class SlackConversationDiffblueTest {
   @MethodsUnderTest({"String SlackConversation.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertEquals("42",
-        (new SlackConversation(SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org"))
+    assertEquals(
+        "42",
+        new SlackConversation(
+                SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org")
             .getId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SlackConversation#SlackConversation()}
    *   <li>{@link SlackConversation#setEmail(String)}
@@ -942,13 +1133,20 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SlackConversation.<init>()",
-      "void SlackConversation.<init>(SlackConversationType, String, String, String, String)",
-      "String SlackConversation.getEmail()", "String SlackConversation.getName()",
-      "SlackConversationType SlackConversation.getType()", "String SlackConversation.getWholeName()",
-      "void SlackConversation.setEmail(String)", "void SlackConversation.setId(String)",
-      "void SlackConversation.setName(String)", "void SlackConversation.setType(SlackConversationType)",
-      "void SlackConversation.setWholeName(String)", "String SlackConversation.toString()"})
+  @MethodsUnderTest({
+    "void SlackConversation.<init>()",
+    "void SlackConversation.<init>(SlackConversationType, String, String, String, String)",
+    "String SlackConversation.getEmail()",
+    "String SlackConversation.getName()",
+    "SlackConversationType SlackConversation.getType()",
+    "String SlackConversation.getWholeName()",
+    "void SlackConversation.setEmail(String)",
+    "void SlackConversation.setId(String)",
+    "void SlackConversation.setName(String)",
+    "void SlackConversation.setType(SlackConversationType)",
+    "void SlackConversation.setWholeName(String)",
+    "String SlackConversation.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SlackConversation actualSlackConversation = new SlackConversation();
@@ -966,7 +1164,8 @@ class SlackConversationDiffblueTest {
     // Assert
     assertEquals("42", actualSlackConversation.getId());
     assertEquals("Name", actualName);
-    assertEquals("SlackConversation(type=DIRECT, id=42, name=Name, wholeName=Whole Name, email=jane.doe@example.org)",
+    assertEquals(
+        "SlackConversation(type=DIRECT, id=42, name=Name, wholeName=Whole Name, email=jane.doe@example.org)",
         actualToStringResult);
     assertEquals("Whole Name", actualWholeName);
     assertEquals("jane.doe@example.org", actualEmail);
@@ -975,13 +1174,16 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code DIRECT}.</li>
+   *   <li>When {@code DIRECT}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link SlackConversation#SlackConversation(SlackConversationType, String, String, String, String)}
+   *   <li>{@link SlackConversation#SlackConversation(SlackConversationType, String, String, String,
+   *       String)}
    *   <li>{@link SlackConversation#setEmail(String)}
    *   <li>{@link SlackConversation#setId(String)}
    *   <li>{@link SlackConversation#setName(String)}
@@ -997,17 +1199,25 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'DIRECT'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SlackConversation.<init>()",
-      "void SlackConversation.<init>(SlackConversationType, String, String, String, String)",
-      "String SlackConversation.getEmail()", "String SlackConversation.getName()",
-      "SlackConversationType SlackConversation.getType()", "String SlackConversation.getWholeName()",
-      "void SlackConversation.setEmail(String)", "void SlackConversation.setId(String)",
-      "void SlackConversation.setName(String)", "void SlackConversation.setType(SlackConversationType)",
-      "void SlackConversation.setWholeName(String)", "String SlackConversation.toString()"})
+  @MethodsUnderTest({
+    "void SlackConversation.<init>()",
+    "void SlackConversation.<init>(SlackConversationType, String, String, String, String)",
+    "String SlackConversation.getEmail()",
+    "String SlackConversation.getName()",
+    "SlackConversationType SlackConversation.getType()",
+    "String SlackConversation.getWholeName()",
+    "void SlackConversation.setEmail(String)",
+    "void SlackConversation.setId(String)",
+    "void SlackConversation.setName(String)",
+    "void SlackConversation.setType(SlackConversationType)",
+    "void SlackConversation.setWholeName(String)",
+    "String SlackConversation.toString()"
+  })
   void testGettersAndSetters_whenDirect() {
     // Arrange and Act
-    SlackConversation actualSlackConversation = new SlackConversation(SlackConversationType.DIRECT, "42", "Name",
-        "Whole Name", "jane.doe@example.org");
+    SlackConversation actualSlackConversation =
+        new SlackConversation(
+            SlackConversationType.DIRECT, "42", "Name", "Whole Name", "jane.doe@example.org");
     actualSlackConversation.setEmail("jane.doe@example.org");
     actualSlackConversation.setId("42");
     actualSlackConversation.setName("Name");
@@ -1022,7 +1232,8 @@ class SlackConversationDiffblueTest {
     // Assert
     assertEquals("42", actualSlackConversation.getId());
     assertEquals("Name", actualName);
-    assertEquals("SlackConversation(type=DIRECT, id=42, name=Name, wholeName=Whole Name, email=jane.doe@example.org)",
+    assertEquals(
+        "SlackConversation(type=DIRECT, id=42, name=Name, wholeName=Whole Name, email=jane.doe@example.org)",
         actualToStringResult);
     assertEquals("Whole Name", actualWholeName);
     assertEquals("jane.doe@example.org", actualEmail);
@@ -1031,8 +1242,9 @@ class SlackConversationDiffblueTest {
 
   /**
    * Test SlackConversationBuilder {@link SlackConversationBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SlackConversationBuilder#build()}
    *   <li>{@link SlackConversationBuilder#email(String)}
@@ -1045,21 +1257,26 @@ class SlackConversationDiffblueTest {
   @Test
   @DisplayName("Test SlackConversationBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SlackConversationBuilder.<init>()", "SlackConversation SlackConversationBuilder.build()",
-      "SlackConversationBuilder SlackConversationBuilder.email(String)",
-      "SlackConversationBuilder SlackConversationBuilder.id(String)",
-      "SlackConversationBuilder SlackConversationBuilder.name(String)", "String SlackConversationBuilder.toString()",
-      "SlackConversationBuilder SlackConversationBuilder.type(SlackConversationType)",
-      "SlackConversationBuilder SlackConversationBuilder.wholeName(String)"})
+  @MethodsUnderTest({
+    "void SlackConversationBuilder.<init>()",
+    "SlackConversation SlackConversationBuilder.build()",
+    "SlackConversationBuilder SlackConversationBuilder.email(String)",
+    "SlackConversationBuilder SlackConversationBuilder.id(String)",
+    "SlackConversationBuilder SlackConversationBuilder.name(String)",
+    "String SlackConversationBuilder.toString()",
+    "SlackConversationBuilder SlackConversationBuilder.type(SlackConversationType)",
+    "SlackConversationBuilder SlackConversationBuilder.wholeName(String)"
+  })
   void testSlackConversationBuilderBuild() {
     // Arrange and Act
-    SlackConversation actualBuildResult = SlackConversation.builder()
-        .email("jane.doe@example.org")
-        .id("42")
-        .name("Name")
-        .type(SlackConversationType.DIRECT)
-        .wholeName("Whole Name")
-        .build();
+    SlackConversation actualBuildResult =
+        SlackConversation.builder()
+            .email("jane.doe@example.org")
+            .id("42")
+            .name("Name")
+            .type(SlackConversationType.DIRECT)
+            .wholeName("Whole Name")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getId());

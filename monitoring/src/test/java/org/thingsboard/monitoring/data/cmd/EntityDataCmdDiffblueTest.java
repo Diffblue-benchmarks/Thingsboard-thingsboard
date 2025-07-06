@@ -18,12 +18,14 @@ import org.thingsboard.server.common.data.query.EntityKey;
 class EntityDataCmdDiffblueTest {
   /**
    * Test {@link EntityDataCmd#equals(Object)}, and {@link EntityDataCmd#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataCmd#equals(Object)}
    *   <li>{@link EntityDataCmd#hashCode()}
@@ -59,12 +61,14 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}, and {@link EntityDataCmd#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataCmd#equals(Object)}
    *   <li>{@link EntityDataCmd#hashCode()}
@@ -92,12 +96,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -127,12 +132,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,12 +168,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -197,12 +204,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -233,12 +241,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -260,12 +269,13 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test {@link EntityDataCmd#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataCmd#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataCmd#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -287,8 +297,9 @@ class EntityDataCmdDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EntityDataCmd}
    *   <li>{@link EntityDataCmd#setCmdId(int)}
@@ -303,10 +314,16 @@ class EntityDataCmdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityDataCmd.<init>()", "int EntityDataCmd.getCmdId()",
-      "LatestValueCmd EntityDataCmd.getLatestCmd()", "EntityDataQuery EntityDataCmd.getQuery()",
-      "void EntityDataCmd.setCmdId(int)", "void EntityDataCmd.setLatestCmd(LatestValueCmd)",
-      "void EntityDataCmd.setQuery(EntityDataQuery)", "String EntityDataCmd.toString()"})
+  @MethodsUnderTest({
+    "void EntityDataCmd.<init>()",
+    "int EntityDataCmd.getCmdId()",
+    "LatestValueCmd EntityDataCmd.getLatestCmd()",
+    "EntityDataQuery EntityDataCmd.getQuery()",
+    "void EntityDataCmd.setCmdId(int)",
+    "void EntityDataCmd.setLatestCmd(LatestValueCmd)",
+    "void EntityDataCmd.setQuery(EntityDataQuery)",
+    "String EntityDataCmd.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityDataCmd actualEntityDataCmd = new EntityDataCmd();

@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class OAuth2ClientLoginInfoDiffblueTest {
   /**
-   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link OAuth2ClientLoginInfo#hashCode()}.
+   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link
+   * OAuth2ClientLoginInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#equals(Object)}
    *   <li>{@link OAuth2ClientLoginInfo#hashCode()}
@@ -24,13 +27,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon",
-        "https://example.org/example");
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 = new OAuth2ClientLoginInfo("Name", "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 =
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example");
 
     // Act and Assert
     assertEquals(oAuth2ClientLoginInfo, oAuth2ClientLoginInfo2);
@@ -39,13 +45,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link OAuth2ClientLoginInfo#hashCode()}.
+   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link
+   * OAuth2ClientLoginInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#equals(Object)}
    *   <li>{@link OAuth2ClientLoginInfo#hashCode()}
@@ -54,13 +63,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo(null, "Icon",
-        "https://example.org/example");
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 = new OAuth2ClientLoginInfo(null, "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo(null, "Icon", "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 =
+        new OAuth2ClientLoginInfo(null, "Icon", "https://example.org/example");
 
     // Act and Assert
     assertEquals(oAuth2ClientLoginInfo, oAuth2ClientLoginInfo2);
@@ -69,13 +81,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link OAuth2ClientLoginInfo#hashCode()}.
+   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link
+   * OAuth2ClientLoginInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#equals(Object)}
    *   <li>{@link OAuth2ClientLoginInfo#hashCode()}
@@ -84,13 +99,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", null,
-        "https://example.org/example");
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 = new OAuth2ClientLoginInfo("Name", null,
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", null, "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo2 =
+        new OAuth2ClientLoginInfo("Name", null, "https://example.org/example");
 
     // Act and Assert
     assertEquals(oAuth2ClientLoginInfo, oAuth2ClientLoginInfo2);
@@ -99,13 +117,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link OAuth2ClientLoginInfo#hashCode()}.
+   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link
+   * OAuth2ClientLoginInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#equals(Object)}
    *   <li>{@link OAuth2ClientLoginInfo#hashCode()}
@@ -114,7 +135,10 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon", null);
@@ -127,13 +151,16 @@ class OAuth2ClientLoginInfoDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link OAuth2ClientLoginInfo#hashCode()}.
+   * Test {@link OAuth2ClientLoginInfo#equals(Object)}, and {@link
+   * OAuth2ClientLoginInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#equals(Object)}
    *   <li>{@link OAuth2ClientLoginInfo#hashCode()}
@@ -142,11 +169,14 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example");
 
     // Act and Assert
     assertEquals(oAuth2ClientLoginInfo, oAuth2ClientLoginInfo);
@@ -156,147 +186,187 @@ class OAuth2ClientLoginInfoDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Icon", "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Icon", "Icon", "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo(null, "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo(null, "Icon", "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Name",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", "Name", "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", null,
-        "https://example.org/example");
+    OAuth2ClientLoginInfo oAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", null, "https://example.org/example");
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon", "Name");
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OAuth2ClientLoginInfo oAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon", null);
 
     // Act and Assert
-    assertNotEquals(oAuth2ClientLoginInfo, new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
+    assertNotEquals(
+        oAuth2ClientLoginInfo,
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"));
   }
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"), null);
@@ -304,27 +374,33 @@ class OAuth2ClientLoginInfoDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientLoginInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientLoginInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientLoginInfo.equals(Object)", "int OAuth2ClientLoginInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientLoginInfo.equals(Object)",
+    "int OAuth2ClientLoginInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"),
+    assertNotEquals(
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example"),
         "Different type to OAuth2ClientLoginInfo");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#OAuth2ClientLoginInfo()}
    *   <li>{@link OAuth2ClientLoginInfo#setIcon(String)}
@@ -339,11 +415,17 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientLoginInfo.<init>()", "void OAuth2ClientLoginInfo.<init>(String, String, String)",
-      "String OAuth2ClientLoginInfo.getIcon()", "String OAuth2ClientLoginInfo.getName()",
-      "String OAuth2ClientLoginInfo.getUrl()", "void OAuth2ClientLoginInfo.setIcon(String)",
-      "void OAuth2ClientLoginInfo.setName(String)", "void OAuth2ClientLoginInfo.setUrl(String)",
-      "String OAuth2ClientLoginInfo.toString()"})
+  @MethodsUnderTest({
+    "void OAuth2ClientLoginInfo.<init>()",
+    "void OAuth2ClientLoginInfo.<init>(String, String, String)",
+    "String OAuth2ClientLoginInfo.getIcon()",
+    "String OAuth2ClientLoginInfo.getName()",
+    "String OAuth2ClientLoginInfo.getUrl()",
+    "void OAuth2ClientLoginInfo.setIcon(String)",
+    "void OAuth2ClientLoginInfo.setName(String)",
+    "void OAuth2ClientLoginInfo.setUrl(String)",
+    "String OAuth2ClientLoginInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     OAuth2ClientLoginInfo actualOAuth2ClientLoginInfo = new OAuth2ClientLoginInfo();
@@ -357,17 +439,21 @@ class OAuth2ClientLoginInfoDiffblueTest {
     // Assert
     assertEquals("Icon", actualIcon);
     assertEquals("Name", actualName);
-    assertEquals("OAuth2ClientLoginInfo(name=Name, icon=Icon, url=https://example.org/example)", actualToStringResult);
+    assertEquals(
+        "OAuth2ClientLoginInfo(name=Name, icon=Icon, url=https://example.org/example)",
+        actualToStringResult);
     assertEquals("https://example.org/example", actualOAuth2ClientLoginInfo.getUrl());
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
+   *   <li>When {@code Name}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientLoginInfo#OAuth2ClientLoginInfo(String, String, String)}
    *   <li>{@link OAuth2ClientLoginInfo#setIcon(String)}
@@ -382,15 +468,21 @@ class OAuth2ClientLoginInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientLoginInfo.<init>()", "void OAuth2ClientLoginInfo.<init>(String, String, String)",
-      "String OAuth2ClientLoginInfo.getIcon()", "String OAuth2ClientLoginInfo.getName()",
-      "String OAuth2ClientLoginInfo.getUrl()", "void OAuth2ClientLoginInfo.setIcon(String)",
-      "void OAuth2ClientLoginInfo.setName(String)", "void OAuth2ClientLoginInfo.setUrl(String)",
-      "String OAuth2ClientLoginInfo.toString()"})
+  @MethodsUnderTest({
+    "void OAuth2ClientLoginInfo.<init>()",
+    "void OAuth2ClientLoginInfo.<init>(String, String, String)",
+    "String OAuth2ClientLoginInfo.getIcon()",
+    "String OAuth2ClientLoginInfo.getName()",
+    "String OAuth2ClientLoginInfo.getUrl()",
+    "void OAuth2ClientLoginInfo.setIcon(String)",
+    "void OAuth2ClientLoginInfo.setName(String)",
+    "void OAuth2ClientLoginInfo.setUrl(String)",
+    "String OAuth2ClientLoginInfo.toString()"
+  })
   void testGettersAndSetters_whenName() {
     // Arrange and Act
-    OAuth2ClientLoginInfo actualOAuth2ClientLoginInfo = new OAuth2ClientLoginInfo("Name", "Icon",
-        "https://example.org/example");
+    OAuth2ClientLoginInfo actualOAuth2ClientLoginInfo =
+        new OAuth2ClientLoginInfo("Name", "Icon", "https://example.org/example");
     actualOAuth2ClientLoginInfo.setIcon("Icon");
     actualOAuth2ClientLoginInfo.setName("Name");
     actualOAuth2ClientLoginInfo.setUrl("https://example.org/example");
@@ -401,7 +493,9 @@ class OAuth2ClientLoginInfoDiffblueTest {
     // Assert
     assertEquals("Icon", actualIcon);
     assertEquals("Name", actualName);
-    assertEquals("OAuth2ClientLoginInfo(name=Name, icon=Icon, url=https://example.org/example)", actualToStringResult);
+    assertEquals(
+        "OAuth2ClientLoginInfo(name=Name, icon=Icon, url=https://example.org/example)",
+        actualToStringResult);
     assertEquals("https://example.org/example", actualOAuth2ClientLoginInfo.getUrl());
   }
 }

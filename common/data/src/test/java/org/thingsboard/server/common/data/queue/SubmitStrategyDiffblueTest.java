@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class SubmitStrategyDiffblueTest {
   /**
    * Test {@link SubmitStrategy#equals(Object)}, and {@link SubmitStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SubmitStrategy#equals(Object)}
    *   <li>{@link SubmitStrategy#hashCode()}
@@ -43,12 +45,14 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}, and {@link SubmitStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SubmitStrategy#equals(Object)}
    *   <li>{@link SubmitStrategy#hashCode()}
@@ -76,12 +80,14 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}, and {@link SubmitStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SubmitStrategy#equals(Object)}
    *   <li>{@link SubmitStrategy#hashCode()}
@@ -105,12 +111,13 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SubmitStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link SubmitStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -132,12 +139,13 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SubmitStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link SubmitStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -159,12 +167,13 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SubmitStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link SubmitStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -186,12 +195,13 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SubmitStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link SubmitStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -209,12 +219,13 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test {@link SubmitStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SubmitStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link SubmitStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -232,8 +243,9 @@ class SubmitStrategyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SubmitStrategy}
    *   <li>{@link SubmitStrategy#setBatchSize(int)}
@@ -246,9 +258,14 @@ class SubmitStrategyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SubmitStrategy.<init>()", "int SubmitStrategy.getBatchSize()",
-      "SubmitStrategyType SubmitStrategy.getType()", "void SubmitStrategy.setBatchSize(int)",
-      "void SubmitStrategy.setType(SubmitStrategyType)", "String SubmitStrategy.toString()"})
+  @MethodsUnderTest({
+    "void SubmitStrategy.<init>()",
+    "int SubmitStrategy.getBatchSize()",
+    "SubmitStrategyType SubmitStrategy.getType()",
+    "void SubmitStrategy.setBatchSize(int)",
+    "void SubmitStrategy.setType(SubmitStrategyType)",
+    "String SubmitStrategy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SubmitStrategy actualSubmitStrategy = new SubmitStrategy();

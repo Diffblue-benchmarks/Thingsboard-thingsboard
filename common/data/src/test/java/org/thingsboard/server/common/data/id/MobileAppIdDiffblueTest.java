@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class MobileAppIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppId#MobileAppId(UUID)}
    *   <li>{@link MobileAppId#getEntityType()}

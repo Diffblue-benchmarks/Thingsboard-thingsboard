@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class SessionMsgTypeDiffblueTest {
   /**
    * Test {@link SessionMsgType#requiresRulesProcessing()}.
-   * <p>
-   * Method under test: {@link SessionMsgType#requiresRulesProcessing()}
+   *
+   * <p>Method under test: {@link SessionMsgType#requiresRulesProcessing()}
    */
   @Test
   @DisplayName("Test requiresRulesProcessing()")

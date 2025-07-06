@@ -22,21 +22,21 @@ import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.EntityId;
 
-@ContextConfiguration(classes = {TbEntityTypeActorIdPredicate.class})
+@ContextConfiguration(classes = {TbEntityTypeActorIdPredicate.class, EntityType.class})
 @DisabledInAotMode
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)
 class TbEntityTypeActorIdPredicateDiffblueTest {
-  @MockBean
-  private EntityType entityType;
+  @MockBean private EntityType entityType;
 
-  @Autowired
-  private TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate;
+  @Autowired private TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate;
+
+  @InjectMocks private TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate2;
 
   /**
    * Test {@link TbEntityTypeActorIdPredicate#test(TbActorId)} with {@code TbActorId}.
-   * <p>
-   * Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
+   *
+   * <p>Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
    */
   @Test
   @DisplayName("Test test(TbActorId) with 'TbActorId'")
@@ -45,7 +45,8 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
   void testTestWithTbActorId() {
     // Arrange
     TbEntityActorId actorId = mock(TbEntityActorId.class);
-    when(actorId.getEntityId()).thenReturn(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(actorId.getEntityId())
+        .thenReturn(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
     boolean actualTestResult = tbEntityTypeActorIdPredicate.test(actorId);
@@ -57,11 +58,12 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
 
   /**
    * Test {@link TbEntityTypeActorIdPredicate#test(TbActorId)} with {@code TbActorId}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
+   *
+   * <p>Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
    */
   @Test
   @DisplayName("Test test(TbActorId) with 'TbActorId'; then return 'true'")
@@ -69,7 +71,8 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
   @MethodsUnderTest({"boolean TbEntityTypeActorIdPredicate.test(TbActorId)"})
   void testTestWithTbActorId_thenReturnTrue() {
     // Arrange
-    TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate = new TbEntityTypeActorIdPredicate(EntityType.TENANT);
+    TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate =
+        new TbEntityTypeActorIdPredicate(EntityType.TENANT);
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenReturn(EntityType.TENANT);
     TbEntityActorId actorId = mock(TbEntityActorId.class);
@@ -86,12 +89,13 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
 
   /**
    * Test {@link TbEntityTypeActorIdPredicate#test(TbActorId)} with {@code TbActorId}.
+   *
    * <ul>
-   *   <li>When {@link TbActorId}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link TbActorId}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
+   *
+   * <p>Method under test: {@link TbEntityTypeActorIdPredicate#test(TbActorId)}
    */
   @Test
   @DisplayName("Test test(TbActorId) with 'TbActorId'; when TbActorId; then return 'false'")
@@ -104,11 +108,12 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
 
   /**
    * Test {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}
+   *
+   * <p>Method under test: {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}
    */
   @Test
   @DisplayName("Test testEntityId(EntityId); then return 'false'")
@@ -116,17 +121,19 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
   @MethodsUnderTest({"boolean TbEntityTypeActorIdPredicate.testEntityId(EntityId)"})
   void testTestEntityId_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse(tbEntityTypeActorIdPredicate
-        .testEntityId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    assertFalse(
+        tbEntityTypeActorIdPredicate2.testEntityId(
+            new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
    * Test {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}
+   *
+   * <p>Method under test: {@link TbEntityTypeActorIdPredicate#testEntityId(EntityId)}
    */
   @Test
   @DisplayName("Test testEntityId(EntityId); then return 'true'")
@@ -134,7 +141,8 @@ class TbEntityTypeActorIdPredicateDiffblueTest {
   @MethodsUnderTest({"boolean TbEntityTypeActorIdPredicate.testEntityId(EntityId)"})
   void testTestEntityId_thenReturnTrue() {
     // Arrange
-    TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate = new TbEntityTypeActorIdPredicate(EntityType.TENANT);
+    TbEntityTypeActorIdPredicate tbEntityTypeActorIdPredicate =
+        new TbEntityTypeActorIdPredicate(EntityType.TENANT);
     AlarmId entityId = mock(AlarmId.class);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
 

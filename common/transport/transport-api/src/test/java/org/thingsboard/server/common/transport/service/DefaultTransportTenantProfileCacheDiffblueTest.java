@@ -18,34 +18,38 @@ import org.thingsboard.server.common.data.id.TenantProfileId;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class DefaultTransportTenantProfileCacheDiffblueTest {
-  @InjectMocks
-  private DefaultTransportTenantProfileCache defaultTransportTenantProfileCache;
+  @InjectMocks private DefaultTransportTenantProfileCache defaultTransportTenantProfileCache;
 
   /**
-   * Test {@link DefaultTransportTenantProfileCache#put(TenantId, TenantProfileId)} with {@code tenantId}, {@code profileId}.
+   * Test {@link DefaultTransportTenantProfileCache#put(TenantId, TenantProfileId)} with {@code
+   * tenantId}, {@code profileId}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTransportTenantProfileCache#put(TenantId, TenantProfileId)}
+   *
+   * <p>Method under test: {@link DefaultTransportTenantProfileCache#put(TenantId, TenantProfileId)}
    */
   @Test
-  @DisplayName("Test put(TenantId, TenantProfileId) with 'tenantId', 'profileId'; then return 'false'")
+  @DisplayName(
+      "Test put(TenantId, TenantProfileId) with 'tenantId', 'profileId'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DefaultTransportTenantProfileCache.put(TenantId, TenantProfileId)"})
   void testPutWithTenantIdProfileId_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse(defaultTransportTenantProfileCache
-        .put(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null));
+    assertFalse(
+        defaultTransportTenantProfileCache.put(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null));
   }
 
   /**
    * Test {@link DefaultTransportTenantProfileCache#remove(TenantProfileId)}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTransportTenantProfileCache#remove(TenantProfileId)}
+   *
+   * <p>Method under test: {@link DefaultTransportTenantProfileCache#remove(TenantProfileId)}
    */
   @Test
   @DisplayName("Test remove(TenantProfileId); then return 'null'")
@@ -53,7 +57,8 @@ class DefaultTransportTenantProfileCacheDiffblueTest {
   @MethodsUnderTest({"java.util.Set DefaultTransportTenantProfileCache.remove(TenantProfileId)"})
   void testRemove_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull(defaultTransportTenantProfileCache
-        .remove(new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    assertNull(
+        defaultTransportTenantProfileCache.remove(
+            new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 }

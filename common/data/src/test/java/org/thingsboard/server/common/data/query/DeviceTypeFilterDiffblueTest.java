@@ -14,12 +14,13 @@ import org.junit.jupiter.api.Test;
 class DeviceTypeFilterDiffblueTest {
   /**
    * Test {@link DeviceTypeFilter#getDeviceTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return first is {@code foo}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return first is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#getDeviceTypes()}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#getDeviceTypes()}
    */
   @Test
   @DisplayName("Test getDeviceTypes(); given ArrayList() add 'foo'; then return first is 'foo'")
@@ -31,7 +32,8 @@ class DeviceTypeFilterDiffblueTest {
     deviceTypes.add("foo");
 
     // Act
-    List<String> actualDeviceTypes = (new DeviceTypeFilter(deviceTypes, "Device Name Filter")).getDeviceTypes();
+    List<String> actualDeviceTypes =
+        new DeviceTypeFilter("Device Type", deviceTypes, "Device Name Filter").getDeviceTypes();
 
     // Assert
     assertEquals(1, actualDeviceTypes.size());
@@ -41,12 +43,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#getDeviceTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceTypeFilter#DeviceTypeFilter()}.</li>
-   *   <li>Then return first is {@code null}.</li>
+   *   <li>Given {@link DeviceTypeFilter#DeviceTypeFilter()}.
+   *   <li>Then return first is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#getDeviceTypes()}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#getDeviceTypes()}
    */
   @Test
   @DisplayName("Test getDeviceTypes(); given DeviceTypeFilter(); then return first is 'null'")
@@ -54,7 +57,7 @@ class DeviceTypeFilterDiffblueTest {
   @MethodsUnderTest({"List DeviceTypeFilter.getDeviceTypes()"})
   void testGetDeviceTypes_givenDeviceTypeFilter_thenReturnFirstIsNull() {
     // Arrange and Act
-    List<String> actualDeviceTypes = (new DeviceTypeFilter()).getDeviceTypes();
+    List<String> actualDeviceTypes = new DeviceTypeFilter().getDeviceTypes();
 
     // Assert
     assertEquals(1, actualDeviceTypes.size());
@@ -63,12 +66,14 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}, and {@link DeviceTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#equals(Object)}
    *   <li>{@link DeviceTypeFilter#hashCode()}
@@ -91,12 +96,14 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}, and {@link DeviceTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#equals(Object)}
    *   <li>{@link DeviceTypeFilter#hashCode()}
@@ -108,8 +115,10 @@ class DeviceTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean DeviceTypeFilter.equals(Object)", "int DeviceTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
-    DeviceTypeFilter deviceTypeFilter2 = new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter =
+        new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter2 =
+        new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
 
     // Act and Assert
     assertEquals(deviceTypeFilter, deviceTypeFilter2);
@@ -119,12 +128,14 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}, and {@link DeviceTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#equals(Object)}
    *   <li>{@link DeviceTypeFilter#hashCode()}
@@ -136,8 +147,10 @@ class DeviceTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean DeviceTypeFilter.equals(Object)", "int DeviceTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
-    DeviceTypeFilter deviceTypeFilter2 = new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter =
+        new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter2 =
+        new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
 
     // Act and Assert
     assertEquals(deviceTypeFilter, deviceTypeFilter2);
@@ -147,12 +160,14 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}, and {@link DeviceTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#equals(Object)}
    *   <li>{@link DeviceTypeFilter#hashCode()}
@@ -174,12 +189,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -187,7 +203,8 @@ class DeviceTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean DeviceTypeFilter.equals(Object)", "int DeviceTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter =
+        new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
 
     // Act and Assert
     assertNotEquals(deviceTypeFilter, new DeviceTypeFilter());
@@ -195,12 +212,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -208,7 +226,8 @@ class DeviceTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean DeviceTypeFilter.equals(Object)", "int DeviceTypeFilter.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter deviceTypeFilter =
+        new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
 
     // Act and Assert
     assertNotEquals(deviceTypeFilter, new DeviceTypeFilter());
@@ -216,12 +235,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -232,17 +252,19 @@ class DeviceTypeFilterDiffblueTest {
     DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter();
 
     // Act and Assert
-    assertNotEquals(deviceTypeFilter, new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter"));
+    assertNotEquals(
+        deviceTypeFilter, new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter"));
   }
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -253,17 +275,20 @@ class DeviceTypeFilterDiffblueTest {
     DeviceTypeFilter deviceTypeFilter = new DeviceTypeFilter();
 
     // Act and Assert
-    assertNotEquals(deviceTypeFilter, new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter"));
+    assertNotEquals(
+        deviceTypeFilter,
+        new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter"));
   }
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -281,12 +306,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -299,12 +325,13 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test {@link DeviceTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -317,8 +344,9 @@ class DeviceTypeFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#DeviceTypeFilter()}
    *   <li>{@link DeviceTypeFilter#setDeviceNameFilter(String)}
@@ -332,11 +360,17 @@ class DeviceTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceTypeFilter.<init>()", "void DeviceTypeFilter.<init>(String, List, String)",
-      "void DeviceTypeFilter.<init>(List, String)", "String DeviceTypeFilter.getDeviceNameFilter()",
-      "EntityFilterType DeviceTypeFilter.getType()", "void DeviceTypeFilter.setDeviceNameFilter(String)",
-      "void DeviceTypeFilter.setDeviceType(String)", "void DeviceTypeFilter.setDeviceTypes(List)",
-      "String DeviceTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void DeviceTypeFilter.<init>()",
+    "void DeviceTypeFilter.<init>(String, List, String)",
+    "void DeviceTypeFilter.<init>(List, String)",
+    "String DeviceTypeFilter.getDeviceNameFilter()",
+    "EntityFilterType DeviceTypeFilter.getType()",
+    "void DeviceTypeFilter.setDeviceNameFilter(String)",
+    "void DeviceTypeFilter.setDeviceType(String)",
+    "void DeviceTypeFilter.setDeviceTypes(List)",
+    "String DeviceTypeFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceTypeFilter actualDeviceTypeFilter = new DeviceTypeFilter();
@@ -349,18 +383,21 @@ class DeviceTypeFilterDiffblueTest {
     // Assert
     assertEquals("Device Name Filter", actualDeviceNameFilter);
     assertEquals(
-        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name" + " Filter)",
+        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name"
+            + " Filter)",
         actualToStringResult);
     assertEquals(EntityFilterType.DEVICE_TYPE, actualDeviceTypeFilter.getType());
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#DeviceTypeFilter(List, String)}
    *   <li>{@link DeviceTypeFilter#setDeviceNameFilter(String)}
@@ -374,14 +411,21 @@ class DeviceTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceTypeFilter.<init>()", "void DeviceTypeFilter.<init>(String, List, String)",
-      "void DeviceTypeFilter.<init>(List, String)", "String DeviceTypeFilter.getDeviceNameFilter()",
-      "EntityFilterType DeviceTypeFilter.getType()", "void DeviceTypeFilter.setDeviceNameFilter(String)",
-      "void DeviceTypeFilter.setDeviceType(String)", "void DeviceTypeFilter.setDeviceTypes(List)",
-      "String DeviceTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void DeviceTypeFilter.<init>()",
+    "void DeviceTypeFilter.<init>(String, List, String)",
+    "void DeviceTypeFilter.<init>(List, String)",
+    "String DeviceTypeFilter.getDeviceNameFilter()",
+    "EntityFilterType DeviceTypeFilter.getType()",
+    "void DeviceTypeFilter.setDeviceNameFilter(String)",
+    "void DeviceTypeFilter.setDeviceType(String)",
+    "void DeviceTypeFilter.setDeviceTypes(List)",
+    "String DeviceTypeFilter.toString()"
+  })
   void testGettersAndSetters_whenArrayList() {
     // Arrange and Act
-    DeviceTypeFilter actualDeviceTypeFilter = new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
+    DeviceTypeFilter actualDeviceTypeFilter =
+        new DeviceTypeFilter(new ArrayList<>(), "Device Name Filter");
     actualDeviceTypeFilter.setDeviceNameFilter("Device Name Filter");
     actualDeviceTypeFilter.setDeviceType("Device Type");
     actualDeviceTypeFilter.setDeviceTypes(new ArrayList<>());
@@ -391,18 +435,21 @@ class DeviceTypeFilterDiffblueTest {
     // Assert
     assertEquals("Device Name Filter", actualDeviceNameFilter);
     assertEquals(
-        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name" + " Filter)",
+        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name"
+            + " Filter)",
         actualToStringResult);
     assertEquals(EntityFilterType.DEVICE_TYPE, actualDeviceTypeFilter.getType());
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Device Type}.</li>
+   *   <li>When {@code Device Type}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTypeFilter#DeviceTypeFilter(String, List, String)}
    *   <li>{@link DeviceTypeFilter#setDeviceNameFilter(String)}
@@ -416,15 +463,21 @@ class DeviceTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Device Type'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceTypeFilter.<init>()", "void DeviceTypeFilter.<init>(String, List, String)",
-      "void DeviceTypeFilter.<init>(List, String)", "String DeviceTypeFilter.getDeviceNameFilter()",
-      "EntityFilterType DeviceTypeFilter.getType()", "void DeviceTypeFilter.setDeviceNameFilter(String)",
-      "void DeviceTypeFilter.setDeviceType(String)", "void DeviceTypeFilter.setDeviceTypes(List)",
-      "String DeviceTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void DeviceTypeFilter.<init>()",
+    "void DeviceTypeFilter.<init>(String, List, String)",
+    "void DeviceTypeFilter.<init>(List, String)",
+    "String DeviceTypeFilter.getDeviceNameFilter()",
+    "EntityFilterType DeviceTypeFilter.getType()",
+    "void DeviceTypeFilter.setDeviceNameFilter(String)",
+    "void DeviceTypeFilter.setDeviceType(String)",
+    "void DeviceTypeFilter.setDeviceTypes(List)",
+    "String DeviceTypeFilter.toString()"
+  })
   void testGettersAndSetters_whenDeviceType() {
     // Arrange and Act
-    DeviceTypeFilter actualDeviceTypeFilter = new DeviceTypeFilter("Device Type", new ArrayList<>(),
-        "Device Name Filter");
+    DeviceTypeFilter actualDeviceTypeFilter =
+        new DeviceTypeFilter("Device Type", new ArrayList<>(), "Device Name Filter");
     actualDeviceTypeFilter.setDeviceNameFilter("Device Name Filter");
     actualDeviceTypeFilter.setDeviceType("Device Type");
     actualDeviceTypeFilter.setDeviceTypes(new ArrayList<>());
@@ -434,7 +487,8 @@ class DeviceTypeFilterDiffblueTest {
     // Assert
     assertEquals("Device Name Filter", actualDeviceNameFilter);
     assertEquals(
-        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name" + " Filter)",
+        "DeviceTypeFilter(deviceType=Device Type, deviceTypes=[Device Type], deviceNameFilter=Device Name"
+            + " Filter)",
         actualToStringResult);
     assertEquals(EntityFilterType.DEVICE_TYPE, actualDeviceTypeFilter.getType());
   }

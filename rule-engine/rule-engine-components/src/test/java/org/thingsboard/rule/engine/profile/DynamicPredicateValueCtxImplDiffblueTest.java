@@ -20,9 +20,11 @@ import org.thingsboard.server.dao.device.DeviceServiceImpl;
 
 class DynamicPredicateValueCtxImplDiffblueTest {
   /**
-   * Test {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}.
-   * <p>
-   * Method under test: {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}
+   * Test {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId,
+   * TbContext)}.
+   *
+   * <p>Method under test: {@link
+   * DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}
    */
   @Test
   @DisplayName("Test new DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)")
@@ -32,13 +34,14 @@ class DynamicPredicateValueCtxImplDiffblueTest {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     DeviceServiceImpl deviceServiceImpl = mock(DeviceServiceImpl.class);
-    when(deviceServiceImpl.findDeviceById(Mockito.<TenantId>any(), Mockito.<DeviceId>any())).thenReturn(new Device());
+    when(deviceServiceImpl.findDeviceById(Mockito.<TenantId>any(), Mockito.<DeviceId>any()))
+        .thenReturn(new Device());
     TbContext ctx = mock(TbContext.class);
     when(ctx.getDeviceService()).thenReturn(deviceServiceImpl);
 
     // Act
-    DynamicPredicateValueCtxImpl actualDynamicPredicateValueCtxImpl = new DynamicPredicateValueCtxImpl(tenantId, null,
-        ctx);
+    DynamicPredicateValueCtxImpl actualDynamicPredicateValueCtxImpl =
+        new DynamicPredicateValueCtxImpl(tenantId, null, ctx);
 
     // Assert
     verify(ctx).getDeviceService();
@@ -47,9 +50,11 @@ class DynamicPredicateValueCtxImplDiffblueTest {
   }
 
   /**
-   * Test {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}.
-   * <p>
-   * Method under test: {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}
+   * Test {@link DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId,
+   * TbContext)}.
+   *
+   * <p>Method under test: {@link
+   * DynamicPredicateValueCtxImpl#DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)}
    */
   @Test
   @DisplayName("Test new DynamicPredicateValueCtxImpl(TenantId, DeviceId, TbContext)")
@@ -59,13 +64,14 @@ class DynamicPredicateValueCtxImplDiffblueTest {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     DeviceServiceImpl deviceServiceImpl = mock(DeviceServiceImpl.class);
-    when(deviceServiceImpl.findDeviceById(Mockito.<TenantId>any(), Mockito.<DeviceId>any())).thenReturn(null);
+    when(deviceServiceImpl.findDeviceById(Mockito.<TenantId>any(), Mockito.<DeviceId>any()))
+        .thenReturn(null);
     TbContext ctx = mock(TbContext.class);
     when(ctx.getDeviceService()).thenReturn(deviceServiceImpl);
 
     // Act
-    DynamicPredicateValueCtxImpl actualDynamicPredicateValueCtxImpl = new DynamicPredicateValueCtxImpl(tenantId, null,
-        ctx);
+    DynamicPredicateValueCtxImpl actualDynamicPredicateValueCtxImpl =
+        new DynamicPredicateValueCtxImpl(tenantId, null, ctx);
 
     // Assert
     verify(ctx).getDeviceService();

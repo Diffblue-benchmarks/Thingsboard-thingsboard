@@ -18,156 +18,201 @@ import org.thingsboard.server.gen.transport.mqtt.SparkplugBProto.Payload.Templat
 
 class SparkplugBProtoDiffblueTest {
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnBooleanValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.BOOLEAN_VALUE, DataSetValue.ValueCase.forNumber(5));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnDoubleValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.DOUBLE_VALUE, DataSetValue.ValueCase.forNumber(4));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnExtensionValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.EXTENSION_VALUE, DataSetValue.ValueCase.forNumber(7));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnFloatValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.FLOAT_VALUE, DataSetValue.ValueCase.forNumber(3));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnStringValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.STRING_VALUE, DataSetValue.ValueCase.forNumber(6));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_thenReturnValueNotSet() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.VALUE_NOT_SET, DataSetValue.ValueCase.forNumber(0));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when forty-two; then return 'null'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when forty-two; then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_whenFortyTwo_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(DataSetValue.ValueCase.forNumber(42));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when one; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when one; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_whenOne_thenReturnIntValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.INT_VALUE, DataSetValue.ValueCase.forNumber(1));
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link
+   * DataSet.DataSetValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>When two.
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when two; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase forNumber(int); when two; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"})
+  @MethodsUnderTest({
+    "DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.forNumber(int)"
+  })
   void testPayload_DataSet_DataSetValue_ValueCaseForNumber_whenTwo_thenReturnLongValue() {
     // Arrange, Act and Assert
     assertEquals(DataSetValue.ValueCase.LONG_VALUE, DataSetValue.ValueCase.forNumber(2));
@@ -175,8 +220,8 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#getNumber()}.
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#getNumber()}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#getNumber()}
    */
   @Test
   @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase getNumber()")
@@ -188,9 +233,10 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'")
@@ -202,9 +248,10 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'")
@@ -216,15 +263,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnDoubleValue() {
@@ -233,15 +283,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnFloatValue() {
@@ -250,15 +303,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnIntValue() {
@@ -267,15 +323,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnLongValue() {
@@ -284,15 +343,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'null'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnNull() {
@@ -301,15 +363,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnStringValue() {
@@ -318,15 +383,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_DataSet_DataSetValue_ValueCase {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link DataSet.DataSetValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_DataSet_DataSetValue_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataSet.DataSetValue.ValueCase DataSet.DataSetValue.ValueCase.valueOf(int)"})
   void testPayload_DataSet_DataSetValue_ValueCaseValueOfWithValue_thenReturnValueNotSet() {
@@ -336,11 +404,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'BOOLEAN_VALUE'")
@@ -353,11 +422,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code BYTES_VALUE}.</li>
+   *   <li>Then return {@code BYTES_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'BYTES_VALUE'")
@@ -370,11 +440,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code DATASET_VALUE}.</li>
+   *   <li>Then return {@code DATASET_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'DATASET_VALUE'")
@@ -387,11 +458,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'DOUBLE_VALUE'")
@@ -404,11 +476,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
@@ -416,16 +489,18 @@ class SparkplugBProtoDiffblueTest {
   @MethodsUnderTest({"ValueCase ValueCase.forNumber(int)"})
   void testPayload_Metric_ValueCaseForNumber_thenReturnExtensionValue() {
     // Arrange, Act and Assert
-    assertEquals(ValueCase.EXTENSION_VALUE, ValueCase.forNumber(Metric.EXTENSION_VALUE_FIELD_NUMBER));
+    assertEquals(
+        ValueCase.EXTENSION_VALUE, ValueCase.forNumber(Metric.EXTENSION_VALUE_FIELD_NUMBER));
   }
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'FLOAT_VALUE'")
@@ -438,11 +513,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'INT_VALUE'")
@@ -455,11 +531,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'LONG_VALUE'")
@@ -472,11 +549,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'STRING_VALUE'")
@@ -489,11 +567,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code TEMPLATE_VALUE}.</li>
+   *   <li>Then return {@code TEMPLATE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); then return 'TEMPLATE_VALUE'")
@@ -506,12 +585,13 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase forNumber(int); when forty-two; then return 'null'")
@@ -524,15 +604,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.forNumber(int)"})
   void testPayload_Metric_ValueCaseForNumber_whenZero_thenReturnValueNotSet() {
@@ -542,8 +624,8 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#getNumber()}.
-   * <p>
-   * Method under test: {@link ValueCase#getNumber()}
+   *
+   * <p>Method under test: {@link ValueCase#getNumber()}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase getNumber()")
@@ -556,14 +638,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnBooleanValue() {
@@ -573,11 +657,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code BYTES_VALUE}.</li>
+   *   <li>Then return {@code BYTES_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'BYTES_VALUE'")
@@ -590,14 +675,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code DATASET_VALUE}.</li>
+   *   <li>Then return {@code DATASET_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'DATASET_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'DATASET_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnDatasetValue() {
@@ -607,14 +694,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnDoubleValue() {
@@ -624,14 +713,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'EXTENSION_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'EXTENSION_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnExtensionValue() {
@@ -641,11 +732,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
@@ -658,11 +750,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'INT_VALUE'")
@@ -675,11 +768,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'LONG_VALUE'")
@@ -692,14 +786,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnStringValue() {
@@ -709,14 +805,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code TEMPLATE_VALUE}.</li>
+   *   <li>Then return {@code TEMPLATE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'TEMPLATE_VALUE'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; then return 'TEMPLATE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_thenReturnTemplateValue() {
@@ -726,15 +824,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; when forty-two; then return 'null'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; when forty-two; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_whenFortyTwo_thenReturnNull() {
@@ -744,15 +844,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Metric_ValueCase {@link ValueCase#valueOf(int)} with {@code value}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Metric_ValueCase valueOf(int) with 'value'; when zero; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_Metric_ValueCase valueOf(int) with 'value'; when zero; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ValueCase ValueCase.valueOf(int)"})
   void testPayload_Metric_ValueCaseValueOfWithValue_whenZero_thenReturnValueNotSet() {
@@ -762,11 +864,12 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
   @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
@@ -774,57 +877,66 @@ class SparkplugBProtoDiffblueTest {
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_thenReturnExtensionValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.EXTENSION_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.EXTENSION_VALUE,
         PropertyValue.ValueCase.forNumber(Metric.LONG_VALUE_FIELD_NUMBER));
   }
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code PROPERTYSET_VALUE}.</li>
+   *   <li>Then return {@code PROPERTYSET_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); then return 'PROPERTYSET_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); then return 'PROPERTYSET_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_thenReturnPropertysetValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.PROPERTYSET_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.PROPERTYSET_VALUE,
         PropertyValue.ValueCase.forNumber(MetaData.EXTENSIONS_FIELD_NUMBER));
   }
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code PROPERTYSETS_VALUE}.</li>
+   *   <li>Then return {@code PROPERTYSETS_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); then return 'PROPERTYSETS_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); then return 'PROPERTYSETS_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_thenReturnPropertysetsValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.PROPERTYSETS_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.PROPERTYSETS_VALUE,
         PropertyValue.ValueCase.forNumber(Metric.INT_VALUE_FIELD_NUMBER));
   }
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When eight.</li>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>When eight.
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when eight; then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when eight; then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenEight_thenReturnStringValue() {
@@ -834,15 +946,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>When five.
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when five; then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when five; then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenFive_thenReturnFloatValue() {
@@ -852,15 +966,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when forty-two; then return 'null'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when forty-two; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenFortyTwo_thenReturnNull() {
@@ -870,15 +986,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>When four.
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when four; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when four; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenFour_thenReturnLongValue() {
@@ -888,15 +1006,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when seven; then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when seven; then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenSeven_thenReturnBooleanValue() {
@@ -906,15 +1026,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When six.</li>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>When six.
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when six; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when six; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenSix_thenReturnDoubleValue() {
@@ -924,15 +1046,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>When three.
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when three; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when three; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenThree_thenReturnIntValue() {
@@ -942,15 +1066,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.forNumber(int)"})
   void testPayload_PropertyValue_ValueCaseForNumber_whenZero_thenReturnValueNotSet() {
@@ -960,8 +1086,8 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#getNumber()}.
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#getNumber()}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#getNumber()}
    */
   @Test
   @DisplayName("Test Payload_PropertyValue_ValueCase getNumber()")
@@ -973,15 +1099,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnBooleanValue() {
@@ -990,15 +1119,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnDoubleValue() {
@@ -1007,33 +1139,40 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'EXTENSION_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'EXTENSION_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnExtensionValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.EXTENSION_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.EXTENSION_VALUE,
         PropertyValue.ValueCase.valueOf(Metric.LONG_VALUE_FIELD_NUMBER));
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnFloatValue() {
@@ -1042,51 +1181,62 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code PROPERTYSET_VALUE}.</li>
+   *   <li>Then return {@code PROPERTYSET_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'PROPERTYSET_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'PROPERTYSET_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnPropertysetValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.PROPERTYSET_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.PROPERTYSET_VALUE,
         PropertyValue.ValueCase.valueOf(MetaData.EXTENSIONS_FIELD_NUMBER));
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code PROPERTYSETS_VALUE}.</li>
+   *   <li>Then return {@code PROPERTYSETS_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'PROPERTYSETS_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'PROPERTYSETS_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnPropertysetsValue() {
     // Arrange, Act and Assert
-    assertEquals(PropertyValue.ValueCase.PROPERTYSETS_VALUE,
+    assertEquals(
+        PropertyValue.ValueCase.PROPERTYSETS_VALUE,
         PropertyValue.ValueCase.valueOf(Metric.INT_VALUE_FIELD_NUMBER));
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnStringValue() {
@@ -1095,15 +1245,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_thenReturnValueNotSet() {
@@ -1112,16 +1265,19 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when forty-two; then return 'null'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when forty-two; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_whenFortyTwo_thenReturnNull() {
@@ -1130,16 +1286,19 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>When four.
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when four; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when four; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_whenFour_thenReturnLongValue() {
@@ -1148,16 +1307,19 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_PropertyValue_ValueCase {@link PropertyValue.ValueCase#valueOf(int)} with {@code
+   * value}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>When three.
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link PropertyValue.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when three; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_PropertyValue_ValueCase valueOf(int) with 'value'; when three; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PropertyValue.ValueCase PropertyValue.ValueCase.valueOf(int)"})
   void testPayload_PropertyValue_ValueCaseValueOfWithValue_whenThree_thenReturnIntValue() {
@@ -1167,14 +1329,16 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_thenReturnBooleanValue() {
@@ -1184,31 +1348,37 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code EXTENSION_VALUE}.</li>
+   *   <li>Then return {@code EXTENSION_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'EXTENSION_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_thenReturnExtensionValue() {
     // Arrange, Act and Assert
-    assertEquals(Parameter.ValueCase.EXTENSION_VALUE, Parameter.ValueCase.forNumber(MetaData.EXTENSIONS_FIELD_NUMBER));
+    assertEquals(
+        Parameter.ValueCase.EXTENSION_VALUE,
+        Parameter.ValueCase.forNumber(MetaData.EXTENSIONS_FIELD_NUMBER));
   }
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_thenReturnStringValue() {
@@ -1218,15 +1388,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>When five.
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when five; then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when five; then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenFive_thenReturnFloatValue() {
@@ -1236,15 +1408,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when forty-two; then return 'null'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when forty-two; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenFortyTwo_thenReturnNull() {
@@ -1254,15 +1428,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>When four.
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when four; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when four; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenFour_thenReturnLongValue() {
@@ -1272,15 +1448,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When six.</li>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>When six.
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when six; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when six; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenSix_thenReturnDoubleValue() {
@@ -1290,15 +1468,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>When three.
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when three; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when three; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenThree_thenReturnIntValue() {
@@ -1308,15 +1488,17 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#forNumber(int)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#forNumber(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase forNumber(int); when zero; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.forNumber(int)"})
   void testPayload_Template_Parameter_ValueCaseForNumber_whenZero_thenReturnValueNotSet() {
@@ -1326,8 +1508,8 @@ class SparkplugBProtoDiffblueTest {
 
   /**
    * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#getNumber()}.
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#getNumber()}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#getNumber()}
    */
   @Test
   @DisplayName("Test Payload_Template_Parameter_ValueCase getNumber()")
@@ -1339,9 +1521,10 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
   @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'")
@@ -1349,19 +1532,24 @@ class SparkplugBProtoDiffblueTest {
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue() {
     // Arrange, Act and Assert
-    assertEquals(Parameter.ValueCase.EXTENSION_VALUE, Parameter.ValueCase.valueOf(MetaData.EXTENSIONS_FIELD_NUMBER));
+    assertEquals(
+        Parameter.ValueCase.EXTENSION_VALUE,
+        Parameter.ValueCase.valueOf(MetaData.EXTENSIONS_FIELD_NUMBER));
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code BOOLEAN_VALUE}.</li>
+   *   <li>Then return {@code BOOLEAN_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'BOOLEAN_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnBooleanValue() {
@@ -1370,15 +1558,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code DOUBLE_VALUE}.</li>
+   *   <li>Then return {@code DOUBLE_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'DOUBLE_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnDoubleValue() {
@@ -1387,15 +1578,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code FLOAT_VALUE}.</li>
+   *   <li>Then return {@code FLOAT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'FLOAT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnFloatValue() {
@@ -1404,15 +1598,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code INT_VALUE}.</li>
+   *   <li>Then return {@code INT_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'INT_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'INT_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnIntValue() {
@@ -1421,15 +1618,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code LONG_VALUE}.</li>
+   *   <li>Then return {@code LONG_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'LONG_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'LONG_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnLongValue() {
@@ -1438,15 +1638,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'null'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnNull() {
@@ -1455,15 +1658,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code STRING_VALUE}.</li>
+   *   <li>Then return {@code STRING_VALUE}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'STRING_VALUE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnStringValue() {
@@ -1472,15 +1678,18 @@ class SparkplugBProtoDiffblueTest {
   }
 
   /**
-   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)} with {@code value}.
+   * Test Payload_Template_Parameter_ValueCase {@link Template.Parameter.ValueCase#valueOf(int)}
+   * with {@code value}.
+   *
    * <ul>
-   *   <li>Then return {@code VALUE_NOT_SET}.</li>
+   *   <li>Then return {@code VALUE_NOT_SET}.
    * </ul>
-   * <p>
-   * Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
+   *
+   * <p>Method under test: {@link Template.Parameter.ValueCase#valueOf(int)}
    */
   @Test
-  @DisplayName("Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
+  @DisplayName(
+      "Test Payload_Template_Parameter_ValueCase valueOf(int) with 'value'; then return 'VALUE_NOT_SET'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Template.Parameter.ValueCase Template.Parameter.ValueCase.valueOf(int)"})
   void testPayload_Template_Parameter_ValueCaseValueOfWithValue_thenReturnValueNotSet() {

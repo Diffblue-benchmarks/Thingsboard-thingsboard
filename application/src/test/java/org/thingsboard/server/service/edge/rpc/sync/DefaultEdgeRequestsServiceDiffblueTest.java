@@ -10,7 +10,6 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.thingsboard.common.util.AbstractListeningExecutor;
 import org.thingsboard.server.common.data.edge.Edge;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.gen.edge.v1.DeviceCredentialsRequestMsg;
@@ -30,26 +28,30 @@ import org.thingsboard.server.service.executors.DbCallbackExecutorService;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultEdgeRequestsServiceDiffblueTest {
-  @Mock
-  private DbCallbackExecutorService dbCallbackExecutorService;
+  @Mock private DbCallbackExecutorService dbCallbackExecutorService;
 
-  @InjectMocks
-  private DefaultEdgeRequestsService defaultEdgeRequestsService;
+  @InjectMocks private DefaultEdgeRequestsService defaultEdgeRequestsService;
 
   /**
-   * Test {@link DefaultEdgeRequestsService#processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg)}.
+   * Test {@link DefaultEdgeRequestsService#processRuleChainMetadataRequestMsg(TenantId, Edge,
+   * RuleChainMetadataRequestMsg)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge()}.</li>
-   *   <li>Then return {@link Future#get()} is {@code null}.</li>
+   *   <li>When {@link Edge#Edge()}.
+   *   <li>Then return {@link ListenableFuture#get()} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultEdgeRequestsService#processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg)}
+   *
+   * <p>Method under test: {@link
+   * DefaultEdgeRequestsService#processRuleChainMetadataRequestMsg(TenantId, Edge,
+   * RuleChainMetadataRequestMsg)}
    */
   @Test
-  @DisplayName("Test processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg); when Edge(); then return get() is 'null'")
+  @DisplayName(
+      "Test processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg); when Edge(); then return get() is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ListenableFuture DefaultEdgeRequestsService.processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg)"})
+    "ListenableFuture DefaultEdgeRequestsService.processRuleChainMetadataRequestMsg(TenantId, Edge, RuleChainMetadataRequestMsg)"
+  })
   void testProcessRuleChainMetadataRequestMsg_whenEdge_thenReturnGetIsNull()
       throws InterruptedException, ExecutionException {
     // Arrange
@@ -57,8 +59,9 @@ class DefaultEdgeRequestsServiceDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    ListenableFuture<Void> actualProcessRuleChainMetadataRequestMsgResult = defaultEdgeRequestsService
-        .processRuleChainMetadataRequestMsg(tenantId, edge, RuleChainMetadataRequestMsg.getDefaultInstance());
+    ListenableFuture<Void> actualProcessRuleChainMetadataRequestMsgResult =
+        defaultEdgeRequestsService.processRuleChainMetadataRequestMsg(
+            tenantId, edge, RuleChainMetadataRequestMsg.getDefaultInstance());
 
     // Assert
     assertNull(actualProcessRuleChainMetadataRequestMsgResult.get());
@@ -66,19 +69,25 @@ class DefaultEdgeRequestsServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultEdgeRequestsService#processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg)}.
+   * Test {@link DefaultEdgeRequestsService#processDeviceCredentialsRequestMsg(TenantId, Edge,
+   * DeviceCredentialsRequestMsg)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge()}.</li>
-   *   <li>Then return {@link Future#get()} is {@code null}.</li>
+   *   <li>When {@link Edge#Edge()}.
+   *   <li>Then return {@link ListenableFuture#get()} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultEdgeRequestsService#processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg)}
+   *
+   * <p>Method under test: {@link
+   * DefaultEdgeRequestsService#processDeviceCredentialsRequestMsg(TenantId, Edge,
+   * DeviceCredentialsRequestMsg)}
    */
   @Test
-  @DisplayName("Test processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg); when Edge(); then return get() is 'null'")
+  @DisplayName(
+      "Test processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg); when Edge(); then return get() is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ListenableFuture DefaultEdgeRequestsService.processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg)"})
+    "ListenableFuture DefaultEdgeRequestsService.processDeviceCredentialsRequestMsg(TenantId, Edge, DeviceCredentialsRequestMsg)"
+  })
   void testProcessDeviceCredentialsRequestMsg_whenEdge_thenReturnGetIsNull()
       throws InterruptedException, ExecutionException {
     // Arrange
@@ -86,8 +95,9 @@ class DefaultEdgeRequestsServiceDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    ListenableFuture<Void> actualProcessDeviceCredentialsRequestMsgResult = defaultEdgeRequestsService
-        .processDeviceCredentialsRequestMsg(tenantId, edge, DeviceCredentialsRequestMsg.getDefaultInstance());
+    ListenableFuture<Void> actualProcessDeviceCredentialsRequestMsgResult =
+        defaultEdgeRequestsService.processDeviceCredentialsRequestMsg(
+            tenantId, edge, DeviceCredentialsRequestMsg.getDefaultInstance());
 
     // Assert
     assertNull(actualProcessDeviceCredentialsRequestMsgResult.get());
@@ -95,19 +105,25 @@ class DefaultEdgeRequestsServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultEdgeRequestsService#processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg)}.
+   * Test {@link DefaultEdgeRequestsService#processUserCredentialsRequestMsg(TenantId, Edge,
+   * UserCredentialsRequestMsg)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge()}.</li>
-   *   <li>Then return {@link Future#get()} is {@code null}.</li>
+   *   <li>When {@link Edge#Edge()}.
+   *   <li>Then return {@link ListenableFuture#get()} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultEdgeRequestsService#processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg)}
+   *
+   * <p>Method under test: {@link
+   * DefaultEdgeRequestsService#processUserCredentialsRequestMsg(TenantId, Edge,
+   * UserCredentialsRequestMsg)}
    */
   @Test
-  @DisplayName("Test processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg); when Edge(); then return get() is 'null'")
+  @DisplayName(
+      "Test processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg); when Edge(); then return get() is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ListenableFuture DefaultEdgeRequestsService.processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg)"})
+    "ListenableFuture DefaultEdgeRequestsService.processUserCredentialsRequestMsg(TenantId, Edge, UserCredentialsRequestMsg)"
+  })
   void testProcessUserCredentialsRequestMsg_whenEdge_thenReturnGetIsNull()
       throws InterruptedException, ExecutionException {
     // Arrange
@@ -115,8 +131,9 @@ class DefaultEdgeRequestsServiceDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    ListenableFuture<Void> actualProcessUserCredentialsRequestMsgResult = defaultEdgeRequestsService
-        .processUserCredentialsRequestMsg(tenantId, edge, UserCredentialsRequestMsg.getDefaultInstance());
+    ListenableFuture<Void> actualProcessUserCredentialsRequestMsgResult =
+        defaultEdgeRequestsService.processUserCredentialsRequestMsg(
+            tenantId, edge, UserCredentialsRequestMsg.getDefaultInstance());
 
     // Assert
     assertNull(actualProcessUserCredentialsRequestMsgResult.get());
@@ -124,43 +141,55 @@ class DefaultEdgeRequestsServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)}.
-   * <p>
-   * Method under test: {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)}
+   * Test {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge,
+   * WidgetBundleTypesRequestMsg)}.
+   *
+   * <p>Method under test: {@link
+   * DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge,
+   * WidgetBundleTypesRequestMsg)}
    */
   @Test
-  @DisplayName("Test processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)")
+  @DisplayName(
+      "Test processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ListenableFuture DefaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)"})
+    "ListenableFuture DefaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)"
+  })
   void testProcessWidgetBundleTypesRequestMsg() {
     // Arrange
-    doThrow(new RuntimeException("[{}] processWidgetBundleTypesRequestMsg [{}][{}]")).when(dbCallbackExecutorService)
+    doThrow(new RuntimeException("[{}] processWidgetBundleTypesRequestMsg [{}][{}]"))
+        .when(dbCallbackExecutorService)
         .execute(Mockito.<Runnable>any());
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Edge edge = new Edge();
 
     // Act
-    defaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(tenantId, edge,
-        WidgetBundleTypesRequestMsg.getDefaultInstance());
+    defaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(
+        tenantId, edge, WidgetBundleTypesRequestMsg.getDefaultInstance());
 
     // Assert
     verify(dbCallbackExecutorService).execute(isA(Runnable.class));
   }
 
   /**
-   * Test {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)}.
+   * Test {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge,
+   * WidgetBundleTypesRequestMsg)}.
+   *
    * <ul>
-   *   <li>Then calls {@link AbstractListeningExecutor#execute(Runnable)}.</li>
+   *   <li>Then calls {@link DbCallbackExecutorService#execute(Runnable)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)}
+   *
+   * <p>Method under test: {@link
+   * DefaultEdgeRequestsService#processWidgetBundleTypesRequestMsg(TenantId, Edge,
+   * WidgetBundleTypesRequestMsg)}
    */
   @Test
-  @DisplayName("Test processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg); then calls execute(Runnable)")
+  @DisplayName(
+      "Test processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg); then calls execute(Runnable)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ListenableFuture DefaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)"})
+    "ListenableFuture DefaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(TenantId, Edge, WidgetBundleTypesRequestMsg)"
+  })
   void testProcessWidgetBundleTypesRequestMsg_thenCallsExecute() {
     // Arrange
     doNothing().when(dbCallbackExecutorService).execute(Mockito.<Runnable>any());
@@ -168,8 +197,8 @@ class DefaultEdgeRequestsServiceDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    defaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(tenantId, edge,
-        WidgetBundleTypesRequestMsg.getDefaultInstance());
+    defaultEdgeRequestsService.processWidgetBundleTypesRequestMsg(
+        tenantId, edge, WidgetBundleTypesRequestMsg.getDefaultInstance());
 
     // Assert
     verify(dbCallbackExecutorService).execute(isA(Runnable.class));

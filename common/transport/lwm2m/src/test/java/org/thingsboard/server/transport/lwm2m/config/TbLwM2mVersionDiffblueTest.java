@@ -16,12 +16,13 @@ import org.junit.jupiter.api.Test;
 class TbLwM2mVersionDiffblueTest {
   /**
    * Test {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}.
+   *
    * <ul>
-   *   <li>When Default.</li>
-   *   <li>Then return {@code VERSION_1_0}.</li>
+   *   <li>When Default.
+   *   <li>Then return {@code VERSION_1_0}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
    */
   @Test
   @DisplayName("Test fromVersion(LwM2mVersion); when Default; then return 'VERSION_1_0'")
@@ -34,12 +35,13 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}.
+   *
    * <ul>
-   *   <li>When lastSupported.</li>
-   *   <li>Then return {@code VERSION_1_1}.</li>
+   *   <li>When lastSupported.
+   *   <li>Then return {@code VERSION_1_1}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
    */
   @Test
   @DisplayName("Test fromVersion(LwM2mVersion); when lastSupported; then return 'VERSION_1_1'")
@@ -47,17 +49,19 @@ class TbLwM2mVersionDiffblueTest {
   @MethodsUnderTest({"TbLwM2mVersion TbLwM2mVersion.fromVersion(LwM2mVersion)"})
   void testFromVersion_whenLastSupported_thenReturnVersion11() {
     // Arrange, Act and Assert
-    assertEquals(TbLwM2mVersion.VERSION_1_1, TbLwM2mVersion.fromVersion(LwM2mVersion.lastSupported()));
+    assertEquals(
+        TbLwM2mVersion.VERSION_1_1, TbLwM2mVersion.fromVersion(LwM2mVersion.lastSupported()));
   }
 
   /**
    * Test {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromVersion(LwM2mVersion)}
    */
   @Test
   @DisplayName("Test fromVersion(LwM2mVersion); when 'null'; then throw IllegalArgumentException")
@@ -70,12 +74,13 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test {@link TbLwM2mVersion#fromVersionStr(String)}.
+   *
    * <ul>
-   *   <li>When {@code 1.0}.</li>
-   *   <li>Then return {@code VERSION_1_0}.</li>
+   *   <li>When {@code 1.0}.
+   *   <li>Then return {@code VERSION_1_0}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromVersionStr(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromVersionStr(String)}
    */
   @Test
   @DisplayName("Test fromVersionStr(String); when '1.0'; then return 'VERSION_1_0'")
@@ -88,12 +93,13 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test {@link TbLwM2mVersion#fromVersionStr(String)}.
+   *
    * <ul>
-   *   <li>When {@code 1.0.2}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code 1.0.2}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromVersionStr(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromVersionStr(String)}
    */
   @Test
   @DisplayName("Test fromVersionStr(String); when '1.0.2'; then throw IllegalArgumentException")
@@ -106,12 +112,13 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test {@link TbLwM2mVersion#fromCode(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code VERSION_1_1}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code VERSION_1_1}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromCode(int)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromCode(int)}
    */
   @Test
   @DisplayName("Test fromCode(int); when one; then return 'VERSION_1_1'")
@@ -124,12 +131,13 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test {@link TbLwM2mVersion#fromCode(int)}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When two.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mVersion#fromCode(int)}
+   *
+   * <p>Method under test: {@link TbLwM2mVersion#fromCode(int)}
    */
   @Test
   @DisplayName("Test fromCode(int); when two; then throw IllegalArgumentException")
@@ -142,8 +150,9 @@ class TbLwM2mVersionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2mVersion#getCode()}
    *   <li>{@link TbLwM2mVersion#getContentFormat()}
@@ -154,8 +163,12 @@ class TbLwM2mVersionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int TbLwM2mVersion.getCode()", "ContentFormat TbLwM2mVersion.getContentFormat()",
-      "LwM2mVersion TbLwM2mVersion.getVersion()", "boolean TbLwM2mVersion.isComposite()"})
+  @MethodsUnderTest({
+    "int TbLwM2mVersion.getCode()",
+    "ContentFormat TbLwM2mVersion.getContentFormat()",
+    "LwM2mVersion TbLwM2mVersion.getVersion()",
+    "boolean TbLwM2mVersion.isComposite()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2mVersion valueOfResult = TbLwM2mVersion.valueOf("VERSION_1_0");

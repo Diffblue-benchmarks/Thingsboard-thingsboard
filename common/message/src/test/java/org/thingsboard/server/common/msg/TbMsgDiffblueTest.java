@@ -28,11 +28,12 @@ import org.thingsboard.server.common.msg.queue.TbMsgCallback;
 class TbMsgDiffblueTest {
   /**
    * Test {@link TbMsg#getAndIncrementRuleNodeCounter()}.
+   *
    * <ul>
-   *   <li>Then return zero.</li>
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#getAndIncrementRuleNodeCounter()}
+   *
+   * <p>Method under test: {@link TbMsg#getAndIncrementRuleNodeCounter()}
    */
   @Test
   @DisplayName("Test getAndIncrementRuleNodeCounter(); then return zero")
@@ -41,38 +42,45 @@ class TbMsgDiffblueTest {
   void testGetAndIncrementRuleNodeCounter_thenReturnZero() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertEquals(0, buildResult.getAndIncrementRuleNodeCounter());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)"})
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataString() {
@@ -80,17 +88,21 @@ class TbMsgDiffblueTest {
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.newMsg("Type", (EntityId) null, customerId, TbMsgMetaData.EMPTY, "Data").getCustomerId());
+    assertSame(
+        customerId,
+        TbMsg.newMsg("Type", (EntityId) null, customerId, TbMsgMetaData.EMPTY, "Data")
+            .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)"})
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataString2() {
@@ -98,16 +110,20 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator, TbMsg.newMsg("Type", originator, null, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Type", originator, null, TbMsgMetaData.EMPTY, "Data").getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, String)"})
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataString3() {
@@ -115,8 +131,13 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("org.thingsboard.server.common.msg.TbMsg", originator, null,
-        TbMsgMetaData.EMPTY, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "org.thingsboard.server.common.msg.TbMsg",
+            originator,
+            null,
+            TbMsgMetaData.EMPTY,
+            "Data");
 
     // Assert
     assertEquals("org.thingsboard.server.common.msg.TbMsg", actualNewMsgResult.getType());
@@ -125,57 +146,85 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code
+   * TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData,
+   * TbMsgDataType, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataTbMsgDataTypeString() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.newMsg("Type", null, customerId, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data").getCustomerId());
+    assertSame(
+        customerId,
+        TbMsg.newMsg("Type", null, customerId, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data")
+            .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code
+   * TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData,
+   * TbMsgDataType, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataTbMsgDataTypeString2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Type", originator, null, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Type", originator, null, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data")
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)} with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * with {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code
+   * TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, CustomerId, TbMsgMetaData,
+   * TbMsgDataType, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithStringEntityIdCustomerIdTbMsgMetaDataTbMsgDataTypeString3() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("org.thingsboard.server.common.msg.TbMsg", originator, null,
-        TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "org.thingsboard.server.common.msg.TbMsg",
+            originator,
+            null,
+            TbMsgMetaData.EMPTY,
+            TbMsgDataType.JSON,
+            "Data");
 
     // Assert
     assertEquals("org.thingsboard.server.common.msg.TbMsg", actualNewMsgResult.getType());
@@ -184,12 +233,14 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code
+   * EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, String) with 'String', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, String) with 'String', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataString() {
@@ -197,16 +248,19 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator, TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        originator, TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data").getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code
+   * EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, String) with 'String', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, String) with 'String', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataString2() {
@@ -222,12 +276,15 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code
+   * String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String,
+   * TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'String', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'String', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataStringTbMsgCallback() {
@@ -235,17 +292,22 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data", TbMsgCallback.EMPTY).getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data", TbMsgCallback.EMPTY)
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code
+   * String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, String,
+   * TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'String', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'String', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, String, TbMsgCallback)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataStringTbMsgCallback2() {
@@ -253,7 +315,8 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data", TbMsgCallback.EMPTY);
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, "Data", TbMsgCallback.EMPTY);
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -261,12 +324,15 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code
+   * String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataTbMsgDataTypeString() {
@@ -274,17 +340,22 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data")
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code
+   * String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String)"})
   void testNewMsgWithStringEntityIdTbMsgMetaDataTbMsgDataTypeString2() {
@@ -292,7 +363,8 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data");
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -300,46 +372,71 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code
+   * TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringEntityIdTbMsgMetaDataTbMsgDataTypeStringRuleChainIdRuleNodeId() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data", ruleChainId,
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Type",
+                originator,
+                TbMsgMetaData.EMPTY,
+                TbMsgDataType.JSON,
+                "Data",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code
+   * TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'String', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringEntityIdTbMsgMetaDataTbMsgDataTypeStringRuleChainIdRuleNodeId2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Type", originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data",
-        ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "Type",
+            originator,
+            TbMsgMetaData.EMPTY,
+            TbMsgDataType.JSON,
+            "Data",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -347,56 +444,79 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with
+   * {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataString() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.newMsg("Queue Name", "Type", null, customerId, TbMsgMetaData.EMPTY, "Data").getCustomerId());
+    assertSame(
+        customerId,
+        TbMsg.newMsg("Queue Name", "Type", null, customerId, TbMsgMetaData.EMPTY, "Data")
+            .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with
+   * {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataString2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Queue Name", "Type", originator, null, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Queue Name", "Type", originator, null, TbMsgMetaData.EMPTY, "Data")
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)} with
+   * {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataString3() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(null, "Type", originator, null, TbMsgMetaData.EMPTY, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(null, "Type", originator, null, TbMsgMetaData.EMPTY, "Data");
 
     // Assert
     assertNull(actualNewMsgResult.getQueueName());
@@ -405,69 +525,109 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code
+   * CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataStringRuleChainIdRuleNodeId() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg("Queue Name", "Type", null, customerId, TbMsgMetaData.EMPTY, "Data", ruleChainId,
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                "Queue Name",
+                "Type",
+                null,
+                customerId,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code
+   * CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataStringRuleChainIdRuleNodeId2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg("Queue Name", "Type", originator, null, TbMsgMetaData.EMPTY, "Data", ruleChainId,
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                "Type",
+                originator,
+                null,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code
+   * CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, CustomerId, TbMsgMetaData,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, String, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringStringEntityIdCustomerIdTbMsgMetaDataStringRuleChainIdRuleNodeId3() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(null, "Type", originator, null, TbMsgMetaData.EMPTY, "Data", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            null,
+            "Type",
+            originator,
+            null,
+            TbMsgMetaData.EMPTY,
+            "Data",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertNull(actualNewMsgResult.getQueueName());
@@ -476,12 +636,14 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)} with {@code String},
+   * {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringStringEntityIdTbMsgMetaDataString() {
@@ -489,16 +651,21 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator, TbMsg.newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data")
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)} with {@code String},
+   * {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, TbMsgMetaData, String) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringStringEntityIdTbMsgMetaDataString2() {
@@ -506,7 +673,8 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data");
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -514,44 +682,71 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringStringEntityIdTbMsgMetaDataStringRuleChainIdRuleNodeId() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data", ruleChainId,
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                "Type",
+                originator,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code String}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, String, EntityId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'String', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, String, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringStringEntityIdTbMsgMetaDataStringRuleChainIdRuleNodeId2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Queue Name", "Type", originator, TbMsgMetaData.EMPTY, "Data", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "Queue Name",
+            "Type",
+            originator,
+            TbMsgMetaData.EMPTY,
+            "Data",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -559,96 +754,150 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with
+   * {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId,
+   * TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, null, customerId, TbMsgMetaData.EMPTY, "Data")
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                null,
+                customerId,
+                TbMsgMetaData.EMPTY,
+                "Data")
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with
+   * {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId,
+   * TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator, null, TbMsgMetaData.EMPTY, "Data")
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                null,
+                TbMsgMetaData.EMPTY,
+                "Data")
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code
+   * CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId,
+   * TbMsgMetaData, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdCustomerIdTbMsgMetaDataStringRuleChainIdRuleNodeId() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, null, customerId, TbMsgMetaData.EMPTY, "Data",
-                ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                null,
+                customerId,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code
+   * CustomerId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, CustomerId,
+   * TbMsgMetaData, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, CustomerId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdCustomerIdTbMsgMetaDataStringRuleChainIdRuleNodeId2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator, null, TbMsgMetaData.EMPTY, "Data",
-                ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                null,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)} with {@code
+   * String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringTbMsgTypeEntityIdTbMsgMetaDataString() {
@@ -656,18 +905,26 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data")
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                TbMsgMetaData.EMPTY,
+                "Data")
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)} with {@code
+   * String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithStringTbMsgTypeEntityIdTbMsgMetaDataString2() {
@@ -675,8 +932,13 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator,
-        TbMsgMetaData.EMPTY, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "Queue Name",
+            TbMsgType.POST_ATTRIBUTES_REQUEST,
+            originator,
+            TbMsgMetaData.EMPTY,
+            "Data");
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -684,45 +946,71 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdTbMsgMetaDataStringRuleChainIdRuleNodeId() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data",
-                ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                "Queue Name",
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                ruleChainId,
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId,
+   * RuleNodeId)} with {@code String}, {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String,
+   * RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId) with 'String', 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(String, TbMsgType, EntityId, TbMsgMetaData, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithStringTbMsgTypeEntityIdTbMsgMetaDataStringRuleChainIdRuleNodeId2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg("Queue Name", TbMsgType.POST_ATTRIBUTES_REQUEST, originator,
-        TbMsgMetaData.EMPTY, "Data", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            "Queue Name",
+            TbMsgType.POST_ATTRIBUTES_REQUEST,
+            originator,
+            TbMsgMetaData.EMPTY,
+            "Data",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -730,201 +1018,269 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg(tbMsg, "Queue Name", ruleChainId,
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                tbMsg,
+                "Queue Name",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg(tbMsg, "Queue Name", ruleChainId,
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                tbMsg,
+                "Queue Name",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId2 = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId2 =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg(tbMsg, "Queue Name", ruleChainId2,
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                tbMsg,
+                "Queue Name",
+                ruleChainId2,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg(tbMsg, "Queue Name", ruleChainId,
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                tbMsg,
+                "Queue Name",
+                ruleChainId,
                 new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'; then return CustomerId is 'null'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'; then return CustomerId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(tbMsg, "Queue Name", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            tbMsg,
+            "Queue Name",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertNull(actualNewMsgResult.getCustomerId());
@@ -935,42 +1291,56 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   * Test {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)} with {@code TbMsg}, {@code
+   * String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsg, String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'; then return InternalType is 'NA'")
+  @DisplayName(
+      "Test newMsg(TbMsg, String, RuleChainId, RuleNodeId) with 'TbMsg', 'String', 'RuleChainId', 'RuleNodeId'; then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsg, String, RuleChainId, RuleNodeId)"})
   void testNewMsgWithTbMsgStringRuleChainIdRuleNodeId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(tbMsg, "Queue Name", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            tbMsg,
+            "Queue Name",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(TbMsgType.NA, actualNewMsgResult.getInternalType());
@@ -978,90 +1348,178 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
   void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString() {
-    // Arrange
-    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    // Arrange and Act
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, null, TbMsgMetaData.EMPTY, "Data");
 
-    // Act and Assert
-    assertSame(customerId,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, customerId, TbMsgMetaData.EMPTY, "Data").getCustomerId());
+    // Assert
+    assertEquals("POST_ATTRIBUTES_REQUEST", actualNewMsgResult.getType());
+    assertNull(actualNewMsgResult.getCustomerId());
+    assertNull(actualNewMsgResult.getOriginator());
+    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualNewMsgResult.getInternalType());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
   void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString2() {
     // Arrange
-    AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, null, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST, null, customerId, TbMsgMetaData.EMPTY, "Data")
+            .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
+  void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString3() {
+    // Arrange
+    AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST, originator, null, TbMsgMetaData.EMPTY, "Data")
+            .getOriginator());
+  }
+
+  /**
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * String)}
+   */
+  @Test
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'String'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, String)"})
+  void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataString4() {
+    // Arrange
+    CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            TbMsgType.POST_TELEMETRY_REQUEST, originator, null, TbMsgMetaData.EMPTY, "Data");
+
+    // Assert
+    assertEquals("POST_TELEMETRY_REQUEST", actualNewMsgResult.getType());
+    assertEquals(TbMsgType.POST_TELEMETRY_REQUEST, actualNewMsgResult.getInternalType());
+    assertEquals(originator, actualNewMsgResult.getCustomerId());
+    assertSame(originator, actualNewMsgResult.getOriginator());
+  }
+
+  /**
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType,
+   * String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * TbMsgDataType, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataTbMsgDataTypeString() {
     // Arrange
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, customerId, TbMsgMetaData.EMPTY, TbMsgDataType.JSON,
+    assertSame(
+        customerId,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                null,
+                customerId,
+                TbMsgMetaData.EMPTY,
+                TbMsgDataType.JSON,
                 "Data")
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType,
+   * String)} with {@code TbMsgType}, {@code EntityId}, {@code CustomerId}, {@code TbMsgMetaData},
+   * {@code TbMsgDataType}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData,
+   * TbMsgDataType, String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'CustomerId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, CustomerId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdCustomerIdTbMsgMetaDataTbMsgDataTypeString2() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, null, TbMsgMetaData.EMPTY, TbMsgDataType.JSON,
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                null,
+                TbMsgMetaData.EMPTY,
+                TbMsgDataType.JSON,
                 "Data")
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)} with {@code TbMsgType},
+   * {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataString() {
@@ -1069,17 +1527,21 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data").getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data")
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)} with {@code TbMsgType},
+   * {@code EntityId}, {@code TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataString2() {
@@ -1087,7 +1549,8 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data");
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -1095,17 +1558,20 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringLong() {
     // Arrange and Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, TbMsgMetaData.EMPTY, "Data", 0L);
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, TbMsgMetaData.EMPTY, "Data", 0L);
 
     // Assert
     assertNull(actualNewMsgResult.getCustomerId());
@@ -1113,12 +1579,14 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringLong2() {
@@ -1126,17 +1594,21 @@ class TbMsgDiffblueTest {
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data", 1L).getOriginator());
+    assertSame(
+        originator,
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data", 1L)
+            .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringLong3() {
@@ -1144,8 +1616,9 @@ class TbMsgDiffblueTest {
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data",
-        1L);
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data", 1L);
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -1153,20 +1626,24 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)} with {@code
+   * TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code long}.
+   *
    * <ul>
-   *   <li>Then return MetaDataTs is one.</li>
+   *   <li>Then return MetaDataTs is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'; then return MetaDataTs is one")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'long'; then return MetaDataTs is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, long)"})
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringLong_thenReturnMetaDataTsIsOne() {
     // Arrange and Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, TbMsgMetaData.EMPTY, "Data", 1L);
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, null, TbMsgMetaData.EMPTY, "Data", 1L);
 
     // Assert
     assertNull(actualNewMsgResult.getCustomerId());
@@ -1176,40 +1653,63 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)} with
+   * {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code
+   * TbMsgCallback}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String,
+   * TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringTbMsgCallback() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data", TbMsgCallback.EMPTY)
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                TbMsgMetaData.EMPTY,
+                "Data",
+                TbMsgCallback.EMPTY)
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code TbMsgCallback}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)} with
+   * {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code String}, {@code
+   * TbMsgCallback}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, String,
+   * TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'String', 'TbMsgCallback'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, String, TbMsgCallback)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataStringTbMsgCallback2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, "Data",
-        TbMsgCallback.EMPTY);
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            TbMsgType.POST_ATTRIBUTES_REQUEST,
+            originator,
+            TbMsgMetaData.EMPTY,
+            "Data",
+            TbMsgCallback.EMPTY);
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -1217,40 +1717,63 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)} with
+   * {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code
+   * String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataTbMsgDataTypeString() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data")
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                TbMsgMetaData.EMPTY,
+                TbMsgDataType.JSON,
+                "Data")
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)} with
+   * {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code
+   * String}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)"})
+  @MethodsUnderTest({
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataTbMsgDataTypeString2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY,
-        TbMsgDataType.JSON, "Data");
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            TbMsgType.POST_ATTRIBUTES_REQUEST,
+            originator,
+            TbMsgMetaData.EMPTY,
+            TbMsgDataType.JSON,
+            "Data");
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -1258,47 +1781,71 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String,
+   * RuleChainId, RuleNodeId)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataTbMsgDataTypeStringRuleChainIdRuleNodeId() {
     // Arrange
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY, TbMsgDataType.JSON, "Data",
-                ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        originator,
+        TbMsg.newMsg(
+                TbMsgType.POST_ATTRIBUTES_REQUEST,
+                originator,
+                TbMsgMetaData.EMPTY,
+                TbMsgDataType.JSON,
+                "Data",
+                ruleChainId,
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData}, {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
-   * <p>
-   * Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)}
+   * Test {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String,
+   * RuleChainId, RuleNodeId)} with {@code TbMsgType}, {@code EntityId}, {@code TbMsgMetaData},
+   * {@code TbMsgDataType}, {@code String}, {@code RuleChainId}, {@code RuleNodeId}.
+   *
+   * <p>Method under test: {@link TbMsg#newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType,
+   * String, RuleChainId, RuleNodeId)}
    */
   @Test
-  @DisplayName("Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
+  @DisplayName(
+      "Test newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId) with 'TbMsgType', 'EntityId', 'TbMsgMetaData', 'TbMsgDataType', 'String', 'RuleChainId', 'RuleNodeId'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"})
+    "TbMsg TbMsg.newMsg(TbMsgType, EntityId, TbMsgMetaData, TbMsgDataType, String, RuleChainId, RuleNodeId)"
+  })
   void testNewMsgWithTbMsgTypeEntityIdTbMsgMetaDataTbMsgDataTypeStringRuleChainIdRuleNodeId2() {
     // Arrange
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualNewMsgResult = TbMsg.newMsg(TbMsgType.POST_ATTRIBUTES_REQUEST, originator, TbMsgMetaData.EMPTY,
-        TbMsgDataType.JSON, "Data", ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualNewMsgResult =
+        TbMsg.newMsg(
+            TbMsgType.POST_ATTRIBUTES_REQUEST,
+            originator,
+            TbMsgMetaData.EMPTY,
+            TbMsgDataType.JSON,
+            "Data",
+            ruleChainId,
+            new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(originator, actualNewMsgResult.getCustomerId());
@@ -1306,192 +1853,254 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .transformMsg(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name")
+    assertSame(
+        customerId,
+        TbMsg.transformMsg(
+                tbMsg,
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Queue Name")
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .transformMsg(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name")
+    assertSame(
+        customerId,
+        TbMsg.transformMsg(
+                tbMsg,
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Queue Name")
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg
-            .transformMsg(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name")
+    assertSame(
+        customerId,
+        TbMsg.transformMsg(
+                tbMsg,
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Queue Name")
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg
-            .transformMsg(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name")
+    assertSame(
+        originator,
+        TbMsg.transformMsg(
+                tbMsg,
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Queue Name")
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'; then return CustomerId is 'null'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'; then return CustomerId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
-    TbMsg actualTransformMsgResult = TbMsg.transformMsg(tbMsg,
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name");
+    TbMsg actualTransformMsgResult =
+        TbMsg.transformMsg(
+            tbMsg,
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            "Queue Name");
 
     // Assert
     assertNull(actualTransformMsgResult.getCustomerId());
@@ -1502,41 +2111,53 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code RuleChainId}, {@code String}.
+   * Test {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)} with {@code TbMsg}, {@code
+   * RuleChainId}, {@code String}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, RuleChainId, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'; then return InternalType is 'NA'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, RuleChainId, String) with 'TbMsg', 'RuleChainId', 'String'; then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, RuleChainId, String)"})
   void testTransformMsgWithTbMsgRuleChainIdString_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
-    TbMsg actualTransformMsgResult = TbMsg.transformMsg(tbMsg,
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Queue Name");
+    TbMsg actualTransformMsgResult =
+        TbMsg.transformMsg(
+            tbMsg,
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            "Queue Name");
 
     // Assert
     assertEquals(TbMsgType.NA, actualTransformMsgResult.getInternalType());
@@ -1544,105 +2165,132 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data").getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data").getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgResult = TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data");
@@ -1654,72 +2302,92 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data").getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'; then return CustomerId is 'null'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'; then return CustomerId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgResult = TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data");
@@ -1733,37 +2401,46 @@ class TbMsgDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code TbMsgMetaData}, {@code String}.
+   * Test {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)} with {@code TbMsg}, {@code
+   * TbMsgMetaData}, {@code String}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsg(TbMsg, TbMsgMetaData, String)}
    */
   @Test
-  @DisplayName("Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'; then return InternalType is 'NA'")
+  @DisplayName(
+      "Test transformMsg(TbMsg, TbMsgMetaData, String) with 'TbMsg', 'TbMsgMetaData', 'String'; then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.transformMsg(TbMsg, TbMsgMetaData, String)"})
   void testTransformMsgWithTbMsgTbMsgMetaDataString_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgResult = TbMsg.transformMsg(tbMsg, TbMsgMetaData.EMPTY, "Data");
@@ -1775,8 +2452,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String)")
@@ -1785,23 +2462,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgData() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgData(tbMsg, "Data").getCustomerId());
@@ -1809,8 +2492,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String)")
@@ -1819,23 +2502,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgData2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgData(tbMsg, "Data").getCustomerId());
@@ -1843,8 +2532,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String)")
@@ -1853,26 +2542,35 @@ class TbMsgDiffblueTest {
   void testTransformMsgData3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgDataResult = TbMsg.transformMsgData(tbMsg, "Data");
@@ -1885,8 +2583,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String)")
@@ -1895,23 +2593,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgData4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, TbMsg.transformMsgData(tbMsg, "Data").getOriginator());
@@ -1919,11 +2625,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String); then return CustomerId is 'null'")
@@ -1932,24 +2639,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgData_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgDataResult = TbMsg.transformMsgData(tbMsg, "Data");
@@ -1964,11 +2678,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgData(TbMsg, String)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgData(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgData(TbMsg, String); then return InternalType is 'NA'")
@@ -1977,23 +2692,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgData_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgDataResult = TbMsg.transformMsgData(tbMsg, "Data");
@@ -2005,8 +2726,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData)")
@@ -2015,23 +2736,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY).getCustomerId());
@@ -2039,8 +2766,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData)")
@@ -2049,23 +2776,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY).getCustomerId());
@@ -2073,8 +2806,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData)")
@@ -2083,26 +2816,35 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgMetadataResult = TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY);
@@ -2115,8 +2857,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData)")
@@ -2125,23 +2867,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY).getOriginator());
@@ -2149,11 +2899,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData); then return CustomerId is 'null'")
@@ -2162,24 +2913,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgMetadataResult = TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY);
@@ -2189,16 +2947,18 @@ class TbMsgDiffblueTest {
     assertNull(actualTransformMsgMetadataResult.getOriginator());
     assertEquals(1L, actualTransformMsgMetadataResult.getMetaDataTs());
     assertEquals(1L, actualTransformMsgMetadataResult.getTs());
-    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgMetadataResult.getInternalType());
+    assertEquals(
+        TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgMetadataResult.getInternalType());
   }
 
   /**
    * Test {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgMetadata(TbMsg, TbMsgMetaData)}
    */
   @Test
   @DisplayName("Test transformMsgMetadata(TbMsg, TbMsgMetaData); then return InternalType is 'NA'")
@@ -2207,23 +2967,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgMetadata_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgMetadataResult = TbMsg.transformMsgMetadata(tbMsg, TbMsgMetaData.EMPTY);
@@ -2235,8 +3001,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId)")
@@ -2245,25 +3011,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -2272,8 +3044,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId)")
@@ -2282,25 +3054,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -2309,8 +3087,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId)")
@@ -2319,28 +3097,37 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
@@ -2354,8 +3141,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId)")
@@ -2364,24 +3151,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, TbMsg.transformMsgCustomerId(tbMsg, null).getOriginator());
@@ -2389,11 +3183,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId); then return CustomerId is 'null'")
@@ -2402,25 +3197,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgCustomerIdResult = TbMsg.transformMsgCustomerId(tbMsg, null);
@@ -2430,16 +3231,18 @@ class TbMsgDiffblueTest {
     assertNull(actualTransformMsgCustomerIdResult.getOriginator());
     assertEquals(1L, actualTransformMsgCustomerIdResult.getMetaDataTs());
     assertEquals(1L, actualTransformMsgCustomerIdResult.getTs());
-    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgCustomerIdResult.getInternalType());
+    assertEquals(
+        TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgCustomerIdResult.getInternalType());
   }
 
   /**
    * Test {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgCustomerId(TbMsg, CustomerId)}
    */
   @Test
   @DisplayName("Test transformMsgCustomerId(TbMsg, CustomerId); then return InternalType is 'NA'")
@@ -2448,25 +3251,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgCustomerId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
@@ -2479,8 +3288,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId)")
@@ -2489,34 +3298,42 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.transformMsgRuleChainId(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        TbMsg.transformMsgRuleChainId(
+                tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId)")
@@ -2525,34 +3342,42 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.transformMsgRuleChainId(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        TbMsg.transformMsgRuleChainId(
+                tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId)")
@@ -2561,36 +3386,47 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        TbMsg.transformMsgRuleChainId(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        TbMsg.transformMsgRuleChainId(
+                tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId)")
@@ -2599,37 +3435,48 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(originator,
-        TbMsg.transformMsgRuleChainId(tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        originator,
+        TbMsg.transformMsgRuleChainId(
+                tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId); then return CustomerId is 'null'")
@@ -2638,44 +3485,54 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
-    TbMsg actualTransformMsgRuleChainIdResult = TbMsg.transformMsgRuleChainId(tbMsg,
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualTransformMsgRuleChainIdResult =
+        TbMsg.transformMsgRuleChainId(
+            tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertNull(actualTransformMsgRuleChainIdResult.getCustomerId());
     assertNull(actualTransformMsgRuleChainIdResult.getOriginator());
     assertEquals(1L, actualTransformMsgRuleChainIdResult.getMetaDataTs());
     assertEquals(1L, actualTransformMsgRuleChainIdResult.getTs());
-    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgRuleChainIdResult.getInternalType());
+    assertEquals(
+        TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgRuleChainIdResult.getInternalType());
   }
 
   /**
    * Test {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgRuleChainId(TbMsg, RuleChainId)}
    */
   @Test
   @DisplayName("Test transformMsgRuleChainId(TbMsg, RuleChainId); then return InternalType is 'NA'")
@@ -2684,27 +3541,34 @@ class TbMsgDiffblueTest {
   void testTransformMsgRuleChainId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
-    TbMsg actualTransformMsgRuleChainIdResult = TbMsg.transformMsgRuleChainId(tbMsg,
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualTransformMsgRuleChainIdResult =
+        TbMsg.transformMsgRuleChainId(
+            tbMsg, new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(TbMsgType.NA, actualTransformMsgRuleChainIdResult.getInternalType());
@@ -2713,8 +3577,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String)")
@@ -2723,23 +3587,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgQueueName(tbMsg, "Queue Name").getCustomerId());
@@ -2747,8 +3617,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String)")
@@ -2757,23 +3627,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, TbMsg.transformMsgQueueName(tbMsg, "Queue Name").getCustomerId());
@@ -2781,8 +3657,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String)")
@@ -2791,25 +3667,34 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgQueueNameResult = TbMsg.transformMsgQueueName(tbMsg, "Queue Name");
@@ -2821,8 +3706,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String)")
@@ -2831,23 +3716,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, TbMsg.transformMsgQueueName(tbMsg, "Queue Name").getOriginator());
@@ -2855,11 +3748,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String); then return CustomerId is 'null'")
@@ -2868,24 +3762,31 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgQueueNameResult = TbMsg.transformMsgQueueName(tbMsg, "Queue Name");
@@ -2895,16 +3796,18 @@ class TbMsgDiffblueTest {
     assertNull(actualTransformMsgQueueNameResult.getOriginator());
     assertEquals(1L, actualTransformMsgQueueNameResult.getMetaDataTs());
     assertEquals(1L, actualTransformMsgQueueNameResult.getTs());
-    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgQueueNameResult.getInternalType());
+    assertEquals(
+        TbMsgType.POST_ATTRIBUTES_REQUEST, actualTransformMsgQueueNameResult.getInternalType());
   }
 
   /**
    * Test {@link TbMsg#transformMsgQueueName(TbMsg, String)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
+   *
+   * <p>Method under test: {@link TbMsg#transformMsgQueueName(TbMsg, String)}
    */
   @Test
   @DisplayName("Test transformMsgQueueName(TbMsg, String); then return InternalType is 'NA'")
@@ -2913,23 +3816,29 @@ class TbMsgDiffblueTest {
   void testTransformMsgQueueName_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg tbMsg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg tbMsg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualTransformMsgQueueNameResult = TbMsg.transformMsgQueueName(tbMsg, "Queue Name");
@@ -2941,8 +3850,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -2951,26 +3860,33 @@ class TbMsgDiffblueTest {
   void testToByteArray() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx(3));
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3003,8 +3919,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3013,26 +3929,33 @@ class TbMsgDiffblueTest {
   void testToByteArray2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data(TbMsg.EMPTY_STRING)
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data(TbMsg.EMPTY_STRING)
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3068,8 +3991,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3078,26 +4001,33 @@ class TbMsgDiffblueTest {
   void testToByteArray3() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.TEXT);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.TEXT);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3130,8 +4060,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3140,26 +4070,33 @@ class TbMsgDiffblueTest {
   void testToByteArray4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(null);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(null);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3191,8 +4128,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3201,26 +4138,33 @@ class TbMsgDiffblueTest {
   void testToByteArray5() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(0)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(0)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3234,8 +4178,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3244,26 +4188,33 @@ class TbMsgDiffblueTest {
   void testToByteArray6() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(null)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(null)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3277,8 +4228,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3287,25 +4238,31 @@ class TbMsgDiffblueTest {
   void testToByteArray7() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder ruleChainIdResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name")
-        .ruleChainId(null);
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder ruleChainIdResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name")
+            .ruleChainId(null);
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3338,8 +4295,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3348,25 +4305,31 @@ class TbMsgDiffblueTest {
   void testToByteArray8() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsg msg = queueNameResult.ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleNodeId(null)
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsg msg =
+        queueNameResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleNodeId(null)
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3399,8 +4362,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3409,26 +4372,33 @@ class TbMsgDiffblueTest {
   void testToByteArray9() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3460,8 +4430,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg)")
@@ -3470,26 +4440,33 @@ class TbMsgDiffblueTest {
   void testToByteArray10() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type(TbMsg.EMPTY_STRING)
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type(TbMsg.EMPTY_STRING)
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3525,39 +4502,49 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred eighty-second element is minus one hundred four.</li>
+   *   <li>Then return one hundred eighty-second element is minus one hundred four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred eighty-second element is minus one hundred four")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred eighty-second element is minus one hundred four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredEightySecondElementIsMinusOneHundredFour() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(
+                new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3590,39 +4577,48 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred eighty-third element is minus one hundred four.</li>
+   *   <li>Then return one hundred eighty-third element is minus one hundred four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred eighty-third element is minus one hundred four")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred eighty-third element is minus one hundred four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredEightyThirdElementIsMinusOneHundredFour() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx(-1));
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3655,39 +4651,48 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred fifty-third element is minus thirty-eight.</li>
+   *   <li>Then return one hundred fifty-third element is minus thirty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred fifty-third element is minus thirty-eight")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred fifty-third element is minus thirty-eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredFiftyThirdElementIsMinusThirtyEight() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3701,37 +4706,47 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred forty-eighth element is minus one hundred two.</li>
+   *   <li>Then return one hundred forty-eighth element is minus one hundred two.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred forty-eighth element is minus one hundred two")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred forty-eighth element is minus one hundred two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredFortyEighthElementIsMinusOneHundredTwo() {
     // Arrange
-    TbMsgBuilder correlationIdResult = TbMsg.builder().callback(TbMsgCallback.EMPTY).correlationId(null);
+    TbMsgBuilder correlationIdResult =
+        TbMsg.builder().callback(TbMsgCallback.EMPTY).correlationId(null);
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3760,38 +4775,48 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred forty-ninth element is minus one hundred four.</li>
+   *   <li>Then return one hundred forty-ninth element is minus one hundred four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred forty-ninth element is minus one hundred four")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred forty-ninth element is minus one hundred four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredFortyNinthElementIsMinusOneHundredFour() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3822,11 +4847,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred seventy-eighth element is two.</li>
+   *   <li>Then return one hundred seventy-eighth element is two.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
   @DisplayName("Test toByteArray(TbMsg); then return one hundred seventy-eighth element is two")
@@ -3835,26 +4861,33 @@ class TbMsgDiffblueTest {
   void testToByteArray_thenReturnOneHundredSeventyEighthElementIsTwo() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(32768)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(32768)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3869,39 +4902,48 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred seventy-sixth element is minus one.</li>
+   *   <li>Then return one hundred seventy-sixth element is minus one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred seventy-sixth element is minus one")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred seventy-sixth element is minus one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredSeventySixthElementIsMinusOne() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(-1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(-1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3921,39 +4963,48 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return one hundred seventy-third element is minus one hundred four.</li>
+   *   <li>Then return one hundred seventy-third element is minus one hundred four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return one hundred seventy-third element is minus one hundred four")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return one hundred seventy-third element is minus one hundred four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnOneHundredSeventyThirdElementIsMinusOneHundredFour() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(8192L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(8192L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -3984,41 +5035,53 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#toByteArray(TbMsg)}.
+   *
    * <ul>
-   *   <li>Then return two hundred sixteenth element is minus one hundred four.</li>
+   *   <li>Then return two hundred sixteenth element is minus one hundred four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#toByteArray(TbMsg)}
+   *
+   * <p>Method under test: {@link TbMsg#toByteArray(TbMsg)}
    */
   @Test
-  @DisplayName("Test toByteArray(TbMsg); then return two hundred sixteenth element is minus one hundred four")
+  @DisplayName(
+      "Test toByteArray(TbMsg); then return two hundred sixteenth element is minus one hundred four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbMsg.toByteArray(TbMsg)"})
   void testToByteArray_thenReturnTwoHundredSixteenthElementIsMinusOneHundredFour() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg msg = ruleChainIdResult.ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg msg =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     byte[] actualToByteArrayResult = TbMsg.toByteArray(msg);
@@ -4054,293 +5117,374 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code 0XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code 0XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when '0XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when '0XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_when0xaxaxaxBytesIsUtf8_thenThrowIllegalStateException() throws UnsupportedEncodingException {
+  void testFromBytes_when0xaxaxaxBytesIsUtf8_thenThrowIllegalStateException()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "0XAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code 8XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code 8XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when '8XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when '8XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_when8xaxaxaxBytesIsUtf8_thenThrowIllegalStateException() throws UnsupportedEncodingException {
+  void testFromBytes_when8xaxaxaxBytesIsUtf8_thenThrowIllegalStateException()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "8XAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with eighteen and two.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with eighteen and two.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with eighteen and two; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with eighteen and two; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithEighteenAndTwo_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{18, 2, 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {18, 2, 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with eighteen and {@code X}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with eighteen and {@code X}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with eighteen and 'X'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with eighteen and 'X'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithEighteenAndX_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{18, 'X', 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {18, 'X', 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with lf and two.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with lf and two.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with lf and two; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with lf and two; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithLfAndTwo_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{'\n', 2, 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {'\n', 2, 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with minus one and {@code X}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with minus one and {@code X}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with minus one and 'X'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with minus one and 'X'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithMinusOneAndX_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{-1, 'X', 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {-1, 'X', 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with twenty-six and two.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with twenty-six and two.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with twenty-six and two; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with twenty-six and two; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithTwentySixAndTwo_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{26, 2, 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {26, 2, 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with twenty-six and {@code X}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with twenty-six and {@code X}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with twenty-six and 'X'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with twenty-six and 'X'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithTwentySixAndX_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{26, 'X', 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {26, 'X', 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with two and {@code X}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When array of {@code byte} with two and {@code X}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when array of byte with two and 'X'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when array of byte with two and 'X'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
   void testFromBytes_whenArrayOfByteWithTwoAndX_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
-        () -> TbMsg.fromBytes("Queue Name", new byte[]{2, 'X', 'A', 'X', 'A', 'X', 'A', 'X'}, TbMsgCallback.EMPTY));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            TbMsg.fromBytes(
+                "Queue Name",
+                new byte[] {2, 'X', 'A', 'X', 'A', 'X', 'A', 'X'},
+                TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code AXAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when 'AXAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when 'AXAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenAxaxaxaxBytesIsUtf8_thenThrowIllegalStateException() throws UnsupportedEncodingException {
+  void testFromBytes_whenAxaxaxaxBytesIsUtf8_thenThrowIllegalStateException()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "AXAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when 'XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when 'XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException() throws UnsupportedEncodingException {
+  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "\nXAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when 'XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when 'XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException2() throws UnsupportedEncodingException {
+  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException2()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", " XAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code (XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code (XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when '(XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when '(XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException3() throws UnsupportedEncodingException {
+  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException3()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "(XAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code @XAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code @XAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when '@XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when '@XAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException4() throws UnsupportedEncodingException {
+  void testFromBytes_whenXaxaxaxBytesIsUtf8_thenThrowIllegalStateException4()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "@XAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}.
+   *
    * <ul>
-   *   <li>When {@code XXAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@code XXAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
+   *
+   * <p>Method under test: {@link TbMsg#fromBytes(String, byte[], TbMsgCallback)}
    */
   @Test
-  @DisplayName("Test fromBytes(String, byte[], TbMsgCallback); when 'XXAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
+  @DisplayName(
+      "Test fromBytes(String, byte[], TbMsgCallback); when 'XXAXAXAX' Bytes is 'UTF-8'; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.fromBytes(String, byte[], TbMsgCallback)"})
-  void testFromBytes_whenXxaxaxaxBytesIsUtf8_thenThrowIllegalStateException() throws UnsupportedEncodingException {
+  void testFromBytes_whenXxaxaxaxBytesIsUtf8_thenThrowIllegalStateException()
+      throws UnsupportedEncodingException {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class,
+    assertThrows(
+        IllegalStateException.class,
         () -> TbMsg.fromBytes("Queue Name", "XXAXAXAX".getBytes("UTF-8"), TbMsgCallback.EMPTY));
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleChainId(RuleChainId)} with {@code ruleChainId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId) with 'ruleChainId'")
@@ -4349,35 +5493,43 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        buildResult.copyWithRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        buildResult
+            .copyWithRuleChainId(
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleChainId(RuleChainId)} with {@code ruleChainId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId) with 'ruleChainId'")
@@ -4386,35 +5538,43 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(customerId,
-        buildResult.copyWithRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        customerId,
+        buildResult
+            .copyWithRuleChainId(
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getCustomerId());
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleChainId(RuleChainId)} with {@code ruleChainId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId) with 'ruleChainId'")
@@ -4423,35 +5583,46 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainId3() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
-    assertSame(originator,
-        buildResult.copyWithRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+    assertSame(
+        originator,
+        buildResult
+            .copyWithRuleChainId(
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code msgId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
+   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code
+   * msgId}.
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId, UUID) with 'ruleChainId', 'msgId'")
@@ -4460,36 +5631,46 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainIdMsgId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        buildResult.copyWithRuleChainId(ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+    assertSame(
+        customerId,
+        buildResult
+            .copyWithRuleChainId(
+                ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code msgId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
+   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code
+   * msgId}.
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId, UUID) with 'ruleChainId', 'msgId'")
@@ -4498,36 +5679,46 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainIdMsgId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(customerId,
-        buildResult.copyWithRuleChainId(ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+    assertSame(
+        customerId,
+        buildResult
+            .copyWithRuleChainId(
+                ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
             .getCustomerId());
   }
 
   /**
-   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code msgId}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
+   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code
+   * msgId}.
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleChainId(RuleChainId, UUID) with 'ruleChainId', 'msgId'")
@@ -4536,70 +5727,91 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleChainIdWithRuleChainIdMsgId3() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertSame(originator,
-        buildResult.copyWithRuleChainId(ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+    assertSame(
+        originator,
+        buildResult
+            .copyWithRuleChainId(
+                ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
             .getOriginator());
   }
 
   /**
-   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code msgId}.
+   * Test {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)} with {@code ruleChainId}, {@code
+   * msgId}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId, UUID)}
    */
   @Test
-  @DisplayName("Test copyWithRuleChainId(RuleChainId, UUID) with 'ruleChainId', 'msgId'; then return InternalType is 'NA'")
+  @DisplayName(
+      "Test copyWithRuleChainId(RuleChainId, UUID) with 'ruleChainId', 'msgId'; then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.copyWithRuleChainId(RuleChainId, UUID)"})
   void testCopyWithRuleChainIdWithRuleChainIdMsgId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualCopyWithRuleChainIdResult = buildResult.copyWithRuleChainId(ruleChainId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsg actualCopyWithRuleChainIdResult =
+        buildResult.copyWithRuleChainId(
+            ruleChainId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertEquals(TbMsgType.NA, actualCopyWithRuleChainIdResult.getInternalType());
@@ -4608,41 +5820,49 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithRuleChainId(RuleChainId)} with {@code ruleChainId}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleChainId(RuleChainId)}
    */
   @Test
-  @DisplayName("Test copyWithRuleChainId(RuleChainId) with 'ruleChainId'; then return InternalType is 'NA'")
+  @DisplayName(
+      "Test copyWithRuleChainId(RuleChainId) with 'ruleChainId'; then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.copyWithRuleChainId(RuleChainId)"})
   void testCopyWithRuleChainIdWithRuleChainId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
-    TbMsg actualCopyWithRuleChainIdResult = buildResult
-        .copyWithRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg actualCopyWithRuleChainIdResult =
+        buildResult.copyWithRuleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(TbMsgType.NA, actualCopyWithRuleChainIdResult.getInternalType());
@@ -4651,8 +5871,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)")
@@ -4661,38 +5881,46 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleNodeId() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertEquals(buildResult, buildResult.copyWithRuleNodeId(ruleChainId, ruleNodeId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertEquals(
+        buildResult,
+        buildResult.copyWithRuleNodeId(
+            ruleChainId, ruleNodeId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)")
@@ -4701,37 +5929,46 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleNodeId2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertEquals(buildResult, buildResult.copyWithRuleNodeId(ruleChainId, ruleNodeId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertEquals(
+        buildResult,
+        buildResult.copyWithRuleNodeId(
+            ruleChainId, ruleNodeId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
    */
   @Test
   @DisplayName("Test copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)")
@@ -4740,73 +5977,92 @@ class TbMsgDiffblueTest {
   void testCopyWithRuleNodeId3() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
-    TbMsgBuilder queueNameResult = metaDataResult
-        .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder queueNameResult =
+        metaDataResult
+            .originator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertEquals(buildResult, buildResult.copyWithRuleNodeId(ruleChainId, ruleNodeId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertEquals(
+        buildResult,
+        buildResult.copyWithRuleNodeId(
+            ruleChainId, ruleNodeId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)}
    */
   @Test
-  @DisplayName("Test copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID); then return InternalType is 'NA'")
+  @DisplayName(
+      "Test copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID); then return InternalType is 'NA'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsg TbMsg.copyWithRuleNodeId(RuleChainId, RuleNodeId, UUID)"})
   void testCopyWithRuleNodeId_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsg actualCopyWithRuleNodeIdResult = buildResult.copyWithRuleNodeId(ruleChainId, ruleNodeId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsg actualCopyWithRuleNodeIdResult =
+        buildResult.copyWithRuleNodeId(
+            ruleChainId, ruleNodeId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertEquals(TbMsgType.NA, actualCopyWithRuleNodeIdResult.getInternalType());
@@ -4815,8 +6071,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx()")
@@ -4825,24 +6081,29 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, buildResult.copyWithNewCtx().getCustomerId());
@@ -4850,8 +6111,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx()")
@@ -4860,24 +6121,29 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx2() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(0L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(0L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(customerId, buildResult.copyWithNewCtx().getCustomerId());
@@ -4885,8 +6151,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx()")
@@ -4895,27 +6161,35 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx3() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualCopyWithNewCtxResult = buildResult.copyWithNewCtx();
@@ -4928,8 +6202,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx()")
@@ -4938,24 +6212,31 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx4() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder metaDataResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY);
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder metaDataResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder queueNameResult = metaDataResult.originator(originator).partition(1).queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder queueNameResult =
+        metaDataResult.originator(originator).partition(1).queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertSame(originator, buildResult.copyWithNewCtx().getOriginator());
@@ -4963,11 +6244,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
+   *
    * <ul>
-   *   <li>Then return CustomerId is {@code null}.</li>
+   *   <li>Then return CustomerId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx(); then return CustomerId is 'null'")
@@ -4976,25 +6258,31 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx_thenReturnCustomerIdIsNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = correlationIdResult.ctx(new TbMsgProcessingCtx())
-        .customerId(null)
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder dataTypeResult =
+        correlationIdResult
+            .ctx(new TbMsgProcessingCtx())
+            .customerId(null)
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualCopyWithNewCtxResult = buildResult.copyWithNewCtx();
@@ -5009,11 +6297,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#copyWithNewCtx()}.
+   *
    * <ul>
-   *   <li>Then return InternalType is {@code NA}.</li>
+   *   <li>Then return InternalType is {@code NA}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#copyWithNewCtx()}
+   *
+   * <p>Method under test: {@link TbMsg#copyWithNewCtx()}
    */
   @Test
   @DisplayName("Test copyWithNewCtx(); then return InternalType is 'NA'")
@@ -5022,24 +6311,29 @@ class TbMsgDiffblueTest {
   void testCopyWithNewCtx_thenReturnInternalTypeIsNa() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    TbMsgBuilder dataTypeResult = ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(null)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult.customerId(customerId).data("Data").dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(null)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsg actualCopyWithNewCtxResult = buildResult.copyWithNewCtx();
@@ -5051,11 +6345,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#getCallback()}.
+   *
    * <ul>
-   *   <li>Then return MsgValid.</li>
+   *   <li>Then return MsgValid.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#getCallback()}
+   *
+   * <p>Method under test: {@link TbMsg#getCallback()}
    */
   @Test
   @DisplayName("Test getCallback(); then return MsgValid")
@@ -5064,26 +6359,31 @@ class TbMsgDiffblueTest {
   void testGetCallback_thenReturnMsgValid() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertTrue(buildResult.getCallback().isMsgValid());
@@ -5091,8 +6391,8 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#popFormStack()}.
-   * <p>
-   * Method under test: {@link TbMsg#popFormStack()}
+   *
+   * <p>Method under test: {@link TbMsg#popFormStack()}
    */
   @Test
   @DisplayName("Test popFormStack()")
@@ -5101,29 +6401,37 @@ class TbMsgDiffblueTest {
   void testPopFormStack() {
     // Arrange
     TbMsgProcessingCtx ctx = new TbMsgProcessingCtx();
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ctx.push(ruleChainId, ruleNodeId);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder ctxResult = callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .ctx(ctx);
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder ctxResult =
+        callbackResult
+            .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .ctx(ctx);
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     TbMsgProcessingStackItem actualPopFormStackResult = buildResult.popFormStack();
@@ -5135,11 +6443,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#popFormStack()}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#popFormStack()}
+   *
+   * <p>Method under test: {@link TbMsg#popFormStack()}
    */
   @Test
   @DisplayName("Test popFormStack(); then return 'null'")
@@ -5148,26 +6457,31 @@ class TbMsgDiffblueTest {
   void testPopFormStack_thenReturnNull() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNull(buildResult.popFormStack());
@@ -5175,15 +6489,17 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgCallback} {@link TbMsgCallback#isMsgValid()} return {@code false}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TbMsgCallback} {@link TbMsgCallback#isMsgValid()} return {@code false}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isValid()}
+   *
+   * <p>Method under test: {@link TbMsg#isValid()}
    */
   @Test
-  @DisplayName("Test isValid(); given TbMsgCallback isMsgValid() return 'false'; then return 'false'")
+  @DisplayName(
+      "Test isValid(); given TbMsgCallback isMsgValid() return 'false'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbMsg.isValid()"})
   void testIsValid_givenTbMsgCallbackIsMsgValidReturnFalse_thenReturnFalse() {
@@ -5191,26 +6507,31 @@ class TbMsgDiffblueTest {
     TbMsgCallback callback = mock(TbMsgCallback.class);
     when(callback.isMsgValid()).thenReturn(false);
     TbMsgBuilder callbackResult = TbMsg.builder().callback(callback);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act
     boolean actualIsValidResult = buildResult.isValid();
@@ -5222,11 +6543,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isValid()}
+   *
+   * <p>Method under test: {@link TbMsg#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'true'")
@@ -5235,26 +6557,31 @@ class TbMsgDiffblueTest {
   void testIsValid_thenReturnTrue() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertTrue(buildResult.isValid());
@@ -5262,11 +6589,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isValid()}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isValid()}
+   *
+   * <p>Method under test: {@link TbMsg#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then throw IllegalStateException")
@@ -5277,26 +6605,31 @@ class TbMsgDiffblueTest {
     TbMsgCallback callback = mock(TbMsgCallback.class);
     when(callback.isMsgValid()).thenThrow(new IllegalStateException("foo"));
     TbMsgBuilder callbackResult = TbMsg.builder().callback(callback);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertThrows(IllegalStateException.class, () -> buildResult.isValid());
@@ -5305,11 +6638,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#getMetaDataTs()}.
+   *
    * <ul>
-   *   <li>Then return one.</li>
+   *   <li>Then return one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#getMetaDataTs()}
+   *
+   * <p>Method under test: {@link TbMsg#getMetaDataTs()}
    */
   @Test
   @DisplayName("Test getMetaDataTs(); then return one")
@@ -5318,26 +6652,31 @@ class TbMsgDiffblueTest {
   void testGetMetaDataTs_thenReturnOne() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertEquals(1L, buildResult.getMetaDataTs());
@@ -5345,11 +6684,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isTypeOf(TbMsgType)}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isTypeOf(TbMsgType)}
+   *
+   * <p>Method under test: {@link TbMsg#isTypeOf(TbMsgType)}
    */
   @Test
   @DisplayName("Test isTypeOf(TbMsgType); then return 'false'")
@@ -5358,26 +6698,31 @@ class TbMsgDiffblueTest {
   void testIsTypeOf_thenReturnFalse() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_TELEMETRY_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_TELEMETRY_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertFalse(buildResult.isTypeOf(TbMsgType.POST_ATTRIBUTES_REQUEST));
@@ -5385,11 +6730,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isTypeOf(TbMsgType)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isTypeOf(TbMsgType)}
+   *
+   * <p>Method under test: {@link TbMsg#isTypeOf(TbMsgType)}
    */
   @Test
   @DisplayName("Test isTypeOf(TbMsgType); then return 'true'")
@@ -5398,26 +6744,31 @@ class TbMsgDiffblueTest {
   void testIsTypeOf_thenReturnTrue() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertTrue(buildResult.isTypeOf(TbMsgType.POST_ATTRIBUTES_REQUEST));
@@ -5425,11 +6776,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isTypeOneOf(TbMsgType[])}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isTypeOneOf(TbMsgType[])}
+   *
+   * <p>Method under test: {@link TbMsg#isTypeOneOf(TbMsgType[])}
    */
   @Test
   @DisplayName("Test isTypeOneOf(TbMsgType[]); then return 'false'")
@@ -5438,26 +6790,31 @@ class TbMsgDiffblueTest {
   void testIsTypeOneOf_thenReturnFalse() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_TELEMETRY_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_TELEMETRY_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertFalse(buildResult.isTypeOneOf(TbMsgType.POST_ATTRIBUTES_REQUEST));
@@ -5465,11 +6822,12 @@ class TbMsgDiffblueTest {
 
   /**
    * Test {@link TbMsg#isTypeOneOf(TbMsgType[])}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsg#isTypeOneOf(TbMsgType[])}
+   *
+   * <p>Method under test: {@link TbMsg#isTypeOneOf(TbMsgType[])}
    */
   @Test
   @DisplayName("Test isTypeOneOf(TbMsgType[]); then return 'true'")
@@ -5478,26 +6836,31 @@ class TbMsgDiffblueTest {
   void testIsTypeOneOf_thenReturnTrue() {
     // Arrange
     TbMsgBuilder callbackResult = TbMsg.builder().callback(TbMsgCallback.EMPTY);
-    TbMsgBuilder correlationIdResult = callbackResult
-        .correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbMsgBuilder correlationIdResult =
+        callbackResult.correlationId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     TbMsgBuilder ctxResult = correlationIdResult.ctx(new TbMsgProcessingCtx());
-    TbMsgBuilder dataTypeResult = ctxResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .data("Data")
-        .dataType(TbMsgDataType.JSON);
-    TbMsgBuilder queueNameResult = dataTypeResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
-        .metaData(TbMsgMetaData.EMPTY)
-        .originator(null)
-        .partition(1)
-        .queueName("Queue Name");
-    TbMsgBuilder ruleChainIdResult = queueNameResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbMsg buildResult = ruleChainIdResult
-        .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ts(1L)
-        .type("Type")
-        .build();
+    TbMsgBuilder dataTypeResult =
+        ctxResult
+            .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .data("Data")
+            .dataType(TbMsgDataType.JSON);
+    TbMsgBuilder queueNameResult =
+        dataTypeResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .internalType(TbMsgType.POST_ATTRIBUTES_REQUEST)
+            .metaData(TbMsgMetaData.EMPTY)
+            .originator(null)
+            .partition(1)
+            .queueName("Queue Name");
+    TbMsgBuilder ruleChainIdResult =
+        queueNameResult.ruleChainId(
+            new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbMsg buildResult =
+        ruleChainIdResult
+            .ruleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ts(1L)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertTrue(buildResult.isTypeOneOf(TbMsgType.POST_ATTRIBUTES_REQUEST));

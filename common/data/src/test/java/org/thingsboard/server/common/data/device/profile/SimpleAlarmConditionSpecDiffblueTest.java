@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class SimpleAlarmConditionSpecDiffblueTest {
   /**
-   * Test {@link SimpleAlarmConditionSpec#equals(Object)}, and {@link SimpleAlarmConditionSpec#hashCode()}.
+   * Test {@link SimpleAlarmConditionSpec#equals(Object)}, and {@link
+   * SimpleAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SimpleAlarmConditionSpec#equals(Object)}
    *   <li>{@link SimpleAlarmConditionSpec#hashCode()}
@@ -24,7 +27,10 @@ class SimpleAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SimpleAlarmConditionSpec.equals(Object)", "int SimpleAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SimpleAlarmConditionSpec.equals(Object)",
+    "int SimpleAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SimpleAlarmConditionSpec simpleAlarmConditionSpec = new SimpleAlarmConditionSpec();
@@ -37,13 +43,16 @@ class SimpleAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link SimpleAlarmConditionSpec#equals(Object)}, and {@link SimpleAlarmConditionSpec#hashCode()}.
+   * Test {@link SimpleAlarmConditionSpec#equals(Object)}, and {@link
+   * SimpleAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SimpleAlarmConditionSpec#equals(Object)}
    *   <li>{@link SimpleAlarmConditionSpec#hashCode()}
@@ -52,7 +61,10 @@ class SimpleAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SimpleAlarmConditionSpec.equals(Object)", "int SimpleAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SimpleAlarmConditionSpec.equals(Object)",
+    "int SimpleAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SimpleAlarmConditionSpec simpleAlarmConditionSpec = new SimpleAlarmConditionSpec();
@@ -65,17 +77,21 @@ class SimpleAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link SimpleAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SimpleAlarmConditionSpec.equals(Object)", "int SimpleAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SimpleAlarmConditionSpec.equals(Object)",
+    "int SimpleAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SimpleAlarmConditionSpec(), 1);
@@ -83,17 +99,21 @@ class SimpleAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link SimpleAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SimpleAlarmConditionSpec.equals(Object)", "int SimpleAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SimpleAlarmConditionSpec.equals(Object)",
+    "int SimpleAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SimpleAlarmConditionSpec(), null);
@@ -101,17 +121,21 @@ class SimpleAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link SimpleAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link SimpleAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SimpleAlarmConditionSpec.equals(Object)", "int SimpleAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SimpleAlarmConditionSpec.equals(Object)",
+    "int SimpleAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SimpleAlarmConditionSpec(), "Different type to SimpleAlarmConditionSpec");
@@ -119,8 +143,9 @@ class SimpleAlarmConditionSpecDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SimpleAlarmConditionSpec}
    *   <li>{@link SimpleAlarmConditionSpec#toString()}
@@ -130,8 +155,11 @@ class SimpleAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SimpleAlarmConditionSpec.<init>()",
-      "AlarmConditionSpecType SimpleAlarmConditionSpec.getType()", "String SimpleAlarmConditionSpec.toString()"})
+  @MethodsUnderTest({
+    "void SimpleAlarmConditionSpec.<init>()",
+    "AlarmConditionSpecType SimpleAlarmConditionSpec.getType()",
+    "String SimpleAlarmConditionSpec.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SimpleAlarmConditionSpec actualSimpleAlarmConditionSpec = new SimpleAlarmConditionSpec();

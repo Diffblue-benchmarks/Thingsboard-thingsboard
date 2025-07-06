@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class TbActorDiffblueTest {
   /**
    * Test {@link TbActor#init(TbActorCtx)}.
-   * <p>
-   * Method under test: {@link TbActor#init(TbActorCtx)}
+   *
+   * <p>Method under test: {@link TbActor#init(TbActorCtx)}
    */
   @Test
   @DisplayName("Test init(TbActorCtx)")
@@ -28,8 +28,8 @@ class TbActorDiffblueTest {
     TbActorId actorId = mock(TbActorId.class);
     CountDownLatch latch = new CountDownLatch(1);
     AtomicInteger invocationCount = new AtomicInteger(1);
-    SlowInitActor slowInitActor = new SlowInitActor(actorId,
-        new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
+    SlowInitActor slowInitActor =
+        new SlowInitActor(actorId, new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
     DefaultTbActorSystem system = new DefaultTbActorSystem(new TbActorSystemSettings(1, 3, 3));
     TbActorSystemSettings settings = new TbActorSystemSettings(1, 3, 3);
 
@@ -38,11 +38,18 @@ class TbActorDiffblueTest {
     TbActorId actorId2 = mock(TbActorId.class);
     CountDownLatch latch2 = new CountDownLatch(1);
     AtomicInteger invocationCount2 = new AtomicInteger(1);
-    SlowInitActor actor = new SlowInitActor(actorId2,
-        new ActorTestCtx(latch2, invocationCount2, 3, new AtomicLong(1L)));
+    SlowInitActor actor =
+        new SlowInitActor(
+            actorId2, new ActorTestCtx(latch2, invocationCount2, 3, new AtomicLong(1L)));
 
-    TbActorMailbox ctx = new TbActorMailbox(system, settings, selfId, parentRef, actor,
-        new Dispatcher("42", ForkJoinPool.commonPool()));
+    TbActorMailbox ctx =
+        new TbActorMailbox(
+            system,
+            settings,
+            selfId,
+            parentRef,
+            actor,
+            new Dispatcher("42", ForkJoinPool.commonPool()));
 
     // Act
     slowInitActor.init(ctx);
@@ -54,8 +61,8 @@ class TbActorDiffblueTest {
 
   /**
    * Test {@link TbActor#onInitFailure(int, Throwable)}.
-   * <p>
-   * Method under test: {@link TbActor#onInitFailure(int, Throwable)}
+   *
+   * <p>Method under test: {@link TbActor#onInitFailure(int, Throwable)}
    */
   @Test
   @DisplayName("Test onInitFailure(int, Throwable)")
@@ -66,8 +73,8 @@ class TbActorDiffblueTest {
     TbActorId actorId = mock(TbActorId.class);
     CountDownLatch latch = new CountDownLatch(1);
     AtomicInteger invocationCount = new AtomicInteger(1);
-    SlowInitActor slowInitActor = new SlowInitActor(actorId,
-        new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
+    SlowInitActor slowInitActor =
+        new SlowInitActor(actorId, new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
 
     // Act
     InitFailureStrategy actualOnInitFailureResult = slowInitActor.onInitFailure(1, new Throwable());

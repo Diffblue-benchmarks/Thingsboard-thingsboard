@@ -10,12 +10,13 @@ import org.junit.jupiter.api.Test;
 class SchedulerUtilsDiffblueTest {
   /**
    * Test {@link SchedulerUtils#getZoneId(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return toString is {@code UTC}.</li>
+   *   <li>When empty string.
+   *   <li>Then return toString is {@code UTC}.
    * </ul>
-   * <p>
-   * Method under test: {@link SchedulerUtils#getZoneId(String)}
+   *
+   * <p>Method under test: {@link SchedulerUtils#getZoneId(String)}
    */
   @Test
   @DisplayName("Test getZoneId(String); when empty string; then return toString is 'UTC'")
@@ -28,12 +29,13 @@ class SchedulerUtilsDiffblueTest {
 
   /**
    * Test {@link SchedulerUtils#getZoneId(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return toString is {@code UTC}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return toString is {@code UTC}.
    * </ul>
-   * <p>
-   * Method under test: {@link SchedulerUtils#getZoneId(String)}
+   *
+   * <p>Method under test: {@link SchedulerUtils#getZoneId(String)}
    */
   @Test
   @DisplayName("Test getZoneId(String); when 'null'; then return toString is 'UTC'")
@@ -46,12 +48,13 @@ class SchedulerUtilsDiffblueTest {
 
   /**
    * Test {@link SchedulerUtils#getZoneId(String)}.
+   *
    * <ul>
-   *   <li>When {@code UTC}.</li>
-   *   <li>Then return toString is {@code UTC}.</li>
+   *   <li>When {@code UTC}.
+   *   <li>Then return toString is {@code UTC}.
    * </ul>
-   * <p>
-   * Method under test: {@link SchedulerUtils#getZoneId(String)}
+   *
+   * <p>Method under test: {@link SchedulerUtils#getZoneId(String)}
    */
   @Test
   @DisplayName("Test getZoneId(String); when 'UTC'; then return toString is 'UTC'")
@@ -64,19 +67,24 @@ class SchedulerUtilsDiffblueTest {
 
   /**
    * Test {@link SchedulerUtils#firstDayOfNextNextMonth()}.
+   *
    * <ul>
-   *   <li>Then return adjustInto ofEpochDay one toString is {@code 1970-03-01}.</li>
+   *   <li>Then return adjustInto ofEpochDay one toString is {@code 1970-03-01}.
    * </ul>
-   * <p>
-   * Method under test: {@link SchedulerUtils#firstDayOfNextNextMonth()}
+   *
+   * <p>Method under test: {@link SchedulerUtils#firstDayOfNextNextMonth()}
    */
   @Test
-  @DisplayName("Test firstDayOfNextNextMonth(); then return adjustInto ofEpochDay one toString is '1970-03-01'")
+  @DisplayName(
+      "Test firstDayOfNextNextMonth(); then return adjustInto ofEpochDay one toString is '1970-03-01'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.time.temporal.TemporalAdjuster SchedulerUtils.firstDayOfNextNextMonth()"})
+  @MethodsUnderTest({
+    "java.time.temporal.TemporalAdjuster SchedulerUtils.firstDayOfNextNextMonth()"
+  })
   void testFirstDayOfNextNextMonth_thenReturnAdjustIntoOfEpochDayOneToStringIs19700301() {
     // Arrange, Act and Assert
-    assertEquals("1970-03-01",
+    assertEquals(
+        "1970-03-01",
         SchedulerUtils.firstDayOfNextNextMonth().adjustInto(LocalDate.ofEpochDay(1L)).toString());
   }
 }

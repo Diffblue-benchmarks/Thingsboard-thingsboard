@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class TbResourceIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResourceId#TbResourceId(UUID)}
    *   <li>{@link TbResourceId#getEntityType()}

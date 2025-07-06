@@ -21,11 +21,12 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EdgeDiffblueTest {
   /**
    * Test {@link Edge#Edge(Edge)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge()}.</li>
+   *   <li>When {@link Edge#Edge()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#Edge(Edge)}
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
    */
   @Test
   @DisplayName("Test new Edge(Edge); when Edge()")
@@ -53,11 +54,12 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#Edge(Edge)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge()}.</li>
+   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#Edge(Edge)}
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
    */
   @Test
   @DisplayName("Test new Edge(Edge); when Edge(Edge) with edge is Edge()")
@@ -85,11 +87,12 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#Edge(Edge)}.
+   *
    * <ul>
-   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge(Edge)}.</li>
+   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge(Edge)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#Edge(Edge)}
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
    */
   @Test
   @DisplayName("Test new Edge(Edge); when Edge(Edge) with edge is Edge(Edge)")
@@ -117,16 +120,18 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#update(Edge)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link EdgeInfo} {@link Edge#getVersion()} return one.</li>
-   *   <li>Then {@link Edge#Edge()} Label is {@code Label}.</li>
+   *   <li>Given one.
+   *   <li>When {@link EdgeInfo} {@link EdgeInfo#getVersion()} return one.
+   *   <li>Then {@link Edge#Edge()} Label is {@code Label}.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#update(Edge)}
+   *
+   * <p>Method under test: {@link Edge#update(Edge)}
    */
   @Test
-  @DisplayName("Test update(Edge); given one; when EdgeInfo getVersion() return one; then Edge() Label is 'Label'")
+  @DisplayName(
+      "Test update(Edge); given one; when EdgeInfo getVersion() return one; then Edge() Label is 'Label'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Edge.update(Edge)"})
   void testUpdate_givenOne_whenEdgeInfoGetVersionReturnOne_thenEdgeLabelIsLabel() {
@@ -141,7 +146,8 @@ class EdgeDiffblueTest {
     when(edge2.getType()).thenReturn("Type");
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(edge2.getCustomerId()).thenReturn(customerId);
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(edge2.getRootRuleChainId()).thenReturn(ruleChainId);
     when(edge2.getTenantId()).thenReturn(TenantId.SYS_TENANT_ID);
 
@@ -170,8 +176,8 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#getId()}.
-   * <p>
-   * Method under test: {@link Edge#getId()}
+   *
+   * <p>Method under test: {@link Edge#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -179,13 +185,13 @@ class EdgeDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.EdgeId Edge.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new Edge()).getId());
+    assertNull(new Edge().getId());
   }
 
   /**
    * Test {@link Edge#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link Edge#getCreatedTime()}
+   *
+   * <p>Method under test: {@link Edge#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -193,17 +199,19 @@ class EdgeDiffblueTest {
   @MethodsUnderTest({"long Edge.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new Edge()).getCreatedTime());
+    assertEquals(0L, new Edge().getCreatedTime());
   }
 
   /**
    * Test {@link Edge#equals(Object)}, and {@link Edge#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Edge#equals(Object)}
    *   <li>{@link Edge#hashCode()}
@@ -226,12 +234,14 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}, and {@link Edge#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Edge#equals(Object)}
    *   <li>{@link Edge#hashCode()}
@@ -253,12 +263,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -274,12 +285,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -295,12 +307,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -316,12 +329,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -338,12 +352,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -360,12 +375,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -374,7 +390,8 @@ class EdgeDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     Edge edge = new Edge();
-    edge.setRootRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    edge.setRootRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(edge, new Edge());
@@ -382,12 +399,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -404,12 +422,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -426,12 +445,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -448,12 +468,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -470,12 +491,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -492,12 +514,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -514,12 +537,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -538,12 +562,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -562,12 +587,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -578,7 +604,8 @@ class EdgeDiffblueTest {
     Edge edge = new Edge();
 
     Edge edge2 = new Edge();
-    edge2.setRootRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    edge2.setRootRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(edge, edge2);
@@ -586,12 +613,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -610,12 +638,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -634,12 +663,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -658,12 +688,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -682,12 +713,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -706,12 +738,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -730,12 +763,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -748,12 +782,13 @@ class EdgeDiffblueTest {
 
   /**
    * Test {@link Edge#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Edge#equals(Object)}
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

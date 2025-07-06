@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Test;
 class PrivacyProtocolDiffblueTest {
   /**
    * Test {@link PrivacyProtocol#forName(String)}.
+   *
    * <ul>
-   *   <li>When {@code AES_128}.</li>
-   *   <li>Then return {@link Optional#get()} is {@code AES_128}.</li>
+   *   <li>When {@code AES_128}.
+   *   <li>Then return {@link Optional#get()} is {@code AES_128}.
    * </ul>
-   * <p>
-   * Method under test: {@link PrivacyProtocol#forName(String)}
+   *
+   * <p>Method under test: {@link PrivacyProtocol#forName(String)}
    */
   @Test
   @DisplayName("Test forName(String); when 'AES_128'; then return get() is 'AES_128'")
@@ -34,12 +35,13 @@ class PrivacyProtocolDiffblueTest {
 
   /**
    * Test {@link PrivacyProtocol#forName(String)}.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
-   *   <li>Then return not Present.</li>
+   *   <li>When {@code Name}.
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link PrivacyProtocol#forName(String)}
+   *
+   * <p>Method under test: {@link PrivacyProtocol#forName(String)}
    */
   @Test
   @DisplayName("Test forName(String); when 'Name'; then return not Present")

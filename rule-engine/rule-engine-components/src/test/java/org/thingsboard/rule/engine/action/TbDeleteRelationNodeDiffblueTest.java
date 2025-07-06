@@ -15,59 +15,71 @@ import org.thingsboard.server.common.data.EntityType;
 class TbDeleteRelationNodeDiffblueTest {
   /**
    * Test {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
    */
   @Test
   @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"})
+    "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"
+  })
   void testLoadEntityNodeActionConfig_givenFalse() throws TbNodeException {
     // Arrange
     TbDeleteRelationNode tbDeleteRelationNode = new TbDeleteRelationNode();
 
-    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration = new TbDeleteRelationNodeConfiguration();
+    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration =
+        new TbDeleteRelationNodeConfiguration();
     tbDeleteRelationNodeConfiguration.setDeleteForSingleEntity(false);
 
     // Act and Assert
-    assertSame(tbDeleteRelationNodeConfiguration, tbDeleteRelationNode
-        .loadEntityNodeActionConfig(new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
+    assertSame(
+        tbDeleteRelationNodeConfiguration,
+        tbDeleteRelationNode.loadEntityNodeActionConfig(
+            new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
   }
 
   /**
    * Test {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code TENANT}.</li>
+   *   <li>Given {@code TENANT}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * TbDeleteRelationNode#loadEntityNodeActionConfig(TbNodeConfiguration)}
    */
   @Test
   @DisplayName("Test loadEntityNodeActionConfig(TbNodeConfiguration); given 'TENANT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"})
+    "TbDeleteRelationNodeConfiguration TbDeleteRelationNode.loadEntityNodeActionConfig(TbNodeConfiguration)"
+  })
   void testLoadEntityNodeActionConfig_givenTenant() throws TbNodeException {
     // Arrange
     TbDeleteRelationNode tbDeleteRelationNode = new TbDeleteRelationNode();
 
-    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration = new TbDeleteRelationNodeConfiguration();
+    TbDeleteRelationNodeConfiguration tbDeleteRelationNodeConfiguration =
+        new TbDeleteRelationNodeConfiguration();
     tbDeleteRelationNodeConfiguration.setEntityType(EntityType.TENANT);
     tbDeleteRelationNodeConfiguration.setDeleteForSingleEntity(true);
 
     // Act and Assert
-    assertSame(tbDeleteRelationNodeConfiguration, tbDeleteRelationNode
-        .loadEntityNodeActionConfig(new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
+    assertSame(
+        tbDeleteRelationNodeConfiguration,
+        tbDeleteRelationNode.loadEntityNodeActionConfig(
+            new TbNodeConfiguration(new POJONode(tbDeleteRelationNodeConfiguration))));
   }
 
   /**
    * Test {@link TbDeleteRelationNode#createEntityIfNotExists()}.
-   * <p>
-   * Method under test: {@link TbDeleteRelationNode#createEntityIfNotExists()}
+   *
+   * <p>Method under test: {@link TbDeleteRelationNode#createEntityIfNotExists()}
    */
   @Test
   @DisplayName("Test createEntityIfNotExists()")
@@ -75,13 +87,13 @@ class TbDeleteRelationNodeDiffblueTest {
   @MethodsUnderTest({"boolean TbDeleteRelationNode.createEntityIfNotExists()"})
   void testCreateEntityIfNotExists() {
     // Arrange, Act and Assert
-    assertFalse((new TbDeleteRelationNode()).createEntityIfNotExists());
+    assertFalse(new TbDeleteRelationNode().createEntityIfNotExists());
   }
 
   /**
    * Test new {@link TbDeleteRelationNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbDeleteRelationNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbDeleteRelationNode}
    */
   @Test
   @DisplayName("Test new TbDeleteRelationNode (default constructor)")
@@ -89,6 +101,6 @@ class TbDeleteRelationNodeDiffblueTest {
   @MethodsUnderTest({"void TbDeleteRelationNode.<init>()"})
   void testNewTbDeleteRelationNode() {
     // Arrange, Act and Assert
-    assertNull((new TbDeleteRelationNode()).config);
+    assertNull(new TbDeleteRelationNode().config);
   }
 }

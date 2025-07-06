@@ -12,8 +12,8 @@ import org.thingsboard.server.common.data.id.RuleNodeId;
 class RuleNodeInfoDiffblueTest {
   /**
    * Test {@link RuleNodeInfo#RuleNodeInfo(RuleNodeId, String, String)}.
-   * <p>
-   * Method under test: {@link RuleNodeInfo#RuleNodeInfo(RuleNodeId, String, String)}
+   *
+   * <p>Method under test: {@link RuleNodeInfo#RuleNodeInfo(RuleNodeId, String, String)}
    */
   @Test
   @DisplayName("Test new RuleNodeInfo(RuleNodeId, String, String)")
@@ -27,15 +27,17 @@ class RuleNodeInfoDiffblueTest {
     RuleNodeInfo actualRuleNodeInfo = new RuleNodeInfo(id, "Rule Chain Name", "Rule Node Name");
 
     // Assert
-    assertEquals("[RuleChain: Rule Chain Name|RuleNode: Rule Node Name(784f394c-42b6-435a-983c-b7beff2784f9)]",
+    assertEquals(
+        "[RuleChain: Rule Chain Name|RuleNode: Rule Node Name(784f394c-42b6-435a-983c-b7beff2784f9)]",
         actualRuleNodeInfo.toString());
     assertSame(id, actualRuleNodeInfo.getRuleNodeId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeInfo#getRuleNodeId()}
    *   <li>{@link RuleNodeInfo#toString()}
@@ -54,7 +56,8 @@ class RuleNodeInfoDiffblueTest {
     RuleNodeId actualRuleNodeId = ruleNodeInfo.getRuleNodeId();
 
     // Assert
-    assertEquals("[RuleChain: Rule Chain Name|RuleNode: Rule Node Name(784f394c-42b6-435a-983c-b7beff2784f9)]",
+    assertEquals(
+        "[RuleChain: Rule Chain Name|RuleNode: Rule Node Name(784f394c-42b6-435a-983c-b7beff2784f9)]",
         ruleNodeInfo.toString());
     assertSame(id, actualRuleNodeId);
   }

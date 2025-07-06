@@ -11,8 +11,8 @@ import org.thingsboard.server.common.data.limit.LimitedApi;
 class RateLimitExceededExceptionDiffblueTest {
   /**
    * Test {@link RateLimitExceededException#RateLimitExceededException(String)}.
-   * <p>
-   * Method under test: {@link RateLimitExceededException#RateLimitExceededException(String)}
+   *
+   * <p>Method under test: {@link RateLimitExceededException#RateLimitExceededException(String)}
    */
   @Test
   @DisplayName("Test new RateLimitExceededException(String)")
@@ -20,7 +20,8 @@ class RateLimitExceededExceptionDiffblueTest {
   @MethodsUnderTest({"void RateLimitExceededException.<init>(String)"})
   void testNewRateLimitExceededException() {
     // Arrange and Act
-    RateLimitExceededException actualRateLimitExceededException = new RateLimitExceededException("An error occurred");
+    RateLimitExceededException actualRateLimitExceededException =
+        new RateLimitExceededException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualRateLimitExceededException.getMessage());
@@ -30,8 +31,8 @@ class RateLimitExceededExceptionDiffblueTest {
 
   /**
    * Test {@link RateLimitExceededException#RateLimitExceededException(LimitedApi)}.
-   * <p>
-   * Method under test: {@link RateLimitExceededException#RateLimitExceededException(LimitedApi)}
+   *
+   * <p>Method under test: {@link RateLimitExceededException#RateLimitExceededException(LimitedApi)}
    */
   @Test
   @DisplayName("Test new RateLimitExceededException(LimitedApi)")
@@ -39,13 +40,16 @@ class RateLimitExceededExceptionDiffblueTest {
   @MethodsUnderTest({"void RateLimitExceededException.<init>(LimitedApi)"})
   void testNewRateLimitExceededException2() {
     // Arrange and Act
-    RateLimitExceededException actualRateLimitExceededException = new RateLimitExceededException(
-        LimitedApi.ENTITY_EXPORT);
+    RateLimitExceededException actualRateLimitExceededException =
+        new RateLimitExceededException(LimitedApi.ENTITY_EXPORT);
 
     // Assert
-    assertEquals("Rate limit for entity version creation is exceeded",
+    assertEquals(
+        "Rate limit for entity version creation is exceeded",
         actualRateLimitExceededException.getLocalizedMessage());
-    assertEquals("Rate limit for entity version creation is exceeded", actualRateLimitExceededException.getMessage());
+    assertEquals(
+        "Rate limit for entity version creation is exceeded",
+        actualRateLimitExceededException.getMessage());
     assertNull(actualRateLimitExceededException.getCause());
     assertEquals(0, actualRateLimitExceededException.getSuppressed().length);
   }

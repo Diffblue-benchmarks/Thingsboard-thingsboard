@@ -16,12 +16,14 @@ import org.mockito.Mockito;
 class LwM2mObjectDiffblueTest {
   /**
    * Test {@link LwM2mObject#equals(Object)}, and {@link LwM2mObject#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mObject#equals(Object)}
    *   <li>{@link LwM2mObject#hashCode()}
@@ -35,11 +37,12 @@ class LwM2mObjectDiffblueTest {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -47,11 +50,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -65,12 +69,14 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}, and {@link LwM2mObject#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2mObject#equals(Object)}
    *   <li>{@link LwM2mObject#hashCode()}
@@ -84,11 +90,12 @@ class LwM2mObjectDiffblueTest {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -102,12 +109,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -117,11 +125,12 @@ class LwM2mObjectDiffblueTest {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(2);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -129,11 +138,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -145,12 +155,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,11 +173,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -174,11 +186,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -190,12 +203,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -207,11 +221,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("Name");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -219,11 +234,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -235,12 +251,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -252,11 +269,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId(null);
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -264,11 +282,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -280,12 +299,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -297,11 +317,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(false);
     lwM2mObject.setMultiple(true);
@@ -309,11 +330,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -325,12 +347,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -342,11 +365,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(false);
@@ -354,11 +378,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -370,12 +395,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -387,11 +413,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -399,11 +426,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -415,12 +443,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -432,11 +461,12 @@ class LwM2mObjectDiffblueTest {
     doNothing().when(lwM2mInstance).setId(anyInt());
     doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -444,11 +474,12 @@ class LwM2mObjectDiffblueTest {
 
     LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
     lwM2mInstance2.setId(1);
-    lwM2mInstance2.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject2 = new LwM2mObject();
     lwM2mObject2.setId(1);
-    lwM2mObject2.setInstances(new LwM2mInstance[]{lwM2mInstance2});
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
     lwM2mObject2.setKeyId("42");
     lwM2mObject2.setMandatory(true);
     lwM2mObject2.setMultiple(true);
@@ -460,12 +491,61 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean LwM2mObject.equals(Object)", "int LwM2mObject.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    LwM2mInstance lwM2mInstance = mock(LwM2mInstance.class);
+    doNothing().when(lwM2mInstance).setId(anyInt());
+    doNothing().when(lwM2mInstance).setResources(Mockito.<LwM2mResourceObserve[]>any());
+    lwM2mInstance.setId(1);
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
+
+    LwM2mObject lwM2mObject = new LwM2mObject();
+    lwM2mObject.setId(1);
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
+    lwM2mObject.setKeyId(null);
+    lwM2mObject.setMandatory(true);
+    lwM2mObject.setMultiple(true);
+    lwM2mObject.setName("Name");
+
+    LwM2mInstance lwM2mInstance2 = new LwM2mInstance();
+    lwM2mInstance2.setId(1);
+    lwM2mInstance2.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
+
+    LwM2mObject lwM2mObject2 = new LwM2mObject();
+    lwM2mObject2.setId(1);
+    lwM2mObject2.setInstances(new LwM2mInstance[] {lwM2mInstance2});
+    lwM2mObject2.setKeyId(null);
+    lwM2mObject2.setMandatory(true);
+    lwM2mObject2.setMultiple(true);
+    lwM2mObject2.setName("Name");
+
+    // Act and Assert
+    assertNotEquals(lwM2mObject, lwM2mObject2);
+  }
+
+  /**
+   * Test {@link LwM2mObject#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -475,11 +555,12 @@ class LwM2mObjectDiffblueTest {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -491,12 +572,13 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test {@link LwM2mObject#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mObject#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2mObject#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -506,11 +588,12 @@ class LwM2mObjectDiffblueTest {
     // Arrange
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
 
     LwM2mObject lwM2mObject = new LwM2mObject();
     lwM2mObject.setId(1);
-    lwM2mObject.setInstances(new LwM2mInstance[]{lwM2mInstance});
+    lwM2mObject.setInstances(new LwM2mInstance[] {lwM2mInstance});
     lwM2mObject.setKeyId("42");
     lwM2mObject.setMandatory(true);
     lwM2mObject.setMultiple(true);
@@ -522,8 +605,9 @@ class LwM2mObjectDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2mObject}
    *   <li>{@link LwM2mObject#setId(int)}
@@ -544,20 +628,31 @@ class LwM2mObjectDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2mObject.<init>()", "int LwM2mObject.getId()",
-      "LwM2mInstance[] LwM2mObject.getInstances()", "String LwM2mObject.getKeyId()", "String LwM2mObject.getName()",
-      "boolean LwM2mObject.isMandatory()", "boolean LwM2mObject.isMultiple()", "void LwM2mObject.setId(int)",
-      "void LwM2mObject.setInstances(LwM2mInstance[])", "void LwM2mObject.setKeyId(String)",
-      "void LwM2mObject.setMandatory(boolean)", "void LwM2mObject.setMultiple(boolean)",
-      "void LwM2mObject.setName(String)", "String LwM2mObject.toString()"})
+  @MethodsUnderTest({
+    "void LwM2mObject.<init>()",
+    "int LwM2mObject.getId()",
+    "LwM2mInstance[] LwM2mObject.getInstances()",
+    "String LwM2mObject.getKeyId()",
+    "String LwM2mObject.getName()",
+    "boolean LwM2mObject.isMandatory()",
+    "boolean LwM2mObject.isMultiple()",
+    "void LwM2mObject.setId(int)",
+    "void LwM2mObject.setInstances(LwM2mInstance[])",
+    "void LwM2mObject.setKeyId(String)",
+    "void LwM2mObject.setMandatory(boolean)",
+    "void LwM2mObject.setMultiple(boolean)",
+    "void LwM2mObject.setName(String)",
+    "String LwM2mObject.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2mObject actualLwM2mObject = new LwM2mObject();
     actualLwM2mObject.setId(1);
     LwM2mInstance lwM2mInstance = new LwM2mInstance();
     lwM2mInstance.setId(1);
-    lwM2mInstance.setResources(new LwM2mResourceObserve[]{new LwM2mResourceObserve(1, "Name", true, true, true)});
-    LwM2mInstance[] instances = new LwM2mInstance[]{lwM2mInstance};
+    lwM2mInstance.setResources(
+        new LwM2mResourceObserve[] {new LwM2mResourceObserve(1, "Name", true, true, true)});
+    LwM2mInstance[] instances = new LwM2mInstance[] {lwM2mInstance};
     actualLwM2mObject.setInstances(instances);
     actualLwM2mObject.setKeyId("42");
     actualLwM2mObject.setMandatory(true);
@@ -572,9 +667,11 @@ class LwM2mObjectDiffblueTest {
 
     // Assert
     assertEquals("42", actualKeyId);
-    assertEquals("LwM2mObject(id=1, keyId=42, name=Name, multiple=true, mandatory=true, instances=[LwM2mInstance(id=1,"
-        + " resources=[LwM2mResourceObserve(id=1, name=Name, observe=true, attribute=true, telemetry=true,"
-        + " keyName=name)])])", actualToStringResult);
+    assertEquals(
+        "LwM2mObject(id=1, keyId=42, name=Name, multiple=true, mandatory=true, instances=[LwM2mInstance(id=1,"
+            + " resources=[LwM2mResourceObserve(id=1, name=Name, observe=true, attribute=true, telemetry=true,"
+            + " keyName=name)])])",
+        actualToStringResult);
     assertEquals("Name", actualName);
     assertEquals(1, actualId);
     assertTrue(actualIsMandatoryResult);

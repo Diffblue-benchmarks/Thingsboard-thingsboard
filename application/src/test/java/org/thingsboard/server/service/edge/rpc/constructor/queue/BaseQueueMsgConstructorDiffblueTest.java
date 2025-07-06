@@ -15,14 +15,16 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseQueueMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseQueueMsgConstructor#constructQueueDeleteMsg(QueueId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseQueueMsgConstructor#constructQueueDeleteMsg(QueueId)}
+   *
+   * <p>Method under test: {@link BaseQueueMsgConstructor#constructQueueDeleteMsg(QueueId)}
    */
   @Test
-  @DisplayName("Test constructQueueDeleteMsg(QueueId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructQueueDeleteMsg(QueueId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"QueueUpdateMsg BaseQueueMsgConstructor.constructQueueDeleteMsg(QueueId)"})
   void testConstructQueueDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
@@ -30,8 +32,9 @@ class BaseQueueMsgConstructorDiffblueTest {
     QueueMsgConstructorV1 queueMsgConstructorV1 = new QueueMsgConstructorV1();
 
     // Act
-    QueueUpdateMsg actualConstructQueueDeleteMsgResult = queueMsgConstructorV1
-        .constructQueueDeleteMsg(new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    QueueUpdateMsg actualConstructQueueDeleteMsgResult =
+        queueMsgConstructorV1.constructQueueDeleteMsg(
+            new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructQueueDeleteMsgResult.getInitializationErrorString());
@@ -48,7 +51,8 @@ class BaseQueueMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructQueueDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructQueueDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructQueueDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructQueueDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructQueueDeleteMsgResult.getMsgType());
     assertFalse(actualConstructQueueDeleteMsgResult.getConsumerPerPartition());
     assertFalse(actualConstructQueueDeleteMsgResult.hasProcessingStrategy());
     assertFalse(actualConstructQueueDeleteMsgResult.hasSubmitStrategy());

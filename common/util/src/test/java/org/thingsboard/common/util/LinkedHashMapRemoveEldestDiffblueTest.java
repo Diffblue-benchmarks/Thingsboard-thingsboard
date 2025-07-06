@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 class LinkedHashMapRemoveEldestDiffblueTest {
   /**
    * Test {@link LinkedHashMapRemoveEldest#LinkedHashMapRemoveEldest(long, BiConsumer)}.
-   * <p>
-   * Method under test: {@link LinkedHashMapRemoveEldest#LinkedHashMapRemoveEldest(long, BiConsumer)}
+   *
+   * <p>Method under test: {@link LinkedHashMapRemoveEldest#LinkedHashMapRemoveEldest(long,
+   * BiConsumer)}
    */
   @Test
   @DisplayName("Test new LinkedHashMapRemoveEldest(long, BiConsumer)")
@@ -21,8 +22,8 @@ class LinkedHashMapRemoveEldestDiffblueTest {
   @MethodsUnderTest({"void LinkedHashMapRemoveEldest.<init>(long, BiConsumer)"})
   void testNewLinkedHashMapRemoveEldest() {
     // Arrange and Act
-    LinkedHashMapRemoveEldest<Object, Object> actualObjectObjectMap = new LinkedHashMapRemoveEldest<>(1L,
-        mock(BiConsumer.class));
+    LinkedHashMapRemoveEldest<Object, Object> actualObjectObjectMap =
+        new LinkedHashMapRemoveEldest<>(1L, mock(BiConsumer.class));
 
     // Assert
     assertTrue(actualObjectObjectMap.isEmpty());
@@ -30,8 +31,9 @@ class LinkedHashMapRemoveEldestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LinkedHashMapRemoveEldest#toString()}
    *   <li>{@link LinkedHashMapRemoveEldest#getMaxEntries()}
@@ -41,13 +43,15 @@ class LinkedHashMapRemoveEldestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long LinkedHashMapRemoveEldest.getMaxEntries()",
-      "BiConsumer LinkedHashMapRemoveEldest.getRemovalConsumer()",
-      "java.lang.String LinkedHashMapRemoveEldest.toString()"})
+  @MethodsUnderTest({
+    "long LinkedHashMapRemoveEldest.getMaxEntries()",
+    "BiConsumer LinkedHashMapRemoveEldest.getRemovalConsumer()",
+    "java.lang.String LinkedHashMapRemoveEldest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    LinkedHashMapRemoveEldest<Object, Object> objectObjectMap = new LinkedHashMapRemoveEldest<>(1L,
-        mock(BiConsumer.class));
+    LinkedHashMapRemoveEldest<Object, Object> objectObjectMap =
+        new LinkedHashMapRemoveEldest<>(1L, mock(BiConsumer.class));
 
     // Act
     objectObjectMap.toString();

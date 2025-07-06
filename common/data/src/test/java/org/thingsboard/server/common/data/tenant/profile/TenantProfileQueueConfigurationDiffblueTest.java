@@ -11,8 +11,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
-import com.fasterxml.jackson.databind.node.NullNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -24,13 +23,16 @@ import org.thingsboard.server.common.data.queue.SubmitStrategyType;
 
 class TenantProfileQueueConfigurationDiffblueTest {
   /**
-   * Test {@link TenantProfileQueueConfiguration#equals(Object)}, and {@link TenantProfileQueueConfiguration#hashCode()}.
+   * Test {@link TenantProfileQueueConfiguration#equals(Object)}, and {@link
+   * TenantProfileQueueConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfileQueueConfiguration#equals(Object)}
    *   <li>{@link TenantProfileQueueConfiguration#hashCode()}
@@ -39,8 +41,10 @@ class TenantProfileQueueConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -54,8 +58,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -76,8 +81,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -94,13 +100,16 @@ class TenantProfileQueueConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TenantProfileQueueConfiguration#equals(Object)}, and {@link TenantProfileQueueConfiguration#hashCode()}.
+   * Test {@link TenantProfileQueueConfiguration#equals(Object)}, and {@link
+   * TenantProfileQueueConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfileQueueConfiguration#equals(Object)}
    *   <li>{@link TenantProfileQueueConfiguration#hashCode()}
@@ -109,8 +118,10 @@ class TenantProfileQueueConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -124,8 +135,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -143,18 +155,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -168,7 +183,77 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(0.5d));
+    tenantProfileQueueConfiguration.setConsumerPerPartition(true);
+    tenantProfileQueueConfiguration.setName("Name");
+    tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
+    tenantProfileQueueConfiguration.setPartitions(1);
+    tenantProfileQueueConfiguration.setPollInterval(42);
+    tenantProfileQueueConfiguration.setProcessingStrategy(processingStrategy);
+    tenantProfileQueueConfiguration.setSubmitStrategy(submitStrategy);
+    tenantProfileQueueConfiguration.setTopic("Topic");
+
+    ProcessingStrategy processingStrategy2 = new ProcessingStrategy();
+    processingStrategy2.setFailurePercentage(10.0d);
+    processingStrategy2.setMaxPauseBetweenRetries(1L);
+    processingStrategy2.setPauseBetweenRetries(1L);
+    processingStrategy2.setRetries(1);
+    processingStrategy2.setType(ProcessingStrategyType.SKIP_ALL_FAILURES);
+
+    SubmitStrategy submitStrategy2 = new SubmitStrategy();
+    submitStrategy2.setBatchSize(3);
+    submitStrategy2.setType(SubmitStrategyType.BURST);
+
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
+    tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
+    tenantProfileQueueConfiguration2.setName("Name");
+    tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
+    tenantProfileQueueConfiguration2.setPartitions(1);
+    tenantProfileQueueConfiguration2.setPollInterval(42);
+    tenantProfileQueueConfiguration2.setProcessingStrategy(processingStrategy2);
+    tenantProfileQueueConfiguration2.setSubmitStrategy(submitStrategy2);
+    tenantProfileQueueConfiguration2.setTopic("Topic");
+
+    // Act and Assert
+    assertNotEquals(tenantProfileQueueConfiguration, tenantProfileQueueConfiguration2);
+  }
+
+  /**
+   * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    ProcessingStrategy processingStrategy = new ProcessingStrategy();
+    processingStrategy.setFailurePercentage(10.0d);
+    processingStrategy.setMaxPauseBetweenRetries(1L);
+    processingStrategy.setPauseBetweenRetries(1L);
+    processingStrategy.setRetries(1);
+    processingStrategy.setType(ProcessingStrategyType.SKIP_ALL_FAILURES);
+
+    SubmitStrategy submitStrategy = new SubmitStrategy();
+    submitStrategy.setBatchSize(3);
+    submitStrategy.setType(SubmitStrategyType.BURST);
+
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
     tenantProfileQueueConfiguration.setAdditionalInfo(null);
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
@@ -190,8 +275,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -207,82 +293,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    ProcessingStrategy processingStrategy = new ProcessingStrategy();
-    processingStrategy.setFailurePercentage(10.0d);
-    processingStrategy.setMaxPauseBetweenRetries(1L);
-    processingStrategy.setPauseBetweenRetries(1L);
-    processingStrategy.setRetries(1);
-    processingStrategy.setType(ProcessingStrategyType.SKIP_ALL_FAILURES);
-
-    SubmitStrategy submitStrategy = new SubmitStrategy();
-    submitStrategy.setBatchSize(3);
-    submitStrategy.setType(SubmitStrategyType.BURST);
-
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(NullNode.getInstance());
-    tenantProfileQueueConfiguration.setConsumerPerPartition(true);
-    tenantProfileQueueConfiguration.setName("Name");
-    tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
-    tenantProfileQueueConfiguration.setPartitions(1);
-    tenantProfileQueueConfiguration.setPollInterval(42);
-    tenantProfileQueueConfiguration.setProcessingStrategy(processingStrategy);
-    tenantProfileQueueConfiguration.setSubmitStrategy(submitStrategy);
-    tenantProfileQueueConfiguration.setTopic("Topic");
-
-    ProcessingStrategy processingStrategy2 = new ProcessingStrategy();
-    processingStrategy2.setFailurePercentage(10.0d);
-    processingStrategy2.setMaxPauseBetweenRetries(1L);
-    processingStrategy2.setPauseBetweenRetries(1L);
-    processingStrategy2.setRetries(1);
-    processingStrategy2.setType(ProcessingStrategyType.SKIP_ALL_FAILURES);
-
-    SubmitStrategy submitStrategy2 = new SubmitStrategy();
-    submitStrategy2.setBatchSize(3);
-    submitStrategy2.setType(SubmitStrategyType.BURST);
-
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
-    tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
-    tenantProfileQueueConfiguration2.setName("Name");
-    tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
-    tenantProfileQueueConfiguration2.setPartitions(1);
-    tenantProfileQueueConfiguration2.setPollInterval(42);
-    tenantProfileQueueConfiguration2.setProcessingStrategy(processingStrategy2);
-    tenantProfileQueueConfiguration2.setSubmitStrategy(submitStrategy2);
-    tenantProfileQueueConfiguration2.setTopic("Topic");
-
-    // Act and Assert
-    assertNotEquals(tenantProfileQueueConfiguration, tenantProfileQueueConfiguration2);
-  }
-
-  /**
-   * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -296,8 +321,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(false);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -318,8 +344,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -335,18 +362,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -360,8 +390,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Topic");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -382,8 +413,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -399,18 +431,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -424,8 +459,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName(null);
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -446,8 +482,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -463,18 +500,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -488,8 +528,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(3L);
@@ -510,8 +551,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -527,18 +569,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -552,8 +597,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -574,8 +620,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -591,18 +638,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -616,8 +666,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -638,8 +689,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -655,18 +707,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ProcessingStrategy processingStrategy = mock(ProcessingStrategy.class);
@@ -685,8 +740,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -707,8 +763,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -724,18 +781,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ProcessingStrategy processingStrategy = mock(ProcessingStrategy.class);
@@ -755,8 +815,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -777,8 +838,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -794,18 +856,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     ProcessingStrategy processingStrategy = mock(ProcessingStrategy.class);
@@ -825,8 +890,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -847,8 +913,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -864,18 +931,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ProcessingStrategy processingStrategy = mock(ProcessingStrategy.class);
@@ -895,8 +965,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -917,8 +988,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy2.setBatchSize(3);
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration2.setName("Name");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -934,18 +1006,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -959,8 +1034,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -976,18 +1052,21 @@ class TenantProfileQueueConfigurationDiffblueTest {
 
   /**
    * Test {@link TenantProfileQueueConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfileQueueConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantProfileQueueConfiguration.equals(Object)",
-      "int TenantProfileQueueConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantProfileQueueConfiguration.equals(Object)",
+    "int TenantProfileQueueConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
@@ -1001,8 +1080,9 @@ class TenantProfileQueueConfigurationDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -1013,13 +1093,15 @@ class TenantProfileQueueConfigurationDiffblueTest {
     tenantProfileQueueConfiguration.setTopic("Topic");
 
     // Act and Assert
-    assertNotEquals(tenantProfileQueueConfiguration, "Different type to TenantProfileQueueConfiguration");
+    assertNotEquals(
+        tenantProfileQueueConfiguration, "Different type to TenantProfileQueueConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TenantProfileQueueConfiguration}
    *   <li>{@link TenantProfileQueueConfiguration#setAdditionalInfo(JsonNode)}
@@ -1046,28 +1128,33 @@ class TenantProfileQueueConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantProfileQueueConfiguration.<init>()",
-      "JsonNode TenantProfileQueueConfiguration.getAdditionalInfo()",
-      "String TenantProfileQueueConfiguration.getName()",
-      "long TenantProfileQueueConfiguration.getPackProcessingTimeout()",
-      "int TenantProfileQueueConfiguration.getPartitions()", "int TenantProfileQueueConfiguration.getPollInterval()",
-      "ProcessingStrategy TenantProfileQueueConfiguration.getProcessingStrategy()",
-      "SubmitStrategy TenantProfileQueueConfiguration.getSubmitStrategy()",
-      "String TenantProfileQueueConfiguration.getTopic()",
-      "boolean TenantProfileQueueConfiguration.isConsumerPerPartition()",
-      "void TenantProfileQueueConfiguration.setAdditionalInfo(JsonNode)",
-      "void TenantProfileQueueConfiguration.setConsumerPerPartition(boolean)",
-      "void TenantProfileQueueConfiguration.setName(String)",
-      "void TenantProfileQueueConfiguration.setPackProcessingTimeout(long)",
-      "void TenantProfileQueueConfiguration.setPartitions(int)",
-      "void TenantProfileQueueConfiguration.setPollInterval(int)",
-      "void TenantProfileQueueConfiguration.setProcessingStrategy(ProcessingStrategy)",
-      "void TenantProfileQueueConfiguration.setSubmitStrategy(SubmitStrategy)",
-      "void TenantProfileQueueConfiguration.setTopic(String)", "String TenantProfileQueueConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TenantProfileQueueConfiguration.<init>()",
+    "JsonNode TenantProfileQueueConfiguration.getAdditionalInfo()",
+    "String TenantProfileQueueConfiguration.getName()",
+    "long TenantProfileQueueConfiguration.getPackProcessingTimeout()",
+    "int TenantProfileQueueConfiguration.getPartitions()",
+    "int TenantProfileQueueConfiguration.getPollInterval()",
+    "ProcessingStrategy TenantProfileQueueConfiguration.getProcessingStrategy()",
+    "SubmitStrategy TenantProfileQueueConfiguration.getSubmitStrategy()",
+    "String TenantProfileQueueConfiguration.getTopic()",
+    "boolean TenantProfileQueueConfiguration.isConsumerPerPartition()",
+    "void TenantProfileQueueConfiguration.setAdditionalInfo(JsonNode)",
+    "void TenantProfileQueueConfiguration.setConsumerPerPartition(boolean)",
+    "void TenantProfileQueueConfiguration.setName(String)",
+    "void TenantProfileQueueConfiguration.setPackProcessingTimeout(long)",
+    "void TenantProfileQueueConfiguration.setPartitions(int)",
+    "void TenantProfileQueueConfiguration.setPollInterval(int)",
+    "void TenantProfileQueueConfiguration.setProcessingStrategy(ProcessingStrategy)",
+    "void TenantProfileQueueConfiguration.setSubmitStrategy(SubmitStrategy)",
+    "void TenantProfileQueueConfiguration.setTopic(String)",
+    "String TenantProfileQueueConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TenantProfileQueueConfiguration actualTenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    MissingNode additionalInfo = MissingNode.getInstance();
+    TenantProfileQueueConfiguration actualTenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    DoubleNode additionalInfo = DoubleNode.valueOf(10.0d);
     actualTenantProfileQueueConfiguration.setAdditionalInfo(additionalInfo);
     actualTenantProfileQueueConfiguration.setConsumerPerPartition(true);
     actualTenantProfileQueueConfiguration.setName("Name");
@@ -1089,10 +1176,12 @@ class TenantProfileQueueConfigurationDiffblueTest {
     String actualToStringResult = actualTenantProfileQueueConfiguration.toString();
     JsonNode actualAdditionalInfo = actualTenantProfileQueueConfiguration.getAdditionalInfo();
     String actualName = actualTenantProfileQueueConfiguration.getName();
-    long actualPackProcessingTimeout = actualTenantProfileQueueConfiguration.getPackProcessingTimeout();
+    long actualPackProcessingTimeout =
+        actualTenantProfileQueueConfiguration.getPackProcessingTimeout();
     int actualPartitions = actualTenantProfileQueueConfiguration.getPartitions();
     int actualPollInterval = actualTenantProfileQueueConfiguration.getPollInterval();
-    ProcessingStrategy actualProcessingStrategy = actualTenantProfileQueueConfiguration.getProcessingStrategy();
+    ProcessingStrategy actualProcessingStrategy =
+        actualTenantProfileQueueConfiguration.getProcessingStrategy();
     SubmitStrategy actualSubmitStrategy = actualTenantProfileQueueConfiguration.getSubmitStrategy();
     String actualTopic = actualTenantProfileQueueConfiguration.getTopic();
 
@@ -1102,7 +1191,7 @@ class TenantProfileQueueConfigurationDiffblueTest {
         "TenantProfileQueueConfiguration(name=Name, topic=Topic, pollInterval=42, partitions=1, consumerPerPartition"
             + "=true, packProcessingTimeout=1, submitStrategy=SubmitStrategy(type=BURST, batchSize=3), processingStrategy"
             + "=ProcessingStrategy(type=SKIP_ALL_FAILURES, retries=1, failurePercentage=10.0, pauseBetweenRetries=1,"
-            + " maxPauseBetweenRetries=1), additionalInfo=)",
+            + " maxPauseBetweenRetries=1), additionalInfo=10.0)",
         actualToStringResult);
     assertEquals("Topic", actualTopic);
     assertEquals(1, actualPartitions);

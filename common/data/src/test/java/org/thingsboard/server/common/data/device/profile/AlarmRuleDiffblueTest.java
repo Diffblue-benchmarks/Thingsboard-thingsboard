@@ -14,8 +14,9 @@ import org.thingsboard.server.common.data.id.DashboardId;
 class AlarmRuleDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AlarmRule}
    *   <li>{@link AlarmRule#setAlarmDetails(String)}
@@ -31,11 +32,18 @@ class AlarmRuleDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmRule.<init>()", "String AlarmRule.getAlarmDetails()",
-      "AlarmCondition AlarmRule.getCondition()", "DashboardId AlarmRule.getDashboardId()",
-      "AlarmSchedule AlarmRule.getSchedule()", "void AlarmRule.setAlarmDetails(String)",
-      "void AlarmRule.setCondition(AlarmCondition)", "void AlarmRule.setDashboardId(DashboardId)",
-      "void AlarmRule.setSchedule(AlarmSchedule)", "String AlarmRule.toString()"})
+  @MethodsUnderTest({
+    "void AlarmRule.<init>()",
+    "String AlarmRule.getAlarmDetails()",
+    "AlarmCondition AlarmRule.getCondition()",
+    "DashboardId AlarmRule.getDashboardId()",
+    "AlarmSchedule AlarmRule.getSchedule()",
+    "void AlarmRule.setAlarmDetails(String)",
+    "void AlarmRule.setCondition(AlarmCondition)",
+    "void AlarmRule.setDashboardId(DashboardId)",
+    "void AlarmRule.setSchedule(AlarmSchedule)",
+    "String AlarmRule.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmRule actualAlarmRule = new AlarmRule();

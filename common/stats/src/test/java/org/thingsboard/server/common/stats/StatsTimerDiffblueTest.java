@@ -15,8 +15,9 @@ import org.junit.jupiter.api.Test;
 class StatsTimerDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatsTimer#StatsTimer(String, Timer)}
    *   <li>{@link StatsTimer#getName()}
@@ -28,28 +29,47 @@ class StatsTimerDiffblueTest {
   @MethodsUnderTest({"void StatsTimer.<init>(String, Timer)", "String StatsTimer.getName()"})
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals("Name",
-        (new StatsTimer("Name", new NoopTimer(
-            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))))
+    assertEquals(
+        "Name",
+        new StatsTimer(
+                "Name",
+                new NoopTimer(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)))
             .getName());
   }
 
   /**
    * Test {@link StatsTimer#record(long)}.
+   *
    * <ul>
-   *   <li>Then {@link StatsTimer#StatsTimer(String, Timer)} with {@code Name} and micrometerTimer is {@link NoopTimer#NoopTimer(Id)} Avg is ten.</li>
+   *   <li>Then {@link StatsTimer#StatsTimer(String, Timer)} with {@code Name} and micrometerTimer
+   *       is {@link NoopTimer#NoopTimer(Id)} Avg is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsTimer#record(long)}
+   *
+   * <p>Method under test: {@link StatsTimer#record(long)}
    */
   @Test
-  @DisplayName("Test record(long); then StatsTimer(String, Timer) with 'Name' and micrometerTimer is NoopTimer(Id) Avg is ten")
+  @DisplayName(
+      "Test record(long); then StatsTimer(String, Timer) with 'Name' and micrometerTimer is NoopTimer(Id) Avg is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void StatsTimer.record(long)"})
   void testRecord_thenStatsTimerWithNameAndMicrometerTimerIsNoopTimerAvgIsTen() {
     // Arrange
-    StatsTimer statsTimer = new StatsTimer("Name", new NoopTimer(
-        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
+    StatsTimer statsTimer =
+        new StatsTimer(
+            "Name",
+            new NoopTimer(
+                new Id(
+                    "Name",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
 
     // Act
     statsTimer.record(10L);
@@ -60,8 +80,8 @@ class StatsTimerDiffblueTest {
 
   /**
    * Test {@link StatsTimer#getAvg()}.
-   * <p>
-   * Method under test: {@link StatsTimer#getAvg()}
+   *
+   * <p>Method under test: {@link StatsTimer#getAvg()}
    */
   @Test
   @DisplayName("Test getAvg()")
@@ -69,9 +89,17 @@ class StatsTimerDiffblueTest {
   @MethodsUnderTest({"double StatsTimer.getAvg()"})
   void testGetAvg() {
     // Arrange, Act and Assert
-    assertEquals(0.0d,
-        (new StatsTimer("Name", new NoopTimer(
-            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))))
+    assertEquals(
+        0.0d,
+        new StatsTimer(
+                "Name",
+                new NoopTimer(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)))
             .getAvg());
   }
 }

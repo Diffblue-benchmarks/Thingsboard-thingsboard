@@ -9,12 +9,14 @@ import org.junit.jupiter.api.Test;
 class DebugTbRateLimitsDiffblueTest {
   /**
    * Test {@link DebugTbRateLimits#equals(Object)}, and {@link DebugTbRateLimits#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DebugTbRateLimits#equals(Object)}
    *   <li>{@link DebugTbRateLimits#hashCode()}
@@ -23,7 +25,10 @@ class DebugTbRateLimitsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DebugTbRateLimits.equals(Object)", "int DebugTbRateLimits.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DebugTbRateLimits.equals(Object)",
+    "int DebugTbRateLimits.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DebugTbRateLimits debugTbRateLimits = new DebugTbRateLimits(null, true);

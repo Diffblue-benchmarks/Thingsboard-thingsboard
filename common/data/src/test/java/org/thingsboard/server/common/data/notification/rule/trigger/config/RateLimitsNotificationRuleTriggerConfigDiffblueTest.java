@@ -24,25 +24,30 @@ import org.thingsboard.server.common.data.notification.rule.trigger.config.RateL
 @ExtendWith(SpringExtension.class)
 class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Autowired
-  private RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder;
+  private RateLimitsNotificationRuleTriggerConfigBuilder
+      rateLimitsNotificationRuleTriggerConfigBuilder;
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}.
+   *
    * <ul>
-   *   <li>Given builder apis {@link HashSet#HashSet()} build.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>Given builder apis {@link HashSet#HashSet()} build.
+   *   <li>Then return empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}
    */
   @Test
-  @DisplayName("Test getDeduplicationKey(); given builder apis HashSet() build; then return empty string")
+  @DisplayName(
+      "Test getDeduplicationKey(); given builder apis HashSet() build; then return empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RateLimitsNotificationRuleTriggerConfig.getDeduplicationKey()"})
   void testGetDeduplicationKey_givenBuilderApisHashSetBuild_thenReturnEmptyString() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertEquals("", buildResult.getDeduplicationKey());
@@ -50,11 +55,12 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}.
+   *
    * <ul>
-   *   <li>Then return {@code #}.</li>
+   *   <li>Then return {@code #}.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#getDeduplicationKey()}
    */
   @Test
   @DisplayName("Test getDeduplicationKey(); then return '#'")
@@ -62,17 +68,20 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @MethodsUnderTest({"String RateLimitsNotificationRuleTriggerConfig.getDeduplicationKey()"})
   void testGetDeduplicationKey_thenReturnNumberSign() {
     // Arrange, Act and Assert
-    assertEquals("#", (new RateLimitsNotificationRuleTriggerConfig()).getDeduplicationKey());
+    assertEquals("#", new RateLimitsNotificationRuleTriggerConfig().getDeduplicationKey());
   }
 
   /**
-   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link
+   * RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#hashCode()}
@@ -81,14 +90,20 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult2 = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult2 = builderResult2.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult2 =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult2 =
+        builderResult2.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -97,13 +112,16 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link
+   * RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#hashCode()}
@@ -112,24 +130,24 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
     when(rateLimitsNotificationRuleTriggerConfigBuilder.apis(Mockito.<Set<LimitedApi>>any()))
         .thenReturn(RateLimitsNotificationRuleTriggerConfig.builder());
-    RateLimitsNotificationRuleTriggerConfig buildResult = rateLimitsNotificationRuleTriggerConfigBuilder
-        .apis(new HashSet<>())
-        .build();
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder2 = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        rateLimitsNotificationRuleTriggerConfigBuilder.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder2 =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
     when(rateLimitsNotificationRuleTriggerConfigBuilder2.apis(Mockito.<Set<LimitedApi>>any()))
         .thenReturn(RateLimitsNotificationRuleTriggerConfig.builder());
-    RateLimitsNotificationRuleTriggerConfig buildResult2 = rateLimitsNotificationRuleTriggerConfigBuilder2
-        .apis(new HashSet<>())
-        .build();
+    RateLimitsNotificationRuleTriggerConfig buildResult2 =
+        rateLimitsNotificationRuleTriggerConfigBuilder2.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -138,13 +156,16 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}, and {@link
+   * RateLimitsNotificationRuleTriggerConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#hashCode()}
@@ -153,12 +174,16 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -168,29 +193,33 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
     when(rateLimitsNotificationRuleTriggerConfigBuilder.apis(Mockito.<Set<LimitedApi>>any()))
         .thenReturn(RateLimitsNotificationRuleTriggerConfig.builder());
-    RateLimitsNotificationRuleTriggerConfig buildResult = rateLimitsNotificationRuleTriggerConfigBuilder
-        .apis(new HashSet<>())
-        .build();
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult2 = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        rateLimitsNotificationRuleTriggerConfigBuilder.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult2 =
+        builderResult.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -198,39 +227,42 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
     when(rateLimitsNotificationRuleTriggerConfigBuilder.build()).thenReturn(buildResult);
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder2 = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder2 =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
     when(rateLimitsNotificationRuleTriggerConfigBuilder2.apis(Mockito.<Set<LimitedApi>>any()))
         .thenReturn(rateLimitsNotificationRuleTriggerConfigBuilder);
-    RateLimitsNotificationRuleTriggerConfig buildResult2 = rateLimitsNotificationRuleTriggerConfigBuilder2
-        .apis(new HashSet<>())
-        .build();
-    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder3 = mock(
-        RateLimitsNotificationRuleTriggerConfigBuilder.class);
+    RateLimitsNotificationRuleTriggerConfig buildResult2 =
+        rateLimitsNotificationRuleTriggerConfigBuilder2.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder rateLimitsNotificationRuleTriggerConfigBuilder3 =
+        mock(RateLimitsNotificationRuleTriggerConfigBuilder.class);
     when(rateLimitsNotificationRuleTriggerConfigBuilder3.apis(Mockito.<Set<LimitedApi>>any()))
         .thenReturn(RateLimitsNotificationRuleTriggerConfig.builder());
-    RateLimitsNotificationRuleTriggerConfig buildResult3 = rateLimitsNotificationRuleTriggerConfigBuilder3
-        .apis(new HashSet<>())
-        .build();
+    RateLimitsNotificationRuleTriggerConfig buildResult3 =
+        rateLimitsNotificationRuleTriggerConfigBuilder3.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertNotEquals(buildResult2, buildResult3);
@@ -238,22 +270,27 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -261,22 +298,27 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link RateLimitsNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
-      "int RateLimitsNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RateLimitsNotificationRuleTriggerConfig.equals(Object)",
+    "int RateLimitsNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
-    RateLimitsNotificationRuleTriggerConfig buildResult = builderResult.apis(new HashSet<>()).build();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfig buildResult =
+        builderResult.apis(new HashSet<>()).build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to RateLimitsNotificationRuleTriggerConfig");
@@ -284,8 +326,9 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#RateLimitsNotificationRuleTriggerConfig()}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#setApis(Set)}
@@ -297,15 +340,18 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RateLimitsNotificationRuleTriggerConfig.<init>()",
-      "void RateLimitsNotificationRuleTriggerConfig.<init>(Set)",
-      "Set RateLimitsNotificationRuleTriggerConfig.getApis()",
-      "NotificationRuleTriggerType RateLimitsNotificationRuleTriggerConfig.getTriggerType()",
-      "void RateLimitsNotificationRuleTriggerConfig.setApis(Set)",
-      "String RateLimitsNotificationRuleTriggerConfig.toString()"})
+  @MethodsUnderTest({
+    "void RateLimitsNotificationRuleTriggerConfig.<init>()",
+    "void RateLimitsNotificationRuleTriggerConfig.<init>(Set)",
+    "Set RateLimitsNotificationRuleTriggerConfig.getApis()",
+    "NotificationRuleTriggerType RateLimitsNotificationRuleTriggerConfig.getTriggerType()",
+    "void RateLimitsNotificationRuleTriggerConfig.setApis(Set)",
+    "String RateLimitsNotificationRuleTriggerConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    RateLimitsNotificationRuleTriggerConfig actualRateLimitsNotificationRuleTriggerConfig = new RateLimitsNotificationRuleTriggerConfig();
+    RateLimitsNotificationRuleTriggerConfig actualRateLimitsNotificationRuleTriggerConfig =
+        new RateLimitsNotificationRuleTriggerConfig();
     HashSet<LimitedApi> apis = new HashSet<>();
     actualRateLimitsNotificationRuleTriggerConfig.setApis(apis);
     String actualToStringResult = actualRateLimitsNotificationRuleTriggerConfig.toString();
@@ -313,7 +359,8 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
     // Assert
     assertEquals("RateLimitsNotificationRuleTriggerConfig(apis=[])", actualToStringResult);
-    assertEquals(NotificationRuleTriggerType.RATE_LIMITS,
+    assertEquals(
+        NotificationRuleTriggerType.RATE_LIMITS,
         actualRateLimitsNotificationRuleTriggerConfig.getTriggerType());
     assertTrue(actualApis.isEmpty());
     assertSame(apis, actualApis);
@@ -321,13 +368,16 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link HashSet#HashSet()}.</li>
+   *   <li>When {@link HashSet#HashSet()}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link RateLimitsNotificationRuleTriggerConfig#RateLimitsNotificationRuleTriggerConfig(Set)}
+   *   <li>{@link
+   *       RateLimitsNotificationRuleTriggerConfig#RateLimitsNotificationRuleTriggerConfig(Set)}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#setApis(Set)}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#toString()}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfig#getApis()}
@@ -337,16 +387,18 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when HashSet()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RateLimitsNotificationRuleTriggerConfig.<init>()",
-      "void RateLimitsNotificationRuleTriggerConfig.<init>(Set)",
-      "Set RateLimitsNotificationRuleTriggerConfig.getApis()",
-      "NotificationRuleTriggerType RateLimitsNotificationRuleTriggerConfig.getTriggerType()",
-      "void RateLimitsNotificationRuleTriggerConfig.setApis(Set)",
-      "String RateLimitsNotificationRuleTriggerConfig.toString()"})
+  @MethodsUnderTest({
+    "void RateLimitsNotificationRuleTriggerConfig.<init>()",
+    "void RateLimitsNotificationRuleTriggerConfig.<init>(Set)",
+    "Set RateLimitsNotificationRuleTriggerConfig.getApis()",
+    "NotificationRuleTriggerType RateLimitsNotificationRuleTriggerConfig.getTriggerType()",
+    "void RateLimitsNotificationRuleTriggerConfig.setApis(Set)",
+    "String RateLimitsNotificationRuleTriggerConfig.toString()"
+  })
   void testGettersAndSetters_whenHashSet() {
     // Arrange and Act
-    RateLimitsNotificationRuleTriggerConfig actualRateLimitsNotificationRuleTriggerConfig = new RateLimitsNotificationRuleTriggerConfig(
-        new HashSet<>());
+    RateLimitsNotificationRuleTriggerConfig actualRateLimitsNotificationRuleTriggerConfig =
+        new RateLimitsNotificationRuleTriggerConfig(new HashSet<>());
     HashSet<LimitedApi> apis = new HashSet<>();
     actualRateLimitsNotificationRuleTriggerConfig.setApis(apis);
     String actualToStringResult = actualRateLimitsNotificationRuleTriggerConfig.toString();
@@ -354,16 +406,19 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
 
     // Assert
     assertEquals("RateLimitsNotificationRuleTriggerConfig(apis=[])", actualToStringResult);
-    assertEquals(NotificationRuleTriggerType.RATE_LIMITS,
+    assertEquals(
+        NotificationRuleTriggerType.RATE_LIMITS,
         actualRateLimitsNotificationRuleTriggerConfig.getTriggerType());
     assertTrue(actualApis.isEmpty());
     assertSame(apis, actualApis);
   }
 
   /**
-   * Test RateLimitsNotificationRuleTriggerConfigBuilder {@link RateLimitsNotificationRuleTriggerConfigBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test RateLimitsNotificationRuleTriggerConfigBuilder {@link
+   * RateLimitsNotificationRuleTriggerConfigBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RateLimitsNotificationRuleTriggerConfigBuilder#build()}
    *   <li>{@link RateLimitsNotificationRuleTriggerConfigBuilder#apis(Set)}
@@ -372,13 +427,16 @@ class RateLimitsNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test RateLimitsNotificationRuleTriggerConfigBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RateLimitsNotificationRuleTriggerConfigBuilder.<init>()",
-      "RateLimitsNotificationRuleTriggerConfigBuilder RateLimitsNotificationRuleTriggerConfigBuilder.apis(Set)",
-      "RateLimitsNotificationRuleTriggerConfig RateLimitsNotificationRuleTriggerConfigBuilder.build()",
-      "String RateLimitsNotificationRuleTriggerConfigBuilder.toString()"})
+  @MethodsUnderTest({
+    "void RateLimitsNotificationRuleTriggerConfigBuilder.<init>()",
+    "RateLimitsNotificationRuleTriggerConfigBuilder RateLimitsNotificationRuleTriggerConfigBuilder.apis(Set)",
+    "RateLimitsNotificationRuleTriggerConfig RateLimitsNotificationRuleTriggerConfigBuilder.build()",
+    "String RateLimitsNotificationRuleTriggerConfigBuilder.toString()"
+  })
   void testRateLimitsNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange
-    RateLimitsNotificationRuleTriggerConfigBuilder builderResult = RateLimitsNotificationRuleTriggerConfig.builder();
+    RateLimitsNotificationRuleTriggerConfigBuilder builderResult =
+        RateLimitsNotificationRuleTriggerConfig.builder();
     HashSet<LimitedApi> apis = new HashSet<>();
 
     // Act

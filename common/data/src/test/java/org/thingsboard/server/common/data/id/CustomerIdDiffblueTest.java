@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class CustomerIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomerId#CustomerId(UUID)}
    *   <li>{@link CustomerId#getEntityType()}

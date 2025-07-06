@@ -13,20 +13,22 @@ import org.junit.jupiter.api.Test;
 class EntityViewInfoDiffblueTest {
   /**
    * Test {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}.
+   *
    * <ul>
-   *   <li>Then return CustomerTitle is {@code Mr}.</li>
+   *   <li>Then return CustomerTitle is {@code Mr}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}
    */
   @Test
-  @DisplayName("Test new EntityViewInfo(EntityView, String, boolean); then return CustomerTitle is 'Mr'")
+  @DisplayName(
+      "Test new EntityViewInfo(EntityView, String, boolean); then return CustomerTitle is 'Mr'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewInfo.<init>(EntityView, String, boolean)"})
   void testNewEntityViewInfo_thenReturnCustomerTitleIsMr() {
     // Arrange and Act
-    EntityViewInfo actualEntityViewInfo = new EntityViewInfo(new EntityViewInfo(new EntityView(), "Dr", true), "Mr",
-        true);
+    EntityViewInfo actualEntityViewInfo =
+        new EntityViewInfo(new EntityViewInfo(new EntityView(), "Dr", true), "Mr", true);
 
     // Assert
     assertTrue(actualEntityViewInfo.getAdditionalInfo() instanceof NullNode);
@@ -49,15 +51,17 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link EntityView#EntityView()}.</li>
-   *   <li>Then return CustomerTitle is {@code Dr}.</li>
+   *   <li>When {@link EntityView#EntityView()}.
+   *   <li>Then return CustomerTitle is {@code Dr}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#EntityViewInfo(EntityView, String, boolean)}
    */
   @Test
-  @DisplayName("Test new EntityViewInfo(EntityView, String, boolean); when EntityView(); then return CustomerTitle is 'Dr'")
+  @DisplayName(
+      "Test new EntityViewInfo(EntityView, String, boolean); when EntityView(); then return CustomerTitle is 'Dr'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewInfo.<init>(EntityView, String, boolean)"})
   void testNewEntityViewInfo_whenEntityView_thenReturnCustomerTitleIsDr() {
@@ -85,12 +89,14 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}, and {@link EntityViewInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewInfo#equals(Object)}
    *   <li>{@link EntityViewInfo#hashCode()}
@@ -113,12 +119,14 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}, and {@link EntityViewInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewInfo#equals(Object)}
    *   <li>{@link EntityViewInfo#hashCode()}
@@ -141,12 +149,14 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}, and {@link EntityViewInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewInfo#equals(Object)}
    *   <li>{@link EntityViewInfo#hashCode()}
@@ -168,12 +178,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -189,12 +200,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -211,12 +223,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -233,12 +246,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -257,12 +271,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -275,12 +290,13 @@ class EntityViewInfoDiffblueTest {
 
   /**
    * Test {@link EntityViewInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

@@ -22,11 +22,12 @@ import org.thingsboard.server.common.data.relation.RelationsSearchParameters;
 class DeviceSearchQueryDiffblueTest {
   /**
    * Test {@link DeviceSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code Contains}.</li>
+   *   <li>Then return Filters first RelationType is {@code Contains}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'Contains'")
@@ -34,7 +35,8 @@ class DeviceSearchQueryDiffblueTest {
   @MethodsUnderTest({"EntityRelationsQuery DeviceSearchQuery.toEntitySearchQuery()"})
   void testToEntitySearchQuery_thenReturnFiltersFirstRelationTypeIsContains() {
     // Arrange and Act
-    EntityRelationsQuery actualToEntitySearchQueryResult = (new DeviceSearchQuery()).toEntitySearchQuery();
+    EntityRelationsQuery actualToEntitySearchQueryResult =
+        new DeviceSearchQuery().toEntitySearchQuery();
 
     // Assert
     List<RelationEntityTypeFilter> filters = actualToEntitySearchQueryResult.getFilters();
@@ -50,11 +52,12 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code foo}.</li>
+   *   <li>Then return Filters first RelationType is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'foo'")
@@ -82,12 +85,14 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}, and {@link DeviceSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceSearchQuery#equals(Object)}
    *   <li>{@link DeviceSearchQuery#hashCode()}
@@ -96,7 +101,10 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -110,12 +118,14 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}, and {@link DeviceSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceSearchQuery#equals(Object)}
    *   <li>{@link DeviceSearchQuery#hashCode()}
@@ -124,16 +134,19 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
-    deviceSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    deviceSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     DeviceSearchQuery deviceSearchQuery2 = new DeviceSearchQuery();
-    deviceSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    deviceSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertEquals(deviceSearchQuery, deviceSearchQuery2);
@@ -143,12 +156,14 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}, and {@link DeviceSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceSearchQuery#equals(Object)}
    *   <li>{@link DeviceSearchQuery#hashCode()}
@@ -157,7 +172,10 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -174,12 +192,14 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}, and {@link DeviceSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceSearchQuery#equals(Object)}
    *   <li>{@link DeviceSearchQuery#hashCode()}
@@ -188,7 +208,10 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -205,12 +228,14 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}, and {@link DeviceSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceSearchQuery#equals(Object)}
    *   <li>{@link DeviceSearchQuery#hashCode()}
@@ -219,7 +244,10 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -232,17 +260,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceSearchQuery(), 1);
@@ -250,22 +282,26 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
-    deviceSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    deviceSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(deviceSearchQuery, new DeviceSearchQuery());
@@ -273,17 +309,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -295,17 +335,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -317,24 +361,28 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
 
     DeviceSearchQuery deviceSearchQuery2 = new DeviceSearchQuery();
-    deviceSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    deviceSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(deviceSearchQuery, deviceSearchQuery2);
@@ -342,17 +390,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -366,17 +418,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DeviceSearchQuery deviceSearchQuery = new DeviceSearchQuery();
@@ -390,17 +446,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceSearchQuery(), null);
@@ -408,17 +468,21 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test {@link DeviceSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceSearchQuery.equals(Object)", "int DeviceSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceSearchQuery.equals(Object)",
+    "int DeviceSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceSearchQuery(), "Different type to DeviceSearchQuery");
@@ -426,8 +490,9 @@ class DeviceSearchQueryDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceSearchQuery}
    *   <li>{@link DeviceSearchQuery#setDeviceTypes(List)}
@@ -442,17 +507,23 @@ class DeviceSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceSearchQuery.<init>()", "List DeviceSearchQuery.getDeviceTypes()",
-      "RelationsSearchParameters DeviceSearchQuery.getParameters()", "String DeviceSearchQuery.getRelationType()",
-      "void DeviceSearchQuery.setDeviceTypes(List)", "void DeviceSearchQuery.setParameters(RelationsSearchParameters)",
-      "void DeviceSearchQuery.setRelationType(String)", "String DeviceSearchQuery.toString()"})
+  @MethodsUnderTest({
+    "void DeviceSearchQuery.<init>()",
+    "List DeviceSearchQuery.getDeviceTypes()",
+    "RelationsSearchParameters DeviceSearchQuery.getParameters()",
+    "String DeviceSearchQuery.getRelationType()",
+    "void DeviceSearchQuery.setDeviceTypes(List)",
+    "void DeviceSearchQuery.setParameters(RelationsSearchParameters)",
+    "void DeviceSearchQuery.setRelationType(String)",
+    "String DeviceSearchQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceSearchQuery actualDeviceSearchQuery = new DeviceSearchQuery();
     ArrayList<String> deviceTypes = new ArrayList<>();
     actualDeviceSearchQuery.setDeviceTypes(deviceTypes);
-    RelationsSearchParameters parameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters parameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
 
     actualDeviceSearchQuery.setParameters(parameters);
     actualDeviceSearchQuery.setRelationType("Relation Type");
@@ -461,9 +532,11 @@ class DeviceSearchQueryDiffblueTest {
     RelationsSearchParameters actualParameters = actualDeviceSearchQuery.getParameters();
 
     // Assert
-    assertEquals("DeviceSearchQuery(parameters=RelationsSearchParameters(rootId=13814000-1dd2-11b2-8080-808080808080,"
-        + " rootType=TENANT, direction=FROM, relationTypeGroup=COMMON, maxLevel=3, fetchLastLevelOnly=true),"
-        + " relationType=Relation Type, deviceTypes=[])", actualToStringResult);
+    assertEquals(
+        "DeviceSearchQuery(parameters=RelationsSearchParameters(rootId=13814000-1dd2-11b2-8080-808080808080,"
+            + " rootType=TENANT, direction=FROM, relationTypeGroup=COMMON, maxLevel=3, fetchLastLevelOnly=true),"
+            + " relationType=Relation Type, deviceTypes=[])",
+        actualToStringResult);
     assertEquals("Relation Type", actualDeviceSearchQuery.getRelationType());
     assertTrue(actualDeviceTypes.isEmpty());
     assertSame(deviceTypes, actualDeviceTypes);

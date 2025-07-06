@@ -15,12 +15,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EntityInfoDiffblueTest {
   /**
    * Test {@link EntityInfo#equals(Object)}, and {@link EntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityInfo#equals(Object)}
    *   <li>{@link EntityInfo#hashCode()}
@@ -43,12 +45,14 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}, and {@link EntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityInfo#equals(Object)}
    *   <li>{@link EntityInfo#hashCode()}
@@ -71,12 +75,14 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}, and {@link EntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityInfo#equals(Object)}
    *   <li>{@link EntityInfo#hashCode()}
@@ -99,12 +105,14 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}, and {@link EntityInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityInfo#equals(Object)}
    *   <li>{@link EntityInfo#hashCode()}
@@ -126,12 +134,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -147,12 +156,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -160,8 +170,9 @@ class EntityInfoDiffblueTest {
   @MethodsUnderTest({"boolean EntityInfo.equals(Object)", "int EntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EntityInfo entityInfo = new EntityInfo(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
-        "Name");
+    EntityInfo entityInfo =
+        new EntityInfo(
+            new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Name");
 
     // Act and Assert
     assertNotEquals(entityInfo, new EntityInfo(TenantId.SYS_TENANT_ID, "Name"));
@@ -169,12 +180,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -190,12 +202,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -203,7 +216,8 @@ class EntityInfoDiffblueTest {
   @MethodsUnderTest({"boolean EntityInfo.equals(Object)", "int EntityInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityInfo entityInfo = new EntityInfo(TenantId.SYS_TENANT_ID, "org.thingsboard.server.common.data.EntityInfo");
+    EntityInfo entityInfo =
+        new EntityInfo(TenantId.SYS_TENANT_ID, "org.thingsboard.server.common.data.EntityInfo");
 
     // Act and Assert
     assertNotEquals(entityInfo, new EntityInfo(TenantId.SYS_TENANT_ID, "Name"));
@@ -211,12 +225,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -232,12 +247,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -250,12 +266,13 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -268,8 +285,8 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test {@link EntityInfo#getId()}.
-   * <p>
-   * Method under test: {@link EntityInfo#getId()}
+   *
+   * <p>Method under test: {@link EntityInfo#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -277,7 +294,7 @@ class EntityInfoDiffblueTest {
   @MethodsUnderTest({"EntityId EntityInfo.getId()"})
   void testGetId() {
     // Arrange and Act
-    EntityId actualId = (new EntityInfo(TenantId.SYS_TENANT_ID, "Name")).getId();
+    EntityId actualId = new EntityInfo(TenantId.SYS_TENANT_ID, "Name").getId();
 
     // Assert
     assertSame(((TenantId) actualId).SYS_TENANT_ID, actualId);
@@ -285,8 +302,9 @@ class EntityInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityInfo#EntityInfo(EntityId, String)}
    *   <li>{@link EntityInfo#toString()}
@@ -296,8 +314,11 @@ class EntityInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityInfo.<init>(EntityId, String)", "String EntityInfo.getName()",
-      "String EntityInfo.toString()"})
+  @MethodsUnderTest({
+    "void EntityInfo.<init>(EntityId, String)",
+    "String EntityInfo.getName()",
+    "String EntityInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TenantId id = TenantId.SYS_TENANT_ID;
@@ -307,7 +328,8 @@ class EntityInfoDiffblueTest {
     String actualToStringResult = actualEntityInfo.toString();
 
     // Assert
-    assertEquals("EntityInfo(id=13814000-1dd2-11b2-8080-808080808080, name=Name)", actualToStringResult);
+    assertEquals(
+        "EntityInfo(id=13814000-1dd2-11b2-8080-808080808080, name=Name)", actualToStringResult);
     assertEquals("Name", actualEntityInfo.getName());
     TenantId expectedId = id.SYS_TENANT_ID;
     assertSame(expectedId, actualEntityInfo.getId());

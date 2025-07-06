@@ -14,23 +14,28 @@ import org.thingsboard.server.common.data.id.EntityId;
 class TbOriginatorTypeSwitchNodeDiffblueTest {
   /**
    * Test {@link TbOriginatorTypeSwitchNode#getRelationType(TbContext, EntityId)}.
+   *
    * <ul>
-   *   <li>Then return {@code Alarm}.</li>
+   *   <li>Then return {@code Alarm}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbOriginatorTypeSwitchNode#getRelationType(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link TbOriginatorTypeSwitchNode#getRelationType(TbContext, EntityId)}
    */
   @Test
   @DisplayName("Test getRelationType(TbContext, EntityId); then return 'Alarm'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String TbOriginatorTypeSwitchNode.getRelationType(TbContext, EntityId)"})
+  @MethodsUnderTest({
+    "java.lang.String TbOriginatorTypeSwitchNode.getRelationType(TbContext, EntityId)"
+  })
   void testGetRelationType_thenReturnAlarm() {
     // Arrange
     TbOriginatorTypeSwitchNode tbOriginatorTypeSwitchNode = new TbOriginatorTypeSwitchNode();
     TbContext ctx = mock(TbContext.class);
 
     // Act and Assert
-    assertEquals("Alarm", tbOriginatorTypeSwitchNode.getRelationType(ctx,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    assertEquals(
+        "Alarm",
+        tbOriginatorTypeSwitchNode.getRelationType(
+            ctx, new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 }

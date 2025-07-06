@@ -15,13 +15,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MDiscoverAll
 @ContextConfiguration(classes = {TbLwM2MDiscoverAllRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MDiscoverAllRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MDiscoverAllRequestBuilder tbLwM2MDiscoverAllRequestBuilder;
+  @Autowired private TbLwM2MDiscoverAllRequestBuilder tbLwM2MDiscoverAllRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MDiscoverAllRequest#getTimeout()}
    *   <li>{@link TbLwM2MDiscoverAllRequest#getType()}
@@ -30,11 +30,14 @@ class TbLwM2MDiscoverAllRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long TbLwM2MDiscoverAllRequest.getTimeout()",
-      "LwM2MOperationType TbLwM2MDiscoverAllRequest.getType()"})
+  @MethodsUnderTest({
+    "long TbLwM2MDiscoverAllRequest.getTimeout()",
+    "LwM2MOperationType TbLwM2MDiscoverAllRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    TbLwM2MDiscoverAllRequest buildResult = TbLwM2MDiscoverAllRequest.builder().timeout(10L).build();
+    TbLwM2MDiscoverAllRequest buildResult =
+        TbLwM2MDiscoverAllRequest.builder().timeout(10L).build();
 
     // Act
     long actualTimeout = buildResult.getTimeout();
@@ -46,8 +49,9 @@ class TbLwM2MDiscoverAllRequestDiffblueTest {
 
   /**
    * Test TbLwM2MDiscoverAllRequestBuilder {@link TbLwM2MDiscoverAllRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MDiscoverAllRequestBuilder#build()}
    *   <li>{@link TbLwM2MDiscoverAllRequestBuilder#timeout(long)}
@@ -56,13 +60,16 @@ class TbLwM2MDiscoverAllRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MDiscoverAllRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MDiscoverAllRequestBuilder.<init>()",
-      "TbLwM2MDiscoverAllRequest TbLwM2MDiscoverAllRequestBuilder.build()",
-      "TbLwM2MDiscoverAllRequestBuilder TbLwM2MDiscoverAllRequestBuilder.timeout(long)",
-      "java.lang.String TbLwM2MDiscoverAllRequestBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TbLwM2MDiscoverAllRequestBuilder.<init>()",
+    "TbLwM2MDiscoverAllRequest TbLwM2MDiscoverAllRequestBuilder.build()",
+    "TbLwM2MDiscoverAllRequestBuilder TbLwM2MDiscoverAllRequestBuilder.timeout(long)",
+    "java.lang.String TbLwM2MDiscoverAllRequestBuilder.toString()"
+  })
   void testTbLwM2MDiscoverAllRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MDiscoverAllRequest actualBuildResult = TbLwM2MDiscoverAllRequest.builder().timeout(10L).build();
+    TbLwM2MDiscoverAllRequest actualBuildResult =
+        TbLwM2MDiscoverAllRequest.builder().timeout(10L).build();
 
     // Assert
     assertEquals(10L, actualBuildResult.getTimeout());

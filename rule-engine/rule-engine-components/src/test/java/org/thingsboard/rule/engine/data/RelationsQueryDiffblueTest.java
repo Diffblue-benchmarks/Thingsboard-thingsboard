@@ -16,12 +16,14 @@ import org.thingsboard.server.common.data.relation.RelationEntityTypeFilter;
 class RelationsQueryDiffblueTest {
   /**
    * Test {@link RelationsQuery#equals(Object)}, and {@link RelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQuery#equals(Object)}
    *   <li>{@link RelationsQuery#hashCode()}
@@ -53,12 +55,14 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}, and {@link RelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQuery#equals(Object)}
    *   <li>{@link RelationsQuery#hashCode()}
@@ -90,12 +94,14 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}, and {@link RelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQuery#equals(Object)}
    *   <li>{@link RelationsQuery#hashCode()}
@@ -121,12 +127,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -152,12 +159,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -183,12 +191,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -214,12 +223,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -248,12 +258,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -279,12 +290,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -304,12 +316,13 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test {@link RelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -329,8 +342,9 @@ class RelationsQueryDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RelationsQuery}
    *   <li>{@link RelationsQuery#setDirection(EntitySearchDirection)}
@@ -347,11 +361,18 @@ class RelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RelationsQuery.<init>()", "EntitySearchDirection RelationsQuery.getDirection()",
-      "List RelationsQuery.getFilters()", "int RelationsQuery.getMaxLevel()",
-      "boolean RelationsQuery.isFetchLastLevelOnly()", "void RelationsQuery.setDirection(EntitySearchDirection)",
-      "void RelationsQuery.setFetchLastLevelOnly(boolean)", "void RelationsQuery.setFilters(List)",
-      "void RelationsQuery.setMaxLevel(int)", "String RelationsQuery.toString()"})
+  @MethodsUnderTest({
+    "void RelationsQuery.<init>()",
+    "EntitySearchDirection RelationsQuery.getDirection()",
+    "List RelationsQuery.getFilters()",
+    "int RelationsQuery.getMaxLevel()",
+    "boolean RelationsQuery.isFetchLastLevelOnly()",
+    "void RelationsQuery.setDirection(EntitySearchDirection)",
+    "void RelationsQuery.setFetchLastLevelOnly(boolean)",
+    "void RelationsQuery.setFilters(List)",
+    "void RelationsQuery.setMaxLevel(int)",
+    "String RelationsQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RelationsQuery actualRelationsQuery = new RelationsQuery();
@@ -367,7 +388,8 @@ class RelationsQueryDiffblueTest {
     boolean actualIsFetchLastLevelOnlyResult = actualRelationsQuery.isFetchLastLevelOnly();
 
     // Assert
-    assertEquals("RelationsQuery(direction=FROM, maxLevel=3, filters=[], fetchLastLevelOnly=true)",
+    assertEquals(
+        "RelationsQuery(direction=FROM, maxLevel=3, filters=[], fetchLastLevelOnly=true)",
         actualToStringResult);
     assertEquals(3, actualMaxLevel);
     assertEquals(EntitySearchDirection.FROM, actualDirection);

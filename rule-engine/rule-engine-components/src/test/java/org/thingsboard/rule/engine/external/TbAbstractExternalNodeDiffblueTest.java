@@ -13,8 +13,8 @@ import org.thingsboard.rule.engine.aws.lambda.TbAwsLambdaNode;
 class TbAbstractExternalNodeDiffblueTest {
   /**
    * Test {@link TbAbstractExternalNode#init(TbContext)} with {@code ctx}.
-   * <p>
-   * Method under test: {@link TbAbstractExternalNode#init(TbContext)}
+   *
+   * <p>Method under test: {@link TbAbstractExternalNode#init(TbContext)}
    */
   @Test
   @DisplayName("Test init(TbContext) with 'ctx'")

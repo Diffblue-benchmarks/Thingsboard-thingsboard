@@ -21,25 +21,30 @@ import org.thingsboard.server.gen.edge.v1.WidgetsBundleUpdateMsg;
 
 class WidgetMsgConstructorV2DiffblueTest {
   /**
-   * Test {@link WidgetMsgConstructorV2#constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)}.
-   * <p>
-   * Method under test: {@link WidgetMsgConstructorV2#constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)}
+   * Test {@link WidgetMsgConstructorV2#constructWidgetsBundleUpdateMsg(UpdateMsgType,
+   * WidgetsBundle, List)}.
+   *
+   * <p>Method under test: {@link
+   * WidgetMsgConstructorV2#constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)}
    */
   @Test
   @DisplayName("Test constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "WidgetsBundleUpdateMsg WidgetMsgConstructorV2.constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)"})
+    "WidgetsBundleUpdateMsg WidgetMsgConstructorV2.constructWidgetsBundleUpdateMsg(UpdateMsgType, WidgetsBundle, List)"
+  })
   void testConstructWidgetsBundleUpdateMsg() {
     // Arrange
     WidgetMsgConstructorV2 widgetMsgConstructorV2 = new WidgetMsgConstructorV2();
 
     WidgetsBundle widgetsBundle = new WidgetsBundle();
-    widgetsBundle.setId(new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetsBundle.setId(
+        new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    WidgetsBundleUpdateMsg actualConstructWidgetsBundleUpdateMsgResult = widgetMsgConstructorV2
-        .constructWidgetsBundleUpdateMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, widgetsBundle, new ArrayList<>());
+    WidgetsBundleUpdateMsg actualConstructWidgetsBundleUpdateMsgResult =
+        widgetMsgConstructorV2.constructWidgetsBundleUpdateMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, widgetsBundle, new ArrayList<>());
 
     // Assert
     assertEquals("", actualConstructWidgetsBundleUpdateMsgResult.getInitializationErrorString());
@@ -58,7 +63,9 @@ class WidgetMsgConstructorV2DiffblueTest {
     assertEquals(272, actualConstructWidgetsBundleUpdateMsgResult.getSerializedSize());
     assertEquals(4, actualConstructWidgetsBundleUpdateMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructWidgetsBundleUpdateMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructWidgetsBundleUpdateMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructWidgetsBundleUpdateMsgResult.getMsgType());
     assertFalse(actualConstructWidgetsBundleUpdateMsgResult.getIsSystem());
     assertFalse(actualConstructWidgetsBundleUpdateMsgResult.hasDescription());
     assertFalse(actualConstructWidgetsBundleUpdateMsgResult.hasImage());
@@ -69,25 +76,30 @@ class WidgetMsgConstructorV2DiffblueTest {
   }
 
   /**
-   * Test {@link WidgetMsgConstructorV2#constructWidgetTypeUpdateMsg(UpdateMsgType, WidgetTypeDetails, EdgeVersion)}.
-   * <p>
-   * Method under test: {@link WidgetMsgConstructorV2#constructWidgetTypeUpdateMsg(UpdateMsgType, WidgetTypeDetails, EdgeVersion)}
+   * Test {@link WidgetMsgConstructorV2#constructWidgetTypeUpdateMsg(UpdateMsgType,
+   * WidgetTypeDetails, EdgeVersion)}.
+   *
+   * <p>Method under test: {@link WidgetMsgConstructorV2#constructWidgetTypeUpdateMsg(UpdateMsgType,
+   * WidgetTypeDetails, EdgeVersion)}
    */
   @Test
   @DisplayName("Test constructWidgetTypeUpdateMsg(UpdateMsgType, WidgetTypeDetails, EdgeVersion)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "WidgetTypeUpdateMsg WidgetMsgConstructorV2.constructWidgetTypeUpdateMsg(UpdateMsgType, WidgetTypeDetails, EdgeVersion)"})
+    "WidgetTypeUpdateMsg WidgetMsgConstructorV2.constructWidgetTypeUpdateMsg(UpdateMsgType, WidgetTypeDetails, EdgeVersion)"
+  })
   void testConstructWidgetTypeUpdateMsg() {
     // Arrange
     WidgetMsgConstructorV2 widgetMsgConstructorV2 = new WidgetMsgConstructorV2();
 
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
-    widgetTypeDetails.setId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    WidgetTypeUpdateMsg actualConstructWidgetTypeUpdateMsgResult = widgetMsgConstructorV2
-        .constructWidgetTypeUpdateMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, widgetTypeDetails, EdgeVersion.V_3_3_0);
+    WidgetTypeUpdateMsg actualConstructWidgetTypeUpdateMsgResult =
+        widgetMsgConstructorV2.constructWidgetTypeUpdateMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, widgetTypeDetails, EdgeVersion.V_3_3_0);
 
     // Assert
     assertEquals("", actualConstructWidgetTypeUpdateMsgResult.getInitializationErrorString());
@@ -109,7 +121,9 @@ class WidgetMsgConstructorV2DiffblueTest {
     assertEquals(286, actualConstructWidgetTypeUpdateMsgResult.getSerializedSize());
     assertEquals(3, actualConstructWidgetTypeUpdateMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructWidgetTypeUpdateMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructWidgetTypeUpdateMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructWidgetTypeUpdateMsgResult.getMsgType());
     assertFalse(actualConstructWidgetTypeUpdateMsgResult.getDeprecated());
     assertFalse(actualConstructWidgetTypeUpdateMsgResult.getIsSystem());
     assertFalse(actualConstructWidgetTypeUpdateMsgResult.hasAlias());

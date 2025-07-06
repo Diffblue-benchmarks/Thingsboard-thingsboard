@@ -16,44 +16,29 @@ import org.junit.jupiter.api.Test;
 class TbDefaultDDFFileValidatorDiffblueTest {
   /**
    * Test {@link TbDefaultDDFFileValidator#TbDefaultDDFFileValidator(LwM2mVersion)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2mVersion}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When {@link LwM2mVersion}.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDefaultDDFFileValidator#TbDefaultDDFFileValidator(LwM2mVersion)}
+   *
+   * <p>Method under test: {@link TbDefaultDDFFileValidator#TbDefaultDDFFileValidator(LwM2mVersion)}
    */
   @Test
-  @DisplayName("Test new TbDefaultDDFFileValidator(LwM2mVersion); when LwM2mVersion; then throw IllegalStateException")
+  @DisplayName(
+      "Test new TbDefaultDDFFileValidator(LwM2mVersion); when LwM2mVersion; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbDefaultDDFFileValidator.<init>(LwM2mVersion)"})
   void testNewTbDefaultDDFFileValidator_whenLwM2mVersion_thenThrowIllegalStateException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class, () -> new TbDefaultDDFFileValidator(mock(LwM2mVersion.class)));
-  }
-
-  /**
-   * Test {@link TbDefaultDDFFileValidator#TbDefaultDDFFileValidator(LwM2mVersion)}.
-   * <ul>
-   *   <li>When {@link LwM2mVersion}.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbDefaultDDFFileValidator#TbDefaultDDFFileValidator(LwM2mVersion)}
-   */
-  @Test
-  @DisplayName("Test new TbDefaultDDFFileValidator(LwM2mVersion); when LwM2mVersion; then throw IllegalStateException")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbDefaultDDFFileValidator.<init>(LwM2mVersion)"})
-  void testNewTbDefaultDDFFileValidator_whenLwM2mVersion_thenThrowIllegalStateException2() {
-    // Arrange, Act and Assert
-    assertThrows(IllegalStateException.class, () -> new TbDefaultDDFFileValidator(mock(LwM2mVersion.class)));
+    assertThrows(
+        IllegalStateException.class, () -> new TbDefaultDDFFileValidator(mock(LwM2mVersion.class)));
   }
 
   /**
    * Test {@link TbDefaultDDFFileValidator#createSchemaFactory()}.
-   * <p>
-   * Method under test: {@link TbDefaultDDFFileValidator#createSchemaFactory()}
+   *
+   * <p>Method under test: {@link TbDefaultDDFFileValidator#createSchemaFactory()}
    */
   @Test
   @DisplayName("Test createSchemaFactory()")
@@ -61,26 +46,8 @@ class TbDefaultDDFFileValidatorDiffblueTest {
   @MethodsUnderTest({"SchemaFactory TbDefaultDDFFileValidator.createSchemaFactory()"})
   void testCreateSchemaFactory() {
     // Arrange and Act
-    SchemaFactory actualCreateSchemaFactoryResult = (new TbDefaultDDFFileValidator()).createSchemaFactory();
-
-    // Assert
-    assertTrue(actualCreateSchemaFactoryResult instanceof XMLSchemaFactory);
-    assertNull(actualCreateSchemaFactoryResult.getResourceResolver());
-    assertNull(actualCreateSchemaFactoryResult.getErrorHandler());
-  }
-
-  /**
-   * Test {@link TbDefaultDDFFileValidator#createSchemaFactory()}.
-   * <p>
-   * Method under test: {@link TbDefaultDDFFileValidator#createSchemaFactory()}
-   */
-  @Test
-  @DisplayName("Test createSchemaFactory()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"SchemaFactory TbDefaultDDFFileValidator.createSchemaFactory()"})
-  void testCreateSchemaFactory2() {
-    // Arrange and Act
-    SchemaFactory actualCreateSchemaFactoryResult = (new TbDefaultDDFFileValidator()).createSchemaFactory();
+    SchemaFactory actualCreateSchemaFactoryResult =
+        new TbDefaultDDFFileValidator().createSchemaFactory();
 
     // Assert
     assertTrue(actualCreateSchemaFactoryResult instanceof XMLSchemaFactory);

@@ -15,13 +15,16 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class RuleChainImportResultDiffblueTest {
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -30,19 +33,24 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -54,13 +62,16 @@ class RuleChainImportResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -69,19 +80,24 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError(null);
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError(null);
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -93,13 +109,16 @@ class RuleChainImportResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -108,7 +127,10 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
@@ -132,13 +154,16 @@ class RuleChainImportResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -147,19 +172,24 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName(null);
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName(null);
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -171,13 +201,16 @@ class RuleChainImportResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -186,19 +219,24 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(null);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(null);
     ruleChainImportResult2.setUpdated(true);
@@ -210,13 +248,16 @@ class RuleChainImportResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainImportResult#equals(Object)}, and {@link RuleChainImportResult#hashCode()}.
+   * Test {@link RuleChainImportResult#equals(Object)}, and {@link
+   * RuleChainImportResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainImportResult#equals(Object)}
    *   <li>{@link RuleChainImportResult#hashCode()}
@@ -225,12 +266,16 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
@@ -243,29 +288,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("Rule Chain Name");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -276,29 +327,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError(null);
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -309,17 +366,21 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
@@ -331,7 +392,8 @@ class RuleChainImportResultDiffblueTest {
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -342,17 +404,21 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
@@ -364,7 +430,8 @@ class RuleChainImportResultDiffblueTest {
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -375,29 +442,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("An error occurred");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -408,29 +481,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName(null);
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -441,29 +520,36 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
-    ruleChainImportResult.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -474,29 +560,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(null);
     ruleChainImportResult.setUpdated(true);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -507,29 +599,35 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(false);
 
     RuleChainImportResult ruleChainImportResult2 = new RuleChainImportResult();
     ruleChainImportResult2.setError("An error occurred");
-    ruleChainImportResult2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult2.setRuleChainName("Rule Chain Name");
     ruleChainImportResult2.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult2.setUpdated(true);
@@ -540,22 +638,27 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
@@ -566,22 +669,27 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test {@link RuleChainImportResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainImportResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainImportResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainImportResult.equals(Object)", "int RuleChainImportResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainImportResult.equals(Object)",
+    "int RuleChainImportResult.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainImportResult ruleChainImportResult = new RuleChainImportResult();
     ruleChainImportResult.setError("An error occurred");
-    ruleChainImportResult.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainImportResult.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainImportResult.setRuleChainName("Rule Chain Name");
     ruleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);
     ruleChainImportResult.setUpdated(true);
@@ -592,8 +700,9 @@ class RuleChainImportResultDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RuleChainImportResult}
    *   <li>{@link RuleChainImportResult#setError(String)}
@@ -612,17 +721,26 @@ class RuleChainImportResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChainImportResult.<init>()", "String RuleChainImportResult.getError()",
-      "RuleChainId RuleChainImportResult.getRuleChainId()", "String RuleChainImportResult.getRuleChainName()",
-      "TenantId RuleChainImportResult.getTenantId()", "boolean RuleChainImportResult.isUpdated()",
-      "void RuleChainImportResult.setError(String)", "void RuleChainImportResult.setRuleChainId(RuleChainId)",
-      "void RuleChainImportResult.setRuleChainName(String)", "void RuleChainImportResult.setTenantId(TenantId)",
-      "void RuleChainImportResult.setUpdated(boolean)", "String RuleChainImportResult.toString()"})
+  @MethodsUnderTest({
+    "void RuleChainImportResult.<init>()",
+    "String RuleChainImportResult.getError()",
+    "RuleChainId RuleChainImportResult.getRuleChainId()",
+    "String RuleChainImportResult.getRuleChainName()",
+    "TenantId RuleChainImportResult.getTenantId()",
+    "boolean RuleChainImportResult.isUpdated()",
+    "void RuleChainImportResult.setError(String)",
+    "void RuleChainImportResult.setRuleChainId(RuleChainId)",
+    "void RuleChainImportResult.setRuleChainName(String)",
+    "void RuleChainImportResult.setTenantId(TenantId)",
+    "void RuleChainImportResult.setUpdated(boolean)",
+    "String RuleChainImportResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainImportResult actualRuleChainImportResult = new RuleChainImportResult();
     actualRuleChainImportResult.setError("An error occurred");
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChainImportResult.setRuleChainId(ruleChainId);
     actualRuleChainImportResult.setRuleChainName("Rule Chain Name");
     actualRuleChainImportResult.setTenantId(TenantId.SYS_TENANT_ID);

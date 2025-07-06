@@ -23,8 +23,8 @@ import org.thingsboard.server.common.data.page.PageDataIterable.FetchFunction;
 class BasePageDataIterableDiffblueTest {
   /**
    * Test {@link BasePageDataIterable#iterator()}.
-   * <p>
-   * Method under test: {@link BasePageDataIterable#iterator()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#iterator()}
    */
   @Test
   @DisplayName("Test iterator()")
@@ -32,7 +32,8 @@ class BasePageDataIterableDiffblueTest {
   @MethodsUnderTest({"Iterator BasePageDataIterable.iterator()"})
   void testIterator() {
     // Arrange
-    PageDataIterable<Object> pageDataIterable = new PageDataIterable<>(mock(FetchFunction.class), 3);
+    PageDataIterable<Object> pageDataIterable =
+        new PageDataIterable<>(mock(FetchFunction.class), 3);
 
     // Act
     Iterator<Object> actualIteratorResult = pageDataIterable.iterator();
@@ -45,8 +46,8 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#hasNext()}.
-   * <p>
-   * Method under test: {@link BasePageDataIterable#hasNext()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#hasNext()}
    */
   @Test
   @DisplayName("Test hasNext()")
@@ -55,7 +56,8 @@ class BasePageDataIterableDiffblueTest {
   void testHasNext() {
     // Arrange
     FetchFunction<Object> function = mock(FetchFunction.class);
-    when(function.fetch(Mockito.<PageLink>any())).thenReturn(new PageData<>(new ArrayList<>(), 1, 1L, true));
+    when(function.fetch(Mockito.<PageLink>any()))
+        .thenReturn(new PageData<>(new ArrayList<>(), 1, 1L, true));
     PageDataIterable<Object> pageDataIterable = new PageDataIterable<>(function, 3);
 
     // Act
@@ -68,12 +70,13 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#hasNext()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#hasNext()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#hasNext()}
    */
   @Test
   @DisplayName("Test hasNext(); given ArrayList() add '42'; then return 'true'")
@@ -97,15 +100,17 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#hasNext()}.
+   *
    * <ul>
-   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return emptyPageData.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return emptyPageData.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#hasNext()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#hasNext()}
    */
   @Test
-  @DisplayName("Test hasNext(); given FetchFunction fetch(PageLink) return emptyPageData; then return 'false'")
+  @DisplayName(
+      "Test hasNext(); given FetchFunction fetch(PageLink) return emptyPageData; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BasePageDataIterable.hasNext()"})
   void testHasNext_givenFetchFunctionFetchReturnEmptyPageData_thenReturnFalse() {
@@ -125,15 +130,17 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#hasNext()}.
+   *
    * <ul>
-   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#hasNext()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#hasNext()}
    */
   @Test
-  @DisplayName("Test hasNext(); given FetchFunction fetch(PageLink) return 'null'; then return 'false'")
+  @DisplayName(
+      "Test hasNext(); given FetchFunction fetch(PageLink) return 'null'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BasePageDataIterable.hasNext()"})
   void testHasNext_givenFetchFunctionFetchReturnNull_thenReturnFalse() {
@@ -152,8 +159,8 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#next()}.
-   * <p>
-   * Method under test: {@link BasePageDataIterable#next()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#next()}
    */
   @Test
   @DisplayName("Test next()")
@@ -162,7 +169,8 @@ class BasePageDataIterableDiffblueTest {
   void testNext() {
     // Arrange
     FetchFunction<Object> function = mock(FetchFunction.class);
-    when(function.fetch(Mockito.<PageLink>any())).thenReturn(new PageData<>(new ArrayList<>(), 1, 1L, true));
+    when(function.fetch(Mockito.<PageLink>any()))
+        .thenReturn(new PageData<>(new ArrayList<>(), 1, 1L, true));
     PageDataIterable<Object> pageDataIterable = new PageDataIterable<>(function, 3);
 
     // Act and Assert
@@ -172,12 +180,13 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#next()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return {@code 42}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#next()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#next()}
    */
   @Test
   @DisplayName("Test next(); given ArrayList() add '42'; then return '42'")
@@ -201,11 +210,12 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#next()}.
+   *
    * <ul>
-   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return emptyPageData.</li>
+   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return emptyPageData.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#next()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#next()}
    */
   @Test
   @DisplayName("Test next(); given FetchFunction fetch(PageLink) return emptyPageData")
@@ -225,15 +235,17 @@ class BasePageDataIterableDiffblueTest {
 
   /**
    * Test {@link BasePageDataIterable#next()}.
+   *
    * <ul>
-   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return {@code null}.</li>
-   *   <li>Then throw {@link NoSuchElementException}.</li>
+   *   <li>Given {@link FetchFunction} {@link FetchFunction#fetch(PageLink)} return {@code null}.
+   *   <li>Then throw {@link NoSuchElementException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasePageDataIterable#next()}
+   *
+   * <p>Method under test: {@link BasePageDataIterable#next()}
    */
   @Test
-  @DisplayName("Test next(); given FetchFunction fetch(PageLink) return 'null'; then throw NoSuchElementException")
+  @DisplayName(
+      "Test next(); given FetchFunction fetch(PageLink) return 'null'; then throw NoSuchElementException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BasePageDataIterable.next()"})
   void testNext_givenFetchFunctionFetchReturnNull_thenThrowNoSuchElementException() {

@@ -16,12 +16,14 @@ import org.thingsboard.server.common.msg.MsgType;
 class EdgeHighPriorityMsgDiffblueTest {
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}, and {@link EdgeHighPriorityMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeHighPriorityMsg#equals(Object)}
    *   <li>{@link EdgeHighPriorityMsg#hashCode()}
@@ -30,7 +32,10 @@ class EdgeHighPriorityMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -46,12 +51,14 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}, and {@link EdgeHighPriorityMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeHighPriorityMsg#equals(Object)}
    *   <li>{@link EdgeHighPriorityMsg#hashCode()}
@@ -60,7 +67,10 @@ class EdgeHighPriorityMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EdgeHighPriorityMsg edgeHighPriorityMsg = new EdgeHighPriorityMsg(null, new EdgeEvent());
@@ -74,12 +84,14 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}, and {@link EdgeHighPriorityMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeHighPriorityMsg#equals(Object)}
    *   <li>{@link EdgeHighPriorityMsg#hashCode()}
@@ -88,13 +100,18 @@ class EdgeHighPriorityMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    EdgeHighPriorityMsg edgeHighPriorityMsg = new EdgeHighPriorityMsg(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
-    EdgeHighPriorityMsg edgeHighPriorityMsg2 = new EdgeHighPriorityMsg(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+    EdgeHighPriorityMsg edgeHighPriorityMsg =
+        new EdgeHighPriorityMsg(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+    EdgeHighPriorityMsg edgeHighPriorityMsg2 =
+        new EdgeHighPriorityMsg(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
 
     // Act and Assert
     assertEquals(edgeHighPriorityMsg, edgeHighPriorityMsg2);
@@ -104,12 +121,14 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}, and {@link EdgeHighPriorityMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeHighPriorityMsg#equals(Object)}
    *   <li>{@link EdgeHighPriorityMsg#hashCode()}
@@ -118,7 +137,10 @@ class EdgeHighPriorityMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -132,17 +154,21 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
@@ -155,17 +181,21 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeHighPriorityMsg edgeHighPriorityMsg = new EdgeHighPriorityMsg(null, new EdgeEvent());
@@ -177,21 +207,26 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    EdgeHighPriorityMsg edgeHighPriorityMsg = new EdgeHighPriorityMsg(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+    EdgeHighPriorityMsg edgeHighPriorityMsg =
+        new EdgeHighPriorityMsg(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -200,21 +235,27 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EdgeHighPriorityMsg edgeHighPriorityMsg = new EdgeHighPriorityMsg(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), mock(EdgeEvent.class));
+    EdgeHighPriorityMsg edgeHighPriorityMsg =
+        new EdgeHighPriorityMsg(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            mock(EdgeEvent.class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
@@ -223,17 +264,21 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -244,29 +289,36 @@ class EdgeHighPriorityMsgDiffblueTest {
 
   /**
    * Test {@link EdgeHighPriorityMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeHighPriorityMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeHighPriorityMsg.equals(Object)", "int EdgeHighPriorityMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeHighPriorityMsg.equals(Object)",
+    "int EdgeHighPriorityMsg.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(new EdgeHighPriorityMsg(tenantId, new EdgeEvent()), "Different type to EdgeHighPriorityMsg");
+    assertNotEquals(
+        new EdgeHighPriorityMsg(tenantId, new EdgeEvent()),
+        "Different type to EdgeHighPriorityMsg");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeHighPriorityMsg#EdgeHighPriorityMsg(TenantId, EdgeEvent)}
    *   <li>{@link EdgeHighPriorityMsg#toString()}
@@ -278,9 +330,13 @@ class EdgeHighPriorityMsgDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeHighPriorityMsg.<init>(TenantId, EdgeEvent)",
-      "EdgeEvent EdgeHighPriorityMsg.getEdgeEvent()", "MsgType EdgeHighPriorityMsg.getMsgType()",
-      "TenantId EdgeHighPriorityMsg.getTenantId()", "String EdgeHighPriorityMsg.toString()"})
+  @MethodsUnderTest({
+    "void EdgeHighPriorityMsg.<init>(TenantId, EdgeEvent)",
+    "EdgeEvent EdgeHighPriorityMsg.getEdgeEvent()",
+    "MsgType EdgeHighPriorityMsg.getMsgType()",
+    "TenantId EdgeHighPriorityMsg.getTenantId()",
+    "String EdgeHighPriorityMsg.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -293,9 +349,11 @@ class EdgeHighPriorityMsgDiffblueTest {
     MsgType actualMsgType = actualEdgeHighPriorityMsg.getMsgType();
 
     // Assert
-    assertEquals("EdgeHighPriorityMsg(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, edgeEvent=EdgeEvent(super=BaseData"
-        + " [createdTime=0, id=null], seqId=0, tenantId=null, edgeId=null, action=null, entityId=null, uid=null,"
-        + " type=null, body=null))", actualToStringResult);
+    assertEquals(
+        "EdgeHighPriorityMsg(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, edgeEvent=EdgeEvent(super=BaseData"
+            + " [createdTime=0, id=null], seqId=0, tenantId=null, edgeId=null, action=null, entityId=null, uid=null,"
+            + " type=null, body=null))",
+        actualToStringResult);
     assertEquals(MsgType.EDGE_HIGH_PRIORITY_TO_EDGE_SESSION_MSG, actualMsgType);
     assertSame(edgeEvent, actualEdgeEvent);
     assertSame(tenantId, actualEdgeHighPriorityMsg.getTenantId());

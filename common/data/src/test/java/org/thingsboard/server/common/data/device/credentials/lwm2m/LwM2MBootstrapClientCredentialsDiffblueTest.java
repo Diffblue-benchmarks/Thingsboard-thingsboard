@@ -10,11 +10,13 @@ import org.junit.jupiter.api.Test;
 class LwM2MBootstrapClientCredentialsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2MBootstrapClientCredentials}
-   *   <li>{@link LwM2MBootstrapClientCredentials#setBootstrapServer(LwM2MBootstrapClientCredential)}
+   *   <li>{@link
+   *       LwM2MBootstrapClientCredentials#setBootstrapServer(LwM2MBootstrapClientCredential)}
    *   <li>{@link LwM2MBootstrapClientCredentials#setLwm2mServer(LwM2MBootstrapClientCredential)}
    *   <li>{@link LwM2MBootstrapClientCredentials#getBootstrapServer()}
    *   <li>{@link LwM2MBootstrapClientCredentials#getLwm2mServer()}
@@ -23,19 +25,23 @@ class LwM2MBootstrapClientCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MBootstrapClientCredentials.<init>()",
-      "LwM2MBootstrapClientCredential LwM2MBootstrapClientCredentials.getBootstrapServer()",
-      "LwM2MBootstrapClientCredential LwM2MBootstrapClientCredentials.getLwm2mServer()",
-      "void LwM2MBootstrapClientCredentials.setBootstrapServer(LwM2MBootstrapClientCredential)",
-      "void LwM2MBootstrapClientCredentials.setLwm2mServer(LwM2MBootstrapClientCredential)"})
+  @MethodsUnderTest({
+    "void LwM2MBootstrapClientCredentials.<init>()",
+    "LwM2MBootstrapClientCredential LwM2MBootstrapClientCredentials.getBootstrapServer()",
+    "LwM2MBootstrapClientCredential LwM2MBootstrapClientCredentials.getLwm2mServer()",
+    "void LwM2MBootstrapClientCredentials.setBootstrapServer(LwM2MBootstrapClientCredential)",
+    "void LwM2MBootstrapClientCredentials.setLwm2mServer(LwM2MBootstrapClientCredential)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    LwM2MBootstrapClientCredentials actualLwM2MBootstrapClientCredentials = new LwM2MBootstrapClientCredentials();
+    LwM2MBootstrapClientCredentials actualLwM2MBootstrapClientCredentials =
+        new LwM2MBootstrapClientCredentials();
     LwM2MBootstrapClientCredential bootstrapServer = mock(LwM2MBootstrapClientCredential.class);
     actualLwM2MBootstrapClientCredentials.setBootstrapServer(bootstrapServer);
     LwM2MBootstrapClientCredential lwm2mServer = mock(LwM2MBootstrapClientCredential.class);
     actualLwM2MBootstrapClientCredentials.setLwm2mServer(lwm2mServer);
-    LwM2MBootstrapClientCredential actualBootstrapServer = actualLwM2MBootstrapClientCredentials.getBootstrapServer();
+    LwM2MBootstrapClientCredential actualBootstrapServer =
+        actualLwM2MBootstrapClientCredentials.getBootstrapServer();
 
     // Assert
     assertSame(bootstrapServer, actualBootstrapServer);

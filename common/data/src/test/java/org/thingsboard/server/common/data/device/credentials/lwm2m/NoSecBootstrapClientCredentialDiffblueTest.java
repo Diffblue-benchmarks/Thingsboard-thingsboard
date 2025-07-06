@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class NoSecBootstrapClientCredentialDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NoSecBootstrapClientCredential}
    *   <li>{@link NoSecBootstrapClientCredential#getSecurityMode()}
@@ -19,10 +20,12 @@ class NoSecBootstrapClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NoSecBootstrapClientCredential.<init>()",
-      "LwM2MSecurityMode NoSecBootstrapClientCredential.getSecurityMode()"})
+  @MethodsUnderTest({
+    "void NoSecBootstrapClientCredential.<init>()",
+    "LwM2MSecurityMode NoSecBootstrapClientCredential.getSecurityMode()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals(LwM2MSecurityMode.NO_SEC, (new NoSecBootstrapClientCredential()).getSecurityMode());
+    assertEquals(LwM2MSecurityMode.NO_SEC, new NoSecBootstrapClientCredential().getSecurityMode());
   }
 }

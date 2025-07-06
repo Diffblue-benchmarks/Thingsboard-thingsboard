@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class TelemetryEdgeProcessorDiffblueTest {
   /**
    * Test {@link TelemetryEdgeProcessor#getMsgSourceKey()}.
-   * <p>
-   * Method under test: {@link TelemetryEdgeProcessor#getMsgSourceKey()}
+   *
+   * <p>Method under test: {@link TelemetryEdgeProcessor#getMsgSourceKey()}
    */
   @Test
   @DisplayName("Test getMsgSourceKey()")
@@ -18,6 +18,6 @@ class TelemetryEdgeProcessorDiffblueTest {
   @MethodsUnderTest({"java.lang.String TelemetryEdgeProcessor.getMsgSourceKey()"})
   void testGetMsgSourceKey() {
     // Arrange, Act and Assert
-    assertEquals("edge", (new TelemetryEdgeProcessor()).getMsgSourceKey());
+    assertEquals("edge", new TelemetryEdgeProcessor().getMsgSourceKey());
   }
 }

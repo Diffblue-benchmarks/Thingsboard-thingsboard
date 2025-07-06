@@ -39,8 +39,9 @@ import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfi
 class TenantApiUsageStateDiffblueTest {
   /**
    * Test {@link TenantApiUsageState#TenantApiUsageState(TenantProfile, ApiUsageState)}.
-   * <p>
-   * Method under test: {@link TenantApiUsageState#TenantApiUsageState(TenantProfile, ApiUsageState)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#TenantApiUsageState(TenantProfile,
+   * ApiUsageState)}
    */
   @Test
   @DisplayName("Test new TenantApiUsageState(TenantProfile, ApiUsageState)")
@@ -52,7 +53,8 @@ class TenantApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = new ApiUsageState();
 
     // Act
-    TenantApiUsageState actualTenantApiUsageState = new TenantApiUsageState(tenantProfile, apiUsageState);
+    TenantApiUsageState actualTenantApiUsageState =
+        new TenantApiUsageState(tenantProfile, apiUsageState);
 
     // Assert
     TenantProfileData tenantProfileData = actualTenantApiUsageState.getTenantProfileData();
@@ -67,11 +69,12 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#TenantApiUsageState(ApiUsageState)}.
+   *
    * <ul>
-   *   <li>Then return EntityId is {@code null}.</li>
+   *   <li>Then return EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#TenantApiUsageState(ApiUsageState)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#TenantApiUsageState(ApiUsageState)}
    */
   @Test
   @DisplayName("Test new TenantApiUsageState(ApiUsageState); then return EntityId is 'null'")
@@ -95,11 +98,12 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#getProfileThreshold(ApiUsageRecordKey)}.
+   *
    * <ul>
-   *   <li>Then return zero.</li>
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#getProfileThreshold(ApiUsageRecordKey)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#getProfileThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileThreshold(ApiUsageRecordKey); then return zero")
@@ -115,16 +119,18 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act and Assert
-    assertEquals(0L, tenantApiUsageState.getProfileThreshold(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
+    assertEquals(
+        0L, tenantApiUsageState.getProfileThreshold(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
   }
 
   /**
    * Test {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey); then return 'false'")
@@ -132,13 +138,17 @@ class TenantApiUsageStateDiffblueTest {
   @MethodsUnderTest({"boolean TenantApiUsageState.getProfileFeatureEnabled(ApiUsageRecordKey)"})
   void testGetProfileFeatureEnabled_thenReturnFalse() {
     // Arrange
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any()))
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(false);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -146,11 +156,12 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act
-    boolean actualProfileFeatureEnabled = tenantApiUsageState
-        .getProfileFeatureEnabled(ApiUsageRecordKey.TRANSPORT_MSG_COUNT);
+    boolean actualProfileFeatureEnabled =
+        tenantApiUsageState.getProfileFeatureEnabled(ApiUsageRecordKey.TRANSPORT_MSG_COUNT);
 
     // Assert
-    verify(defaultTenantProfileConfiguration).getProfileFeatureEnabled(eq(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
+    verify(defaultTenantProfileConfiguration)
+        .getProfileFeatureEnabled(eq(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
     verify(tenantProfileData).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -159,11 +170,12 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#getProfileFeatureEnabled(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileFeatureEnabled(ApiUsageRecordKey); then return 'true'")
@@ -184,11 +196,12 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#getProfileWarnThreshold(ApiUsageRecordKey)}.
+   *
    * <ul>
-   *   <li>Then return zero.</li>
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#getProfileWarnThreshold(ApiUsageRecordKey)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#getProfileWarnThreshold(ApiUsageRecordKey)}
    */
   @Test
   @DisplayName("Test getProfileWarnThreshold(ApiUsageRecordKey); then return zero")
@@ -204,13 +217,14 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act and Assert
-    assertEquals(0L, tenantApiUsageState.getProfileWarnThreshold(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
+    assertEquals(
+        0L, tenantApiUsageState.getProfileWarnThreshold(ApiUsageRecordKey.TRANSPORT_MSG_COUNT));
   }
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'")
@@ -221,8 +235,8 @@ class TenantApiUsageStateDiffblueTest {
     TenantApiUsageState tenantApiUsageState = new TenantApiUsageState(new ApiUsageState());
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(new HashSet<>());
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(new HashSet<>());
 
     // Assert
     ApiUsageState apiUsageState = tenantApiUsageState.getApiUsageState();
@@ -233,8 +247,8 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'")
@@ -244,14 +258,21 @@ class TenantApiUsageStateDiffblueTest {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -262,13 +283,16 @@ class TenantApiUsageStateDiffblueTest {
     features.add(ApiFeature.TRANSPORT);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -280,8 +304,8 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'")
@@ -291,14 +315,21 @@ class TenantApiUsageStateDiffblueTest {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(0L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(0L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -309,13 +340,16 @@ class TenantApiUsageStateDiffblueTest {
     features.add(ApiFeature.TRANSPORT);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -327,14 +361,16 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getDbStorageState()")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getDbStorageState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenCallsGetDbStorageState() {
@@ -342,18 +378,23 @@ class TenantApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = mock(ApiUsageState.class);
     when(apiUsageState.getDbStorageState()).thenReturn(ApiUsageStateValue.ENABLED);
     doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
-    when(apiUsageState.getReExecState()).thenReturn(ApiUsageStateValue.ENABLED);
-    doNothing().when(apiUsageState).setReExecState(Mockito.<ApiUsageStateValue>any());
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -362,21 +403,21 @@ class TenantApiUsageStateDiffblueTest {
 
     HashSet<ApiFeature> features = new HashSet<>();
     features.add(ApiFeature.DB);
-    features.add(ApiFeature.RE);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
     verify(apiUsageState).getDbStorageState();
-    verify(apiUsageState).getReExecState();
     verify(apiUsageState).setDbStorageState(eq(ApiUsageStateValue.ENABLED));
-    verify(apiUsageState).setReExecState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setTransportState(eq(ApiUsageStateValue.ENABLED));
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration)
+        .getProfileFeatureEnabled(eq(ApiUsageRecordKey.STORAGE_DP_COUNT));
+    verify(defaultTenantProfileConfiguration)
+        .getProfileThreshold(eq(ApiUsageRecordKey.STORAGE_DP_COUNT));
+    verify(defaultTenantProfileConfiguration)
+        .getWarnThreshold(eq(ApiUsageRecordKey.STORAGE_DP_COUNT));
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -385,14 +426,86 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getEmailExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getJsExecState()")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getEmailExecState()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
+  void testCheckStateUpdatedDueToThresholdWithFeatures_thenCallsGetEmailExecState() {
+    // Arrange
+    ApiUsageState apiUsageState = mock(ApiUsageState.class);
+    when(apiUsageState.getEmailExecState()).thenReturn(ApiUsageStateValue.ENABLED);
+    doNothing().when(apiUsageState).setEmailExecState(Mockito.<ApiUsageStateValue>any());
+    when(apiUsageState.getDbStorageState()).thenReturn(ApiUsageStateValue.ENABLED);
+    doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
+    doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
+    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
+    TenantProfileData tenantProfileData = mock(TenantProfileData.class);
+    when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
+    doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+
+    TenantApiUsageState tenantApiUsageState = new TenantApiUsageState(apiUsageState);
+    tenantApiUsageState.setTenantProfileData(tenantProfileData);
+
+    HashSet<ApiFeature> features = new HashSet<>();
+    features.add(ApiFeature.EMAIL);
+    features.add(ApiFeature.DB);
+
+    // Act
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
+
+    // Assert
+    verify(apiUsageState).getDbStorageState();
+    verify(apiUsageState).getEmailExecState();
+    verify(apiUsageState).setDbStorageState(eq(ApiUsageStateValue.ENABLED));
+    verify(apiUsageState).setEmailExecState(eq(ApiUsageStateValue.ENABLED));
+    verify(apiUsageState).setTransportState(eq(ApiUsageStateValue.ENABLED));
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(tenantProfileData, atLeast(1)).getConfiguration();
+    verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
+    verify(tenantProfileData).setQueueConfiguration(isA(List.class));
+    assertTrue(actualCheckStateUpdatedDueToThresholdResult.isEmpty());
+  }
+
+  /**
+   * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
+   * <ul>
+   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getJsExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenCallsGetJsExecState() {
@@ -400,18 +513,25 @@ class TenantApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = mock(ApiUsageState.class);
     when(apiUsageState.getJsExecState()).thenReturn(ApiUsageStateValue.ENABLED);
     doNothing().when(apiUsageState).setJsExecState(Mockito.<ApiUsageStateValue>any());
-    when(apiUsageState.getReExecState()).thenReturn(ApiUsageStateValue.ENABLED);
-    doNothing().when(apiUsageState).setReExecState(Mockito.<ApiUsageStateValue>any());
+    when(apiUsageState.getDbStorageState()).thenReturn(ApiUsageStateValue.ENABLED);
+    doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -420,21 +540,24 @@ class TenantApiUsageStateDiffblueTest {
 
     HashSet<ApiFeature> features = new HashSet<>();
     features.add(ApiFeature.JS);
-    features.add(ApiFeature.RE);
+    features.add(ApiFeature.DB);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
+    verify(apiUsageState).getDbStorageState();
     verify(apiUsageState).getJsExecState();
-    verify(apiUsageState).getReExecState();
+    verify(apiUsageState).setDbStorageState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setJsExecState(eq(ApiUsageStateValue.ENABLED));
-    verify(apiUsageState).setReExecState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setTransportState(eq(ApiUsageStateValue.ENABLED));
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -443,14 +566,16 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getReExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getReExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getReExecState()")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getReExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenCallsGetReExecState() {
@@ -458,16 +583,25 @@ class TenantApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = mock(ApiUsageState.class);
     when(apiUsageState.getReExecState()).thenReturn(ApiUsageStateValue.ENABLED);
     doNothing().when(apiUsageState).setReExecState(Mockito.<ApiUsageStateValue>any());
+    when(apiUsageState.getDbStorageState()).thenReturn(ApiUsageStateValue.ENABLED);
+    doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -476,18 +610,24 @@ class TenantApiUsageStateDiffblueTest {
 
     HashSet<ApiFeature> features = new HashSet<>();
     features.add(ApiFeature.RE);
+    features.add(ApiFeature.DB);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
+    verify(apiUsageState).getDbStorageState();
     verify(apiUsageState).getReExecState();
+    verify(apiUsageState).setDbStorageState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setReExecState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setTransportState(eq(ApiUsageStateValue.ENABLED));
-    verify(defaultTenantProfileConfiguration).getProfileFeatureEnabled(eq(ApiUsageRecordKey.RE_EXEC_COUNT));
-    verify(defaultTenantProfileConfiguration).getProfileThreshold(eq(ApiUsageRecordKey.RE_EXEC_COUNT));
-    verify(defaultTenantProfileConfiguration).getWarnThreshold(eq(ApiUsageRecordKey.RE_EXEC_COUNT));
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -496,14 +636,16 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getTbelExecState()")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then calls getTbelExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenCallsGetTbelExecState() {
@@ -511,18 +653,25 @@ class TenantApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = mock(ApiUsageState.class);
     when(apiUsageState.getTbelExecState()).thenReturn(ApiUsageStateValue.ENABLED);
     doNothing().when(apiUsageState).setTbelExecState(Mockito.<ApiUsageStateValue>any());
-    when(apiUsageState.getReExecState()).thenReturn(ApiUsageStateValue.ENABLED);
-    doNothing().when(apiUsageState).setReExecState(Mockito.<ApiUsageStateValue>any());
+    when(apiUsageState.getDbStorageState()).thenReturn(ApiUsageStateValue.ENABLED);
+    doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -531,21 +680,24 @@ class TenantApiUsageStateDiffblueTest {
 
     HashSet<ApiFeature> features = new HashSet<>();
     features.add(ApiFeature.TBEL);
-    features.add(ApiFeature.RE);
+    features.add(ApiFeature.DB);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
-    verify(apiUsageState).getReExecState();
+    verify(apiUsageState).getDbStorageState();
     verify(apiUsageState).getTbelExecState();
-    verify(apiUsageState).setReExecState(eq(ApiUsageStateValue.ENABLED));
+    verify(apiUsageState).setDbStorageState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setTbelExecState(eq(ApiUsageStateValue.ENABLED));
     verify(apiUsageState).setTransportState(eq(ApiUsageStateValue.ENABLED));
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
@@ -554,27 +706,33 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then return {@code TRANSPORT} is {@code DISABLED}.</li>
+   *   <li>Then return {@code TRANSPORT} is {@code DISABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then return 'TRANSPORT' is 'DISABLED'")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then return 'TRANSPORT' is 'DISABLED'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenReturnTransportIsDisabled() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
     apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any()))
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(false);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -585,16 +743,19 @@ class TenantApiUsageStateDiffblueTest {
     features.add(ApiFeature.TRANSPORT);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
     assertEquals(1, actualCheckStateUpdatedDueToThresholdResult.size());
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdResult.get(ApiFeature.TRANSPORT));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdResult.get(ApiFeature.TRANSPORT));
     ApiUsageState apiUsageState2 = tenantApiUsageState.getApiUsageState();
     assertEquals(ApiUsageStateValue.DISABLED, apiUsageState2.getTransportState());
     assertFalse(apiUsageState2.isTransportEnabled());
@@ -602,28 +763,37 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)} with {@code features}.
+   *
    * <ul>
-   *   <li>Then return {@code TRANSPORT} is {@code ENABLED}.</li>
+   *   <li>Then return {@code TRANSPORT} is {@code ENABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThreshold(Set)}
    */
   @Test
-  @DisplayName("Test checkStateUpdatedDueToThreshold(Set) with 'features'; then return 'TRANSPORT' is 'ENABLED'")
+  @DisplayName(
+      "Test checkStateUpdatedDueToThreshold(Set) with 'features'; then return 'TRANSPORT' is 'ENABLED'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map TenantApiUsageState.checkStateUpdatedDueToThreshold(Set)"})
   void testCheckStateUpdatedDueToThresholdWithFeatures_thenReturnTransportIsEnabled() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
     apiUsageState.setTransportState(ApiUsageStateValue.WARNING);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -634,18 +804,23 @@ class TenantApiUsageStateDiffblueTest {
     features.add(ApiFeature.TRANSPORT);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult = tenantApiUsageState
-        .checkStateUpdatedDueToThreshold(features);
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdResult =
+        tenantApiUsageState.checkStateUpdatedDueToThreshold(features);
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
     assertEquals(1, actualCheckStateUpdatedDueToThresholdResult.size());
-    assertEquals(ApiUsageStateValue.ENABLED, actualCheckStateUpdatedDueToThresholdResult.get(ApiFeature.TRANSPORT));
+    assertEquals(
+        ApiUsageStateValue.ENABLED,
+        actualCheckStateUpdatedDueToThresholdResult.get(ApiFeature.TRANSPORT));
     ApiUsageState apiUsageState2 = tenantApiUsageState.getApiUsageState();
     assertEquals(ApiUsageStateValue.ENABLED, apiUsageState2.getTransportState());
     assertTrue(apiUsageState2.isTransportEnabled());
@@ -653,8 +828,8 @@ class TenantApiUsageStateDiffblueTest {
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}.
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThresholds()")
@@ -663,22 +838,29 @@ class TenantApiUsageStateDiffblueTest {
   void testCheckStateUpdatedDueToThresholds() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
-    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setSmsExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setTbelExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setReExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(0L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(0L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -686,27 +868,32 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult = tenantApiUsageState
-        .checkStateUpdatedDueToThresholds();
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult =
+        tenantApiUsageState.checkStateUpdatedDueToThresholds();
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
-    assertEquals(ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getAlarmExecState());
+    assertEquals(
+        ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getDbStorageState());
     assertTrue(actualCheckStateUpdatedDueToThresholdsResult.isEmpty());
   }
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThresholds(); then return Empty")
@@ -715,22 +902,29 @@ class TenantApiUsageStateDiffblueTest {
   void testCheckStateUpdatedDueToThresholds_thenReturnEmpty() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
-    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setSmsExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setTbelExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setReExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -738,27 +932,32 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult = tenantApiUsageState
-        .checkStateUpdatedDueToThresholds();
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult =
+        tenantApiUsageState.checkStateUpdatedDueToThresholds();
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
-    assertEquals(ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getAlarmExecState());
+    assertEquals(
+        ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getDbStorageState());
     assertTrue(actualCheckStateUpdatedDueToThresholdsResult.isEmpty());
   }
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}.
+   *
    * <ul>
-   *   <li>Then return size is eight.</li>
+   *   <li>Then return size is eight.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThresholds(); then return size is eight")
@@ -767,21 +966,25 @@ class TenantApiUsageStateDiffblueTest {
   void testCheckStateUpdatedDueToThresholds_thenReturnSizeIsEight() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
-    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setSmsExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setTbelExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setReExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any()))
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
         .thenReturn(false);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -789,32 +992,50 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult = tenantApiUsageState
-        .checkStateUpdatedDueToThresholds();
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult =
+        tenantApiUsageState.checkStateUpdatedDueToThresholds();
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
     assertEquals(8, actualCheckStateUpdatedDueToThresholdsResult.size());
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.ALARM));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.DB));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.EMAIL));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.JS));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.RE));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.SMS));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.TBEL));
-    assertEquals(ApiUsageStateValue.DISABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.TRANSPORT));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.ALARM));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.DB));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.EMAIL));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.JS));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.RE));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.SMS));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.TBEL));
+    assertEquals(
+        ApiUsageStateValue.DISABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.TRANSPORT));
   }
 
   /**
    * Test {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}.
+   *
    * <ul>
-   *   <li>Then return size is one.</li>
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
+   *
+   * <p>Method under test: {@link TenantApiUsageState#checkStateUpdatedDueToThresholds()}
    */
   @Test
   @DisplayName("Test checkStateUpdatedDueToThresholds(); then return size is one")
@@ -823,22 +1044,29 @@ class TenantApiUsageStateDiffblueTest {
   void testCheckStateUpdatedDueToThresholds_thenReturnSizeIsOne() {
     // Arrange
     ApiUsageState apiUsageState = new ApiUsageState();
-    apiUsageState.setAlarmExecState(ApiUsageStateValue.WARNING);
-    apiUsageState.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setDbStorageState(ApiUsageStateValue.WARNING);
+    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setSmsExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setTbelExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageState.setAlarmExecState(ApiUsageStateValue.ENABLED);
     apiUsageState.setReExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setEmailExecState(ApiUsageStateValue.ENABLED);
-    apiUsageState.setTransportState(ApiUsageStateValue.ENABLED);
-    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration = mock(DefaultTenantProfileConfiguration.class);
-    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any())).thenReturn(1L);
-    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any())).thenReturn(true);
+    DefaultTenantProfileConfiguration defaultTenantProfileConfiguration =
+        mock(DefaultTenantProfileConfiguration.class);
+    when(defaultTenantProfileConfiguration.getProfileThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getWarnThreshold(Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(1L);
+    when(defaultTenantProfileConfiguration.getProfileFeatureEnabled(
+            Mockito.<ApiUsageRecordKey>any()))
+        .thenReturn(true);
     TenantProfileData tenantProfileData = mock(TenantProfileData.class);
     when(tenantProfileData.getConfiguration()).thenReturn(defaultTenantProfileConfiguration);
     doNothing().when(tenantProfileData).setConfiguration(Mockito.<TenantProfileConfiguration>any());
-    doNothing().when(tenantProfileData).setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
+    doNothing()
+        .when(tenantProfileData)
+        .setQueueConfiguration(Mockito.<List<TenantProfileQueueConfiguration>>any());
     tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
     tenantProfileData.setQueueConfiguration(new ArrayList<>());
 
@@ -846,25 +1074,32 @@ class TenantApiUsageStateDiffblueTest {
     tenantApiUsageState.setTenantProfileData(tenantProfileData);
 
     // Act
-    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult = tenantApiUsageState
-        .checkStateUpdatedDueToThresholds();
+    Map<ApiFeature, ApiUsageStateValue> actualCheckStateUpdatedDueToThresholdsResult =
+        tenantApiUsageState.checkStateUpdatedDueToThresholds();
 
     // Assert
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
-    verify(defaultTenantProfileConfiguration, atLeast(1)).getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileFeatureEnabled(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getProfileThreshold(Mockito.<ApiUsageRecordKey>any());
+    verify(defaultTenantProfileConfiguration, atLeast(1))
+        .getWarnThreshold(Mockito.<ApiUsageRecordKey>any());
     verify(tenantProfileData, atLeast(1)).getConfiguration();
     verify(tenantProfileData).setConfiguration(isA(TenantProfileConfiguration.class));
     verify(tenantProfileData).setQueueConfiguration(isA(List.class));
     assertEquals(1, actualCheckStateUpdatedDueToThresholdsResult.size());
-    assertEquals(ApiUsageStateValue.ENABLED, actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.ALARM));
-    assertEquals(ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getAlarmExecState());
+    assertEquals(
+        ApiUsageStateValue.ENABLED,
+        actualCheckStateUpdatedDueToThresholdsResult.get(ApiFeature.DB));
+    assertEquals(
+        ApiUsageStateValue.ENABLED, tenantApiUsageState.getApiUsageState().getDbStorageState());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantApiUsageState#setTenantProfileData(TenantProfileData)}
    *   <li>{@link TenantApiUsageState#getEntityType()}
@@ -875,11 +1110,13 @@ class TenantApiUsageStateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EntityType TenantApiUsageState.getEntityType()",
-      "TenantProfileData TenantApiUsageState.getTenantProfileData()",
-      "org.thingsboard.server.common.data.id.TenantProfileId TenantApiUsageState.getTenantProfileId()",
-      "void TenantApiUsageState.setTenantProfileData(TenantProfileData)",
-      "void TenantApiUsageState.setTenantProfileId(org.thingsboard.server.common.data.id.TenantProfileId)"})
+  @MethodsUnderTest({
+    "EntityType TenantApiUsageState.getEntityType()",
+    "TenantProfileData TenantApiUsageState.getTenantProfileData()",
+    "org.thingsboard.server.common.data.id.TenantProfileId TenantApiUsageState.getTenantProfileId()",
+    "void TenantApiUsageState.setTenantProfileData(TenantProfileData)",
+    "void TenantApiUsageState.setTenantProfileId(org.thingsboard.server.common.data.id.TenantProfileId)"
+  })
   void testGettersAndSetters() {
     // Arrange
     TenantApiUsageState tenantApiUsageState = new TenantApiUsageState(new ApiUsageState());

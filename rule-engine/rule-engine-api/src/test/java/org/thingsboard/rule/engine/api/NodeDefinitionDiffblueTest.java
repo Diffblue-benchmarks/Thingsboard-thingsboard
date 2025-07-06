@@ -7,8 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
-import com.fasterxml.jackson.databind.node.NullNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,12 +15,14 @@ import org.junit.jupiter.api.Test;
 class NodeDefinitionDiffblueTest {
   /**
    * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeDefinition#equals(Object)}
    *   <li>{@link NodeDefinition#hashCode()}
@@ -36,7 +37,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -44,14 +45,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -59,9 +60,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertEquals(nodeDefinition, nodeDefinition2);
@@ -71,12 +72,14 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeDefinition#equals(Object)}
    *   <li>{@link NodeDefinition#hashCode()}
@@ -91,7 +94,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective(null);
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -99,14 +102,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective(null);
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -114,9 +117,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertEquals(nodeDefinition, nodeDefinition2);
@@ -126,67 +129,14 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link NodeDefinition#equals(Object)}
-   *   <li>{@link NodeDefinition#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
-    // Arrange
-    NodeDefinition nodeDefinition = new NodeDefinition();
-    nodeDefinition.setConfigDirective("Config Directive");
-    nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(null);
-    nodeDefinition.setDescription("The characteristics of someone or something");
-    nodeDefinition.setDetails("Details");
-    nodeDefinition.setDocUrl("https://example.org/example");
-    nodeDefinition.setIcon("Icon");
-    nodeDefinition.setIconUrl("https://example.org/example");
-    nodeDefinition.setInEnabled(true);
-    nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
-
-    NodeDefinition nodeDefinition2 = new NodeDefinition();
-    nodeDefinition2.setConfigDirective("Config Directive");
-    nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(null);
-    nodeDefinition2.setDescription("The characteristics of someone or something");
-    nodeDefinition2.setDetails("Details");
-    nodeDefinition2.setDocUrl("https://example.org/example");
-    nodeDefinition2.setIcon("Icon");
-    nodeDefinition2.setIconUrl("https://example.org/example");
-    nodeDefinition2.setInEnabled(true);
-    nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
-
-    // Act and Assert
-    assertEquals(nodeDefinition, nodeDefinition2);
-    int expectedHashCodeResult = nodeDefinition.hashCode();
-    assertEquals(expectedHashCodeResult, nodeDefinition2.hashCode());
-  }
-
-  /**
-   * Test {@link NodeDefinition#equals(Object)}, and {@link NodeDefinition#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeDefinition#equals(Object)}
    *   <li>{@link NodeDefinition#hashCode()}
@@ -201,7 +151,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -209,9 +159,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertEquals(nodeDefinition, nodeDefinition);
@@ -221,12 +171,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,7 +188,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Details");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -245,14 +196,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -260,9 +211,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -270,12 +221,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -286,7 +238,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective(null);
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -294,14 +246,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -309,9 +261,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -319,12 +271,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -335,7 +288,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(false);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -343,14 +296,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -358,9 +311,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -368,18 +321,69 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    NodeDefinition nodeDefinition = new NodeDefinition();
+    nodeDefinition.setConfigDirective("Config Directive");
+    nodeDefinition.setCustomRelations(true);
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(0.5d));
+    nodeDefinition.setDescription("The characteristics of someone or something");
+    nodeDefinition.setDetails("Details");
+    nodeDefinition.setDocUrl("https://example.org/example");
+    nodeDefinition.setIcon("Icon");
+    nodeDefinition.setIconUrl("https://example.org/example");
+    nodeDefinition.setInEnabled(true);
+    nodeDefinition.setOutEnabled(true);
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
+    nodeDefinition.setRuleChainNode(true);
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
+
+    NodeDefinition nodeDefinition2 = new NodeDefinition();
+    nodeDefinition2.setConfigDirective("Config Directive");
+    nodeDefinition2.setCustomRelations(true);
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
+    nodeDefinition2.setDescription("The characteristics of someone or something");
+    nodeDefinition2.setDetails("Details");
+    nodeDefinition2.setDocUrl("https://example.org/example");
+    nodeDefinition2.setIcon("Icon");
+    nodeDefinition2.setIconUrl("https://example.org/example");
+    nodeDefinition2.setInEnabled(true);
+    nodeDefinition2.setOutEnabled(true);
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
+    nodeDefinition2.setRuleChainNode(true);
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
+
+    // Act and Assert
+    assertNotEquals(nodeDefinition, nodeDefinition2);
+  }
+
+  /**
+   * Test {@link NodeDefinition#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
@@ -392,14 +396,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -407,9 +411,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -417,61 +421,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeDefinition.equals(Object)", "int NodeDefinition.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    NodeDefinition nodeDefinition = new NodeDefinition();
-    nodeDefinition.setConfigDirective("Config Directive");
-    nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(NullNode.getInstance());
-    nodeDefinition.setDescription("The characteristics of someone or something");
-    nodeDefinition.setDetails("Details");
-    nodeDefinition.setDocUrl("https://example.org/example");
-    nodeDefinition.setIcon("Icon");
-    nodeDefinition.setIconUrl("https://example.org/example");
-    nodeDefinition.setInEnabled(true);
-    nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
-
-    NodeDefinition nodeDefinition2 = new NodeDefinition();
-    nodeDefinition2.setConfigDirective("Config Directive");
-    nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
-    nodeDefinition2.setDescription("The characteristics of someone or something");
-    nodeDefinition2.setDetails("Details");
-    nodeDefinition2.setDocUrl("https://example.org/example");
-    nodeDefinition2.setIcon("Icon");
-    nodeDefinition2.setIconUrl("https://example.org/example");
-    nodeDefinition2.setInEnabled(true);
-    nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
-    nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
-
-    // Act and Assert
-    assertNotEquals(nodeDefinition, nodeDefinition2);
-  }
-
-  /**
-   * Test {@link NodeDefinition#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -482,7 +438,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("Details");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -490,14 +446,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -505,9 +461,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -515,12 +471,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -531,7 +488,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription(null);
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -539,14 +496,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -554,9 +511,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -564,12 +521,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -580,7 +538,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("The characteristics of someone or something");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -588,14 +546,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -603,9 +561,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -613,12 +571,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -629,7 +588,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails(null);
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -637,14 +596,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -652,9 +611,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -662,12 +621,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -678,7 +638,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("Details");
@@ -686,14 +646,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -701,9 +661,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -711,12 +671,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -727,7 +688,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl(null);
@@ -735,14 +696,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -750,9 +711,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -760,12 +721,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -776,7 +738,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -784,14 +746,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -799,9 +761,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -809,12 +771,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -825,7 +788,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -833,14 +796,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -848,9 +811,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -858,12 +821,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -874,7 +838,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -882,14 +846,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("Details");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -897,9 +861,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -907,12 +871,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -923,7 +888,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -931,14 +896,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl(null);
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -946,9 +911,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -956,12 +921,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -972,7 +938,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -980,14 +946,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(false);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -995,9 +961,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -1005,12 +971,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1021,7 +988,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1029,14 +996,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(false);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -1044,9 +1011,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -1054,12 +1021,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1070,7 +1038,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1078,14 +1046,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Details"});
+    nodeDefinition.setRelationTypes(new String[] {"Details"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -1093,9 +1061,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -1103,12 +1071,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1119,7 +1088,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1127,14 +1096,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(false);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -1142,9 +1111,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -1152,12 +1121,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1168,7 +1138,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1176,14 +1146,14 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Details"});
+    nodeDefinition.setUiResources(new String[] {"Details"});
 
     NodeDefinition nodeDefinition2 = new NodeDefinition();
     nodeDefinition2.setConfigDirective("Config Directive");
     nodeDefinition2.setCustomRelations(true);
-    nodeDefinition2.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition2.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition2.setDescription("The characteristics of someone or something");
     nodeDefinition2.setDetails("Details");
     nodeDefinition2.setDocUrl("https://example.org/example");
@@ -1191,9 +1161,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition2.setIconUrl("https://example.org/example");
     nodeDefinition2.setInEnabled(true);
     nodeDefinition2.setOutEnabled(true);
-    nodeDefinition2.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition2.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition2.setRuleChainNode(true);
-    nodeDefinition2.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition2.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, nodeDefinition2);
@@ -1201,12 +1171,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1217,7 +1188,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1225,9 +1196,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, null);
@@ -1235,12 +1206,13 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test {@link NodeDefinition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeDefinition#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeDefinition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -1251,7 +1223,7 @@ class NodeDefinitionDiffblueTest {
     NodeDefinition nodeDefinition = new NodeDefinition();
     nodeDefinition.setConfigDirective("Config Directive");
     nodeDefinition.setCustomRelations(true);
-    nodeDefinition.setDefaultConfiguration(MissingNode.getInstance());
+    nodeDefinition.setDefaultConfiguration(DoubleNode.valueOf(10.0d));
     nodeDefinition.setDescription("The characteristics of someone or something");
     nodeDefinition.setDetails("Details");
     nodeDefinition.setDocUrl("https://example.org/example");
@@ -1259,9 +1231,9 @@ class NodeDefinitionDiffblueTest {
     nodeDefinition.setIconUrl("https://example.org/example");
     nodeDefinition.setInEnabled(true);
     nodeDefinition.setOutEnabled(true);
-    nodeDefinition.setRelationTypes(new String[]{"Relation Types"});
+    nodeDefinition.setRelationTypes(new String[] {"Relation Types"});
     nodeDefinition.setRuleChainNode(true);
-    nodeDefinition.setUiResources(new String[]{"Ui Resources"});
+    nodeDefinition.setUiResources(new String[] {"Ui Resources"});
 
     // Act and Assert
     assertNotEquals(nodeDefinition, "Different type to NodeDefinition");
@@ -1269,8 +1241,9 @@ class NodeDefinitionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NodeDefinition}
    *   <li>{@link NodeDefinition#setConfigDirective(String)}
@@ -1305,26 +1278,42 @@ class NodeDefinitionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NodeDefinition.<init>()", "String NodeDefinition.getConfigDirective()",
-      "JsonNode NodeDefinition.getDefaultConfiguration()", "String NodeDefinition.getDescription()",
-      "String NodeDefinition.getDetails()", "String NodeDefinition.getDocUrl()", "String NodeDefinition.getIcon()",
-      "String NodeDefinition.getIconUrl()", "String[] NodeDefinition.getRelationTypes()",
-      "String[] NodeDefinition.getUiResources()", "boolean NodeDefinition.isCustomRelations()",
-      "boolean NodeDefinition.isInEnabled()", "boolean NodeDefinition.isOutEnabled()",
-      "boolean NodeDefinition.isRuleChainNode()", "void NodeDefinition.setConfigDirective(String)",
-      "void NodeDefinition.setCustomRelations(boolean)", "void NodeDefinition.setDefaultConfiguration(JsonNode)",
-      "void NodeDefinition.setDescription(String)", "void NodeDefinition.setDetails(String)",
-      "void NodeDefinition.setDocUrl(String)", "void NodeDefinition.setIcon(String)",
-      "void NodeDefinition.setIconUrl(String)", "void NodeDefinition.setInEnabled(boolean)",
-      "void NodeDefinition.setOutEnabled(boolean)", "void NodeDefinition.setRelationTypes(String[])",
-      "void NodeDefinition.setRuleChainNode(boolean)", "void NodeDefinition.setUiResources(String[])",
-      "String NodeDefinition.toString()"})
+  @MethodsUnderTest({
+    "void NodeDefinition.<init>()",
+    "String NodeDefinition.getConfigDirective()",
+    "JsonNode NodeDefinition.getDefaultConfiguration()",
+    "String NodeDefinition.getDescription()",
+    "String NodeDefinition.getDetails()",
+    "String NodeDefinition.getDocUrl()",
+    "String NodeDefinition.getIcon()",
+    "String NodeDefinition.getIconUrl()",
+    "String[] NodeDefinition.getRelationTypes()",
+    "String[] NodeDefinition.getUiResources()",
+    "boolean NodeDefinition.isCustomRelations()",
+    "boolean NodeDefinition.isInEnabled()",
+    "boolean NodeDefinition.isOutEnabled()",
+    "boolean NodeDefinition.isRuleChainNode()",
+    "void NodeDefinition.setConfigDirective(String)",
+    "void NodeDefinition.setCustomRelations(boolean)",
+    "void NodeDefinition.setDefaultConfiguration(JsonNode)",
+    "void NodeDefinition.setDescription(String)",
+    "void NodeDefinition.setDetails(String)",
+    "void NodeDefinition.setDocUrl(String)",
+    "void NodeDefinition.setIcon(String)",
+    "void NodeDefinition.setIconUrl(String)",
+    "void NodeDefinition.setInEnabled(boolean)",
+    "void NodeDefinition.setOutEnabled(boolean)",
+    "void NodeDefinition.setRelationTypes(String[])",
+    "void NodeDefinition.setRuleChainNode(boolean)",
+    "void NodeDefinition.setUiResources(String[])",
+    "String NodeDefinition.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NodeDefinition actualNodeDefinition = new NodeDefinition();
     actualNodeDefinition.setConfigDirective("Config Directive");
     actualNodeDefinition.setCustomRelations(true);
-    MissingNode defaultConfiguration = MissingNode.getInstance();
+    DoubleNode defaultConfiguration = DoubleNode.valueOf(10.0d);
     actualNodeDefinition.setDefaultConfiguration(defaultConfiguration);
     actualNodeDefinition.setDescription("The characteristics of someone or something");
     actualNodeDefinition.setDetails("Details");
@@ -1333,10 +1322,10 @@ class NodeDefinitionDiffblueTest {
     actualNodeDefinition.setIconUrl("https://example.org/example");
     actualNodeDefinition.setInEnabled(true);
     actualNodeDefinition.setOutEnabled(true);
-    String[] relationTypes = new String[]{"Relation Types"};
+    String[] relationTypes = new String[] {"Relation Types"};
     actualNodeDefinition.setRelationTypes(relationTypes);
     actualNodeDefinition.setRuleChainNode(true);
-    String[] uiResources = new String[]{"Ui Resources"};
+    String[] uiResources = new String[] {"Ui Resources"};
     actualNodeDefinition.setUiResources(uiResources);
     String actualToStringResult = actualNodeDefinition.toString();
     String actualConfigDirective = actualNodeDefinition.getConfigDirective();
@@ -1359,7 +1348,7 @@ class NodeDefinitionDiffblueTest {
     assertEquals(
         "NodeDefinition(details=Details, description=The characteristics of someone or something, inEnabled=true,"
             + " outEnabled=true, relationTypes=[Relation Types], customRelations=true, ruleChainNode=true,"
-            + " defaultConfiguration=, uiResources=[Ui Resources], configDirective=Config Directive, icon=Icon,"
+            + " defaultConfiguration=10.0, uiResources=[Ui Resources], configDirective=Config Directive, icon=Icon,"
             + " iconUrl=https://example.org/example, docUrl=https://example.org/example)",
         actualToStringResult);
     assertEquals("The characteristics of someone or something", actualDescription);
@@ -1372,7 +1361,7 @@ class NodeDefinitionDiffblueTest {
     assertSame(defaultConfiguration, actualDefaultConfiguration);
     assertSame(relationTypes, actualRelationTypes);
     assertSame(uiResources, actualUiResources);
-    assertArrayEquals(new String[]{"Relation Types"}, actualRelationTypes);
-    assertArrayEquals(new String[]{"Ui Resources"}, actualUiResources);
+    assertArrayEquals(new String[] {"Relation Types"}, actualRelationTypes);
+    assertArrayEquals(new String[] {"Ui Resources"}, actualUiResources);
   }
 }

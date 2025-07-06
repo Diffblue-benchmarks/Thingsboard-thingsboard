@@ -17,12 +17,14 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 class WidgetTypeDetailsDiffblueTest {
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}, and {@link WidgetTypeDetails#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#equals(Object)}
    *   <li>{@link WidgetTypeDetails#hashCode()}
@@ -31,7 +33,10 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -45,12 +50,14 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}, and {@link WidgetTypeDetails#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#equals(Object)}
    *   <li>{@link WidgetTypeDetails#hashCode()}
@@ -59,7 +66,10 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -76,12 +86,14 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}, and {@link WidgetTypeDetails#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#equals(Object)}
    *   <li>{@link WidgetTypeDetails#hashCode()}
@@ -90,7 +102,10 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -107,12 +122,14 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}, and {@link WidgetTypeDetails#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#equals(Object)}
    *   <li>{@link WidgetTypeDetails#hashCode()}
@@ -121,14 +138,19 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
-    widgetTypeDetails.setExternalId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setExternalId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     WidgetTypeDetails widgetTypeDetails2 = new WidgetTypeDetails();
-    widgetTypeDetails2.setExternalId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails2.setExternalId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(widgetTypeDetails, widgetTypeDetails2);
@@ -138,12 +160,14 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}, and {@link WidgetTypeDetails#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#equals(Object)}
    *   <li>{@link WidgetTypeDetails#hashCode()}
@@ -152,7 +176,10 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -165,17 +192,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetTypeDetails(), 1);
@@ -183,17 +214,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -205,17 +240,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -227,21 +266,25 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
-    widgetTypeDetails.setTags(new String[]{"Tags"});
+    widgetTypeDetails.setTags(new String[] {"Tags"});
 
     // Act and Assert
     assertNotEquals(widgetTypeDetails, new WidgetTypeDetails());
@@ -249,21 +292,26 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
-    widgetTypeDetails.setExternalId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setExternalId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(widgetTypeDetails, new WidgetTypeDetails());
@@ -271,17 +319,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -295,17 +347,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
@@ -319,23 +375,28 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
 
     WidgetTypeDetails widgetTypeDetails2 = new WidgetTypeDetails();
-    widgetTypeDetails2.setExternalId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails2.setExternalId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(widgetTypeDetails, widgetTypeDetails2);
@@ -343,17 +404,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetTypeDetails(), null);
@@ -361,17 +426,21 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetTypeDetails.equals(Object)", "int WidgetTypeDetails.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeDetails.equals(Object)",
+    "int WidgetTypeDetails.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetTypeDetails(), "Different type to WidgetTypeDetails");
@@ -379,8 +448,8 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#getExternalId()}.
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#getExternalId()}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -388,13 +457,14 @@ class WidgetTypeDetailsDiffblueTest {
   @MethodsUnderTest({"WidgetTypeId WidgetTypeDetails.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new WidgetTypeDetails()).getExternalId());
+    assertNull(new WidgetTypeDetails().getExternalId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeId)}
    *   <li>{@link WidgetTypeDetails#setDescription(String)}
@@ -410,11 +480,18 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeDetails.<init>()", "void WidgetTypeDetails.<init>(WidgetTypeId)",
-      "String WidgetTypeDetails.getDescription()", "String WidgetTypeDetails.getImage()",
-      "String[] WidgetTypeDetails.getTags()", "void WidgetTypeDetails.setDescription(String)",
-      "void WidgetTypeDetails.setExternalId(WidgetTypeId)", "void WidgetTypeDetails.setImage(String)",
-      "void WidgetTypeDetails.setTags(String[])", "String WidgetTypeDetails.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeDetails.<init>()",
+    "void WidgetTypeDetails.<init>(WidgetTypeId)",
+    "String WidgetTypeDetails.getDescription()",
+    "String WidgetTypeDetails.getImage()",
+    "String[] WidgetTypeDetails.getTags()",
+    "void WidgetTypeDetails.setDescription(String)",
+    "void WidgetTypeDetails.setExternalId(WidgetTypeId)",
+    "void WidgetTypeDetails.setImage(String)",
+    "void WidgetTypeDetails.setTags(String[])",
+    "String WidgetTypeDetails.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     WidgetTypeId id = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -422,10 +499,11 @@ class WidgetTypeDetailsDiffblueTest {
     // Act
     WidgetTypeDetails actualWidgetTypeDetails = new WidgetTypeDetails(id);
     actualWidgetTypeDetails.setDescription("The characteristics of someone or something");
-    WidgetTypeId externalId = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    WidgetTypeId externalId =
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualWidgetTypeDetails.setExternalId(externalId);
     actualWidgetTypeDetails.setImage("Image");
-    String[] tags = new String[]{"Tags"};
+    String[] tags = new String[] {"Tags"};
     actualWidgetTypeDetails.setTags(tags);
     String actualToStringResult = actualWidgetTypeDetails.toString();
     String actualDescription = actualWidgetTypeDetails.getDescription();
@@ -435,8 +513,10 @@ class WidgetTypeDetailsDiffblueTest {
     // Assert
     assertEquals("Image", actualImage);
     assertEquals("The characteristics of someone or something", actualDescription);
-    assertEquals("WidgetTypeDetails(image=Image, description=The characteristics of someone or something, tags=[Tags],"
-        + " externalId=784f394c-42b6-435a-983c-b7beff2784f9)", actualToStringResult);
+    assertEquals(
+        "WidgetTypeDetails(image=Image, description=The characteristics of someone or something, tags=[Tags],"
+            + " externalId=784f394c-42b6-435a-983c-b7beff2784f9)",
+        actualToStringResult);
     assertNull(actualWidgetTypeDetails.getDescriptor());
     assertNull(actualWidgetTypeDetails.getVersion());
     assertNull(actualWidgetTypeDetails.getFqn());
@@ -448,16 +528,18 @@ class WidgetTypeDetailsDiffblueTest {
     assertSame(id, actualWidgetTypeDetails.getId());
     assertSame(externalId, actualWidgetTypeDetails.getExternalId());
     assertSame(tags, actualTags);
-    assertArrayEquals(new String[]{"Tags"}, actualTags);
+    assertArrayEquals(new String[] {"Tags"}, actualTags);
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeDetails#WidgetTypeDetails()}
    *   <li>{@link WidgetTypeDetails#setDescription(String)}
@@ -473,19 +555,27 @@ class WidgetTypeDetailsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeDetails.<init>()", "void WidgetTypeDetails.<init>(WidgetTypeId)",
-      "String WidgetTypeDetails.getDescription()", "String WidgetTypeDetails.getImage()",
-      "String[] WidgetTypeDetails.getTags()", "void WidgetTypeDetails.setDescription(String)",
-      "void WidgetTypeDetails.setExternalId(WidgetTypeId)", "void WidgetTypeDetails.setImage(String)",
-      "void WidgetTypeDetails.setTags(String[])", "String WidgetTypeDetails.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeDetails.<init>()",
+    "void WidgetTypeDetails.<init>(WidgetTypeId)",
+    "String WidgetTypeDetails.getDescription()",
+    "String WidgetTypeDetails.getImage()",
+    "String[] WidgetTypeDetails.getTags()",
+    "void WidgetTypeDetails.setDescription(String)",
+    "void WidgetTypeDetails.setExternalId(WidgetTypeId)",
+    "void WidgetTypeDetails.setImage(String)",
+    "void WidgetTypeDetails.setTags(String[])",
+    "String WidgetTypeDetails.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     WidgetTypeDetails actualWidgetTypeDetails = new WidgetTypeDetails();
     actualWidgetTypeDetails.setDescription("The characteristics of someone or something");
-    WidgetTypeId externalId = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    WidgetTypeId externalId =
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualWidgetTypeDetails.setExternalId(externalId);
     actualWidgetTypeDetails.setImage("Image");
-    String[] tags = new String[]{"Tags"};
+    String[] tags = new String[] {"Tags"};
     actualWidgetTypeDetails.setTags(tags);
     String actualToStringResult = actualWidgetTypeDetails.toString();
     String actualDescription = actualWidgetTypeDetails.getDescription();
@@ -495,8 +585,10 @@ class WidgetTypeDetailsDiffblueTest {
     // Assert
     assertEquals("Image", actualImage);
     assertEquals("The characteristics of someone or something", actualDescription);
-    assertEquals("WidgetTypeDetails(image=Image, description=The characteristics of someone or something, tags=[Tags],"
-        + " externalId=784f394c-42b6-435a-983c-b7beff2784f9)", actualToStringResult);
+    assertEquals(
+        "WidgetTypeDetails(image=Image, description=The characteristics of someone or something, tags=[Tags],"
+            + " externalId=784f394c-42b6-435a-983c-b7beff2784f9)",
+        actualToStringResult);
     assertNull(actualWidgetTypeDetails.getDescriptor());
     assertNull(actualWidgetTypeDetails.getVersion());
     assertNull(actualWidgetTypeDetails.getFqn());
@@ -508,17 +600,18 @@ class WidgetTypeDetailsDiffblueTest {
     assertFalse(actualWidgetTypeDetails.isScada());
     assertSame(externalId, actualWidgetTypeDetails.getExternalId());
     assertSame(tags, actualTags);
-    assertArrayEquals(new String[]{"Tags"}, actualTags);
+    assertArrayEquals(new String[] {"Tags"}, actualTags);
   }
 
   /**
    * Test {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Deprecated.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}
    */
   @Test
   @DisplayName("Test new WidgetTypeDetails(BaseWidgetType); given 'true'; then return Deprecated")
@@ -551,15 +644,17 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()} Deprecated is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()} Deprecated is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeDetails(WidgetTypeDetails); given 'true'; when WidgetTypeDetails() Deprecated is 'true'")
+  @DisplayName(
+      "Test new WidgetTypeDetails(WidgetTypeDetails); given 'true'; when WidgetTypeDetails() Deprecated is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeDetails.<init>(WidgetTypeDetails)"})
   void testNewWidgetTypeDetails_givenTrue_whenWidgetTypeDetailsDeprecatedIsTrue() {
@@ -573,15 +668,17 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.</li>
-   *   <li>Then return not Deprecated.</li>
+   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.
+   *   <li>Then return not Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(BaseWidgetType)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeDetails(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
+  @DisplayName(
+      "Test new WidgetTypeDetails(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeDetails.<init>(BaseWidgetType)"})
   void testNewWidgetTypeDetails_whenBaseWidgetType_thenReturnNotDeprecated() {
@@ -607,11 +704,12 @@ class WidgetTypeDetailsDiffblueTest {
 
   /**
    * Test {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()}.</li>
+   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}
+   *
+   * <p>Method under test: {@link WidgetTypeDetails#WidgetTypeDetails(WidgetTypeDetails)}
    */
   @Test
   @DisplayName("Test new WidgetTypeDetails(WidgetTypeDetails); when WidgetTypeDetails()")

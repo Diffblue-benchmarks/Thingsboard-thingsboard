@@ -16,12 +16,14 @@ import org.thingsboard.server.common.data.query.DynamicValueSourceType;
 class CustomTimeScheduleDiffblueTest {
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}, and {@link CustomTimeSchedule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomTimeSchedule#equals(Object)}
    *   <li>{@link CustomTimeSchedule#hashCode()}
@@ -30,16 +32,21 @@ class CustomTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone("UTC");
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -51,12 +58,14 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}, and {@link CustomTimeSchedule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomTimeSchedule#equals(Object)}
    *   <li>{@link CustomTimeSchedule#hashCode()}
@@ -65,7 +74,10 @@ class CustomTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
@@ -86,12 +98,14 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}, and {@link CustomTimeSchedule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomTimeSchedule#equals(Object)}
    *   <li>{@link CustomTimeSchedule#hashCode()}
@@ -100,16 +114,21 @@ class CustomTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone(null);
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone(null);
 
@@ -121,12 +140,14 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}, and {@link CustomTimeSchedule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomTimeSchedule#equals(Object)}
    *   <li>{@link CustomTimeSchedule#hashCode()}
@@ -135,11 +156,15 @@ class CustomTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone("UTC");
 
@@ -151,17 +176,21 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
@@ -170,7 +199,8 @@ class CustomTimeScheduleDiffblueTest {
     customTimeSchedule.setTimezone("UTC");
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -180,17 +210,21 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
@@ -199,7 +233,8 @@ class CustomTimeScheduleDiffblueTest {
     customTimeSchedule.setTimezone("UTC");
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -209,17 +244,21 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CustomTimeScheduleItem customTimeScheduleItem = new CustomTimeScheduleItem();
@@ -232,12 +271,14 @@ class CustomTimeScheduleDiffblueTest {
     items.add(customTimeScheduleItem);
 
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(items);
     customTimeSchedule.setTimezone("UTC");
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -247,26 +288,32 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone(System.getProperty("user.timezone"));
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -276,26 +323,32 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone(null);
 
     CustomTimeSchedule customTimeSchedule2 = new CustomTimeSchedule();
-    customTimeSchedule2.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule2.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule2.setItems(new ArrayList<>());
     customTimeSchedule2.setTimezone("UTC");
 
@@ -305,21 +358,26 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone("UTC");
 
@@ -329,21 +387,26 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test {@link CustomTimeSchedule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomTimeSchedule#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomTimeSchedule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean CustomTimeSchedule.equals(Object)", "int CustomTimeSchedule.hashCode()"})
+  @MethodsUnderTest({
+    "boolean CustomTimeSchedule.equals(Object)",
+    "int CustomTimeSchedule.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CustomTimeSchedule customTimeSchedule = new CustomTimeSchedule();
-    customTimeSchedule.setDynamicValue(new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    customTimeSchedule.setDynamicValue(
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
     customTimeSchedule.setItems(new ArrayList<>());
     customTimeSchedule.setTimezone("UTC");
 
@@ -353,8 +416,9 @@ class CustomTimeScheduleDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link CustomTimeSchedule}
    *   <li>{@link CustomTimeSchedule#setDynamicValue(DynamicValue)}
@@ -370,15 +434,22 @@ class CustomTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CustomTimeSchedule.<init>()", "DynamicValue CustomTimeSchedule.getDynamicValue()",
-      "List CustomTimeSchedule.getItems()", "String CustomTimeSchedule.getTimezone()",
-      "AlarmScheduleType CustomTimeSchedule.getType()", "void CustomTimeSchedule.setDynamicValue(DynamicValue)",
-      "void CustomTimeSchedule.setItems(List)", "void CustomTimeSchedule.setTimezone(String)",
-      "String CustomTimeSchedule.toString()"})
+  @MethodsUnderTest({
+    "void CustomTimeSchedule.<init>()",
+    "DynamicValue CustomTimeSchedule.getDynamicValue()",
+    "List CustomTimeSchedule.getItems()",
+    "String CustomTimeSchedule.getTimezone()",
+    "AlarmScheduleType CustomTimeSchedule.getType()",
+    "void CustomTimeSchedule.setDynamicValue(DynamicValue)",
+    "void CustomTimeSchedule.setItems(List)",
+    "void CustomTimeSchedule.setTimezone(String)",
+    "String CustomTimeSchedule.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     CustomTimeSchedule actualCustomTimeSchedule = new CustomTimeSchedule();
-    DynamicValue<String> dynamicValue = new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
+    DynamicValue<String> dynamicValue =
+        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute");
 
     actualCustomTimeSchedule.setDynamicValue(dynamicValue);
     ArrayList<CustomTimeScheduleItem> items = new ArrayList<>();
@@ -390,8 +461,10 @@ class CustomTimeScheduleDiffblueTest {
     String actualTimezone = actualCustomTimeSchedule.getTimezone();
 
     // Assert
-    assertEquals("CustomTimeSchedule(timezone=UTC, items=[], dynamicValue=DynamicValue(resolvedValue=null, sourceType"
-        + "=CURRENT_TENANT, sourceAttribute=Source Attribute, inherit=false))", actualToStringResult);
+    assertEquals(
+        "CustomTimeSchedule(timezone=UTC, items=[], dynamicValue=DynamicValue(resolvedValue=null, sourceType"
+            + "=CURRENT_TENANT, sourceAttribute=Source Attribute, inherit=false))",
+        actualToStringResult);
     assertEquals("UTC", actualTimezone);
     assertEquals(AlarmScheduleType.CUSTOM, actualCustomTimeSchedule.getType());
     assertTrue(actualItems.isEmpty());

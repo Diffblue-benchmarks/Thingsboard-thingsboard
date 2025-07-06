@@ -19,8 +19,8 @@ import org.thingsboard.server.common.data.rule.RuleChain;
 class RuleChainActorMessageProcessorDiffblueTest {
   /**
    * Test {@link RuleChainActorMessageProcessor#getComponentName()}.
-   * <p>
-   * Method under test: {@link RuleChainActorMessageProcessor#getComponentName()}
+   *
+   * <p>Method under test: {@link RuleChainActorMessageProcessor#getComponentName()}
    */
   @Test
   @DisplayName("Test getComponentName()")
@@ -35,8 +35,9 @@ class RuleChainActorMessageProcessorDiffblueTest {
     TbActorSystemSettings settings = new TbActorSystemSettings(1, 3, 3);
 
     TbActorId selfId = mock(TbActorId.class);
-    TbActorMailbox parent = new TbActorMailbox(system, settings, selfId, null, new StatsActor(new ActorSystemContext()),
-        null);
+    TbActorMailbox parent =
+        new TbActorMailbox(
+            system, settings, selfId, null, new StatsActor(new ActorSystemContext()), null);
 
     DefaultTbActorSystem system2 = new DefaultTbActorSystem(new TbActorSystemSettings(1, 3, 3));
     TbActorSystemSettings settings2 = new TbActorSystemSettings(1, 3, 3);
@@ -44,8 +45,19 @@ class RuleChainActorMessageProcessorDiffblueTest {
     TbActorId selfId2 = mock(TbActorId.class);
 
     // Act and Assert
-    assertNull((new RuleChainActorMessageProcessor(tenantId, ruleChain, systemContext, parent,
-        new TbActorMailbox(system2, settings2, selfId2, null, new StatsActor(new ActorSystemContext()), null)))
-        .getComponentName());
+    assertNull(
+        new RuleChainActorMessageProcessor(
+                tenantId,
+                ruleChain,
+                systemContext,
+                parent,
+                new TbActorMailbox(
+                    system2,
+                    settings2,
+                    selfId2,
+                    null,
+                    new StatsActor(new ActorSystemContext()),
+                    null))
+            .getComponentName());
   }
 }

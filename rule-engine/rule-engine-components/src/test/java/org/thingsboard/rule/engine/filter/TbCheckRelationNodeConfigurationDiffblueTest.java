@@ -12,17 +12,19 @@ import org.junit.jupiter.api.Test;
 class TbCheckRelationNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbCheckRelationNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbCheckRelationNodeConfiguration TbCheckRelationNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbCheckRelationNodeConfiguration TbCheckRelationNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbCheckRelationNodeConfiguration actualDefaultConfigurationResult = (new TbCheckRelationNodeConfiguration())
-        .defaultConfiguration();
+    TbCheckRelationNodeConfiguration actualDefaultConfigurationResult =
+        new TbCheckRelationNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("Contains", actualDefaultConfigurationResult.getRelationType());
@@ -33,13 +35,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -48,12 +53,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbCheckRelationNodeConfiguration, tbCheckRelationNodeConfiguration2);
@@ -62,13 +71,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -77,14 +89,18 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setDirection("Direction");
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setDirection("Direction");
 
     // Act and Assert
@@ -94,13 +110,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -109,14 +128,18 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setEntityId("42");
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setEntityId("42");
 
     // Act and Assert
@@ -126,13 +149,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -141,14 +167,18 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setEntityType("Entity Type");
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setEntityType("Entity Type");
 
     // Act and Assert
@@ -158,13 +188,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -173,14 +206,18 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setRelationType("Relation Type");
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setRelationType("Relation Type");
 
     // Act and Assert
@@ -190,13 +227,16 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link TbCheckRelationNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckRelationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckRelationNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckRelationNodeConfiguration#hashCode()}
@@ -205,11 +245,14 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbCheckRelationNodeConfiguration, tbCheckRelationNodeConfiguration);
@@ -219,18 +262,21 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckRelationNodeConfiguration(), 1);
@@ -238,21 +284,25 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setDirection("Direction");
 
     // Act and Assert
@@ -261,21 +311,25 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setEntityId("42");
 
     // Act and Assert
@@ -284,21 +338,25 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setEntityType("Entity Type");
 
     // Act and Assert
@@ -307,21 +365,25 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setRelationType("Relation Type");
 
     // Act and Assert
@@ -330,21 +392,25 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration.setCheckForSingleEntity(true);
 
     // Act and Assert
@@ -353,23 +419,28 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setDirection("Direction");
 
     // Act and Assert
@@ -378,23 +449,28 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setEntityId("42");
 
     // Act and Assert
@@ -403,23 +479,28 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setEntityType("Entity Type");
 
     // Act and Assert
@@ -428,23 +509,28 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
 
-    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration tbCheckRelationNodeConfiguration2 =
+        new TbCheckRelationNodeConfiguration();
     tbCheckRelationNodeConfiguration2.setRelationType("Relation Type");
 
     // Act and Assert
@@ -453,18 +539,21 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckRelationNodeConfiguration(), null);
@@ -472,27 +561,33 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckRelationNodeConfiguration.equals(Object)",
-      "int TbCheckRelationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckRelationNodeConfiguration.equals(Object)",
+    "int TbCheckRelationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCheckRelationNodeConfiguration(), "Different type to TbCheckRelationNodeConfiguration");
+    assertNotEquals(
+        new TbCheckRelationNodeConfiguration(),
+        "Different type to TbCheckRelationNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbCheckRelationNodeConfiguration}
    *   <li>{@link TbCheckRelationNodeConfiguration#setCheckForSingleEntity(boolean)}
@@ -511,20 +606,24 @@ class TbCheckRelationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCheckRelationNodeConfiguration.<init>()",
-      "String TbCheckRelationNodeConfiguration.getDirection()", "String TbCheckRelationNodeConfiguration.getEntityId()",
-      "String TbCheckRelationNodeConfiguration.getEntityType()",
-      "String TbCheckRelationNodeConfiguration.getRelationType()",
-      "boolean TbCheckRelationNodeConfiguration.isCheckForSingleEntity()",
-      "void TbCheckRelationNodeConfiguration.setCheckForSingleEntity(boolean)",
-      "void TbCheckRelationNodeConfiguration.setDirection(String)",
-      "void TbCheckRelationNodeConfiguration.setEntityId(String)",
-      "void TbCheckRelationNodeConfiguration.setEntityType(String)",
-      "void TbCheckRelationNodeConfiguration.setRelationType(String)",
-      "String TbCheckRelationNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbCheckRelationNodeConfiguration.<init>()",
+    "String TbCheckRelationNodeConfiguration.getDirection()",
+    "String TbCheckRelationNodeConfiguration.getEntityId()",
+    "String TbCheckRelationNodeConfiguration.getEntityType()",
+    "String TbCheckRelationNodeConfiguration.getRelationType()",
+    "boolean TbCheckRelationNodeConfiguration.isCheckForSingleEntity()",
+    "void TbCheckRelationNodeConfiguration.setCheckForSingleEntity(boolean)",
+    "void TbCheckRelationNodeConfiguration.setDirection(String)",
+    "void TbCheckRelationNodeConfiguration.setEntityId(String)",
+    "void TbCheckRelationNodeConfiguration.setEntityType(String)",
+    "void TbCheckRelationNodeConfiguration.setRelationType(String)",
+    "String TbCheckRelationNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbCheckRelationNodeConfiguration actualTbCheckRelationNodeConfiguration = new TbCheckRelationNodeConfiguration();
+    TbCheckRelationNodeConfiguration actualTbCheckRelationNodeConfiguration =
+        new TbCheckRelationNodeConfiguration();
     actualTbCheckRelationNodeConfiguration.setCheckForSingleEntity(true);
     actualTbCheckRelationNodeConfiguration.setDirection("Direction");
     actualTbCheckRelationNodeConfiguration.setEntityId("42");

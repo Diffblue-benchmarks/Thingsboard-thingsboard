@@ -16,8 +16,9 @@ import org.thingsboard.server.common.data.device.profile.AlarmConditionKeyType;
 class SnapshotUpdateDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SnapshotUpdate#SnapshotUpdate(AlarmConditionKeyType, Set)}
    *   <li>{@link SnapshotUpdate#getKeys()}
@@ -27,8 +28,11 @@ class SnapshotUpdateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SnapshotUpdate.<init>(AlarmConditionKeyType, Set)", "Set SnapshotUpdate.getKeys()",
-      "AlarmConditionKeyType SnapshotUpdate.getType()"})
+  @MethodsUnderTest({
+    "void SnapshotUpdate.<init>(AlarmConditionKeyType, Set)",
+    "Set SnapshotUpdate.getKeys()",
+    "AlarmConditionKeyType SnapshotUpdate.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HashSet<AlarmConditionFilterKey> keys = new HashSet<>();
@@ -45,11 +49,12 @@ class SnapshotUpdateDiffblueTest {
 
   /**
    * Test {@link SnapshotUpdate#hasUpdate()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnapshotUpdate#hasUpdate()}
+   *
+   * <p>Method under test: {@link SnapshotUpdate#hasUpdate()}
    */
   @Test
   @DisplayName("Test hasUpdate(); then return 'false'")
@@ -57,16 +62,17 @@ class SnapshotUpdateDiffblueTest {
   @MethodsUnderTest({"boolean SnapshotUpdate.hasUpdate()"})
   void testHasUpdate_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new SnapshotUpdate(AlarmConditionKeyType.ATTRIBUTE, new HashSet<>())).hasUpdate());
+    assertFalse(new SnapshotUpdate(AlarmConditionKeyType.ATTRIBUTE, new HashSet<>()).hasUpdate());
   }
 
   /**
    * Test {@link SnapshotUpdate#hasUpdate()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnapshotUpdate#hasUpdate()}
+   *
+   * <p>Method under test: {@link SnapshotUpdate#hasUpdate()}
    */
   @Test
   @DisplayName("Test hasUpdate(); then return 'true'")
@@ -78,6 +84,6 @@ class SnapshotUpdateDiffblueTest {
     keys.add(new AlarmConditionFilterKey(AlarmConditionKeyType.ATTRIBUTE, "Key"));
 
     // Act and Assert
-    assertTrue((new SnapshotUpdate(AlarmConditionKeyType.ATTRIBUTE, keys)).hasUpdate());
+    assertTrue(new SnapshotUpdate(AlarmConditionKeyType.ATTRIBUTE, keys).hasUpdate());
   }
 }

@@ -19,23 +19,24 @@ import org.thingsboard.server.dao.cassandra.guava.GuavaSession;
 
 @ExtendWith(MockitoExtension.class)
 class AbstractCassandraClusterDiffblueTest {
-  @InjectMocks
-  private CassandraCluster cassandraCluster;
+  @InjectMocks private CassandraCluster cassandraCluster;
 
-  @Mock
-  private Environment environment;
+  @Mock private Environment environment;
 
   /**
    * Test {@link AbstractCassandraCluster#getSession()}.
+   *
    * <ul>
-   *   <li>Given {@link Environment} {@link Environment#acceptsProfiles(Profiles)} return {@code false}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Environment} {@link Environment#acceptsProfiles(Profiles)} return {@code
+   *       false}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCassandraCluster#getSession()}
+   *
+   * <p>Method under test: {@link AbstractCassandraCluster#getSession()}
    */
   @Test
-  @DisplayName("Test getSession(); given Environment acceptsProfiles(Profiles) return 'false'; then return 'null'")
+  @DisplayName(
+      "Test getSession(); given Environment acceptsProfiles(Profiles) return 'false'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"GuavaSession AbstractCassandraCluster.getSession()"})
   void testGetSession_givenEnvironmentAcceptsProfilesReturnFalse_thenReturnNull() {
@@ -52,8 +53,8 @@ class AbstractCassandraClusterDiffblueTest {
 
   /**
    * Test {@link AbstractCassandraCluster#getKeyspaceName()}.
-   * <p>
-   * Method under test: {@link AbstractCassandraCluster#getKeyspaceName()}
+   *
+   * <p>Method under test: {@link AbstractCassandraCluster#getKeyspaceName()}
    */
   @Test
   @DisplayName("Test getKeyspaceName()")
@@ -61,6 +62,6 @@ class AbstractCassandraClusterDiffblueTest {
   @MethodsUnderTest({"java.lang.String AbstractCassandraCluster.getKeyspaceName()"})
   void testGetKeyspaceName() {
     // Arrange, Act and Assert
-    assertNull((new CassandraCluster()).getKeyspaceName());
+    assertNull(new CassandraCluster().getKeyspaceName());
   }
 }

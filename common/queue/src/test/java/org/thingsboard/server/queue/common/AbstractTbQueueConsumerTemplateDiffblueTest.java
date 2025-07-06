@@ -16,11 +16,12 @@ import org.thingsboard.server.queue.azure.servicebus.TbServiceBusSettings;
 class AbstractTbQueueConsumerTemplateDiffblueTest {
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#poll(long)}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#poll(long)}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#poll(long)}
    */
   @Test
   @DisplayName("Test poll(long); then return Empty")
@@ -28,8 +29,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"java.util.List AbstractTbQueueConsumerTemplate.poll(long)"})
   void testPoll_thenReturnEmpty() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act and Assert
     assertTrue(tbServiceBusConsumerTemplate.poll(1L).isEmpty());
@@ -37,8 +39,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#stop()}.
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#stop()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#stop()}
    */
   @Test
   @DisplayName("Test stop()")
@@ -46,8 +48,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"void AbstractTbQueueConsumerTemplate.stop()"})
   void testStop() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act
     tbServiceBusConsumerTemplate.stop();
@@ -58,8 +61,8 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#unsubscribe()}.
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#unsubscribe()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#unsubscribe()}
    */
   @Test
   @DisplayName("Test unsubscribe()")
@@ -67,8 +70,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"void AbstractTbQueueConsumerTemplate.unsubscribe()"})
   void testUnsubscribe() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act
     tbServiceBusConsumerTemplate.unsubscribe();
@@ -79,11 +83,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#isStopped()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#isStopped()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#isStopped()}
    */
   @Test
   @DisplayName("Test isStopped(); then return 'false'")
@@ -91,8 +96,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"boolean AbstractTbQueueConsumerTemplate.isStopped()"})
   void testIsStopped_thenReturnFalse() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act and Assert
     assertFalse(tbServiceBusConsumerTemplate.isStopped());
@@ -100,11 +106,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#getFullTopicNames()}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#getFullTopicNames()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#getFullTopicNames()}
    */
   @Test
   @DisplayName("Test getFullTopicNames(); then return Empty")
@@ -112,8 +119,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"java.util.List AbstractTbQueueConsumerTemplate.getFullTopicNames()"})
   void testGetFullTopicNames_thenReturnEmpty() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act and Assert
     assertTrue(tbServiceBusConsumerTemplate.getFullTopicNames().isEmpty());
@@ -121,11 +129,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#isLongPollingSupported()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#isLongPollingSupported()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#isLongPollingSupported()}
    */
   @Test
   @DisplayName("Test isLongPollingSupported(); then return 'false'")
@@ -133,8 +142,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"boolean AbstractTbQueueConsumerTemplate.isLongPollingSupported()"})
   void testIsLongPollingSupported_thenReturnFalse() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act and Assert
     assertFalse(tbServiceBusConsumerTemplate.isLongPollingSupported());
@@ -142,11 +152,12 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
 
   /**
    * Test {@link AbstractTbQueueConsumerTemplate#getTopic()}.
+   *
    * <ul>
-   *   <li>Then return {@code Topic}.</li>
+   *   <li>Then return {@code Topic}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractTbQueueConsumerTemplate#getTopic()}
+   *
+   * <p>Method under test: {@link AbstractTbQueueConsumerTemplate#getTopic()}
    */
   @Test
   @DisplayName("Test getTopic(); then return 'Topic'")
@@ -154,8 +165,9 @@ class AbstractTbQueueConsumerTemplateDiffblueTest {
   @MethodsUnderTest({"java.lang.String AbstractTbQueueConsumerTemplate.getTopic()"})
   void testGetTopic_thenReturnTopic() {
     // Arrange
-    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate = new TbServiceBusConsumerTemplate<>(null,
-        new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
+    TbServiceBusConsumerTemplate<TbQueueMsg> tbServiceBusConsumerTemplate =
+        new TbServiceBusConsumerTemplate<>(
+            null, new TbServiceBusSettings(), "Topic", mock(TbQueueMsgDecoder.class));
 
     // Act and Assert
     assertEquals("Topic", tbServiceBusConsumerTemplate.getTopic());

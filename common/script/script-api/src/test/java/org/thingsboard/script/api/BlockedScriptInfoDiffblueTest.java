@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class BlockedScriptInfoDiffblueTest {
   /**
    * Test {@link BlockedScriptInfo#BlockedScriptInfo(int)}.
-   * <p>
-   * Method under test: {@link BlockedScriptInfo#BlockedScriptInfo(int)}
+   *
+   * <p>Method under test: {@link BlockedScriptInfo#BlockedScriptInfo(int)}
    */
   @Test
   @DisplayName("Test new BlockedScriptInfo(int)")
@@ -27,8 +27,8 @@ class BlockedScriptInfoDiffblueTest {
 
   /**
    * Test {@link BlockedScriptInfo#get()}.
-   * <p>
-   * Method under test: {@link BlockedScriptInfo#get()}
+   *
+   * <p>Method under test: {@link BlockedScriptInfo#get()}
    */
   @Test
   @DisplayName("Test get()")
@@ -36,13 +36,13 @@ class BlockedScriptInfoDiffblueTest {
   @MethodsUnderTest({"int BlockedScriptInfo.get()"})
   void testGet() {
     // Arrange, Act and Assert
-    assertEquals(0, (new BlockedScriptInfo(3)).get());
+    assertEquals(0, new BlockedScriptInfo(3).get());
   }
 
   /**
    * Test {@link BlockedScriptInfo#incrementAndGet()}.
-   * <p>
-   * Method under test: {@link BlockedScriptInfo#incrementAndGet()}
+   *
+   * <p>Method under test: {@link BlockedScriptInfo#incrementAndGet()}
    */
   @Test
   @DisplayName("Test incrementAndGet()")
@@ -62,8 +62,8 @@ class BlockedScriptInfoDiffblueTest {
 
   /**
    * Test {@link BlockedScriptInfo#getExpirationTime()}.
-   * <p>
-   * Method under test: {@link BlockedScriptInfo#getExpirationTime()}
+   *
+   * <p>Method under test: {@link BlockedScriptInfo#getExpirationTime()}
    */
   @Test
   @DisplayName("Test getExpirationTime()")
@@ -71,6 +71,6 @@ class BlockedScriptInfoDiffblueTest {
   @MethodsUnderTest({"long BlockedScriptInfo.getExpirationTime()"})
   void testGetExpirationTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new BlockedScriptInfo(3)).getExpirationTime());
+    assertEquals(0L, new BlockedScriptInfo(3).getExpirationTime());
   }
 }

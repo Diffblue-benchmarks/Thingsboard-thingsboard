@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class ToDeviceRpcRequestBodyDiffblueTest {
   /**
-   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link ToDeviceRpcRequestBody#hashCode()}.
+   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link
+   * ToDeviceRpcRequestBody#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ToDeviceRpcRequestBody#equals(Object)}
    *   <li>{@link ToDeviceRpcRequestBody#hashCode()}
@@ -24,7 +27,10 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", "Params");
@@ -37,13 +43,16 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   }
 
   /**
-   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link ToDeviceRpcRequestBody#hashCode()}.
+   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link
+   * ToDeviceRpcRequestBody#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ToDeviceRpcRequestBody#equals(Object)}
    *   <li>{@link ToDeviceRpcRequestBody#hashCode()}
@@ -52,7 +61,10 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody(null, "Params");
@@ -65,13 +77,16 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   }
 
   /**
-   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link ToDeviceRpcRequestBody#hashCode()}.
+   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link
+   * ToDeviceRpcRequestBody#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ToDeviceRpcRequestBody#equals(Object)}
    *   <li>{@link ToDeviceRpcRequestBody#hashCode()}
@@ -80,7 +95,10 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", null);
@@ -93,13 +111,16 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   }
 
   /**
-   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link ToDeviceRpcRequestBody#hashCode()}.
+   * Test {@link ToDeviceRpcRequestBody#equals(Object)}, and {@link
+   * ToDeviceRpcRequestBody#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ToDeviceRpcRequestBody#equals(Object)}
    *   <li>{@link ToDeviceRpcRequestBody#hashCode()}
@@ -108,7 +129,10 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", "Params");
@@ -121,17 +145,21 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Params", "Params");
@@ -142,17 +170,21 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody(null, "Params");
@@ -163,17 +195,21 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", "Method");
@@ -184,17 +220,21 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ToDeviceRpcRequestBody toDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", null);
@@ -205,17 +245,21 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ToDeviceRpcRequestBody("Method", "Params"), null);
@@ -223,26 +267,32 @@ class ToDeviceRpcRequestBodyDiffblueTest {
 
   /**
    * Test {@link ToDeviceRpcRequestBody#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
+   *
+   * <p>Method under test: {@link ToDeviceRpcRequestBody#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ToDeviceRpcRequestBody.equals(Object)", "int ToDeviceRpcRequestBody.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ToDeviceRpcRequestBody.equals(Object)",
+    "int ToDeviceRpcRequestBody.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ToDeviceRpcRequestBody("Method", "Params"), "Different type to ToDeviceRpcRequestBody");
+    assertNotEquals(
+        new ToDeviceRpcRequestBody("Method", "Params"), "Different type to ToDeviceRpcRequestBody");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ToDeviceRpcRequestBody#ToDeviceRpcRequestBody(String, String)}
    *   <li>{@link ToDeviceRpcRequestBody#toString()}
@@ -253,11 +303,16 @@ class ToDeviceRpcRequestBodyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ToDeviceRpcRequestBody.<init>(String, String)", "String ToDeviceRpcRequestBody.getMethod()",
-      "String ToDeviceRpcRequestBody.getParams()", "String ToDeviceRpcRequestBody.toString()"})
+  @MethodsUnderTest({
+    "void ToDeviceRpcRequestBody.<init>(String, String)",
+    "String ToDeviceRpcRequestBody.getMethod()",
+    "String ToDeviceRpcRequestBody.getParams()",
+    "String ToDeviceRpcRequestBody.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    ToDeviceRpcRequestBody actualToDeviceRpcRequestBody = new ToDeviceRpcRequestBody("Method", "Params");
+    ToDeviceRpcRequestBody actualToDeviceRpcRequestBody =
+        new ToDeviceRpcRequestBody("Method", "Params");
     String actualToStringResult = actualToDeviceRpcRequestBody.toString();
     String actualMethod = actualToDeviceRpcRequestBody.getMethod();
 

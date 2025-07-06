@@ -22,14 +22,17 @@ import org.thingsboard.server.common.data.query.TsValue;
 class EntityDataUpdateDiffblueTest {
   /**
    * Test {@link EntityDataUpdate#getLatest(UUID, String)}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmId#AlarmId(UUID)} with id is fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Given {@link AlarmId#AlarmId(UUID)} with id is fromString {@code
+   *       784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
    */
   @Test
-  @DisplayName("Test getLatest(UUID, String); given AlarmId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test getLatest(UUID, String); given AlarmId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String EntityDataUpdate.getLatest(UUID, String)"})
   void testGetLatest_givenAlarmIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9() {
@@ -43,20 +46,23 @@ class EntityDataUpdateDiffblueTest {
     entityDataUpdate.setUpdate(update);
 
     // Act and Assert
-    assertNull(entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 
   /**
    * Test {@link EntityDataUpdate#getLatest(UUID, String)}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmId#AlarmId(UUID)} with id is randomUUID.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link AlarmId#AlarmId(UUID)} with id is randomUUID.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
    */
   @Test
-  @DisplayName("Test getLatest(UUID, String); given AlarmId(UUID) with id is randomUUID; then return 'null'")
+  @DisplayName(
+      "Test getLatest(UUID, String); given AlarmId(UUID) with id is randomUUID; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String EntityDataUpdate.getLatest(UUID, String)"})
   void testGetLatest_givenAlarmIdWithIdIsRandomUUID_thenReturnNull() {
@@ -70,20 +76,24 @@ class EntityDataUpdateDiffblueTest {
     entityDataUpdate.setUpdate(update);
 
     // Act and Assert
-    assertNull(entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 
   /**
    * Test {@link EntityDataUpdate#getLatest(UUID, String)}.
+   *
    * <ul>
-   *   <li>Given {@link EntityDataUpdate} (default constructor) Update is {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link EntityDataUpdate} (default constructor) Update is {@link
+   *       ArrayList#ArrayList()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
    */
   @Test
-  @DisplayName("Test getLatest(UUID, String); given EntityDataUpdate (default constructor) Update is ArrayList(); then return 'null'")
+  @DisplayName(
+      "Test getLatest(UUID, String); given EntityDataUpdate (default constructor) Update is ArrayList(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String EntityDataUpdate.getLatest(UUID, String)"})
   void testGetLatest_givenEntityDataUpdateUpdateIsArrayList_thenReturnNull() {
@@ -92,20 +102,23 @@ class EntityDataUpdateDiffblueTest {
     entityDataUpdate.setUpdate(new ArrayList<>());
 
     // Act and Assert
-    assertNull(entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 
   /**
    * Test {@link EntityDataUpdate#getLatest(UUID, String)}.
+   *
    * <ul>
-   *   <li>Given {@link EntityDataUpdate} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link EntityDataUpdate} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
    */
   @Test
-  @DisplayName("Test getLatest(UUID, String); given EntityDataUpdate (default constructor); then return 'null'")
+  @DisplayName(
+      "Test getLatest(UUID, String); given EntityDataUpdate (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String EntityDataUpdate.getLatest(UUID, String)"})
   void testGetLatest_givenEntityDataUpdate_thenReturnNull() {
@@ -113,20 +126,23 @@ class EntityDataUpdateDiffblueTest {
     EntityDataUpdate entityDataUpdate = new EntityDataUpdate();
 
     // Act and Assert
-    assertNull(entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 
   /**
    * Test {@link EntityDataUpdate#getLatest(UUID, String)}.
+   *
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code TIME_SERIES} is {@link HashMap#HashMap()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code TIME_SERIES} is {@link HashMap#HashMap()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#getLatest(UUID, String)}
    */
   @Test
-  @DisplayName("Test getLatest(UUID, String); given HashMap() 'TIME_SERIES' is HashMap(); then return 'null'")
+  @DisplayName(
+      "Test getLatest(UUID, String); given HashMap() 'TIME_SERIES' is HashMap(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String EntityDataUpdate.getLatest(UUID, String)"})
   void testGetLatest_givenHashMapTimeSeriesIsHashMap_thenReturnNull() {
@@ -143,17 +159,20 @@ class EntityDataUpdateDiffblueTest {
     entityDataUpdate.setUpdate(update);
 
     // Act and Assert
-    assertNull(entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        entityDataUpdate.getLatest(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 
   /**
    * Test {@link EntityDataUpdate#equals(Object)}, and {@link EntityDataUpdate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataUpdate#equals(Object)}
    *   <li>{@link EntityDataUpdate#hashCode()}
@@ -179,12 +198,14 @@ class EntityDataUpdateDiffblueTest {
 
   /**
    * Test {@link EntityDataUpdate#equals(Object)}, and {@link EntityDataUpdate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataUpdate#equals(Object)}
    *   <li>{@link EntityDataUpdate#hashCode()}
@@ -207,12 +228,13 @@ class EntityDataUpdateDiffblueTest {
 
   /**
    * Test {@link EntityDataUpdate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -236,12 +258,13 @@ class EntityDataUpdateDiffblueTest {
 
   /**
    * Test {@link EntityDataUpdate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -258,12 +281,13 @@ class EntityDataUpdateDiffblueTest {
 
   /**
    * Test {@link EntityDataUpdate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataUpdate#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataUpdate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -280,8 +304,9 @@ class EntityDataUpdateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EntityDataUpdate}
    *   <li>{@link EntityDataUpdate#setUpdate(List)}
@@ -292,8 +317,12 @@ class EntityDataUpdateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityDataUpdate.<init>()", "List EntityDataUpdate.getUpdate()",
-      "void EntityDataUpdate.setUpdate(List)", "String EntityDataUpdate.toString()"})
+  @MethodsUnderTest({
+    "void EntityDataUpdate.<init>()",
+    "List EntityDataUpdate.getUpdate()",
+    "void EntityDataUpdate.setUpdate(List)",
+    "String EntityDataUpdate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityDataUpdate actualEntityDataUpdate = new EntityDataUpdate();

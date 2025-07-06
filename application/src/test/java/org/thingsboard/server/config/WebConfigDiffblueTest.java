@@ -22,16 +22,14 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 @ContextConfiguration(classes = {WebConfig.class, ThingsboardErrorResponseHandler.class})
 @ExtendWith(SpringExtension.class)
 class WebConfigDiffblueTest {
-  @Autowired
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Autowired private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
-  @Autowired
-  private WebConfig webConfig;
+  @Autowired private WebConfig webConfig;
 
   /**
    * Test {@link WebConfig#redirect()}.
-   * <p>
-   * Method under test: {@link WebConfig#redirect()}
+   *
+   * <p>Method under test: {@link WebConfig#redirect()}
    */
   @Test
   @DisplayName("Test redirect()")
@@ -54,16 +52,19 @@ class WebConfigDiffblueTest {
 
   /**
    * Test {@link WebConfig#redirectSwagger(HttpServletRequest, HttpServletResponse)}.
+   *
    * <ul>
-   *   <li>Given {@code /swagger-ui.html}.</li>
-   *   <li>When formLogin.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>Given {@code /swagger-ui.html}.
+   *   <li>When formLogin.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebConfig#redirectSwagger(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link WebConfig#redirectSwagger(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test redirectSwagger(HttpServletRequest, HttpServletResponse); given '/swagger-ui.html'; when formLogin; then status isOk()")
+  @DisplayName(
+      "Test redirectSwagger(HttpServletRequest, HttpServletResponse); given '/swagger-ui.html'; when formLogin; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WebConfig.redirectSwagger(HttpServletRequest, HttpServletResponse)"})
   void testRedirectSwagger_givenSwaggerUiHtml_whenFormLogin_thenStatusIsOk() throws Exception {
@@ -83,15 +84,18 @@ class WebConfigDiffblueTest {
 
   /**
    * Test {@link WebConfig#redirectSwagger(HttpServletRequest, HttpServletResponse)}.
+   *
    * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /swagger-ui.html}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isFound()}.</li>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /swagger-ui.html}.
+   *   <li>Then status {@link StatusResultMatchers#isFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebConfig#redirectSwagger(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link WebConfig#redirectSwagger(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test redirectSwagger(HttpServletRequest, HttpServletResponse); when get(String, Object[]) '/swagger-ui.html'; then status isFound()")
+  @DisplayName(
+      "Test redirectSwagger(HttpServletRequest, HttpServletResponse); when get(String, Object[]) '/swagger-ui.html'; then status isFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WebConfig.redirectSwagger(HttpServletRequest, HttpServletResponse)"})
   void testRedirectSwagger_whenGetSwaggerUiHtml_thenStatusIsFound() throws Exception {
@@ -109,15 +113,17 @@ class WebConfigDiffblueTest {
 
   /**
    * Test {@link WebConfig#redirectSwaggerIndex()}.
+   *
    * <ul>
-   *   <li>Given {@code /swagger-ui/}.</li>
-   *   <li>Then view name {@code forward:/index.html}.</li>
+   *   <li>Given {@code /swagger-ui/}.
+   *   <li>Then view name {@code forward:/index.html}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebConfig#redirectSwaggerIndex()}
+   *
+   * <p>Method under test: {@link WebConfig#redirectSwaggerIndex()}
    */
   @Test
-  @DisplayName("Test redirectSwaggerIndex(); given '/swagger-ui/'; then view name 'forward:/index.html'")
+  @DisplayName(
+      "Test redirectSwaggerIndex(); given '/swagger-ui/'; then view name 'forward:/index.html'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String WebConfig.redirectSwaggerIndex()"})
   void testRedirectSwaggerIndex_givenSwaggerUi_thenViewNameForwardIndexHtml() throws Exception {
@@ -137,18 +143,21 @@ class WebConfigDiffblueTest {
 
   /**
    * Test {@link WebConfig#redirectSwaggerIndex()}.
+   *
    * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /swagger-ui/}.</li>
-   *   <li>Then view name {@code forward:/swagger-ui/index.html}.</li>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /swagger-ui/}.
+   *   <li>Then view name {@code forward:/swagger-ui/index.html}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebConfig#redirectSwaggerIndex()}
+   *
+   * <p>Method under test: {@link WebConfig#redirectSwaggerIndex()}
    */
   @Test
-  @DisplayName("Test redirectSwaggerIndex(); when get(String, Object[]) '/swagger-ui/'; then view name 'forward:/swagger-ui/index.html'")
+  @DisplayName(
+      "Test redirectSwaggerIndex(); when get(String, Object[]) '/swagger-ui/'; then view name 'forward:/swagger-ui/index.html'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String WebConfig.redirectSwaggerIndex()"})
-  void testRedirectSwaggerIndex_whenGetSwaggerUi_thenViewNameForwardSwaggerUiIndexHtml() throws Exception {
+  void testRedirectSwaggerIndex_whenGetSwaggerUi_thenViewNameForwardSwaggerUiIndexHtml()
+      throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/swagger-ui/");
 

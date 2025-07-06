@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class AffectedTenantAdministratorsFilterDiffblueTest {
   /**
-   * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}, and {@link AffectedTenantAdministratorsFilter#hashCode()}.
+   * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}, and {@link
+   * AffectedTenantAdministratorsFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AffectedTenantAdministratorsFilter#equals(Object)}
    *   <li>{@link AffectedTenantAdministratorsFilter#hashCode()}
@@ -24,12 +27,16 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AffectedTenantAdministratorsFilter.equals(Object)",
-      "int AffectedTenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AffectedTenantAdministratorsFilter.equals(Object)",
+    "int AffectedTenantAdministratorsFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter = new AffectedTenantAdministratorsFilter();
-    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter2 = new AffectedTenantAdministratorsFilter();
+    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter =
+        new AffectedTenantAdministratorsFilter();
+    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter2 =
+        new AffectedTenantAdministratorsFilter();
 
     // Act and Assert
     assertEquals(affectedTenantAdministratorsFilter, affectedTenantAdministratorsFilter2);
@@ -38,13 +45,16 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}, and {@link AffectedTenantAdministratorsFilter#hashCode()}.
+   * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}, and {@link
+   * AffectedTenantAdministratorsFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AffectedTenantAdministratorsFilter#equals(Object)}
    *   <li>{@link AffectedTenantAdministratorsFilter#hashCode()}
@@ -53,11 +63,14 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AffectedTenantAdministratorsFilter.equals(Object)",
-      "int AffectedTenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AffectedTenantAdministratorsFilter.equals(Object)",
+    "int AffectedTenantAdministratorsFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter = new AffectedTenantAdministratorsFilter();
+    AffectedTenantAdministratorsFilter affectedTenantAdministratorsFilter =
+        new AffectedTenantAdministratorsFilter();
 
     // Act and Assert
     assertEquals(affectedTenantAdministratorsFilter, affectedTenantAdministratorsFilter);
@@ -67,18 +80,21 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AffectedTenantAdministratorsFilter.equals(Object)",
-      "int AffectedTenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AffectedTenantAdministratorsFilter.equals(Object)",
+    "int AffectedTenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AffectedTenantAdministratorsFilter(), 1);
@@ -86,18 +102,21 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AffectedTenantAdministratorsFilter.equals(Object)",
-      "int AffectedTenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AffectedTenantAdministratorsFilter.equals(Object)",
+    "int AffectedTenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AffectedTenantAdministratorsFilter(), null);
@@ -105,27 +124,33 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link AffectedTenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AffectedTenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AffectedTenantAdministratorsFilter.equals(Object)",
-      "int AffectedTenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AffectedTenantAdministratorsFilter.equals(Object)",
+    "int AffectedTenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new AffectedTenantAdministratorsFilter(), "Different type to AffectedTenantAdministratorsFilter");
+    assertNotEquals(
+        new AffectedTenantAdministratorsFilter(),
+        "Different type to AffectedTenantAdministratorsFilter");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AffectedTenantAdministratorsFilter}
    *   <li>{@link AffectedTenantAdministratorsFilter#toString()}
@@ -135,16 +160,21 @@ class AffectedTenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AffectedTenantAdministratorsFilter.<init>()",
-      "UsersFilterType AffectedTenantAdministratorsFilter.getType()",
-      "String AffectedTenantAdministratorsFilter.toString()"})
+  @MethodsUnderTest({
+    "void AffectedTenantAdministratorsFilter.<init>()",
+    "UsersFilterType AffectedTenantAdministratorsFilter.getType()",
+    "String AffectedTenantAdministratorsFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    AffectedTenantAdministratorsFilter actualAffectedTenantAdministratorsFilter = new AffectedTenantAdministratorsFilter();
+    AffectedTenantAdministratorsFilter actualAffectedTenantAdministratorsFilter =
+        new AffectedTenantAdministratorsFilter();
     String actualToStringResult = actualAffectedTenantAdministratorsFilter.toString();
 
     // Assert
     assertEquals("AffectedTenantAdministratorsFilter()", actualToStringResult);
-    assertEquals(UsersFilterType.AFFECTED_TENANT_ADMINISTRATORS, actualAffectedTenantAdministratorsFilter.getType());
+    assertEquals(
+        UsersFilterType.AFFECTED_TENANT_ADMINISTRATORS,
+        actualAffectedTenantAdministratorsFilter.getType());
   }
 }

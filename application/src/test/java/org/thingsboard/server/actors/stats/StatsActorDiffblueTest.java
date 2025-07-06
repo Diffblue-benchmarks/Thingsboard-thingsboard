@@ -28,16 +28,14 @@ import org.thingsboard.server.common.data.EntityType;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class StatsActorDiffblueTest {
-  @Autowired
-  private ActorCreator actorCreator;
+  @Autowired private ActorCreator actorCreator;
 
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
   @DisplayName("Test ActorCreator createActor()")
@@ -55,8 +53,8 @@ class StatsActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test ActorCreator createActorId()")
@@ -76,8 +74,8 @@ class StatsActorDiffblueTest {
 
   /**
    * Test {@link StatsActor#StatsActor(ActorSystemContext)}.
-   * <p>
-   * Method under test: {@link StatsActor#StatsActor(ActorSystemContext)}
+   *
+   * <p>Method under test: {@link StatsActor#StatsActor(ActorSystemContext)}
    */
   @Test
   @DisplayName("Test new StatsActor(ActorSystemContext)")

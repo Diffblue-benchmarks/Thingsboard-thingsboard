@@ -11,8 +11,9 @@ import org.thingsboard.server.common.data.EntityType;
 class EdgeEventTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeEventType#getEntityType()}
    *   <li>{@link EdgeEventType#isAllEdgesRelated()}
@@ -21,7 +22,10 @@ class EdgeEventTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EntityType EdgeEventType.getEntityType()", "boolean EdgeEventType.isAllEdgesRelated()"})
+  @MethodsUnderTest({
+    "EntityType EdgeEventType.getEntityType()",
+    "boolean EdgeEventType.isAllEdgesRelated()"
+  })
   void testGettersAndSetters() {
     // Arrange
     EdgeEventType valueOfResult = EdgeEventType.valueOf("DASHBOARD");

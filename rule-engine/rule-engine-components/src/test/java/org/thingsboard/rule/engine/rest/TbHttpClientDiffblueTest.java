@@ -15,8 +15,9 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbHttpClientDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbHttpClient#setEventLoopGroup(EventLoopGroup)}
    *   <li>{@link TbHttpClient#setSemaphore(Semaphore)}
@@ -31,11 +32,16 @@ class TbHttpClientDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbRestApiCallNodeConfiguration TbHttpClient.getConfig()",
-      "EventLoopGroup TbHttpClient.getEventLoopGroup()", "Semaphore TbHttpClient.getSemaphore()",
-      "WebClient TbHttpClient.getWebClient()", "void TbHttpClient.setEventLoopGroup(EventLoopGroup)",
-      "void TbHttpClient.setSemaphore(Semaphore)", "void TbHttpClient.setWebClient(WebClient)",
-      "java.lang.String TbHttpClient.toString()"})
+  @MethodsUnderTest({
+    "TbRestApiCallNodeConfiguration TbHttpClient.getConfig()",
+    "EventLoopGroup TbHttpClient.getEventLoopGroup()",
+    "Semaphore TbHttpClient.getSemaphore()",
+    "WebClient TbHttpClient.getWebClient()",
+    "void TbHttpClient.setEventLoopGroup(EventLoopGroup)",
+    "void TbHttpClient.setSemaphore(Semaphore)",
+    "void TbHttpClient.setWebClient(WebClient)",
+    "java.lang.String TbHttpClient.toString()"
+  })
   void testGettersAndSetters() throws TbNodeException {
     // Arrange
     TbRestApiCallNodeConfiguration config = new TbRestApiCallNodeConfiguration();

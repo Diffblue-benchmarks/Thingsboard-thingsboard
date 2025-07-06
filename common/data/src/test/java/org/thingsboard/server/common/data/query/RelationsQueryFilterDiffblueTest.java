@@ -23,12 +23,14 @@ import org.thingsboard.server.common.data.relation.RelationEntityTypeFilter;
 class RelationsQueryFilterDiffblueTest {
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}, and {@link RelationsQueryFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQueryFilter#equals(Object)}
    *   <li>{@link RelationsQueryFilter#hashCode()}
@@ -37,7 +39,10 @@ class RelationsQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -70,12 +75,14 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}, and {@link RelationsQueryFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQueryFilter#equals(Object)}
    *   <li>{@link RelationsQueryFilter#hashCode()}
@@ -84,7 +91,10 @@ class RelationsQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -117,12 +127,14 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}, and {@link RelationsQueryFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationsQueryFilter#equals(Object)}
    *   <li>{@link RelationsQueryFilter#hashCode()}
@@ -131,7 +143,10 @@ class RelationsQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -153,17 +168,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -194,17 +213,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -235,17 +258,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -276,17 +303,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ArrayList<RelationEntityTypeFilter> filters = new ArrayList<>();
@@ -320,17 +351,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -361,17 +396,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -402,17 +441,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -443,17 +486,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -484,17 +531,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     HashSet<String> multiRootEntityIds = new HashSet<>();
@@ -528,17 +579,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -569,17 +624,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -610,17 +669,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -632,7 +695,8 @@ class RelationsQueryFilterDiffblueTest {
     relationsQueryFilter.setMultiRootEntitiesType(EntityType.TENANT);
     relationsQueryFilter.setMultiRootEntityIds(new HashSet<>());
     relationsQueryFilter.setNegate(true);
-    relationsQueryFilter.setRootEntity(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    relationsQueryFilter.setRootEntity(
+        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     RelationsQueryFilter relationsQueryFilter2 = new RelationsQueryFilter();
     relationsQueryFilter2.setDirection(EntitySearchDirection.FROM);
@@ -651,17 +715,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -681,17 +749,21 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test {@link RelationsQueryFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationsQueryFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationsQueryFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RelationsQueryFilter.equals(Object)", "int RelationsQueryFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationsQueryFilter.equals(Object)",
+    "int RelationsQueryFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RelationsQueryFilter relationsQueryFilter = new RelationsQueryFilter();
@@ -711,8 +783,9 @@ class RelationsQueryFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RelationsQueryFilter}
    *   <li>{@link RelationsQueryFilter#setDirection(EntitySearchDirection)}
@@ -740,17 +813,29 @@ class RelationsQueryFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RelationsQueryFilter.<init>()", "EntitySearchDirection RelationsQueryFilter.getDirection()",
-      "List RelationsQueryFilter.getFilters()", "int RelationsQueryFilter.getMaxLevel()",
-      "EntityType RelationsQueryFilter.getMultiRootEntitiesType()", "Set RelationsQueryFilter.getMultiRootEntityIds()",
-      "EntityId RelationsQueryFilter.getRootEntity()", "EntityFilterType RelationsQueryFilter.getType()",
-      "boolean RelationsQueryFilter.isFetchLastLevelOnly()", "boolean RelationsQueryFilter.isMultiRoot()",
-      "boolean RelationsQueryFilter.isNegate()", "void RelationsQueryFilter.setDirection(EntitySearchDirection)",
-      "void RelationsQueryFilter.setFetchLastLevelOnly(boolean)", "void RelationsQueryFilter.setFilters(List)",
-      "void RelationsQueryFilter.setMaxLevel(int)", "void RelationsQueryFilter.setMultiRoot(boolean)",
-      "void RelationsQueryFilter.setMultiRootEntitiesType(EntityType)",
-      "void RelationsQueryFilter.setMultiRootEntityIds(Set)", "void RelationsQueryFilter.setNegate(boolean)",
-      "void RelationsQueryFilter.setRootEntity(EntityId)", "String RelationsQueryFilter.toString()"})
+  @MethodsUnderTest({
+    "void RelationsQueryFilter.<init>()",
+    "EntitySearchDirection RelationsQueryFilter.getDirection()",
+    "List RelationsQueryFilter.getFilters()",
+    "int RelationsQueryFilter.getMaxLevel()",
+    "EntityType RelationsQueryFilter.getMultiRootEntitiesType()",
+    "Set RelationsQueryFilter.getMultiRootEntityIds()",
+    "EntityId RelationsQueryFilter.getRootEntity()",
+    "EntityFilterType RelationsQueryFilter.getType()",
+    "boolean RelationsQueryFilter.isFetchLastLevelOnly()",
+    "boolean RelationsQueryFilter.isMultiRoot()",
+    "boolean RelationsQueryFilter.isNegate()",
+    "void RelationsQueryFilter.setDirection(EntitySearchDirection)",
+    "void RelationsQueryFilter.setFetchLastLevelOnly(boolean)",
+    "void RelationsQueryFilter.setFilters(List)",
+    "void RelationsQueryFilter.setMaxLevel(int)",
+    "void RelationsQueryFilter.setMultiRoot(boolean)",
+    "void RelationsQueryFilter.setMultiRootEntitiesType(EntityType)",
+    "void RelationsQueryFilter.setMultiRootEntityIds(Set)",
+    "void RelationsQueryFilter.setNegate(boolean)",
+    "void RelationsQueryFilter.setRootEntity(EntityId)",
+    "String RelationsQueryFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RelationsQueryFilter actualRelationsQueryFilter = new RelationsQueryFilter();

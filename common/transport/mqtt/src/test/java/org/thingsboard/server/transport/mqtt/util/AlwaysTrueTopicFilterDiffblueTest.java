@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class AlwaysTrueTopicFilterDiffblueTest {
   /**
    * Test {@link AlwaysTrueTopicFilter#filter(String)}.
-   * <p>
-   * Method under test: {@link AlwaysTrueTopicFilter#filter(String)}
+   *
+   * <p>Method under test: {@link AlwaysTrueTopicFilter#filter(String)}
    */
   @Test
   @DisplayName("Test filter(String)")
@@ -20,17 +20,20 @@ class AlwaysTrueTopicFilterDiffblueTest {
   @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.filter(String)"})
   void testFilter() {
     // Arrange, Act and Assert
-    assertTrue((new AlwaysTrueTopicFilter()).filter("Topic"));
+    assertTrue(new AlwaysTrueTopicFilter().filter("Topic"));
   }
 
   /**
-   * Test {@link AlwaysTrueTopicFilter#equals(Object)}, and {@link AlwaysTrueTopicFilter#hashCode()}.
+   * Test {@link AlwaysTrueTopicFilter#equals(Object)}, and {@link
+   * AlwaysTrueTopicFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlwaysTrueTopicFilter#equals(Object)}
    *   <li>{@link AlwaysTrueTopicFilter#hashCode()}
@@ -39,7 +42,10 @@ class AlwaysTrueTopicFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.equals(Object)", "int AlwaysTrueTopicFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AlwaysTrueTopicFilter.equals(Object)",
+    "int AlwaysTrueTopicFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlwaysTrueTopicFilter alwaysTrueTopicFilter = new AlwaysTrueTopicFilter();
@@ -52,13 +58,16 @@ class AlwaysTrueTopicFilterDiffblueTest {
   }
 
   /**
-   * Test {@link AlwaysTrueTopicFilter#equals(Object)}, and {@link AlwaysTrueTopicFilter#hashCode()}.
+   * Test {@link AlwaysTrueTopicFilter#equals(Object)}, and {@link
+   * AlwaysTrueTopicFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlwaysTrueTopicFilter#equals(Object)}
    *   <li>{@link AlwaysTrueTopicFilter#hashCode()}
@@ -67,7 +76,10 @@ class AlwaysTrueTopicFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.equals(Object)", "int AlwaysTrueTopicFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AlwaysTrueTopicFilter.equals(Object)",
+    "int AlwaysTrueTopicFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlwaysTrueTopicFilter alwaysTrueTopicFilter = new AlwaysTrueTopicFilter();
@@ -80,17 +92,21 @@ class AlwaysTrueTopicFilterDiffblueTest {
 
   /**
    * Test {@link AlwaysTrueTopicFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.equals(Object)", "int AlwaysTrueTopicFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AlwaysTrueTopicFilter.equals(Object)",
+    "int AlwaysTrueTopicFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlwaysTrueTopicFilter(), 1);
@@ -98,17 +114,21 @@ class AlwaysTrueTopicFilterDiffblueTest {
 
   /**
    * Test {@link AlwaysTrueTopicFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.equals(Object)", "int AlwaysTrueTopicFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AlwaysTrueTopicFilter.equals(Object)",
+    "int AlwaysTrueTopicFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlwaysTrueTopicFilter(), null);
@@ -116,17 +136,21 @@ class AlwaysTrueTopicFilterDiffblueTest {
 
   /**
    * Test {@link AlwaysTrueTopicFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AlwaysTrueTopicFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AlwaysTrueTopicFilter.equals(Object)", "int AlwaysTrueTopicFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AlwaysTrueTopicFilter.equals(Object)",
+    "int AlwaysTrueTopicFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlwaysTrueTopicFilter(), "Different type to AlwaysTrueTopicFilter");
@@ -134,8 +158,9 @@ class AlwaysTrueTopicFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AlwaysTrueTopicFilter}
    *   <li>{@link AlwaysTrueTopicFilter#toString()}
@@ -144,9 +169,12 @@ class AlwaysTrueTopicFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlwaysTrueTopicFilter.<init>()", "String AlwaysTrueTopicFilter.toString()"})
+  @MethodsUnderTest({
+    "void AlwaysTrueTopicFilter.<init>()",
+    "String AlwaysTrueTopicFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals("AlwaysTrueTopicFilter()", (new AlwaysTrueTopicFilter()).toString());
+    assertEquals("AlwaysTrueTopicFilter()", new AlwaysTrueTopicFilter().toString());
   }
 }

@@ -21,26 +21,27 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class MobileAppControllerDiffblueTest {
-  @InjectMocks
-  private MobileAppController mobileAppController;
+  @InjectMocks private MobileAppController mobileAppController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link MobileAppController#saveMobileApp(MobileApp, UUID[])}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Given {@code https://example.org/example}.
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppController#saveMobileApp(MobileApp, UUID[])}
+   *
+   * <p>Method under test: {@link MobileAppController#saveMobileApp(MobileApp, UUID[])}
    */
   @Test
-  @DisplayName("Test saveMobileApp(MobileApp, UUID[]); given 'https://example.org/example'; then status four hundred fifteen")
+  @DisplayName(
+      "Test saveMobileApp(MobileApp, UUID[]); given 'https://example.org/example'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileApp MobileAppController.saveMobileApp(MobileApp, UUID[])"})
-  void testSaveMobileApp_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen() throws Exception {
+  void testSaveMobileApp_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen()
+      throws Exception {
     // Arrange
     MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/mobileApp");
     postResult.characterEncoding("https://example.org/example");
@@ -52,8 +53,9 @@ class MobileAppControllerDiffblueTest {
     mobileApp.setOauth2Enabled(true);
     mobileApp.setPkgName("Pkg Name");
     mobileApp.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    String content = (new ObjectMapper()).writeValueAsString(mobileApp);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(mobileApp);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileAppController)
@@ -65,8 +67,8 @@ class MobileAppControllerDiffblueTest {
 
   /**
    * Test {@link MobileAppController#updateOauth2Clients(UUID, UUID[])}.
-   * <p>
-   * Method under test: {@link MobileAppController#updateOauth2Clients(UUID, UUID[])}
+   *
+   * <p>Method under test: {@link MobileAppController#updateOauth2Clients(UUID, UUID[])}
    */
   @Test
   @DisplayName("Test updateOauth2Clients(UUID, UUID[])")
@@ -75,13 +77,16 @@ class MobileAppControllerDiffblueTest {
   void testUpdateOauth2Clients() throws Exception {
     // Arrange
     UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .put("/api/mobileApp/{id}/oauth2Clients", "Uri Variables", "Uri Variables")
-        .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.put(
+                "/api/mobileApp/{id}/oauth2Clients", "Uri Variables", "Uri Variables")
+            .contentType(MediaType.APPLICATION_JSON);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content(objectMapper.writeValueAsString(new UUID[]{UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")}));
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(
+            objectMapper.writeValueAsString(
+                new UUID[] {UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")}));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileAppController)
@@ -93,19 +98,68 @@ class MobileAppControllerDiffblueTest {
 
   /**
    * Test {@link MobileAppController#getTenantMobileAppInfos(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link MobileAppController#getTenantMobileAppInfos(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link MobileAppController#getTenantMobileAppInfos(int, int, String,
+   * String, String)}
    */
   @Test
   @DisplayName("Test getTenantMobileAppInfos(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData MobileAppController.getTenantMobileAppInfos(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData MobileAppController.getTenantMobileAppInfos(int, int, String, String, String)"
+  })
   void testGetTenantMobileAppInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/mobileApp/infos")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/mobileApp/infos")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(mobileAppController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link MobileAppController#getMobileAppInfoById(UUID)}.
+   *
+   * <p>Method under test: {@link MobileAppController#getMobileAppInfoById(UUID)}
+   */
+  @Test
+  @DisplayName("Test getMobileAppInfoById(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"MobileAppInfo MobileAppController.getMobileAppInfoById(UUID)"})
+  void testGetMobileAppInfoById() throws Exception {
+    // Arrange
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/mobileApp/info/{id}", "Uri Variables", "Uri Variables");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(mobileAppController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link MobileAppController#deleteMobileApp(UUID)}.
+   *
+   * <p>Method under test: {@link MobileAppController#deleteMobileApp(UUID)}
+   */
+  @Test
+  @DisplayName("Test deleteMobileApp(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MobileAppController.deleteMobileApp(UUID)"})
+  void testDeleteMobileApp() throws Exception {
+    // Arrange
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete("/api/mobileApp/{id}", "Uri Variables", "Uri Variables");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileAppController)

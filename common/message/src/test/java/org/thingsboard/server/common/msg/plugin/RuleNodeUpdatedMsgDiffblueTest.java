@@ -16,15 +16,17 @@ import org.thingsboard.server.common.msg.MsgType;
 class RuleNodeUpdatedMsgDiffblueTest {
   /**
    * Test {@link RuleNodeUpdatedMsg#RuleNodeUpdatedMsg(TenantId, EntityId)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return EntityId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeUpdatedMsg#RuleNodeUpdatedMsg(TenantId, EntityId)}
+   *
+   * <p>Method under test: {@link RuleNodeUpdatedMsg#RuleNodeUpdatedMsg(TenantId, EntityId)}
    */
   @Test
-  @DisplayName("Test new RuleNodeUpdatedMsg(TenantId, EntityId); when 'null'; then return EntityId is 'null'")
+  @DisplayName(
+      "Test new RuleNodeUpdatedMsg(TenantId, EntityId); when 'null'; then return EntityId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleNodeUpdatedMsg.<init>(TenantId, EntityId)"})
   void testNewRuleNodeUpdatedMsg_whenNull_thenReturnEntityIdIsNull() {

@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class TbMsgMetaDataDiffblueTest {
   /**
    * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgMetaData#equals(Object)}
    *   <li>{@link TbMsgMetaData#hashCode()}
@@ -42,12 +44,14 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgMetaData#equals(Object)}
    *   <li>{@link TbMsgMetaData#hashCode()}
@@ -70,12 +74,14 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}, and {@link TbMsgMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgMetaData#equals(Object)}
    *   <li>{@link TbMsgMetaData#hashCode()}
@@ -97,12 +103,13 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -115,12 +122,13 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -137,12 +145,13 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -155,12 +164,13 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -173,8 +183,9 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgMetaData#TbMsgMetaData()}
    *   <li>{@link TbMsgMetaData#toString()}
@@ -184,7 +195,11 @@ class TbMsgMetaDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgMetaData.<init>()", "Map TbMsgMetaData.getData()", "String TbMsgMetaData.toString()"})
+  @MethodsUnderTest({
+    "void TbMsgMetaData.<init>()",
+    "Map TbMsgMetaData.getData()",
+    "String TbMsgMetaData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbMsgMetaData actualTbMsgMetaData = new TbMsgMetaData();
@@ -197,16 +212,18 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.</li>
-   *   <li>Then return Data is {@link HashMap#HashMap()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
+   *   <li>Then return Data is {@link HashMap#HashMap()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given '42'; when HashMap() '42' is '42'; then return Data is HashMap()")
+  @DisplayName(
+      "Test new TbMsgMetaData(Map); given '42'; when HashMap() '42' is '42'; then return Data is HashMap()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_given42_whenHashMap42Is42_thenReturnDataIsHashMap() {
@@ -216,21 +233,23 @@ class TbMsgMetaDataDiffblueTest {
     data.put("foo", "foo");
 
     // Act and Assert
-    assertEquals(data, (new TbMsgMetaData(data)).getData());
+    assertEquals(data, new TbMsgMetaData(data).getData());
   }
 
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.</li>
-   *   <li>Then return Data is {@link HashMap#HashMap()}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.
+   *   <li>Then return Data is {@link HashMap#HashMap()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return Data is HashMap()")
+  @DisplayName(
+      "Test new TbMsgMetaData(Map); given 'foo'; when HashMap() 'foo' is 'foo'; then return Data is HashMap()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_givenFoo_whenHashMapFooIsFoo_thenReturnDataIsHashMap() {
@@ -239,21 +258,23 @@ class TbMsgMetaDataDiffblueTest {
     data.put("foo", "foo");
 
     // Act and Assert
-    assertEquals(data, (new TbMsgMetaData(data)).getData());
+    assertEquals(data, new TbMsgMetaData(data).getData());
   }
 
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code null}.</li>
-   *   <li>Then return Data Empty.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code null}.
+   *   <li>Then return Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'foo' is 'null'; then return Data Empty")
+  @DisplayName(
+      "Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'foo' is 'null'; then return Data Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_givenNull_whenHashMapFooIsNull_thenReturnDataEmpty() {
@@ -262,21 +283,23 @@ class TbMsgMetaDataDiffblueTest {
     data.put("foo", null);
 
     // Act and Assert
-    assertTrue((new TbMsgMetaData(data)).getData().isEmpty());
+    assertTrue(new TbMsgMetaData(data).getData().isEmpty());
   }
 
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link HashMap#HashMap()} {@code null} is {@code foo}.</li>
-   *   <li>Then return Data Empty.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link HashMap#HashMap()} {@code null} is {@code foo}.
+   *   <li>Then return Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
-  @DisplayName("Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'null' is 'foo'; then return Data Empty")
+  @DisplayName(
+      "Test new TbMsgMetaData(Map); given 'null'; when HashMap() 'null' is 'foo'; then return Data Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_givenNull_whenHashMapNullIsFoo_thenReturnDataEmpty() {
@@ -285,17 +308,18 @@ class TbMsgMetaDataDiffblueTest {
     data.put(null, "foo");
 
     // Act and Assert
-    assertTrue((new TbMsgMetaData(data)).getData().isEmpty());
+    assertTrue(new TbMsgMetaData(data).getData().isEmpty());
   }
 
   /**
    * Test {@link TbMsgMetaData#TbMsgMetaData(Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()}.</li>
-   *   <li>Then return Data Empty.</li>
+   *   <li>When {@link HashMap#HashMap()}.
+   *   <li>Then return Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#TbMsgMetaData(Map)}
    */
   @Test
   @DisplayName("Test new TbMsgMetaData(Map); when HashMap(); then return Data Empty")
@@ -303,13 +327,13 @@ class TbMsgMetaDataDiffblueTest {
   @MethodsUnderTest({"void TbMsgMetaData.<init>(Map)"})
   void testNewTbMsgMetaData_whenHashMap_thenReturnDataEmpty() {
     // Arrange, Act and Assert
-    assertTrue((new TbMsgMetaData(new HashMap<>())).getData().isEmpty());
+    assertTrue(new TbMsgMetaData(new HashMap<>()).getData().isEmpty());
   }
 
   /**
    * Test {@link TbMsgMetaData#getValue(String)}.
-   * <p>
-   * Method under test: {@link TbMsgMetaData#getValue(String)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#getValue(String)}
    */
   @Test
   @DisplayName("Test getValue(String)")
@@ -322,13 +346,14 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#putValue(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#EMPTY}.</li>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link TbMsgMetaData#EMPTY} Data Empty.</li>
+   *   <li>Given {@link TbMsgMetaData#EMPTY}.
+   *   <li>When {@code null}.
+   *   <li>Then {@link TbMsgMetaData#EMPTY} Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#putValue(String, String)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#putValue(String, String)}
    */
   @Test
   @DisplayName("Test putValue(String, String); given EMPTY; when 'null'; then EMPTY Data Empty")
@@ -347,13 +372,14 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#putValue(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#EMPTY}.</li>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link TbMsgMetaData#EMPTY} Data Empty.</li>
+   *   <li>Given {@link TbMsgMetaData#EMPTY}.
+   *   <li>When {@code null}.
+   *   <li>Then {@link TbMsgMetaData#EMPTY} Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#putValue(String, String)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#putValue(String, String)}
    */
   @Test
   @DisplayName("Test putValue(String, String); given EMPTY; when 'null'; then EMPTY Data Empty")
@@ -372,16 +398,18 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#putValue(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()}.</li>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then {@link TbMsgMetaData#TbMsgMetaData()} Data size is one.</li>
+   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()}.
+   *   <li>When {@code 42}.
+   *   <li>Then {@link TbMsgMetaData#TbMsgMetaData()} Data size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#putValue(String, String)}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#putValue(String, String)}
    */
   @Test
-  @DisplayName("Test putValue(String, String); given TbMsgMetaData(); when '42'; then TbMsgMetaData() Data size is one")
+  @DisplayName(
+      "Test putValue(String, String); given TbMsgMetaData(); when '42'; then TbMsgMetaData() Data size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgMetaData.putValue(String, String)"})
   void testPutValue_givenTbMsgMetaData_when42_thenTbMsgMetaDataDataSizeIsOne() {
@@ -399,8 +427,8 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#values()}.
-   * <p>
-   * Method under test: {@link TbMsgMetaData#values()}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#values()}
    */
   @Test
   @DisplayName("Test values()")
@@ -413,12 +441,13 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#copy()}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#EMPTY}.</li>
-   *   <li>Then return {@link TbMsgMetaData#EMPTY}.</li>
+   *   <li>Given {@link TbMsgMetaData#EMPTY}.
+   *   <li>Then return {@link TbMsgMetaData#EMPTY}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#copy()}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#copy()}
    */
   @Test
   @DisplayName("Test copy(); given EMPTY; then return EMPTY")
@@ -434,15 +463,17 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#copy()}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code 42} is {@code Value}.</li>
-   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.</li>
+   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code 42} is {@code Value}.
+   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#copy()}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#copy()}
    */
   @Test
-  @DisplayName("Test copy(); given TbMsgMetaData() Value '42' is 'Value'; then return TbMsgMetaData()")
+  @DisplayName(
+      "Test copy(); given TbMsgMetaData() Value '42' is 'Value'; then return TbMsgMetaData()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsgMetaData TbMsgMetaData.copy()"})
   void testCopy_givenTbMsgMetaDataValue42IsValue_thenReturnTbMsgMetaData() {
@@ -457,15 +488,17 @@ class TbMsgMetaDataDiffblueTest {
 
   /**
    * Test {@link TbMsgMetaData#copy()}.
+   *
    * <ul>
-   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code Key} is {@code 42}.</li>
-   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.</li>
+   *   <li>Given {@link TbMsgMetaData#TbMsgMetaData()} Value {@code Key} is {@code 42}.
+   *   <li>Then return {@link TbMsgMetaData#TbMsgMetaData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgMetaData#copy()}
+   *
+   * <p>Method under test: {@link TbMsgMetaData#copy()}
    */
   @Test
-  @DisplayName("Test copy(); given TbMsgMetaData() Value 'Key' is '42'; then return TbMsgMetaData()")
+  @DisplayName(
+      "Test copy(); given TbMsgMetaData() Value 'Key' is '42'; then return TbMsgMetaData()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbMsgMetaData TbMsgMetaData.copy()"})
   void testCopy_givenTbMsgMetaDataValueKeyIs42_thenReturnTbMsgMetaData() {

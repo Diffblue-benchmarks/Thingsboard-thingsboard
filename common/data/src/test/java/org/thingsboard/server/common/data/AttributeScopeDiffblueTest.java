@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class AttributeScopeDiffblueTest {
   /**
    * Test {@link AttributeScope#valueOf(int)} with {@code id}.
-   * <p>
-   * Method under test: {@link AttributeScope#valueOf(int)}
+   *
+   * <p>Method under test: {@link AttributeScope#valueOf(int)}
    */
   @Test
   @DisplayName("Test valueOf(int) with 'id'")
@@ -23,8 +23,8 @@ class AttributeScopeDiffblueTest {
 
   /**
    * Test {@link AttributeScope#getId()}.
-   * <p>
-   * Method under test: {@link AttributeScope#getId()}
+   *
+   * <p>Method under test: {@link AttributeScope#getId()}
    */
   @Test
   @DisplayName("Test getId()")

@@ -16,102 +16,128 @@ import org.junit.jupiter.api.Test;
 class LwM2mValueConverterImplDiffblueTest {
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code BOOLEAN}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code BOOLEAN}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'BOOLEAN'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'BOOLEAN'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenBoolean_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenBoolean_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.BOOLEAN, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.BOOLEAN, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code FLOAT}.</li>
-   *   <li>Then return {@code Value}.</li>
+   *   <li>When {@code FLOAT}.
+   *   <li>Then return {@code Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'FLOAT'; then return 'Value'")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'FLOAT'; then return 'Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenFloat_thenReturnValue() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenFloat_thenReturnValue()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertEquals("Value", instance.convertValue("Value", Type.FLOAT, Type.STRING, new LwM2mPath(1)));
+    assertEquals(
+        "Value", instance.convertValue("Value", Type.FLOAT, Type.STRING, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code FLOAT}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code FLOAT}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'FLOAT'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'FLOAT'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenFloat_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenFloat_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.FLOAT, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.FLOAT, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code INTEGER}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code INTEGER}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'INTEGER'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'INTEGER'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenInteger_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenInteger_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.INTEGER, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.INTEGER, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code NONE}.</li>
-   *   <li>Then return {@code Value}.</li>
+   *   <li>When {@code NONE}.
+   *   <li>Then return {@code Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
   @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'NONE'; then return 'Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenNone_thenReturnValue() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenNone_thenReturnValue()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
@@ -121,12 +147,14 @@ class LwM2mValueConverterImplDiffblueTest {
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
   @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'null'; then return 'null'")
@@ -142,18 +170,21 @@ class LwM2mValueConverterImplDiffblueTest {
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code Value}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
   @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'null'; then return 'Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenNull_thenReturnValue() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenNull_thenReturnValue()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
@@ -163,127 +194,163 @@ class LwM2mValueConverterImplDiffblueTest {
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'null'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'null'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenNull_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenNull_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", null, Type.NONE, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", null, Type.NONE, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code OBJLNK}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code OBJLNK}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'OBJLNK'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'OBJLNK'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenObjlnk_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenObjlnk_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.OBJLNK, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.OBJLNK, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code OPAQUE}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code OPAQUE}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'OPAQUE'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'OPAQUE'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenOpaque_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenOpaque_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.OPAQUE, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.OPAQUE, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code STRING}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code STRING}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'STRING'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'STRING'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenString_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenString_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.STRING, Type.NONE, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.STRING, Type.NONE, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code STRING}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code STRING}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'STRING'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'STRING'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenString_thenThrowCodecException2() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenString_thenThrowCodecException2()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.STRING, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.STRING, new LwM2mPath(1)));
   }
 
   /**
    * Test {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}.
+   *
    * <ul>
-   *   <li>When {@code TIME}.</li>
-   *   <li>Then throw {@link CodecException}.</li>
+   *   <li>When {@code TIME}.
+   *   <li>Then throw {@link CodecException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type, LwM2mPath)}
+   *
+   * <p>Method under test: {@link LwM2mValueConverterImpl#convertValue(Object, Type, Type,
+   * LwM2mPath)}
    */
   @Test
-  @DisplayName("Test convertValue(Object, Type, Type, LwM2mPath); when 'TIME'; then throw CodecException")
+  @DisplayName(
+      "Test convertValue(Object, Type, Type, LwM2mPath); when 'TIME'; then throw CodecException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object LwM2mValueConverterImpl.convertValue(Object, Type, Type, LwM2mPath)"})
-  void testConvertValue_whenTime_thenThrowCodecException() throws InvalidLwM2mPathException, CodecException {
+  void testConvertValue_whenTime_thenThrowCodecException()
+      throws InvalidLwM2mPathException, CodecException {
     // Arrange
     LwM2mValueConverterImpl instance = LwM2mValueConverterImpl.getInstance();
 
     // Act and Assert
-    assertThrows(CodecException.class, () -> instance.convertValue("Value", Type.NONE, Type.TIME, new LwM2mPath(1)));
+    assertThrows(
+        CodecException.class,
+        () -> instance.convertValue("Value", Type.NONE, Type.TIME, new LwM2mPath(1)));
   }
 }

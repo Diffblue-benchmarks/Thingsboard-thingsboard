@@ -11,8 +11,9 @@ import org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChec
 class TransportTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TransportType#getName()}
    *   <li>{@link TransportType#getServiceClass()}

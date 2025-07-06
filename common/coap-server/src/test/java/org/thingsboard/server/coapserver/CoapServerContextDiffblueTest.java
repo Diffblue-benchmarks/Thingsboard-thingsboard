@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class CoapServerContextDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CoapServerContext#getDtlsSettings()}
    *   <li>{@link CoapServerContext#getHost()}
@@ -20,8 +21,11 @@ class CoapServerContextDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbCoapDtlsSettings CoapServerContext.getDtlsSettings()", "String CoapServerContext.getHost()",
-      "java.lang.Integer CoapServerContext.getPort()"})
+  @MethodsUnderTest({
+    "TbCoapDtlsSettings CoapServerContext.getDtlsSettings()",
+    "String CoapServerContext.getHost()",
+    "java.lang.Integer CoapServerContext.getPort()"
+  })
   void testGettersAndSetters() {
     // Arrange
     CoapServerContext coapServerContext = new CoapServerContext();

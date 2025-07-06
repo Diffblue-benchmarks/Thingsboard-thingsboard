@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class ResourceTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ResourceType#getMediaType()}
    *   <li>{@link ResourceType#isCustomerAccess()}
@@ -21,8 +22,11 @@ class ResourceTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String ResourceType.getMediaType()", "boolean ResourceType.isCustomerAccess()",
-      "boolean ResourceType.isUpdatable()"})
+  @MethodsUnderTest({
+    "String ResourceType.getMediaType()",
+    "boolean ResourceType.isCustomerAccess()",
+    "boolean ResourceType.isUpdatable()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ResourceType valueOfResult = ResourceType.valueOf("LWM2M_MODEL");

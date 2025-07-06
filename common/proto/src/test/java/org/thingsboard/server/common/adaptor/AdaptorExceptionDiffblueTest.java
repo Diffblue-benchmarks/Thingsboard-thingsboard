@@ -11,17 +11,23 @@ import org.junit.jupiter.api.Test;
 class AdaptorExceptionDiffblueTest {
   /**
    * Test {@link AdaptorException#AdaptorException(Exception)}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code Exception: foo}.</li>
+   *   <li>Then return Message is {@code Exception: foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdaptorException#AdaptorException(Exception)}
+   *
+   * <p>Method under test: {@link AdaptorException#AdaptorException(Exception)}
    */
   @Test
-  @DisplayName("Test new AdaptorException(Exception); then return Message is 'java.lang.Exception: foo'")
+  @DisplayName(
+      "Test new AdaptorException(Exception); then return Message is 'java.lang.Exception: foo'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdaptorException.<init>()", "void AdaptorException.<init>(Exception)",
-      "void AdaptorException.<init>(String)", "void AdaptorException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void AdaptorException.<init>()",
+    "void AdaptorException.<init>(Exception)",
+    "void AdaptorException.<init>(String)",
+    "void AdaptorException.<init>(String, Exception)"
+  })
   void testNewAdaptorException_thenReturnMessageIsJavaLangExceptionFoo() {
     // Arrange
     Exception cause = new Exception("foo");
@@ -37,17 +43,22 @@ class AdaptorExceptionDiffblueTest {
 
   /**
    * Test {@link AdaptorException#AdaptorException()}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code null}.</li>
+   *   <li>Then return Message is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdaptorException#AdaptorException()}
+   *
+   * <p>Method under test: {@link AdaptorException#AdaptorException()}
    */
   @Test
   @DisplayName("Test new AdaptorException(); then return Message is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdaptorException.<init>()", "void AdaptorException.<init>(Exception)",
-      "void AdaptorException.<init>(String)", "void AdaptorException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void AdaptorException.<init>()",
+    "void AdaptorException.<init>(Exception)",
+    "void AdaptorException.<init>(String)",
+    "void AdaptorException.<init>(String, Exception)"
+  })
   void testNewAdaptorException_thenReturnMessageIsNull() {
     // Arrange and Act
     AdaptorException actualAdaptorException = new AdaptorException();
@@ -60,18 +71,24 @@ class AdaptorExceptionDiffblueTest {
 
   /**
    * Test {@link AdaptorException#AdaptorException(String, Exception)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
-   *   <li>Then return Message is {@code An error occurred}.</li>
+   *   <li>When {@code An error occurred}.
+   *   <li>Then return Message is {@code An error occurred}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdaptorException#AdaptorException(String, Exception)}
+   *
+   * <p>Method under test: {@link AdaptorException#AdaptorException(String, Exception)}
    */
   @Test
-  @DisplayName("Test new AdaptorException(String, Exception); when 'An error occurred'; then return Message is 'An error occurred'")
+  @DisplayName(
+      "Test new AdaptorException(String, Exception); when 'An error occurred'; then return Message is 'An error occurred'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdaptorException.<init>()", "void AdaptorException.<init>(Exception)",
-      "void AdaptorException.<init>(String)", "void AdaptorException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void AdaptorException.<init>()",
+    "void AdaptorException.<init>(Exception)",
+    "void AdaptorException.<init>(String)",
+    "void AdaptorException.<init>(String, Exception)"
+  })
   void testNewAdaptorException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred() {
     // Arrange
     Exception cause = new Exception("foo");
@@ -87,18 +104,23 @@ class AdaptorExceptionDiffblueTest {
 
   /**
    * Test {@link AdaptorException#AdaptorException(String)}.
+   *
    * <ul>
-   *   <li>When {@code Cause}.</li>
-   *   <li>Then return Message is {@code Cause}.</li>
+   *   <li>When {@code Cause}.
+   *   <li>Then return Message is {@code Cause}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdaptorException#AdaptorException(String)}
+   *
+   * <p>Method under test: {@link AdaptorException#AdaptorException(String)}
    */
   @Test
   @DisplayName("Test new AdaptorException(String); when 'Cause'; then return Message is 'Cause'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdaptorException.<init>()", "void AdaptorException.<init>(Exception)",
-      "void AdaptorException.<init>(String)", "void AdaptorException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void AdaptorException.<init>()",
+    "void AdaptorException.<init>(Exception)",
+    "void AdaptorException.<init>(String)",
+    "void AdaptorException.<init>(String, Exception)"
+  })
   void testNewAdaptorException_whenCause_thenReturnMessageIsCause() {
     // Arrange and Act
     AdaptorException actualAdaptorException = new AdaptorException("Cause");

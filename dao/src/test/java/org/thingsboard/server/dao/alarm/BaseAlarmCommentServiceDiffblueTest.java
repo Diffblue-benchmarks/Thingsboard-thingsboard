@@ -11,187 +11,246 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.thingsboard.server.common.data.alarm.AlarmComment;
+import org.thingsboard.server.common.data.alarm.AlarmComment.AlarmCommentBuilder;
 import org.thingsboard.server.common.data.alarm.AlarmCommentInfo;
 import org.thingsboard.server.common.data.alarm.AlarmCommentType;
 import org.thingsboard.server.common.data.id.AlarmCommentId;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.TenantId;
-import org.thingsboard.server.common.data.id.UUIDBased;
 import org.thingsboard.server.common.data.page.PageData;
 import org.thingsboard.server.common.data.page.PageLink;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.edge.BaseRelatedEdgesService;
-import org.thingsboard.server.dao.edge.EdgeService;
-import org.thingsboard.server.dao.entityview.EntityViewService;
-import org.thingsboard.server.dao.housekeeper.CleanUpService;
 import org.thingsboard.server.dao.model.ModelConstants;
-import org.thingsboard.server.dao.relation.RelationService;
 import org.thingsboard.server.dao.service.DataValidator;
 
 @ContextConfiguration(classes = {BaseAlarmCommentService.class})
-@RunWith(SpringJUnit4ClassRunner.class)
 @DisabledInAotMode
+@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class BaseAlarmCommentServiceDiffblueTest {
-  @MockBean
-  private AlarmCommentDao alarmCommentDao;
+  @Mock private AlarmCommentDao alarmCommentDao;
 
-  @MockBean
-  private AlarmService alarmService;
+  @MockBean private AlarmCommentDao alarmCommentDao2;
 
-  @MockBean
-  private ApplicationEventPublisher applicationEventPublisher;
+  @InjectMocks private BaseAlarmCommentService baseAlarmCommentService;
 
-  @Autowired
-  private BaseAlarmCommentService baseAlarmCommentService;
+  @Autowired private BaseAlarmCommentService baseAlarmCommentService2;
 
-  @MockBean
-  private CleanUpService cleanUpService;
-
-  @MockBean
-  private DataValidator<AlarmComment> dataValidator;
-
-  @MockBean
-  private EdgeService edgeService;
-
-  @MockBean
-  private EntityViewService entityViewService;
-
-  @MockBean
-  private RelationService relationService;
+  @MockBean private DataValidator<AlarmComment> dataValidator;
 
   /**
-   * Test
-   * {@link BaseAlarmCommentService#findAlarmComments(TenantId, AlarmId, PageLink)}.
+   * Test {@link BaseAlarmCommentService#findAlarmComments(TenantId, AlarmId, PageLink)}.
+   *
    * <ul>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
+   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAlarmCommentService#findAlarmComments(TenantId, AlarmId, PageLink)}
+   *
+   * <p>Method under test: {@link BaseAlarmCommentService#findAlarmComments(TenantId, AlarmId,
+   * PageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData BaseAlarmCommentService.findAlarmComments(TenantId, AlarmId, PageLink)"
+  })
   public void testFindAlarmComments_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmCommentInfo> emptyPageDataResult = PageData.emptyPageData();
-    when(alarmCommentDao.findAlarmComments(Mockito.<TenantId>any(), Mockito.<AlarmId>any(), Mockito.<PageLink>any()))
+    when(alarmCommentDao2.findAlarmComments(
+            Mockito.<TenantId>any(), Mockito.<AlarmId>any(), Mockito.<PageLink>any()))
         .thenReturn(emptyPageDataResult);
 
     // Act
-    PageData<AlarmCommentInfo> actualFindAlarmCommentsResult = baseAlarmCommentService
-        .findAlarmComments(ModelConstants.SYSTEM_TENANT, null, BaseRelatedEdgesService.FIRST_PAGE);
+    PageData<AlarmCommentInfo> actualFindAlarmCommentsResult =
+        baseAlarmCommentService2.findAlarmComments(
+            ModelConstants.SYSTEM_TENANT, null, BaseRelatedEdgesService.FIRST_PAGE);
 
     // Assert
-    verify(alarmCommentDao).findAlarmComments(isA(TenantId.class), isNull(), isA(PageLink.class));
+    verify(alarmCommentDao2).findAlarmComments(isA(TenantId.class), isNull(), isA(PageLink.class));
     assertSame(actualFindAlarmCommentsResult.EMPTY_PAGE_DATA, actualFindAlarmCommentsResult);
   }
 
   /**
-   * Test
-   * {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}.
-   * <ul>
-   *   <li>Given {@link ModelConstants#NULL_UUID}.</li>
-   *   <li>Then calls {@link UUIDBased#getId()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}
+   * Test {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}.
+   *
+   * <p>Method under test: {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId,
+   * AlarmCommentId)}
    */
   @Test
-  public void testFindAlarmCommentByIdAsync_givenNull_uuid_thenCallsGetId() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAlarmCommentService.findAlarmCommentByIdAsync(TenantId, AlarmCommentId)"
+  })
+  public void testFindAlarmCommentByIdAsync() {
     // Arrange
     SettableFuture<AlarmComment> createResult = SettableFuture.create();
-    when(alarmCommentDao.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
+    when(alarmCommentDao2.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(createResult);
-    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
-    when(alarmCommentId.getId()).thenReturn(ModelConstants.NULL_UUID);
 
     // Act
-    ListenableFuture<AlarmComment> actualFindAlarmCommentByIdAsyncResult = baseAlarmCommentService
-        .findAlarmCommentByIdAsync(ModelConstants.SYSTEM_TENANT, alarmCommentId);
+    ListenableFuture<AlarmComment> actualFindAlarmCommentByIdAsyncResult =
+        baseAlarmCommentService2.findAlarmCommentByIdAsync(
+            ModelConstants.SYSTEM_TENANT,
+            new AlarmCommentId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Assert
+    verify(alarmCommentDao2).findAlarmCommentByIdAsync(isA(TenantId.class), isA(UUID.class));
+    assertTrue(actualFindAlarmCommentByIdAsyncResult instanceof SettableFuture);
+    assertSame(createResult, actualFindAlarmCommentByIdAsyncResult);
+  }
+
+  /**
+   * Test {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link AlarmCommentId#getId()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId,
+   * AlarmCommentId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "ListenableFuture BaseAlarmCommentService.findAlarmCommentByIdAsync(TenantId, AlarmCommentId)"
+  })
+  public void testFindAlarmCommentByIdAsync_thenCallsGetId() {
+    // Arrange
+    SettableFuture<AlarmComment> createResult = SettableFuture.create();
+    when(alarmCommentDao2.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
+        .thenReturn(createResult);
+    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
+    when(alarmCommentId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act
+    ListenableFuture<AlarmComment> actualFindAlarmCommentByIdAsyncResult =
+        baseAlarmCommentService2.findAlarmCommentByIdAsync(
+            ModelConstants.SYSTEM_TENANT, alarmCommentId);
 
     // Assert
     verify(alarmCommentId, atLeast(1)).getId();
-    verify(alarmCommentDao).findAlarmCommentByIdAsync(isA(TenantId.class), isA(UUID.class));
+    verify(alarmCommentDao2).findAlarmCommentByIdAsync(isA(TenantId.class), isA(UUID.class));
     assertTrue(actualFindAlarmCommentByIdAsyncResult instanceof SettableFuture);
     assertSame(createResult, actualFindAlarmCommentByIdAsyncResult);
   }
 
   /**
-   * Test
-   * {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}.
-   * <ul>
-   *   <li>When {@link AlarmCommentId#AlarmCommentId(UUID)} with id is
-   * {@link ModelConstants#NULL_UUID}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAlarmCommentService#findAlarmCommentByIdAsync(TenantId, AlarmCommentId)}
+   * Test {@link BaseAlarmCommentService#findAlarmCommentById(TenantId, AlarmCommentId)}.
+   *
+   * <p>Method under test: {@link BaseAlarmCommentService#findAlarmCommentById(TenantId,
+   * AlarmCommentId)}
    */
   @Test
-  public void testFindAlarmCommentByIdAsync_whenAlarmCommentIdWithIdIsNull_uuid() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "AlarmComment BaseAlarmCommentService.findAlarmCommentById(TenantId, AlarmCommentId)"
+  })
+  public void testFindAlarmCommentById() {
     // Arrange
-    SettableFuture<AlarmComment> createResult = SettableFuture.create();
-    when(alarmCommentDao.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
-        .thenReturn(createResult);
-
-    // Act
-    ListenableFuture<AlarmComment> actualFindAlarmCommentByIdAsyncResult = baseAlarmCommentService
-        .findAlarmCommentByIdAsync(ModelConstants.SYSTEM_TENANT, new AlarmCommentId(ModelConstants.NULL_UUID));
-
-    // Assert
-    verify(alarmCommentDao).findAlarmCommentByIdAsync(isA(TenantId.class), isA(UUID.class));
-    assertTrue(actualFindAlarmCommentByIdAsyncResult instanceof SettableFuture);
-    assertSame(createResult, actualFindAlarmCommentByIdAsyncResult);
-  }
-
-  /**
-   * Test
-   * {@link BaseAlarmCommentService#findAlarmCommentById(TenantId, AlarmCommentId)}.
-   * <ul>
-   *   <li>Then return Comment is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseAlarmCommentService#findAlarmCommentById(TenantId, AlarmCommentId)}
-   */
-  @Test
-  public void testFindAlarmCommentById_thenReturnCommentIsNull() {
-    // Arrange
-    AlarmComment.AlarmCommentBuilder alarmCommentBuilder = mock(AlarmComment.AlarmCommentBuilder.class);
-    when(alarmCommentBuilder.type(Mockito.<AlarmCommentType>any())).thenReturn(AlarmComment.builder());
-    AlarmComment.AlarmCommentBuilder alarmCommentBuilder2 = mock(AlarmComment.AlarmCommentBuilder.class);
+    AlarmCommentBuilder alarmCommentBuilder = mock(AlarmCommentBuilder.class);
+    when(alarmCommentBuilder.type(Mockito.<AlarmCommentType>any()))
+        .thenReturn(AlarmComment.builder());
+    AlarmCommentBuilder alarmCommentBuilder2 = mock(AlarmCommentBuilder.class);
     when(alarmCommentBuilder2.comment(Mockito.<JsonNode>any())).thenReturn(alarmCommentBuilder);
-    AlarmComment.AlarmCommentBuilder alarmCommentBuilder3 = mock(AlarmComment.AlarmCommentBuilder.class);
+    AlarmCommentBuilder alarmCommentBuilder3 = mock(AlarmCommentBuilder.class);
     when(alarmCommentBuilder3.alarmId(Mockito.<AlarmId>any())).thenReturn(alarmCommentBuilder2);
-    AlarmComment buildResult = alarmCommentBuilder3.alarmId(null)
-        .comment(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON)
-        .type(AlarmCommentType.SYSTEM)
-        .userId(null)
-        .build();
-    when(alarmCommentDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(buildResult);
+    AlarmComment buildResult =
+        alarmCommentBuilder3
+            .alarmId(null)
+            .comment(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON)
+            .type(AlarmCommentType.SYSTEM)
+            .userId(null)
+            .build();
+    when(alarmCommentDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
+        .thenReturn(buildResult);
 
     // Act
-    AlarmComment actualFindAlarmCommentByIdResult = baseAlarmCommentService
-        .findAlarmCommentById(ModelConstants.SYSTEM_TENANT, new AlarmCommentId(ModelConstants.NULL_UUID));
+    AlarmComment actualFindAlarmCommentByIdResult =
+        baseAlarmCommentService.findAlarmCommentById(
+            ModelConstants.SYSTEM_TENANT,
+            new AlarmCommentId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     verify(alarmCommentBuilder3).alarmId(isNull());
     verify(alarmCommentBuilder2).comment(isA(JsonNode.class));
     verify(alarmCommentBuilder).type(eq(AlarmCommentType.SYSTEM));
+    verify(alarmCommentDao).findById(isA(TenantId.class), isA(UUID.class));
+    assertNull(actualFindAlarmCommentByIdResult.getComment());
+    assertNull(actualFindAlarmCommentByIdResult.getUuidId());
+    assertNull(actualFindAlarmCommentByIdResult.getType());
+    assertNull(actualFindAlarmCommentByIdResult.getId());
+    assertNull(actualFindAlarmCommentByIdResult.getAlarmId());
+    assertNull(actualFindAlarmCommentByIdResult.getUserId());
+    assertEquals(0L, actualFindAlarmCommentByIdResult.getCreatedTime());
+  }
+
+  /**
+   * Test {@link BaseAlarmCommentService#findAlarmCommentById(TenantId, AlarmCommentId)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link AlarmCommentId#getId()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseAlarmCommentService#findAlarmCommentById(TenantId,
+   * AlarmCommentId)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "AlarmComment BaseAlarmCommentService.findAlarmCommentById(TenantId, AlarmCommentId)"
+  })
+  public void testFindAlarmCommentById_thenCallsGetId() {
+    // Arrange
+    AlarmCommentBuilder alarmCommentBuilder = mock(AlarmCommentBuilder.class);
+    when(alarmCommentBuilder.type(Mockito.<AlarmCommentType>any()))
+        .thenReturn(AlarmComment.builder());
+    AlarmCommentBuilder alarmCommentBuilder2 = mock(AlarmCommentBuilder.class);
+    when(alarmCommentBuilder2.comment(Mockito.<JsonNode>any())).thenReturn(alarmCommentBuilder);
+    AlarmCommentBuilder alarmCommentBuilder3 = mock(AlarmCommentBuilder.class);
+    when(alarmCommentBuilder3.alarmId(Mockito.<AlarmId>any())).thenReturn(alarmCommentBuilder2);
+    AlarmComment buildResult =
+        alarmCommentBuilder3
+            .alarmId(null)
+            .comment(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON)
+            .type(AlarmCommentType.SYSTEM)
+            .userId(null)
+            .build();
+    when(alarmCommentDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
+        .thenReturn(buildResult);
+    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
+    when(alarmCommentId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act
+    AlarmComment actualFindAlarmCommentByIdResult =
+        baseAlarmCommentService.findAlarmCommentById(ModelConstants.SYSTEM_TENANT, alarmCommentId);
+
+    // Assert
+    verify(alarmCommentBuilder3).alarmId(isNull());
+    verify(alarmCommentBuilder2).comment(isA(JsonNode.class));
+    verify(alarmCommentBuilder).type(eq(AlarmCommentType.SYSTEM));
+    verify(alarmCommentId, atLeast(1)).getId();
     verify(alarmCommentDao).findById(isA(TenantId.class), isA(UUID.class));
     assertNull(actualFindAlarmCommentByIdResult.getComment());
     assertNull(actualFindAlarmCommentByIdResult.getUuidId());

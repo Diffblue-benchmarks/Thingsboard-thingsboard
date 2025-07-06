@@ -14,49 +14,62 @@ import org.thingsboard.server.gen.edge.v1.RelationUpdateMsg;
 
 @ExtendWith(MockitoExtension.class)
 class BaseRelationProcessorDiffblueTest {
-  @InjectMocks
-  private RelationEdgeProcessorV1 relationEdgeProcessorV1;
+  @InjectMocks private RelationEdgeProcessorV1 relationEdgeProcessorV1;
 
   /**
    * Test {@link BaseRelationProcessor#processRelationMsg(TenantId, RelationUpdateMsg)}.
+   *
    * <ul>
-   *   <li>Given {@link RelationEdgeProcessorV1} (default constructor).</li>
+   *   <li>Given {@link RelationEdgeProcessorV1} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link BaseRelationProcessor#processRelationMsg(TenantId, RelationUpdateMsg)}
+   *
+   * <p>Method under test: {@link BaseRelationProcessor#processRelationMsg(TenantId,
+   * RelationUpdateMsg)}
    */
   @Test
-  @DisplayName("Test processRelationMsg(TenantId, RelationUpdateMsg); given RelationEdgeProcessorV1 (default constructor)")
+  @DisplayName(
+      "Test processRelationMsg(TenantId, RelationUpdateMsg); given RelationEdgeProcessorV1 (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture BaseRelationProcessor.processRelationMsg(TenantId, RelationUpdateMsg)"})
+    "com.google.common.util.concurrent.ListenableFuture BaseRelationProcessor.processRelationMsg(TenantId, RelationUpdateMsg)"
+  })
   void testProcessRelationMsg_givenRelationEdgeProcessorV1() {
     // Arrange
     RelationEdgeProcessorV1 relationEdgeProcessorV1 = new RelationEdgeProcessorV1();
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertTrue(relationEdgeProcessorV1.processRelationMsg(tenantId, RelationUpdateMsg.getDefaultInstance()).isDone());
+    assertTrue(
+        relationEdgeProcessorV1
+            .processRelationMsg(tenantId, RelationUpdateMsg.getDefaultInstance())
+            .isDone());
   }
 
   /**
    * Test {@link BaseRelationProcessor#processRelationMsg(TenantId, RelationUpdateMsg)}.
+   *
    * <ul>
-   *   <li>Given {@link RelationEdgeProcessorV1}.</li>
+   *   <li>Given {@link RelationEdgeProcessorV1}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseRelationProcessor#processRelationMsg(TenantId, RelationUpdateMsg)}
+   *
+   * <p>Method under test: {@link BaseRelationProcessor#processRelationMsg(TenantId,
+   * RelationUpdateMsg)}
    */
   @Test
-  @DisplayName("Test processRelationMsg(TenantId, RelationUpdateMsg); given RelationEdgeProcessorV1")
+  @DisplayName(
+      "Test processRelationMsg(TenantId, RelationUpdateMsg); given RelationEdgeProcessorV1")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture BaseRelationProcessor.processRelationMsg(TenantId, RelationUpdateMsg)"})
+    "com.google.common.util.concurrent.ListenableFuture BaseRelationProcessor.processRelationMsg(TenantId, RelationUpdateMsg)"
+  })
   void testProcessRelationMsg_givenRelationEdgeProcessorV12() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertTrue(relationEdgeProcessorV1.processRelationMsg(tenantId, RelationUpdateMsg.getDefaultInstance()).isDone());
+    assertTrue(
+        relationEdgeProcessorV1
+            .processRelationMsg(tenantId, RelationUpdateMsg.getDefaultInstance())
+            .isDone());
   }
 }

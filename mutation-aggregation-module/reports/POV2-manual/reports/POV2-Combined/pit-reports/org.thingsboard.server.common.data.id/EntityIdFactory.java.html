@@ -1,0 +1,3471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>EntityIdFactory.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.EntityType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.edge.EdgeEventType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.UUID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Created by ashvayka on 25.04.17.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class EntityIdFactory {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(int type, String uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_29'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getByTypeAndUuid(EntityType.values()[type], UUID.fromString(uuid));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(int type, UUID uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_33'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getByTypeAndUuid(EntityType.values()[type], uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(String type, String uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_37'/>
+37
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_37'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return getByTypeAndUuid(EntityType.valueOf(type), UUID.fromString(uuid));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndId(String type, String uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_41'>1</a>
+<span>
+
+1. getByTypeAndId : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndId &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return getByTypeAndUuid(EntityType.valueOf(type), UUID.fromString(uuid));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(String type, UUID uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_45'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return getByTypeAndUuid(EntityType.valueOf(type), uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(EntityType type, String uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_49'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getByTypeAndUuid(type, UUID.fromString(uuid));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByTypeAndUuid(EntityType type, UUID uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TENANT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_55'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return TenantId.fromUUID(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CUSTOMER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_57'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new CustomerId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case USER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_59'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new UserId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DASHBOARD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_61'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DashboardId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DEVICE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_63'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DeviceId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ASSET:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_65'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AssetId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ALARM:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_67'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AlarmId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case RULE_CHAIN:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_69'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new RuleChainId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case RULE_NODE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_71'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new RuleNodeId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ENTITY_VIEW:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_73'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new EntityViewId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case WIDGETS_BUNDLE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_75'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new WidgetsBundleId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case WIDGET_TYPE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_77'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new WidgetTypeId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DEVICE_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_79'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DeviceProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ASSET_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_81'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AssetProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TENANT_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_83'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new TenantProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case API_USAGE_STATE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_85'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new ApiUsageStateId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TB_RESOURCE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_87'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new TbResourceId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case OTA_PACKAGE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_89'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new OtaPackageId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case EDGE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_91'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new EdgeId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case RPC:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_93'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new RpcId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case QUEUE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_95'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new QueueId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_TARGET:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_97'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationTargetId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_REQUEST:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_99'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationRequestId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_RULE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_101'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationRuleId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_TEMPLATE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_103'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationTemplateId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_105'/>
+105
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_105'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case QUEUE_STATS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_107'/>
+107
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_107'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new QueueStatsId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case OAUTH2_CLIENT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_109'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new OAuth2ClientId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case MOBILE_APP:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_111'/>
+111
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_111'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new MobileAppId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DOMAIN:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_113'>1</a>
+<span>
+
+1. getByTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DomainId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        throw new IllegalArgumentException(&#34;EntityType &#34; + type + &#34; is not supported!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static EntityId getByEdgeEventTypeAndUuid(EdgeEventType edgeEventType, UUID uuid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (edgeEventType) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TENANT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_121'/>
+121
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_121'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new TenantId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CUSTOMER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_123'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new CustomerId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case USER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_125'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new UserId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DASHBOARD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_127'/>
+127
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_127'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DashboardId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DEVICE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_129'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DeviceId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ASSET:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_131'/>
+131
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_131'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AssetId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ALARM:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_133'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AlarmId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case RULE_CHAIN:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_135'/>
+135
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_135'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new RuleChainId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ENTITY_VIEW:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_137'/>
+137
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_137'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new EntityViewId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case WIDGETS_BUNDLE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_139'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new WidgetsBundleId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case WIDGET_TYPE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_141'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new WidgetTypeId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DEVICE_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_143'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DeviceProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ASSET_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_145'/>
+145
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_145'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new AssetProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TENANT_PROFILE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_147'/>
+147
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_147'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new TenantProfileId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case OTA_PACKAGE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_149'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new OtaPackageId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case EDGE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_151'/>
+151
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_151'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new EdgeId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case QUEUE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_153'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new QueueId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case TB_RESOURCE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_155'/>
+155
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_155'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new TbResourceId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_RULE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_157'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationRuleId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_TARGET:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_159'/>
+159
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_159'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationTargetId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case NOTIFICATION_TEMPLATE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_161'/>
+161
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_161'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new NotificationTemplateId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case OAUTH2_CLIENT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_163'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new OAuth2ClientId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case DOMAIN:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_165'>1</a>
+<span>
+
+1. getByEdgeEventTypeAndUuid : replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new DomainId(uuid);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        throw new IllegalArgumentException(&#34;EdgeEventType &#34; + edgeEventType + &#34; is not supported!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4d6510d1_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithIntString_whenTen_thenReturnWidgetsBundleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithIntUuid_whenFourteen_thenReturnAssetProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_37'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_41'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndId<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndId &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_45'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationRuleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithIntUuid_whenNull_uuid_thenReturnNullUid()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenCustomer_thenReturnCustomerId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenUser_thenReturnUserId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenDashboard_thenReturnDashboardId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenDevice_thenReturnDeviceId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenAsset_thenReturnAssetId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenAlarm_thenReturnAlarmId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenRuleChain_thenReturnRuleChainId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenRuleNode_thenReturnRuleNodeId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenEntityView_thenReturnEntityViewId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnWidgetsBundleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenWidgetType_thenReturnWidgetTypeId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_thenReturnDeviceProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenAssetProfile_thenReturnAssetProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_thenReturnTenantProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnApiUsageStateId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenTbResource_thenReturnTbResourceId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenOtaPackage_thenReturnOtaPackageId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenEdge_thenReturnEdgeId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenRpc_thenReturnRpcId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenQueue_thenReturnQueueId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationTargetId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationRequestId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnNotificationRuleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_thenReturnNotificationTemplateId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_105'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenNotification_thenReturnNotificationId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_107'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeUuid_whenQueueStats_thenReturnQueueStatsId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_thenReturnOAuth2ClientId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_111'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenMobileApp_thenReturnMobileAppId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByTypeAndUuidWithEntityTypeString_whenDomain_thenReturnDomainId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenTenant_thenReturnTenantId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenCustomer_thenReturnCustomerId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenUser_thenReturnUserId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_127'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenDashboard_thenReturnDashboardId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenDevice_thenReturnDeviceId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_131'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenAsset_thenReturnAssetId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenAlarm_thenReturnAlarmId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_135'>135</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_135'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenRuleChain_thenReturnRuleChainId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_137'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenEntityView_thenReturnEntityViewId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenWidgetsBundle_thenReturnWidgetsBundleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenWidgetType_thenReturnWidgetTypeId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenDeviceProfile_thenReturnDeviceProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenAssetProfile_thenReturnAssetProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenTenantProfile_thenReturnTenantProfileId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenOtaPackage_thenReturnOtaPackageId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_151'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenEdge_thenReturnEdgeId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenQueue_thenReturnQueueId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenTbResource_thenReturnTbResourceId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenNotificationRule_thenReturnNotificationRuleId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_159'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_thenReturnNotificationTargetId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_161'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_thenReturnNotificationTemplateId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenOauth2Client_thenReturnOAuth2ClientId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4d6510d1_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4d6510d1_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getByEdgeEventTypeAndUuid<br/><b>Killed by : </b>org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.id.EntityIdFactoryDiffblueTest]/[method:testGetByEdgeEventTypeAndUuid_whenDomain_thenReturnDomainId()]</span></span> replaced return value with null for org/thingsboard/server/common/data/id/EntityIdFactory::getByEdgeEventTypeAndUuid &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

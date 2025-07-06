@@ -18,11 +18,12 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class MqttTransportHealthCheckerDiffblueTest {
   /**
    * Test {@link MqttTransportHealthChecker#destroyClient()}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.</li>
+   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTransportHealthChecker#destroyClient()}
+   *
+   * <p>Method under test: {@link MqttTransportHealthChecker#destroyClient()}
    */
   @Test
   @DisplayName("Test destroyClient(); then calls setCredentials(DeviceCredentials)")
@@ -45,7 +46,7 @@ class MqttTransportHealthCheckerDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    (new MqttTransportHealthChecker(new MqttTransportMonitoringConfig(), target)).destroyClient();
+    new MqttTransportHealthChecker(new MqttTransportMonitoringConfig(), target).destroyClient();
 
     // Assert
     verify(device).setCredentials(isA(DeviceCredentials.class));

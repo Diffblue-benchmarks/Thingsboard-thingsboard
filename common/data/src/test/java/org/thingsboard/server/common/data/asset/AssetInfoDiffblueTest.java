@@ -13,11 +13,12 @@ import org.junit.jupiter.api.Test;
 class AssetInfoDiffblueTest {
   /**
    * Test {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset()}.</li>
+   *   <li>When {@link Asset#Asset()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   *
+   * <p>Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
   @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset()")
@@ -47,14 +48,16 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.</li>
+   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   *
+   * <p>Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
-  @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset()")
+  @DisplayName(
+      "Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetInfo.<init>(Asset, String, boolean, String)"})
   void testNewAssetInfo_whenAssetWithAssetIsAsset() {
@@ -81,19 +84,22 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.</li>
+   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
+   *
+   * <p>Method under test: {@link AssetInfo#AssetInfo(Asset, String, boolean, String)}
    */
   @Test
-  @DisplayName("Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset(Asset)")
+  @DisplayName(
+      "Test new AssetInfo(Asset, String, boolean, String); when Asset(Asset) with asset is Asset(Asset)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetInfo.<init>(Asset, String, boolean, String)"})
   void testNewAssetInfo_whenAssetWithAssetIsAsset2() {
     // Arrange and Act
-    AssetInfo actualAssetInfo = new AssetInfo(new Asset(new Asset(new Asset())), "Dr", true, "foo.txt");
+    AssetInfo actualAssetInfo =
+        new AssetInfo(new Asset(new Asset(new Asset())), "Dr", true, "foo.txt");
 
     // Assert
     assertTrue(actualAssetInfo.getAdditionalInfo() instanceof NullNode);
@@ -115,12 +121,14 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}, and {@link AssetInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetInfo#equals(Object)}
    *   <li>{@link AssetInfo#hashCode()}
@@ -143,12 +151,14 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}, and {@link AssetInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetInfo#equals(Object)}
    *   <li>{@link AssetInfo#hashCode()}
@@ -171,12 +181,14 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}, and {@link AssetInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetInfo#equals(Object)}
    *   <li>{@link AssetInfo#hashCode()}
@@ -198,12 +210,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -219,12 +232,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -241,12 +255,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -263,12 +278,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -285,12 +301,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -309,12 +326,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -333,12 +351,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -351,12 +370,13 @@ class AssetInfoDiffblueTest {
 
   /**
    * Test {@link AssetInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

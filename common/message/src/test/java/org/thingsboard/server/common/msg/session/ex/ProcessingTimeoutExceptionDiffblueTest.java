@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class ProcessingTimeoutExceptionDiffblueTest {
   /**
    * Test new {@link ProcessingTimeoutException} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link ProcessingTimeoutException}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link
+   * ProcessingTimeoutException}
    */
   @Test
   @DisplayName("Test new ProcessingTimeoutException (default constructor)")

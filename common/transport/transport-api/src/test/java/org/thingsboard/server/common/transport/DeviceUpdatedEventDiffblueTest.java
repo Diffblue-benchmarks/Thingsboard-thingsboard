@@ -10,8 +10,9 @@ import org.thingsboard.server.common.data.Device;
 class DeviceUpdatedEventDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceUpdatedEvent#DeviceUpdatedEvent(Device)}
    *   <li>{@link DeviceUpdatedEvent#getDevice()}
@@ -20,12 +21,15 @@ class DeviceUpdatedEventDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceUpdatedEvent.<init>(Device)", "Device DeviceUpdatedEvent.getDevice()"})
+  @MethodsUnderTest({
+    "void DeviceUpdatedEvent.<init>(Device)",
+    "Device DeviceUpdatedEvent.getDevice()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Device device = new Device();
 
     // Act and Assert
-    assertSame(device, (new DeviceUpdatedEvent(device)).getDevice());
+    assertSame(device, new DeviceUpdatedEvent(device).getDevice());
   }
 }

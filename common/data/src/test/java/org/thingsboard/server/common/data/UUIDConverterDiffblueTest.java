@@ -16,11 +16,12 @@ import org.thingsboard.server.common.data.id.EntityId;
 class UUIDConverterDiffblueTest {
   /**
    * Test {@link UUIDConverter#fromTimeUUID(UUID)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUID(UUID)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUID(UUID)}
    */
   @Test
   @DisplayName("Test fromTimeUUID(UUID); then throw IllegalArgumentException")
@@ -28,21 +29,24 @@ class UUIDConverterDiffblueTest {
   @MethodsUnderTest({"String UUIDConverter.fromTimeUUID(UUID)"})
   void testFromTimeUUID_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> UUIDConverter.fromTimeUUID(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link UUIDConverter#fromTimeUUID(UUID)}.
+   *
    * <ul>
-   *   <li>When {@link EntityId#NULL_UUID}.</li>
-   *   <li>Then return {@code 1b21dd2138140008080808080808080}.</li>
+   *   <li>When {@link EntityId#NULL_UUID}.
+   *   <li>Then return {@code 1b21dd2138140008080808080808080}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUID(UUID)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUID(UUID)}
    */
   @Test
-  @DisplayName("Test fromTimeUUID(UUID); when NULL_UUID; then return '1b21dd2138140008080808080808080'")
+  @DisplayName(
+      "Test fromTimeUUID(UUID); when NULL_UUID; then return '1b21dd2138140008080808080808080'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String UUIDConverter.fromTimeUUID(UUID)"})
   void testFromTimeUUID_whenNull_uuid_thenReturn1b21dd2138140008080808080808080() {
@@ -52,12 +56,13 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>Given {@link EntityId#NULL_UUID}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityId#NULL_UUID}.</li>
+   *   <li>Given {@link EntityId#NULL_UUID}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityId#NULL_UUID}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); given NULL_UUID; when ArrayList() add NULL_UUID")
@@ -75,16 +80,18 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>Given {@link EntityId#NULL_UUID}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityId#NULL_UUID}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@link EntityId#NULL_UUID}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@link EntityId#NULL_UUID}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
-  @DisplayName("Test fromTimeUUIDs(List); given NULL_UUID; when ArrayList() add NULL_UUID; then return size is one")
+  @DisplayName(
+      "Test fromTimeUUIDs(List); given NULL_UUID; when ArrayList() add NULL_UUID; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List UUIDConverter.fromTimeUUIDs(List)"})
   void testFromTimeUUIDs_givenNull_uuid_whenArrayListAddNull_uuid_thenReturnSizeIsOne() {
@@ -102,11 +109,12 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); then throw IllegalArgumentException")
@@ -123,11 +131,12 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); then throw IllegalArgumentException")
@@ -145,12 +154,13 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); when ArrayList(); then return Empty")
@@ -166,12 +176,13 @@ class UUIDConverterDiffblueTest {
 
   /**
    * Test {@link UUIDConverter#fromTimeUUIDs(List)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
+   *
+   * <p>Method under test: {@link UUIDConverter#fromTimeUUIDs(List)}
    */
   @Test
   @DisplayName("Test fromTimeUUIDs(List); when 'null'; then return 'null'")

@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class DashboardIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DashboardId#DashboardId(UUID)}
    *   <li>{@link DashboardId#getEntityType()}

@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class UsageInfoDiffblueTest {
   /**
    * Test {@link UsageInfo#equals(Object)}, and {@link UsageInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UsageInfo#equals(Object)}
    *   <li>{@link UsageInfo#hashCode()}
@@ -86,12 +88,14 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}, and {@link UsageInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UsageInfo#equals(Object)}
    *   <li>{@link UsageInfo#hashCode()}
@@ -136,12 +140,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -205,12 +210,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -274,12 +280,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -343,12 +350,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -412,12 +420,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -481,12 +490,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -550,12 +560,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -619,12 +630,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -688,12 +700,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -757,12 +770,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -826,12 +840,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -895,12 +910,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -964,12 +980,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1033,12 +1050,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1102,12 +1120,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1171,12 +1190,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1240,12 +1260,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1309,12 +1330,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1378,12 +1400,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1447,12 +1470,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1516,12 +1540,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1585,12 +1610,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1654,12 +1680,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1723,12 +1750,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1792,12 +1820,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1836,12 +1865,13 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test {@link UsageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UsageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link UsageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -1880,8 +1910,9 @@ class UsageInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link UsageInfo}
    *   <li>{@link UsageInfo#setAlarms(long)}
@@ -1936,24 +1967,56 @@ class UsageInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UsageInfo.<init>()", "long UsageInfo.getAlarms()", "long UsageInfo.getAssets()",
-      "long UsageInfo.getCustomers()", "long UsageInfo.getDashboards()", "long UsageInfo.getDevices()",
-      "long UsageInfo.getEmails()", "long UsageInfo.getJsExecutions()", "long UsageInfo.getMaxAlarms()",
-      "long UsageInfo.getMaxAssets()", "long UsageInfo.getMaxCustomers()", "long UsageInfo.getMaxDashboards()",
-      "long UsageInfo.getMaxDevices()", "long UsageInfo.getMaxEmails()", "long UsageInfo.getMaxJsExecutions()",
-      "long UsageInfo.getMaxSms()", "long UsageInfo.getMaxTbelExecutions()", "long UsageInfo.getMaxTransportMessages()",
-      "long UsageInfo.getMaxUsers()", "long UsageInfo.getSms()", "Boolean UsageInfo.getSmsEnabled()",
-      "long UsageInfo.getTbelExecutions()", "long UsageInfo.getTransportMessages()", "long UsageInfo.getUsers()",
-      "void UsageInfo.setAlarms(long)", "void UsageInfo.setAssets(long)", "void UsageInfo.setCustomers(long)",
-      "void UsageInfo.setDashboards(long)", "void UsageInfo.setDevices(long)", "void UsageInfo.setEmails(long)",
-      "void UsageInfo.setJsExecutions(long)", "void UsageInfo.setMaxAlarms(long)", "void UsageInfo.setMaxAssets(long)",
-      "void UsageInfo.setMaxCustomers(long)", "void UsageInfo.setMaxDashboards(long)",
-      "void UsageInfo.setMaxDevices(long)", "void UsageInfo.setMaxEmails(long)",
-      "void UsageInfo.setMaxJsExecutions(long)", "void UsageInfo.setMaxSms(long)",
-      "void UsageInfo.setMaxTbelExecutions(long)", "void UsageInfo.setMaxTransportMessages(long)",
-      "void UsageInfo.setMaxUsers(long)", "void UsageInfo.setSms(long)", "void UsageInfo.setSmsEnabled(Boolean)",
-      "void UsageInfo.setTbelExecutions(long)", "void UsageInfo.setTransportMessages(long)",
-      "void UsageInfo.setUsers(long)", "String UsageInfo.toString()"})
+  @MethodsUnderTest({
+    "void UsageInfo.<init>()",
+    "long UsageInfo.getAlarms()",
+    "long UsageInfo.getAssets()",
+    "long UsageInfo.getCustomers()",
+    "long UsageInfo.getDashboards()",
+    "long UsageInfo.getDevices()",
+    "long UsageInfo.getEmails()",
+    "long UsageInfo.getJsExecutions()",
+    "long UsageInfo.getMaxAlarms()",
+    "long UsageInfo.getMaxAssets()",
+    "long UsageInfo.getMaxCustomers()",
+    "long UsageInfo.getMaxDashboards()",
+    "long UsageInfo.getMaxDevices()",
+    "long UsageInfo.getMaxEmails()",
+    "long UsageInfo.getMaxJsExecutions()",
+    "long UsageInfo.getMaxSms()",
+    "long UsageInfo.getMaxTbelExecutions()",
+    "long UsageInfo.getMaxTransportMessages()",
+    "long UsageInfo.getMaxUsers()",
+    "long UsageInfo.getSms()",
+    "Boolean UsageInfo.getSmsEnabled()",
+    "long UsageInfo.getTbelExecutions()",
+    "long UsageInfo.getTransportMessages()",
+    "long UsageInfo.getUsers()",
+    "void UsageInfo.setAlarms(long)",
+    "void UsageInfo.setAssets(long)",
+    "void UsageInfo.setCustomers(long)",
+    "void UsageInfo.setDashboards(long)",
+    "void UsageInfo.setDevices(long)",
+    "void UsageInfo.setEmails(long)",
+    "void UsageInfo.setJsExecutions(long)",
+    "void UsageInfo.setMaxAlarms(long)",
+    "void UsageInfo.setMaxAssets(long)",
+    "void UsageInfo.setMaxCustomers(long)",
+    "void UsageInfo.setMaxDashboards(long)",
+    "void UsageInfo.setMaxDevices(long)",
+    "void UsageInfo.setMaxEmails(long)",
+    "void UsageInfo.setMaxJsExecutions(long)",
+    "void UsageInfo.setMaxSms(long)",
+    "void UsageInfo.setMaxTbelExecutions(long)",
+    "void UsageInfo.setMaxTransportMessages(long)",
+    "void UsageInfo.setMaxUsers(long)",
+    "void UsageInfo.setSms(long)",
+    "void UsageInfo.setSmsEnabled(Boolean)",
+    "void UsageInfo.setTbelExecutions(long)",
+    "void UsageInfo.setTransportMessages(long)",
+    "void UsageInfo.setUsers(long)",
+    "String UsageInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     UsageInfo actualUsageInfo = new UsageInfo();
@@ -2005,10 +2068,12 @@ class UsageInfoDiffblueTest {
     long actualTransportMessages = actualUsageInfo.getTransportMessages();
 
     // Assert
-    assertEquals("UsageInfo(devices=1, maxDevices=1, assets=1, maxAssets=1, customers=1, maxCustomers=1, users=1,"
-        + " maxUsers=1, dashboards=1, maxDashboards=1, transportMessages=1, maxTransportMessages=1, jsExecutions=1,"
-        + " tbelExecutions=1, maxJsExecutions=1, maxTbelExecutions=1, emails=1, maxEmails=1, sms=1, maxSms=1,"
-        + " smsEnabled=true, alarms=1, maxAlarms=1)", actualToStringResult);
+    assertEquals(
+        "UsageInfo(devices=1, maxDevices=1, assets=1, maxAssets=1, customers=1, maxCustomers=1, users=1,"
+            + " maxUsers=1, dashboards=1, maxDashboards=1, transportMessages=1, maxTransportMessages=1, jsExecutions=1,"
+            + " tbelExecutions=1, maxJsExecutions=1, maxTbelExecutions=1, emails=1, maxEmails=1, sms=1, maxSms=1,"
+            + " smsEnabled=true, alarms=1, maxAlarms=1)",
+        actualToStringResult);
     assertEquals(1L, actualAlarms);
     assertEquals(1L, actualAssets);
     assertEquals(1L, actualCustomers);

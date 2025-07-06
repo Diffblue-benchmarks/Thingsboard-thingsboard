@@ -23,8 +23,8 @@ import org.thingsboard.server.common.data.objects.TelemetryEntityView;
 class EntityViewDiffblueTest {
   /**
    * Test {@link EntityView#getExternalId()}.
-   * <p>
-   * Method under test: {@link EntityView#getExternalId()}
+   *
+   * <p>Method under test: {@link EntityView#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -32,13 +32,13 @@ class EntityViewDiffblueTest {
   @MethodsUnderTest({"EntityViewId EntityView.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new EntityView()).getExternalId());
+    assertNull(new EntityView().getExternalId());
   }
 
   /**
    * Test {@link EntityView#EntityView(EntityView)}.
-   * <p>
-   * Method under test: {@link EntityView#EntityView(EntityView)}
+   *
+   * <p>Method under test: {@link EntityView#EntityView(EntityView)}
    */
   @Test
   @DisplayName("Test new EntityView(EntityView)")
@@ -66,19 +66,24 @@ class EntityViewDiffblueTest {
   }
 
   /**
-   * Test {@link EntityView#EntityView(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long)}.
+   * Test {@link EntityView#EntityView(EntityId, TenantId, CustomerId, String, String,
+   * TelemetryEntityView, long, long, EntityViewId, Long)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then EntityId return {@link TenantId}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then EntityId return {@link TenantId}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#EntityView(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long)}
+   *
+   * <p>Method under test: {@link EntityView#EntityView(EntityId, TenantId, CustomerId, String,
+   * String, TelemetryEntityView, long, long, EntityViewId, Long)}
    */
   @Test
-  @DisplayName("Test new EntityView(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long); when 'null'; then EntityId return TenantId")
+  @DisplayName(
+      "Test new EntityView(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long); when 'null'; then EntityId return TenantId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void EntityView.<init>(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long)"})
+    "void EntityView.<init>(EntityId, TenantId, CustomerId, String, String, TelemetryEntityView, long, long, EntityViewId, Long)"
+  })
   void testNewEntityView_whenNull_thenEntityIdReturnTenantId() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
@@ -86,8 +91,9 @@ class EntityViewDiffblueTest {
     TelemetryEntityView keys = new TelemetryEntityView();
 
     // Act
-    EntityView actualEntityView = new EntityView(TenantId.SYS_TENANT_ID, tenantId, customerId, "Name", "Type", keys, 1L,
-        1L, null, 1L);
+    EntityView actualEntityView =
+        new EntityView(
+            TenantId.SYS_TENANT_ID, tenantId, customerId, "Name", "Type", keys, 1L, 1L, null, 1L);
 
     // Assert
     EntityId entityId = actualEntityView.getEntityId();
@@ -111,8 +117,8 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#getId()}.
-   * <p>
-   * Method under test: {@link EntityView#getId()}
+   *
+   * <p>Method under test: {@link EntityView#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -120,13 +126,13 @@ class EntityViewDiffblueTest {
   @MethodsUnderTest({"EntityViewId EntityView.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new EntityView()).getId());
+    assertNull(new EntityView().getId());
   }
 
   /**
    * Test {@link EntityView#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link EntityView#getCreatedTime()}
+   *
+   * <p>Method under test: {@link EntityView#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -134,13 +140,13 @@ class EntityViewDiffblueTest {
   @MethodsUnderTest({"long EntityView.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new EntityView()).getCreatedTime());
+    assertEquals(0L, new EntityView().getCreatedTime());
   }
 
   /**
    * Test {@link EntityView#getAdditionalInfo()}.
-   * <p>
-   * Method under test: {@link EntityView#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link EntityView#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo()")
@@ -148,17 +154,19 @@ class EntityViewDiffblueTest {
   @MethodsUnderTest({"com.fasterxml.jackson.databind.JsonNode EntityView.getAdditionalInfo()"})
   void testGetAdditionalInfo() {
     // Arrange, Act and Assert
-    assertNull((new EntityView()).getAdditionalInfo());
+    assertNull(new EntityView().getAdditionalInfo());
   }
 
   /**
    * Test {@link EntityView#equals(Object)}, and {@link EntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityView#equals(Object)}
    *   <li>{@link EntityView#hashCode()}
@@ -181,12 +189,14 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}, and {@link EntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityView#equals(Object)}
    *   <li>{@link EntityView#hashCode()}
@@ -208,12 +218,13 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -229,12 +240,13 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -250,12 +262,13 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -273,12 +286,13 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -291,12 +305,13 @@ class EntityViewDiffblueTest {
 
   /**
    * Test {@link EntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

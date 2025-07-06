@@ -18,8 +18,9 @@ import org.thingsboard.server.queue.TbQueueMsgHeaders;
 class TbProtoJsQueueMsgDiffblueTest {
   /**
    * Test {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3, TbQueueMsgHeaders)}.
-   * <p>
-   * Method under test: {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3, TbQueueMsgHeaders)}
+   *
+   * <p>Method under test: {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3,
+   * TbQueueMsgHeaders)}
    */
   @Test
   @DisplayName("Test new TbProtoJsQueueMsg(UUID, GeneratedMessageV3, TbQueueMsgHeaders)")
@@ -32,8 +33,8 @@ class TbProtoJsQueueMsgDiffblueTest {
     DefaultTbQueueMsgHeaders headers = new DefaultTbQueueMsgHeaders();
 
     // Act
-    TbProtoJsQueueMsg<GeneratedMessageV3> actualTbProtoJsQueueMsg = new TbProtoJsQueueMsg<>(key, defaultInstance,
-        headers);
+    TbProtoJsQueueMsg<GeneratedMessageV3> actualTbProtoJsQueueMsg =
+        new TbProtoJsQueueMsg<>(key, defaultInstance, headers);
 
     // Assert
     TbQueueMsgHeaders headers2 = actualTbProtoJsQueueMsg.getHeaders();
@@ -47,8 +48,8 @@ class TbProtoJsQueueMsgDiffblueTest {
 
   /**
    * Test {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3)}.
-   * <p>
-   * Method under test: {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3)}
+   *
+   * <p>Method under test: {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3)}
    */
   @Test
   @DisplayName("Test new TbProtoJsQueueMsg(UUID, GeneratedMessageV3)")
@@ -60,7 +61,8 @@ class TbProtoJsQueueMsgDiffblueTest {
     Advice defaultInstance = Advice.getDefaultInstance();
 
     // Act
-    TbProtoJsQueueMsg<GeneratedMessageV3> actualTbProtoJsQueueMsg = new TbProtoJsQueueMsg<>(key, defaultInstance);
+    TbProtoJsQueueMsg<GeneratedMessageV3> actualTbProtoJsQueueMsg =
+        new TbProtoJsQueueMsg<>(key, defaultInstance);
 
     // Assert
     TbQueueMsgHeaders headers = actualTbProtoJsQueueMsg.getHeaders();
@@ -74,11 +76,12 @@ class TbProtoJsQueueMsgDiffblueTest {
 
   /**
    * Test {@link TbProtoJsQueueMsg#getData()}.
+   *
    * <ul>
-   *   <li>Then return array of {@code byte} with {@code "} and {@code "}.</li>
+   *   <li>Then return array of {@code byte} with {@code "} and {@code "}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbProtoJsQueueMsg#getData()}
+   *
+   * <p>Method under test: {@link TbProtoJsQueueMsg#getData()}
    */
   @Test
   @DisplayName("Test getData(); then return array of byte with '\"' and '\"'")
@@ -87,29 +90,32 @@ class TbProtoJsQueueMsgDiffblueTest {
   void testGetData_thenReturnArrayOfByteWithQuotationMarkAndQuotationMark() {
     // Arrange
     UUID key = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    TbProtoJsQueueMsg<GeneratedMessageV3> tbProtoJsQueueMsg = new TbProtoJsQueueMsg<>(key,
-        BytesValue.getDefaultInstance());
+    TbProtoJsQueueMsg<GeneratedMessageV3> tbProtoJsQueueMsg =
+        new TbProtoJsQueueMsg<>(key, BytesValue.getDefaultInstance());
 
     // Act and Assert
-    assertArrayEquals(new byte[]{'"', '"'}, tbProtoJsQueueMsg.getData());
+    assertArrayEquals(new byte[] {'"', '"'}, tbProtoJsQueueMsg.getData());
   }
 
   /**
    * Test {@link TbProtoJsQueueMsg#getData()}.
+   *
    * <ul>
-   *   <li>Then return {@code { }} Bytes is {@code UTF-8}.</li>
+   *   <li>Then return {@code { }} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbProtoJsQueueMsg#getData()}
+   *
+   * <p>Method under test: {@link TbProtoJsQueueMsg#getData()}
    */
   @Test
   @DisplayName("Test getData(); then return '{ }' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbProtoJsQueueMsg.getData()"})
-  void testGetData_thenReturnLeftCurlyBracketSpaceRightCurlyBracketBytesIsUtf8() throws UnsupportedEncodingException {
+  void testGetData_thenReturnLeftCurlyBracketSpaceRightCurlyBracketBytesIsUtf8()
+      throws UnsupportedEncodingException {
     // Arrange
     UUID key = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    TbProtoJsQueueMsg<GeneratedMessageV3> tbProtoJsQueueMsg = new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance());
+    TbProtoJsQueueMsg<GeneratedMessageV3> tbProtoJsQueueMsg =
+        new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance());
 
     // Act
     byte[] actualData = tbProtoJsQueueMsg.getData();

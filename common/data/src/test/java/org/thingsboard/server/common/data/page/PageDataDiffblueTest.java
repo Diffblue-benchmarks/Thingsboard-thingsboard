@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
 class PageDataDiffblueTest {
   /**
    * Test {@link PageData#PageData()}.
-   * <p>
-   * Method under test: {@link PageData#PageData()}
+   *
+   * <p>Method under test: {@link PageData#PageData()}
    */
   @Test
   @DisplayName("Test new PageData()")
@@ -37,16 +37,18 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#PageData(List, int, long, boolean)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Data is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Data is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#PageData(List, int, long, boolean)}
+   *
+   * <p>Method under test: {@link PageData#PageData(List, int, long, boolean)}
    */
   @Test
-  @DisplayName("Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
+  @DisplayName(
+      "Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_given42_whenArrayListAdd42_thenReturnDataIsArrayList() {
@@ -66,16 +68,18 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#PageData(List, int, long, boolean)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Data is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Data is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#PageData(List, int, long, boolean)}
+   *
+   * <p>Method under test: {@link PageData#PageData(List, int, long, boolean)}
    */
   @Test
-  @DisplayName("Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
+  @DisplayName(
+      "Test new PageData(List, int, long, boolean); given '42'; when ArrayList() add '42'; then return Data is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_given42_whenArrayListAdd42_thenReturnDataIsArrayList2() {
@@ -96,15 +100,17 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#PageData(List, int, long, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Data Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#PageData(List, int, long, boolean)}
+   *
+   * <p>Method under test: {@link PageData#PageData(List, int, long, boolean)}
    */
   @Test
-  @DisplayName("Test new PageData(List, int, long, boolean); when ArrayList(); then return Data Empty")
+  @DisplayName(
+      "Test new PageData(List, int, long, boolean); when ArrayList(); then return Data Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void PageData.<init>(List, int, long, boolean)"})
   void testNewPageData_whenArrayList_thenReturnDataEmpty() {
@@ -120,8 +126,8 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#emptyPageData()}.
-   * <p>
-   * Method under test: {@link PageData#emptyPageData()}
+   *
+   * <p>Method under test: {@link PageData#emptyPageData()}
    */
   @Test
   @DisplayName("Test emptyPageData()")
@@ -140,12 +146,14 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}, and {@link PageData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageData#equals(Object)}
    *   <li>{@link PageData#hashCode()}
@@ -168,12 +176,14 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}, and {@link PageData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageData#equals(Object)}
    *   <li>{@link PageData#hashCode()}
@@ -196,12 +206,14 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}, and {@link PageData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageData#equals(Object)}
    *   <li>{@link PageData#hashCode()}
@@ -223,12 +235,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#equals(Object)}
+   *
+   * <p>Method under test: {@link PageData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -245,12 +258,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#equals(Object)}
+   *
+   * <p>Method under test: {@link PageData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -267,12 +281,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#equals(Object)}
+   *
+   * <p>Method under test: {@link PageData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -289,12 +304,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#equals(Object)}
+   *
+   * <p>Method under test: {@link PageData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -310,12 +326,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#equals(Object)}
+   *
+   * <p>Method under test: {@link PageData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -331,8 +348,9 @@ class PageDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PageData#toString()}
    *   <li>{@link PageData#getData()}
@@ -344,8 +362,13 @@ class PageDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List PageData.getData()", "long PageData.getTotalElements()", "int PageData.getTotalPages()",
-      "boolean PageData.hasNext()", "String PageData.toString()"})
+  @MethodsUnderTest({
+    "List PageData.getData()",
+    "long PageData.getTotalElements()",
+    "int PageData.getTotalPages()",
+    "boolean PageData.hasNext()",
+    "String PageData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -357,7 +380,8 @@ class PageDataDiffblueTest {
     int actualTotalPages = emptyPageDataResult.getTotalPages();
 
     // Assert
-    assertEquals("PageData(data=[], totalPages=0, totalElements=0, hasNext=false)", actualToStringResult);
+    assertEquals(
+        "PageData(data=[], totalPages=0, totalElements=0, hasNext=false)", actualToStringResult);
     assertEquals(0, actualTotalPages);
     assertEquals(0L, actualTotalElements);
     assertFalse(emptyPageDataResult.hasNext());
@@ -366,8 +390,8 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#mapData(Function)}.
-   * <p>
-   * Method under test: {@link PageData#mapData(Function)}
+   *
+   * <p>Method under test: {@link PageData#mapData(Function)}
    */
   @Test
   @DisplayName("Test mapData(Function)")
@@ -383,12 +407,13 @@ class PageDataDiffblueTest {
 
   /**
    * Test {@link PageData#mapData(Function)}.
+   *
    * <ul>
-   *   <li>Given emptyPageData.</li>
-   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.</li>
+   *   <li>Given emptyPageData.
+   *   <li>Then return {@link PageData#EMPTY_PAGE_DATA}.
    * </ul>
-   * <p>
-   * Method under test: {@link PageData#mapData(Function)}
+   *
+   * <p>Method under test: {@link PageData#mapData(Function)}
    */
   @Test
   @DisplayName("Test mapData(Function); given emptyPageData; then return EMPTY_PAGE_DATA")
@@ -399,7 +424,8 @@ class PageDataDiffblueTest {
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
 
     // Act
-    PageData<Object> actualMapDataResult = emptyPageDataResult.<Object>mapData(mock(Function.class));
+    PageData<Object> actualMapDataResult =
+        emptyPageDataResult.<Object>mapData(mock(Function.class));
 
     // Assert
     assertEquals(actualMapDataResult.EMPTY_PAGE_DATA, actualMapDataResult);

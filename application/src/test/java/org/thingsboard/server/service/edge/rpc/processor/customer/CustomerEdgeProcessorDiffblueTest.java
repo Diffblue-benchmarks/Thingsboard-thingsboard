@@ -12,18 +12,22 @@ import org.thingsboard.server.gen.edge.v1.EdgeVersion;
 class CustomerEdgeProcessorDiffblueTest {
   /**
    * Test {@link CustomerEdgeProcessor#convertCustomerEventToDownlink(EdgeEvent, EdgeVersion)}.
+   *
    * <ul>
-   *   <li>Given {@code POST_ATTRIBUTES}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@code POST_ATTRIBUTES}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerEdgeProcessor#convertCustomerEventToDownlink(EdgeEvent, EdgeVersion)}
+   *
+   * <p>Method under test: {@link CustomerEdgeProcessor#convertCustomerEventToDownlink(EdgeEvent,
+   * EdgeVersion)}
    */
   @Test
-  @DisplayName("Test convertCustomerEventToDownlink(EdgeEvent, EdgeVersion); given 'POST_ATTRIBUTES'; then return 'null'")
+  @DisplayName(
+      "Test convertCustomerEventToDownlink(EdgeEvent, EdgeVersion); given 'POST_ATTRIBUTES'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.gen.edge.v1.DownlinkMsg CustomerEdgeProcessor.convertCustomerEventToDownlink(EdgeEvent, EdgeVersion)"})
+    "org.thingsboard.server.gen.edge.v1.DownlinkMsg CustomerEdgeProcessor.convertCustomerEventToDownlink(EdgeEvent, EdgeVersion)"
+  })
   void testConvertCustomerEventToDownlink_givenPostAttributes_thenReturnNull() {
     // Arrange
     CustomerEdgeProcessor customerEdgeProcessor = new CustomerEdgeProcessor();
@@ -32,6 +36,7 @@ class CustomerEdgeProcessorDiffblueTest {
     edgeEvent.setAction(EdgeEventActionType.POST_ATTRIBUTES);
 
     // Act and Assert
-    assertNull(customerEdgeProcessor.convertCustomerEventToDownlink(edgeEvent, EdgeVersion.V_3_3_0));
+    assertNull(
+        customerEdgeProcessor.convertCustomerEventToDownlink(edgeEvent, EdgeVersion.V_3_3_0));
   }
 }

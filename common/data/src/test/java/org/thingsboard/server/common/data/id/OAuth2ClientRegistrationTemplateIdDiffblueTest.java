@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
 class OAuth2ClientRegistrationTemplateIdDiffblueTest {
   /**
    * Test {@link OAuth2ClientRegistrationTemplateId#OAuth2ClientRegistrationTemplateId(UUID)}.
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplateId#OAuth2ClientRegistrationTemplateId(UUID)}
+   *
+   * <p>Method under test: {@link
+   * OAuth2ClientRegistrationTemplateId#OAuth2ClientRegistrationTemplateId(UUID)}
    */
   @Test
   @DisplayName("Test new OAuth2ClientRegistrationTemplateId(UUID)")
@@ -23,7 +24,7 @@ class OAuth2ClientRegistrationTemplateIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new OAuth2ClientRegistrationTemplateId(id)).getId();
+    UUID id2 = new OAuth2ClientRegistrationTemplateId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

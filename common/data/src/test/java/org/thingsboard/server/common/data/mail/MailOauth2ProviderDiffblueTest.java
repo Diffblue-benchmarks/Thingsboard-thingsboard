@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class MailOauth2ProviderDiffblueTest {
   /**
    * Test {@link MailOauth2Provider#toString()}.
-   * <p>
-   * Method under test: {@link MailOauth2Provider#toString()}
+   *
+   * <p>Method under test: {@link MailOauth2Provider#toString()}
    */
   @Test
   @DisplayName("Test toString()")

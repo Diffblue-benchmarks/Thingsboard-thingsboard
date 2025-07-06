@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class RuleNodeIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeId#RuleNodeId(UUID)}
    *   <li>{@link RuleNodeId#getEntityType()}

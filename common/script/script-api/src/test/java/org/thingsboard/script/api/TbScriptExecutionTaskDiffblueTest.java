@@ -13,8 +13,8 @@ import org.thingsboard.script.api.js.JsScriptExecutionTask;
 class TbScriptExecutionTaskDiffblueTest {
   /**
    * Test {@link TbScriptExecutionTask#getResultFuture()}.
-   * <p>
-   * Method under test: {@link TbScriptExecutionTask#getResultFuture()}
+   *
+   * <p>Method under test: {@link TbScriptExecutionTask#getResultFuture()}
    */
   @Test
   @DisplayName("Test getResultFuture()")
@@ -25,7 +25,8 @@ class TbScriptExecutionTaskDiffblueTest {
     SettableFuture<Object> resultFuture = SettableFuture.create();
 
     // Act
-    ListenableFuture<Object> actualResultFuture = (new JsScriptExecutionTask(resultFuture)).getResultFuture();
+    ListenableFuture<Object> actualResultFuture =
+        new JsScriptExecutionTask(resultFuture).getResultFuture();
 
     // Assert
     assertTrue(actualResultFuture instanceof SettableFuture);

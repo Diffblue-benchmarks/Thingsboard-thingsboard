@@ -17,8 +17,9 @@ import org.thingsboard.server.common.data.TbProperty;
 class LwM2MTransportServerConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MTransportServerConfig#setCoapConfig(Configuration)}
    *   <li>{@link LwM2MTransportServerConfig#setNetworkConfig(List)}
@@ -46,20 +47,29 @@ class LwM2MTransportServerConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int LwM2MTransportServerConfig.getCleanPeriodInSec()",
-      "Configuration LwM2MTransportServerConfig.getCoapConfig()",
-      "int LwM2MTransportServerConfig.getDownlinkPoolSize()", "Integer LwM2MTransportServerConfig.getDtlsCidLength()",
-      "int LwM2MTransportServerConfig.getDtlsRetransmissionTimeout()", "String LwM2MTransportServerConfig.getHost()",
-      "Integer LwM2MTransportServerConfig.getId()", "List LwM2MTransportServerConfig.getNetworkConfig()",
-      "int LwM2MTransportServerConfig.getOtaPoolSize()",
-      "long LwM2MTransportServerConfig.getPagingTransmissionWindow()", "Integer LwM2MTransportServerConfig.getPort()",
-      "long LwM2MTransportServerConfig.getPsmActivityTimer()", "String LwM2MTransportServerConfig.getSecureHost()",
-      "Integer LwM2MTransportServerConfig.getSecurePort()", "long LwM2MTransportServerConfig.getSessionReportTimeout()",
-      "Long LwM2MTransportServerConfig.getTimeout()", "int LwM2MTransportServerConfig.getUplinkPoolSize()",
-      "boolean LwM2MTransportServerConfig.isRecommendedCiphers()",
-      "boolean LwM2MTransportServerConfig.isRecommendedSupportedGroups()",
-      "void LwM2MTransportServerConfig.setCoapConfig(Configuration)",
-      "void LwM2MTransportServerConfig.setNetworkConfig(List)"})
+  @MethodsUnderTest({
+    "int LwM2MTransportServerConfig.getCleanPeriodInSec()",
+    "Configuration LwM2MTransportServerConfig.getCoapConfig()",
+    "int LwM2MTransportServerConfig.getDownlinkPoolSize()",
+    "Integer LwM2MTransportServerConfig.getDtlsCidLength()",
+    "int LwM2MTransportServerConfig.getDtlsRetransmissionTimeout()",
+    "String LwM2MTransportServerConfig.getHost()",
+    "Integer LwM2MTransportServerConfig.getId()",
+    "List LwM2MTransportServerConfig.getNetworkConfig()",
+    "int LwM2MTransportServerConfig.getOtaPoolSize()",
+    "long LwM2MTransportServerConfig.getPagingTransmissionWindow()",
+    "Integer LwM2MTransportServerConfig.getPort()",
+    "long LwM2MTransportServerConfig.getPsmActivityTimer()",
+    "String LwM2MTransportServerConfig.getSecureHost()",
+    "Integer LwM2MTransportServerConfig.getSecurePort()",
+    "long LwM2MTransportServerConfig.getSessionReportTimeout()",
+    "Long LwM2MTransportServerConfig.getTimeout()",
+    "int LwM2MTransportServerConfig.getUplinkPoolSize()",
+    "boolean LwM2MTransportServerConfig.isRecommendedCiphers()",
+    "boolean LwM2MTransportServerConfig.isRecommendedSupportedGroups()",
+    "void LwM2MTransportServerConfig.setCoapConfig(Configuration)",
+    "void LwM2MTransportServerConfig.setNetworkConfig(List)"
+  })
   void testGettersAndSetters() {
     // Arrange
     LwM2MTransportServerConfig lwM2MTransportServerConfig = new LwM2MTransportServerConfig();

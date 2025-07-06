@@ -35,25 +35,20 @@ import org.thingsboard.server.common.data.rule.RuleChain;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class RuleChainActorDiffblueTest {
-  @Autowired
-  private ActorCreator actorCreator;
+  @Autowired private ActorCreator actorCreator;
 
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
-  @MockBean
-  private RuleChain ruleChain;
+  @MockBean private RuleChain ruleChain;
 
-  @Autowired
-  private RuleChainActor ruleChainActor;
+  @Autowired private RuleChainActor ruleChainActor;
 
-  @MockBean
-  private UUID uUID;
+  @MockBean private UUID uUID;
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
   @DisplayName("Test ActorCreator createActor()")
@@ -61,7 +56,8 @@ class RuleChainActorDiffblueTest {
   @MethodsUnderTest({"TbActor ActorCreator.createActor()"})
   void testActorCreatorCreateActor() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(ruleChain.getId()).thenReturn(ruleChainId);
 
     // Act
@@ -79,8 +75,8 @@ class RuleChainActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test ActorCreator createActorId()")
@@ -88,7 +84,8 @@ class RuleChainActorDiffblueTest {
   @MethodsUnderTest({"TbActorId ActorCreator.createActorId()"})
   void testActorCreatorCreateActorId() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(ruleChain.getId()).thenReturn(ruleChainId);
 
     // Act
@@ -104,9 +101,32 @@ class RuleChainActorDiffblueTest {
   }
 
   /**
+   * Test {@link RuleChainActor#getRuleChainId()}.
+   *
+   * <p>Method under test: {@link RuleChainActor#getRuleChainId()}
+   */
+  @Test
+  @DisplayName("Test getRuleChainId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"RuleChainId RuleChainActor.getRuleChainId()"})
+  void testGetRuleChainId() {
+    // Arrange
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(ruleChain.getId()).thenReturn(ruleChainId);
+
+    // Act
+    RuleChainId actualRuleChainId = ruleChainActor.getRuleChainId();
+
+    // Assert
+    verify(ruleChain).getId();
+    assertSame(ruleChainId, actualRuleChainId);
+  }
+
+  /**
    * Test {@link RuleChainActor#getRuleChainName()}.
-   * <p>
-   * Method under test: {@link RuleChainActor#getRuleChainName()}
+   *
+   * <p>Method under test: {@link RuleChainActor#getRuleChainName()}
    */
   @Test
   @DisplayName("Test getRuleChainName()")
@@ -126,8 +146,8 @@ class RuleChainActorDiffblueTest {
 
   /**
    * Test {@link RuleChainActor#getErrorPersistFrequency()}.
-   * <p>
-   * Method under test: {@link RuleChainActor#getErrorPersistFrequency()}
+   *
+   * <p>Method under test: {@link RuleChainActor#getErrorPersistFrequency()}
    */
   @Test
   @DisplayName("Test getErrorPersistFrequency()")

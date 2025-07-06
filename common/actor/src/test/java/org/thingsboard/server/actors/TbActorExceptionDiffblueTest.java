@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class TbActorExceptionDiffblueTest {
   /**
    * Test {@link TbActorException#TbActorException(String, Throwable)}.
-   * <p>
-   * Method under test: {@link TbActorException#TbActorException(String, Throwable)}
+   *
+   * <p>Method under test: {@link TbActorException#TbActorException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new TbActorException(String, Throwable)")

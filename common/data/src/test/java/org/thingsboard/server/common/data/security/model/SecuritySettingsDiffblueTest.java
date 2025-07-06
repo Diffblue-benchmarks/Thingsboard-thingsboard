@@ -14,12 +14,14 @@ import org.mockito.Mockito;
 class SecuritySettingsDiffblueTest {
   /**
    * Test {@link SecuritySettings#equals(Object)}, and {@link SecuritySettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SecuritySettings#equals(Object)}
    *   <li>{@link SecuritySettings#hashCode()}
@@ -79,12 +81,14 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}, and {@link SecuritySettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SecuritySettings#equals(Object)}
    *   <li>{@link SecuritySettings#hashCode()}
@@ -124,12 +128,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -183,12 +188,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -242,12 +248,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -301,12 +308,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -360,12 +368,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -429,12 +438,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -498,12 +508,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -567,12 +578,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -636,12 +648,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -705,12 +718,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -744,12 +758,13 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test {@link SecuritySettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SecuritySettings#equals(Object)}
+   *
+   * <p>Method under test: {@link SecuritySettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -783,8 +798,9 @@ class SecuritySettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SecuritySettings}
    *   <li>{@link SecuritySettings#setMaxFailedLoginAttempts(Integer)}
@@ -805,16 +821,22 @@ class SecuritySettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SecuritySettings.<init>()", "Integer SecuritySettings.getMaxFailedLoginAttempts()",
-      "Integer SecuritySettings.getMobileSecretKeyLength()", "UserPasswordPolicy SecuritySettings.getPasswordPolicy()",
-      "Integer SecuritySettings.getPasswordResetTokenTtl()", "Integer SecuritySettings.getUserActivationTokenTtl()",
-      "String SecuritySettings.getUserLockoutNotificationEmail()",
-      "void SecuritySettings.setMaxFailedLoginAttempts(Integer)",
-      "void SecuritySettings.setMobileSecretKeyLength(Integer)",
-      "void SecuritySettings.setPasswordPolicy(UserPasswordPolicy)",
-      "void SecuritySettings.setPasswordResetTokenTtl(Integer)",
-      "void SecuritySettings.setUserActivationTokenTtl(Integer)",
-      "void SecuritySettings.setUserLockoutNotificationEmail(String)", "String SecuritySettings.toString()"})
+  @MethodsUnderTest({
+    "void SecuritySettings.<init>()",
+    "Integer SecuritySettings.getMaxFailedLoginAttempts()",
+    "Integer SecuritySettings.getMobileSecretKeyLength()",
+    "UserPasswordPolicy SecuritySettings.getPasswordPolicy()",
+    "Integer SecuritySettings.getPasswordResetTokenTtl()",
+    "Integer SecuritySettings.getUserActivationTokenTtl()",
+    "String SecuritySettings.getUserLockoutNotificationEmail()",
+    "void SecuritySettings.setMaxFailedLoginAttempts(Integer)",
+    "void SecuritySettings.setMobileSecretKeyLength(Integer)",
+    "void SecuritySettings.setPasswordPolicy(UserPasswordPolicy)",
+    "void SecuritySettings.setPasswordResetTokenTtl(Integer)",
+    "void SecuritySettings.setUserActivationTokenTtl(Integer)",
+    "void SecuritySettings.setUserLockoutNotificationEmail(String)",
+    "String SecuritySettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SecuritySettings actualSecuritySettings = new SecuritySettings();

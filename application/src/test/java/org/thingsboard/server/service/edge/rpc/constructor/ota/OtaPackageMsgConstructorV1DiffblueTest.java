@@ -13,21 +13,25 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.OtaPackage;
 import org.thingsboard.server.common.data.id.OtaPackageId;
+import org.thingsboard.server.common.data.ota.ChecksumAlgorithm;
 import org.thingsboard.server.common.data.ota.OtaPackageType;
 import org.thingsboard.server.gen.edge.v1.OtaPackageUpdateMsg;
 import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 
 class OtaPackageMsgConstructorV1DiffblueTest {
   /**
-   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}.
-   * <p>
-   * Method under test: {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
    */
   @Test
   @DisplayName("Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"})
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
   void testConstructOtaPackageUpdatedMsg() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
@@ -41,8 +45,9 @@ class OtaPackageMsgConstructorV1DiffblueTest {
     otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
 
     // Assert
     ByteString urlBytes = actualConstructOtaPackageUpdatedMsgResult.getUrlBytes();
@@ -59,25 +64,30 @@ class OtaPackageMsgConstructorV1DiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}.
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
-   *   <li>Then return not Data Empty.</li>
+   *   <li>Given {@code A}.
+   *   <li>Then return not Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
    */
   @Test
-  @DisplayName("Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'A'; then return not Data Empty")
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'A'; then return not Data Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"})
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
   void testConstructOtaPackageUpdatedMsg_givenA_thenReturnNotDataEmpty() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
 
     OtaPackage otaPackage = new OtaPackage();
-    otaPackage.setData(ByteBuffer.wrap(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1}));
+    otaPackage.setData(ByteBuffer.wrap(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1}));
     otaPackage.setTag("Tag");
     otaPackage.setVersion("Version");
     otaPackage.setTitle("Dr");
@@ -85,8 +95,9 @@ class OtaPackageMsgConstructorV1DiffblueTest {
     otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
 
     // Assert
     ByteString data = actualConstructOtaPackageUpdatedMsgResult.getData();
@@ -102,20 +113,129 @@ class OtaPackageMsgConstructorV1DiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}.
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
    * <ul>
-   *   <li>Given {@code Tag}.</li>
-   *   <li>Then return ContentType is empty string.</li>
+   *   <li>Given {@code Checksum}.
+   *   <li>Then return {@code Checksum}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
    */
   @Test
-  @DisplayName("Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'Tag'; then return ContentType is empty string")
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'Checksum'; then return 'Checksum'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"})
-  void testConstructOtaPackageUpdatedMsg_givenTag_thenReturnContentTypeIsEmptyString() {
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
+  void testConstructOtaPackageUpdatedMsg_givenChecksum_thenReturnChecksum() {
+    // Arrange
+    OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
+
+    OtaPackage otaPackage = new OtaPackage();
+    otaPackage.setChecksum("Checksum");
+    otaPackage.setTag("Tag");
+    otaPackage.setVersion("Version");
+    otaPackage.setTitle("Dr");
+    otaPackage.setType(OtaPackageType.SOFTWARE);
+    otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+
+    // Assert
+    assertEquals("Checksum", actualConstructOtaPackageUpdatedMsgResult.getChecksum());
+    ByteString checksumBytes = actualConstructOtaPackageUpdatedMsgResult.getChecksumBytes();
+    assertFalse(checksumBytes.isEmpty());
+    ByteIterator iteratorResult = checksumBytes.iterator();
+    assertTrue(iteratorResult.hasNext());
+    assertEquals('C', iteratorResult.next().byteValue());
+    assertEquals('h', iteratorResult.next().byteValue());
+    assertEquals('e', iteratorResult.next().byteValue());
+    assertEquals("Checksum", checksumBytes.toStringUtf8());
+    assertEquals(59, actualConstructOtaPackageUpdatedMsgResult.getSerializedSize());
+    assertTrue(actualConstructOtaPackageUpdatedMsgResult.hasChecksum());
+  }
+
+  /**
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
+   * <ul>
+   *   <li>Given {@code MD5}.
+   *   <li>Then return ChecksumAlgorithm is {@code MD5}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   */
+  @Test
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'MD5'; then return ChecksumAlgorithm is 'MD5'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
+  void testConstructOtaPackageUpdatedMsg_givenMd5_thenReturnChecksumAlgorithmIsMd5() {
+    // Arrange
+    OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
+
+    OtaPackage otaPackage = new OtaPackage();
+    otaPackage.setChecksumAlgorithm(ChecksumAlgorithm.MD5);
+    otaPackage.setTag("Tag");
+    otaPackage.setVersion("Version");
+    otaPackage.setTitle("Dr");
+    otaPackage.setType(OtaPackageType.SOFTWARE);
+    otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+
+    // Assert
+    assertEquals("MD5", actualConstructOtaPackageUpdatedMsgResult.getChecksumAlgorithm());
+    ByteString checksumAlgorithmBytes =
+        actualConstructOtaPackageUpdatedMsgResult.getChecksumAlgorithmBytes();
+    assertFalse(checksumAlgorithmBytes.isEmpty());
+    ByteIterator iteratorResult = checksumAlgorithmBytes.iterator();
+    Byte nextResult = iteratorResult.next();
+    Byte nextResult2 = iteratorResult.next();
+    Byte nextResult3 = iteratorResult.next();
+    assertFalse(iteratorResult.hasNext());
+    assertEquals('M', nextResult.byteValue());
+    assertEquals('D', nextResult2.byteValue());
+    assertEquals('5', nextResult3.byteValue());
+    assertEquals("MD5", checksumAlgorithmBytes.toStringUtf8());
+    assertEquals(54, actualConstructOtaPackageUpdatedMsgResult.getSerializedSize());
+    assertTrue(actualConstructOtaPackageUpdatedMsgResult.hasChecksumAlgorithm());
+  }
+
+  /**
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
+   * <ul>
+   *   <li>Given {@code Tag}.
+   *   <li>Then return DataSize is zero.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   */
+  @Test
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given 'Tag'; then return DataSize is zero")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
+  void testConstructOtaPackageUpdatedMsg_givenTag_thenReturnDataSizeIsZero() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
 
@@ -127,34 +247,78 @@ class OtaPackageMsgConstructorV1DiffblueTest {
     otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
 
     // Assert
-    assertEquals("", actualConstructOtaPackageUpdatedMsgResult.getContentType());
-    assertEquals("", actualConstructOtaPackageUpdatedMsgResult.getFileName());
-    assertEquals("", actualConstructOtaPackageUpdatedMsgResult.getUrl());
+    assertEquals(0L, actualConstructOtaPackageUpdatedMsgResult.getDataSize());
     assertEquals(49, actualConstructOtaPackageUpdatedMsgResult.getSerializedSize());
     assertEquals(6, actualConstructOtaPackageUpdatedMsgResult.getAllFields().size());
-    assertFalse(actualConstructOtaPackageUpdatedMsgResult.hasContentType());
-    assertFalse(actualConstructOtaPackageUpdatedMsgResult.hasData());
-    assertFalse(actualConstructOtaPackageUpdatedMsgResult.hasFileName());
-    assertFalse(actualConstructOtaPackageUpdatedMsgResult.hasUrl());
+    assertFalse(actualConstructOtaPackageUpdatedMsgResult.hasDataSize());
   }
 
   /**
-   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}.
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
    * <ul>
-   *   <li>Then return ContentType is {@code text/plain}.</li>
+   *   <li>Given three.
+   *   <li>Then return DataSize is three.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
    */
   @Test
-  @DisplayName("Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); then return ContentType is 'text/plain'")
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); given three; then return DataSize is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"})
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
+  void testConstructOtaPackageUpdatedMsg_givenThree_thenReturnDataSizeIsThree() {
+    // Arrange
+    OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
+
+    OtaPackage otaPackage = new OtaPackage();
+    otaPackage.setDataSize(3L);
+    otaPackage.setTag("Tag");
+    otaPackage.setVersion("Version");
+    otaPackage.setTitle("Dr");
+    otaPackage.setType(OtaPackageType.SOFTWARE);
+    otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+
+    // Assert
+    assertEquals(3L, actualConstructOtaPackageUpdatedMsgResult.getDataSize());
+    assertEquals(51, actualConstructOtaPackageUpdatedMsgResult.getSerializedSize());
+    assertEquals(7, actualConstructOtaPackageUpdatedMsgResult.getAllFields().size());
+    assertTrue(actualConstructOtaPackageUpdatedMsgResult.hasDataSize());
+  }
+
+  /**
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
+   * <ul>
+   *   <li>Then return ContentType is {@code text/plain}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   */
+  @Test
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); then return ContentType is 'text/plain'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
   void testConstructOtaPackageUpdatedMsg_thenReturnContentTypeIsTextPlain() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
@@ -168,8 +332,9 @@ class OtaPackageMsgConstructorV1DiffblueTest {
     otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
 
     // Assert
     assertEquals("text/plain", actualConstructOtaPackageUpdatedMsgResult.getContentType());
@@ -186,18 +351,23 @@ class OtaPackageMsgConstructorV1DiffblueTest {
   }
 
   /**
-   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}.
+   * Test {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType,
+   * OtaPackage)}.
+   *
    * <ul>
-   *   <li>Then return FileNameBytes toStringUtf8 is {@code foo.txt}.</li>
+   *   <li>Then return FileNameBytes toStringUtf8 is {@code foo.txt}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
+   *
+   * <p>Method under test: {@link
+   * OtaPackageMsgConstructorV1#constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)}
    */
   @Test
-  @DisplayName("Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); then return FileNameBytes toStringUtf8 is 'foo.txt'")
+  @DisplayName(
+      "Test constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage); then return FileNameBytes toStringUtf8 is 'foo.txt'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"})
+    "OtaPackageUpdateMsg OtaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(UpdateMsgType, OtaPackage)"
+  })
   void testConstructOtaPackageUpdatedMsg_thenReturnFileNameBytesToStringUtf8IsFooTxt() {
     // Arrange
     OtaPackageMsgConstructorV1 otaPackageMsgConstructorV1 = new OtaPackageMsgConstructorV1();
@@ -211,8 +381,9 @@ class OtaPackageMsgConstructorV1DiffblueTest {
     otaPackage.setId(new OtaPackageId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult = otaPackageMsgConstructorV1
-        .constructOtaPackageUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
+    OtaPackageUpdateMsg actualConstructOtaPackageUpdatedMsgResult =
+        otaPackageMsgConstructorV1.constructOtaPackageUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, otaPackage);
 
     // Assert
     ByteString fileNameBytes = actualConstructOtaPackageUpdatedMsgResult.getFileNameBytes();

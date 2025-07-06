@@ -13,14 +13,17 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 class TbLwM2mRedisSecurityStoreDiffblueTest {
   /**
    * Test {@link TbLwM2mRedisSecurityStore#TbLwM2mRedisSecurityStore(RedisConnectionFactory)}.
+   *
    * <ul>
-   *   <li>Then return ByOscoreIdentity is {@code null} is {@code null}.</li>
+   *   <li>Then return ByOscoreIdentity is {@code null} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mRedisSecurityStore#TbLwM2mRedisSecurityStore(RedisConnectionFactory)}
+   *
+   * <p>Method under test: {@link
+   * TbLwM2mRedisSecurityStore#TbLwM2mRedisSecurityStore(RedisConnectionFactory)}
    */
   @Test
-  @DisplayName("Test new TbLwM2mRedisSecurityStore(RedisConnectionFactory); then return ByOscoreIdentity is 'null' is 'null'")
+  @DisplayName(
+      "Test new TbLwM2mRedisSecurityStore(RedisConnectionFactory); then return ByOscoreIdentity is 'null' is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbLwM2mRedisSecurityStore.<init>(RedisConnectionFactory)"})
   void testNewTbLwM2mRedisSecurityStore_thenReturnByOscoreIdentityIsNullIsNull() {
@@ -29,24 +32,29 @@ class TbLwM2mRedisSecurityStoreDiffblueTest {
     //   a non-Spring test was created.
 
     // Arrange, Act and Assert
-    assertNull((new TbLwM2mRedisSecurityStore(new JedisConnectionFactory())).getByOscoreIdentity(null));
+    assertNull(
+        new TbLwM2mRedisSecurityStore(new JedisConnectionFactory()).getByOscoreIdentity(null));
   }
 
   /**
    * Test {@link TbLwM2mRedisSecurityStore#getByOscoreIdentity(OscoreIdentity)}.
-   * <p>
-   * Method under test: {@link TbLwM2mRedisSecurityStore#getByOscoreIdentity(OscoreIdentity)}
+   *
+   * <p>Method under test: {@link TbLwM2mRedisSecurityStore#getByOscoreIdentity(OscoreIdentity)}
    */
   @Test
   @DisplayName("Test getByOscoreIdentity(OscoreIdentity)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.server.security.SecurityInfo TbLwM2mRedisSecurityStore.getByOscoreIdentity(OscoreIdentity)"})
+    "org.eclipse.leshan.server.security.SecurityInfo TbLwM2mRedisSecurityStore.getByOscoreIdentity(OscoreIdentity)"
+  })
   void testGetByOscoreIdentity() throws UnsupportedEncodingException {
     // Arrange
-    TbLwM2mRedisSecurityStore tbLwM2mRedisSecurityStore = new TbLwM2mRedisSecurityStore(new JedisConnectionFactory());
+    TbLwM2mRedisSecurityStore tbLwM2mRedisSecurityStore =
+        new TbLwM2mRedisSecurityStore(new JedisConnectionFactory());
 
     // Act and Assert
-    assertNull(tbLwM2mRedisSecurityStore.getByOscoreIdentity(new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
+    assertNull(
+        tbLwM2mRedisSecurityStore.getByOscoreIdentity(
+            new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
   }
 }

@@ -22,18 +22,23 @@ import org.thingsboard.server.common.msg.MsgType;
 class DeviceAttributesEventNotificationMsgDiffblueTest {
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
-   *   <li>Then return Values is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return Values is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onUpdate(TenantId, DeviceId, String, List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return Values is ArrayList()")
+  @DisplayName(
+      "Test onUpdate(TenantId, DeviceId, String, List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return Values is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"
+  })
   void testOnUpdate_givenJsonDataEntryWithKeyAndValueIs42_thenReturnValuesIsArrayList() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -42,67 +47,80 @@ class DeviceAttributesEventNotificationMsgDiffblueTest {
     values.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Act and Assert
-    assertSame(values, DeviceAttributesEventNotificationMsg.onUpdate(tenantId, null, "Scope", values).getValues());
+    assertSame(
+        values,
+        DeviceAttributesEventNotificationMsg.onUpdate(tenantId, null, "Scope", values).getValues());
   }
 
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
-   *   <li>Then return Values size is two.</li>
+   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return Values size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onUpdate(TenantId, DeviceId, String, List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return Values size is two")
+  @DisplayName(
+      "Test onUpdate(TenantId, DeviceId, String, List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return Values size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"
+  })
   void testOnUpdate_givenJsonDataEntryWithKeyAndValueIs42_thenReturnValuesSizeIsTwo() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     ArrayList<AttributeKvEntry> values = new ArrayList<>();
     values.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
-    BaseAttributeKvEntry baseAttributeKvEntry = new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42"));
+    BaseAttributeKvEntry baseAttributeKvEntry =
+        new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42"));
 
     values.add(baseAttributeKvEntry);
 
     // Act and Assert
-    List<AttributeKvEntry> values2 = DeviceAttributesEventNotificationMsg.onUpdate(tenantId, null, "Scope", values)
-        .getValues();
+    List<AttributeKvEntry> values2 =
+        DeviceAttributesEventNotificationMsg.onUpdate(tenantId, null, "Scope", values).getValues();
     assertEquals(2, values2.size());
     assertSame(baseAttributeKvEntry, values2.get(1));
   }
 
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code Scope}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@code Scope}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onUpdate(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onUpdate(TenantId, DeviceId, String, List); when ArrayList(); then return 'Scope'")
+  @DisplayName(
+      "Test onUpdate(TenantId, DeviceId, String, List); when ArrayList(); then return 'Scope'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onUpdate(TenantId, DeviceId, String, List)"
+  })
   void testOnUpdate_whenArrayList_thenReturnScope() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    DeviceAttributesEventNotificationMsg actualOnUpdateResult = DeviceAttributesEventNotificationMsg.onUpdate(tenantId,
-        null, "Scope", new ArrayList<>());
+    DeviceAttributesEventNotificationMsg actualOnUpdateResult =
+        DeviceAttributesEventNotificationMsg.onUpdate(tenantId, null, "Scope", new ArrayList<>());
 
     // Assert
     assertEquals("Scope", actualOnUpdateResult.getScope());
     assertNull(actualOnUpdateResult.getDeletedKeys());
     assertNull(actualOnUpdateResult.getDeviceId());
-    assertEquals(MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnUpdateResult.getMsgType());
+    assertEquals(
+        MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnUpdateResult.getMsgType());
     assertFalse(actualOnUpdateResult.isDeleted());
     assertTrue(actualOnUpdateResult.getValues().isEmpty());
     assertSame(tenantId, actualOnUpdateResult.getTenantId());
@@ -110,19 +128,23 @@ class DeviceAttributesEventNotificationMsgDiffblueTest {
 
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return DeletedKeys size is two.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return DeletedKeys size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onDelete(TenantId, DeviceId, String, List); given '42'; when ArrayList() add '42'; then return DeletedKeys size is two")
+  @DisplayName(
+      "Test onDelete(TenantId, DeviceId, String, List); given '42'; when ArrayList() add '42'; then return DeletedKeys size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"
+  })
   void testOnDelete_given42_whenArrayListAdd42_thenReturnDeletedKeysSizeIsTwo() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -132,34 +154,39 @@ class DeviceAttributesEventNotificationMsgDiffblueTest {
     keys.add("foo");
 
     // Act
-    DeviceAttributesEventNotificationMsg actualOnDeleteResult = DeviceAttributesEventNotificationMsg.onDelete(tenantId,
-        null, "Scope", keys);
+    DeviceAttributesEventNotificationMsg actualOnDeleteResult =
+        DeviceAttributesEventNotificationMsg.onDelete(tenantId, null, "Scope", keys);
 
     // Assert
     assertNull(actualOnDeleteResult.getScope());
     assertNull(actualOnDeleteResult.getValues());
     assertNull(actualOnDeleteResult.getDeviceId());
     assertEquals(2, actualOnDeleteResult.getDeletedKeys().size());
-    assertEquals(MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
+    assertEquals(
+        MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
     assertTrue(actualOnDeleteResult.isDeleted());
     assertSame(tenantId, actualOnDeleteResult.getTenantId());
   }
 
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return DeletedKeys size is one.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return DeletedKeys size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onDelete(TenantId, DeviceId, String, List); given 'foo'; when ArrayList() add 'foo'; then return DeletedKeys size is one")
+  @DisplayName(
+      "Test onDelete(TenantId, DeviceId, String, List); given 'foo'; when ArrayList() add 'foo'; then return DeletedKeys size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"
+  })
   void testOnDelete_givenFoo_whenArrayListAddFoo_thenReturnDeletedKeysSizeIsOne() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -168,46 +195,52 @@ class DeviceAttributesEventNotificationMsgDiffblueTest {
     keys.add("foo");
 
     // Act
-    DeviceAttributesEventNotificationMsg actualOnDeleteResult = DeviceAttributesEventNotificationMsg.onDelete(tenantId,
-        null, "Scope", keys);
+    DeviceAttributesEventNotificationMsg actualOnDeleteResult =
+        DeviceAttributesEventNotificationMsg.onDelete(tenantId, null, "Scope", keys);
 
     // Assert
     assertNull(actualOnDeleteResult.getScope());
     assertNull(actualOnDeleteResult.getValues());
     assertNull(actualOnDeleteResult.getDeviceId());
     assertEquals(1, actualOnDeleteResult.getDeletedKeys().size());
-    assertEquals(MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
+    assertEquals(
+        MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
     assertTrue(actualOnDeleteResult.isDeleted());
     assertSame(tenantId, actualOnDeleteResult.getTenantId());
   }
 
   /**
    * Test {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return DeletedKeys Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return DeletedKeys Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId, String, List)}
+   *
+   * <p>Method under test: {@link DeviceAttributesEventNotificationMsg#onDelete(TenantId, DeviceId,
+   * String, List)}
    */
   @Test
-  @DisplayName("Test onDelete(TenantId, DeviceId, String, List); when ArrayList(); then return DeletedKeys Empty")
+  @DisplayName(
+      "Test onDelete(TenantId, DeviceId, String, List); when ArrayList(); then return DeletedKeys Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"})
+    "DeviceAttributesEventNotificationMsg DeviceAttributesEventNotificationMsg.onDelete(TenantId, DeviceId, String, List)"
+  })
   void testOnDelete_whenArrayList_thenReturnDeletedKeysEmpty() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    DeviceAttributesEventNotificationMsg actualOnDeleteResult = DeviceAttributesEventNotificationMsg.onDelete(tenantId,
-        null, "Scope", new ArrayList<>());
+    DeviceAttributesEventNotificationMsg actualOnDeleteResult =
+        DeviceAttributesEventNotificationMsg.onDelete(tenantId, null, "Scope", new ArrayList<>());
 
     // Assert
     assertNull(actualOnDeleteResult.getScope());
     assertNull(actualOnDeleteResult.getValues());
     assertNull(actualOnDeleteResult.getDeviceId());
-    assertEquals(MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
+    assertEquals(
+        MsgType.DEVICE_ATTRIBUTES_UPDATE_TO_DEVICE_ACTOR_MSG, actualOnDeleteResult.getMsgType());
     assertTrue(actualOnDeleteResult.getDeletedKeys().isEmpty());
     assertTrue(actualOnDeleteResult.isDeleted());
     assertSame(tenantId, actualOnDeleteResult.getTenantId());

@@ -25,8 +25,9 @@ import org.thingsboard.server.service.edge.EdgeContextComponent;
 class EdgeGrpcSessionDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeGrpcSession#setClientMaxInboundMessageSize(int)}
    *   <li>{@link EdgeGrpcSession#setConnected(boolean)}
@@ -72,36 +73,62 @@ class EdgeGrpcSessionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int EdgeGrpcSession.getClientMaxInboundMessageSize()",
-      "EdgeContextComponent EdgeGrpcSession.getCtx()", "Edge EdgeGrpcSession.getEdge()",
-      "EdgeVersion EdgeGrpcSession.getEdgeVersion()", "StreamObserver EdgeGrpcSession.getInputStream()",
-      "int EdgeGrpcSession.getMaxHighPriorityQueueSizePerSession()", "int EdgeGrpcSession.getMaxInboundMessageSize()",
-      "Long EdgeGrpcSession.getNewStartSeqId()", "Long EdgeGrpcSession.getNewStartTs()",
-      "StreamObserver EdgeGrpcSession.getOutputStream()", "Long EdgeGrpcSession.getPreviousStartSeqId()",
-      "Long EdgeGrpcSession.getPreviousStartTs()",
-      "ScheduledExecutorService EdgeGrpcSession.getSendDownlinkExecutorService()", "Long EdgeGrpcSession.getSeqIdEnd()",
-      "BiConsumer EdgeGrpcSession.getSessionCloseListener()", "UUID EdgeGrpcSession.getSessionId()",
-      "BiConsumer EdgeGrpcSession.getSessionOpenListener()", "EdgeSessionState EdgeGrpcSession.getSessionState()",
-      "TenantId EdgeGrpcSession.getTenantId()", "boolean EdgeGrpcSession.isConnected()",
-      "boolean EdgeGrpcSession.isSyncCompleted()", "void EdgeGrpcSession.setClientMaxInboundMessageSize(int)",
-      "void EdgeGrpcSession.setConnected(boolean)", "void EdgeGrpcSession.setCtx(EdgeContextComponent)",
-      "void EdgeGrpcSession.setEdge(Edge)", "void EdgeGrpcSession.setEdgeVersion(EdgeVersion)",
-      "void EdgeGrpcSession.setInputStream(StreamObserver)",
-      "void EdgeGrpcSession.setMaxHighPriorityQueueSizePerSession(int)",
-      "void EdgeGrpcSession.setMaxInboundMessageSize(int)", "void EdgeGrpcSession.setNewStartSeqId(Long)",
-      "void EdgeGrpcSession.setNewStartTs(Long)", "void EdgeGrpcSession.setOutputStream(StreamObserver)",
-      "void EdgeGrpcSession.setPreviousStartSeqId(Long)", "void EdgeGrpcSession.setPreviousStartTs(Long)",
-      "void EdgeGrpcSession.setSendDownlinkExecutorService(ScheduledExecutorService)",
-      "void EdgeGrpcSession.setSeqIdEnd(Long)", "void EdgeGrpcSession.setSyncCompleted(boolean)",
-      "void EdgeGrpcSession.setTenantId(TenantId)", "java.lang.String EdgeGrpcSession.toString()"})
+  @MethodsUnderTest({
+    "int EdgeGrpcSession.getClientMaxInboundMessageSize()",
+    "EdgeContextComponent EdgeGrpcSession.getCtx()",
+    "Edge EdgeGrpcSession.getEdge()",
+    "EdgeVersion EdgeGrpcSession.getEdgeVersion()",
+    "StreamObserver EdgeGrpcSession.getInputStream()",
+    "int EdgeGrpcSession.getMaxHighPriorityQueueSizePerSession()",
+    "int EdgeGrpcSession.getMaxInboundMessageSize()",
+    "Long EdgeGrpcSession.getNewStartSeqId()",
+    "Long EdgeGrpcSession.getNewStartTs()",
+    "StreamObserver EdgeGrpcSession.getOutputStream()",
+    "Long EdgeGrpcSession.getPreviousStartSeqId()",
+    "Long EdgeGrpcSession.getPreviousStartTs()",
+    "ScheduledExecutorService EdgeGrpcSession.getSendDownlinkExecutorService()",
+    "Long EdgeGrpcSession.getSeqIdEnd()",
+    "BiConsumer EdgeGrpcSession.getSessionCloseListener()",
+    "UUID EdgeGrpcSession.getSessionId()",
+    "BiConsumer EdgeGrpcSession.getSessionOpenListener()",
+    "EdgeSessionState EdgeGrpcSession.getSessionState()",
+    "TenantId EdgeGrpcSession.getTenantId()",
+    "boolean EdgeGrpcSession.isConnected()",
+    "boolean EdgeGrpcSession.isSyncCompleted()",
+    "void EdgeGrpcSession.setClientMaxInboundMessageSize(int)",
+    "void EdgeGrpcSession.setConnected(boolean)",
+    "void EdgeGrpcSession.setCtx(EdgeContextComponent)",
+    "void EdgeGrpcSession.setEdge(Edge)",
+    "void EdgeGrpcSession.setEdgeVersion(EdgeVersion)",
+    "void EdgeGrpcSession.setInputStream(StreamObserver)",
+    "void EdgeGrpcSession.setMaxHighPriorityQueueSizePerSession(int)",
+    "void EdgeGrpcSession.setMaxInboundMessageSize(int)",
+    "void EdgeGrpcSession.setNewStartSeqId(Long)",
+    "void EdgeGrpcSession.setNewStartTs(Long)",
+    "void EdgeGrpcSession.setOutputStream(StreamObserver)",
+    "void EdgeGrpcSession.setPreviousStartSeqId(Long)",
+    "void EdgeGrpcSession.setPreviousStartTs(Long)",
+    "void EdgeGrpcSession.setSendDownlinkExecutorService(ScheduledExecutorService)",
+    "void EdgeGrpcSession.setSeqIdEnd(Long)",
+    "void EdgeGrpcSession.setSyncCompleted(boolean)",
+    "void EdgeGrpcSession.setTenantId(TenantId)",
+    "java.lang.String EdgeGrpcSession.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     EdgeContextComponent ctx = new EdgeContextComponent();
     StreamObserver<ResponseMsg> outputStream = mock(StreamObserver.class);
     BiConsumer<EdgeId, EdgeGrpcSession> sessionOpenListener = mock(BiConsumer.class);
     BiConsumer<Edge, UUID> sessionCloseListener = mock(BiConsumer.class);
-    EdgeGrpcSession edgeGrpcSession = new EdgeGrpcSession(ctx, outputStream, sessionOpenListener, sessionCloseListener,
-        new DefaultEventLoop(), 3, 3);
+    EdgeGrpcSession edgeGrpcSession =
+        new EdgeGrpcSession(
+            ctx,
+            outputStream,
+            sessionOpenListener,
+            sessionCloseListener,
+            new DefaultEventLoop(),
+            3,
+            3);
 
     // Act
     edgeGrpcSession.setClientMaxInboundMessageSize(3);
@@ -133,14 +160,16 @@ class EdgeGrpcSessionDiffblueTest {
     Edge actualEdge = edgeGrpcSession.getEdge();
     EdgeVersion actualEdgeVersion = edgeGrpcSession.getEdgeVersion();
     StreamObserver<RequestMsg> actualInputStream = edgeGrpcSession.getInputStream();
-    int actualMaxHighPriorityQueueSizePerSession = edgeGrpcSession.getMaxHighPriorityQueueSizePerSession();
+    int actualMaxHighPriorityQueueSizePerSession =
+        edgeGrpcSession.getMaxHighPriorityQueueSizePerSession();
     int actualMaxInboundMessageSize = edgeGrpcSession.getMaxInboundMessageSize();
     Long actualNewStartSeqId = edgeGrpcSession.getNewStartSeqId();
     Long actualNewStartTs = edgeGrpcSession.getNewStartTs();
     StreamObserver<ResponseMsg> actualOutputStream = edgeGrpcSession.getOutputStream();
     Long actualPreviousStartSeqId = edgeGrpcSession.getPreviousStartSeqId();
     Long actualPreviousStartTs = edgeGrpcSession.getPreviousStartTs();
-    ScheduledExecutorService actualSendDownlinkExecutorService = edgeGrpcSession.getSendDownlinkExecutorService();
+    ScheduledExecutorService actualSendDownlinkExecutorService =
+        edgeGrpcSession.getSendDownlinkExecutorService();
     Long actualSeqIdEnd = edgeGrpcSession.getSeqIdEnd();
     edgeGrpcSession.getSessionCloseListener();
     edgeGrpcSession.getSessionId();

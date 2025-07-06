@@ -18,8 +18,8 @@ import org.mockito.Mockito;
 class TbCoapMessageObserverDiffblueTest {
   /**
    * Test {@link TbCoapMessageObserver#onAcknowledgement()}.
-   * <p>
-   * Method under test: {@link TbCoapMessageObserver#onAcknowledgement()}
+   *
+   * <p>Method under test: {@link TbCoapMessageObserver#onAcknowledgement()}
    */
   @Test
   @DisplayName("Test onAcknowledgement()")
@@ -31,7 +31,7 @@ class TbCoapMessageObserverDiffblueTest {
     doNothing().when(onAcknowledge).accept(Mockito.<Integer>any());
 
     // Act
-    (new TbCoapMessageObserver(1, onAcknowledge, mock(Consumer.class))).onAcknowledgement();
+    new TbCoapMessageObserver(1, onAcknowledge, mock(Consumer.class)).onAcknowledgement();
 
     // Assert
     verify(onAcknowledge).accept(eq(1));
@@ -39,20 +39,26 @@ class TbCoapMessageObserverDiffblueTest {
 
   /**
    * Test {@link TbCoapMessageObserver#onTimeout()}.
-   * <p>
-   * Method under test: {@link TbCoapMessageObserver#onTimeout()}
+   *
+   * <ul>
+   *   <li>Given {@link Consumer} {@link Consumer#accept(Object)} does nothing.
+   *   <li>Then calls {@link Consumer#accept(Object)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbCoapMessageObserver#onTimeout()}
    */
   @Test
-  @DisplayName("Test onTimeout()")
+  @DisplayName(
+      "Test onTimeout(); given Consumer accept(Object) does nothing; then calls accept(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbCoapMessageObserver.onTimeout()"})
-  void testOnTimeout() {
+  void testOnTimeout_givenConsumerAcceptDoesNothing_thenCallsAccept() {
     // Arrange
     Consumer<Integer> onTimeout = mock(Consumer.class);
     doNothing().when(onTimeout).accept(Mockito.<Integer>any());
 
     // Act
-    (new TbCoapMessageObserver(1, mock(Consumer.class), onTimeout)).onTimeout();
+    new TbCoapMessageObserver(1, mock(Consumer.class), onTimeout).onTimeout();
 
     // Assert
     verify(onTimeout).accept(eq(1));
@@ -60,8 +66,9 @@ class TbCoapMessageObserverDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCoapMessageObserver#TbCoapMessageObserver(int, Consumer, Consumer)}
    *   <li>{@link TbCoapMessageObserver#onCancel()}
@@ -81,19 +88,26 @@ class TbCoapMessageObserverDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCoapMessageObserver.<init>(int, Consumer, Consumer)",
-      "boolean TbCoapMessageObserver.isInternal()", "void TbCoapMessageObserver.onCancel()",
-      "void TbCoapMessageObserver.onConnecting()",
-      "void TbCoapMessageObserver.onContextEstablished(org.eclipse.californium.elements.EndpointContext)",
-      "void TbCoapMessageObserver.onDtlsRetransmission(int)", "void TbCoapMessageObserver.onReadyToSend()",
-      "void TbCoapMessageObserver.onReject()", "void TbCoapMessageObserver.onResponse(Response)",
-      "void TbCoapMessageObserver.onResponseHandlingError(Throwable)", "void TbCoapMessageObserver.onRetransmission()",
-      "void TbCoapMessageObserver.onSendError(Throwable)", "void TbCoapMessageObserver.onSent(boolean)",
-      "void TbCoapMessageObserver.onTransferComplete()"})
+  @MethodsUnderTest({
+    "void TbCoapMessageObserver.<init>(int, Consumer, Consumer)",
+    "boolean TbCoapMessageObserver.isInternal()",
+    "void TbCoapMessageObserver.onCancel()",
+    "void TbCoapMessageObserver.onConnecting()",
+    "void TbCoapMessageObserver.onContextEstablished(org.eclipse.californium.elements.EndpointContext)",
+    "void TbCoapMessageObserver.onDtlsRetransmission(int)",
+    "void TbCoapMessageObserver.onReadyToSend()",
+    "void TbCoapMessageObserver.onReject()",
+    "void TbCoapMessageObserver.onResponse(Response)",
+    "void TbCoapMessageObserver.onResponseHandlingError(Throwable)",
+    "void TbCoapMessageObserver.onRetransmission()",
+    "void TbCoapMessageObserver.onSendError(Throwable)",
+    "void TbCoapMessageObserver.onSent(boolean)",
+    "void TbCoapMessageObserver.onTransferComplete()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbCoapMessageObserver actualTbCoapMessageObserver = new TbCoapMessageObserver(1, mock(Consumer.class),
-        mock(Consumer.class));
+    TbCoapMessageObserver actualTbCoapMessageObserver =
+        new TbCoapMessageObserver(1, mock(Consumer.class), mock(Consumer.class));
     actualTbCoapMessageObserver.onCancel();
     actualTbCoapMessageObserver.onConnecting();
     actualTbCoapMessageObserver.onDtlsRetransmission(1);

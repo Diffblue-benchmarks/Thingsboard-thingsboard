@@ -14,12 +14,13 @@ import org.junit.jupiter.api.Test;
 class AssetTypeFilterDiffblueTest {
   /**
    * Test {@link AssetTypeFilter#getAssetTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return first is {@code foo}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return first is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#getAssetTypes()}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#getAssetTypes()}
    */
   @Test
   @DisplayName("Test getAssetTypes(); given ArrayList() add 'foo'; then return first is 'foo'")
@@ -44,20 +45,22 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#getAssetTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link AssetTypeFilter} (default constructor).</li>
-   *   <li>Then return first is {@code null}.</li>
+   *   <li>Given {@link AssetTypeFilter} (default constructor).
+   *   <li>Then return first is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#getAssetTypes()}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#getAssetTypes()}
    */
   @Test
-  @DisplayName("Test getAssetTypes(); given AssetTypeFilter (default constructor); then return first is 'null'")
+  @DisplayName(
+      "Test getAssetTypes(); given AssetTypeFilter (default constructor); then return first is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List AssetTypeFilter.getAssetTypes()"})
   void testGetAssetTypes_givenAssetTypeFilter_thenReturnFirstIsNull() {
     // Arrange and Act
-    List<String> actualAssetTypes = (new AssetTypeFilter()).getAssetTypes();
+    List<String> actualAssetTypes = new AssetTypeFilter().getAssetTypes();
 
     // Assert
     assertEquals(1, actualAssetTypes.size());
@@ -66,12 +69,14 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetTypeFilter#equals(Object)}
    *   <li>{@link AssetTypeFilter#hashCode()}
@@ -101,12 +106,14 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetTypeFilter#equals(Object)}
    *   <li>{@link AssetTypeFilter#hashCode()}
@@ -139,12 +146,14 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetTypeFilter#equals(Object)}
    *   <li>{@link AssetTypeFilter#hashCode()}
@@ -174,12 +183,14 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetTypeFilter#equals(Object)}
    *   <li>{@link AssetTypeFilter#hashCode()}
@@ -209,12 +220,14 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetTypeFilter#equals(Object)}
    *   <li>{@link AssetTypeFilter#hashCode()}
@@ -239,12 +252,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -268,12 +282,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -297,12 +312,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -326,12 +342,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -355,12 +372,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -388,12 +406,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -412,12 +431,13 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test {@link AssetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -436,8 +456,9 @@ class AssetTypeFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AssetTypeFilter}
    *   <li>{@link AssetTypeFilter#setAssetNameFilter(String)}
@@ -451,10 +472,15 @@ class AssetTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AssetTypeFilter.<init>()", "String AssetTypeFilter.getAssetNameFilter()",
-      "EntityFilterType AssetTypeFilter.getType()", "void AssetTypeFilter.setAssetNameFilter(String)",
-      "void AssetTypeFilter.setAssetType(String)", "void AssetTypeFilter.setAssetTypes(List)",
-      "String AssetTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void AssetTypeFilter.<init>()",
+    "String AssetTypeFilter.getAssetNameFilter()",
+    "EntityFilterType AssetTypeFilter.getType()",
+    "void AssetTypeFilter.setAssetNameFilter(String)",
+    "void AssetTypeFilter.setAssetType(String)",
+    "void AssetTypeFilter.setAssetTypes(List)",
+    "String AssetTypeFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AssetTypeFilter actualAssetTypeFilter = new AssetTypeFilter();
@@ -466,7 +492,8 @@ class AssetTypeFilterDiffblueTest {
 
     // Assert
     assertEquals("Asset Name Filter", actualAssetNameFilter);
-    assertEquals("AssetTypeFilter(assetType=Asset Type, assetTypes=[Asset Type], assetNameFilter=Asset Name Filter)",
+    assertEquals(
+        "AssetTypeFilter(assetType=Asset Type, assetTypes=[Asset Type], assetNameFilter=Asset Name Filter)",
         actualToStringResult);
     assertEquals(EntityFilterType.ASSET_TYPE, actualAssetTypeFilter.getType());
   }

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class ContactBasedDiffblueTest {
   /**
    * Test {@link ContactBased#setCountry(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setCountry(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setCountry(String)}
    */
   @Test
   @DisplayName("Test setCountry(String)")
@@ -29,8 +29,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setState(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setState(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setState(String)}
    */
   @Test
   @DisplayName("Test setState(String)")
@@ -49,8 +49,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setCity(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setCity(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setCity(String)}
    */
   @Test
   @DisplayName("Test setCity(String)")
@@ -69,8 +69,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setAddress(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setAddress(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setAddress(String)}
    */
   @Test
   @DisplayName("Test setAddress(String)")
@@ -89,8 +89,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setAddress2(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setAddress2(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setAddress2(String)}
    */
   @Test
   @DisplayName("Test setAddress2(String)")
@@ -109,8 +109,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setZip(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setZip(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setZip(String)}
    */
   @Test
   @DisplayName("Test setZip(String)")
@@ -129,8 +129,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setPhone(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setPhone(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setPhone(String)}
    */
   @Test
   @DisplayName("Test setPhone(String)")
@@ -149,8 +149,8 @@ class ContactBasedDiffblueTest {
 
   /**
    * Test {@link ContactBased#setEmail(String)}.
-   * <p>
-   * Method under test: {@link ContactBased#setEmail(String)}
+   *
+   * <p>Method under test: {@link ContactBased#setEmail(String)}
    */
   @Test
   @DisplayName("Test setEmail(String)")

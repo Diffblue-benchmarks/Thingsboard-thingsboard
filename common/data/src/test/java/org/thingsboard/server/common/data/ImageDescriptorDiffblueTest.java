@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class ImageDescriptorDiffblueTest {
   /**
    * Test {@link ImageDescriptor#equals(Object)}, and {@link ImageDescriptor#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageDescriptor#equals(Object)}
    *   <li>{@link ImageDescriptor#hashCode()}
@@ -116,12 +118,14 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}, and {@link ImageDescriptor#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageDescriptor#equals(Object)}
    *   <li>{@link ImageDescriptor#hashCode()}
@@ -181,12 +185,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -280,12 +285,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -379,12 +385,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -478,12 +485,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -577,12 +585,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -676,12 +685,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -775,12 +785,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -874,12 +885,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -973,12 +985,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1072,12 +1085,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1131,12 +1145,13 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test {@link ImageDescriptor#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageDescriptor#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageDescriptor#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -1190,8 +1205,9 @@ class ImageDescriptorDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ImageDescriptor}
    *   <li>{@link ImageDescriptor#setEtag(String)}
@@ -1212,12 +1228,22 @@ class ImageDescriptorDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ImageDescriptor.<init>()", "String ImageDescriptor.getEtag()",
-      "int ImageDescriptor.getHeight()", "String ImageDescriptor.getMediaType()",
-      "ImageDescriptor ImageDescriptor.getPreviewDescriptor()", "long ImageDescriptor.getSize()",
-      "int ImageDescriptor.getWidth()", "void ImageDescriptor.setEtag(String)", "void ImageDescriptor.setHeight(int)",
-      "void ImageDescriptor.setMediaType(String)", "void ImageDescriptor.setPreviewDescriptor(ImageDescriptor)",
-      "void ImageDescriptor.setSize(long)", "void ImageDescriptor.setWidth(int)", "String ImageDescriptor.toString()"})
+  @MethodsUnderTest({
+    "void ImageDescriptor.<init>()",
+    "String ImageDescriptor.getEtag()",
+    "int ImageDescriptor.getHeight()",
+    "String ImageDescriptor.getMediaType()",
+    "ImageDescriptor ImageDescriptor.getPreviewDescriptor()",
+    "long ImageDescriptor.getSize()",
+    "int ImageDescriptor.getWidth()",
+    "void ImageDescriptor.setEtag(String)",
+    "void ImageDescriptor.setHeight(int)",
+    "void ImageDescriptor.setMediaType(String)",
+    "void ImageDescriptor.setPreviewDescriptor(ImageDescriptor)",
+    "void ImageDescriptor.setSize(long)",
+    "void ImageDescriptor.setWidth(int)",
+    "String ImageDescriptor.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ImageDescriptor actualImageDescriptor = new ImageDescriptor();

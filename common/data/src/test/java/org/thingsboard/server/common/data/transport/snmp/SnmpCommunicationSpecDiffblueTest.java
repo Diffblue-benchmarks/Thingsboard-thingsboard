@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class SnmpCommunicationSpecDiffblueTest {
   /**
    * Test {@link SnmpCommunicationSpec#getLabel()}.
-   * <p>
-   * Method under test: {@link SnmpCommunicationSpec#getLabel()}
+   *
+   * <p>Method under test: {@link SnmpCommunicationSpec#getLabel()}
    */
   @Test
   @DisplayName("Test getLabel()")
@@ -18,6 +18,7 @@ class SnmpCommunicationSpecDiffblueTest {
   @MethodsUnderTest({"java.lang.String SnmpCommunicationSpec.getLabel()"})
   void testGetLabel() {
     // Arrange, Act and Assert
-    assertEquals("telemetryQuerying", SnmpCommunicationSpec.valueOf("TELEMETRY_QUERYING").getLabel());
+    assertEquals(
+        "telemetryQuerying", SnmpCommunicationSpec.valueOf("TELEMETRY_QUERYING").getLabel());
   }
 }

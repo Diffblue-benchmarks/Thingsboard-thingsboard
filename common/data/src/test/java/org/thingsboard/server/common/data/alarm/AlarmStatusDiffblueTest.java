@@ -11,12 +11,13 @@ import org.junit.jupiter.api.Test;
 class AlarmStatusDiffblueTest {
   /**
    * Test {@link AlarmStatus#isAck()}.
+   *
    * <ul>
-   *   <li>Given {@code ACTIVE_UNACK}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isAck()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
    */
   @Test
   @DisplayName("Test isAck(); given 'ACTIVE_UNACK'; then return 'false'")
@@ -29,12 +30,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#isAck()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isAck()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
    */
   @Test
   @DisplayName("Test isAck(); given ACTIVE_ACK; then return 'true'")
@@ -47,12 +49,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#isAck()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isAck()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
    */
   @Test
   @DisplayName("Test isAck(); given CLEARED_ACK; then return 'true'")
@@ -65,12 +68,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#isCleared()}.
+   *
    * <ul>
-   *   <li>Given {@code ACTIVE_UNACK}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isCleared()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
    */
   @Test
   @DisplayName("Test isCleared(); given 'ACTIVE_UNACK'; then return 'false'")
@@ -83,12 +87,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#isCleared()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isCleared()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
    */
   @Test
   @DisplayName("Test isCleared(); given CLEARED_ACK; then return 'true'")
@@ -101,12 +106,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#isCleared()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#isCleared()}
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
    */
   @Test
   @DisplayName("Test isCleared(); given CLEARED_UNACK; then return 'true'")
@@ -119,12 +125,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@code ACTIVE_UNACK}.</li>
-   *   <li>Then return {@code ACTIVE}.</li>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code ACTIVE}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
    */
   @Test
   @DisplayName("Test getClearSearchStatus(); given 'ACTIVE_UNACK'; then return 'ACTIVE'")
@@ -137,12 +144,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.</li>
-   *   <li>Then return {@code CLEARED}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code CLEARED}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
    */
   @Test
   @DisplayName("Test getClearSearchStatus(); given CLEARED_ACK; then return 'CLEARED'")
@@ -155,12 +163,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.</li>
-   *   <li>Then return {@code CLEARED}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.
+   *   <li>Then return {@code CLEARED}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
    */
   @Test
   @DisplayName("Test getClearSearchStatus(); given CLEARED_UNACK; then return 'CLEARED'")
@@ -173,12 +182,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@code ACTIVE_UNACK}.</li>
-   *   <li>Then return {@code UNACK}.</li>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code UNACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
    */
   @Test
   @DisplayName("Test getAckSearchStatus(); given 'ACTIVE_UNACK'; then return 'UNACK'")
@@ -191,12 +201,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.</li>
-   *   <li>Then return {@code ACK}.</li>
+   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.
+   *   <li>Then return {@code ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
    */
   @Test
   @DisplayName("Test getAckSearchStatus(); given ACTIVE_ACK; then return 'ACK'")
@@ -209,12 +220,13 @@ class AlarmStatusDiffblueTest {
 
   /**
    * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.</li>
-   *   <li>Then return {@code ACK}.</li>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
    */
   @Test
   @DisplayName("Test getAckSearchStatus(); given CLEARED_ACK; then return 'ACK'")

@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class BasicCredentialsDiffblueTest {
   /**
    * Test {@link BasicCredentials#equals(Object)}, and {@link BasicCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicCredentials#equals(Object)}
    *   <li>{@link BasicCredentials#hashCode()}
@@ -38,12 +40,14 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}, and {@link BasicCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicCredentials#equals(Object)}
    *   <li>{@link BasicCredentials#hashCode()}
@@ -69,12 +73,14 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}, and {@link BasicCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicCredentials#equals(Object)}
    *   <li>{@link BasicCredentials#hashCode()}
@@ -100,12 +106,14 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}, and {@link BasicCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicCredentials#equals(Object)}
    *   <li>{@link BasicCredentials#hashCode()}
@@ -127,12 +135,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -145,12 +154,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -167,12 +177,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -189,12 +200,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -213,12 +225,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,12 +250,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -255,12 +269,13 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test {@link BasicCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -273,8 +288,9 @@ class BasicCredentialsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link BasicCredentials}
    *   <li>{@link BasicCredentials#setPassword(String)}
@@ -288,10 +304,15 @@ class BasicCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BasicCredentials.<init>()", "String BasicCredentials.getPassword()",
-      "CredentialsType BasicCredentials.getType()", "String BasicCredentials.getUsername()",
-      "void BasicCredentials.setPassword(String)", "void BasicCredentials.setUsername(String)",
-      "String BasicCredentials.toString()"})
+  @MethodsUnderTest({
+    "void BasicCredentials.<init>()",
+    "String BasicCredentials.getPassword()",
+    "CredentialsType BasicCredentials.getType()",
+    "String BasicCredentials.getUsername()",
+    "void BasicCredentials.setPassword(String)",
+    "void BasicCredentials.setUsername(String)",
+    "String BasicCredentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     BasicCredentials actualBasicCredentials = new BasicCredentials();

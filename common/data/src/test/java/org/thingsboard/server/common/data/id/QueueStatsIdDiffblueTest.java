@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class QueueStatsIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueStatsId#QueueStatsId(UUID)}
    *   <li>{@link QueueStatsId#getEntityType()}

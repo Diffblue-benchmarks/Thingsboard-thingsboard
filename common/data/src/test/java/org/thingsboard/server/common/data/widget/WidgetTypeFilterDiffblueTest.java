@@ -26,17 +26,18 @@ import org.thingsboard.server.common.data.widget.WidgetTypeFilter.WidgetTypeFilt
 @ContextConfiguration(classes = {WidgetTypeFilterBuilder.class})
 @ExtendWith(SpringExtension.class)
 class WidgetTypeFilterDiffblueTest {
-  @Autowired
-  private WidgetTypeFilterBuilder widgetTypeFilterBuilder;
+  @Autowired private WidgetTypeFilterBuilder widgetTypeFilterBuilder;
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}, and {@link WidgetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeFilter#equals(Object)}
    *   <li>{@link WidgetTypeFilter#hashCode()}
@@ -48,17 +49,19 @@ class WidgetTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean WidgetTypeFilter.equals(Object)", "int WidgetTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    WidgetTypeFilterBuilder tenantIdResult = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -69,12 +72,14 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}, and {@link WidgetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeFilter#equals(Object)}
    *   <li>{@link WidgetTypeFilter#hashCode()}
@@ -91,18 +96,22 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
     WidgetTypeFilterBuilder widgetTypeFilterBuilder3 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder3.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(WidgetTypeFilter.builder());
-    WidgetTypeFilterBuilder tenantIdResult2 = widgetTypeFilterBuilder3.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        widgetTypeFilterBuilder3
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -113,12 +122,14 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}, and {@link WidgetTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeFilter#equals(Object)}
    *   <li>{@link WidgetTypeFilter#hashCode()}
@@ -130,11 +141,12 @@ class WidgetTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean WidgetTypeFilter.equals(Object)", "int WidgetTypeFilter.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    WidgetTypeFilterBuilder tenantIdResult = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -145,12 +157,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -161,16 +174,19 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(WidgetTypeFilter.builder());
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -179,12 +195,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -197,16 +214,19 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -215,12 +235,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -233,16 +254,19 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(false)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(false)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -251,12 +275,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -269,17 +294,21 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder scadaFirstResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true);
-    WidgetTypeFilterBuilder tenantIdResult = scadaFirstResult
-        .tenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    WidgetTypeFilterBuilder scadaFirstResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true);
+    WidgetTypeFilterBuilder tenantIdResult =
+        scadaFirstResult.tenantId(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -288,12 +317,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -306,16 +336,19 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -324,12 +357,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -342,16 +376,19 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
-    WidgetTypeFilterBuilder tenantIdResult2 = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -360,12 +397,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -378,10 +416,12 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(null);
 
     ArrayList<String> widgetTypes = new ArrayList<>();
     widgetTypes.add("42");
@@ -389,10 +429,12 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder3 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder3.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(WidgetTypeFilter.builder());
-    WidgetTypeFilterBuilder tenantIdResult2 = widgetTypeFilterBuilder3.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        widgetTypeFilterBuilder3
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -401,12 +443,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -421,18 +464,22 @@ class WidgetTypeFilterDiffblueTest {
     WidgetTypeFilterBuilder widgetTypeFilterBuilder2 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder2.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(widgetTypeFilterBuilder);
-    WidgetTypeFilterBuilder tenantIdResult = widgetTypeFilterBuilder2.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult =
+        widgetTypeFilterBuilder2
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
     WidgetTypeFilterBuilder widgetTypeFilterBuilder3 = mock(WidgetTypeFilterBuilder.class);
     when(widgetTypeFilterBuilder3.deprecatedFilter(Mockito.<DeprecatedFilter>any()))
         .thenReturn(WidgetTypeFilter.builder());
-    WidgetTypeFilterBuilder tenantIdResult2 = widgetTypeFilterBuilder3.deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(false)
-        .scadaFirst(true)
-        .tenantId(null);
+    WidgetTypeFilterBuilder tenantIdResult2 =
+        widgetTypeFilterBuilder3
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(false)
+            .scadaFirst(true)
+            .tenantId(null);
     WidgetTypeFilter buildResult2 = tenantIdResult2.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -441,12 +488,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -454,11 +502,12 @@ class WidgetTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean WidgetTypeFilter.equals(Object)", "int WidgetTypeFilter.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    WidgetTypeFilterBuilder tenantIdResult = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -467,12 +516,13 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test {@link WidgetTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -480,11 +530,12 @@ class WidgetTypeFilterDiffblueTest {
   @MethodsUnderTest({"boolean WidgetTypeFilter.equals(Object)", "int WidgetTypeFilter.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    WidgetTypeFilterBuilder tenantIdResult = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     WidgetTypeFilter buildResult = tenantIdResult.widgetTypes(new ArrayList<>()).build();
 
     // Act and Assert
@@ -493,10 +544,12 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link WidgetTypeFilter#WidgetTypeFilter(TenantId, boolean, boolean, DeprecatedFilter, List)}
+   *   <li>{@link WidgetTypeFilter#WidgetTypeFilter(TenantId, boolean, boolean, DeprecatedFilter,
+   *       List)}
    *   <li>{@link WidgetTypeFilter#setDeprecatedFilter(DeprecatedFilter)}
    *   <li>{@link WidgetTypeFilter#setFullSearch(boolean)}
    *   <li>{@link WidgetTypeFilter#setScadaFirst(boolean)}
@@ -513,17 +566,25 @@ class WidgetTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeFilter.<init>(TenantId, boolean, boolean, DeprecatedFilter, List)",
-      "DeprecatedFilter WidgetTypeFilter.getDeprecatedFilter()", "TenantId WidgetTypeFilter.getTenantId()",
-      "List WidgetTypeFilter.getWidgetTypes()", "boolean WidgetTypeFilter.isFullSearch()",
-      "boolean WidgetTypeFilter.isScadaFirst()", "void WidgetTypeFilter.setDeprecatedFilter(DeprecatedFilter)",
-      "void WidgetTypeFilter.setFullSearch(boolean)", "void WidgetTypeFilter.setScadaFirst(boolean)",
-      "void WidgetTypeFilter.setTenantId(TenantId)", "void WidgetTypeFilter.setWidgetTypes(List)",
-      "String WidgetTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeFilter.<init>(TenantId, boolean, boolean, DeprecatedFilter, List)",
+    "DeprecatedFilter WidgetTypeFilter.getDeprecatedFilter()",
+    "TenantId WidgetTypeFilter.getTenantId()",
+    "List WidgetTypeFilter.getWidgetTypes()",
+    "boolean WidgetTypeFilter.isFullSearch()",
+    "boolean WidgetTypeFilter.isScadaFirst()",
+    "void WidgetTypeFilter.setDeprecatedFilter(DeprecatedFilter)",
+    "void WidgetTypeFilter.setFullSearch(boolean)",
+    "void WidgetTypeFilter.setScadaFirst(boolean)",
+    "void WidgetTypeFilter.setTenantId(TenantId)",
+    "void WidgetTypeFilter.setWidgetTypes(List)",
+    "String WidgetTypeFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    WidgetTypeFilter actualWidgetTypeFilter = new WidgetTypeFilter(TenantId.SYS_TENANT_ID, true, true,
-        DeprecatedFilter.ALL, new ArrayList<>());
+    WidgetTypeFilter actualWidgetTypeFilter =
+        new WidgetTypeFilter(
+            TenantId.SYS_TENANT_ID, true, true, DeprecatedFilter.ALL, new ArrayList<>());
     actualWidgetTypeFilter.setDeprecatedFilter(DeprecatedFilter.ALL);
     actualWidgetTypeFilter.setFullSearch(true);
     actualWidgetTypeFilter.setScadaFirst(true);
@@ -538,8 +599,10 @@ class WidgetTypeFilterDiffblueTest {
     boolean actualIsScadaFirstResult = actualWidgetTypeFilter.isScadaFirst();
 
     // Assert
-    assertEquals("WidgetTypeFilter(tenantId=13814000-1dd2-11b2-8080-808080808080, fullSearch=true, scadaFirst=true,"
-        + " deprecatedFilter=ALL, widgetTypes=[])", actualToStringResult);
+    assertEquals(
+        "WidgetTypeFilter(tenantId=13814000-1dd2-11b2-8080-808080808080, fullSearch=true, scadaFirst=true,"
+            + " deprecatedFilter=ALL, widgetTypes=[])",
+        actualToStringResult);
     assertEquals(DeprecatedFilter.ALL, actualDeprecatedFilter);
     assertTrue(actualWidgetTypes.isEmpty());
     assertTrue(actualIsFullSearchResult);
@@ -550,8 +613,9 @@ class WidgetTypeFilterDiffblueTest {
 
   /**
    * Test WidgetTypeFilterBuilder {@link WidgetTypeFilterBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeFilterBuilder#build()}
    *   <li>{@link WidgetTypeFilterBuilder#deprecatedFilter(DeprecatedFilter)}
@@ -564,19 +628,24 @@ class WidgetTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test WidgetTypeFilterBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeFilterBuilder.<init>()", "WidgetTypeFilter WidgetTypeFilterBuilder.build()",
-      "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.deprecatedFilter(DeprecatedFilter)",
-      "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.fullSearch(boolean)",
-      "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.scadaFirst(boolean)",
-      "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.tenantId(TenantId)", "String WidgetTypeFilterBuilder.toString()",
-      "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.widgetTypes(List)"})
+  @MethodsUnderTest({
+    "void WidgetTypeFilterBuilder.<init>()",
+    "WidgetTypeFilter WidgetTypeFilterBuilder.build()",
+    "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.deprecatedFilter(DeprecatedFilter)",
+    "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.fullSearch(boolean)",
+    "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.scadaFirst(boolean)",
+    "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.tenantId(TenantId)",
+    "String WidgetTypeFilterBuilder.toString()",
+    "WidgetTypeFilterBuilder WidgetTypeFilterBuilder.widgetTypes(List)"
+  })
   void testWidgetTypeFilterBuilderBuild() {
     // Arrange
-    WidgetTypeFilterBuilder tenantIdResult = WidgetTypeFilter.builder()
-        .deprecatedFilter(DeprecatedFilter.ALL)
-        .fullSearch(true)
-        .scadaFirst(true)
-        .tenantId(TenantId.SYS_TENANT_ID);
+    WidgetTypeFilterBuilder tenantIdResult =
+        WidgetTypeFilter.builder()
+            .deprecatedFilter(DeprecatedFilter.ALL)
+            .fullSearch(true)
+            .scadaFirst(true)
+            .tenantId(TenantId.SYS_TENANT_ID);
     ArrayList<String> widgetTypes = new ArrayList<>();
 
     // Act

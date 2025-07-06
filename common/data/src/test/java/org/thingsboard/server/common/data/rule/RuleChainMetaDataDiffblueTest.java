@@ -16,14 +16,17 @@ import org.thingsboard.server.common.data.id.RuleChainId;
 class RuleChainMetaDataDiffblueTest {
   /**
    * Test {@link RuleChainMetaData#addConnectionInfo(int, int, String)}.
+   *
    * <ul>
-   *   <li>Then {@link RuleChainMetaData} (default constructor) Connections is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then {@link RuleChainMetaData} (default constructor) Connections is {@link
+   *       ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#addConnectionInfo(int, int, String)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#addConnectionInfo(int, int, String)}
    */
   @Test
-  @DisplayName("Test addConnectionInfo(int, int, String); then RuleChainMetaData (default constructor) Connections is ArrayList()")
+  @DisplayName(
+      "Test addConnectionInfo(int, int, String); then RuleChainMetaData (default constructor) Connections is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainMetaData.addConnectionInfo(int, int, String)"})
   void testAddConnectionInfo_thenRuleChainMetaDataConnectionsIsArrayList() {
@@ -41,14 +44,16 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#addConnectionInfo(int, int, String)}.
+   *
    * <ul>
-   *   <li>Then {@link RuleChainMetaData} (default constructor) Connections size is one.</li>
+   *   <li>Then {@link RuleChainMetaData} (default constructor) Connections size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#addConnectionInfo(int, int, String)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#addConnectionInfo(int, int, String)}
    */
   @Test
-  @DisplayName("Test addConnectionInfo(int, int, String); then RuleChainMetaData (default constructor) Connections size is one")
+  @DisplayName(
+      "Test addConnectionInfo(int, int, String); then RuleChainMetaData (default constructor) Connections size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainMetaData.addConnectionInfo(int, int, String)"})
   void testAddConnectionInfo_thenRuleChainMetaDataConnectionsSizeIsOne() {
@@ -69,12 +74,14 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}, and {@link RuleChainMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainMetaData#equals(Object)}
    *   <li>{@link RuleChainMetaData#hashCode()}
@@ -83,7 +90,10 @@ class RuleChainMetaDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -97,12 +107,14 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}, and {@link RuleChainMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainMetaData#equals(Object)}
    *   <li>{@link RuleChainMetaData#hashCode()}
@@ -111,7 +123,10 @@ class RuleChainMetaDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -128,12 +143,14 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}, and {@link RuleChainMetaData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainMetaData#equals(Object)}
    *   <li>{@link RuleChainMetaData#hashCode()}
@@ -142,7 +159,10 @@ class RuleChainMetaDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -155,17 +175,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -177,21 +201,26 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
-    ruleChainMetaData.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainMetaData.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainMetaData.addConnectionInfo(1, 1, "Type");
 
     // Act and Assert
@@ -200,17 +229,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -223,17 +256,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -246,17 +283,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -269,17 +310,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -293,23 +338,28 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
 
     RuleChainMetaData ruleChainMetaData2 = new RuleChainMetaData();
-    ruleChainMetaData2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainMetaData2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainMetaData2.addConnectionInfo(1, 1, "Type");
 
     // Act and Assert
@@ -318,17 +368,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -343,17 +397,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -368,17 +426,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -393,17 +455,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -415,17 +481,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -439,25 +509,31 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
-    ruleChainMetaData.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainMetaData.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     ruleChainMetaData.addConnectionInfo(1, 1, "Type");
 
     RuleChainMetaData ruleChainMetaData2 = new RuleChainMetaData();
-    ruleChainMetaData2.setRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChainMetaData2.setRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChainMetaData, ruleChainMetaData2);
@@ -465,17 +541,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -491,17 +571,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -517,17 +601,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RuleChainMetaData ruleChainMetaData = new RuleChainMetaData();
@@ -543,17 +631,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RuleChainMetaData(), null);
@@ -561,17 +653,21 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test {@link RuleChainMetaData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainMetaData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainMetaData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainMetaData.equals(Object)", "int RuleChainMetaData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainMetaData.equals(Object)",
+    "int RuleChainMetaData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RuleChainMetaData(), "Different type to RuleChainMetaData");
@@ -579,8 +675,9 @@ class RuleChainMetaDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RuleChainMetaData}
    *   <li>{@link RuleChainMetaData#setConnections(List)}
@@ -601,13 +698,22 @@ class RuleChainMetaDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChainMetaData.<init>()", "List RuleChainMetaData.getConnections()",
-      "Integer RuleChainMetaData.getFirstNodeIndex()", "List RuleChainMetaData.getNodes()",
-      "List RuleChainMetaData.getRuleChainConnections()", "RuleChainId RuleChainMetaData.getRuleChainId()",
-      "Long RuleChainMetaData.getVersion()", "void RuleChainMetaData.setConnections(List)",
-      "void RuleChainMetaData.setFirstNodeIndex(Integer)", "void RuleChainMetaData.setNodes(List)",
-      "void RuleChainMetaData.setRuleChainConnections(List)", "void RuleChainMetaData.setRuleChainId(RuleChainId)",
-      "void RuleChainMetaData.setVersion(Long)", "String RuleChainMetaData.toString()"})
+  @MethodsUnderTest({
+    "void RuleChainMetaData.<init>()",
+    "List RuleChainMetaData.getConnections()",
+    "Integer RuleChainMetaData.getFirstNodeIndex()",
+    "List RuleChainMetaData.getNodes()",
+    "List RuleChainMetaData.getRuleChainConnections()",
+    "RuleChainId RuleChainMetaData.getRuleChainId()",
+    "Long RuleChainMetaData.getVersion()",
+    "void RuleChainMetaData.setConnections(List)",
+    "void RuleChainMetaData.setFirstNodeIndex(Integer)",
+    "void RuleChainMetaData.setNodes(List)",
+    "void RuleChainMetaData.setRuleChainConnections(List)",
+    "void RuleChainMetaData.setRuleChainId(RuleChainId)",
+    "void RuleChainMetaData.setVersion(Long)",
+    "String RuleChainMetaData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainMetaData actualRuleChainMetaData = new RuleChainMetaData();
@@ -618,20 +724,24 @@ class RuleChainMetaDataDiffblueTest {
     actualRuleChainMetaData.setNodes(nodes);
     ArrayList<RuleChainConnectionInfo> ruleChainConnections = new ArrayList<>();
     actualRuleChainMetaData.setRuleChainConnections(ruleChainConnections);
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChainMetaData.setRuleChainId(ruleChainId);
     actualRuleChainMetaData.setVersion(1L);
     String actualToStringResult = actualRuleChainMetaData.toString();
     List<NodeConnectionInfo> actualConnections = actualRuleChainMetaData.getConnections();
     Integer actualFirstNodeIndex = actualRuleChainMetaData.getFirstNodeIndex();
     List<RuleNode> actualNodes = actualRuleChainMetaData.getNodes();
-    List<RuleChainConnectionInfo> actualRuleChainConnections = actualRuleChainMetaData.getRuleChainConnections();
+    List<RuleChainConnectionInfo> actualRuleChainConnections =
+        actualRuleChainMetaData.getRuleChainConnections();
     RuleChainId actualRuleChainId = actualRuleChainMetaData.getRuleChainId();
     Long actualVersion = actualRuleChainMetaData.getVersion();
 
     // Assert
-    assertEquals("RuleChainMetaData(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9, version=1, firstNodeIndex=1,"
-        + " nodes=[], connections=[], ruleChainConnections=[])", actualToStringResult);
+    assertEquals(
+        "RuleChainMetaData(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9, version=1, firstNodeIndex=1,"
+            + " nodes=[], connections=[], ruleChainConnections=[])",
+        actualToStringResult);
     assertEquals(1, actualFirstNodeIndex.intValue());
     assertEquals(1L, actualVersion.longValue());
     assertTrue(actualConnections.isEmpty());

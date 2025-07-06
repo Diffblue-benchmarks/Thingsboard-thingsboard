@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class UserSettingsTypeDiffblueTest {
   /**
    * Test {@link UserSettingsType#isReserved()}.
-   * <p>
-   * Method under test: {@link UserSettingsType#isReserved()}
+   *
+   * <p>Method under test: {@link UserSettingsType#isReserved()}
    */
   @Test
   @DisplayName("Test isReserved()")

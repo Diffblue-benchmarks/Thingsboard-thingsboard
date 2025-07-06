@@ -17,34 +17,158 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.FormLoginRequestBuilder;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMultipartHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.StatusResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MultipartFile;
 import org.thingsboard.server.common.data.ImageExportData;
 import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class ImageControllerDiffblueTest {
-  @InjectMocks
-  private ImageController imageController;
+  @InjectMocks private ImageController imageController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+
+  /**
+   * Test {@link ImageController#uploadImage(MultipartFile, String, String)}.
+   *
+   * <ul>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ImageController#uploadImage(MultipartFile, String, String)}
+   */
+  @Test
+  @DisplayName("Test uploadImage(MultipartFile, String, String); then status isOk()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.uploadImage(MultipartFile, String, String)"
+  })
+  void testUploadImage_thenStatusIsOk() throws Exception {
+    // Arrange
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+        .thenReturn(new ResponseEntity<>(HttpStatus.OK));
+    FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(imageController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
+  }
+
+  /**
+   * Test {@link ImageController#uploadImage(MultipartFile, String, String)}.
+   *
+   * <ul>
+   *   <li>When multipart {@code /api/image} and.
+   *   <li>Then status four hundred.
+   * </ul>
+   *
+   * <p>Method under test: {@link ImageController#uploadImage(MultipartFile, String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test uploadImage(MultipartFile, String, String); when multipart '/api/image' and; then status four hundred")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.uploadImage(MultipartFile, String, String)"
+  })
+  void testUploadImage_whenMultipartApiImageAnd_thenStatusFourHundred() throws Exception {
+    // Arrange
+    MockMultipartHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.multipart("/api/image");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(imageController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link ImageController#updateImage(String, String, MultipartFile)}.
+   *
+   * <p>Method under test: {@link ImageController#updateImage(String, String, MultipartFile)}
+   */
+  @Test
+  @DisplayName("Test updateImage(String, String, MultipartFile)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImage(String, String, MultipartFile)"
+  })
+  void testUpdateImage() throws Exception {
+    // Arrange
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+        .thenReturn(new ResponseEntity<>(HttpStatus.OK));
+    MockMultipartHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.multipart("/api/images/{type}/{key}", "Type", "Key");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(imageController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
+  }
+
+  /**
+   * Test {@link ImageController#updateImage(String, String, MultipartFile)}.
+   *
+   * <ul>
+   *   <li>Then content contentType {@code text/plain;charset=ISO-8859-1}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ImageController#updateImage(String, String, MultipartFile)}
+   */
+  @Test
+  @DisplayName(
+      "Test updateImage(String, String, MultipartFile); then content contentType 'text/plain;charset=ISO-8859-1'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImage(String, String, MultipartFile)"
+  })
+  void testUpdateImage_thenContentContentTypeTextPlainCharsetIso88591() throws Exception {
+    // Arrange
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+        .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
+    MockMultipartHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.multipart("/api/images/{type}/{key}", "Type", "Key");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(imageController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
+        .andExpect(MockMvcResultMatchers.content().string("Body"));
+  }
 
   /**
    * Test {@link ImageController#updateImagePublicStatus(String, String, boolean)}.
-   * <p>
-   * Method under test: {@link ImageController#updateImagePublicStatus(String, String, boolean)}
+   *
+   * <p>Method under test: {@link ImageController#updateImagePublicStatus(String, String, boolean)}
    */
   @Test
   @DisplayName("Test updateImagePublicStatus(String, String, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImagePublicStatus(String, String, boolean)"})
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImagePublicStatus(String, String, boolean)"
+  })
   void testUpdateImagePublicStatus() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -58,17 +182,19 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#updateImagePublicStatus(String, String, boolean)}.
-   * <p>
-   * Method under test: {@link ImageController#updateImagePublicStatus(String, String, boolean)}
+   *
+   * <p>Method under test: {@link ImageController#updateImagePublicStatus(String, String, boolean)}
    */
   @Test
   @DisplayName("Test updateImagePublicStatus(String, String, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImagePublicStatus(String, String, boolean)"})
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.updateImagePublicStatus(String, String, boolean)"
+  })
   void testUpdateImagePublicStatus2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -78,14 +204,16 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link ImageController#downloadImage(String, String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#downloadImage(String, String, String)}
+   *
+   * <p>Method under test: {@link ImageController#downloadImage(String, String, String)}
    */
   @Test
   @DisplayName("Test downloadImage(String, String, String)")
@@ -93,7 +221,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.downloadImage(String, String, String)"})
   void testDownloadImage() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -107,8 +236,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#downloadImage(String, String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#downloadImage(String, String, String)}
+   *
+   * <p>Method under test: {@link ImageController#downloadImage(String, String, String)}
    */
   @Test
   @DisplayName("Test downloadImage(String, String, String)")
@@ -116,7 +245,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.downloadImage(String, String, String)"})
   void testDownloadImage2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -126,14 +256,16 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link ImageController#exportImage(String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#exportImage(String, String)}
+   *
+   * <p>Method under test: {@link ImageController#exportImage(String, String)}
    */
   @Test
   @DisplayName("Test exportImage(String, String)")
@@ -141,7 +273,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ImageExportData ImageController.exportImage(String, String)"})
   void testExportImage() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -155,8 +288,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#exportImage(String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#exportImage(String, String)}
+   *
+   * <p>Method under test: {@link ImageController#exportImage(String, String)}
    */
   @Test
   @DisplayName("Test exportImage(String, String)")
@@ -164,7 +297,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ImageExportData ImageController.exportImage(String, String)"})
   void testExportImage2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -174,19 +308,23 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link ImageController#importImage(ImageExportData)}.
-   * <p>
-   * Method under test: {@link ImageController#importImage(ImageExportData)}
+   *
+   * <p>Method under test: {@link ImageController#importImage(ImageExportData)}
    */
   @Test
   @DisplayName("Test importImage(ImageExportData)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.TbResourceInfo ImageController.importImage(ImageExportData)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.importImage(ImageExportData)"
+  })
   void testImportImage() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/api/image/import");
@@ -201,8 +339,9 @@ class ImageControllerDiffblueTest {
     imageExportData.setResourceKey("Resource Key");
     imageExportData.setSubType("Sub Type");
     imageExportData.setTitle("Dr");
-    String content = (new ObjectMapper()).writeValueAsString(imageExportData);
-    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(imageExportData);
+    MockHttpServletRequestBuilder requestBuilder =
+        putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(imageController)
@@ -214,8 +353,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#downloadImagePreview(String, String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#downloadImagePreview(String, String, String)}
+   *
+   * <p>Method under test: {@link ImageController#downloadImagePreview(String, String, String)}
    */
   @Test
   @DisplayName("Test downloadImagePreview(String, String, String)")
@@ -223,7 +362,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.downloadImagePreview(String, String, String)"})
   void testDownloadImagePreview() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -237,8 +377,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#downloadImagePreview(String, String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#downloadImagePreview(String, String, String)}
+   *
+   * <p>Method under test: {@link ImageController#downloadImagePreview(String, String, String)}
    */
   @Test
   @DisplayName("Test downloadImagePreview(String, String, String)")
@@ -246,7 +386,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.downloadImagePreview(String, String, String)"})
   void testDownloadImagePreview2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -256,22 +397,27 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link ImageController#getImageInfo(String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#getImageInfo(String, String)}
+   *
+   * <p>Method under test: {@link ImageController#getImageInfo(String, String)}
    */
   @Test
   @DisplayName("Test getImageInfo(String, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.TbResourceInfo ImageController.getImageInfo(String, String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.getImageInfo(String, String)"
+  })
   void testGetImageInfo() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -285,16 +431,19 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#getImageInfo(String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#getImageInfo(String, String)}
+   *
+   * <p>Method under test: {@link ImageController#getImageInfo(String, String)}
    */
   @Test
   @DisplayName("Test getImageInfo(String, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.TbResourceInfo ImageController.getImageInfo(String, String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TbResourceInfo ImageController.getImageInfo(String, String)"
+  })
   void testGetImageInfo2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -304,24 +453,28 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link ImageController#getImages(int, int, String, boolean, String, String, String)}.
-   * <p>
-   * Method under test: {@link ImageController#getImages(int, int, String, boolean, String, String, String)}
+   *
+   * <p>Method under test: {@link ImageController#getImages(int, int, String, boolean, String,
+   * String, String)}
    */
   @Test
   @DisplayName("Test getImages(int, int, String, boolean, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData ImageController.getImages(int, int, String, boolean, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData ImageController.getImages(int, int, String, boolean, String, String, String)"
+  })
   void testGetImages() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/images")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/images").param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -334,8 +487,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#deleteImage(String, String, boolean)}.
-   * <p>
-   * Method under test: {@link ImageController#deleteImage(String, String, boolean)}
+   *
+   * <p>Method under test: {@link ImageController#deleteImage(String, String, boolean)}
    */
   @Test
   @DisplayName("Test deleteImage(String, String, boolean)")
@@ -343,7 +496,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.deleteImage(String, String, boolean)"})
   void testDeleteImage() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -357,8 +511,8 @@ class ImageControllerDiffblueTest {
 
   /**
    * Test {@link ImageController#deleteImage(String, String, boolean)}.
-   * <p>
-   * Method under test: {@link ImageController#deleteImage(String, String, boolean)}
+   *
+   * <p>Method under test: {@link ImageController#deleteImage(String, String, boolean)}
    */
   @Test
   @DisplayName("Test deleteImage(String, String, boolean)")
@@ -366,7 +520,8 @@ class ImageControllerDiffblueTest {
   @MethodsUnderTest({"ResponseEntity ImageController.deleteImage(String, String, boolean)"})
   void testDeleteImage2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -376,7 +531,9 @@ class ImageControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 }

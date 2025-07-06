@@ -21,23 +21,23 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class TenantControllerDiffblueTest {
-  @InjectMocks
-  private TenantController tenantController;
+  @InjectMocks private TenantController tenantController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link TenantController#saveTenant(Tenant)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Given {@code https://example.org/example}.
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantController#saveTenant(Tenant)}
+   *
+   * <p>Method under test: {@link TenantController#saveTenant(Tenant)}
    */
   @Test
-  @DisplayName("Test saveTenant(Tenant); given 'https://example.org/example'; then status four hundred fifteen")
+  @DisplayName(
+      "Test saveTenant(Tenant); given 'https://example.org/example'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Tenant TenantController.saveTenant(Tenant)"})
   void testSaveTenant_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen() throws Exception {
@@ -60,8 +60,9 @@ class TenantControllerDiffblueTest {
     tenant.setTitle("Dr");
     tenant.setVersion(1L);
     tenant.setZip("21654");
-    String content = (new ObjectMapper()).writeValueAsString(tenant);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(tenant);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(tenantController)

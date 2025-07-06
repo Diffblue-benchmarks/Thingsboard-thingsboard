@@ -11,12 +11,14 @@ import org.thingsboard.server.common.data.EntityType;
 class EntityNameFilterDiffblueTest {
   /**
    * Test {@link EntityNameFilter#equals(Object)}, and {@link EntityNameFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityNameFilter#equals(Object)}
    *   <li>{@link EntityNameFilter#hashCode()}
@@ -44,12 +46,14 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}, and {@link EntityNameFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityNameFilter#equals(Object)}
    *   <li>{@link EntityNameFilter#hashCode()}
@@ -77,12 +81,14 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}, and {@link EntityNameFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityNameFilter#equals(Object)}
    *   <li>{@link EntityNameFilter#hashCode()}
@@ -110,12 +116,14 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}, and {@link EntityNameFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityNameFilter#equals(Object)}
    *   <li>{@link EntityNameFilter#hashCode()}
@@ -139,12 +147,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -166,12 +175,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -180,7 +190,8 @@ class EntityNameFilterDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityNameFilter entityNameFilter = new EntityNameFilter();
-    entityNameFilter.setEntityNameFilter("org.thingsboard.server.common.data.query.EntityNameFilter");
+    entityNameFilter.setEntityNameFilter(
+        "org.thingsboard.server.common.data.query.EntityNameFilter");
     entityNameFilter.setEntityType(EntityType.TENANT);
 
     EntityNameFilter entityNameFilter2 = new EntityNameFilter();
@@ -193,12 +204,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -220,12 +232,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -247,12 +260,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -270,12 +284,13 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test {@link EntityNameFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityNameFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityNameFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -293,8 +308,9 @@ class EntityNameFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EntityNameFilter}
    *   <li>{@link EntityNameFilter#setEntityNameFilter(String)}
@@ -308,10 +324,15 @@ class EntityNameFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityNameFilter.<init>()", "String EntityNameFilter.getEntityNameFilter()",
-      "EntityType EntityNameFilter.getEntityType()", "EntityFilterType EntityNameFilter.getType()",
-      "void EntityNameFilter.setEntityNameFilter(String)", "void EntityNameFilter.setEntityType(EntityType)",
-      "String EntityNameFilter.toString()"})
+  @MethodsUnderTest({
+    "void EntityNameFilter.<init>()",
+    "String EntityNameFilter.getEntityNameFilter()",
+    "EntityType EntityNameFilter.getEntityType()",
+    "EntityFilterType EntityNameFilter.getType()",
+    "void EntityNameFilter.setEntityNameFilter(String)",
+    "void EntityNameFilter.setEntityType(EntityType)",
+    "String EntityNameFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityNameFilter actualEntityNameFilter = new EntityNameFilter();
@@ -323,7 +344,9 @@ class EntityNameFilterDiffblueTest {
 
     // Assert
     assertEquals("Entity Name Filter", actualEntityNameFilter2);
-    assertEquals("EntityNameFilter(entityType=TENANT, entityNameFilter=Entity Name Filter)", actualToStringResult);
+    assertEquals(
+        "EntityNameFilter(entityType=TENANT, entityNameFilter=Entity Name Filter)",
+        actualToStringResult);
     assertEquals(EntityType.TENANT, actualEntityType);
     assertEquals(EntityFilterType.ENTITY_NAME, actualEntityNameFilter.getType());
   }

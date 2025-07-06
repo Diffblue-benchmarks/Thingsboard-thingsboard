@@ -23,8 +23,8 @@ import org.thingsboard.server.common.data.transport.snmp.config.impl.SharedAttri
 class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid()")
@@ -33,9 +33,10 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   void testIsValid() {
     // Arrange
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
-    mappings.add(new SnmpMapping(null, null, DataType.BOOLEAN));
+    mappings.add(new SnmpMapping(null, "not blank", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -44,8 +45,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid()")
@@ -54,9 +55,10 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   void testIsValid2() {
     // Arrange
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
-    mappings.add(new SnmpMapping("", null, DataType.BOOLEAN));
+    mappings.add(new SnmpMapping("", "not blank", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -65,8 +67,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid()")
@@ -78,7 +80,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     mappings.add(new SnmpMapping("0.0.0", "0.0.0", DataType.BOOLEAN));
     mappings.add(new SnmpMapping("0.0.0", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -87,8 +90,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid()")
@@ -100,7 +103,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     mappings.add(new SnmpMapping("0.0.0", null, DataType.BOOLEAN));
     mappings.add(new SnmpMapping("0.0.0", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -109,8 +113,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid()")
@@ -122,7 +126,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     mappings.add(new SnmpMapping("0.0.0", "", DataType.BOOLEAN));
     mappings.add(new SnmpMapping("0.0.0", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -131,12 +136,13 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); given ArrayList() add 'null'; then return 'false'")
@@ -147,7 +153,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(null);
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -156,14 +163,17 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@link SnmpMapping#SnmpMapping(String, String, DataType)} with {@code Oid} and {@code Key} and dataType is {@code BOOLEAN}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@link SnmpMapping#SnmpMapping(String, String,
+   *       DataType)} with {@code Oid} and {@code Key} and dataType is {@code BOOLEAN}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
-  @DisplayName("Test isValid(); given ArrayList() add SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
+  @DisplayName(
+      "Test isValid(); given ArrayList() add SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.isValid()"})
   void testIsValid_givenArrayListAddSnmpMappingWithOidAndKeyAndDataTypeIsBoolean() {
@@ -171,7 +181,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -180,29 +191,32 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link ToServerRpcRequestSnmpCommunicationConfig} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link ToServerRpcRequestSnmpCommunicationConfig} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
-  @DisplayName("Test isValid(); given ToServerRpcRequestSnmpCommunicationConfig (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isValid(); given ToServerRpcRequestSnmpCommunicationConfig (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.isValid()"})
   void testIsValid_givenToServerRpcRequestSnmpCommunicationConfig_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new ToServerRpcRequestSnmpCommunicationConfig()).isValid());
+    assertFalse(new ToServerRpcRequestSnmpCommunicationConfig().isValid());
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'false'")
@@ -210,7 +224,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.isValid()"})
   void testIsValid_thenReturnFalse() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(new ArrayList<>());
 
     // Act and Assert
@@ -219,11 +234,12 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'true'")
@@ -234,7 +250,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(new SnmpMapping("0.0.0", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -243,8 +260,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#getAllMappings()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#getAllMappings()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#getAllMappings()}
    */
   @Test
   @DisplayName("Test getAllMappings()")
@@ -252,17 +269,18 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @MethodsUnderTest({"List MultipleMappingsSnmpCommunicationConfig.getAllMappings()"})
   void testGetAllMappings() {
     // Arrange, Act and Assert
-    assertNull((new ToServerRpcRequestSnmpCommunicationConfig()).getAllMappings());
+    assertNull(new ToServerRpcRequestSnmpCommunicationConfig().getAllMappings());
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@code Other}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
@@ -270,38 +288,46 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new ToServerRpcRequestSnmpCommunicationConfig()).canEqual("Other"));
+    assertFalse(new ToServerRpcRequestSnmpCommunicationConfig().canEqual("Other"));
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@link ToServerRpcRequestSnmpCommunicationConfig} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link ToServerRpcRequestSnmpCommunicationConfig} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when ToServerRpcRequestSnmpCommunicationConfig (default constructor); then return 'true'")
+  @DisplayName(
+      "Test canEqual(Object); when ToServerRpcRequestSnmpCommunicationConfig (default constructor); then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.canEqual(Object)"})
   void testCanEqual_whenToServerRpcRequestSnmpCommunicationConfig_thenReturnTrue() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
     // Act and Assert
-    assertTrue(toServerRpcRequestSnmpCommunicationConfig.canEqual(new ToServerRpcRequestSnmpCommunicationConfig()));
+    assertTrue(
+        toServerRpcRequestSnmpCommunicationConfig.canEqual(
+            new ToServerRpcRequestSnmpCommunicationConfig()));
   }
 
   /**
-   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link
+   * MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#hashCode()}
@@ -310,27 +336,35 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig2 = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig2 =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
     // Act and Assert
-    assertEquals(toServerRpcRequestSnmpCommunicationConfig, toServerRpcRequestSnmpCommunicationConfig2);
+    assertEquals(
+        toServerRpcRequestSnmpCommunicationConfig, toServerRpcRequestSnmpCommunicationConfig2);
     int expectedHashCodeResult = toServerRpcRequestSnmpCommunicationConfig.hashCode();
     assertEquals(expectedHashCodeResult, toServerRpcRequestSnmpCommunicationConfig2.hashCode());
   }
 
   /**
-   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link
+   * MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#hashCode()}
@@ -339,31 +373,84 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
-    toServerRpcRequestSnmpCommunicationConfig.setMappings(new ArrayList<>());
-    ClientAttributesQueryingSnmpCommunicationConfig clientAttributesQueryingSnmpCommunicationConfig = mock(
-        ClientAttributesQueryingSnmpCommunicationConfig.class);
-    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings()).thenReturn(new ArrayList<>());
-    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any())).thenReturn(true);
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
+    ClientAttributesQueryingSnmpCommunicationConfig
+        clientAttributesQueryingSnmpCommunicationConfig =
+            mock(ClientAttributesQueryingSnmpCommunicationConfig.class);
+    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings()).thenReturn(null);
+    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
 
     // Act and Assert
-    assertEquals(toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
+    assertEquals(
+        toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
     int notExpectedHashCodeResult = toServerRpcRequestSnmpCommunicationConfig.hashCode();
-    assertNotEquals(notExpectedHashCodeResult, clientAttributesQueryingSnmpCommunicationConfig.hashCode());
+    assertNotEquals(
+        notExpectedHashCodeResult, clientAttributesQueryingSnmpCommunicationConfig.hashCode());
   }
 
   /**
-   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link
+   * MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *   <li>{@link MultipleMappingsSnmpCommunicationConfig#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
+    toServerRpcRequestSnmpCommunicationConfig.setMappings(new ArrayList<>());
+    ClientAttributesQueryingSnmpCommunicationConfig
+        clientAttributesQueryingSnmpCommunicationConfig =
+            mock(ClientAttributesQueryingSnmpCommunicationConfig.class);
+    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings())
+        .thenReturn(new ArrayList<>());
+    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
+
+    // Act and Assert
+    assertEquals(
+        toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
+    int notExpectedHashCodeResult = toServerRpcRequestSnmpCommunicationConfig.hashCode();
+    assertNotEquals(
+        notExpectedHashCodeResult, clientAttributesQueryingSnmpCommunicationConfig.hashCode());
+  }
+
+  /**
+   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}, and {@link
+   * MultipleMappingsSnmpCommunicationConfig#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    *   <li>{@link MultipleMappingsSnmpCommunicationConfig#hashCode()}
@@ -372,139 +459,137 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
     // Act and Assert
-    assertEquals(toServerRpcRequestSnmpCommunicationConfig, toServerRpcRequestSnmpCommunicationConfig);
+    assertEquals(
+        toServerRpcRequestSnmpCommunicationConfig, toServerRpcRequestSnmpCommunicationConfig);
     int expectedHashCodeResult = toServerRpcRequestSnmpCommunicationConfig.hashCode();
     assertEquals(expectedHashCodeResult, toServerRpcRequestSnmpCommunicationConfig.hashCode());
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
-    ClientAttributesQueryingSnmpCommunicationConfig clientAttributesQueryingSnmpCommunicationConfig = new ClientAttributesQueryingSnmpCommunicationConfig();
+    ClientAttributesQueryingSnmpCommunicationConfig
+        clientAttributesQueryingSnmpCommunicationConfig =
+            new ClientAttributesQueryingSnmpCommunicationConfig();
     clientAttributesQueryingSnmpCommunicationConfig.setMappings(new ArrayList<>());
     clientAttributesQueryingSnmpCommunicationConfig.setQueryingFrequencyMs(1L);
 
     // Act and Assert
-    assertNotEquals(toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
+    assertNotEquals(
+        toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
-    SharedAttributesSettingSnmpCommunicationConfig sharedAttributesSettingSnmpCommunicationConfig = new SharedAttributesSettingSnmpCommunicationConfig();
+    SharedAttributesSettingSnmpCommunicationConfig sharedAttributesSettingSnmpCommunicationConfig =
+        new SharedAttributesSettingSnmpCommunicationConfig();
     sharedAttributesSettingSnmpCommunicationConfig.setMappings(new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(toServerRpcRequestSnmpCommunicationConfig, sharedAttributesSettingSnmpCommunicationConfig);
+    assertNotEquals(
+        toServerRpcRequestSnmpCommunicationConfig, sharedAttributesSettingSnmpCommunicationConfig);
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
-    ClientAttributesQueryingSnmpCommunicationConfig clientAttributesQueryingSnmpCommunicationConfig = mock(
-        ClientAttributesQueryingSnmpCommunicationConfig.class);
-    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings()).thenReturn(new ArrayList<>());
-    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any())).thenReturn(true);
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
+    toServerRpcRequestSnmpCommunicationConfig.setMappings(new ArrayList<>());
+    ClientAttributesQueryingSnmpCommunicationConfig
+        clientAttributesQueryingSnmpCommunicationConfig =
+            mock(ClientAttributesQueryingSnmpCommunicationConfig.class);
+    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings()).thenReturn(null);
+    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
 
     // Act and Assert
-    assertNotEquals(toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
+    assertNotEquals(
+        toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    ArrayList<SnmpMapping> mappings = new ArrayList<>();
-    mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
-
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
-    toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
-    ClientAttributesQueryingSnmpCommunicationConfig clientAttributesQueryingSnmpCommunicationConfig = mock(
-        ClientAttributesQueryingSnmpCommunicationConfig.class);
-    when(clientAttributesQueryingSnmpCommunicationConfig.getMappings()).thenReturn(new ArrayList<>());
-    when(clientAttributesQueryingSnmpCommunicationConfig.canEqual(Mockito.<Object>any())).thenReturn(true);
-
-    // Act and Assert
-    assertNotEquals(toServerRpcRequestSnmpCommunicationConfig, clientAttributesQueryingSnmpCommunicationConfig);
-  }
-
-  /**
-   * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ToServerRpcRequestSnmpCommunicationConfig(), null);
@@ -512,28 +597,32 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
-      "int MultipleMappingsSnmpCommunicationConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MultipleMappingsSnmpCommunicationConfig.equals(Object)",
+    "int MultipleMappingsSnmpCommunicationConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ToServerRpcRequestSnmpCommunicationConfig(),
+    assertNotEquals(
+        new ToServerRpcRequestSnmpCommunicationConfig(),
         "Different type to MultipleMappingsSnmpCommunicationConfig");
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#getMappings()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#getMappings()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#getMappings()}
    */
   @Test
   @DisplayName("Test getMappings()")
@@ -541,24 +630,28 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @MethodsUnderTest({"List MultipleMappingsSnmpCommunicationConfig.getMappings()"})
   void testGetMappings() {
     // Arrange, Act and Assert
-    assertNull((new ToServerRpcRequestSnmpCommunicationConfig()).getMappings());
+    assertNull(new ToServerRpcRequestSnmpCommunicationConfig().getMappings());
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}.
+   *
    * <ul>
-   *   <li>Given {@link SnmpMapping#SnmpMapping(String, String, DataType)} with {@code Oid} and {@code Key} and dataType is {@code BOOLEAN}.</li>
+   *   <li>Given {@link SnmpMapping#SnmpMapping(String, String, DataType)} with {@code Oid} and
+   *       {@code Key} and dataType is {@code BOOLEAN}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
    */
   @Test
-  @DisplayName("Test setMappings(List); given SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
+  @DisplayName(
+      "Test setMappings(List); given SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MultipleMappingsSnmpCommunicationConfig.setMappings(List)"})
   void testSetMappings_givenSnmpMappingWithOidAndKeyAndDataTypeIsBoolean() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
@@ -573,19 +666,23 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}.
+   *
    * <ul>
-   *   <li>Given {@link SnmpMapping#SnmpMapping(String, String, DataType)} with {@code Oid} and {@code Key} and dataType is {@code BOOLEAN}.</li>
+   *   <li>Given {@link SnmpMapping#SnmpMapping(String, String, DataType)} with {@code Oid} and
+   *       {@code Key} and dataType is {@code BOOLEAN}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
    */
   @Test
-  @DisplayName("Test setMappings(List); given SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
+  @DisplayName(
+      "Test setMappings(List); given SnmpMapping(String, String, DataType) with 'Oid' and 'Key' and dataType is 'BOOLEAN'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MultipleMappingsSnmpCommunicationConfig.setMappings(List)"})
   void testSetMappings_givenSnmpMappingWithOidAndKeyAndDataTypeIsBoolean2() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
 
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
@@ -601,11 +698,12 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#setMappings(List)}
    */
   @Test
   @DisplayName("Test setMappings(List); when ArrayList()")
@@ -613,7 +711,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
   @MethodsUnderTest({"void MultipleMappingsSnmpCommunicationConfig.setMappings(List)"})
   void testSetMappings_whenArrayList() {
     // Arrange
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
 
     // Act
@@ -626,8 +725,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#toString()}.
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -638,21 +737,24 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     ArrayList<SnmpMapping> mappings = new ArrayList<>();
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
-    assertEquals("MultipleMappingsSnmpCommunicationConfig(mappings=[SnmpMapping(oid=Oid, key=Key, dataType=BOOLEAN)])",
+    assertEquals(
+        "MultipleMappingsSnmpCommunicationConfig(mappings=[SnmpMapping(oid=Oid, key=Key, dataType=BOOLEAN)])",
         toServerRpcRequestSnmpCommunicationConfig.toString());
   }
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#toString()}.
+   *
    * <ul>
-   *   <li>Then return a string.</li>
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
    */
   @Test
   @DisplayName("Test toString(); then return a string")
@@ -664,7 +766,8 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
     mappings.add(new SnmpMapping("Oid", "Key", DataType.BOOLEAN));
 
-    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig = new ToServerRpcRequestSnmpCommunicationConfig();
+    ToServerRpcRequestSnmpCommunicationConfig toServerRpcRequestSnmpCommunicationConfig =
+        new ToServerRpcRequestSnmpCommunicationConfig();
     toServerRpcRequestSnmpCommunicationConfig.setMappings(mappings);
 
     // Act and Assert
@@ -676,19 +779,22 @@ class MultipleMappingsSnmpCommunicationConfigDiffblueTest {
 
   /**
    * Test {@link MultipleMappingsSnmpCommunicationConfig#toString()}.
+   *
    * <ul>
-   *   <li>Then return {@code MultipleMappingsSnmpCommunicationConfig(mappings=null)}.</li>
+   *   <li>Then return {@code MultipleMappingsSnmpCommunicationConfig(mappings=null)}.
    * </ul>
-   * <p>
-   * Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
+   *
+   * <p>Method under test: {@link MultipleMappingsSnmpCommunicationConfig#toString()}
    */
   @Test
-  @DisplayName("Test toString(); then return 'MultipleMappingsSnmpCommunicationConfig(mappings=null)'")
+  @DisplayName(
+      "Test toString(); then return 'MultipleMappingsSnmpCommunicationConfig(mappings=null)'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String MultipleMappingsSnmpCommunicationConfig.toString()"})
   void testToString_thenReturnMultipleMappingsSnmpCommunicationConfigMappingsNull() {
     // Arrange, Act and Assert
-    assertEquals("MultipleMappingsSnmpCommunicationConfig(mappings=null)",
-        (new ToServerRpcRequestSnmpCommunicationConfig()).toString());
+    assertEquals(
+        "MultipleMappingsSnmpCommunicationConfig(mappings=null)",
+        new ToServerRpcRequestSnmpCommunicationConfig().toString());
   }
 }

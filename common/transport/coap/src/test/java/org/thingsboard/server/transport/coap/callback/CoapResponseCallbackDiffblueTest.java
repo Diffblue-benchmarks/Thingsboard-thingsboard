@@ -5,8 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
+import java.util.List;
 import java.util.concurrent.Executor;
 import org.eclipse.californium.core.coap.CoAP;
 import org.eclipse.californium.core.coap.CoAP.Code;
@@ -14,18 +20,21 @@ import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.coap.OptionSet;
 import org.eclipse.californium.core.coap.Request;
 import org.eclipse.californium.core.coap.Response;
+import org.eclipse.californium.core.network.Endpoint;
 import org.eclipse.californium.core.network.Exchange;
 import org.eclipse.californium.core.network.Exchange.Origin;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class CoapResponseCallbackDiffblueTest {
   /**
    * Test {@link CoapResponseCallback#CoapResponseCallback(CoapExchange, Response, Response)}.
-   * <p>
-   * Method under test: {@link CoapResponseCallback#CoapResponseCallback(CoapExchange, Response, Response)}
+   *
+   * <p>Method under test: {@link CoapResponseCallback#CoapResponseCallback(CoapExchange, Response,
+   * Response)}
    */
   @Test
   @DisplayName("Test new CoapResponseCallback(CoapExchange, Response, Response)")
@@ -33,13 +42,16 @@ class CoapResponseCallbackDiffblueTest {
   @MethodsUnderTest({"void CoapResponseCallback.<init>(CoapExchange, Response, Response)"})
   void testNewCoapResponseCallback() {
     // Arrange
-    CoapExchange exchange = new CoapExchange(
-        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
+    CoapExchange exchange =
+        new CoapExchange(
+            new Exchange(
+                Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
     Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
 
     // Act
-    CoapResponseCallback actualCoapResponseCallback = new CoapResponseCallback(exchange, onSuccessResponse,
-        new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+    CoapResponseCallback actualCoapResponseCallback =
+        new CoapResponseCallback(
+            exchange, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
 
     // Assert
     Response response = actualCoapResponseCallback.onFailureResponse;
@@ -275,16 +287,671 @@ class CoapResponseCallbackDiffblueTest {
     assertTrue(response2.isSuccess());
     assertEquals(Double.SIZE, response.getRawCode());
     assertEquals(Double.SIZE, response2.getRawCode());
-    assertArrayEquals(new byte[]{}, coapExchange.getRequestPayload());
+    assertArrayEquals(new byte[] {}, coapExchange.getRequestPayload());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("/Path", options.getLocationString());
+    List<String> locationPath = options.getLocationPath();
+    assertEquals(1, locationPath.size());
+    assertEquals("Path", locationPath.get(0));
+    assertEquals("Path", options.getLocationPathString());
+    assertEquals(1, options.getLocationPathCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid3() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Query");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("/?Query", options.getLocationString());
+    List<String> locationQuery = options.getLocationQuery();
+    assertEquals(1, locationQuery.size());
+    assertEquals("Query", locationQuery.get(0));
+    assertEquals("Query", options.getLocationQueryString());
+    assertEquals(1, options.getLocationQueryCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid4() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(6L);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertEquals(6L, options.getMaxAge().longValue());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+    assertTrue(options.hasMaxAge());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid5() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag(new byte[] {'A', 6, 'A', 6, 'A', 6, 'A', 6});
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("/", options.getLocationString());
+    List<byte[]> eTags = options.getETags();
+    assertEquals(1, eTags.size());
+    assertEquals(1, options.getETagCount());
+    assertArrayEquals(new byte[] {'A', 6, 'A', 6, 'A', 6, 'A', 6}, eTags.get(0));
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid6() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid7() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    onSuccessResponse.setOptions(new OptionSet());
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("/Path", options.getLocationString());
+    List<String> locationPath = options.getLocationPath();
+    assertEquals(1, locationPath.size());
+    assertEquals("Path", locationPath.get(0));
+    assertEquals("Path", options.getLocationPathString());
+    assertEquals(1, options.getLocationPathCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName("Test onSuccess(Void) with 'Void'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid8() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Query");
+
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    onSuccessResponse.setOptions(new OptionSet());
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("/?Query", options.getLocationString());
+    List<String> locationQuery = options.getLocationQuery();
+    assertEquals(1, locationQuery.size());
+    assertEquals("Query", locationQuery.get(0));
+    assertEquals("Query", options.getLocationQueryString());
+    assertEquals(1, options.getLocationQueryCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onSuccess(Void)} with {@code Void}.
+   *
+   * <ul>
+   *   <li>Given newDelete LocalAddress createUnresolved {@code foo} and six is {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onSuccess(Void)}
+   */
+  @Test
+  @DisplayName(
+      "Test onSuccess(Void) with 'Void'; given newDelete LocalAddress createUnresolved 'foo' and six is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onSuccess(Void)"})
+  void testOnSuccessWithVoid_givenNewDeleteLocalAddressCreateUnresolvedFooAndSixIsTrue() {
+    // Arrange
+    Request request = Request.newDelete();
+    request.setLocalAddress(InetSocketAddress.createUnresolved("foo", 6), true);
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange = new Exchange(request, "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onSuccess(null);
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onSuccessResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getETagCount());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertEquals(60L, options.getMaxAge().longValue());
+    assertFalse(options.hasMaxAge());
+    assertTrue(options.getETags().isEmpty());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError2() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Path");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("/Path", options.getLocationString());
+    List<String> locationPath = options.getLocationPath();
+    assertEquals(1, locationPath.size());
+    assertEquals("Path", locationPath.get(0));
+    assertEquals("Path", options.getLocationPathString());
+    assertEquals(1, options.getLocationPathCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError3() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Query");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("/?Query", options.getLocationString());
+    List<String> locationQuery = options.getLocationQuery();
+    assertEquals(1, locationQuery.size());
+    assertEquals("Query", locationQuery.get(0));
+    assertEquals("Query", options.getLocationQueryString());
+    assertEquals(1, options.getLocationQueryCount());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError4() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(1L);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getETagCount());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertEquals(1L, options.getMaxAge().longValue());
+    assertTrue(options.getETags().isEmpty());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+    assertTrue(options.hasMaxAge());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName("Test onError(Throwable)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError5() throws UnsupportedEncodingException {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag("AXAXAXAX".getBytes("UTF-8"));
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("/", options.getLocationString());
+    List<byte[]> eTags = options.getETags();
+    assertEquals(1, eTags.size());
+    assertEquals(1, options.getETagCount());
+    assertArrayEquals("AXAXAXAX".getBytes("UTF-8"), eTags.get(0));
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationQuery is empty string.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationQuery is empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError_givenCoapExchangeWithExchangeIsExchangeLocationQueryIsEmptyString() {
+    // Arrange
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("");
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getETagCount());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertEquals(60L, options.getMaxAge().longValue());
+    assertFalse(options.hasMaxAge());
+    assertTrue(options.getETags().isEmpty());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
+  }
+
+  /**
+   * Test {@link CoapResponseCallback#onError(Throwable)}.
+   *
+   * <ul>
+   *   <li>Given newDelete LocalAddress createUnresolved {@code foo} and one is {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapResponseCallback#onError(Throwable)}
+   */
+  @Test
+  @DisplayName(
+      "Test onError(Throwable); given newDelete LocalAddress createUnresolved 'foo' and one is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapResponseCallback.onError(Throwable)"})
+  void testOnError_givenNewDeleteLocalAddressCreateUnresolvedFooAndOneIsTrue() {
+    // Arrange
+    Request request = Request.newDelete();
+    request.setLocalAddress(InetSocketAddress.createUnresolved("foo", 1), true);
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange = new Exchange(request, "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
+    CoapResponseCallback coapResponseCallback =
+        new CoapResponseCallback(
+            exchange2, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE));
+
+    // Act
+    coapResponseCallback.onError(new Throwable());
+
+    // Assert that nothing has changed
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+    OptionSet options = coapResponseCallback.onFailureResponse.getOptions();
+    assertEquals("", options.getLocationPathString());
+    assertEquals("", options.getLocationQueryString());
+    assertEquals(0, options.getETagCount());
+    assertEquals(0, options.getLocationPathCount());
+    assertEquals(0, options.getLocationQueryCount());
+    assertEquals(60L, options.getMaxAge().longValue());
+    assertFalse(options.hasMaxAge());
+    assertTrue(options.getETags().isEmpty());
+    assertTrue(options.getLocationPath().isEmpty());
+    assertTrue(options.getLocationQuery().isEmpty());
   }
 
   /**
    * Test {@link CoapResponseCallback#isConRequest()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapResponseCallback#isConRequest()}
+   *
+   * <p>Method under test: {@link CoapResponseCallback#isConRequest()}
    */
   @Test
   @DisplayName("Test isConRequest(); then return 'true'")
@@ -292,12 +959,16 @@ class CoapResponseCallbackDiffblueTest {
   @MethodsUnderTest({"boolean CoapResponseCallback.isConRequest()"})
   void testIsConRequest_thenReturnTrue() {
     // Arrange
-    CoapExchange exchange = new CoapExchange(
-        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
+    CoapExchange exchange =
+        new CoapExchange(
+            new Exchange(
+                Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
     Response onSuccessResponse = new Response(ResponseCode._UNKNOWN_SUCCESS_CODE);
 
     // Act and Assert
-    assertTrue((new CoapResponseCallback(exchange, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE)))
-        .isConRequest());
+    assertTrue(
+        new CoapResponseCallback(
+                exchange, onSuccessResponse, new Response(ResponseCode._UNKNOWN_SUCCESS_CODE))
+            .isConRequest());
   }
 }

@@ -24,34 +24,40 @@ import org.thingsboard.server.gen.transport.TransportProtos.ServiceInfo;
 
 @ExtendWith(MockitoExtension.class)
 class DummyDiscoveryServiceDiffblueTest {
-  @InjectMocks
-  private DummyDiscoveryService dummyDiscoveryService;
+  @InjectMocks private DummyDiscoveryService dummyDiscoveryService;
 
   /**
    * Test {@link DummyDiscoveryService#onApplicationEvent(ApplicationReadyEvent)}.
+   *
    * <ul>
-   *   <li>Then calls {@link HashPartitionService#recalculatePartitions(ServiceInfo, List)}.</li>
+   *   <li>Then calls {@link HashPartitionService#recalculatePartitions(ServiceInfo, List)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DummyDiscoveryService#onApplicationEvent(ApplicationReadyEvent)}
+   *
+   * <p>Method under test: {@link DummyDiscoveryService#onApplicationEvent(ApplicationReadyEvent)}
    */
   @Test
-  @DisplayName("Test onApplicationEvent(ApplicationReadyEvent); then calls recalculatePartitions(ServiceInfo, List)")
+  @DisplayName(
+      "Test onApplicationEvent(ApplicationReadyEvent); then calls recalculatePartitions(ServiceInfo, List)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DummyDiscoveryService.onApplicationEvent(ApplicationReadyEvent)"})
   void testOnApplicationEvent_thenCallsRecalculatePartitions() {
     // Arrange
     HashPartitionService partitionService = mock(HashPartitionService.class);
-    doNothing().when(partitionService)
+    doNothing()
+        .when(partitionService)
         .recalculatePartitions(Mockito.<ServiceInfo>any(), Mockito.<List<ServiceInfo>>any());
-    DummyDiscoveryService dummyDiscoveryService = new DummyDiscoveryService(new DefaultTbServiceInfoProvider(),
-        partitionService);
+    DummyDiscoveryService dummyDiscoveryService =
+        new DummyDiscoveryService(new DefaultTbServiceInfoProvider(), partitionService);
     Class<Object> forNameResult = Object.class;
     SpringApplication application = new SpringApplication(forNameResult);
 
     // Act
-    dummyDiscoveryService.onApplicationEvent(new ApplicationReadyEvent(application, new String[]{"Args"},
-        new AnnotationConfigReactiveWebApplicationContext(), null));
+    dummyDiscoveryService.onApplicationEvent(
+        new ApplicationReadyEvent(
+            application,
+            new String[] {"Args"},
+            new AnnotationConfigReactiveWebApplicationContext(),
+            null));
 
     // Assert
     verify(partitionService).recalculatePartitions(isNull(), isA(List.class));
@@ -59,8 +65,8 @@ class DummyDiscoveryServiceDiffblueTest {
 
   /**
    * Test {@link DummyDiscoveryService#getOtherServers()}.
-   * <p>
-   * Method under test: {@link DummyDiscoveryService#getOtherServers()}
+   *
+   * <p>Method under test: {@link DummyDiscoveryService#getOtherServers()}
    */
   @Test
   @DisplayName("Test getOtherServers()")
@@ -73,8 +79,8 @@ class DummyDiscoveryServiceDiffblueTest {
 
   /**
    * Test {@link DummyDiscoveryService#isMonolith()}.
-   * <p>
-   * Method under test: {@link DummyDiscoveryService#isMonolith()}
+   *
+   * <p>Method under test: {@link DummyDiscoveryService#isMonolith()}
    */
   @Test
   @DisplayName("Test isMonolith()")
@@ -89,8 +95,15 @@ class DummyDiscoveryServiceDiffblueTest {
     QueueRoutingInfoService queueRoutingInfoService = mock(QueueRoutingInfoService.class);
 
     // Act and Assert
-    assertTrue((new DummyDiscoveryService(serviceInfoProvider, new HashPartitionService(serviceInfoProvider2,
-        tenantRoutingInfoService, applicationEventPublisher, queueRoutingInfoService, new TopicService())))
-        .isMonolith());
+    assertTrue(
+        new DummyDiscoveryService(
+                serviceInfoProvider,
+                new HashPartitionService(
+                    serviceInfoProvider2,
+                    tenantRoutingInfoService,
+                    applicationEventPublisher,
+                    queueRoutingInfoService,
+                    new TopicService()))
+            .isMonolith());
   }
 }

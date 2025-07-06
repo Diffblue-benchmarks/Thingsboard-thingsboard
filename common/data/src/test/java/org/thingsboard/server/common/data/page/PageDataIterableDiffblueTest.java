@@ -16,8 +16,8 @@ import org.thingsboard.server.common.data.page.PageDataIterable.FetchFunction;
 class PageDataIterableDiffblueTest {
   /**
    * Test {@link PageDataIterable#PageDataIterable(FetchFunction, int)}.
-   * <p>
-   * Method under test: {@link PageDataIterable#PageDataIterable(FetchFunction, int)}
+   *
+   * <p>Method under test: {@link PageDataIterable#PageDataIterable(FetchFunction, int)}
    */
   @Test
   @DisplayName("Test new PageDataIterable(FetchFunction, int)")
@@ -25,7 +25,8 @@ class PageDataIterableDiffblueTest {
   @MethodsUnderTest({"void PageDataIterable.<init>(FetchFunction, int)"})
   void testNewPageDataIterable() {
     // Arrange and Act
-    PageDataIterable<Object> actualPageDataIterable = new PageDataIterable<>(mock(FetchFunction.class), 3);
+    PageDataIterable<Object> actualPageDataIterable =
+        new PageDataIterable<>(mock(FetchFunction.class), 3);
 
     // Assert
     assertFalse(actualPageDataIterable.hasNext());
@@ -33,8 +34,8 @@ class PageDataIterableDiffblueTest {
 
   /**
    * Test {@link PageDataIterable#fetchPageData(PageLink)}.
-   * <p>
-   * Method under test: {@link PageDataIterable#fetchPageData(PageLink)}
+   *
+   * <p>Method under test: {@link PageDataIterable#fetchPageData(PageLink)}
    */
   @Test
   @DisplayName("Test fetchPageData(PageLink)")

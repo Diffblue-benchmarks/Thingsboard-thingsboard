@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ApiUsageRecordKeyDiffblueTest {
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
   @DisplayName("Test getKeys(ApiFeature)")
@@ -21,147 +21,171 @@ class ApiUsageRecordKeyDiffblueTest {
   void testGetKeys() {
     // Arrange, Act and Assert
     assertArrayEquals(
-        new ApiUsageRecordKey[]{ApiUsageRecordKey.TRANSPORT_MSG_COUNT, ApiUsageRecordKey.TRANSPORT_DP_COUNT},
+        new ApiUsageRecordKey[] {
+          ApiUsageRecordKey.TRANSPORT_MSG_COUNT, ApiUsageRecordKey.TRANSPORT_DP_COUNT
+        },
         ApiUsageRecordKey.getKeys(ApiFeature.TRANSPORT));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code CREATED_ALARMS_COUNT}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code CREATED_ALARMS_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'ALARM'; then return array of ApiUsageRecordKey with 'CREATED_ALARMS_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'ALARM'; then return array of ApiUsageRecordKey with 'CREATED_ALARMS_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenAlarm_thenReturnArrayOfApiUsageRecordKeyWithCreatedAlarmsCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.CREATED_ALARMS_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.CREATED_ALARMS_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.ALARM));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code DB}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code STORAGE_DP_COUNT}.</li>
+   *   <li>When {@code DB}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code STORAGE_DP_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'DB'; then return array of ApiUsageRecordKey with 'STORAGE_DP_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'DB'; then return array of ApiUsageRecordKey with 'STORAGE_DP_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenDb_thenReturnArrayOfApiUsageRecordKeyWithStorageDpCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.STORAGE_DP_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.STORAGE_DP_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.DB));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code EMAIL}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code EMAIL_EXEC_COUNT}.</li>
+   *   <li>When {@code EMAIL}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code EMAIL_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'EMAIL'; then return array of ApiUsageRecordKey with 'EMAIL_EXEC_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'EMAIL'; then return array of ApiUsageRecordKey with 'EMAIL_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenEmail_thenReturnArrayOfApiUsageRecordKeyWithEmailExecCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.EMAIL_EXEC_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.EMAIL_EXEC_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.EMAIL));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code JS}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code JS_EXEC_COUNT}.</li>
+   *   <li>When {@code JS}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code JS_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'JS'; then return array of ApiUsageRecordKey with 'JS_EXEC_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'JS'; then return array of ApiUsageRecordKey with 'JS_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenJs_thenReturnArrayOfApiUsageRecordKeyWithJsExecCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.JS_EXEC_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.JS_EXEC_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.JS));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code RE}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code RE_EXEC_COUNT}.</li>
+   *   <li>When {@code RE}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code RE_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'RE'; then return array of ApiUsageRecordKey with 'RE_EXEC_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'RE'; then return array of ApiUsageRecordKey with 'RE_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenRe_thenReturnArrayOfApiUsageRecordKeyWithReExecCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.RE_EXEC_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.RE_EXEC_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.RE));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code SMS}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code SMS_EXEC_COUNT}.</li>
+   *   <li>When {@code SMS}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code SMS_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'SMS'; then return array of ApiUsageRecordKey with 'SMS_EXEC_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'SMS'; then return array of ApiUsageRecordKey with 'SMS_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenSms_thenReturnArrayOfApiUsageRecordKeyWithSmsExecCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.SMS_EXEC_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.SMS_EXEC_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.SMS));
   }
 
   /**
    * Test {@link ApiUsageRecordKey#getKeys(ApiFeature)}.
+   *
    * <ul>
-   *   <li>When {@code TBEL}.</li>
-   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code TBEL_EXEC_COUNT}.</li>
+   *   <li>When {@code TBEL}.
+   *   <li>Then return array of {@link ApiUsageRecordKey} with {@code TBEL_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
+   *
+   * <p>Method under test: {@link ApiUsageRecordKey#getKeys(ApiFeature)}
    */
   @Test
-  @DisplayName("Test getKeys(ApiFeature); when 'TBEL'; then return array of ApiUsageRecordKey with 'TBEL_EXEC_COUNT'")
+  @DisplayName(
+      "Test getKeys(ApiFeature); when 'TBEL'; then return array of ApiUsageRecordKey with 'TBEL_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ApiUsageRecordKey[] ApiUsageRecordKey.getKeys(ApiFeature)"})
   void testGetKeys_whenTbel_thenReturnArrayOfApiUsageRecordKeyWithTbelExecCount() {
     // Arrange, Act and Assert
-    assertArrayEquals(new ApiUsageRecordKey[]{ApiUsageRecordKey.TBEL_EXEC_COUNT},
+    assertArrayEquals(
+        new ApiUsageRecordKey[] {ApiUsageRecordKey.TBEL_EXEC_COUNT},
         ApiUsageRecordKey.getKeys(ApiFeature.TBEL));
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageRecordKey#getApiCountKey()}
    *   <li>{@link ApiUsageRecordKey#getApiFeature()}
@@ -173,9 +197,13 @@ class ApiUsageRecordKeyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String ApiUsageRecordKey.getApiCountKey()", "ApiFeature ApiUsageRecordKey.getApiFeature()",
-      "String ApiUsageRecordKey.getApiLimitKey()", "String ApiUsageRecordKey.getUnitLabel()",
-      "boolean ApiUsageRecordKey.isCounter()"})
+  @MethodsUnderTest({
+    "String ApiUsageRecordKey.getApiCountKey()",
+    "ApiFeature ApiUsageRecordKey.getApiFeature()",
+    "String ApiUsageRecordKey.getApiLimitKey()",
+    "String ApiUsageRecordKey.getUnitLabel()",
+    "boolean ApiUsageRecordKey.isCounter()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ApiUsageRecordKey valueOfResult = ApiUsageRecordKey.valueOf("TRANSPORT_MSG_COUNT");

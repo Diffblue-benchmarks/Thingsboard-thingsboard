@@ -20,13 +20,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.composite.TbLwM2MO
 @ContextConfiguration(classes = {TbLwM2MObserveCompositeRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MObserveCompositeRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MObserveCompositeRequestBuilder tbLwM2MObserveCompositeRequestBuilder;
+  @Autowired private TbLwM2MObserveCompositeRequestBuilder tbLwM2MObserveCompositeRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MObserveCompositeRequest#getRequestContentFormat()}
    *   <li>{@link TbLwM2MObserveCompositeRequest#getResponseContentFormat()}
@@ -36,20 +36,24 @@ class TbLwM2MObserveCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional TbLwM2MObserveCompositeRequest.getRequestContentFormat()",
-      "ContentFormat TbLwM2MObserveCompositeRequest.getResponseContentFormat()",
-      "LwM2MOperationType TbLwM2MObserveCompositeRequest.getType()"})
+  @MethodsUnderTest({
+    "Optional TbLwM2MObserveCompositeRequest.getRequestContentFormat()",
+    "ContentFormat TbLwM2MObserveCompositeRequest.getResponseContentFormat()",
+    "LwM2MOperationType TbLwM2MObserveCompositeRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MObserveCompositeRequestBuilder builderResult = TbLwM2MObserveCompositeRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MObserveCompositeRequestBuilder requestContentFormatResult = builderResult
-        .requestContentFormat(requestContentFormat);
+    TbLwM2MObserveCompositeRequestBuilder requestContentFormatResult =
+        builderResult.requestContentFormat(requestContentFormat);
     ContentFormat responseContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MObserveCompositeRequest buildResult = requestContentFormatResult.responseContentFormat(responseContentFormat)
-        .timeout(10L)
-        .versionedIds(new String[]{"1.0.2"})
-        .build();
+    TbLwM2MObserveCompositeRequest buildResult =
+        requestContentFormatResult
+            .responseContentFormat(responseContentFormat)
+            .timeout(10L)
+            .versionedIds(new String[] {"1.0.2"})
+            .build();
 
     // Act
     Optional<ContentFormat> actualRequestContentFormat = buildResult.getRequestContentFormat();
@@ -63,9 +67,11 @@ class TbLwM2MObserveCompositeRequestDiffblueTest {
   }
 
   /**
-   * Test TbLwM2MObserveCompositeRequestBuilder {@link TbLwM2MObserveCompositeRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test TbLwM2MObserveCompositeRequestBuilder {@link
+   * TbLwM2MObserveCompositeRequestBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MObserveCompositeRequestBuilder#build()}
    *   <li>{@link TbLwM2MObserveCompositeRequestBuilder#requestContentFormat(ContentFormat)}
@@ -77,27 +83,30 @@ class TbLwM2MObserveCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MObserveCompositeRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MObserveCompositeRequestBuilder.<init>()",
-      "TbLwM2MObserveCompositeRequest TbLwM2MObserveCompositeRequestBuilder.build()",
-      "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.requestContentFormat(ContentFormat)",
-      "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.responseContentFormat(ContentFormat)",
-      "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.timeout(long)",
-      "String TbLwM2MObserveCompositeRequestBuilder.toString()",
-      "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.versionedIds(String[])"})
+  @MethodsUnderTest({
+    "void TbLwM2MObserveCompositeRequestBuilder.<init>()",
+    "TbLwM2MObserveCompositeRequest TbLwM2MObserveCompositeRequestBuilder.build()",
+    "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.requestContentFormat(ContentFormat)",
+    "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.responseContentFormat(ContentFormat)",
+    "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.timeout(long)",
+    "String TbLwM2MObserveCompositeRequestBuilder.toString()",
+    "TbLwM2MObserveCompositeRequestBuilder TbLwM2MObserveCompositeRequestBuilder.versionedIds(String[])"
+  })
   void testTbLwM2MObserveCompositeRequestBuilderBuild() {
     // Arrange
     TbLwM2MObserveCompositeRequestBuilder builderResult = TbLwM2MObserveCompositeRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MObserveCompositeRequestBuilder requestContentFormatResult = builderResult
-        .requestContentFormat(requestContentFormat);
+    TbLwM2MObserveCompositeRequestBuilder requestContentFormatResult =
+        builderResult.requestContentFormat(requestContentFormat);
     ContentFormat responseContentFormat = ContentFormat.fromCode(1);
 
     // Act
-    TbLwM2MObserveCompositeRequest actualBuildResult = requestContentFormatResult
-        .responseContentFormat(responseContentFormat)
-        .timeout(10L)
-        .versionedIds(new String[]{"1.0.2"})
-        .build();
+    TbLwM2MObserveCompositeRequest actualBuildResult =
+        requestContentFormatResult
+            .responseContentFormat(responseContentFormat)
+            .timeout(10L)
+            .versionedIds(new String[] {"1.0.2"})
+            .build();
 
     // Assert
     assertEquals(10L, actualBuildResult.getTimeout());
@@ -106,7 +115,7 @@ class TbLwM2MObserveCompositeRequestDiffblueTest {
     assertTrue(requestContentFormat2.isPresent());
     assertSame(requestContentFormat, requestContentFormat2.get());
     assertSame(responseContentFormat, actualBuildResult.getResponseContentFormat());
-    assertArrayEquals(new String[]{"1.0.2"}, actualBuildResult.getObjectIds());
-    assertArrayEquals(new String[]{"1.0.2"}, actualBuildResult.getVersionedIds());
+    assertArrayEquals(new String[] {"1.0.2"}, actualBuildResult.getObjectIds());
+    assertArrayEquals(new String[] {"1.0.2"}, actualBuildResult.getVersionedIds());
   }
 }

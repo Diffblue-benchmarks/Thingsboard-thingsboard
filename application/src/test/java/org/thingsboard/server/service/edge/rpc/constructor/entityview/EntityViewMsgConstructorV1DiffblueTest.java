@@ -12,18 +12,23 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 
 class EntityViewMsgConstructorV1DiffblueTest {
   /**
-   * Test {@link EntityViewMsgConstructorV1#constructEntityViewUpdatedMsg(UpdateMsgType, EntityView)}.
+   * Test {@link EntityViewMsgConstructorV1#constructEntityViewUpdatedMsg(UpdateMsgType,
+   * EntityView)}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewMsgConstructorV1#constructEntityViewUpdatedMsg(UpdateMsgType, EntityView)}
+   *
+   * <p>Method under test: {@link
+   * EntityViewMsgConstructorV1#constructEntityViewUpdatedMsg(UpdateMsgType, EntityView)}
    */
   @Test
-  @DisplayName("Test constructEntityViewUpdatedMsg(UpdateMsgType, EntityView); then throw RuntimeException")
+  @DisplayName(
+      "Test constructEntityViewUpdatedMsg(UpdateMsgType, EntityView); then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.gen.edge.v1.EntityViewUpdateMsg EntityViewMsgConstructorV1.constructEntityViewUpdatedMsg(UpdateMsgType, EntityView)"})
+    "org.thingsboard.server.gen.edge.v1.EntityViewUpdateMsg EntityViewMsgConstructorV1.constructEntityViewUpdatedMsg(UpdateMsgType, EntityView)"
+  })
   void testConstructEntityViewUpdatedMsg_thenThrowRuntimeException() {
     // Arrange
     EntityViewMsgConstructorV1 entityViewMsgConstructorV1 = new EntityViewMsgConstructorV1();
@@ -32,7 +37,10 @@ class EntityViewMsgConstructorV1DiffblueTest {
     entityView.setEntityId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> entityViewMsgConstructorV1
-        .constructEntityViewUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, entityView));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            entityViewMsgConstructorV1.constructEntityViewUpdatedMsg(
+                UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, entityView));
   }
 }

@@ -23,31 +23,33 @@ import org.thingsboard.server.queue.discovery.TenantRoutingInfo;
 
 @ExtendWith(MockitoExtension.class)
 class TransportTenantRoutingInfoServiceDiffblueTest {
-  @Mock
-  private TransportTenantProfileCache transportTenantProfileCache;
+  @Mock private TransportTenantProfileCache transportTenantProfileCache;
 
-  @InjectMocks
-  private TransportTenantRoutingInfoService transportTenantRoutingInfoService;
+  @InjectMocks private TransportTenantRoutingInfoService transportTenantRoutingInfoService;
 
   /**
    * Test {@link TransportTenantRoutingInfoService#getRoutingInfo(TenantId)}.
+   *
    * <ul>
-   *   <li>Then return ProfileId is {@code null}.</li>
+   *   <li>Then return ProfileId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportTenantRoutingInfoService#getRoutingInfo(TenantId)}
+   *
+   * <p>Method under test: {@link TransportTenantRoutingInfoService#getRoutingInfo(TenantId)}
    */
   @Test
   @DisplayName("Test getRoutingInfo(TenantId); then return ProfileId is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TenantRoutingInfo TransportTenantRoutingInfoService.getRoutingInfo(TenantId)"})
+  @MethodsUnderTest({
+    "TenantRoutingInfo TransportTenantRoutingInfoService.getRoutingInfo(TenantId)"
+  })
   void testGetRoutingInfo_thenReturnProfileIdIsNull() {
     // Arrange
     when(transportTenantProfileCache.get(Mockito.<TenantId>any())).thenReturn(new TenantProfile());
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TenantRoutingInfo actualRoutingInfo = transportTenantRoutingInfoService.getRoutingInfo(tenantId);
+    TenantRoutingInfo actualRoutingInfo =
+        transportTenantRoutingInfoService.getRoutingInfo(tenantId);
 
     // Assert
     verify(transportTenantProfileCache).get(isA(TenantId.class));

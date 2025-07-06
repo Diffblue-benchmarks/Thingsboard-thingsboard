@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class AnonymousCredentialsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AnonymousCredentials}
    *   <li>{@link AnonymousCredentials#getType()}
@@ -19,9 +20,12 @@ class AnonymousCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AnonymousCredentials.<init>()", "CredentialsType AnonymousCredentials.getType()"})
+  @MethodsUnderTest({
+    "void AnonymousCredentials.<init>()",
+    "CredentialsType AnonymousCredentials.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals(CredentialsType.ANONYMOUS, (new AnonymousCredentials()).getType());
+    assertEquals(CredentialsType.ANONYMOUS, new AnonymousCredentials().getType());
   }
 }

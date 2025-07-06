@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class OtaPackageTypeDiffblueTest {
   /**
    * Test {@link OtaPackageType#getKeyPrefix()}.
-   * <p>
-   * Method under test: {@link OtaPackageType#getKeyPrefix()}
+   *
+   * <p>Method under test: {@link OtaPackageType#getKeyPrefix()}
    */
   @Test
   @DisplayName("Test getKeyPrefix()")

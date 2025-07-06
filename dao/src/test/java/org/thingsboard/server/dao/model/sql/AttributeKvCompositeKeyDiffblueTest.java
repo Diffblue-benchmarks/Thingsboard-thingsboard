@@ -12,13 +12,16 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class AttributeKvCompositeKeyDiffblueTest {
   /**
-   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link AttributeKvCompositeKey#hashCode()}.
+   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link
+   * AttributeKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvCompositeKey#equals(Object)}
    *   <li>{@link AttributeKvCompositeKey#hashCode()}
@@ -26,7 +29,10 @@ public class AttributeKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -46,13 +52,16 @@ public class AttributeKvCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link AttributeKvCompositeKey#hashCode()}.
+   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link
+   * AttributeKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvCompositeKey#equals(Object)}
    *   <li>{@link AttributeKvCompositeKey#hashCode()}
@@ -60,7 +69,10 @@ public class AttributeKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -80,13 +92,16 @@ public class AttributeKvCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link AttributeKvCompositeKey#hashCode()}.
+   * Test {@link AttributeKvCompositeKey#equals(Object)}, and {@link
+   * AttributeKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvCompositeKey#equals(Object)}
    *   <li>{@link AttributeKvCompositeKey#hashCode()}
@@ -94,7 +109,10 @@ public class AttributeKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -110,16 +128,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -138,16 +160,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -166,16 +192,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -194,16 +224,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -222,16 +256,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -245,16 +283,20 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link AttributeKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributeKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributeKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean AttributeKvCompositeKey.equals(Object)", "int AttributeKvCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributeKvCompositeKey.equals(Object)",
+    "int AttributeKvCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AttributeKvCompositeKey attributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -268,8 +310,9 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvCompositeKey#AttributeKvCompositeKey()}
    *   <li>{@link AttributeKvCompositeKey#setAttributeKey(int)}
@@ -283,11 +326,17 @@ public class AttributeKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AttributeKvCompositeKey.<init>()", "void AttributeKvCompositeKey.<init>(UUID, int, int)",
-      "int AttributeKvCompositeKey.getAttributeKey()", "int AttributeKvCompositeKey.getAttributeType()",
-      "UUID AttributeKvCompositeKey.getEntityId()", "void AttributeKvCompositeKey.setAttributeKey(int)",
-      "void AttributeKvCompositeKey.setAttributeType(int)", "void AttributeKvCompositeKey.setEntityId(UUID)",
-      "String AttributeKvCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void AttributeKvCompositeKey.<init>()",
+    "void AttributeKvCompositeKey.<init>(UUID, int, int)",
+    "int AttributeKvCompositeKey.getAttributeKey()",
+    "int AttributeKvCompositeKey.getAttributeType()",
+    "UUID AttributeKvCompositeKey.getEntityId()",
+    "void AttributeKvCompositeKey.setAttributeKey(int)",
+    "void AttributeKvCompositeKey.setAttributeType(int)",
+    "void AttributeKvCompositeKey.setEntityId(UUID)",
+    "String AttributeKvCompositeKey.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     AttributeKvCompositeKey actualAttributeKvCompositeKey = new AttributeKvCompositeKey();
@@ -303,7 +352,8 @@ public class AttributeKvCompositeKeyDiffblueTest {
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
     assertEquals(
-        "AttributeKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, attributeType=1," + " attributeKey=1)",
+        "AttributeKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, attributeType=1,"
+            + " attributeKey=1)",
         actualToStringResult);
     assertEquals(1, actualAttributeKey);
     assertEquals(1, actualAttributeType);
@@ -312,11 +362,13 @@ public class AttributeKvCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributeKvCompositeKey#AttributeKvCompositeKey(UUID, int, int)}
    *   <li>{@link AttributeKvCompositeKey#setAttributeKey(int)}
@@ -330,15 +382,21 @@ public class AttributeKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AttributeKvCompositeKey.<init>()", "void AttributeKvCompositeKey.<init>(UUID, int, int)",
-      "int AttributeKvCompositeKey.getAttributeKey()", "int AttributeKvCompositeKey.getAttributeType()",
-      "UUID AttributeKvCompositeKey.getEntityId()", "void AttributeKvCompositeKey.setAttributeKey(int)",
-      "void AttributeKvCompositeKey.setAttributeType(int)", "void AttributeKvCompositeKey.setEntityId(UUID)",
-      "String AttributeKvCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void AttributeKvCompositeKey.<init>()",
+    "void AttributeKvCompositeKey.<init>(UUID, int, int)",
+    "int AttributeKvCompositeKey.getAttributeKey()",
+    "int AttributeKvCompositeKey.getAttributeType()",
+    "UUID AttributeKvCompositeKey.getEntityId()",
+    "void AttributeKvCompositeKey.setAttributeKey(int)",
+    "void AttributeKvCompositeKey.setAttributeType(int)",
+    "void AttributeKvCompositeKey.setEntityId(UUID)",
+    "String AttributeKvCompositeKey.toString()"
+  })
   public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
-    AttributeKvCompositeKey actualAttributeKvCompositeKey = new AttributeKvCompositeKey(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1);
+    AttributeKvCompositeKey actualAttributeKvCompositeKey =
+        new AttributeKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1);
     actualAttributeKvCompositeKey.setAttributeKey(1);
     actualAttributeKvCompositeKey.setAttributeType(1);
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -351,7 +409,8 @@ public class AttributeKvCompositeKeyDiffblueTest {
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
     assertEquals(
-        "AttributeKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, attributeType=1," + " attributeKey=1)",
+        "AttributeKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, attributeType=1,"
+            + " attributeKey=1)",
         actualToStringResult);
     assertEquals(1, actualAttributeKey);
     assertEquals(1, actualAttributeType);

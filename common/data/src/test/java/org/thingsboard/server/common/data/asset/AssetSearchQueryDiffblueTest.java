@@ -22,11 +22,12 @@ import org.thingsboard.server.common.data.relation.RelationsSearchParameters;
 class AssetSearchQueryDiffblueTest {
   /**
    * Test {@link AssetSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code Contains}.</li>
+   *   <li>Then return Filters first RelationType is {@code Contains}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'Contains'")
@@ -34,7 +35,8 @@ class AssetSearchQueryDiffblueTest {
   @MethodsUnderTest({"EntityRelationsQuery AssetSearchQuery.toEntitySearchQuery()"})
   void testToEntitySearchQuery_thenReturnFiltersFirstRelationTypeIsContains() {
     // Arrange and Act
-    EntityRelationsQuery actualToEntitySearchQueryResult = (new AssetSearchQuery()).toEntitySearchQuery();
+    EntityRelationsQuery actualToEntitySearchQueryResult =
+        new AssetSearchQuery().toEntitySearchQuery();
 
     // Assert
     List<RelationEntityTypeFilter> filters = actualToEntitySearchQueryResult.getFilters();
@@ -50,11 +52,12 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code foo}.</li>
+   *   <li>Then return Filters first RelationType is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'foo'")
@@ -82,12 +85,14 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}, and {@link AssetSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetSearchQuery#equals(Object)}
    *   <li>{@link AssetSearchQuery#hashCode()}
@@ -110,12 +115,14 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}, and {@link AssetSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetSearchQuery#equals(Object)}
    *   <li>{@link AssetSearchQuery#hashCode()}
@@ -128,12 +135,12 @@ class AssetSearchQueryDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AssetSearchQuery assetSearchQuery = new AssetSearchQuery();
-    assetSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    assetSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     AssetSearchQuery assetSearchQuery2 = new AssetSearchQuery();
-    assetSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    assetSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertEquals(assetSearchQuery, assetSearchQuery2);
@@ -143,12 +150,14 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}, and {@link AssetSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetSearchQuery#equals(Object)}
    *   <li>{@link AssetSearchQuery#hashCode()}
@@ -174,12 +183,14 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}, and {@link AssetSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetSearchQuery#equals(Object)}
    *   <li>{@link AssetSearchQuery#hashCode()}
@@ -205,12 +216,14 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}, and {@link AssetSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetSearchQuery#equals(Object)}
    *   <li>{@link AssetSearchQuery#hashCode()}
@@ -232,12 +245,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -250,12 +264,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -264,8 +279,8 @@ class AssetSearchQueryDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetSearchQuery assetSearchQuery = new AssetSearchQuery();
-    assetSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    assetSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(assetSearchQuery, new AssetSearchQuery());
@@ -273,12 +288,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -295,12 +311,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -317,12 +334,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -333,8 +351,8 @@ class AssetSearchQueryDiffblueTest {
     AssetSearchQuery assetSearchQuery = new AssetSearchQuery();
 
     AssetSearchQuery assetSearchQuery2 = new AssetSearchQuery();
-    assetSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    assetSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(assetSearchQuery, assetSearchQuery2);
@@ -342,12 +360,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -366,12 +385,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -390,12 +410,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -408,12 +429,13 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test {@link AssetSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -426,8 +448,9 @@ class AssetSearchQueryDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AssetSearchQuery}
    *   <li>{@link AssetSearchQuery#setAssetTypes(List)}
@@ -442,17 +465,23 @@ class AssetSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AssetSearchQuery.<init>()", "List AssetSearchQuery.getAssetTypes()",
-      "RelationsSearchParameters AssetSearchQuery.getParameters()", "String AssetSearchQuery.getRelationType()",
-      "void AssetSearchQuery.setAssetTypes(List)", "void AssetSearchQuery.setParameters(RelationsSearchParameters)",
-      "void AssetSearchQuery.setRelationType(String)", "String AssetSearchQuery.toString()"})
+  @MethodsUnderTest({
+    "void AssetSearchQuery.<init>()",
+    "List AssetSearchQuery.getAssetTypes()",
+    "RelationsSearchParameters AssetSearchQuery.getParameters()",
+    "String AssetSearchQuery.getRelationType()",
+    "void AssetSearchQuery.setAssetTypes(List)",
+    "void AssetSearchQuery.setParameters(RelationsSearchParameters)",
+    "void AssetSearchQuery.setRelationType(String)",
+    "String AssetSearchQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AssetSearchQuery actualAssetSearchQuery = new AssetSearchQuery();
     ArrayList<String> assetTypes = new ArrayList<>();
     actualAssetSearchQuery.setAssetTypes(assetTypes);
-    RelationsSearchParameters parameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters parameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
 
     actualAssetSearchQuery.setParameters(parameters);
     actualAssetSearchQuery.setRelationType("Relation Type");
@@ -461,9 +490,11 @@ class AssetSearchQueryDiffblueTest {
     RelationsSearchParameters actualParameters = actualAssetSearchQuery.getParameters();
 
     // Assert
-    assertEquals("AssetSearchQuery(parameters=RelationsSearchParameters(rootId=13814000-1dd2-11b2-8080-808080808080,"
-        + " rootType=TENANT, direction=FROM, relationTypeGroup=COMMON, maxLevel=3, fetchLastLevelOnly=true),"
-        + " relationType=Relation Type, assetTypes=[])", actualToStringResult);
+    assertEquals(
+        "AssetSearchQuery(parameters=RelationsSearchParameters(rootId=13814000-1dd2-11b2-8080-808080808080,"
+            + " rootType=TENANT, direction=FROM, relationTypeGroup=COMMON, maxLevel=3, fetchLastLevelOnly=true),"
+            + " relationType=Relation Type, assetTypes=[])",
+        actualToStringResult);
     assertEquals("Relation Type", actualAssetSearchQuery.getRelationType());
     assertTrue(actualAssetTypes.isEmpty());
     assertSame(assetTypes, actualAssetTypes);

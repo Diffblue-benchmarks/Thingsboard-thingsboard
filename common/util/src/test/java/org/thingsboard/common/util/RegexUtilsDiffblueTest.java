@@ -20,9 +20,10 @@ import org.mockito.Mockito;
 
 class RegexUtilsDiffblueTest {
   /**
-   * Test {@link RegexUtils#replace(String, String, Function)} with {@code input}, {@code pattern}, {@code replacer}.
-   * <p>
-   * Method under test: {@link RegexUtils#replace(String, String, Function)}
+   * Test {@link RegexUtils#replace(String, String, Function)} with {@code input}, {@code pattern},
+   * {@code replacer}.
+   *
+   * <p>Method under test: {@link RegexUtils#replace(String, String, Function)}
    */
   @Test
   @DisplayName("Test replace(String, String, Function) with 'input', 'pattern', 'replacer'")
@@ -34,17 +35,20 @@ class RegexUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code pattern}, {@code replacer}.
+   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code
+   * pattern}, {@code replacer}.
+   *
    * <ul>
-   *   <li>Given {@code Apply}.</li>
-   *   <li>When {@link RegexUtils#UUID_PATTERN}.</li>
-   *   <li>Then return {@code Apply}.</li>
+   *   <li>Given {@code Apply}.
+   *   <li>When {@link RegexUtils#UUID_PATTERN}.
+   *   <li>Then return {@code Apply}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
+   *
+   * <p>Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; given 'Apply'; when UUID_PATTERN; then return 'Apply'")
+  @DisplayName(
+      "Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; given 'Apply'; when UUID_PATTERN; then return 'Apply'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RegexUtils.replace(String, Pattern, UnaryOperator)"})
   void testReplaceWithSPatternReplacer_givenApply_whenUuid_pattern_thenReturnApply() {
@@ -53,8 +57,9 @@ class RegexUtilsDiffblueTest {
     when(replacer.apply(Mockito.<String>any())).thenReturn("Apply");
 
     // Act
-    String actualReplaceResult = RegexUtils.replace("99999999-9999-9999-9999-999999999999", RegexUtils.UUID_PATTERN,
-        replacer);
+    String actualReplaceResult =
+        RegexUtils.replace(
+            "99999999-9999-9999-9999-999999999999", RegexUtils.UUID_PATTERN, replacer);
 
     // Assert
     verify(replacer).apply(eq("99999999-9999-9999-9999-999999999999"));
@@ -62,16 +67,19 @@ class RegexUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code pattern}, {@code replacer}.
+   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code
+   * pattern}, {@code replacer}.
+   *
    * <ul>
-   *   <li>When compile empty string.</li>
-   *   <li>Then return a string.</li>
+   *   <li>When compile empty string.
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
+   *
+   * <p>Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; when compile empty string; then return a string")
+  @DisplayName(
+      "Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; when compile empty string; then return a string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RegexUtils.replace(String, Pattern, UnaryOperator)"})
   void testReplaceWithSPatternReplacer_whenCompileEmptyString_thenReturnAString() {
@@ -81,44 +89,53 @@ class RegexUtilsDiffblueTest {
     when(replacer.apply(Mockito.<String>any())).thenReturn("Apply");
 
     // Act
-    String actualReplaceResult = RegexUtils.replace("99999999-9999-9999-9999-999999999999", pattern, replacer);
+    String actualReplaceResult =
+        RegexUtils.replace("99999999-9999-9999-9999-999999999999", pattern, replacer);
 
     // Assert
     verify(replacer, atLeast(1)).apply(eq(""));
-    assertEquals("Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply-Apply9Apply9Apply9Apply9Apply-Apply9Apply9Appl"
-        + "y9Apply9Apply-Apply9Apply9Apply9Apply9Apply-Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Ap"
-        + "ply9Apply9Apply9Apply", actualReplaceResult);
+    assertEquals(
+        "Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply-Apply9Apply9Apply9Apply9Apply-Apply9Apply9Appl"
+            + "y9Apply9Apply-Apply9Apply9Apply9Apply9Apply-Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Apply9Ap"
+            + "ply9Apply9Apply9Apply",
+        actualReplaceResult);
   }
 
   /**
-   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code pattern}, {@code replacer}.
+   * Test {@link RegexUtils#replace(String, Pattern, UnaryOperator)} with {@code s}, {@code
+   * pattern}, {@code replacer}.
+   *
    * <ul>
-   *   <li>When {@code foo}.</li>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>When {@code foo}.
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
+   *
+   * <p>Method under test: {@link RegexUtils#replace(String, Pattern, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; when 'foo'; then return 'foo'")
+  @DisplayName(
+      "Test replace(String, Pattern, UnaryOperator) with 's', 'pattern', 'replacer'; when 'foo'; then return 'foo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RegexUtils.replace(String, Pattern, UnaryOperator)"})
   void testReplaceWithSPatternReplacer_whenFoo_thenReturnFoo() {
     // Arrange, Act and Assert
-    assertEquals("foo", RegexUtils.replace("foo", RegexUtils.UUID_PATTERN, mock(UnaryOperator.class)));
+    assertEquals(
+        "foo", RegexUtils.replace("foo", RegexUtils.UUID_PATTERN, mock(UnaryOperator.class)));
   }
 
   /**
    * Test {@link RegexUtils#matches(String, Pattern)}.
+   *
    * <ul>
-   *   <li>When {@code 99999999-9999-9999-9999-999999999999}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@code 99999999-9999-9999-9999-999999999999}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#matches(String, Pattern)}
+   *
+   * <p>Method under test: {@link RegexUtils#matches(String, Pattern)}
    */
   @Test
-  @DisplayName("Test matches(String, Pattern); when '99999999-9999-9999-9999-999999999999'; then return 'true'")
+  @DisplayName(
+      "Test matches(String, Pattern); when '99999999-9999-9999-9999-999999999999'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RegexUtils.matches(String, Pattern)"})
   void testMatches_when99999999999999999999999999999999_thenReturnTrue() {
@@ -128,12 +145,13 @@ class RegexUtilsDiffblueTest {
 
   /**
    * Test {@link RegexUtils#matches(String, Pattern)}.
+   *
    * <ul>
-   *   <li>When {@code Input}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Input}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#matches(String, Pattern)}
+   *
+   * <p>Method under test: {@link RegexUtils#matches(String, Pattern)}
    */
   @Test
   @DisplayName("Test matches(String, Pattern); when 'Input'; then return 'false'")
@@ -146,30 +164,34 @@ class RegexUtilsDiffblueTest {
 
   /**
    * Test {@link RegexUtils#getMatch(String, Pattern, int)}.
+   *
    * <ul>
-   *   <li>When {@code 99999999-9999-9999-9999-999999999999}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code 99999999-9999-9999-9999-999999999999}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
+   *
+   * <p>Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
    */
   @Test
-  @DisplayName("Test getMatch(String, Pattern, int); when '99999999-9999-9999-9999-999999999999'; then return 'null'")
+  @DisplayName(
+      "Test getMatch(String, Pattern, int); when '99999999-9999-9999-9999-999999999999'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RegexUtils.getMatch(String, Pattern, int)"})
   void testGetMatch_when99999999999999999999999999999999_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull(RegexUtils.getMatch("99999999-9999-9999-9999-999999999999", RegexUtils.UUID_PATTERN, 1));
+    assertNull(
+        RegexUtils.getMatch("99999999-9999-9999-9999-999999999999", RegexUtils.UUID_PATTERN, 1));
   }
 
   /**
    * Test {@link RegexUtils#getMatch(String, Pattern, int)}.
+   *
    * <ul>
-   *   <li>When {@code Input}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code Input}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
+   *
+   * <p>Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
    */
   @Test
   @DisplayName("Test getMatch(String, Pattern, int); when 'Input'; then return 'null'")
@@ -182,20 +204,23 @@ class RegexUtilsDiffblueTest {
 
   /**
    * Test {@link RegexUtils#getMatch(String, Pattern, int)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code 99999999-9999-9999-9999-999999999999}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code 99999999-9999-9999-9999-999999999999}.
    * </ul>
-   * <p>
-   * Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
+   *
+   * <p>Method under test: {@link RegexUtils#getMatch(String, Pattern, int)}
    */
   @Test
-  @DisplayName("Test getMatch(String, Pattern, int); when zero; then return '99999999-9999-9999-9999-999999999999'")
+  @DisplayName(
+      "Test getMatch(String, Pattern, int); when zero; then return '99999999-9999-9999-9999-999999999999'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String RegexUtils.getMatch(String, Pattern, int)"})
   void testGetMatch_whenZero_thenReturn99999999999999999999999999999999() {
     // Arrange, Act and Assert
-    assertEquals("99999999-9999-9999-9999-999999999999",
+    assertEquals(
+        "99999999-9999-9999-9999-999999999999",
         RegexUtils.getMatch("99999999-9999-9999-9999-999999999999", RegexUtils.UUID_PATTERN, 0));
   }
 }

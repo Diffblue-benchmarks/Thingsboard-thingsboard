@@ -16,16 +16,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class TimescaleTsDatabaseUpgradeServiceDiffblueTest {
-  @Mock
-  private InstallScripts installScripts;
+  @Mock private InstallScripts installScripts;
 
-  @InjectMocks
-  private TimescaleTsDatabaseUpgradeService timescaleTsDatabaseUpgradeService;
+  @InjectMocks private TimescaleTsDatabaseUpgradeService timescaleTsDatabaseUpgradeService;
 
   /**
    * Test {@link TimescaleTsDatabaseUpgradeService#upgradeDatabase(String)}.
-   * <p>
-   * Method under test: {@link TimescaleTsDatabaseUpgradeService#upgradeDatabase(String)}
+   *
+   * <p>Method under test: {@link TimescaleTsDatabaseUpgradeService#upgradeDatabase(String)}
    */
   @Test
   @DisplayName("Test upgradeDatabase(String)")
@@ -33,21 +31,25 @@ class TimescaleTsDatabaseUpgradeServiceDiffblueTest {
   @MethodsUnderTest({"void TimescaleTsDatabaseUpgradeService.upgradeDatabase(String)"})
   void testUpgradeDatabase() throws Exception {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class,
+    assertThrows(
+        RuntimeException.class,
         () -> timescaleTsDatabaseUpgradeService.upgradeDatabase("jane.doe@example.org"));
   }
 
   /**
    * Test {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link InstallScripts} {@link InstallScripts#getDataDir()} return {@code Data Dir}.</li>
-   *   <li>Then calls {@link InstallScripts#getDataDir()}.</li>
+   *   <li>Given {@link InstallScripts} {@link InstallScripts#getDataDir()} return {@code Data Dir}.
+   *   <li>Then calls {@link InstallScripts#getDataDir()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String, String)}
+   *
+   * <p>Method under test: {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String,
+   * String)}
    */
   @Test
-  @DisplayName("Test loadSql(Connection, String, String); given InstallScripts getDataDir() return 'Data Dir'; then calls getDataDir()")
+  @DisplayName(
+      "Test loadSql(Connection, String, String); given InstallScripts getDataDir() return 'Data Dir'; then calls getDataDir()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TimescaleTsDatabaseUpgradeService.loadSql(Connection, String, String)"})
   void testLoadSql_givenInstallScriptsGetDataDirReturnDataDir_thenCallsGetDataDir() {
@@ -63,11 +65,13 @@ class TimescaleTsDatabaseUpgradeServiceDiffblueTest {
 
   /**
    * Test {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String, String)}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String, String)}
+   *
+   * <p>Method under test: {@link TimescaleTsDatabaseUpgradeService#loadSql(Connection, String,
+   * String)}
    */
   @Test
   @DisplayName("Test loadSql(Connection, String, String); then throw RuntimeException")
@@ -78,8 +82,10 @@ class TimescaleTsDatabaseUpgradeServiceDiffblueTest {
     when(installScripts.getDataDir()).thenThrow(new RuntimeException("upgrade"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> timescaleTsDatabaseUpgradeService.loadSql(mock(Connection.class), "foo.txt", "1.0.2"));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            timescaleTsDatabaseUpgradeService.loadSql(mock(Connection.class), "foo.txt", "1.0.2"));
     verify(installScripts).getDataDir();
   }
 }

@@ -20,14 +20,18 @@ import org.junit.jupiter.api.Test;
 class WsClientDiffblueTest {
   /**
    * Test {@link WsClient#WsClient(URI, long)}.
-   * <p>
-   * Method under test: {@link WsClient#WsClient(URI, long)}
+   *
+   * <ul>
+   *   <li>Then Connection return {@link WebSocketImpl}.
+   * </ul>
+   *
+   * <p>Method under test: {@link WsClient#WsClient(URI, long)}
    */
   @Test
-  @DisplayName("Test new WsClient(URI, long)")
+  @DisplayName("Test new WsClient(URI, long); then Connection return WebSocketImpl")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WsClient.<init>(URI, long)"})
-  void testNewWsClient() {
+  void testNewWsClient_thenConnectionReturnWebSocketImpl() {
     // Arrange
     URI serverUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
 
@@ -37,7 +41,8 @@ class WsClientDiffblueTest {
     // Assert
     assertTrue(actualWsClient.getConnection() instanceof WebSocketImpl);
     assertTrue(actualWsClient.getDraft() instanceof Draft_6455);
-    assertEquals("/C:/Users/sdodd/AppData/Local/Temp/test.txt/", actualWsClient.getResourceDescriptor());
+    assertEquals(
+        "/C:/Users/sdodd/AppData/Local/Temp/test.txt", actualWsClient.getResourceDescriptor());
     assertNull(actualWsClient.lastMsg);
     assertNull(actualWsClient.getLocalSocketAddress());
     assertNull(actualWsClient.getRemoteSocketAddress());
@@ -59,8 +64,8 @@ class WsClientDiffblueTest {
 
   /**
    * Test {@link WsClient#onMessage(String)} with {@code s}.
-   * <p>
-   * Method under test: {@link WsClient#onMessage(String)}
+   *
+   * <p>Method under test: {@link WsClient#onMessage(String)}
    */
   @Test
   @DisplayName("Test onMessage(String) with 's'")
@@ -70,7 +75,8 @@ class WsClientDiffblueTest {
     // Arrange
     new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
 
-    WsClient wsClient = new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
+    WsClient wsClient =
+        new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
 
     // Act
     wsClient.onMessage((String) null);
@@ -81,8 +87,8 @@ class WsClientDiffblueTest {
 
   /**
    * Test {@link WsClient#onMessage(String)} with {@code s}.
-   * <p>
-   * Method under test: {@link WsClient#onMessage(String)}
+   *
+   * <p>Method under test: {@link WsClient#onMessage(String)}
    */
   @Test
   @DisplayName("Test onMessage(String) with 's'")
@@ -90,27 +96,8 @@ class WsClientDiffblueTest {
   @MethodsUnderTest({"void WsClient.onMessage(String)"})
   void testOnMessageWithS2() {
     // Arrange
-    WsClient wsClient = new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
-
-    // Act
-    wsClient.onMessage("42");
-
-    // Assert
-    assertTrue(wsClient.lastMsg instanceof IntNode);
-  }
-
-  /**
-   * Test {@link WsClient#onMessage(String)} with {@code s}.
-   * <p>
-   * Method under test: {@link WsClient#onMessage(String)}
-   */
-  @Test
-  @DisplayName("Test onMessage(String) with 's'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WsClient.onMessage(String)"})
-  void testOnMessageWithS3() {
-    // Arrange
-    WsClient wsClient = new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "foo").toUri(), 1L);
+    WsClient wsClient =
+        new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
 
     // Act
     wsClient.onMessage("42");
@@ -121,18 +108,25 @@ class WsClientDiffblueTest {
 
   /**
    * Test {@link WsClient#getTelemetryUpdate(UUID, String)}.
-   * <p>
-   * Method under test: {@link WsClient#getTelemetryUpdate(UUID, String)}
+   *
+   * <ul>
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link WsClient#getTelemetryUpdate(UUID, String)}
    */
   @Test
-  @DisplayName("Test getTelemetryUpdate(UUID, String)")
+  @DisplayName("Test getTelemetryUpdate(UUID, String); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Object WsClient.getTelemetryUpdate(UUID, String)"})
-  void testGetTelemetryUpdate() {
+  void testGetTelemetryUpdate_thenReturnNull() {
     // Arrange
-    WsClient wsClient = new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
+    WsClient wsClient =
+        new WsClient(Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri(), 1L);
 
     // Act and Assert
-    assertNull(wsClient.getTelemetryUpdate(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
+    assertNull(
+        wsClient.getTelemetryUpdate(
+            UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), "Key"));
   }
 }

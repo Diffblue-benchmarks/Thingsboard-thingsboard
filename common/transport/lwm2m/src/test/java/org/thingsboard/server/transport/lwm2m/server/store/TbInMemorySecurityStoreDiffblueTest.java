@@ -27,8 +27,8 @@ import org.thingsboard.server.transport.lwm2m.secure.TbLwM2MSecurityInfo;
 class TbInMemorySecurityStoreDiffblueTest {
   /**
    * Test new {@link TbInMemorySecurityStore} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbInMemorySecurityStore}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbInMemorySecurityStore}
    */
   @Test
   @DisplayName("Test new TbInMemorySecurityStore (default constructor)")
@@ -61,8 +61,8 @@ class TbInMemorySecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbInMemorySecurityStore#getByEndpoint(String)}.
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#getByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getByEndpoint(String)")
@@ -70,13 +70,14 @@ class TbInMemorySecurityStoreDiffblueTest {
   @MethodsUnderTest({"SecurityInfo TbInMemorySecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemorySecurityStore()).getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertNull(
+        new TbInMemorySecurityStore().getByEndpoint("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link TbInMemorySecurityStore#getByIdentity(String)}.
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#getByIdentity(String)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#getByIdentity(String)}
    */
   @Test
   @DisplayName("Test getByIdentity(String)")
@@ -84,13 +85,13 @@ class TbInMemorySecurityStoreDiffblueTest {
   @MethodsUnderTest({"SecurityInfo TbInMemorySecurityStore.getByIdentity(String)"})
   void testGetByIdentity() {
     // Arrange, Act and Assert
-    assertNull((new TbInMemorySecurityStore()).getByIdentity("Identity"));
+    assertNull(new TbInMemorySecurityStore().getByIdentity("Identity"));
   }
 
   /**
    * Test {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}.
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#getByOscoreIdentity(OscoreIdentity)}
    */
   @Test
   @DisplayName("Test getByOscoreIdentity(OscoreIdentity)")
@@ -101,22 +102,27 @@ class TbInMemorySecurityStoreDiffblueTest {
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
 
     // Act and Assert
-    assertNull(tbInMemorySecurityStore.getByOscoreIdentity(new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
+    assertNull(
+        tbInMemorySecurityStore.getByOscoreIdentity(
+            new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
   }
 
   /**
    * Test {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}.
+   *
    * <ul>
-   *   <li>Given newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>Given newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
    */
   @Test
-  @DisplayName("Test put(TbLwM2MSecurityInfo); given newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
+  @DisplayName(
+      "Test put(TbLwM2MSecurityInfo); given newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbInMemorySecurityStore.put(TbLwM2MSecurityInfo)"})
-  void testPut_givenNewX509CertInfoHttpsConfigUsEast2AmazonawsCom() throws NonUniqueSecurityInfoException {
+  void testPut_givenNewX509CertInfoHttpsConfigUsEast2AmazonawsCom()
+      throws NonUniqueSecurityInfoException {
     // Arrange
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
 
@@ -125,32 +131,38 @@ class TbInMemorySecurityStoreDiffblueTest {
     tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
     tbSecurityInfo.setDeviceProfile(new DeviceProfile());
     tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    tbSecurityInfo.setSecurityInfo(SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
+    tbSecurityInfo.setSecurityInfo(
+        SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com"));
     tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
 
     // Act
     tbInMemorySecurityStore.put(tbSecurityInfo);
 
     // Assert
-    Map<String, TbLwM2MSecurityInfo> stringTbLwM2MSecurityInfoMap = tbInMemorySecurityStore.securityByEp;
+    Map<String, TbLwM2MSecurityInfo> stringTbLwM2MSecurityInfoMap =
+        tbInMemorySecurityStore.securityByEp;
     assertEquals(1, stringTbLwM2MSecurityInfoMap.size());
-    assertSame(tbSecurityInfo, stringTbLwM2MSecurityInfoMap.get("https://config.us-east-2.amazonaws.com"));
+    assertSame(
+        tbSecurityInfo, stringTbLwM2MSecurityInfoMap.get("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link TbLwM2MSecurityInfo} (default constructor) SecurityInfo is {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link TbLwM2MSecurityInfo} (default constructor) SecurityInfo is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#put(TbLwM2MSecurityInfo)}
    */
   @Test
-  @DisplayName("Test put(TbLwM2MSecurityInfo); given 'null'; when TbLwM2MSecurityInfo (default constructor) SecurityInfo is 'null'")
+  @DisplayName(
+      "Test put(TbLwM2MSecurityInfo); given 'null'; when TbLwM2MSecurityInfo (default constructor) SecurityInfo is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbInMemorySecurityStore.put(TbLwM2MSecurityInfo)"})
-  void testPut_givenNull_whenTbLwM2MSecurityInfoSecurityInfoIsNull() throws NonUniqueSecurityInfoException {
+  void testPut_givenNull_whenTbLwM2MSecurityInfoSecurityInfoIsNull()
+      throws NonUniqueSecurityInfoException {
     // Arrange
     TbInMemorySecurityStore tbInMemorySecurityStore = new TbInMemorySecurityStore();
 
@@ -159,30 +171,35 @@ class TbInMemorySecurityStoreDiffblueTest {
     tbSecurityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
     tbSecurityInfo.setDeviceProfile(new DeviceProfile());
     tbSecurityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
+    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
     tbSecurityInfo.setSecurityInfo(null);
-    tbSecurityInfo.setSecurityMode(SecurityMode.PSK);
 
     // Act
     tbInMemorySecurityStore.put(tbSecurityInfo);
 
     // Assert
-    Map<String, TbLwM2MSecurityInfo> stringTbLwM2MSecurityInfoMap = tbInMemorySecurityStore.securityByEp;
+    Map<String, TbLwM2MSecurityInfo> stringTbLwM2MSecurityInfoMap =
+        tbInMemorySecurityStore.securityByEp;
     assertEquals(1, stringTbLwM2MSecurityInfoMap.size());
-    assertSame(tbSecurityInfo, stringTbLwM2MSecurityInfoMap.get("https://config.us-east-2.amazonaws.com"));
+    assertSame(
+        tbSecurityInfo, stringTbLwM2MSecurityInfoMap.get("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}.
-   * <p>
-   * Method under test: {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbInMemorySecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getTbLwM2MSecurityInfoByEndpoint(String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbLwM2MSecurityInfo TbInMemorySecurityStore.getTbLwM2MSecurityInfoByEndpoint(String)"})
+  @MethodsUnderTest({
+    "TbLwM2MSecurityInfo TbInMemorySecurityStore.getTbLwM2MSecurityInfoByEndpoint(String)"
+  })
   void testGetTbLwM2MSecurityInfoByEndpoint() {
     // Arrange, Act and Assert
     assertNull(
-        (new TbInMemorySecurityStore()).getTbLwM2MSecurityInfoByEndpoint("https://config.us-east-2.amazonaws.com"));
+        new TbInMemorySecurityStore()
+            .getTbLwM2MSecurityInfoByEndpoint("https://config.us-east-2.amazonaws.com"));
   }
 }

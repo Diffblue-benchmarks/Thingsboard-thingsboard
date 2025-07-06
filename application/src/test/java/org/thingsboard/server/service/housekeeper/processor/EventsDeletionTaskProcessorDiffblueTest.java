@@ -11,8 +11,8 @@ import org.thingsboard.server.dao.event.BaseEventService;
 class EventsDeletionTaskProcessorDiffblueTest {
   /**
    * Test {@link EventsDeletionTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link EventsDeletionTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link EventsDeletionTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -20,7 +20,8 @@ class EventsDeletionTaskProcessorDiffblueTest {
   @MethodsUnderTest({"HousekeeperTaskType EventsDeletionTaskProcessor.getTaskType()"})
   void testGetTaskType() {
     // Arrange, Act and Assert
-    assertEquals(HousekeeperTaskType.DELETE_EVENTS,
-        (new EventsDeletionTaskProcessor(new BaseEventService())).getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_EVENTS,
+        new EventsDeletionTaskProcessor(new BaseEventService()).getTaskType());
   }
 }

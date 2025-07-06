@@ -21,19 +21,22 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbMsgToEmailNodeDiffblueTest {
   /**
    * Test {@link TbMsgToEmailNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#fields()}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.
+   *   <li>Then calls {@link ArrayNode#fields()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgToEmailNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbMsgToEmailNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgToEmailNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields() throws TbNodeException {
+  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields()
+      throws TbNodeException {
     // Arrange
     TbMsgToEmailNode tbMsgToEmailNode = new TbMsgToEmailNode();
     TbContext ctx = mock(TbContext.class);

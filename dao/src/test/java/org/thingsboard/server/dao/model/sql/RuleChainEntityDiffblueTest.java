@@ -7,24 +7,18 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import com.fasterxml.jackson.core.JsonLocation;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonStreamContext;
-import com.fasterxml.jackson.core.Version;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.TreeTraversingParser;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.RuleNodeId;
-import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.rule.RuleChain;
 import org.thingsboard.server.common.data.rule.RuleChainType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
@@ -32,20 +26,23 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class RuleChainEntityDiffblueTest {
   /**
-   * Test {@link RuleChainEntity#equals(Object)}, and
-   * {@link RuleChainEntity#hashCode()}.
+   * Test {@link RuleChainEntity#equals(Object)}, and {@link RuleChainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainEntity#equals(Object)}
    *   <li>{@link RuleChainEntity#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -53,14 +50,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -68,14 +65,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -85,20 +82,79 @@ public class RuleChainEntityDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainEntity#equals(Object)}, and
-   * {@link RuleChainEntity#hashCode()}.
+   * Test {@link RuleChainEntity#equals(Object)}, and {@link RuleChainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainEntity#equals(Object)}
    *   <li>{@link RuleChainEntity#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    RuleChainEntity ruleChainEntity = new RuleChainEntity();
+    ruleChainEntity.setAdditionalInfo(null);
+    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity.setCreatedTime(1L);
+    ruleChainEntity.setDebugMode(true);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName("Name");
+    ruleChainEntity.setRoot(true);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setType(RuleChainType.CORE);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setVersion(1L);
+
+    RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
+    ruleChainEntity2.setAdditionalInfo(null);
+    ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity2.setCreatedTime(1L);
+    ruleChainEntity2.setDebugMode(true);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setName("Name");
+    ruleChainEntity2.setRoot(true);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setType(RuleChainType.CORE);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(ruleChainEntity, ruleChainEntity2);
+    int expectedHashCodeResult = ruleChainEntity.hashCode();
+    assertEquals(expectedHashCodeResult, ruleChainEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link RuleChainEntity#equals(Object)}, and {@link RuleChainEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link RuleChainEntity#equals(Object)}
+   *   <li>{@link RuleChainEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -106,14 +162,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     // Act and Assert
@@ -124,29 +180,32 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
-    ruleChainEntity.setAdditionalInfo(MissingNode.getInstance());
+    ruleChainEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -154,14 +213,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -170,14 +229,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -185,14 +247,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -200,14 +262,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -216,75 +278,32 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
-    ruleChainEntity.setAdditionalInfo(mock(JsonNode.class));
-    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setCreatedTime(1L);
-    ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName("Name");
-    ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
-    ruleChainEntity.setVersion(1L);
-
-    RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
-    ruleChainEntity2.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity2.setCreatedTime(1L);
-    ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setName("Name");
-    ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setVersion(1L);
-
-    // Act and Assert
-    assertNotEquals(ruleChainEntity, ruleChainEntity2);
-  }
-
-  /**
-   * Test {@link RuleChainEntity#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
-    // Arrange
-    RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setConfiguration(MissingNode.getInstance());
+    ruleChainEntity.setConfiguration(DoubleNode.valueOf(10.0d));
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -292,14 +311,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -308,29 +327,32 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setConfiguration(null);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -338,14 +360,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -354,29 +376,32 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(3L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -384,14 +409,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -400,29 +425,32 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(false);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -430,14 +458,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -446,14 +474,66 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    RuleChainEntity ruleChainEntity = new RuleChainEntity();
+    ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity.setCreatedTime(1L);
+    ruleChainEntity.setDebugMode(true);
+    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName("Name");
+    ruleChainEntity.setRoot(true);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setType(RuleChainType.CORE);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setVersion(1L);
+
+    RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
+    ruleChainEntity2.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity2.setCreatedTime(1L);
+    ruleChainEntity2.setDebugMode(true);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setName("Name");
+    ruleChainEntity2.setRoot(true);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setType(RuleChainType.CORE);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(ruleChainEntity, ruleChainEntity2);
+  }
+
+  /**
+   * Test {@link RuleChainEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -461,14 +541,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(UUID.randomUUID());
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(null);
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -476,14 +556,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -492,14 +572,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -507,14 +590,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(null);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -522,14 +605,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -538,14 +621,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -553,14 +639,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(UUID.randomUUID());
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(null);
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -568,14 +654,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -584,14 +670,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -599,14 +688,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(null);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName("Name");
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName(null);
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -614,14 +703,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -630,14 +719,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -645,14 +737,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName(null);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName("org.thingsboard.server.dao.model.sql.RuleChainEntity");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -660,14 +752,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -676,14 +768,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -691,14 +786,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName("org.thingsboard.server.dao.model.sql.RuleChainEntity");
-    ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName("Name");
+    ruleChainEntity.setRoot(false);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -706,14 +801,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -722,14 +817,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -737,14 +835,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
-    ruleChainEntity.setRoot(false);
+    ruleChainEntity.setRoot(true);
     ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -752,14 +850,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -768,14 +866,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -783,14 +884,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(UUID.randomUUID());
+    ruleChainEntity.setTenantId(null);
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -798,14 +899,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -814,14 +915,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -829,14 +933,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(null);
-    ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setType(null);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -844,14 +948,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -860,14 +964,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -875,60 +982,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setType(null);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
-    ruleChainEntity.setVersion(1L);
-
-    RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
-    ruleChainEntity2.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity2.setCreatedTime(1L);
-    ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setName("Name");
-    ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setVersion(1L);
-
-    // Act and Assert
-    assertNotEquals(ruleChainEntity, ruleChainEntity2);
-  }
-
-  /**
-   * Test {@link RuleChainEntity#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
-   */
-  @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
-    // Arrange
-    RuleChainEntity ruleChainEntity = new RuleChainEntity();
-    ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setCreatedTime(1L);
-    ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName("Name");
-    ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.EDGE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     RuleChainEntity ruleChainEntity2 = new RuleChainEntity();
@@ -936,14 +997,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity2.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity2.setCreatedTime(1L);
     ruleChainEntity2.setDebugMode(true);
-    ruleChainEntity2.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity2.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setName("Name");
     ruleChainEntity2.setRoot(true);
-    ruleChainEntity2.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setType(RuleChainType.CORE);
-    ruleChainEntity2.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity2.setVersion(1L);
 
     // Act and Assert
@@ -952,14 +1013,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -967,14 +1031,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     // Act and Assert
@@ -983,14 +1047,17 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test {@link RuleChainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -998,14 +1065,14 @@ public class RuleChainEntityDiffblueTest {
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setFirstRuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
 
     // Act and Assert
@@ -1014,8 +1081,9 @@ public class RuleChainEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainEntity#RuleChainEntity()}
    *   <li>{@link RuleChainEntity#setAdditionalInfo(JsonNode)}
@@ -1040,18 +1108,44 @@ public class RuleChainEntityDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "void RuleChainEntity.<init>()",
+    "JsonNode RuleChainEntity.getAdditionalInfo()",
+    "JsonNode RuleChainEntity.getConfiguration()",
+    "UUID RuleChainEntity.getExternalId()",
+    "UUID RuleChainEntity.getFirstRuleNodeId()",
+    "String RuleChainEntity.getName()",
+    "UUID RuleChainEntity.getTenantId()",
+    "RuleChainType RuleChainEntity.getType()",
+    "boolean RuleChainEntity.isDebugMode()",
+    "boolean RuleChainEntity.isRoot()",
+    "void RuleChainEntity.setAdditionalInfo(JsonNode)",
+    "void RuleChainEntity.setConfiguration(JsonNode)",
+    "void RuleChainEntity.setDebugMode(boolean)",
+    "void RuleChainEntity.setExternalId(UUID)",
+    "void RuleChainEntity.setFirstRuleNodeId(UUID)",
+    "void RuleChainEntity.setName(String)",
+    "void RuleChainEntity.setRoot(boolean)",
+    "void RuleChainEntity.setTenantId(UUID)",
+    "void RuleChainEntity.setType(RuleChainType)",
+    "String RuleChainEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity();
-    actualRuleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    actualRuleChainEntity.setAdditionalInfo(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     JsonNode configuration = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
     actualRuleChainEntity.setConfiguration(configuration);
     actualRuleChainEntity.setDebugMode(true);
-    actualRuleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-    actualRuleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
+    UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    actualRuleChainEntity.setExternalId(externalId);
+    UUID firstRuleNodeId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    actualRuleChainEntity.setFirstRuleNodeId(firstRuleNodeId);
     actualRuleChainEntity.setName("Name");
     actualRuleChainEntity.setRoot(true);
-    UUID tenantId = ModelConstants.NULL_UUID;
+    UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualRuleChainEntity.setTenantId(tenantId);
     actualRuleChainEntity.setType(RuleChainType.CORE);
     String actualToStringResult = actualRuleChainEntity.toString();
@@ -1065,34 +1159,43 @@ public class RuleChainEntityDiffblueTest {
     boolean actualIsDebugModeResult = actualRuleChainEntity.isDebugMode();
     boolean actualIsRootResult = actualRuleChainEntity.isRoot();
 
-    // Assert that nothing has changed
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualExternalId.toString());
+    // Assert
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualExternalId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualFirstRuleNodeId.toString());
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualTenantId.toString());
     assertEquals("Name", actualName);
     assertEquals(
-        "RuleChainEntity(tenantId=13814000-1dd2-11b2-8080-808080808080, name=Name, type=CORE, firstRuleNodeId"
-            + "=13814000-1dd2-11b2-8080-808080808080, root=true, debugMode=true, configuration={\"isPublic\":true},"
-            + " additionalInfo={\"isPublic\":true}, externalId=13814000-1dd2-11b2-8080-808080808080)",
+        "RuleChainEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, name=Name, type=CORE, firstRuleNodeId"
+            + "=784f394c-42b6-435a-983c-b7beff2784f9, root=true, debugMode=true, configuration={\"isPublic\":true},"
+            + " additionalInfo={\"isPublic\":true}, externalId=784f394c-42b6-435a-983c-b7beff2784f9)",
         actualToStringResult);
+    assertNull(actualRuleChainEntity.getVersion());
+    assertNull(actualRuleChainEntity.getId());
+    assertNull(actualRuleChainEntity.getUuid());
     assertEquals(0L, actualRuleChainEntity.getCreatedTime());
     assertEquals(RuleChainType.CORE, actualType);
     assertTrue(actualIsDebugModeResult);
     assertTrue(actualIsRootResult);
+    assertSame(externalId, actualExternalId);
+    assertSame(firstRuleNodeId, actualFirstRuleNodeId);
+    assertSame(tenantId, actualTenantId);
     assertSame(configuration, actualAdditionalInfo);
     assertSame(configuration, actualConfiguration);
-    assertSame(tenantId, actualExternalId);
-    assertSame(tenantId, actualFirstRuleNodeId);
-    assertSame(tenantId, actualTenantId);
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
   public void testNewRuleChainEntity() {
     // Arrange
-    RuleChain ruleChain = new RuleChain();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    RuleChain ruleChain = new RuleChain(new RuleChainId(id));
     ruleChain.setFirstRuleNodeId(null);
     ruleChain.setExternalId(null);
     ruleChain.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1101,53 +1204,60 @@ public class RuleChainEntityDiffblueTest {
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(ruleChain);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualRuleChainEntity.getTenantId().toString());
-    assertNull(actualRuleChainEntity.getAdditionalInfo());
-    assertNull(actualRuleChainEntity.getConfiguration());
-    assertNull(actualRuleChainEntity.getId());
-    assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getExternalId());
-    assertNull(actualRuleChainEntity.getFirstRuleNodeId());
-    assertFalse(actualRuleChainEntity.isRoot());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualRuleChainEntity.getTenantId().toString());
+    UUID id2 = actualRuleChainEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
+    assertSame(id, id2);
+    assertSame(id, actualRuleChainEntity.getUuid());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
   public void testNewRuleChainEntity2() {
     // Arrange
-    RuleChain ruleChain = new RuleChain();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    RuleChain ruleChain = new RuleChain(new RuleChainId(id));
     ruleChain.setFirstRuleNodeId(null);
-    ruleChain.setExternalId(new RuleChainId(ModelConstants.NULL_UUID));
+    UUID id2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ruleChain.setExternalId(new RuleChainId(id2));
     ruleChain.setTenantId(null);
 
     // Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(ruleChain);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualRuleChainEntity.getExternalId().toString());
-    assertNull(actualRuleChainEntity.getAdditionalInfo());
-    assertNull(actualRuleChainEntity.getConfiguration());
-    assertNull(actualRuleChainEntity.getId());
-    assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getFirstRuleNodeId());
-    assertNull(actualRuleChainEntity.getTenantId());
-    assertFalse(actualRuleChainEntity.isRoot());
+    UUID id3 = actualRuleChainEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id3.toString());
+    UUID externalId = actualRuleChainEntity.getExternalId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", externalId.toString());
+    assertSame(id, id3);
+    assertSame(id, actualRuleChainEntity.getUuid());
+    assertSame(id2, externalId);
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
   public void testNewRuleChainEntity3() {
     // Arrange
-    RuleChain ruleChain = new RuleChain();
-    ruleChain.setFirstRuleNodeId(new RuleNodeId(ModelConstants.NULL_UUID));
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    RuleChain ruleChain = new RuleChain(new RuleChainId(id));
+    UUID id2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ruleChain.setFirstRuleNodeId(new RuleNodeId(id2));
     ruleChain.setExternalId(null);
     ruleChain.setTenantId(null);
 
@@ -1155,29 +1265,31 @@ public class RuleChainEntityDiffblueTest {
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(ruleChain);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualRuleChainEntity.getFirstRuleNodeId().toString());
-    assertNull(actualRuleChainEntity.getAdditionalInfo());
-    assertNull(actualRuleChainEntity.getConfiguration());
-    assertNull(actualRuleChainEntity.getId());
-    assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getExternalId());
-    assertNull(actualRuleChainEntity.getTenantId());
-    assertFalse(actualRuleChainEntity.isRoot());
+    UUID id3 = actualRuleChainEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id3.toString());
+    UUID firstRuleNodeId = actualRuleChainEntity.getFirstRuleNodeId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", firstRuleNodeId.toString());
+    assertSame(id, id3);
+    assertSame(id, actualRuleChainEntity.getUuid());
+    assertSame(id2, firstRuleNodeId);
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
   public void testNewRuleChainEntity_givenA() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setConfigurationBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    ruleChain.setConfigurationBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(ruleChain);
@@ -1187,23 +1299,22 @@ public class RuleChainEntityDiffblueTest {
     assertNull(actualRuleChainEntity.getConfiguration());
     assertNull(actualRuleChainEntity.getId());
     assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getExternalId());
-    assertNull(actualRuleChainEntity.getFirstRuleNodeId());
-    assertNull(actualRuleChainEntity.getTenantId());
-    assertFalse(actualRuleChainEntity.isRoot());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link RuleChain#RuleChain()} Root is {@code true}.</li>
-   *   <li>Then return Root.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link RuleChain#RuleChain()} Root is {@code true}.
+   *   <li>Then return Root.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
   public void testNewRuleChainEntity_givenTrue_whenRuleChainRootIsTrue_thenReturnRoot() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
@@ -1217,249 +1328,101 @@ public class RuleChainEntityDiffblueTest {
     assertNull(actualRuleChainEntity.getConfiguration());
     assertNull(actualRuleChainEntity.getId());
     assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getExternalId());
-    assertNull(actualRuleChainEntity.getFirstRuleNodeId());
-    assertNull(actualRuleChainEntity.getTenantId());
     assertTrue(actualRuleChainEntity.isRoot());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>Then AdditionalInfo return {@link NullNode}.</li>
+   *   <li>Then AdditionalInfo return {@link NullNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  public void testNewRuleChainEntity_thenAdditionalInfoReturnNullNode() throws IOException {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
+  public void testNewRuleChainEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(new RuleChain(new RuleChain()));
 
     // Assert
     JsonNode additionalInfo = actualRuleChainEntity.getAdditionalInfo();
     assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1, currentLocation.getColumnNr());
-    assertEquals(-1, currentLocation.getLineNr());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble(), 0.0);
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
     assertSame(additionalInfo, actualRuleChainEntity.getConfiguration());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>Then return Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>When {@link RuleChain#RuleChain(RuleChainId)} with id is {@link
+   *       RuleChainId#RuleChainId(UUID)} FirstRuleNodeId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  public void testNewRuleChainEntity_thenReturnIdToStringIs138140001dd211b28080808080808080() {
-    // Arrange and Act
-    RuleChainEntity actualRuleChainEntity = new RuleChainEntity(
-        new RuleChain(new RuleChainId(ModelConstants.NULL_UUID)));
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
+  public void testNewRuleChainEntity_whenRuleChainWithIdIsRuleChainIdFirstRuleNodeIdIsNull() {
+    // Arrange
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    RuleChain ruleChain = new RuleChain(new RuleChainId(id));
+    ruleChain.setFirstRuleNodeId(null);
+    ruleChain.setExternalId(null);
+    ruleChain.setTenantId(null);
+
+    // Act
+    RuleChainEntity actualRuleChainEntity = new RuleChainEntity(ruleChain);
 
     // Assert
-    UUID id = actualRuleChainEntity.getId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", id.toString());
-    assertNull(actualRuleChainEntity.getAdditionalInfo());
-    assertNull(actualRuleChainEntity.getConfiguration());
+    UUID id2 = actualRuleChainEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
+    assertSame(id, id2);
     assertSame(id, actualRuleChainEntity.getUuid());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is
-   * {@link RuleChain#RuleChain(RuleChain)}.</li>
+   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is {@link
+   *       RuleChain#RuleChain(RuleChain)}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  public void testNewRuleChainEntity_whenRuleChainWithRuleChainIsRuleChain() throws IOException {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
+  public void testNewRuleChainEntity_whenRuleChainWithRuleChainIsRuleChain() {
     // Arrange and Act
-    RuleChainEntity actualRuleChainEntity = new RuleChainEntity(new RuleChain(new RuleChain(new RuleChain())));
+    RuleChainEntity actualRuleChainEntity =
+        new RuleChainEntity(new RuleChain(new RuleChain(new RuleChain())));
 
     // Assert
     JsonNode additionalInfo = actualRuleChainEntity.getAdditionalInfo();
     assertTrue(additionalInfo instanceof NullNode);
-    JsonParser traverseResult = additionalInfo.traverse();
-    assertTrue(traverseResult instanceof TreeTraversingParser);
-    JsonStreamContext parsingContext = traverseResult.getParsingContext();
-    assertEquals("ROOT", parsingContext.getTypeDesc());
-    Version versionResult = traverseResult.version();
-    assertEquals("com.fasterxml.jackson.core", versionResult.getGroupId());
-    assertEquals("com.fasterxml.jackson.core/jackson-databind/2.17.2", versionResult.toFullString());
-    assertEquals("jackson-databind", versionResult.getArtifactId());
-    assertEquals("null", additionalInfo.toPrettyString());
-    assertNull(traverseResult.getBinaryValue());
-    assertNull(traverseResult.getSchema());
-    assertNull(traverseResult.getCurrentToken());
-    assertNull(traverseResult.getLastClearedToken());
-    assertNull(traverseResult.getCodec());
-    assertNull(traverseResult.getNonBlockingInputFeeder());
-    JsonLocation currentLocation = traverseResult.getCurrentLocation();
-    assertNull(currentLocation.getSourceRef());
-    assertNull(traverseResult.getCurrentValue());
-    assertNull(traverseResult.getEmbeddedObject());
-    assertNull(traverseResult.getInputSource());
-    assertNull(traverseResult.getObjectId());
-    assertNull(traverseResult.getTypeId());
-    assertNull(parsingContext.getCurrentValue());
-    assertNull(traverseResult.getCurrentName());
-    assertNull(traverseResult.getText());
-    assertNull(traverseResult.getValueAsString());
-    assertEquals(-1, currentLocation.getColumnNr());
-    assertEquals(-1, currentLocation.getLineNr());
-    assertEquals(-1L, currentLocation.getByteOffset());
-    assertEquals(-1L, currentLocation.getCharOffset());
-    assertEquals(0, traverseResult.getCurrentTokenId());
-    assertEquals(0, traverseResult.getFeatureMask());
-    assertEquals(0, traverseResult.getFormatFeatures());
-    assertEquals(0, traverseResult.getTextOffset());
-    assertEquals(0, traverseResult.getValueAsInt());
-    assertEquals(0, parsingContext.getCurrentIndex());
-    assertEquals(0, parsingContext.getEntryCount());
-    assertEquals(0, parsingContext.getNestingDepth());
-    assertEquals(0, additionalInfo.size());
-    assertEquals(0.0d, traverseResult.getValueAsDouble(), 0.0);
-    assertEquals(0L, traverseResult.getValueAsLong());
-    assertEquals(17, versionResult.getMinorVersion());
-    assertEquals(2, versionResult.getMajorVersion());
-    assertEquals(2, versionResult.getPatchLevel());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(traverseResult.getValueAsBoolean());
-    assertFalse(traverseResult.hasCurrentToken());
-    assertFalse(traverseResult.hasTextCharacters());
-    assertFalse(traverseResult.isClosed());
-    assertFalse(traverseResult.isExpectedNumberIntToken());
-    assertFalse(traverseResult.isExpectedStartArrayToken());
-    assertFalse(traverseResult.isExpectedStartObjectToken());
-    assertFalse(traverseResult.isNaN());
-    assertFalse(parsingContext.hasCurrentIndex());
-    assertFalse(parsingContext.hasCurrentName());
-    assertFalse(parsingContext.hasPathSegment());
-    assertFalse(versionResult.isSnapshot());
-    assertFalse(versionResult.isUknownVersion());
-    assertFalse(versionResult.isUnknownVersion());
-    assertFalse(additionalInfo.isArray());
-    assertFalse(additionalInfo.isBigDecimal());
-    assertFalse(additionalInfo.isBigInteger());
-    assertFalse(additionalInfo.isBinary());
-    assertFalse(additionalInfo.isBoolean());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isDouble());
-    assertFalse(additionalInfo.isFloat());
-    assertFalse(additionalInfo.isFloatingPointNumber());
-    assertFalse(additionalInfo.isInt());
-    assertFalse(additionalInfo.isIntegralNumber());
-    assertFalse(additionalInfo.isLong());
-    assertFalse(additionalInfo.isMissingNode());
-    assertFalse(additionalInfo.isNumber());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.isPojo());
-    assertFalse(additionalInfo.isShort());
-    assertFalse(additionalInfo.isTextual());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
-    assertSame(currentLocation, traverseResult.getTokenLocation());
     assertSame(additionalInfo, actualRuleChainEntity.getConfiguration());
   }
 
   /**
    * Test {@link RuleChainEntity#RuleChainEntity(RuleChain)}.
+   *
    * <ul>
-   *   <li>When {@link RuleChain#RuleChain()}.</li>
-   *   <li>Then return ExternalId is {@code null}.</li>
+   *   <li>When {@link RuleChain#RuleChain()}.
+   *   <li>Then return AdditionalInfo is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  public void testNewRuleChainEntity_whenRuleChain_thenReturnExternalIdIsNull() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
+  public void testNewRuleChainEntity_whenRuleChain_thenReturnAdditionalInfoIsNull() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(new RuleChain());
 
@@ -1468,171 +1431,178 @@ public class RuleChainEntityDiffblueTest {
     assertNull(actualRuleChainEntity.getConfiguration());
     assertNull(actualRuleChainEntity.getId());
     assertNull(actualRuleChainEntity.getUuid());
-    assertNull(actualRuleChainEntity.getExternalId());
-    assertNull(actualRuleChainEntity.getFirstRuleNodeId());
-    assertNull(actualRuleChainEntity.getTenantId());
-    assertFalse(actualRuleChainEntity.isRoot());
   }
 
   /**
    * Test {@link RuleChainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChainEntity#RuleChainEntity()} TenantId is
-   * randomUUID.</li>
-   *   <li>Then return not TenantId NullUid.</li>
+   *   <li>Given {@link RuleChainEntity#RuleChainEntity()}.
+   *   <li>Then AdditionalInfo return {@link NullNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#toData()}
+   *
+   * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  public void testToData_givenRuleChainEntityTenantIdIsRandomUUID_thenReturnNotTenantIdNullUid() {
-    // Arrange
-    RuleChainEntity ruleChainEntity = new RuleChainEntity();
-    ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
-    ruleChainEntity.setCreatedTime(1L);
-    ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
-    ruleChainEntity.setName("Name");
-    ruleChainEntity.setRoot(true);
-    UUID tenantId = UUID.randomUUID();
-    ruleChainEntity.setTenantId(tenantId);
-    ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
-    ruleChainEntity.setVersion(1L);
-    ruleChainEntity.setFirstRuleNodeId(null);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
-
-    // Act
-    RuleChain actualToDataResult = ruleChainEntity.toData();
-
-    // Assert
-    RuleChainId externalId = actualToDataResult.getExternalId();
-    assertEquals(EntityType.RULE_CHAIN, externalId.getEntityType());
-    TenantId tenantId2 = actualToDataResult.getTenantId();
-    assertFalse(tenantId2.isNullUid());
-    assertFalse(tenantId2.isSysTenantId());
-    assertTrue(externalId.isNullUid());
-    assertEquals(externalId, actualToDataResult.getId());
-    assertSame(tenantId, tenantId2.getId());
-  }
-
-  /**
-   * Test {@link RuleChainEntity#toData()}.
-   * <ul>
-   *   <li>Given {@link RuleChainEntity#RuleChainEntity()}.</li>
-   *   <li>Then AdditionalInfo return {@link NullNode}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#toData()}
-   */
-  @Test
-  public void testToData_givenRuleChainEntity_thenAdditionalInfoReturnNullNode() throws UnsupportedEncodingException {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
+  public void testToData_givenRuleChainEntity_thenAdditionalInfoReturnNullNode()
+      throws UnsupportedEncodingException {
     // Arrange and Act
-    RuleChain actualToDataResult = (new RuleChainEntity()).toData();
+    RuleChain actualToDataResult = new RuleChainEntity().toData();
 
     // Assert
-    JsonNode additionalInfo = actualToDataResult.getAdditionalInfo();
-    assertTrue(additionalInfo instanceof NullNode);
-    assertEquals("null", additionalInfo.toPrettyString());
+    assertTrue(actualToDataResult.getAdditionalInfo() instanceof NullNode);
     assertNull(actualToDataResult.getVersion());
     assertNull(actualToDataResult.getName());
     assertNull(actualToDataResult.getUuidId());
-    RuleChainId id = actualToDataResult.getId();
-    assertNull(id.getId());
-    assertNull(actualToDataResult.getTenantId().getId());
     assertNull(actualToDataResult.getType());
-    assertEquals(0, additionalInfo.size());
     assertEquals(0L, actualToDataResult.getCreatedTime());
-    assertEquals(JsonNodeType.NULL, additionalInfo.getNodeType());
-    assertFalse(additionalInfo.isContainerNode());
-    assertFalse(additionalInfo.isObject());
-    assertFalse(additionalInfo.iterator().hasNext());
-    assertFalse(id.isNullUid());
     assertFalse(actualToDataResult.isDebugMode());
     assertFalse(actualToDataResult.isDefault());
     assertFalse(actualToDataResult.isRoot());
-    assertTrue(additionalInfo.isEmpty());
-    assertTrue(additionalInfo.isNull());
-    assertTrue(additionalInfo.isValueNode());
     byte[] expectedConfigurationBytes = "null".getBytes("UTF-8");
     assertArrayEquals(expectedConfigurationBytes, actualToDataResult.getConfigurationBytes());
   }
 
   /**
    * Test {@link RuleChainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return FirstRuleNodeId EntityType is {@code RULE_NODE}.</li>
+   *   <li>Then return FirstRuleNodeId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#toData()}
+   *
+   * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnFirstRuleNodeIdEntityTypeIsRuleNode() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
+  public void testToData_thenReturnFirstRuleNodeIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
+      throws UnsupportedEncodingException {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
-    ruleChainEntity.setFirstRuleNodeId(ModelConstants.NULL_UUID);
+    UUID firstRuleNodeId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ruleChainEntity.setFirstRuleNodeId(firstRuleNodeId);
     ruleChainEntity.setExternalId(null);
 
     // Act
     RuleChain actualToDataResult = ruleChainEntity.toData();
 
     // Assert
-    RuleNodeId firstRuleNodeId = actualToDataResult.getFirstRuleNodeId();
-    assertEquals(EntityType.RULE_NODE, firstRuleNodeId.getEntityType());
-    assertTrue(firstRuleNodeId.isNullUid());
-    assertTrue(actualToDataResult.getId().isNullUid());
+    RuleNodeId firstRuleNodeId2 = actualToDataResult.getFirstRuleNodeId();
+    UUID id = firstRuleNodeId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.RULE_NODE, firstRuleNodeId2.getEntityType());
+    assertFalse(firstRuleNodeId2.isNullUid());
+    assertSame(firstRuleNodeId, id);
+    byte[] expectedConfigurationBytes = "{\"isPublic\":true}".getBytes("UTF-8");
+    assertArrayEquals(expectedConfigurationBytes, actualToDataResult.getConfigurationBytes());
   }
 
   /**
    * Test {@link RuleChainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is
-   * {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainEntity#toData()}
+   *
+   * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  public void testToData_thenReturnTenantIdIdToStringIs138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() throws UnsupportedEncodingException {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
     ruleChainEntity.setCreatedTime(1L);
     ruleChainEntity.setDebugMode(true);
-    ruleChainEntity.setId(ModelConstants.NULL_UUID);
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setName("Name");
     ruleChainEntity.setRoot(true);
-    ruleChainEntity.setTenantId(ModelConstants.NULL_UUID);
+    UUID tenantId = UUID.randomUUID();
+    ruleChainEntity.setTenantId(tenantId);
     ruleChainEntity.setType(RuleChainType.CORE);
-    ruleChainEntity.setUuid(ModelConstants.NULL_UUID);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     ruleChainEntity.setVersion(1L);
     ruleChainEntity.setFirstRuleNodeId(null);
-    ruleChainEntity.setExternalId(ModelConstants.NULL_UUID);
+    UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ruleChainEntity.setExternalId(externalId);
 
     // Act
     RuleChain actualToDataResult = ruleChainEntity.toData();
 
     // Assert
-    TenantId tenantId = actualToDataResult.getTenantId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", tenantId.getId().toString());
-    RuleChainId externalId = actualToDataResult.getExternalId();
-    assertEquals(EntityType.RULE_CHAIN, externalId.getEntityType());
-    assertTrue(externalId.isNullUid());
-    assertTrue(tenantId.isNullUid());
-    assertTrue(tenantId.isSysTenantId());
-    assertEquals(externalId, actualToDataResult.getId());
+    RuleChainId externalId2 = actualToDataResult.getExternalId();
+    UUID id = externalId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.RULE_CHAIN, externalId2.getEntityType());
+    assertFalse(externalId2.isNullUid());
+    assertEquals(externalId2, actualToDataResult.getId());
+    assertSame(externalId, id);
+    assertSame(tenantId, actualToDataResult.getTenantId().getId());
+    byte[] expectedConfigurationBytes = "{\"isPublic\":true}".getBytes("UTF-8");
+    assertArrayEquals(expectedConfigurationBytes, actualToDataResult.getConfigurationBytes());
+  }
+
+  /**
+   * Test {@link RuleChainEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link RuleChainEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
+      throws UnsupportedEncodingException {
+    // Arrange
+    RuleChainEntity ruleChainEntity = new RuleChainEntity();
+    ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    ruleChainEntity.setCreatedTime(1L);
+    ruleChainEntity.setDebugMode(true);
+    ruleChainEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setName("Name");
+    ruleChainEntity.setRoot(true);
+    ruleChainEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setType(RuleChainType.CORE);
+    ruleChainEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ruleChainEntity.setVersion(1L);
+    ruleChainEntity.setFirstRuleNodeId(null);
+    UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ruleChainEntity.setExternalId(externalId);
+
+    // Act
+    RuleChain actualToDataResult = ruleChainEntity.toData();
+
+    // Assert
+    RuleChainId externalId2 = actualToDataResult.getExternalId();
+    UUID id = externalId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        actualToDataResult.getTenantId().getId().toString());
+    assertEquals(EntityType.RULE_CHAIN, externalId2.getEntityType());
+    assertFalse(externalId2.isNullUid());
+    assertEquals(externalId2, actualToDataResult.getId());
+    assertSame(externalId, id);
+    byte[] expectedConfigurationBytes = "{\"isPublic\":true}".getBytes("UTF-8");
+    assertArrayEquals(expectedConfigurationBytes, actualToDataResult.getConfigurationBytes());
   }
 }

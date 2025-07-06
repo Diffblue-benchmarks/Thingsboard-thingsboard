@@ -26,13 +26,12 @@ import org.thingsboard.server.common.data.notification.rule.trigger.config.Notif
 @ContextConfiguration(classes = {TaskProcessingFailureTriggerBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TaskProcessingFailureTriggerDiffblueTest {
-  @Autowired
-  private TaskProcessingFailureTriggerBuilder taskProcessingFailureTriggerBuilder;
+  @Autowired private TaskProcessingFailureTriggerBuilder taskProcessingFailureTriggerBuilder;
 
   /**
    * Test {@link TaskProcessingFailureTrigger#getTenantId()}.
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#getTenantId()}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#getTenantId()}
    */
   @Test
   @DisplayName("Test getTenantId()")
@@ -44,7 +43,8 @@ class TaskProcessingFailureTriggerDiffblueTest {
     when(task.getTenantId()).thenReturn(TenantId.SYS_TENANT_ID);
 
     // Act
-    TenantId actualTenantId = (new TaskProcessingFailureTrigger(task, 1, new Throwable())).getTenantId();
+    TenantId actualTenantId =
+        new TaskProcessingFailureTrigger(task, 1, new Throwable()).getTenantId();
 
     // Assert
     verify(task).getTenantId();
@@ -53,8 +53,8 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#getOriginatorEntityId()}.
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#getOriginatorEntityId()}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#getOriginatorEntityId()}
    */
   @Test
   @DisplayName("Test getOriginatorEntityId()")
@@ -66,8 +66,8 @@ class TaskProcessingFailureTriggerDiffblueTest {
     when(task.getEntityId()).thenReturn(TenantId.SYS_TENANT_ID);
 
     // Act
-    EntityId actualOriginatorEntityId = (new TaskProcessingFailureTrigger(task, 1, new Throwable()))
-        .getOriginatorEntityId();
+    EntityId actualOriginatorEntityId =
+        new TaskProcessingFailureTrigger(task, 1, new Throwable()).getOriginatorEntityId();
 
     // Assert
     verify(task).getEntityId();
@@ -76,8 +76,8 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#deduplicate()}.
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#deduplicate()}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#deduplicate()}
    */
   @Test
   @DisplayName("Test deduplicate()")
@@ -88,17 +88,20 @@ class TaskProcessingFailureTriggerDiffblueTest {
     HousekeeperTask task = mock(HousekeeperTask.class);
 
     // Act and Assert
-    assertFalse((new TaskProcessingFailureTrigger(task, 1, new Throwable())).deduplicate());
+    assertFalse(new TaskProcessingFailureTrigger(task, 1, new Throwable()).deduplicate());
   }
 
   /**
-   * Test {@link TaskProcessingFailureTrigger#equals(Object)}, and {@link TaskProcessingFailureTrigger#hashCode()}.
+   * Test {@link TaskProcessingFailureTrigger#equals(Object)}, and {@link
+   * TaskProcessingFailureTrigger#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureTrigger#equals(Object)}
    *   <li>{@link TaskProcessingFailureTrigger#hashCode()}
@@ -107,12 +110,16 @@ class TaskProcessingFailureTriggerDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureTrigger.equals(Object)",
-      "int TaskProcessingFailureTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureTrigger.equals(Object)",
+    "int TaskProcessingFailureTrigger.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder attemptResult = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult = attemptResult.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult =
+        attemptResult.error(new Throwable()).task(null).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -122,24 +129,31 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureTrigger.equals(Object)",
-      "int TaskProcessingFailureTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureTrigger.equals(Object)",
+    "int TaskProcessingFailureTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder attemptResult = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult = attemptResult.error(new Throwable()).task(null).build();
-    TaskProcessingFailureTriggerBuilder attemptResult2 = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult2 = attemptResult2.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult =
+        attemptResult.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult2 =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult2 =
+        attemptResult2.error(new Throwable()).task(null).build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -147,27 +161,35 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureTrigger.equals(Object)",
-      "int TaskProcessingFailureTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureTrigger.equals(Object)",
+    "int TaskProcessingFailureTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder taskProcessingFailureTriggerBuilder = mock(
-        TaskProcessingFailureTriggerBuilder.class);
-    when(taskProcessingFailureTriggerBuilder.attempt(anyInt())).thenReturn(TaskProcessingFailureTrigger.builder());
-    TaskProcessingFailureTriggerBuilder attemptResult = taskProcessingFailureTriggerBuilder.attempt(1);
-    TaskProcessingFailureTrigger buildResult = attemptResult.error(new Throwable()).task(null).build();
-    TaskProcessingFailureTriggerBuilder attemptResult2 = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult2 = attemptResult2.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder taskProcessingFailureTriggerBuilder =
+        mock(TaskProcessingFailureTriggerBuilder.class);
+    when(taskProcessingFailureTriggerBuilder.attempt(anyInt()))
+        .thenReturn(TaskProcessingFailureTrigger.builder());
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        taskProcessingFailureTriggerBuilder.attempt(1);
+    TaskProcessingFailureTrigger buildResult =
+        attemptResult.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult2 =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult2 =
+        attemptResult2.error(new Throwable()).task(null).build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -175,22 +197,27 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureTrigger.equals(Object)",
-      "int TaskProcessingFailureTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureTrigger.equals(Object)",
+    "int TaskProcessingFailureTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder attemptResult = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult = attemptResult.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult =
+        attemptResult.error(new Throwable()).task(null).build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -198,22 +225,27 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureTrigger#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureTrigger#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureTrigger.equals(Object)",
-      "int TaskProcessingFailureTrigger.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureTrigger.equals(Object)",
+    "int TaskProcessingFailureTrigger.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder attemptResult = TaskProcessingFailureTrigger.builder().attempt(1);
-    TaskProcessingFailureTrigger buildResult = attemptResult.error(new Throwable()).task(null).build();
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTrigger buildResult =
+        attemptResult.error(new Throwable()).task(null).build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to TaskProcessingFailureTrigger");
@@ -221,10 +253,12 @@ class TaskProcessingFailureTriggerDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link TaskProcessingFailureTrigger#TaskProcessingFailureTrigger(HousekeeperTask, int, Throwable)}
+   *   <li>{@link TaskProcessingFailureTrigger#TaskProcessingFailureTrigger(HousekeeperTask, int,
+   *       Throwable)}
    *   <li>{@link TaskProcessingFailureTrigger#toString()}
    *   <li>{@link TaskProcessingFailureTrigger#getAttempt()}
    *   <li>{@link TaskProcessingFailureTrigger#getError()}
@@ -235,34 +269,43 @@ class TaskProcessingFailureTriggerDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureTrigger.<init>(HousekeeperTask, int, Throwable)",
-      "int TaskProcessingFailureTrigger.getAttempt()", "Throwable TaskProcessingFailureTrigger.getError()",
-      "HousekeeperTask TaskProcessingFailureTrigger.getTask()",
-      "NotificationRuleTriggerType TaskProcessingFailureTrigger.getType()",
-      "String TaskProcessingFailureTrigger.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureTrigger.<init>(HousekeeperTask, int, Throwable)",
+    "int TaskProcessingFailureTrigger.getAttempt()",
+    "Throwable TaskProcessingFailureTrigger.getError()",
+    "HousekeeperTask TaskProcessingFailureTrigger.getTask()",
+    "NotificationRuleTriggerType TaskProcessingFailureTrigger.getType()",
+    "String TaskProcessingFailureTrigger.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Throwable error = new Throwable();
 
     // Act
-    TaskProcessingFailureTrigger actualTaskProcessingFailureTrigger = new TaskProcessingFailureTrigger(null, 1, error);
+    TaskProcessingFailureTrigger actualTaskProcessingFailureTrigger =
+        new TaskProcessingFailureTrigger(null, 1, error);
     String actualToStringResult = actualTaskProcessingFailureTrigger.toString();
     int actualAttempt = actualTaskProcessingFailureTrigger.getAttempt();
     Throwable actualError = actualTaskProcessingFailureTrigger.getError();
     HousekeeperTask actualTask = actualTaskProcessingFailureTrigger.getTask();
 
     // Assert
-    assertEquals("TaskProcessingFailureTrigger(task=null, attempt=1, error=java.lang.Throwable)", actualToStringResult);
+    assertEquals(
+        "TaskProcessingFailureTrigger(task=null, attempt=1, error=java.lang.Throwable)",
+        actualToStringResult);
     assertNull(actualTask);
     assertEquals(1, actualAttempt);
-    assertEquals(NotificationRuleTriggerType.TASK_PROCESSING_FAILURE, actualTaskProcessingFailureTrigger.getType());
+    assertEquals(
+        NotificationRuleTriggerType.TASK_PROCESSING_FAILURE,
+        actualTaskProcessingFailureTrigger.getType());
     assertSame(error, actualError);
   }
 
   /**
    * Test TaskProcessingFailureTriggerBuilder {@link TaskProcessingFailureTriggerBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureTriggerBuilder#build()}
    *   <li>{@link TaskProcessingFailureTriggerBuilder#attempt(int)}
@@ -273,15 +316,18 @@ class TaskProcessingFailureTriggerDiffblueTest {
   @Test
   @DisplayName("Test TaskProcessingFailureTriggerBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureTriggerBuilder.<init>()",
-      "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.attempt(int)",
-      "TaskProcessingFailureTrigger TaskProcessingFailureTriggerBuilder.build()",
-      "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.error(Throwable)",
-      "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.task(HousekeeperTask)",
-      "String TaskProcessingFailureTriggerBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureTriggerBuilder.<init>()",
+    "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.attempt(int)",
+    "TaskProcessingFailureTrigger TaskProcessingFailureTriggerBuilder.build()",
+    "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.error(Throwable)",
+    "TaskProcessingFailureTriggerBuilder TaskProcessingFailureTriggerBuilder.task(HousekeeperTask)",
+    "String TaskProcessingFailureTriggerBuilder.toString()"
+  })
   void testTaskProcessingFailureTriggerBuilderBuild() {
     // Arrange
-    TaskProcessingFailureTriggerBuilder attemptResult = TaskProcessingFailureTrigger.builder().attempt(1);
+    TaskProcessingFailureTriggerBuilder attemptResult =
+        TaskProcessingFailureTrigger.builder().attempt(1);
     Throwable error = new Throwable();
 
     // Act

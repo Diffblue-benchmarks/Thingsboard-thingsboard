@@ -12,23 +12,28 @@ import org.thingsboard.server.gen.edge.v1.CustomerUpdateMsg;
 class BaseCustomerMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseCustomerMsgConstructor#constructCustomerDeleteMsg(CustomerId)}.
+   *
    * <ul>
-   *   <li>Then return IdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Then return IdLSB is {@code -7476899250389416711}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseCustomerMsgConstructor#constructCustomerDeleteMsg(CustomerId)}
+   *
+   * <p>Method under test: {@link BaseCustomerMsgConstructor#constructCustomerDeleteMsg(CustomerId)}
    */
   @Test
-  @DisplayName("Test constructCustomerDeleteMsg(CustomerId); then return IdLSB is '-7476899250389416711'")
+  @DisplayName(
+      "Test constructCustomerDeleteMsg(CustomerId); then return IdLSB is '-7476899250389416711'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"CustomerUpdateMsg BaseCustomerMsgConstructor.constructCustomerDeleteMsg(CustomerId)"})
+  @MethodsUnderTest({
+    "CustomerUpdateMsg BaseCustomerMsgConstructor.constructCustomerDeleteMsg(CustomerId)"
+  })
   void testConstructCustomerDeleteMsg_thenReturnIdLSBIs7476899250389416711() {
     // Arrange
     CustomerMsgConstructorV1 customerMsgConstructorV1 = new CustomerMsgConstructorV1();
 
     // Act
-    CustomerUpdateMsg actualConstructCustomerDeleteMsgResult = customerMsgConstructorV1
-        .constructCustomerDeleteMsg(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    CustomerUpdateMsg actualConstructCustomerDeleteMsgResult =
+        customerMsgConstructorV1.constructCustomerDeleteMsg(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals(-7476899250389416711L, actualConstructCustomerDeleteMsgResult.getIdLSB());

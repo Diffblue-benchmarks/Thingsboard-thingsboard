@@ -33,10 +33,8 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -48,12 +46,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class TbResourceInfoDiffblueTest {
   /**
    * Test {@link TbResourceInfo#equals(Object)}, and {@link TbResourceInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResourceInfo#equals(Object)}
    *   <li>{@link TbResourceInfo#hashCode()}
@@ -76,12 +76,14 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}, and {@link TbResourceInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResourceInfo#equals(Object)}
    *   <li>{@link TbResourceInfo#hashCode()}
@@ -103,12 +105,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -124,12 +127,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -137,8 +141,9 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"boolean TbResourceInfo.equals(Object)", "int TbResourceInfo.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo(
-        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResourceInfo tbResourceInfo =
+        new TbResourceInfo(
+            new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbResourceInfo, new TbResourceInfo());
@@ -146,12 +151,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -167,12 +173,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -189,12 +196,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -211,12 +219,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -233,12 +242,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -255,12 +265,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,12 +288,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -299,12 +311,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -321,12 +334,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -343,12 +357,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -365,12 +380,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -387,12 +403,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -401,7 +418,8 @@ class TbResourceInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setExternalId(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    tbResourceInfo.setExternalId(
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbResourceInfo, new TbResourceInfo());
@@ -409,12 +427,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -433,12 +452,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -457,12 +477,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -481,12 +502,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -505,12 +527,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -529,12 +552,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -553,12 +577,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -577,12 +602,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -601,12 +627,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -625,12 +652,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -641,7 +669,8 @@ class TbResourceInfoDiffblueTest {
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
 
     TbResourceInfo tbResourceInfo2 = new TbResourceInfo();
-    tbResourceInfo2.setExternalId(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    tbResourceInfo2.setExternalId(
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbResourceInfo, tbResourceInfo2);
@@ -649,12 +678,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -667,12 +697,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -685,8 +716,8 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getExternalId()}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#getExternalId()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -694,13 +725,14 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"TbResourceId TbResourceInfo.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new TbResourceInfo()).getExternalId());
+    assertNull(new TbResourceInfo().getExternalId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResourceInfo#TbResourceInfo(TbResourceId)}
    *   <li>{@link TbResourceInfo#setDescriptor(JsonNode)}
@@ -733,30 +765,46 @@ class TbResourceInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.<init>()", "void TbResourceInfo.<init>(TbResourceId)",
-      "JsonNode TbResourceInfo.getDescriptor()", "String TbResourceInfo.getEtag()",
-      "String TbResourceInfo.getFileName()", "String TbResourceInfo.getName()",
-      "String TbResourceInfo.getPublicResourceKey()", "String TbResourceInfo.getResourceKey()",
-      "ResourceSubType TbResourceInfo.getResourceSubType()", "ResourceType TbResourceInfo.getResourceType()",
-      "String TbResourceInfo.getSearchText()", "TenantId TbResourceInfo.getTenantId()",
-      "String TbResourceInfo.getTitle()", "boolean TbResourceInfo.isPublic()",
-      "void TbResourceInfo.setDescriptor(JsonNode)", "void TbResourceInfo.setEtag(String)",
-      "void TbResourceInfo.setExternalId(TbResourceId)", "void TbResourceInfo.setFileName(String)",
-      "void TbResourceInfo.setPublic(boolean)", "void TbResourceInfo.setPublicResourceKey(String)",
-      "void TbResourceInfo.setResourceKey(String)", "void TbResourceInfo.setResourceSubType(ResourceSubType)",
-      "void TbResourceInfo.setResourceType(ResourceType)", "void TbResourceInfo.setSearchText(String)",
-      "void TbResourceInfo.setTenantId(TenantId)", "void TbResourceInfo.setTitle(String)",
-      "String TbResourceInfo.toString()"})
+  @MethodsUnderTest({
+    "void TbResourceInfo.<init>()",
+    "void TbResourceInfo.<init>(TbResourceId)",
+    "JsonNode TbResourceInfo.getDescriptor()",
+    "String TbResourceInfo.getEtag()",
+    "String TbResourceInfo.getFileName()",
+    "String TbResourceInfo.getName()",
+    "String TbResourceInfo.getPublicResourceKey()",
+    "String TbResourceInfo.getResourceKey()",
+    "ResourceSubType TbResourceInfo.getResourceSubType()",
+    "ResourceType TbResourceInfo.getResourceType()",
+    "String TbResourceInfo.getSearchText()",
+    "TenantId TbResourceInfo.getTenantId()",
+    "String TbResourceInfo.getTitle()",
+    "boolean TbResourceInfo.isPublic()",
+    "void TbResourceInfo.setDescriptor(JsonNode)",
+    "void TbResourceInfo.setEtag(String)",
+    "void TbResourceInfo.setExternalId(TbResourceId)",
+    "void TbResourceInfo.setFileName(String)",
+    "void TbResourceInfo.setPublic(boolean)",
+    "void TbResourceInfo.setPublicResourceKey(String)",
+    "void TbResourceInfo.setResourceKey(String)",
+    "void TbResourceInfo.setResourceSubType(ResourceSubType)",
+    "void TbResourceInfo.setResourceType(ResourceType)",
+    "void TbResourceInfo.setSearchText(String)",
+    "void TbResourceInfo.setTenantId(TenantId)",
+    "void TbResourceInfo.setTitle(String)",
+    "String TbResourceInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbResourceId id = new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     TbResourceInfo actualTbResourceInfo = new TbResourceInfo(id);
-    MissingNode descriptor = MissingNode.getInstance();
+    DoubleNode descriptor = DoubleNode.valueOf(10.0d);
     actualTbResourceInfo.setDescriptor(descriptor);
     actualTbResourceInfo.setEtag("Etag");
-    TbResourceId externalId = new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbResourceId externalId =
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualTbResourceInfo.setExternalId(externalId);
     actualTbResourceInfo.setFileName("foo.txt");
     actualTbResourceInfo.setPublic(true);
@@ -788,10 +836,12 @@ class TbResourceInfoDiffblueTest {
     assertEquals("Etag", actualEtag);
     assertEquals("Public Resource Key", actualPublicResourceKey);
     assertEquals("Resource Key", actualResourceKey);
-    assertEquals("TbResourceInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, title=Dr, resourceType=LWM2M_MODEL,"
-        + " resourceSubType=IMAGE, resourceKey=Resource Key, isPublic=true, publicResourceKey=Public Resource"
-        + " Key, searchText=Dr, etag=Etag, fileName=foo.txt, descriptor=, externalId=784f394c-42b6-435a-983c"
-        + "-b7beff2784f9)", actualToStringResult);
+    assertEquals(
+        "TbResourceInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, title=Dr, resourceType=LWM2M_MODEL,"
+            + " resourceSubType=IMAGE, resourceKey=Resource Key, isPublic=true, publicResourceKey=Public Resource"
+            + " Key, searchText=Dr, etag=Etag, fileName=foo.txt, descriptor=10.0, externalId=784f394c-42b6-435a-983c"
+            + "-b7beff2784f9)",
+        actualToStringResult);
     assertEquals("foo.txt", actualFileName);
     assertEquals(0L, actualTbResourceInfo.getCreatedTime());
     assertEquals(ResourceSubType.IMAGE, actualResourceSubType);
@@ -805,11 +855,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbResourceInfo#TbResourceInfo()}
    *   <li>{@link TbResourceInfo#setDescriptor(JsonNode)}
@@ -842,27 +894,43 @@ class TbResourceInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.<init>()", "void TbResourceInfo.<init>(TbResourceId)",
-      "JsonNode TbResourceInfo.getDescriptor()", "String TbResourceInfo.getEtag()",
-      "String TbResourceInfo.getFileName()", "String TbResourceInfo.getName()",
-      "String TbResourceInfo.getPublicResourceKey()", "String TbResourceInfo.getResourceKey()",
-      "ResourceSubType TbResourceInfo.getResourceSubType()", "ResourceType TbResourceInfo.getResourceType()",
-      "String TbResourceInfo.getSearchText()", "TenantId TbResourceInfo.getTenantId()",
-      "String TbResourceInfo.getTitle()", "boolean TbResourceInfo.isPublic()",
-      "void TbResourceInfo.setDescriptor(JsonNode)", "void TbResourceInfo.setEtag(String)",
-      "void TbResourceInfo.setExternalId(TbResourceId)", "void TbResourceInfo.setFileName(String)",
-      "void TbResourceInfo.setPublic(boolean)", "void TbResourceInfo.setPublicResourceKey(String)",
-      "void TbResourceInfo.setResourceKey(String)", "void TbResourceInfo.setResourceSubType(ResourceSubType)",
-      "void TbResourceInfo.setResourceType(ResourceType)", "void TbResourceInfo.setSearchText(String)",
-      "void TbResourceInfo.setTenantId(TenantId)", "void TbResourceInfo.setTitle(String)",
-      "String TbResourceInfo.toString()"})
+  @MethodsUnderTest({
+    "void TbResourceInfo.<init>()",
+    "void TbResourceInfo.<init>(TbResourceId)",
+    "JsonNode TbResourceInfo.getDescriptor()",
+    "String TbResourceInfo.getEtag()",
+    "String TbResourceInfo.getFileName()",
+    "String TbResourceInfo.getName()",
+    "String TbResourceInfo.getPublicResourceKey()",
+    "String TbResourceInfo.getResourceKey()",
+    "ResourceSubType TbResourceInfo.getResourceSubType()",
+    "ResourceType TbResourceInfo.getResourceType()",
+    "String TbResourceInfo.getSearchText()",
+    "TenantId TbResourceInfo.getTenantId()",
+    "String TbResourceInfo.getTitle()",
+    "boolean TbResourceInfo.isPublic()",
+    "void TbResourceInfo.setDescriptor(JsonNode)",
+    "void TbResourceInfo.setEtag(String)",
+    "void TbResourceInfo.setExternalId(TbResourceId)",
+    "void TbResourceInfo.setFileName(String)",
+    "void TbResourceInfo.setPublic(boolean)",
+    "void TbResourceInfo.setPublicResourceKey(String)",
+    "void TbResourceInfo.setResourceKey(String)",
+    "void TbResourceInfo.setResourceSubType(ResourceSubType)",
+    "void TbResourceInfo.setResourceType(ResourceType)",
+    "void TbResourceInfo.setSearchText(String)",
+    "void TbResourceInfo.setTenantId(TenantId)",
+    "void TbResourceInfo.setTitle(String)",
+    "String TbResourceInfo.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     TbResourceInfo actualTbResourceInfo = new TbResourceInfo();
-    MissingNode descriptor = MissingNode.getInstance();
+    DoubleNode descriptor = DoubleNode.valueOf(10.0d);
     actualTbResourceInfo.setDescriptor(descriptor);
     actualTbResourceInfo.setEtag("Etag");
-    TbResourceId externalId = new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    TbResourceId externalId =
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualTbResourceInfo.setExternalId(externalId);
     actualTbResourceInfo.setFileName("foo.txt");
     actualTbResourceInfo.setPublic(true);
@@ -894,10 +962,12 @@ class TbResourceInfoDiffblueTest {
     assertEquals("Etag", actualEtag);
     assertEquals("Public Resource Key", actualPublicResourceKey);
     assertEquals("Resource Key", actualResourceKey);
-    assertEquals("TbResourceInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, title=Dr, resourceType=LWM2M_MODEL,"
-        + " resourceSubType=IMAGE, resourceKey=Resource Key, isPublic=true, publicResourceKey=Public Resource"
-        + " Key, searchText=Dr, etag=Etag, fileName=foo.txt, descriptor=, externalId=784f394c-42b6-435a-983c"
-        + "-b7beff2784f9)", actualToStringResult);
+    assertEquals(
+        "TbResourceInfo(tenantId=13814000-1dd2-11b2-8080-808080808080, title=Dr, resourceType=LWM2M_MODEL,"
+            + " resourceSubType=IMAGE, resourceKey=Resource Key, isPublic=true, publicResourceKey=Public Resource"
+            + " Key, searchText=Dr, etag=Etag, fileName=foo.txt, descriptor=10.0, externalId=784f394c-42b6-435a-983c"
+            + "-b7beff2784f9)",
+        actualToStringResult);
     assertEquals("foo.txt", actualFileName);
     assertNull(actualTbResourceInfo.getId());
     assertEquals(0L, actualTbResourceInfo.getCreatedTime());
@@ -911,15 +981,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>Given Instance.</li>
-   *   <li>Then return Descriptor is Instance.</li>
+   *   <li>Given Instance.
+   *   <li>Then return Descriptor is Instance.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
    */
   @Test
-  @DisplayName("Test new TbResourceInfo(TbResourceInfo); given Instance; then return Descriptor is Instance")
+  @DisplayName(
+      "Test new TbResourceInfo(TbResourceInfo); given Instance; then return Descriptor is Instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.<init>(TbResourceInfo)"})
   void testNewTbResourceInfo_givenInstance_thenReturnDescriptorIsInstance() {
@@ -929,29 +1001,31 @@ class TbResourceInfoDiffblueTest {
     resourceInfo.setDescriptor(descriptor);
 
     // Act and Assert
-    assertSame(descriptor, (new TbResourceInfo(resourceInfo)).getDescriptor());
+    assertSame(descriptor, new TbResourceInfo(resourceInfo).getDescriptor());
   }
 
   /**
    * Test {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code Resource Info}.</li>
-   *   <li>Then Descriptor return {@link TextNode}.</li>
+   *   <li>Given {@code Resource Info}.
+   *   <li>Then Descriptor return {@link TextNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
    */
   @Test
-  @DisplayName("Test new TbResourceInfo(TbResourceInfo); given 'Resource Info'; then Descriptor return TextNode")
+  @DisplayName(
+      "Test new TbResourceInfo(TbResourceInfo); given 'Resource Info'; then Descriptor return TextNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.<init>(TbResourceInfo)"})
   void testNewTbResourceInfo_givenResourceInfo_thenDescriptorReturnTextNode() {
     // Arrange
-    TbResourceInfo resourceInfo = new TbResourceInfo();
+    TbResourceInfo resourceInfo = new TbResourceInfo(new TbResourceInfo());
     resourceInfo.setDescriptorValue("Resource Info");
 
     // Act and Assert
-    JsonNode descriptor = (new TbResourceInfo(resourceInfo)).getDescriptor();
+    JsonNode descriptor = new TbResourceInfo(resourceInfo).getDescriptor();
     assertTrue(descriptor instanceof TextNode);
     assertEquals("\"Resource Info\"", descriptor.toPrettyString());
     assertEquals(JsonNodeType.STRING, descriptor.getNodeType());
@@ -961,11 +1035,12 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>Then Descriptor return {@link ObjectNode}.</li>
+   *   <li>Then Descriptor return {@link ObjectNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
    */
   @Test
   @DisplayName("Test new TbResourceInfo(TbResourceInfo); then Descriptor return ObjectNode")
@@ -973,16 +1048,18 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"void TbResourceInfo.<init>(TbResourceInfo)"})
   void testNewTbResourceInfo_thenDescriptorReturnObjectNode() {
     // Arrange
-    TbResourceInfo resourceInfo = new TbResourceInfo();
-    resourceInfo.setDescriptorValue(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResourceInfo resourceInfo = new TbResourceInfo(new TbResourceInfo());
+    resourceInfo.setDescriptorValue(
+        new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
-    JsonNode descriptor = (new TbResourceInfo(resourceInfo)).getDescriptor();
+    JsonNode descriptor = new TbResourceInfo(resourceInfo).getDescriptor();
     assertTrue(descriptor instanceof ObjectNode);
     Iterator<JsonNode> iteratorResult = descriptor.iterator();
     assertTrue(iteratorResult.next() instanceof TextNode);
     assertTrue(iteratorResult.next() instanceof TextNode);
-    assertEquals("{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
+    assertEquals(
+        "{\r\n  \"entityType\" : \"TB_RESOURCE\",\r\n  \"id\" : \"784f394c-42b6-435a-983c-b7beff2784f9\"\r\n}",
         descriptor.toPrettyString());
     assertEquals(2, descriptor.size());
     assertEquals(JsonNodeType.OBJECT, descriptor.getNodeType());
@@ -994,15 +1071,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}.
+   *
    * <ul>
-   *   <li>When {@link TbResourceInfo#TbResourceInfo()}.</li>
-   *   <li>Then return {@link TbResourceInfo#TbResourceInfo()}.</li>
+   *   <li>When {@link TbResourceInfo#TbResourceInfo()}.
+   *   <li>Then return {@link TbResourceInfo#TbResourceInfo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)}
    */
   @Test
-  @DisplayName("Test new TbResourceInfo(TbResourceInfo); when TbResourceInfo(); then return TbResourceInfo()")
+  @DisplayName(
+      "Test new TbResourceInfo(TbResourceInfo); when TbResourceInfo(); then return TbResourceInfo()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.<init>(TbResourceInfo)"})
   void testNewTbResourceInfo_whenTbResourceInfo_thenReturnTbResourceInfo() {
@@ -1015,8 +1094,8 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getId()}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#getId()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -1024,13 +1103,13 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"TbResourceId TbResourceInfo.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new TbResourceInfo()).getId());
+    assertNull(new TbResourceInfo().getId());
   }
 
   /**
    * Test {@link TbResourceInfo#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#getCreatedTime()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -1038,13 +1117,13 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"long TbResourceInfo.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new TbResourceInfo()).getCreatedTime());
+    assertEquals(0L, new TbResourceInfo().getCreatedTime());
   }
 
   /**
    * Test {@link TbResourceInfo#getLink()}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#getLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getLink()}
    */
   @Test
   @DisplayName("Test getLink()")
@@ -1052,9 +1131,10 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"String TbResourceInfo.getLink()"})
   void testGetLink() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setResourceType(ResourceType.IMAGE);
+    tbResourceInfo.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals("/api/images/tenant/null", tbResourceInfo.getLink());
@@ -1062,21 +1142,24 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getLink()}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} ResourceType is {@code IMAGE}.</li>
-   *   <li>Then return {@code /api/images/tenant/null}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo(TbResourceInfo)} with resourceInfo is {@link
+   *       TbResourceInfo#TbResourceInfo()} TenantId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getLink()}
    */
   @Test
-  @DisplayName("Test getLink(); given TbResourceInfo() ResourceType is 'IMAGE'; then return '/api/images/tenant/null'")
+  @DisplayName(
+      "Test getLink(); given TbResourceInfo(TbResourceInfo) with resourceInfo is TbResourceInfo() TenantId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbResourceInfo.getLink()"})
-  void testGetLink_givenTbResourceInfoResourceTypeIsImage_thenReturnApiImagesTenantNull() {
+  void testGetLink_givenTbResourceInfoWithResourceInfoIsTbResourceInfoTenantIdIsNull() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setResourceType(ResourceType.IMAGE);
+    tbResourceInfo.setTenantId(null);
 
     // Act and Assert
     assertEquals("/api/images/tenant/null", tbResourceInfo.getLink());
@@ -1084,12 +1167,13 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getLink()}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getLink()}
    */
   @Test
   @DisplayName("Test getLink(); given TbResourceInfo(); then return 'null'")
@@ -1097,16 +1181,17 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"String TbResourceInfo.getLink()"})
   void testGetLink_givenTbResourceInfo_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new TbResourceInfo()).getLink());
+    assertNull(new TbResourceInfo().getLink());
   }
 
   /**
    * Test {@link TbResourceInfo#getLink()}.
+   *
    * <ul>
-   *   <li>Then return {@code /api/images/system/null}.</li>
+   *   <li>Then return {@code /api/images/system/null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getLink()}
    */
   @Test
   @DisplayName("Test getLink(); then return '/api/images/system/null'")
@@ -1114,9 +1199,9 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"String TbResourceInfo.getLink()"})
   void testGetLink_thenReturnApiImagesSystemNull() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setTenantId(TenantId.SYS_TENANT_ID);
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setResourceType(ResourceType.IMAGE);
+    tbResourceInfo.setTenantId(TenantId.SYS_TENANT_ID);
 
     // Act and Assert
     assertEquals("/api/images/system/null", tbResourceInfo.getLink());
@@ -1124,20 +1209,16 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getPublicLink()}.
-   * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Public is {@code false}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getPublicLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getPublicLink()}
    */
   @Test
-  @DisplayName("Test getPublicLink(); given TbResourceInfo() Public is 'false'; then return 'null'")
+  @DisplayName("Test getPublicLink()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbResourceInfo.getPublicLink()"})
-  void testGetPublicLink_givenTbResourceInfoPublicIsFalse_thenReturnNull() {
+  void testGetPublicLink() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setResourceType(ResourceType.IMAGE);
     tbResourceInfo.setPublic(false);
 
@@ -1147,20 +1228,39 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getPublicLink()}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Public is {@code true}.</li>
-   *   <li>Then return {@code /api/images/public/null}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getPublicLink()}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getPublicLink()}
    */
   @Test
-  @DisplayName("Test getPublicLink(); given TbResourceInfo() Public is 'true'; then return '/api/images/public/null'")
+  @DisplayName("Test getPublicLink(); given TbResourceInfo(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbResourceInfo.getPublicLink()"})
-  void testGetPublicLink_givenTbResourceInfoPublicIsTrue_thenReturnApiImagesPublicNull() {
+  void testGetPublicLink_givenTbResourceInfo_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(new TbResourceInfo().getPublicLink());
+  }
+
+  /**
+   * Test {@link TbResourceInfo#getPublicLink()}.
+   *
+   * <ul>
+   *   <li>Then return {@code /api/images/public/null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbResourceInfo#getPublicLink()}
+   */
+  @Test
+  @DisplayName("Test getPublicLink(); then return '/api/images/public/null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String TbResourceInfo.getPublicLink()"})
+  void testGetPublicLink_thenReturnApiImagesPublicNull() {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setResourceType(ResourceType.IMAGE);
     tbResourceInfo.setPublic(true);
 
@@ -1169,27 +1269,9 @@ class TbResourceInfoDiffblueTest {
   }
 
   /**
-   * Test {@link TbResourceInfo#getPublicLink()}.
-   * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getPublicLink()}
-   */
-  @Test
-  @DisplayName("Test getPublicLink(); given TbResourceInfo(); then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TbResourceInfo.getPublicLink()"})
-  void testGetPublicLink_givenTbResourceInfo_thenReturnNull() {
-    // Arrange, Act and Assert
-    assertNull((new TbResourceInfo()).getPublicLink());
-  }
-
-  /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
   @DisplayName("Test getDescriptor(Class) with 'Class'")
@@ -1197,7 +1279,7 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
   void testGetDescriptorWithClass() throws JsonProcessingException {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
     tbResourceInfo.setDescriptorValue(new POJONode(null));
     Class<Object> type = Object.class;
 
@@ -1207,18 +1289,21 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Given {@link BigDecimal#BigDecimal(String)} with {@code 2.3}.</li>
-   *   <li>Then return {@link BigDecimal#BigDecimal(String)} with {@code 2.3}.</li>
+   *   <li>Given {@link BigDecimal#BigDecimal(String)} with {@code 2.3}.
+   *   <li>Then return {@link BigDecimal#BigDecimal(String)} with {@code 2.3}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; given BigDecimal(String) with '2.3'; then return BigDecimal(String) with '2.3'")
+  @DisplayName(
+      "Test getDescriptor(Class) with 'Class'; given BigDecimal(String) with '2.3'; then return BigDecimal(String) with '2.3'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_givenBigDecimalWith23_thenReturnBigDecimalWith23() throws JsonProcessingException {
+  void testGetDescriptorWithClass_givenBigDecimalWith23_thenReturnBigDecimalWith23()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     BigDecimal v = new BigDecimal("2.3");
@@ -1231,15 +1316,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Descriptor is False.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Descriptor is False.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; given TbResourceInfo() Descriptor is False; then return 'false'")
+  @DisplayName(
+      "Test getDescriptor(Class) with 'Class'; given TbResourceInfo() Descriptor is False; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
   void testGetDescriptorWithClass_givenTbResourceInfoDescriptorIsFalse_thenReturnFalse()
@@ -1255,18 +1342,21 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Descriptor is True.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} Descriptor is True.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; given TbResourceInfo() Descriptor is True; then return 'true'")
+  @DisplayName(
+      "Test getDescriptor(Class) with 'Class'; given TbResourceInfo() Descriptor is True; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_givenTbResourceInfoDescriptorIsTrue_thenReturnTrue() throws JsonProcessingException {
+  void testGetDescriptorWithClass_givenTbResourceInfoDescriptorIsTrue_thenReturnTrue()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     tbResourceInfo.setDescriptor(BooleanNode.getTrue());
@@ -1278,39 +1368,18 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()} DescriptorValue is {@code 42}.</li>
-   *   <li>Then return {@code 42}.</li>
+   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.
+   *   <li>When {@code Object}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; given TbResourceInfo() DescriptorValue is '42'; then return '42'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_givenTbResourceInfoDescriptorValueIs42_thenReturn42() throws JsonProcessingException {
-    // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptorValue("42");
-    Class<Object> type = Object.class;
-
-    // Act and Assert
-    assertEquals("42", tbResourceInfo.getDescriptor(type));
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Given {@link TbResourceInfo#TbResourceInfo()}.</li>
-   *   <li>When {@code Object}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; given TbResourceInfo(); when 'java.lang.Object'; then return 'null'")
+  @DisplayName(
+      "Test getDescriptor(Class) with 'Class'; given TbResourceInfo(); when 'java.lang.Object'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
   void testGetDescriptorWithClass_givenTbResourceInfo_whenJavaLangObject_thenReturnNull()
@@ -1325,11 +1394,35 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Then return doubleValue is ten.</li>
+   *   <li>Then return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   */
+  @Test
+  @DisplayName("Test getDescriptor(Class) with 'Class'; then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
+  void testGetDescriptorWithClass_thenReturn42() throws JsonProcessingException {
+    // Arrange
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
+    tbResourceInfo.setDescriptorValue("42");
+    Class<Object> type = Object.class;
+
+    // Act and Assert
+    assertEquals("42", tbResourceInfo.getDescriptor(type));
+  }
+
+  /**
+   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
+   * <ul>
+   *   <li>Then return doubleValue is ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
   @DisplayName("Test getDescriptor(Class) with 'Class'; then return doubleValue is ten")
@@ -1347,157 +1440,12 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Then return Empty.</li>
+   *   <li>Then return floatValue is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_thenReturnEmpty() throws JsonProcessingException {
-    // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
-    Class<Object> type = Object.class;
-
-    // Act
-    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
-
-    // Assert
-    assertTrue(actualDescriptor instanceof List);
-    assertTrue(((List<Object>) actualDescriptor).isEmpty());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Then return first Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; then return first Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_thenReturnFirstEmpty() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.addObject();
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-
-    // Act
-    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
-
-    // Assert
-    assertTrue(actualDescriptor instanceof List);
-    assertEquals(1, ((List<LinkedHashMap>) actualDescriptor).size());
-    assertTrue(((List<LinkedHashMap>) actualDescriptor).get(0).isEmpty());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Then return first floatValue is {@code 0.5}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; then return first floatValue is '0.5'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_thenReturnFirstFloatValueIs05() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.add(0.5f);
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-
-    // Act
-    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
-
-    // Assert
-    assertTrue(actualDescriptor instanceof List);
-    assertEquals(1, ((List<Float>) actualDescriptor).size());
-    assertEquals(0.5f, ((List<Float>) actualDescriptor).get(0).floatValue());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Then return first is {@code 42}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; then return first is '42'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_thenReturnFirstIs42() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.add("42");
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-
-    // Act
-    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
-
-    // Assert
-    assertTrue(actualDescriptor instanceof List);
-    assertEquals(1, ((List<String>) actualDescriptor).size());
-    assertEquals("42", ((List<String>) actualDescriptor).get(0));
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Then return first is {@code Pojo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
-   */
-  @Test
-  @DisplayName("Test getDescriptor(Class) with 'Class'; then return first is 'Pojo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
-  void testGetDescriptorWithClass_thenReturnFirstIsPojo() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.addPOJO("Pojo");
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-
-    // Act
-    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
-
-    // Assert
-    assertTrue(actualDescriptor instanceof List);
-    assertEquals(1, ((List<String>) actualDescriptor).size());
-    assertEquals("Pojo", ((List<String>) actualDescriptor).get(0));
-  }
-
-  /**
-   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
-   * <ul>
-   *   <li>Then return floatValue is ten.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
   @DisplayName("Test getDescriptor(Class) with 'Class'; then return floatValue is ten")
@@ -1515,11 +1463,39 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
    * <ul>
-   *   <li>Then return {@link BigInteger#ONE}.</li>
+   *   <li>Then return {@link List}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
+   */
+  @Test
+  @DisplayName("Test getDescriptor(Class) with 'Class'; then return List")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object TbResourceInfo.getDescriptor(Class)"})
+  void testGetDescriptorWithClass_thenReturnList() throws JsonProcessingException {
+    // Arrange
+    TbResourceInfo tbResourceInfo = new TbResourceInfo();
+    tbResourceInfo.setDescriptor(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
+    Class<Object> type = Object.class;
+
+    // Act
+    Object actualDescriptor = tbResourceInfo.getDescriptor(type);
+
+    // Assert
+    assertTrue(actualDescriptor instanceof List);
+    assertTrue(((List<Object>) actualDescriptor).isEmpty());
+  }
+
+  /**
+   * Test {@link TbResourceInfo#getDescriptor(Class)} with {@code Class}.
+   *
+   * <ul>
+   *   <li>Then return {@link BigInteger#ONE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbResourceInfo#getDescriptor(Class)}
    */
   @Test
   @DisplayName("Test getDescriptor(Class) with 'Class'; then return ONE")
@@ -1540,8 +1516,8 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
   @DisplayName("Test updateDescriptor(Class, UnaryOperator)")
@@ -1569,12 +1545,13 @@ class TbResourceInfoDiffblueTest {
     assertFalse(descriptor.isObject());
     assertFalse(descriptor.isPojo());
     assertFalse(descriptor.isShort());
+    assertFalse(descriptor.iterator().hasNext());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
   @DisplayName("Test updateDescriptor(Class, UnaryOperator)")
@@ -1582,8 +1559,8 @@ class TbResourceInfoDiffblueTest {
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
   void testUpdateDescriptor2() throws JsonProcessingException {
     // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
+    tbResourceInfo.setDescriptorValue(42);
     Class<Object> type = Object.class;
     UnaryOperator<Object> updater = mock(UnaryOperator.class);
     when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
@@ -1595,180 +1572,67 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
+    assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isInt());
+    assertFalse(descriptor.isIntegralNumber());
+    assertFalse(descriptor.isNumber());
+  }
+
+  /**
+   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   */
+  @Test
+  @DisplayName("Test updateDescriptor(Class, UnaryOperator)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
+  void testUpdateDescriptor3() throws JsonProcessingException {
+    // Arrange
+    TbResourceInfo tbResourceInfo = new TbResourceInfo(new TbResourceInfo());
+    tbResourceInfo.setDescriptorValue(new POJONode(null));
+    Class<Object> type = Object.class;
+    UnaryOperator<Object> updater = mock(UnaryOperator.class);
+    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
+
+    // Act
+    tbResourceInfo.updateDescriptor(type, updater);
+
+    // Assert
+    verify(updater).apply(isNull());
+    JsonNode descriptor = tbResourceInfo.getDescriptor();
+    assertTrue(descriptor instanceof TextNode);
     assertEquals(0, descriptor.size());
     assertFalse(descriptor.isArray());
+    assertFalse(descriptor.isBigDecimal());
+    assertFalse(descriptor.isBinary());
+    assertFalse(descriptor.isBoolean());
     assertFalse(descriptor.isContainerNode());
+    assertFalse(descriptor.isDouble());
+    assertFalse(descriptor.isFloat());
+    assertFalse(descriptor.isNull());
     assertTrue(descriptor.isEmpty());
     assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} add {@code 0.5}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link UnaryOperator} {@link UnaryOperator#apply(Object)} return {@code null}.
+   *   <li>Then calls {@link UnaryOperator#apply(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' add '0.5'")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); given 'null'; when UnaryOperator apply(Object) return 'null'; then calls apply(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenArrayNodeWithNfIsWithExactBigDecimalsTrueAdd05() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.add(0.5f);
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-    UnaryOperator<Object> updater = mock(UnaryOperator.class);
-    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
-
-    // Act
-    tbResourceInfo.updateDescriptor(type, updater);
-
-    // Assert
-    verify(updater).apply(isA(Object.class));
-    JsonNode descriptor2 = tbResourceInfo.getDescriptor();
-    assertTrue(descriptor2 instanceof TextNode);
-    assertEquals(0, descriptor2.size());
-    assertFalse(descriptor2.isArray());
-    assertFalse(descriptor2.isContainerNode());
-    assertFalse(descriptor2.iterator().hasNext());
-    assertTrue(descriptor2.isEmpty());
-    assertTrue(descriptor2.isValueNode());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} add {@code 42}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
-   */
-  @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' add '42'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenArrayNodeWithNfIsWithExactBigDecimalsTrueAdd42() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.add("42");
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-    UnaryOperator<Object> updater = mock(UnaryOperator.class);
-    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
-
-    // Act
-    tbResourceInfo.updateDescriptor(type, updater);
-
-    // Assert
-    verify(updater).apply(isA(Object.class));
-    JsonNode descriptor2 = tbResourceInfo.getDescriptor();
-    assertTrue(descriptor2 instanceof TextNode);
-    assertEquals(0, descriptor2.size());
-    assertFalse(descriptor2.isArray());
-    assertFalse(descriptor2.isContainerNode());
-    assertFalse(descriptor2.iterator().hasNext());
-    assertTrue(descriptor2.isEmpty());
-    assertTrue(descriptor2.isValueNode());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} addObject.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
-   */
-  @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' addObject")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenArrayNodeWithNfIsWithExactBigDecimalsTrueAddObject() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.addObject();
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-    UnaryOperator<Object> updater = mock(UnaryOperator.class);
-    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
-
-    // Act
-    tbResourceInfo.updateDescriptor(type, updater);
-
-    // Assert
-    verify(updater).apply(isA(Object.class));
-    JsonNode descriptor2 = tbResourceInfo.getDescriptor();
-    assertTrue(descriptor2 instanceof TextNode);
-    assertEquals(0, descriptor2.size());
-    assertFalse(descriptor2.isArray());
-    assertFalse(descriptor2.isContainerNode());
-    assertFalse(descriptor2.iterator().hasNext());
-    assertTrue(descriptor2.isEmpty());
-    assertTrue(descriptor2.isValueNode());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true} addPOJO {@code Pojo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
-   */
-  @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true' addPOJO 'Pojo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenArrayNodeWithNfIsWithExactBigDecimalsTrueAddPOJOPojo() throws JsonProcessingException {
-    // Arrange
-    ArrayNode descriptor = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    descriptor.addPOJO("Pojo");
-
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptor(descriptor);
-    Class<Object> type = Object.class;
-    UnaryOperator<Object> updater = mock(UnaryOperator.class);
-    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
-
-    // Act
-    tbResourceInfo.updateDescriptor(type, updater);
-
-    // Assert
-    verify(updater).apply(isA(Object.class));
-    JsonNode descriptor2 = tbResourceInfo.getDescriptor();
-    assertTrue(descriptor2 instanceof TextNode);
-    assertEquals(0, descriptor2.size());
-    assertFalse(descriptor2.isArray());
-    assertFalse(descriptor2.isContainerNode());
-    assertFalse(descriptor2.iterator().hasNext());
-    assertTrue(descriptor2.isEmpty());
-    assertTrue(descriptor2.isValueNode());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link UnaryOperator} {@link Function#apply(Object)} return {@code null}.</li>
-   *   <li>Then calls {@link Function#apply(Object)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
-   */
-  @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given 'null'; when UnaryOperator apply(Object) return 'null'; then calls apply(Object)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenNull_whenUnaryOperatorApplyReturnNull_thenCallsApply() throws JsonProcessingException {
+  void testUpdateDescriptor_givenNull_whenUnaryOperatorApplyReturnNull_thenCallsApply()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     Class<Object> type = Object.class;
@@ -1784,18 +1648,21 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 1}.</li>
+   *   <li>Given one.
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 1}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); given one; then TbResourceInfo() Descriptor toPrettyString is '1'")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); given one; then TbResourceInfo() Descriptor toPrettyString is '1'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_givenOne_thenTbResourceInfoDescriptorToPrettyStringIs1() throws JsonProcessingException {
+  void testUpdateDescriptor_givenOne_thenTbResourceInfoDescriptorToPrettyStringIs1()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     Class<Object> type = Object.class;
@@ -1820,17 +1687,20 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor BigDecimal.</li>
+   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor BigDecimal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor BigDecimal")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor BigDecimal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorBigDecimal() throws JsonProcessingException {
+  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorBigDecimal()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     tbResourceInfo.setDescriptor(new DecimalNode(new BigDecimal("2.3")));
@@ -1845,26 +1715,24 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
     assertFalse(descriptor.isBigDecimal());
-    assertFalse(descriptor.isContainerNode());
     assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isNull());
     assertFalse(descriptor.isNumber());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Binary.</li>
+   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Binary.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Binary")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Binary")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
   void testUpdateDescriptor_thenNotTbResourceInfoDescriptorBinary()
@@ -1883,27 +1751,28 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
     assertFalse(descriptor.isBinary());
-    assertFalse(descriptor.isContainerNode());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
+    assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isNull());
+    assertFalse(descriptor.isNumber());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Boolean.</li>
+   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Boolean.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Boolean")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Boolean")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorBoolean() throws JsonProcessingException {
+  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorBoolean()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     tbResourceInfo.setDescriptor(BooleanNode.getFalse());
@@ -1918,24 +1787,24 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
     assertFalse(descriptor.isBoolean());
-    assertFalse(descriptor.isContainerNode());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
+    assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isNull());
+    assertFalse(descriptor.isNumber());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Double.</li>
+   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Double.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Double")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Double")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
   void testUpdateDescriptor_thenNotTbResourceInfoDescriptorDouble() throws JsonProcessingException {
@@ -1953,26 +1822,24 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
-    assertFalse(descriptor.isContainerNode());
     assertFalse(descriptor.isDouble());
     assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isNull());
     assertFalse(descriptor.isNumber());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Float.</li>
+   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Float.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Float")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Float")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
   void testUpdateDescriptor_thenNotTbResourceInfoDescriptorFloat() throws JsonProcessingException {
@@ -1990,32 +1857,31 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
-    assertFalse(descriptor.isContainerNode());
     assertFalse(descriptor.isFloat());
     assertFalse(descriptor.isFloatingPointNumber());
+    assertFalse(descriptor.isNull());
     assertFalse(descriptor.isNumber());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Int.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Int")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor size is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorInt() throws JsonProcessingException {
+  void testUpdateDescriptor_thenTbResourceInfoDescriptorSizeIsZero()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptorValue(42);
+    tbResourceInfo.setDescriptor(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     Class<Object> type = Object.class;
     UnaryOperator<Object> updater = mock(UnaryOperator.class);
     when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
@@ -2030,58 +1896,22 @@ class TbResourceInfoDiffblueTest {
     assertEquals(0, descriptor.size());
     assertFalse(descriptor.isArray());
     assertFalse(descriptor.isContainerNode());
-    assertFalse(descriptor.isInt());
-    assertFalse(descriptor.isIntegralNumber());
-    assertFalse(descriptor.isNumber());
     assertTrue(descriptor.isEmpty());
     assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then not {@link TbResourceInfo#TbResourceInfo()} Descriptor Null.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor Textual.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then not TbResourceInfo() Descriptor Null")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenNotTbResourceInfoDescriptorNull() throws JsonProcessingException {
-    // Arrange
-    TbResourceInfo tbResourceInfo = new TbResourceInfo();
-    tbResourceInfo.setDescriptorValue(new POJONode(null));
-    Class<Object> type = Object.class;
-    UnaryOperator<Object> updater = mock(UnaryOperator.class);
-    when(updater.apply(Mockito.<Object>any())).thenReturn("Apply");
-
-    // Act
-    tbResourceInfo.updateDescriptor(type, updater);
-
-    // Assert
-    verify(updater).apply(isNull());
-    JsonNode descriptor = tbResourceInfo.getDescriptor();
-    assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
-    assertFalse(descriptor.isContainerNode());
-    assertFalse(descriptor.isNull());
-    assertTrue(descriptor.isEmpty());
-    assertTrue(descriptor.isValueNode());
-  }
-
-  /**
-   * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
-   * <ul>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor Textual.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
-   */
-  @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor Textual")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor Textual")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
   void testUpdateDescriptor_thenTbResourceInfoDescriptorTextual() throws JsonProcessingException {
@@ -2099,27 +1929,26 @@ class TbResourceInfoDiffblueTest {
     verify(updater).apply(isA(Object.class));
     JsonNode descriptor = tbResourceInfo.getDescriptor();
     assertTrue(descriptor instanceof TextNode);
-    assertEquals(0, descriptor.size());
-    assertFalse(descriptor.isArray());
-    assertFalse(descriptor.isContainerNode());
-    assertTrue(descriptor.isEmpty());
+    assertFalse(descriptor.isNumber());
     assertTrue(descriptor.isTextual());
-    assertTrue(descriptor.isValueNode());
   }
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 42}.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor toPrettyString is '42'")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor toPrettyString is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenTbResourceInfoDescriptorToPrettyStringIs42() throws JsonProcessingException {
+  void testUpdateDescriptor_thenTbResourceInfoDescriptorToPrettyStringIs42()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     Class<Object> type = Object.class;
@@ -2144,17 +1973,21 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}.
+   *
    * <ul>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor traverse {@link TreeTraversingParser}.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor traverse {@link
+   *       TreeTraversingParser}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#updateDescriptor(Class, UnaryOperator)}
    */
   @Test
-  @DisplayName("Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor traverse TreeTraversingParser")
+  @DisplayName(
+      "Test updateDescriptor(Class, UnaryOperator); then TbResourceInfo() Descriptor traverse TreeTraversingParser")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.updateDescriptor(Class, UnaryOperator)"})
-  void testUpdateDescriptor_thenTbResourceInfoDescriptorTraverseTreeTraversingParser() throws JsonProcessingException {
+  void testUpdateDescriptor_thenTbResourceInfoDescriptorTraverseTreeTraversingParser()
+      throws JsonProcessingException {
     // Arrange
     TbResourceInfo tbResourceInfo = new TbResourceInfo();
     Class<Object> type = Object.class;
@@ -2175,12 +2008,13 @@ class TbResourceInfoDiffblueTest {
     assertFalse(descriptor.isObject());
     assertFalse(descriptor.isPojo());
     assertFalse(descriptor.isShort());
+    assertFalse(descriptor.iterator().hasNext());
   }
 
   /**
    * Test {@link TbResourceInfo#setDescriptorValue(Object)}.
-   * <p>
-   * Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
    */
   @Test
   @DisplayName("Test setDescriptorValue(Object)")
@@ -2206,14 +2040,16 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#setDescriptorValue(Object)}.
+   *
    * <ul>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 42}.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
    */
   @Test
-  @DisplayName("Test setDescriptorValue(Object); then TbResourceInfo() Descriptor toPrettyString is '42'")
+  @DisplayName(
+      "Test setDescriptorValue(Object); then TbResourceInfo() Descriptor toPrettyString is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.setDescriptorValue(Object)"})
   void testSetDescriptorValue_thenTbResourceInfoDescriptorToPrettyStringIs42() {
@@ -2237,14 +2073,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#setDescriptorValue(Object)}.
+   *
    * <ul>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code "Value"}.</li>
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code
+   *       "Value"}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
    */
   @Test
-  @DisplayName("Test setDescriptorValue(Object); then TbResourceInfo() Descriptor toPrettyString is '\"Value\"'")
+  @DisplayName(
+      "Test setDescriptorValue(Object); then TbResourceInfo() Descriptor toPrettyString is '\"Value\"'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.setDescriptorValue(Object)"})
   void testSetDescriptorValue_thenTbResourceInfoDescriptorToPrettyStringIsValue() {
@@ -2267,15 +2106,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#setDescriptorValue(Object)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
    */
   @Test
-  @DisplayName("Test setDescriptorValue(Object); when 'null'; then TbResourceInfo() Descriptor is 'null'")
+  @DisplayName(
+      "Test setDescriptorValue(Object); when 'null'; then TbResourceInfo() Descriptor is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.setDescriptorValue(Object)"})
   void testSetDescriptorValue_whenNull_thenTbResourceInfoDescriptorIsNull() {
@@ -2291,15 +2132,17 @@ class TbResourceInfoDiffblueTest {
 
   /**
    * Test {@link TbResourceInfo#setDescriptorValue(Object)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 1}.</li>
+   *   <li>When one.
+   *   <li>Then {@link TbResourceInfo#TbResourceInfo()} Descriptor toPrettyString is {@code 1}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
+   *
+   * <p>Method under test: {@link TbResourceInfo#setDescriptorValue(Object)}
    */
   @Test
-  @DisplayName("Test setDescriptorValue(Object); when one; then TbResourceInfo() Descriptor toPrettyString is '1'")
+  @DisplayName(
+      "Test setDescriptorValue(Object); when one; then TbResourceInfo() Descriptor toPrettyString is '1'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfo.setDescriptorValue(Object)"})
   void testSetDescriptorValue_whenOne_thenTbResourceInfoDescriptorToPrettyStringIs1() {

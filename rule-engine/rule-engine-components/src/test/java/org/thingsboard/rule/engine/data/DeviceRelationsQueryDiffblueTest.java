@@ -15,12 +15,14 @@ import org.thingsboard.server.common.data.relation.EntitySearchDirection;
 class DeviceRelationsQueryDiffblueTest {
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}, and {@link DeviceRelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceRelationsQuery#equals(Object)}
    *   <li>{@link DeviceRelationsQuery#hashCode()}
@@ -29,7 +31,10 @@ class DeviceRelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -54,12 +59,14 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}, and {@link DeviceRelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceRelationsQuery#equals(Object)}
    *   <li>{@link DeviceRelationsQuery#hashCode()}
@@ -68,7 +75,10 @@ class DeviceRelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -93,12 +103,14 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}, and {@link DeviceRelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceRelationsQuery#equals(Object)}
    *   <li>{@link DeviceRelationsQuery#hashCode()}
@@ -107,7 +119,10 @@ class DeviceRelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -132,12 +147,14 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}, and {@link DeviceRelationsQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceRelationsQuery#equals(Object)}
    *   <li>{@link DeviceRelationsQuery#hashCode()}
@@ -146,7 +163,10 @@ class DeviceRelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -164,17 +184,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<String> deviceTypes = new ArrayList<>();
@@ -200,17 +224,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -233,17 +261,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -266,17 +298,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -299,17 +335,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -332,17 +372,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -365,17 +409,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -398,17 +446,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -424,17 +476,21 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test {@link DeviceRelationsQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceRelationsQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceRelationsQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceRelationsQuery.equals(Object)", "int DeviceRelationsQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceRelationsQuery.equals(Object)",
+    "int DeviceRelationsQuery.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceRelationsQuery deviceRelationsQuery = new DeviceRelationsQuery();
@@ -450,8 +506,9 @@ class DeviceRelationsQueryDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceRelationsQuery}
    *   <li>{@link DeviceRelationsQuery#setDeviceTypes(List)}
@@ -470,12 +527,20 @@ class DeviceRelationsQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceRelationsQuery.<init>()", "List DeviceRelationsQuery.getDeviceTypes()",
-      "EntitySearchDirection DeviceRelationsQuery.getDirection()", "int DeviceRelationsQuery.getMaxLevel()",
-      "String DeviceRelationsQuery.getRelationType()", "boolean DeviceRelationsQuery.isFetchLastLevelOnly()",
-      "void DeviceRelationsQuery.setDeviceTypes(List)", "void DeviceRelationsQuery.setDirection(EntitySearchDirection)",
-      "void DeviceRelationsQuery.setFetchLastLevelOnly(boolean)", "void DeviceRelationsQuery.setMaxLevel(int)",
-      "void DeviceRelationsQuery.setRelationType(String)", "String DeviceRelationsQuery.toString()"})
+  @MethodsUnderTest({
+    "void DeviceRelationsQuery.<init>()",
+    "List DeviceRelationsQuery.getDeviceTypes()",
+    "EntitySearchDirection DeviceRelationsQuery.getDirection()",
+    "int DeviceRelationsQuery.getMaxLevel()",
+    "String DeviceRelationsQuery.getRelationType()",
+    "boolean DeviceRelationsQuery.isFetchLastLevelOnly()",
+    "void DeviceRelationsQuery.setDeviceTypes(List)",
+    "void DeviceRelationsQuery.setDirection(EntitySearchDirection)",
+    "void DeviceRelationsQuery.setFetchLastLevelOnly(boolean)",
+    "void DeviceRelationsQuery.setMaxLevel(int)",
+    "void DeviceRelationsQuery.setRelationType(String)",
+    "String DeviceRelationsQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceRelationsQuery actualDeviceRelationsQuery = new DeviceRelationsQuery();
@@ -493,8 +558,10 @@ class DeviceRelationsQueryDiffblueTest {
     boolean actualIsFetchLastLevelOnlyResult = actualDeviceRelationsQuery.isFetchLastLevelOnly();
 
     // Assert
-    assertEquals("DeviceRelationsQuery(direction=FROM, maxLevel=3, relationType=Relation Type, deviceTypes=[],"
-        + " fetchLastLevelOnly=true)", actualToStringResult);
+    assertEquals(
+        "DeviceRelationsQuery(direction=FROM, maxLevel=3, relationType=Relation Type, deviceTypes=[],"
+            + " fetchLastLevelOnly=true)",
+        actualToStringResult);
     assertEquals("Relation Type", actualRelationType);
     assertEquals(3, actualMaxLevel);
     assertEquals(EntitySearchDirection.FROM, actualDirection);

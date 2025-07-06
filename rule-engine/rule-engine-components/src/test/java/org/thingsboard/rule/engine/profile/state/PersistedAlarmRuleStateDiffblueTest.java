@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class PersistedAlarmRuleStateDiffblueTest {
   /**
-   * Test {@link PersistedAlarmRuleState#equals(Object)}, and {@link PersistedAlarmRuleState#hashCode()}.
+   * Test {@link PersistedAlarmRuleState#equals(Object)}, and {@link
+   * PersistedAlarmRuleState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PersistedAlarmRuleState#equals(Object)}
    *   <li>{@link PersistedAlarmRuleState#hashCode()}
@@ -24,7 +27,10 @@ class PersistedAlarmRuleStateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PersistedAlarmRuleState persistedAlarmRuleState = new PersistedAlarmRuleState(1L, 1L, 3L);
@@ -37,13 +43,16 @@ class PersistedAlarmRuleStateDiffblueTest {
   }
 
   /**
-   * Test {@link PersistedAlarmRuleState#equals(Object)}, and {@link PersistedAlarmRuleState#hashCode()}.
+   * Test {@link PersistedAlarmRuleState#equals(Object)}, and {@link
+   * PersistedAlarmRuleState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PersistedAlarmRuleState#equals(Object)}
    *   <li>{@link PersistedAlarmRuleState#hashCode()}
@@ -52,7 +61,10 @@ class PersistedAlarmRuleStateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PersistedAlarmRuleState persistedAlarmRuleState = new PersistedAlarmRuleState(1L, 1L, 3L);
@@ -65,17 +77,21 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PersistedAlarmRuleState persistedAlarmRuleState = new PersistedAlarmRuleState(3L, 1L, 3L);
@@ -86,17 +102,21 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PersistedAlarmRuleState persistedAlarmRuleState = new PersistedAlarmRuleState(1L, 3L, 3L);
@@ -107,17 +127,21 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PersistedAlarmRuleState persistedAlarmRuleState = new PersistedAlarmRuleState(1L, 1L, 1L);
@@ -128,17 +152,21 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PersistedAlarmRuleState(1L, 1L, 3L), null);
@@ -146,26 +174,32 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#equals(Object)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PersistedAlarmRuleState.equals(Object)", "int PersistedAlarmRuleState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PersistedAlarmRuleState.equals(Object)",
+    "int PersistedAlarmRuleState.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new PersistedAlarmRuleState(1L, 1L, 3L), "Different type to PersistedAlarmRuleState");
+    assertNotEquals(
+        new PersistedAlarmRuleState(1L, 1L, 3L), "Different type to PersistedAlarmRuleState");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PersistedAlarmRuleState#PersistedAlarmRuleState()}
    *   <li>{@link PersistedAlarmRuleState#setDuration(long)}
@@ -180,10 +214,16 @@ class PersistedAlarmRuleStateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PersistedAlarmRuleState.<init>()", "long PersistedAlarmRuleState.getDuration()",
-      "long PersistedAlarmRuleState.getEventCount()", "long PersistedAlarmRuleState.getLastEventTs()",
-      "void PersistedAlarmRuleState.setDuration(long)", "void PersistedAlarmRuleState.setEventCount(long)",
-      "void PersistedAlarmRuleState.setLastEventTs(long)", "String PersistedAlarmRuleState.toString()"})
+  @MethodsUnderTest({
+    "void PersistedAlarmRuleState.<init>()",
+    "long PersistedAlarmRuleState.getDuration()",
+    "long PersistedAlarmRuleState.getEventCount()",
+    "long PersistedAlarmRuleState.getLastEventTs()",
+    "void PersistedAlarmRuleState.setDuration(long)",
+    "void PersistedAlarmRuleState.setEventCount(long)",
+    "void PersistedAlarmRuleState.setLastEventTs(long)",
+    "String PersistedAlarmRuleState.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PersistedAlarmRuleState actualPersistedAlarmRuleState = new PersistedAlarmRuleState();
@@ -195,7 +235,8 @@ class PersistedAlarmRuleStateDiffblueTest {
     long actualEventCount = actualPersistedAlarmRuleState.getEventCount();
 
     // Assert
-    assertEquals("PersistedAlarmRuleState(lastEventTs=1, duration=1, eventCount=3)", actualToStringResult);
+    assertEquals(
+        "PersistedAlarmRuleState(lastEventTs=1, duration=1, eventCount=3)", actualToStringResult);
     assertEquals(1L, actualDuration);
     assertEquals(1L, actualPersistedAlarmRuleState.getLastEventTs());
     assertEquals(3L, actualEventCount);
@@ -203,8 +244,8 @@ class PersistedAlarmRuleStateDiffblueTest {
 
   /**
    * Test {@link PersistedAlarmRuleState#PersistedAlarmRuleState(long, long, long)}.
-   * <p>
-   * Method under test: {@link PersistedAlarmRuleState#PersistedAlarmRuleState(long, long, long)}
+   *
+   * <p>Method under test: {@link PersistedAlarmRuleState#PersistedAlarmRuleState(long, long, long)}
    */
   @Test
   @DisplayName("Test new PersistedAlarmRuleState(long, long, long)")

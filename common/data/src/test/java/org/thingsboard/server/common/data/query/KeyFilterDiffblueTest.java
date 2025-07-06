@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 class KeyFilterDiffblueTest {
   /**
    * Test {@link KeyFilter#equals(Object)}, and {@link KeyFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeyFilter#equals(Object)}
    *   <li>{@link KeyFilter#hashCode()}
@@ -47,12 +49,14 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}, and {@link KeyFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeyFilter#equals(Object)}
    *   <li>{@link KeyFilter#hashCode()}
@@ -77,12 +81,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -106,12 +111,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -135,12 +141,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -164,12 +171,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -193,12 +201,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -222,12 +231,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -251,12 +261,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -280,12 +291,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -309,12 +321,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -333,12 +346,13 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test {@link KeyFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeyFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link KeyFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -357,8 +371,9 @@ class KeyFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link KeyFilter}
    *   <li>{@link KeyFilter#setKey(EntityKey)}
@@ -373,10 +388,16 @@ class KeyFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void KeyFilter.<init>()", "EntityKey KeyFilter.getKey()",
-      "KeyFilterPredicate KeyFilter.getPredicate()", "EntityKeyValueType KeyFilter.getValueType()",
-      "void KeyFilter.setKey(EntityKey)", "void KeyFilter.setPredicate(KeyFilterPredicate)",
-      "void KeyFilter.setValueType(EntityKeyValueType)", "java.lang.String KeyFilter.toString()"})
+  @MethodsUnderTest({
+    "void KeyFilter.<init>()",
+    "EntityKey KeyFilter.getKey()",
+    "KeyFilterPredicate KeyFilter.getPredicate()",
+    "EntityKeyValueType KeyFilter.getValueType()",
+    "void KeyFilter.setKey(EntityKey)",
+    "void KeyFilter.setPredicate(KeyFilterPredicate)",
+    "void KeyFilter.setValueType(EntityKeyValueType)",
+    "java.lang.String KeyFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     KeyFilter actualKeyFilter = new KeyFilter();

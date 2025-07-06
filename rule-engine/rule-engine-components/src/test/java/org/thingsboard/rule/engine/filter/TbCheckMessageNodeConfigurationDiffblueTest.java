@@ -14,17 +14,19 @@ import org.junit.jupiter.api.Test;
 class TbCheckMessageNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbCheckMessageNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbCheckMessageNodeConfiguration TbCheckMessageNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbCheckMessageNodeConfiguration TbCheckMessageNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbCheckMessageNodeConfiguration actualDefaultConfigurationResult = (new TbCheckMessageNodeConfiguration())
-        .defaultConfiguration();
+    TbCheckMessageNodeConfiguration actualDefaultConfigurationResult =
+        new TbCheckMessageNodeConfiguration().defaultConfiguration();
 
     // Assert
     List<String> messageNames = actualDefaultConfigurationResult.getMessageNames();
@@ -34,13 +36,16 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link TbCheckMessageNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckMessageNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckMessageNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckMessageNodeConfiguration#hashCode()}
@@ -49,12 +54,16 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 =
+        new TbCheckMessageNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbCheckMessageNodeConfiguration, tbCheckMessageNodeConfiguration2);
@@ -63,13 +72,16 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link TbCheckMessageNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckMessageNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckMessageNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckMessageNodeConfiguration#hashCode()}
@@ -78,14 +90,18 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration.setMessageNames(new ArrayList<>());
 
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration2.setMessageNames(new ArrayList<>());
 
     // Act and Assert
@@ -95,13 +111,16 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link TbCheckMessageNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckMessageNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckMessageNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckMessageNodeConfiguration#hashCode()}
@@ -110,14 +129,18 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration.setMetadataNames(new ArrayList<>());
 
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration2.setMetadataNames(new ArrayList<>());
 
     // Act and Assert
@@ -127,13 +150,16 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link TbCheckMessageNodeConfiguration#hashCode()}.
+   * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}, and {@link
+   * TbCheckMessageNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckMessageNodeConfiguration#equals(Object)}
    *   <li>{@link TbCheckMessageNodeConfiguration#hashCode()}
@@ -142,11 +168,14 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbCheckMessageNodeConfiguration, tbCheckMessageNodeConfiguration);
@@ -156,18 +185,21 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckMessageNodeConfiguration(), 1);
@@ -175,21 +207,25 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration.setMessageNames(new ArrayList<>());
 
     // Act and Assert
@@ -198,21 +234,25 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration.setMetadataNames(new ArrayList<>());
 
     // Act and Assert
@@ -221,21 +261,25 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration.setCheckAllKeys(true);
 
     // Act and Assert
@@ -244,23 +288,28 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
 
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration2.setMessageNames(new ArrayList<>());
 
     // Act and Assert
@@ -269,23 +318,28 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
 
-    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration tbCheckMessageNodeConfiguration2 =
+        new TbCheckMessageNodeConfiguration();
     tbCheckMessageNodeConfiguration2.setMetadataNames(new ArrayList<>());
 
     // Act and Assert
@@ -294,18 +348,21 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckMessageNodeConfiguration(), null);
@@ -313,27 +370,32 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCheckMessageNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckMessageNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckMessageNodeConfiguration.equals(Object)",
-      "int TbCheckMessageNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckMessageNodeConfiguration.equals(Object)",
+    "int TbCheckMessageNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCheckMessageNodeConfiguration(), "Different type to TbCheckMessageNodeConfiguration");
+    assertNotEquals(
+        new TbCheckMessageNodeConfiguration(), "Different type to TbCheckMessageNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbCheckMessageNodeConfiguration}
    *   <li>{@link TbCheckMessageNodeConfiguration#setCheckAllKeys(boolean)}
@@ -348,17 +410,20 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCheckMessageNodeConfiguration.<init>()",
-      "List TbCheckMessageNodeConfiguration.getMessageNames()",
-      "List TbCheckMessageNodeConfiguration.getMetadataNames()",
-      "boolean TbCheckMessageNodeConfiguration.isCheckAllKeys()",
-      "void TbCheckMessageNodeConfiguration.setCheckAllKeys(boolean)",
-      "void TbCheckMessageNodeConfiguration.setMessageNames(List)",
-      "void TbCheckMessageNodeConfiguration.setMetadataNames(List)",
-      "String TbCheckMessageNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbCheckMessageNodeConfiguration.<init>()",
+    "List TbCheckMessageNodeConfiguration.getMessageNames()",
+    "List TbCheckMessageNodeConfiguration.getMetadataNames()",
+    "boolean TbCheckMessageNodeConfiguration.isCheckAllKeys()",
+    "void TbCheckMessageNodeConfiguration.setCheckAllKeys(boolean)",
+    "void TbCheckMessageNodeConfiguration.setMessageNames(List)",
+    "void TbCheckMessageNodeConfiguration.setMetadataNames(List)",
+    "String TbCheckMessageNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbCheckMessageNodeConfiguration actualTbCheckMessageNodeConfiguration = new TbCheckMessageNodeConfiguration();
+    TbCheckMessageNodeConfiguration actualTbCheckMessageNodeConfiguration =
+        new TbCheckMessageNodeConfiguration();
     actualTbCheckMessageNodeConfiguration.setCheckAllKeys(true);
     ArrayList<String> messageNames = new ArrayList<>();
     actualTbCheckMessageNodeConfiguration.setMessageNames(messageNames);
@@ -370,7 +435,8 @@ class TbCheckMessageNodeConfigurationDiffblueTest {
     boolean actualIsCheckAllKeysResult = actualTbCheckMessageNodeConfiguration.isCheckAllKeys();
 
     // Assert
-    assertEquals("TbCheckMessageNodeConfiguration(messageNames=[], metadataNames=[], checkAllKeys=true)",
+    assertEquals(
+        "TbCheckMessageNodeConfiguration(messageNames=[], metadataNames=[], checkAllKeys=true)",
         actualToStringResult);
     assertTrue(actualMessageNames.isEmpty());
     assertTrue(actualMetadataNames.isEmpty());

@@ -12,8 +12,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DefaultEntityLimitsCacheDiffblueTest {
   /**
    * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
-   * <p>
-   * Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
    */
   @Test
   @DisplayName("Test get(EntityLimitKey)")
@@ -22,42 +22,171 @@ class DefaultEntityLimitsCacheDiffblueTest {
   void testGet() {
     // Arrange
     DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(1, 3);
-    defaultEntityLimitsCache
-        .put(new EntityLimitKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ""), true);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ""),
+        true);
 
     // Act and Assert
-    assertFalse(defaultEntityLimitsCache
-        .get(new EntityLimitKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name")));
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
   }
 
   /**
    * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
-   * <ul>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
    */
   @Test
-  @DisplayName("Test get(EntityLimitKey); then return 'false'")
+  @DisplayName("Test get(EntityLimitKey)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DefaultEntityLimitsCache.get(EntityLimitKey)"})
-  void testGet_thenReturnFalse() {
+  void testGet2() {
+    // Arrange
+    DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(1, 3);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name"),
+        false);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ""),
+        true);
+
+    // Act and Assert
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
+  }
+
+  /**
+   * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   */
+  @Test
+  @DisplayName("Test get(EntityLimitKey)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultEntityLimitsCache.get(EntityLimitKey)"})
+  void testGet3() {
+    // Arrange
+    DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(0, 3);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name"),
+        false);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ""),
+        true);
+
+    // Act and Assert
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
+  }
+
+  /**
+   * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   */
+  @Test
+  @DisplayName("Test get(EntityLimitKey)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultEntityLimitsCache.get(EntityLimitKey)"})
+  void testGet4() {
+    // Arrange
+    DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(1, 3);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name"),
+        false);
+    defaultEntityLimitsCache.put(new EntityLimitKey(null, ""), true);
+
+    // Act and Assert
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
+  }
+
+  /**
+   * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
+   *
+   * <ul>
+   *   <li>Given {@link DefaultEntityLimitsCache#DefaultEntityLimitsCache(int, int)} with ttl is one
+   *       and maxSize is three.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   */
+  @Test
+  @DisplayName(
+      "Test get(EntityLimitKey); given DefaultEntityLimitsCache(int, int) with ttl is one and maxSize is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultEntityLimitsCache.get(EntityLimitKey)"})
+  void testGet_givenDefaultEntityLimitsCacheWithTtlIsOneAndMaxSizeIsThree() {
     // Arrange
     DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(1, 3);
 
     // Act and Assert
-    assertFalse(defaultEntityLimitsCache
-        .get(new EntityLimitKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name")));
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
   }
 
   /**
    * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TenantId#TenantId(UUID)} with id is randomUUID.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
+   */
+  @Test
+  @DisplayName(
+      "Test get(EntityLimitKey); given TenantId(UUID) with id is randomUUID; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean DefaultEntityLimitsCache.get(EntityLimitKey)"})
+  void testGet_givenTenantIdWithIdIsRandomUUID_thenReturnFalse() {
+    // Arrange
+    DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(0, 3);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(new TenantId(UUID.randomUUID()), "Device Name"), false);
+    defaultEntityLimitsCache.put(
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ""),
+        true);
+
+    // Act and Assert
+    assertFalse(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
+  }
+
+  /**
+   * Test {@link DefaultEntityLimitsCache#get(EntityLimitKey)}.
+   *
+   * <ul>
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultEntityLimitsCache#get(EntityLimitKey)}
    */
   @Test
   @DisplayName("Test get(EntityLimitKey); then return 'true'")
@@ -67,10 +196,15 @@ class DefaultEntityLimitsCacheDiffblueTest {
     // Arrange
     DefaultEntityLimitsCache defaultEntityLimitsCache = new DefaultEntityLimitsCache(1, 3);
     defaultEntityLimitsCache.put(
-        new EntityLimitKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name"), true);
+        new EntityLimitKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name"),
+        true);
 
     // Act and Assert
-    assertTrue(defaultEntityLimitsCache
-        .get(new EntityLimitKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Device Name")));
+    assertTrue(
+        defaultEntityLimitsCache.get(
+            new EntityLimitKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Device Name")));
   }
 }

@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class ProvisionDeviceProfileCredentialsDiffblueTest {
   /**
-   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link ProvisionDeviceProfileCredentials#hashCode()}.
+   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link
+   * ProvisionDeviceProfileCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProvisionDeviceProfileCredentials#equals(Object)}
    *   <li>{@link ProvisionDeviceProfileCredentials#hashCode()}
@@ -24,14 +27,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", "Provision Device Secret");
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret");
 
     // Act and Assert
     assertEquals(provisionDeviceProfileCredentials, provisionDeviceProfileCredentials2);
@@ -40,13 +45,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link ProvisionDeviceProfileCredentials#hashCode()}.
+   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link
+   * ProvisionDeviceProfileCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProvisionDeviceProfileCredentials#equals(Object)}
    *   <li>{@link ProvisionDeviceProfileCredentials#hashCode()}
@@ -55,14 +63,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(null,
-        "Provision Device Secret");
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 = new ProvisionDeviceProfileCredentials(null,
-        "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials(null, "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 =
+        new ProvisionDeviceProfileCredentials(null, "Provision Device Secret");
 
     // Act and Assert
     assertEquals(provisionDeviceProfileCredentials, provisionDeviceProfileCredentials2);
@@ -71,13 +81,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link ProvisionDeviceProfileCredentials#hashCode()}.
+   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link
+   * ProvisionDeviceProfileCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProvisionDeviceProfileCredentials#equals(Object)}
    *   <li>{@link ProvisionDeviceProfileCredentials#hashCode()}
@@ -86,14 +99,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", null);
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", null);
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", null);
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials2 =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", null);
 
     // Act and Assert
     assertEquals(provisionDeviceProfileCredentials, provisionDeviceProfileCredentials2);
@@ -102,13 +117,16 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link ProvisionDeviceProfileCredentials#hashCode()}.
+   * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}, and {@link
+   * ProvisionDeviceProfileCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ProvisionDeviceProfileCredentials#equals(Object)}
    *   <li>{@link ProvisionDeviceProfileCredentials#hashCode()}
@@ -117,12 +135,14 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret");
 
     // Act and Assert
     assertEquals(provisionDeviceProfileCredentials, provisionDeviceProfileCredentials);
@@ -132,145 +152,172 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Secret", "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Secret", "Provision Device Secret");
 
     // Act and Assert
-    assertNotEquals(provisionDeviceProfileCredentials,
+    assertNotEquals(
+        provisionDeviceProfileCredentials,
         new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"));
   }
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(null,
-        "Provision Device Secret");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials(null, "Provision Device Secret");
 
     // Act and Assert
-    assertNotEquals(provisionDeviceProfileCredentials,
+    assertNotEquals(
+        provisionDeviceProfileCredentials,
         new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"));
   }
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", "Provision Device Key");
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Key");
 
     // Act and Assert
-    assertNotEquals(provisionDeviceProfileCredentials,
+    assertNotEquals(
+        provisionDeviceProfileCredentials,
         new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"));
   }
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", null);
+    ProvisionDeviceProfileCredentials provisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", null);
 
     // Act and Assert
-    assertNotEquals(provisionDeviceProfileCredentials,
+    assertNotEquals(
+        provisionDeviceProfileCredentials,
         new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"));
   }
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"), null);
+    assertNotEquals(
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"),
+        null);
   }
 
   /**
    * Test {@link ProvisionDeviceProfileCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link ProvisionDeviceProfileCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProvisionDeviceProfileCredentials.equals(Object)",
-      "int ProvisionDeviceProfileCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ProvisionDeviceProfileCredentials.equals(Object)",
+    "int ProvisionDeviceProfileCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"),
+    assertNotEquals(
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret"),
         "Different type to ProvisionDeviceProfileCredentials");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link ProvisionDeviceProfileCredentials#ProvisionDeviceProfileCredentials(String, String)}
+   *   <li>{@link ProvisionDeviceProfileCredentials#ProvisionDeviceProfileCredentials(String,
+   *       String)}
    *   <li>{@link ProvisionDeviceProfileCredentials#toString()}
    *   <li>{@link ProvisionDeviceProfileCredentials#getProvisionDeviceKey()}
    *   <li>{@link ProvisionDeviceProfileCredentials#getProvisionDeviceSecret()}
@@ -279,20 +326,25 @@ class ProvisionDeviceProfileCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProvisionDeviceProfileCredentials.<init>(String, String)",
-      "String ProvisionDeviceProfileCredentials.getProvisionDeviceKey()",
-      "String ProvisionDeviceProfileCredentials.getProvisionDeviceSecret()",
-      "String ProvisionDeviceProfileCredentials.toString()"})
+  @MethodsUnderTest({
+    "void ProvisionDeviceProfileCredentials.<init>(String, String)",
+    "String ProvisionDeviceProfileCredentials.getProvisionDeviceKey()",
+    "String ProvisionDeviceProfileCredentials.getProvisionDeviceSecret()",
+    "String ProvisionDeviceProfileCredentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    ProvisionDeviceProfileCredentials actualProvisionDeviceProfileCredentials = new ProvisionDeviceProfileCredentials(
-        "Provision Device Key", "Provision Device Secret");
+    ProvisionDeviceProfileCredentials actualProvisionDeviceProfileCredentials =
+        new ProvisionDeviceProfileCredentials("Provision Device Key", "Provision Device Secret");
     String actualToStringResult = actualProvisionDeviceProfileCredentials.toString();
-    String actualProvisionDeviceKey = actualProvisionDeviceProfileCredentials.getProvisionDeviceKey();
+    String actualProvisionDeviceKey =
+        actualProvisionDeviceProfileCredentials.getProvisionDeviceKey();
 
     // Assert
     assertEquals("Provision Device Key", actualProvisionDeviceKey);
-    assertEquals("Provision Device Secret", actualProvisionDeviceProfileCredentials.getProvisionDeviceSecret());
+    assertEquals(
+        "Provision Device Secret",
+        actualProvisionDeviceProfileCredentials.getProvisionDeviceSecret());
     assertEquals(
         "ProvisionDeviceProfileCredentials(provisionDeviceKey=Provision Device Key, provisionDeviceSecret=Provision"
             + " Device Secret)",

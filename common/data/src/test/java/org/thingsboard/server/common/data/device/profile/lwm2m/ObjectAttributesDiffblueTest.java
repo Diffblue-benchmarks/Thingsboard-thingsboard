@@ -11,12 +11,13 @@ import org.junit.jupiter.api.Test;
 class ObjectAttributesDiffblueTest {
   /**
    * Test {@link ObjectAttributes#getVer()}.
+   *
    * <ul>
-   *   <li>Given {@link ObjectAttributes} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link ObjectAttributes} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#getVer()}
+   *
+   * <p>Method under test: {@link ObjectAttributes#getVer()}
    */
   @Test
   @DisplayName("Test getVer(); given ObjectAttributes (default constructor); then return 'null'")
@@ -24,17 +25,18 @@ class ObjectAttributesDiffblueTest {
   @MethodsUnderTest({"org.eclipse.leshan.core.LwM2m.Version ObjectAttributes.getVer()"})
   void testGetVer_givenObjectAttributes_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new ObjectAttributes()).getVer());
+    assertNull(new ObjectAttributes().getVer());
   }
 
   /**
    * Test {@link ObjectAttributes#getLwm2m()}.
+   *
    * <ul>
-   *   <li>Given {@link ObjectAttributes} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link ObjectAttributes} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#getLwm2m()}
+   *
+   * <p>Method under test: {@link ObjectAttributes#getLwm2m()}
    */
   @Test
   @DisplayName("Test getLwm2m(); given ObjectAttributes (default constructor); then return 'null'")
@@ -42,17 +44,18 @@ class ObjectAttributesDiffblueTest {
   @MethodsUnderTest({"org.eclipse.leshan.core.LwM2m.LwM2mVersion ObjectAttributes.getLwm2m()"})
   void testGetLwm2m_givenObjectAttributes_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new ObjectAttributes()).getLwm2m());
+    assertNull(new ObjectAttributes().getLwm2m());
   }
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -94,12 +97,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -141,12 +145,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -188,12 +193,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -235,12 +241,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -282,12 +289,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -329,12 +337,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -376,12 +385,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -423,12 +433,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -470,12 +481,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -517,12 +529,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -564,12 +577,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -611,12 +625,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -658,12 +673,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -705,12 +721,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -752,12 +769,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -799,12 +817,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -846,12 +865,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -893,12 +913,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -940,12 +961,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -964,7 +986,8 @@ class ObjectAttributesDiffblueTest {
     objectAttributes.setPmin(1L);
     objectAttributes.setSsid(1L);
     objectAttributes.setSt(10.0d);
-    objectAttributes.setUri("org.thingsboard.server.common.data.device.profile.lwm2m.ObjectAttributes");
+    objectAttributes.setUri(
+        "org.thingsboard.server.common.data.device.profile.lwm2m.ObjectAttributes");
     objectAttributes.setVer("Ver");
 
     ObjectAttributes objectAttributes2 = new ObjectAttributes();
@@ -987,12 +1010,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1020,12 +1044,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is same; then return equal")
@@ -1053,12 +1078,13 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test {@link ObjectAttributes#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ObjectAttributes#equals(Object)}
+   *
+   * <p>Method under test: {@link ObjectAttributes#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -1086,8 +1112,9 @@ class ObjectAttributesDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ObjectAttributes}
    *   <li>{@link ObjectAttributes#setDim(Long)}
@@ -1117,17 +1144,32 @@ class ObjectAttributesDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ObjectAttributes.<init>()", "Long ObjectAttributes.getDim()",
-      "Long ObjectAttributes.getEpmax()", "Long ObjectAttributes.getEpmin()", "Double ObjectAttributes.getGt()",
-      "Double ObjectAttributes.getLt()", "Long ObjectAttributes.getPmax()", "Long ObjectAttributes.getPmin()",
-      "Long ObjectAttributes.getSsid()", "Double ObjectAttributes.getSt()", "String ObjectAttributes.getUri()",
-      "void ObjectAttributes.setDim(Long)", "void ObjectAttributes.setEpmax(Long)",
-      "void ObjectAttributes.setEpmin(Long)", "void ObjectAttributes.setGt(Double)",
-      "void ObjectAttributes.setLt(Double)", "void ObjectAttributes.setLwm2m(String)",
-      "void ObjectAttributes.setPmax(Long)", "void ObjectAttributes.setPmin(Long)",
-      "void ObjectAttributes.setSsid(Long)", "void ObjectAttributes.setSt(Double)",
-      "void ObjectAttributes.setUri(String)", "void ObjectAttributes.setVer(String)",
-      "String ObjectAttributes.toString()"})
+  @MethodsUnderTest({
+    "void ObjectAttributes.<init>()",
+    "Long ObjectAttributes.getDim()",
+    "Long ObjectAttributes.getEpmax()",
+    "Long ObjectAttributes.getEpmin()",
+    "Double ObjectAttributes.getGt()",
+    "Double ObjectAttributes.getLt()",
+    "Long ObjectAttributes.getPmax()",
+    "Long ObjectAttributes.getPmin()",
+    "Long ObjectAttributes.getSsid()",
+    "Double ObjectAttributes.getSt()",
+    "String ObjectAttributes.getUri()",
+    "void ObjectAttributes.setDim(Long)",
+    "void ObjectAttributes.setEpmax(Long)",
+    "void ObjectAttributes.setEpmin(Long)",
+    "void ObjectAttributes.setGt(Double)",
+    "void ObjectAttributes.setLt(Double)",
+    "void ObjectAttributes.setLwm2m(String)",
+    "void ObjectAttributes.setPmax(Long)",
+    "void ObjectAttributes.setPmin(Long)",
+    "void ObjectAttributes.setSsid(Long)",
+    "void ObjectAttributes.setSt(Double)",
+    "void ObjectAttributes.setUri(String)",
+    "void ObjectAttributes.setVer(String)",
+    "String ObjectAttributes.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ObjectAttributes actualObjectAttributes = new ObjectAttributes();

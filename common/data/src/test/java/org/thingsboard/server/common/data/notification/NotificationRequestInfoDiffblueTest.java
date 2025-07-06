@@ -23,13 +23,16 @@ import org.thingsboard.server.common.data.notification.template.NotificationTemp
 
 class NotificationRequestInfoDiffblueTest {
   /**
-   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link NotificationRequestInfo#hashCode()}.
+   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link
+   * NotificationRequestInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestInfo#equals(Object)}
    *   <li>{@link NotificationRequestInfo#hashCode()}
@@ -38,7 +41,10 @@ class NotificationRequestInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -51,13 +57,16 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link NotificationRequestInfo#hashCode()}.
+   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link
+   * NotificationRequestInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestInfo#equals(Object)}
    *   <li>{@link NotificationRequestInfo#hashCode()}
@@ -66,7 +75,10 @@ class NotificationRequestInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -82,13 +94,16 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link NotificationRequestInfo#hashCode()}.
+   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link
+   * NotificationRequestInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestInfo#equals(Object)}
    *   <li>{@link NotificationRequestInfo#hashCode()}
@@ -97,7 +112,10 @@ class NotificationRequestInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -113,13 +131,16 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link NotificationRequestInfo#hashCode()}.
+   * Test {@link NotificationRequestInfo#equals(Object)}, and {@link
+   * NotificationRequestInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestInfo#equals(Object)}
    *   <li>{@link NotificationRequestInfo#hashCode()}
@@ -128,7 +149,10 @@ class NotificationRequestInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -141,34 +165,44 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    NotificationRequestBuilder originatorEntityIdResult = NotificationRequest.builder()
-        .info(mock(NotificationInfo.class))
-        .originatorEntityId(TenantId.SYS_TENANT_ID);
-    NotificationRequestBuilder ruleIdResult = originatorEntityIdResult
-        .ruleId(new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    NotificationRequestBuilder statusResult = ruleIdResult.stats(new NotificationRequestStats())
-        .status(NotificationRequestStatus.PROCESSING);
+    NotificationRequestBuilder originatorEntityIdResult =
+        NotificationRequest.builder()
+            .info(mock(NotificationInfo.class))
+            .originatorEntityId(TenantId.SYS_TENANT_ID);
+    NotificationRequestBuilder ruleIdResult =
+        originatorEntityIdResult.ruleId(
+            new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    NotificationRequestBuilder statusResult =
+        ruleIdResult
+            .stats(new NotificationRequestStats())
+            .status(NotificationRequestStatus.PROCESSING);
     NotificationRequestBuilder targetsResult = statusResult.targets(new ArrayList<>());
     NotificationRequestBuilder templateResult = targetsResult.template(new NotificationTemplate());
-    NotificationRequest request = templateResult
-        .templateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo(request, "Template Name",
-        new ArrayList<>());
+    NotificationRequest request =
+        templateResult
+            .templateId(
+                new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    NotificationRequestInfo notificationRequestInfo =
+        new NotificationRequestInfo(request, "Template Name", new ArrayList<>());
 
     // Act and Assert
     assertNotEquals(notificationRequestInfo, new NotificationRequestInfo());
@@ -176,17 +210,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -198,17 +236,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -220,17 +262,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -244,17 +290,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NotificationRequestInfo notificationRequestInfo = new NotificationRequestInfo();
@@ -268,17 +318,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationRequestInfo(), null);
@@ -286,17 +340,21 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test {@link NotificationRequestInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestInfo.equals(Object)", "int NotificationRequestInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestInfo.equals(Object)",
+    "int NotificationRequestInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new NotificationRequestInfo(), "Different type to NotificationRequestInfo");
@@ -304,8 +362,9 @@ class NotificationRequestInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestInfo#NotificationRequestInfo()}
    *   <li>{@link NotificationRequestInfo#setDeliveryMethods(List)}
@@ -318,9 +377,14 @@ class NotificationRequestInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationRequestInfo.<init>()", "List NotificationRequestInfo.getDeliveryMethods()",
-      "String NotificationRequestInfo.getTemplateName()", "void NotificationRequestInfo.setDeliveryMethods(List)",
-      "void NotificationRequestInfo.setTemplateName(String)", "String NotificationRequestInfo.toString()"})
+  @MethodsUnderTest({
+    "void NotificationRequestInfo.<init>()",
+    "List NotificationRequestInfo.getDeliveryMethods()",
+    "String NotificationRequestInfo.getTemplateName()",
+    "void NotificationRequestInfo.setDeliveryMethods(List)",
+    "void NotificationRequestInfo.setTemplateName(String)",
+    "String NotificationRequestInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationRequestInfo actualNotificationRequestInfo = new NotificationRequestInfo();
@@ -328,10 +392,13 @@ class NotificationRequestInfoDiffblueTest {
     actualNotificationRequestInfo.setDeliveryMethods(deliveryMethods);
     actualNotificationRequestInfo.setTemplateName("Template Name");
     String actualToStringResult = actualNotificationRequestInfo.toString();
-    List<NotificationDeliveryMethod> actualDeliveryMethods = actualNotificationRequestInfo.getDeliveryMethods();
+    List<NotificationDeliveryMethod> actualDeliveryMethods =
+        actualNotificationRequestInfo.getDeliveryMethods();
 
     // Assert
-    assertEquals("NotificationRequestInfo(templateName=Template Name, deliveryMethods=[])", actualToStringResult);
+    assertEquals(
+        "NotificationRequestInfo(templateName=Template Name, deliveryMethods=[])",
+        actualToStringResult);
     assertEquals("Template Name", actualNotificationRequestInfo.getTemplateName());
     assertNull(actualNotificationRequestInfo.getTargets());
     assertNull(actualNotificationRequestInfo.getOriginatorEntityId());
@@ -350,16 +417,20 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}.
+   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String,
+   * List)}.
+   *
    * <ul>
-   *   <li>Given {@code EMAIL}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code EMAIL}.</li>
+   *   <li>Given {@code EMAIL}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code EMAIL}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
+   *
+   * <p>Method under test: {@link
+   * NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
    */
   @Test
-  @DisplayName("Test new NotificationRequestInfo(NotificationRequest, String, List); given 'EMAIL'; when ArrayList() add 'EMAIL'")
+  @DisplayName(
+      "Test new NotificationRequestInfo(NotificationRequest, String, List); given 'EMAIL'; when ArrayList() add 'EMAIL'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestInfo.<init>(NotificationRequest, String, List)"})
   void testNewNotificationRequestInfo_givenEmail_whenArrayListAddEmail() {
@@ -371,8 +442,8 @@ class NotificationRequestInfoDiffblueTest {
     deliveryMethods.add(NotificationDeliveryMethod.WEB);
 
     // Act
-    NotificationRequestInfo actualNotificationRequestInfo = new NotificationRequestInfo(request, "Template Name",
-        deliveryMethods);
+    NotificationRequestInfo actualNotificationRequestInfo =
+        new NotificationRequestInfo(request, "Template Name", deliveryMethods);
 
     // Assert
     assertEquals("Template Name", actualNotificationRequestInfo.getTemplateName());
@@ -397,16 +468,20 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}.
+   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String,
+   * List)}.
+   *
    * <ul>
-   *   <li>Given {@code WEB}.</li>
-   *   <li>Then return DeliveryMethods is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code WEB}.
+   *   <li>Then return DeliveryMethods is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
+   *
+   * <p>Method under test: {@link
+   * NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
    */
   @Test
-  @DisplayName("Test new NotificationRequestInfo(NotificationRequest, String, List); given 'WEB'; then return DeliveryMethods is ArrayList()")
+  @DisplayName(
+      "Test new NotificationRequestInfo(NotificationRequest, String, List); given 'WEB'; then return DeliveryMethods is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestInfo.<init>(NotificationRequest, String, List)"})
   void testNewNotificationRequestInfo_givenWeb_thenReturnDeliveryMethodsIsArrayList() {
@@ -417,8 +492,8 @@ class NotificationRequestInfoDiffblueTest {
     deliveryMethods.add(NotificationDeliveryMethod.WEB);
 
     // Act
-    NotificationRequestInfo actualNotificationRequestInfo = new NotificationRequestInfo(request, "Template Name",
-        deliveryMethods);
+    NotificationRequestInfo actualNotificationRequestInfo =
+        new NotificationRequestInfo(request, "Template Name", deliveryMethods);
 
     // Assert
     assertEquals("Template Name", actualNotificationRequestInfo.getTemplateName());
@@ -443,16 +518,20 @@ class NotificationRequestInfoDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}.
+   * Test {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String,
+   * List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return DeliveryMethods Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return DeliveryMethods Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
+   *
+   * <p>Method under test: {@link
+   * NotificationRequestInfo#NotificationRequestInfo(NotificationRequest, String, List)}
    */
   @Test
-  @DisplayName("Test new NotificationRequestInfo(NotificationRequest, String, List); when ArrayList(); then return DeliveryMethods Empty")
+  @DisplayName(
+      "Test new NotificationRequestInfo(NotificationRequest, String, List); when ArrayList(); then return DeliveryMethods Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestInfo.<init>(NotificationRequest, String, List)"})
   void testNewNotificationRequestInfo_whenArrayList_thenReturnDeliveryMethodsEmpty() {
@@ -460,8 +539,8 @@ class NotificationRequestInfoDiffblueTest {
     NotificationRequest request = new NotificationRequest();
 
     // Act
-    NotificationRequestInfo actualNotificationRequestInfo = new NotificationRequestInfo(request, "Template Name",
-        new ArrayList<>());
+    NotificationRequestInfo actualNotificationRequestInfo =
+        new NotificationRequestInfo(request, "Template Name", new ArrayList<>());
 
     // Assert
     assertEquals("Template Name", actualNotificationRequestInfo.getTemplateName());

@@ -18,12 +18,14 @@ import org.thingsboard.server.common.data.id.UserId;
 class EntityAlarmDiffblueTest {
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -46,12 +48,14 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -77,12 +81,14 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -108,12 +114,14 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -139,12 +147,14 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -157,10 +167,12 @@ class EntityAlarmDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     EntityAlarm entityAlarm = new EntityAlarm();
-    entityAlarm.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    entityAlarm.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     EntityAlarm entityAlarm2 = new EntityAlarm();
-    entityAlarm2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    entityAlarm2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(entityAlarm, entityAlarm2);
@@ -170,12 +182,14 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}, and {@link EntityAlarm#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#equals(Object)}
    *   <li>{@link EntityAlarm#hashCode()}
@@ -197,12 +211,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -215,12 +230,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,12 +253,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -259,12 +276,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -281,12 +299,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -303,12 +322,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -317,7 +337,8 @@ class EntityAlarmDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityAlarm entityAlarm = new EntityAlarm();
-    entityAlarm.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    entityAlarm.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(entityAlarm, new EntityAlarm());
@@ -325,12 +346,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -349,12 +371,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -373,12 +396,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -397,12 +421,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -413,7 +438,8 @@ class EntityAlarmDiffblueTest {
     EntityAlarm entityAlarm = new EntityAlarm();
 
     EntityAlarm entityAlarm2 = new EntityAlarm();
-    entityAlarm2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    entityAlarm2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(entityAlarm, entityAlarm2);
@@ -421,12 +447,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -443,12 +470,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -465,12 +493,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -489,12 +518,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -513,12 +543,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -531,12 +562,13 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test {@link EntityAlarm#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarm#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarm#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -549,8 +581,9 @@ class EntityAlarmDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarm#EntityAlarm()}
    *   <li>{@link EntityAlarm#setAlarmType(String)}
@@ -571,14 +604,24 @@ class EntityAlarmDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityAlarm.<init>()", "AlarmId EntityAlarm.getAlarmId()",
-      "String EntityAlarm.getAlarmType()", "UserId EntityAlarm.getAssigneeId()", "long EntityAlarm.getCreatedTime()",
-      "CustomerId EntityAlarm.getCustomerId()", "EntityId EntityAlarm.getEntityId()",
-      "TenantId EntityAlarm.getTenantId()", "void EntityAlarm.setAlarmId(AlarmId)",
-      "void EntityAlarm.setAlarmType(String)", "void EntityAlarm.setAssigneeId(UserId)",
-      "void EntityAlarm.setCreatedTime(long)", "void EntityAlarm.setCustomerId(CustomerId)",
-      "void EntityAlarm.setEntityId(EntityId)", "void EntityAlarm.setTenantId(TenantId)",
-      "String EntityAlarm.toString()"})
+  @MethodsUnderTest({
+    "void EntityAlarm.<init>()",
+    "AlarmId EntityAlarm.getAlarmId()",
+    "String EntityAlarm.getAlarmType()",
+    "UserId EntityAlarm.getAssigneeId()",
+    "long EntityAlarm.getCreatedTime()",
+    "CustomerId EntityAlarm.getCustomerId()",
+    "EntityId EntityAlarm.getEntityId()",
+    "TenantId EntityAlarm.getTenantId()",
+    "void EntityAlarm.setAlarmId(AlarmId)",
+    "void EntityAlarm.setAlarmType(String)",
+    "void EntityAlarm.setAssigneeId(UserId)",
+    "void EntityAlarm.setCreatedTime(long)",
+    "void EntityAlarm.setCustomerId(CustomerId)",
+    "void EntityAlarm.setEntityId(EntityId)",
+    "void EntityAlarm.setTenantId(TenantId)",
+    "String EntityAlarm.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityAlarm actualEntityAlarm = new EntityAlarm();

@@ -19,24 +19,25 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class UsageInfoControllerDiffblueTest {
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
-  @InjectMocks
-  private UsageInfoController usageInfoController;
+  @InjectMocks private UsageInfoController usageInfoController;
 
   /**
    * Test {@link UsageInfoController#getTenantUsageInfo()}.
-   * <p>
-   * Method under test: {@link UsageInfoController#getTenantUsageInfo()}
+   *
+   * <p>Method under test: {@link UsageInfoController#getTenantUsageInfo()}
    */
   @Test
   @DisplayName("Test getTenantUsageInfo()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.UsageInfo UsageInfoController.getTenantUsageInfo()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.UsageInfo UsageInfoController.getTenantUsageInfo()"
+  })
   void testGetTenantUsageInfo() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/usage");
 

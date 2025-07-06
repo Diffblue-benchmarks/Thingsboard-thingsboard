@@ -15,8 +15,8 @@ import org.thingsboard.common.util.ThingsBoardThreadFactory;
 class PubSubRuleNodeExecutorProviderDiffblueTest {
   /**
    * Test {@link PubSubRuleNodeExecutorProvider#init()}.
-   * <p>
-   * Method under test: {@link PubSubRuleNodeExecutorProvider#init()}
+   *
+   * <p>Method under test: {@link PubSubRuleNodeExecutorProvider#init()}
    */
   @Test
   @DisplayName("Test init()")
@@ -24,7 +24,8 @@ class PubSubRuleNodeExecutorProviderDiffblueTest {
   @MethodsUnderTest({"void PubSubRuleNodeExecutorProvider.init()"})
   void testInit() {
     // Arrange
-    PubSubRuleNodeExecutorProvider pubSubRuleNodeExecutorProvider = new PubSubRuleNodeExecutorProvider();
+    PubSubRuleNodeExecutorProvider pubSubRuleNodeExecutorProvider =
+        new PubSubRuleNodeExecutorProvider();
 
     // Act
     pubSubRuleNodeExecutorProvider.init();
@@ -32,24 +33,30 @@ class PubSubRuleNodeExecutorProviderDiffblueTest {
     // Assert
     ScheduledExecutorService executor = pubSubRuleNodeExecutorProvider.getExecutor();
     assertTrue(executor instanceof ScheduledThreadPoolExecutor);
-    assertTrue(((ScheduledThreadPoolExecutor) executor).getThreadFactory() instanceof ThingsBoardThreadFactory);
+    assertTrue(
+        ((ScheduledThreadPoolExecutor) executor).getThreadFactory()
+            instanceof ThingsBoardThreadFactory);
     assertEquals(0, ((ScheduledThreadPoolExecutor) executor).getActiveCount());
     assertEquals(0, ((ScheduledThreadPoolExecutor) executor).getLargestPoolSize());
     assertEquals(0, ((ScheduledThreadPoolExecutor) executor).getPoolSize());
     assertEquals(0L, ((ScheduledThreadPoolExecutor) executor).getCompletedTaskCount());
     assertEquals(0L, ((ScheduledThreadPoolExecutor) executor).getTaskCount());
     assertEquals(100, ((ScheduledThreadPoolExecutor) executor).getCorePoolSize());
-    assertFalse(((ScheduledThreadPoolExecutor) executor).getContinueExistingPeriodicTasksAfterShutdownPolicy());
+    assertFalse(
+        ((ScheduledThreadPoolExecutor) executor)
+            .getContinueExistingPeriodicTasksAfterShutdownPolicy());
     assertFalse(((ScheduledThreadPoolExecutor) executor).getRemoveOnCancelPolicy());
     assertTrue(((ScheduledThreadPoolExecutor) executor).getQueue().isEmpty());
-    assertTrue(((ScheduledThreadPoolExecutor) executor).getExecuteExistingDelayedTasksAfterShutdownPolicy());
+    assertTrue(
+        ((ScheduledThreadPoolExecutor) executor)
+            .getExecuteExistingDelayedTasksAfterShutdownPolicy());
     assertEquals(Integer.MAX_VALUE, ((ScheduledThreadPoolExecutor) executor).getMaximumPoolSize());
   }
 
   /**
    * Test {@link PubSubRuleNodeExecutorProvider#getExecutor()}.
-   * <p>
-   * Method under test: {@link PubSubRuleNodeExecutorProvider#getExecutor()}
+   *
+   * <p>Method under test: {@link PubSubRuleNodeExecutorProvider#getExecutor()}
    */
   @Test
   @DisplayName("Test getExecutor()")
@@ -57,6 +64,6 @@ class PubSubRuleNodeExecutorProviderDiffblueTest {
   @MethodsUnderTest({"ScheduledExecutorService PubSubRuleNodeExecutorProvider.getExecutor()"})
   void testGetExecutor() {
     // Arrange, Act and Assert
-    assertNull((new PubSubRuleNodeExecutorProvider()).getExecutor());
+    assertNull(new PubSubRuleNodeExecutorProvider().getExecutor());
   }
 }

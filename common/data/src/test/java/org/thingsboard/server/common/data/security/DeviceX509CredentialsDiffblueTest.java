@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class DeviceX509CredentialsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceX509Credentials#DeviceX509Credentials(String)}
    *   <li>{@link DeviceX509Credentials#toString()}
@@ -21,8 +22,12 @@ class DeviceX509CredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceX509Credentials.<init>(String)", "String DeviceX509Credentials.getCredentialsId()",
-      "DeviceCredentialsType DeviceX509Credentials.getCredentialsType()", "String DeviceX509Credentials.toString()"})
+  @MethodsUnderTest({
+    "void DeviceX509Credentials.<init>(String)",
+    "String DeviceX509Credentials.getCredentialsId()",
+    "DeviceCredentialsType DeviceX509Credentials.getCredentialsType()",
+    "String DeviceX509Credentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceX509Credentials actualDeviceX509Credentials = new DeviceX509Credentials("Sha3 Hash");
@@ -32,6 +37,7 @@ class DeviceX509CredentialsDiffblueTest {
     // Assert
     assertEquals("DeviceX509Credentials [SHA3=Sha3 Hash]", actualToStringResult);
     assertEquals("Sha3 Hash", actualCredentialsId);
-    assertEquals(DeviceCredentialsType.X509_CERTIFICATE, actualDeviceX509Credentials.getCredentialsType());
+    assertEquals(
+        DeviceCredentialsType.X509_CERTIFICATE, actualDeviceX509Credentials.getCredentialsType());
   }
 }

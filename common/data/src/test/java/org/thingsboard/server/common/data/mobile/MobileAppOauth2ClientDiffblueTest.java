@@ -12,13 +12,16 @@ import org.thingsboard.server.common.data.id.OAuth2ClientId;
 
 class MobileAppOauth2ClientDiffblueTest {
   /**
-   * Test {@link MobileAppOauth2Client#equals(Object)}, and {@link MobileAppOauth2Client#hashCode()}.
+   * Test {@link MobileAppOauth2Client#equals(Object)}, and {@link
+   * MobileAppOauth2Client#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppOauth2Client#equals(Object)}
    *   <li>{@link MobileAppOauth2Client#hashCode()}
@@ -27,7 +30,10 @@ class MobileAppOauth2ClientDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
@@ -40,13 +46,16 @@ class MobileAppOauth2ClientDiffblueTest {
   }
 
   /**
-   * Test {@link MobileAppOauth2Client#equals(Object)}, and {@link MobileAppOauth2Client#hashCode()}.
+   * Test {@link MobileAppOauth2Client#equals(Object)}, and {@link
+   * MobileAppOauth2Client#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppOauth2Client#equals(Object)}
    *   <li>{@link MobileAppOauth2Client#hashCode()}
@@ -55,7 +64,10 @@ class MobileAppOauth2ClientDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
@@ -68,17 +80,21 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppOauth2Client(), 1);
@@ -86,21 +102,26 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
-    mobileAppOauth2Client.setMobileAppId(new MobileAppId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    mobileAppOauth2Client.setMobileAppId(
+        new MobileAppId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(mobileAppOauth2Client, new MobileAppOauth2Client());
@@ -108,22 +129,26 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
-    mobileAppOauth2Client
-        .setOAuth2ClientId(new OAuth2ClientId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    mobileAppOauth2Client.setOAuth2ClientId(
+        new OAuth2ClientId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(mobileAppOauth2Client, new MobileAppOauth2Client());
@@ -131,23 +156,28 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
 
     MobileAppOauth2Client mobileAppOauth2Client2 = new MobileAppOauth2Client();
-    mobileAppOauth2Client2.setMobileAppId(new MobileAppId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    mobileAppOauth2Client2.setMobileAppId(
+        new MobileAppId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(mobileAppOauth2Client, mobileAppOauth2Client2);
@@ -155,24 +185,28 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MobileAppOauth2Client mobileAppOauth2Client = new MobileAppOauth2Client();
 
     MobileAppOauth2Client mobileAppOauth2Client2 = new MobileAppOauth2Client();
-    mobileAppOauth2Client2
-        .setOAuth2ClientId(new OAuth2ClientId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    mobileAppOauth2Client2.setOAuth2ClientId(
+        new OAuth2ClientId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(mobileAppOauth2Client, mobileAppOauth2Client2);
@@ -180,17 +214,21 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppOauth2Client(), null);
@@ -198,17 +236,21 @@ class MobileAppOauth2ClientDiffblueTest {
 
   /**
    * Test {@link MobileAppOauth2Client#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppOauth2Client#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppOauth2Client#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MobileAppOauth2Client.equals(Object)", "int MobileAppOauth2Client.hashCode()"})
+  @MethodsUnderTest({
+    "boolean MobileAppOauth2Client.equals(Object)",
+    "int MobileAppOauth2Client.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppOauth2Client(), "Different type to MobileAppOauth2Client");

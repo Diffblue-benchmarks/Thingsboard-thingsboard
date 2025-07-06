@@ -31,16 +31,14 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class CustomerControllerDiffblueTest {
-  @InjectMocks
-  private CustomerController customerController;
+  @InjectMocks private CustomerController customerController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link CustomerController#getCustomerById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerById(String)}
    */
   @Test
   @DisplayName("Test getCustomerById(String)")
@@ -48,7 +46,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"Customer CustomerController.getCustomerById(String)"})
   void testGetCustomerById() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -62,8 +61,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomerById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerById(String)}
    */
   @Test
   @DisplayName("Test getCustomerById(String)")
@@ -71,7 +70,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"Customer CustomerController.getCustomerById(String)"})
   void testGetCustomerById2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -81,17 +81,20 @@ class CustomerControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link CustomerController#getCustomerById(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerById(String)}
    */
   @Test
   @DisplayName("Test getCustomerById(String); then status isNotFound()")
@@ -99,7 +102,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"Customer CustomerController.getCustomerById(String)"})
   void testGetCustomerById_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -113,20 +117,23 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomerById(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerById(String)}
    */
   @Test
-  @DisplayName("Test getCustomerById(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getCustomerById(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Customer CustomerController.getCustomerById(String)"})
   void testGetCustomerById_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -142,16 +149,19 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getShortCustomerInfoById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
    */
   @Test
   @DisplayName("Test getShortCustomerInfoById(String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"})
+  @MethodsUnderTest({
+    "com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"
+  })
   void testGetShortCustomerInfoById() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -165,16 +175,19 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getShortCustomerInfoById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
    */
   @Test
   @DisplayName("Test getShortCustomerInfoById(String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"})
+  @MethodsUnderTest({
+    "com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"
+  })
   void testGetShortCustomerInfoById2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -184,25 +197,31 @@ class CustomerControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link CustomerController#getShortCustomerInfoById(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
    */
   @Test
   @DisplayName("Test getShortCustomerInfoById(String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"})
+  @MethodsUnderTest({
+    "com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"
+  })
   void testGetShortCustomerInfoById_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -216,20 +235,26 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getShortCustomerInfoById(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getShortCustomerInfoById(String)}
    */
   @Test
-  @DisplayName("Test getShortCustomerInfoById(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getShortCustomerInfoById(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"})
-  void testGetShortCustomerInfoById_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  @MethodsUnderTest({
+    "com.fasterxml.jackson.databind.JsonNode CustomerController.getShortCustomerInfoById(String)"
+  })
+  void testGetShortCustomerInfoById_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -245,8 +270,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomerTitleById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerTitleById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerTitleById(String)}
    */
   @Test
   @DisplayName("Test getCustomerTitleById(String)")
@@ -254,7 +279,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"String CustomerController.getCustomerTitleById(String)"})
   void testGetCustomerTitleById() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -268,8 +294,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomerTitleById(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerTitleById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerTitleById(String)}
    */
   @Test
   @DisplayName("Test getCustomerTitleById(String)")
@@ -277,7 +303,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"String CustomerController.getCustomerTitleById(String)"})
   void testGetCustomerTitleById2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -287,17 +314,20 @@ class CustomerControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link CustomerController#getCustomerTitleById(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerTitleById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerTitleById(String)}
    */
   @Test
   @DisplayName("Test getCustomerTitleById(String); then status isNotFound()")
@@ -305,7 +335,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"String CustomerController.getCustomerTitleById(String)"})
   void testGetCustomerTitleById_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -319,20 +350,24 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomerTitleById(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#getCustomerTitleById(String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomerTitleById(String)}
    */
   @Test
-  @DisplayName("Test getCustomerTitleById(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getCustomerTitleById(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String CustomerController.getCustomerTitleById(String)"})
-  void testGetCustomerTitleById_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetCustomerTitleById_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -348,8 +383,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#saveCustomer(Customer)}.
-   * <p>
-   * Method under test: {@link CustomerController#saveCustomer(Customer)}
+   *
+   * <p>Method under test: {@link CustomerController#saveCustomer(Customer)}
    */
   @Test
   @DisplayName("Test saveCustomer(Customer)")
@@ -375,8 +410,9 @@ class CustomerControllerDiffblueTest {
     customer.setTitle("Dr");
     customer.setVersion(1L);
     customer.setZip("21654");
-    String content = (new ObjectMapper()).writeValueAsString(customer);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(customer);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(customerController)
@@ -388,8 +424,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#deleteCustomer(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#deleteCustomer(String)}
+   *
+   * <p>Method under test: {@link CustomerController#deleteCustomer(String)}
    */
   @Test
   @DisplayName("Test deleteCustomer(String)")
@@ -397,7 +433,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"void CustomerController.deleteCustomer(String)"})
   void testDeleteCustomer() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -411,8 +448,8 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#deleteCustomer(String)}.
-   * <p>
-   * Method under test: {@link CustomerController#deleteCustomer(String)}
+   *
+   * <p>Method under test: {@link CustomerController#deleteCustomer(String)}
    */
   @Test
   @DisplayName("Test deleteCustomer(String)")
@@ -420,7 +457,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"void CustomerController.deleteCustomer(String)"})
   void testDeleteCustomer2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -430,17 +468,20 @@ class CustomerControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link CustomerController#deleteCustomer(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#deleteCustomer(String)}
+   *
+   * <p>Method under test: {@link CustomerController#deleteCustomer(String)}
    */
   @Test
   @DisplayName("Test deleteCustomer(String); then status isNotFound()")
@@ -448,7 +489,8 @@ class CustomerControllerDiffblueTest {
   @MethodsUnderTest({"void CustomerController.deleteCustomer(String)"})
   void testDeleteCustomer_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -462,20 +504,23 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#deleteCustomer(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerController#deleteCustomer(String)}
+   *
+   * <p>Method under test: {@link CustomerController#deleteCustomer(String)}
    */
   @Test
-  @DisplayName("Test deleteCustomer(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test deleteCustomer(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CustomerController.deleteCustomer(String)"})
   void testDeleteCustomer_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -491,18 +536,19 @@ class CustomerControllerDiffblueTest {
 
   /**
    * Test {@link CustomerController#getCustomers(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link CustomerController#getCustomers(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link CustomerController#getCustomers(int, int, String, String, String)}
    */
   @Test
   @DisplayName("Test getCustomers(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData CustomerController.getCustomers(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData CustomerController.getCustomers(int, int, String, String, String)"
+  })
   void testGetCustomers() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/customers")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/customers").param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert

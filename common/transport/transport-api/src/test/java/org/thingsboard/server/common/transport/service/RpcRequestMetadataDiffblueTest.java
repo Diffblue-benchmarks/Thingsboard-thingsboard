@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 class RpcRequestMetadataDiffblueTest {
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}, and {@link RpcRequestMetadata#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcRequestMetadata#equals(Object)}
    *   <li>{@link RpcRequestMetadata#hashCode()}
@@ -26,13 +28,16 @@ class RpcRequestMetadataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
-    RpcRequestMetadata rpcRequestMetadata2 = new RpcRequestMetadata(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    RpcRequestMetadata rpcRequestMetadata =
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    RpcRequestMetadata rpcRequestMetadata2 =
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertEquals(rpcRequestMetadata, rpcRequestMetadata2);
@@ -42,12 +47,14 @@ class RpcRequestMetadataDiffblueTest {
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}, and {@link RpcRequestMetadata#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcRequestMetadata#equals(Object)}
    *   <li>{@link RpcRequestMetadata#hashCode()}
@@ -56,7 +63,10 @@ class RpcRequestMetadataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(null, 1);
@@ -70,12 +80,14 @@ class RpcRequestMetadataDiffblueTest {
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}, and {@link RpcRequestMetadata#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcRequestMetadata#equals(Object)}
    *   <li>{@link RpcRequestMetadata#hashCode()}
@@ -84,11 +96,14 @@ class RpcRequestMetadataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
+    RpcRequestMetadata rpcRequestMetadata =
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1);
 
     // Act and Assert
     assertEquals(rpcRequestMetadata, rpcRequestMetadata);
@@ -98,112 +113,138 @@ class RpcRequestMetadataDiffblueTest {
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcRequestMetadata#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcRequestMetadata#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(UUID.randomUUID(), 1);
 
     // Act and Assert
-    assertNotEquals(rpcRequestMetadata,
+    assertNotEquals(
+        rpcRequestMetadata,
         new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcRequestMetadata#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcRequestMetadata#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(null, 1);
 
     // Act and Assert
-    assertNotEquals(rpcRequestMetadata,
+    assertNotEquals(
+        rpcRequestMetadata,
         new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcRequestMetadata#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcRequestMetadata#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RpcRequestMetadata rpcRequestMetadata = new RpcRequestMetadata(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 2);
+    RpcRequestMetadata rpcRequestMetadata =
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 2);
 
     // Act and Assert
-    assertNotEquals(rpcRequestMetadata,
+    assertNotEquals(
+        rpcRequestMetadata,
         new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1));
   }
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcRequestMetadata#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcRequestMetadata#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1), null);
+    assertNotEquals(
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1), null);
   }
 
   /**
    * Test {@link RpcRequestMetadata#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcRequestMetadata#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcRequestMetadata#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcRequestMetadata.equals(Object)", "int RpcRequestMetadata.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcRequestMetadata.equals(Object)",
+    "int RpcRequestMetadata.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1),
+    assertNotEquals(
+        new RpcRequestMetadata(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1),
         "Different type to RpcRequestMetadata");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcRequestMetadata#RpcRequestMetadata(UUID, int)}
    *   <li>{@link RpcRequestMetadata#toString()}
@@ -214,8 +255,12 @@ class RpcRequestMetadataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RpcRequestMetadata.<init>(UUID, int)", "int RpcRequestMetadata.getRequestId()",
-      "UUID RpcRequestMetadata.getSessionId()", "String RpcRequestMetadata.toString()"})
+  @MethodsUnderTest({
+    "void RpcRequestMetadata.<init>(UUID, int)",
+    "int RpcRequestMetadata.getRequestId()",
+    "UUID RpcRequestMetadata.getSessionId()",
+    "String RpcRequestMetadata.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -228,7 +273,8 @@ class RpcRequestMetadataDiffblueTest {
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualSessionId.toString());
-    assertEquals("RpcRequestMetadata(sessionId=784f394c-42b6-435a-983c-b7beff2784f9, requestId=1)",
+    assertEquals(
+        "RpcRequestMetadata(sessionId=784f394c-42b6-435a-983c-b7beff2784f9, requestId=1)",
         actualToStringResult);
     assertEquals(1, actualRequestId);
     assertSame(sessionId, actualSessionId);

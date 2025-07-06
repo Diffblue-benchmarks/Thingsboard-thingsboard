@@ -13,11 +13,12 @@ import org.thingsboard.server.common.data.id.EdgeId;
 class EdgeConnectionNotificationInfoDiffblueTest {
   /**
    * Test {@link EdgeConnectionNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is three.</li>
+   *   <li>Then return size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeConnectionNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link EdgeConnectionNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is three")
@@ -25,8 +26,10 @@ class EdgeConnectionNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map EdgeConnectionNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsThree() {
     // Arrange
-    EdgeConnectionNotificationInfo edgeConnectionNotificationInfo = new EdgeConnectionNotificationInfo();
-    edgeConnectionNotificationInfo.setEdgeId(new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    EdgeConnectionNotificationInfo edgeConnectionNotificationInfo =
+        new EdgeConnectionNotificationInfo();
+    edgeConnectionNotificationInfo.setEdgeId(
+        new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
     Map<String, String> actualTemplateData = edgeConnectionNotificationInfo.getTemplateData();

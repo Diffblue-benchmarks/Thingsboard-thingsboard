@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class AttributesEntityViewDiffblueTest {
   /**
    * Test {@link AttributesEntityView#equals(Object)}, and {@link AttributesEntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributesEntityView#equals(Object)}
    *   <li>{@link AttributesEntityView#hashCode()}
@@ -28,7 +30,10 @@ class AttributesEntityViewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AttributesEntityView attributesEntityView = new AttributesEntityView();
@@ -42,12 +47,14 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#equals(Object)}, and {@link AttributesEntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributesEntityView#equals(Object)}
    *   <li>{@link AttributesEntityView#hashCode()}
@@ -56,7 +63,10 @@ class AttributesEntityViewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AttributesEntityView attributesEntityView = new AttributesEntityView();
@@ -69,17 +79,21 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesEntityView(), 1);
@@ -87,17 +101,21 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<String> cs = new ArrayList<>();
@@ -111,17 +129,21 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesEntityView(), null);
@@ -129,17 +151,21 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AttributesEntityView.equals(Object)", "int AttributesEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AttributesEntityView.equals(Object)",
+    "int AttributesEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AttributesEntityView(), "Different type to AttributesEntityView");
@@ -147,8 +173,9 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AttributesEntityView#AttributesEntityView()}
    *   <li>{@link AttributesEntityView#setCs(List)}
@@ -163,10 +190,16 @@ class AttributesEntityViewDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AttributesEntityView.<init>()", "List AttributesEntityView.getCs()",
-      "List AttributesEntityView.getSh()", "List AttributesEntityView.getSs()", "void AttributesEntityView.setCs(List)",
-      "void AttributesEntityView.setSh(List)", "void AttributesEntityView.setSs(List)",
-      "String AttributesEntityView.toString()"})
+  @MethodsUnderTest({
+    "void AttributesEntityView.<init>()",
+    "List AttributesEntityView.getCs()",
+    "List AttributesEntityView.getSh()",
+    "List AttributesEntityView.getSs()",
+    "void AttributesEntityView.setCs(List)",
+    "void AttributesEntityView.setSh(List)",
+    "void AttributesEntityView.setSs(List)",
+    "String AttributesEntityView.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AttributesEntityView actualAttributesEntityView = new AttributesEntityView();
@@ -193,8 +226,8 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(AttributesEntityView)}.
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(AttributesEntityView)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(AttributesEntityView)}
    */
   @Test
   @DisplayName("Test new AttributesEntityView(AttributesEntityView)")
@@ -210,16 +243,18 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Cs is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Cs is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Cs is ArrayList()")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Cs is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_given42_whenArrayListAdd42_thenReturnCsIsArrayList() {
@@ -230,7 +265,8 @@ class AttributesEntityViewDiffblueTest {
     ArrayList<String> ss = new ArrayList<>();
 
     // Act
-    AttributesEntityView actualAttributesEntityView = new AttributesEntityView(cs, ss, new ArrayList<>());
+    AttributesEntityView actualAttributesEntityView =
+        new AttributesEntityView(cs, ss, new ArrayList<>());
 
     // Assert
     assertTrue(actualAttributesEntityView.getSh().isEmpty());
@@ -240,16 +276,18 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Sh is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Sh is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Sh is ArrayList()")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Sh is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_given42_whenArrayListAdd42_thenReturnShIsArrayList() {
@@ -262,21 +300,23 @@ class AttributesEntityViewDiffblueTest {
     sh.add("foo");
 
     // Act and Assert
-    assertEquals(sh, (new AttributesEntityView(cs, ss, sh)).getSh());
+    assertEquals(sh, new AttributesEntityView(cs, ss, sh).getSh());
   }
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return Ss is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return Ss is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Ss is ArrayList()")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given '42'; when ArrayList() add '42'; then return Ss is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_given42_whenArrayListAdd42_thenReturnSsIsArrayList() {
@@ -288,21 +328,23 @@ class AttributesEntityViewDiffblueTest {
     ss.add("foo");
 
     // Act and Assert
-    assertEquals(ss, (new AttributesEntityView(cs, ss, new ArrayList<>())).getSs());
+    assertEquals(ss, new AttributesEntityView(cs, ss, new ArrayList<>()).getSs());
   }
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return Cs is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return Cs is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Cs is ArrayList()")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Cs is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_givenFoo_whenArrayListAddFoo_thenReturnCsIsArrayList() {
@@ -312,7 +354,8 @@ class AttributesEntityViewDiffblueTest {
     ArrayList<String> ss = new ArrayList<>();
 
     // Act
-    AttributesEntityView actualAttributesEntityView = new AttributesEntityView(cs, ss, new ArrayList<>());
+    AttributesEntityView actualAttributesEntityView =
+        new AttributesEntityView(cs, ss, new ArrayList<>());
 
     // Assert
     assertTrue(actualAttributesEntityView.getSh().isEmpty());
@@ -322,16 +365,18 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return Sh size is one.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return Sh size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Sh size is one")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Sh size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_givenFoo_whenArrayListAddFoo_thenReturnShSizeIsOne() {
@@ -354,16 +399,18 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return Ss size is one.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return Ss size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Ss size is one")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); given 'foo'; when ArrayList() add 'foo'; then return Ss size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_givenFoo_whenArrayListAddFoo_thenReturnSsSizeIsOne() {
@@ -374,7 +421,8 @@ class AttributesEntityViewDiffblueTest {
     ss.add("foo");
 
     // Act
-    AttributesEntityView actualAttributesEntityView = new AttributesEntityView(cs, ss, new ArrayList<>());
+    AttributesEntityView actualAttributesEntityView =
+        new AttributesEntityView(cs, ss, new ArrayList<>());
 
     // Assert
     List<String> ss2 = actualAttributesEntityView.getSs();
@@ -385,15 +433,17 @@ class AttributesEntityViewDiffblueTest {
 
   /**
    * Test {@link AttributesEntityView#AttributesEntityView(List, List, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Cs Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Cs Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
+   *
+   * <p>Method under test: {@link AttributesEntityView#AttributesEntityView(List, List, List)}
    */
   @Test
-  @DisplayName("Test new AttributesEntityView(List, List, List); when ArrayList(); then return Cs Empty")
+  @DisplayName(
+      "Test new AttributesEntityView(List, List, List); when ArrayList(); then return Cs Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributesEntityView.<init>(List, List, List)"})
   void testNewAttributesEntityView_whenArrayList_thenReturnCsEmpty() {
@@ -402,7 +452,8 @@ class AttributesEntityViewDiffblueTest {
     ArrayList<String> ss = new ArrayList<>();
 
     // Act
-    AttributesEntityView actualAttributesEntityView = new AttributesEntityView(cs, ss, new ArrayList<>());
+    AttributesEntityView actualAttributesEntityView =
+        new AttributesEntityView(cs, ss, new ArrayList<>());
 
     // Assert
     assertTrue(actualAttributesEntityView.getCs().isEmpty());

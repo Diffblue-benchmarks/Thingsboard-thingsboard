@@ -16,11 +16,12 @@ import org.thingsboard.server.queue.TbQueueMsg;
 class DefaultTbQueueMsgDiffblueTest {
   /**
    * Test {@link DefaultTbQueueMsg#getHeaders()}.
+   *
    * <ul>
-   *   <li>Then return Data Empty.</li>
+   *   <li>Then return Data Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueMsg#getHeaders()}
+   *
+   * <p>Method under test: {@link DefaultTbQueueMsg#getHeaders()}
    */
   @Test
   @DisplayName("Test getHeaders(); then return Data Empty")
@@ -31,21 +32,25 @@ class DefaultTbQueueMsgDiffblueTest {
     UUID key = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertTrue((new DefaultTbQueueMsg(new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance()))).getHeaders()
-        .getData()
-        .isEmpty());
+    assertTrue(
+        new DefaultTbQueueMsg(new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance()))
+            .getHeaders()
+            .getData()
+            .isEmpty());
   }
 
   /**
    * Test {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}.
+   *
    * <ul>
-   *   <li>Then return Key toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return Key toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}
    */
   @Test
-  @DisplayName("Test new DefaultTbQueueMsg(TbQueueMsg); then return Key toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test new DefaultTbQueueMsg(TbQueueMsg); then return Key toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultTbQueueMsg.<init>(TbQueueMsg)"})
   void testNewDefaultTbQueueMsg_thenReturnKeyToStringIs784f394c42b6435a983cB7beff2784f9()
@@ -54,8 +59,8 @@ class DefaultTbQueueMsgDiffblueTest {
     UUID key = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    DefaultTbQueueMsg actualDefaultTbQueueMsg = new DefaultTbQueueMsg(
-        new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance()));
+    DefaultTbQueueMsg actualDefaultTbQueueMsg =
+        new DefaultTbQueueMsg(new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance()));
 
     // Assert
     UUID key2 = actualDefaultTbQueueMsg.getKey();
@@ -68,23 +73,28 @@ class DefaultTbQueueMsgDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}.
+   *
    * <ul>
-   *   <li>When {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)} with msg is {@link TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3)}.</li>
+   *   <li>When {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)} with msg is {@link
+   *       TbProtoJsQueueMsg#TbProtoJsQueueMsg(UUID, GeneratedMessageV3)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueMsg#DefaultTbQueueMsg(TbQueueMsg)}
    */
   @Test
-  @DisplayName("Test new DefaultTbQueueMsg(TbQueueMsg); when DefaultTbQueueMsg(TbQueueMsg) with msg is TbProtoJsQueueMsg(UUID, GeneratedMessageV3)")
+  @DisplayName(
+      "Test new DefaultTbQueueMsg(TbQueueMsg); when DefaultTbQueueMsg(TbQueueMsg) with msg is TbProtoJsQueueMsg(UUID, GeneratedMessageV3)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultTbQueueMsg.<init>(TbQueueMsg)"})
-  void testNewDefaultTbQueueMsg_whenDefaultTbQueueMsgWithMsgIsTbProtoJsQueueMsg() throws UnsupportedEncodingException {
+  void testNewDefaultTbQueueMsg_whenDefaultTbQueueMsgWithMsgIsTbProtoJsQueueMsg()
+      throws UnsupportedEncodingException {
     // Arrange
     UUID key = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    DefaultTbQueueMsg actualDefaultTbQueueMsg = new DefaultTbQueueMsg(
-        new DefaultTbQueueMsg(new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance())));
+    DefaultTbQueueMsg actualDefaultTbQueueMsg =
+        new DefaultTbQueueMsg(
+            new DefaultTbQueueMsg(new TbProtoJsQueueMsg<>(key, Advice.getDefaultInstance())));
 
     // Assert
     UUID key2 = actualDefaultTbQueueMsg.getKey();

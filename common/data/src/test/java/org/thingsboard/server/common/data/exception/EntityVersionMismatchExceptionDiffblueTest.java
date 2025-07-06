@@ -11,8 +11,9 @@ import org.thingsboard.server.common.data.EntityType;
 class EntityVersionMismatchExceptionDiffblueTest {
   /**
    * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}.
-   * <p>
-   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}
+   *
+   * <p>Method under test: {@link
+   * EntityVersionMismatchException#EntityVersionMismatchException(String, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(String, Throwable)")
@@ -23,8 +24,8 @@ class EntityVersionMismatchExceptionDiffblueTest {
     Throwable cause = new Throwable();
 
     // Act
-    EntityVersionMismatchException actualEntityVersionMismatchException = new EntityVersionMismatchException(
-        "0123456789ABCDEF", cause);
+    EntityVersionMismatchException actualEntityVersionMismatchException =
+        new EntityVersionMismatchException("0123456789ABCDEF", cause);
 
     // Assert
     assertEquals("0123456789ABCDEF", actualEntityVersionMismatchException.getMessage());
@@ -33,9 +34,11 @@ class EntityVersionMismatchExceptionDiffblueTest {
   }
 
   /**
-   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
-   * <p>
-   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
+   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType,
+   * Throwable)}.
+   *
+   * <p>Method under test: {@link
+   * EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(EntityType, Throwable)")
@@ -46,21 +49,26 @@ class EntityVersionMismatchExceptionDiffblueTest {
     Throwable cause = new Throwable();
 
     // Act
-    EntityVersionMismatchException actualEntityVersionMismatchException = new EntityVersionMismatchException(
-        EntityType.TENANT, cause);
+    EntityVersionMismatchException actualEntityVersionMismatchException =
+        new EntityVersionMismatchException(EntityType.TENANT, cause);
 
     // Assert
-    assertEquals("Tenant was already changed by someone else",
+    assertEquals(
+        "Tenant was already changed by someone else",
         actualEntityVersionMismatchException.getLocalizedMessage());
-    assertEquals("Tenant was already changed by someone else", actualEntityVersionMismatchException.getMessage());
+    assertEquals(
+        "Tenant was already changed by someone else",
+        actualEntityVersionMismatchException.getMessage());
     assertEquals(0, actualEntityVersionMismatchException.getSuppressed().length);
     assertSame(cause, actualEntityVersionMismatchException.getCause());
   }
 
   /**
-   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}.
-   * <p>
-   * Method under test: {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
+   * Test {@link EntityVersionMismatchException#EntityVersionMismatchException(EntityType,
+   * Throwable)}.
+   *
+   * <p>Method under test: {@link
+   * EntityVersionMismatchException#EntityVersionMismatchException(EntityType, Throwable)}
    */
   @Test
   @DisplayName("Test new EntityVersionMismatchException(EntityType, Throwable)")
@@ -71,13 +79,16 @@ class EntityVersionMismatchExceptionDiffblueTest {
     Throwable cause = new Throwable();
 
     // Act
-    EntityVersionMismatchException actualEntityVersionMismatchException = new EntityVersionMismatchException(
-        (EntityType) null, cause);
+    EntityVersionMismatchException actualEntityVersionMismatchException =
+        new EntityVersionMismatchException((EntityType) null, cause);
 
     // Assert
-    assertEquals("Entity was already changed by someone else",
+    assertEquals(
+        "Entity was already changed by someone else",
         actualEntityVersionMismatchException.getLocalizedMessage());
-    assertEquals("Entity was already changed by someone else", actualEntityVersionMismatchException.getMessage());
+    assertEquals(
+        "Entity was already changed by someone else",
+        actualEntityVersionMismatchException.getMessage());
     assertEquals(0, actualEntityVersionMismatchException.getSuppressed().length);
     assertSame(cause, actualEntityVersionMismatchException.getCause());
   }

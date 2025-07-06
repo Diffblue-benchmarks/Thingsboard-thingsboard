@@ -13,24 +13,27 @@ import org.junit.jupiter.api.Test;
 class GuavaRequestAsyncProcessorDiffblueTest {
   /**
    * Test {@link GuavaRequestAsyncProcessor#newFailure(RuntimeException)}.
+   *
    * <ul>
-   *   <li>When {@link RuntimeException#RuntimeException(String)} with {@code foo}.</li>
-   *   <li>Then return Done.</li>
+   *   <li>When {@link RuntimeException#RuntimeException(String)} with {@code foo}.
+   *   <li>Then return Done.
    * </ul>
-   * <p>
-   * Method under test: {@link GuavaRequestAsyncProcessor#newFailure(RuntimeException)}
+   *
+   * <p>Method under test: {@link GuavaRequestAsyncProcessor#newFailure(RuntimeException)}
    */
   @Test
-  @DisplayName("Test newFailure(RuntimeException); when RuntimeException(String) with 'foo'; then return Done")
+  @DisplayName(
+      "Test newFailure(RuntimeException); when RuntimeException(String) with 'foo'; then return Done")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture GuavaRequestAsyncProcessor.newFailure(RuntimeException)"})
+    "com.google.common.util.concurrent.ListenableFuture GuavaRequestAsyncProcessor.newFailure(RuntimeException)"
+  })
   void testNewFailure_whenRuntimeExceptionWithFoo_thenReturnDone() {
     // Arrange
     RequestProcessor<Request, CompletionStage<Object>> subProcessor = mock(RequestProcessor.class);
     Class<Object> requestClass = Object.class;
-    GuavaRequestAsyncProcessor<Request, Object> guavaRequestAsyncProcessor = new GuavaRequestAsyncProcessor<>(
-        subProcessor, requestClass, GuavaSession.ASYNC);
+    GuavaRequestAsyncProcessor<Request, Object> guavaRequestAsyncProcessor =
+        new GuavaRequestAsyncProcessor<>(subProcessor, requestClass, GuavaSession.ASYNC);
 
     // Act and Assert
     assertTrue(guavaRequestAsyncProcessor.newFailure(new RuntimeException("foo")).isDone());

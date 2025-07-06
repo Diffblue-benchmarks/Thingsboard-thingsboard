@@ -18,8 +18,9 @@ import org.thingsboard.server.common.data.id.UserId;
 class AlarmCountQueryDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCountQuery#AlarmCountQuery()}
    *   <li>{@link AlarmCountQuery#toString()}
@@ -36,11 +37,18 @@ class AlarmCountQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>()", "UserId AlarmCountQuery.getAssigneeId()",
-      "long AlarmCountQuery.getEndTs()", "List AlarmCountQuery.getSeverityList()", "long AlarmCountQuery.getStartTs()",
-      "List AlarmCountQuery.getStatusList()", "long AlarmCountQuery.getTimeWindow()",
-      "List AlarmCountQuery.getTypeList()", "boolean AlarmCountQuery.isSearchPropagatedAlarms()",
-      "String AlarmCountQuery.toString()"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>()",
+    "UserId AlarmCountQuery.getAssigneeId()",
+    "long AlarmCountQuery.getEndTs()",
+    "List AlarmCountQuery.getSeverityList()",
+    "long AlarmCountQuery.getStartTs()",
+    "List AlarmCountQuery.getStatusList()",
+    "long AlarmCountQuery.getTimeWindow()",
+    "List AlarmCountQuery.getTypeList()",
+    "boolean AlarmCountQuery.isSearchPropagatedAlarms()",
+    "String AlarmCountQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery();
@@ -55,8 +63,10 @@ class AlarmCountQueryDiffblueTest {
     boolean actualIsSearchPropagatedAlarmsResult = actualAlarmCountQuery.isSearchPropagatedAlarms();
 
     // Assert
-    assertEquals("AlarmCountQuery(startTs=0, endTs=0, timeWindow=0, typeList=null, statusList=null, severityList=null,"
-        + " searchPropagatedAlarms=false, assigneeId=null)", actualToStringResult);
+    assertEquals(
+        "AlarmCountQuery(startTs=0, endTs=0, timeWindow=0, typeList=null, statusList=null, severityList=null,"
+            + " searchPropagatedAlarms=false, assigneeId=null)",
+        actualToStringResult);
     assertNull(actualTypeList);
     assertNull(actualStatusList);
     assertNull(actualSeverityList);
@@ -70,19 +80,25 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
-   *   <li>Then return TypeList is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
+   *   <li>Then return TypeList is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given '42'; when ArrayList() add '42'; then return TypeList is ArrayList()")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given '42'; when ArrayList() add '42'; then return TypeList is ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_given42_whenArrayListAdd42_thenReturnTypeListIsArrayList() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -90,8 +106,8 @@ class AlarmCountQueryDiffblueTest {
     ArrayList<AlarmSearchStatus> statusList = new ArrayList<>();
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(),
-        true, null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(), true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -107,18 +123,24 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given {@code ACTIVE}.</li>
-   *   <li>Then return StatusList is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code ACTIVE}.
+   *   <li>Then return StatusList is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'ACTIVE'; then return StatusList is ArrayList()")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'ACTIVE'; then return StatusList is ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_givenActive_thenReturnStatusListIsArrayList() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -127,8 +149,8 @@ class AlarmCountQueryDiffblueTest {
     statusList.add(AlarmSearchStatus.ACTIVE);
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(),
-        true, null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(), true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -144,18 +166,24 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given {@code CLEARED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code CLEARED}.</li>
+   *   <li>Given {@code CLEARED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code CLEARED}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'CLEARED'; when ArrayList() add 'CLEARED'")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'CLEARED'; when ArrayList() add 'CLEARED'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_givenCleared_whenArrayListAddCleared() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -165,8 +193,8 @@ class AlarmCountQueryDiffblueTest {
     statusList.add(AlarmSearchStatus.ACTIVE);
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(),
-        true, null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(), true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -182,18 +210,24 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add empty string.</li>
+   *   <li>Given empty string.
+   *   <li>When {@link ArrayList#ArrayList()} add empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given empty string; when ArrayList() add empty string")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given empty string; when ArrayList() add empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_givenEmptyString_whenArrayListAddEmptyString() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -202,8 +236,8 @@ class AlarmCountQueryDiffblueTest {
     ArrayList<AlarmSearchStatus> statusList = new ArrayList<>();
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(),
-        true, null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(), true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -219,18 +253,24 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given {@code MAJOR}.</li>
-   *   <li>Then return SeverityList is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code MAJOR}.
+   *   <li>Then return SeverityList is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'MAJOR'; then return SeverityList is ArrayList()")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'MAJOR'; then return SeverityList is ArrayList()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_givenMajor_thenReturnSeverityListIsArrayList() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -240,8 +280,8 @@ class AlarmCountQueryDiffblueTest {
     severityList.add(AlarmSeverity.MAJOR);
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, severityList, true,
-        null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, severityList, true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -257,18 +297,24 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>Given {@code MINOR}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code MINOR}.</li>
+   *   <li>Given {@code MINOR}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code MINOR}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'MINOR'; when ArrayList() add 'MINOR'")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); given 'MINOR'; when ArrayList() add 'MINOR'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_givenMinor_whenArrayListAddMinor() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
@@ -279,8 +325,8 @@ class AlarmCountQueryDiffblueTest {
     severityList.add(AlarmSeverity.MAJOR);
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, severityList, true,
-        null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, severityList, true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());
@@ -296,26 +342,32 @@ class AlarmCountQueryDiffblueTest {
   }
 
   /**
-   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}.
+   * Test {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean,
+   * UserId)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return SeverityList Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return SeverityList Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List, List, boolean, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCountQuery#AlarmCountQuery(long, long, long, List, List,
+   * List, boolean, UserId)}
    */
   @Test
-  @DisplayName("Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); when ArrayList(); then return SeverityList Empty")
+  @DisplayName(
+      "Test new AlarmCountQuery(long, long, long, List, List, List, boolean, UserId); when ArrayList(); then return SeverityList Empty")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"})
+  @MethodsUnderTest({
+    "void AlarmCountQuery.<init>(long, long, long, List, List, List, boolean, UserId)"
+  })
   void testNewAlarmCountQuery_whenArrayList_thenReturnSeverityListEmpty() {
     // Arrange
     ArrayList<String> typeList = new ArrayList<>();
     ArrayList<AlarmSearchStatus> statusList = new ArrayList<>();
 
     // Act
-    AlarmCountQuery actualAlarmCountQuery = new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(),
-        true, null);
+    AlarmCountQuery actualAlarmCountQuery =
+        new AlarmCountQuery(1L, 1L, 10L, typeList, statusList, new ArrayList<>(), true, null);
 
     // Assert
     assertNull(actualAlarmCountQuery.getKeyFilters());

@@ -20,13 +20,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MObserveRequ
 @ContextConfiguration(classes = {TbLwM2MObserveRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MObserveRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MObserveRequestBuilder tbLwM2MObserveRequestBuilder;
+  @Autowired private TbLwM2MObserveRequestBuilder tbLwM2MObserveRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MObserveRequest#getRequestContentFormat()}
    *   <li>{@link TbLwM2MObserveRequest#getType()}
@@ -35,16 +35,20 @@ class TbLwM2MObserveRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional TbLwM2MObserveRequest.getRequestContentFormat()",
-      "LwM2MOperationType TbLwM2MObserveRequest.getType()"})
+  @MethodsUnderTest({
+    "Optional TbLwM2MObserveRequest.getRequestContentFormat()",
+    "LwM2MOperationType TbLwM2MObserveRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MObserveRequest buildResult = builderResult.requestContentFormat(requestContentFormat)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MObserveRequest buildResult =
+        builderResult
+            .requestContentFormat(requestContentFormat)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Act
     Optional<ContentFormat> actualRequestContentFormat = buildResult.getRequestContentFormat();
@@ -57,8 +61,9 @@ class TbLwM2MObserveRequestDiffblueTest {
 
   /**
    * Test TbLwM2MObserveRequestBuilder {@link TbLwM2MObserveRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MObserveRequestBuilder#build()}
    *   <li>{@link TbLwM2MObserveRequestBuilder#requestContentFormat(ContentFormat)}
@@ -69,22 +74,26 @@ class TbLwM2MObserveRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MObserveRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MObserveRequestBuilder.<init>()",
-      "TbLwM2MObserveRequest TbLwM2MObserveRequestBuilder.build()",
-      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.requestContentFormat(ContentFormat)",
-      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.timeout(long)",
-      "String TbLwM2MObserveRequestBuilder.toString()",
-      "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MObserveRequestBuilder.<init>()",
+    "TbLwM2MObserveRequest TbLwM2MObserveRequestBuilder.build()",
+    "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.requestContentFormat(ContentFormat)",
+    "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.timeout(long)",
+    "String TbLwM2MObserveRequestBuilder.toString()",
+    "TbLwM2MObserveRequestBuilder TbLwM2MObserveRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MObserveRequestBuilderBuild() {
     // Arrange
     TbLwM2MObserveRequestBuilder builderResult = TbLwM2MObserveRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
 
     // Act
-    TbLwM2MObserveRequest actualBuildResult = builderResult.requestContentFormat(requestContentFormat)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MObserveRequest actualBuildResult =
+        builderResult
+            .requestContentFormat(requestContentFormat)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

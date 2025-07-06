@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class DeduplicationDataDiffblueTest {
   /**
    * Test {@link DeduplicationData#size()}.
-   * <p>
-   * Method under test: {@link DeduplicationData#size()}
+   *
+   * <p>Method under test: {@link DeduplicationData#size()}
    */
   @Test
   @DisplayName("Test size()")
@@ -20,17 +20,18 @@ class DeduplicationDataDiffblueTest {
   @MethodsUnderTest({"int DeduplicationData.size()"})
   void testSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new DeduplicationData()).size());
+    assertEquals(0, new DeduplicationData().size());
   }
 
   /**
    * Test {@link DeduplicationData#isEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link DeduplicationData} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link DeduplicationData} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeduplicationData#isEmpty()}
+   *
+   * <p>Method under test: {@link DeduplicationData#isEmpty()}
    */
   @Test
   @DisplayName("Test isEmpty(); given DeduplicationData (default constructor); then return 'true'")
@@ -38,17 +39,19 @@ class DeduplicationDataDiffblueTest {
   @MethodsUnderTest({"boolean DeduplicationData.isEmpty()"})
   void testIsEmpty_givenDeduplicationData_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new DeduplicationData()).isEmpty());
+    assertTrue(new DeduplicationData().isEmpty());
   }
 
   /**
    * Test {@link DeduplicationData#equals(Object)}, and {@link DeduplicationData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeduplicationData#equals(Object)}
    *   <li>{@link DeduplicationData#hashCode()}
@@ -57,7 +60,10 @@ class DeduplicationDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeduplicationData deduplicationData = new DeduplicationData();
@@ -71,12 +77,14 @@ class DeduplicationDataDiffblueTest {
 
   /**
    * Test {@link DeduplicationData#equals(Object)}, and {@link DeduplicationData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeduplicationData#equals(Object)}
    *   <li>{@link DeduplicationData#hashCode()}
@@ -85,7 +93,10 @@ class DeduplicationDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeduplicationData deduplicationData = new DeduplicationData();
@@ -98,17 +109,21 @@ class DeduplicationDataDiffblueTest {
 
   /**
    * Test {@link DeduplicationData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeduplicationData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeduplicationData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeduplicationData(), 1);
@@ -116,17 +131,21 @@ class DeduplicationDataDiffblueTest {
 
   /**
    * Test {@link DeduplicationData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeduplicationData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeduplicationData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeduplicationData deduplicationData = new DeduplicationData();
@@ -138,17 +157,21 @@ class DeduplicationDataDiffblueTest {
 
   /**
    * Test {@link DeduplicationData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeduplicationData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeduplicationData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeduplicationData(), null);
@@ -156,17 +179,21 @@ class DeduplicationDataDiffblueTest {
 
   /**
    * Test {@link DeduplicationData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeduplicationData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeduplicationData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeduplicationData.equals(Object)", "int DeduplicationData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeduplicationData.equals(Object)",
+    "int DeduplicationData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeduplicationData(), "Different type to DeduplicationData");

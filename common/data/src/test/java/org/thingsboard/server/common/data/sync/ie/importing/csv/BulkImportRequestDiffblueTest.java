@@ -19,19 +19,22 @@ import org.thingsboard.server.common.data.sync.ie.importing.csv.BulkImportReques
 class BulkImportRequestDiffblueTest {
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}, and {@link ColumnMapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ColumnMapping#equals(Object)}
    *   <li>{@link ColumnMapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ColumnMapping.equals(Object)", "int ColumnMapping.hashCode()"})
   void testColumnMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -52,19 +55,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}, and {@link ColumnMapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ColumnMapping#equals(Object)}
    *   <li>{@link ColumnMapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ColumnMapping.equals(Object)", "int ColumnMapping.hashCode()"})
   void testColumnMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -85,19 +91,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}, and {@link ColumnMapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ColumnMapping#equals(Object)}
    *   <li>{@link ColumnMapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ColumnMapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ColumnMapping.equals(Object)", "int ColumnMapping.hashCode()"})
   void testColumnMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -118,19 +127,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}, and {@link ColumnMapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ColumnMapping#equals(Object)}
    *   <li>{@link ColumnMapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ColumnMapping equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ColumnMapping equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ColumnMapping.equals(Object)", "int ColumnMapping.hashCode()"})
   void testColumnMappingEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -147,12 +159,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is different; then return not equal")
@@ -174,12 +187,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is different; then return not equal")
@@ -188,7 +202,8 @@ class BulkImportRequestDiffblueTest {
   void testColumnMappingEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ColumnMapping columnMapping = new ColumnMapping();
-    columnMapping.setKey("org.thingsboard.server.common.data.sync.ie.importing.csv.BulkImportRequest$ColumnMapping");
+    columnMapping.setKey(
+        "org.thingsboard.server.common.data.sync.ie.importing.csv.BulkImportRequest$ColumnMapping");
     columnMapping.setType(BulkImportColumnType.NAME);
 
     ColumnMapping columnMapping2 = new ColumnMapping();
@@ -201,12 +216,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is different; then return not equal")
@@ -228,12 +244,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is different; then return not equal")
@@ -255,12 +272,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is 'null'; then return not equal")
@@ -278,12 +296,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping {@link ColumnMapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ColumnMapping#equals(Object)}
+   *
+   * <p>Method under test: {@link ColumnMapping#equals(Object)}
    */
   @Test
   @DisplayName("Test ColumnMapping equals(Object); when other is wrong type; then return not equal")
@@ -301,8 +320,9 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test ColumnMapping getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ColumnMapping}
    *   <li>{@link ColumnMapping#setKey(String)}
@@ -315,9 +335,14 @@ class BulkImportRequestDiffblueTest {
   @Test
   @DisplayName("Test ColumnMapping getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ColumnMapping.<init>()", "String ColumnMapping.getKey()",
-      "BulkImportColumnType ColumnMapping.getType()", "void ColumnMapping.setKey(String)",
-      "void ColumnMapping.setType(BulkImportColumnType)", "String ColumnMapping.toString()"})
+  @MethodsUnderTest({
+    "void ColumnMapping.<init>()",
+    "String ColumnMapping.getKey()",
+    "BulkImportColumnType ColumnMapping.getType()",
+    "void ColumnMapping.setKey(String)",
+    "void ColumnMapping.setType(BulkImportColumnType)",
+    "String ColumnMapping.toString()"
+  })
   void testColumnMappingGettersAndSetters() {
     // Arrange and Act
     ColumnMapping actualColumnMapping = new ColumnMapping();
@@ -334,12 +359,14 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}, and {@link BulkImportRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BulkImportRequest#equals(Object)}
    *   <li>{@link BulkImportRequest#hashCode()}
@@ -348,7 +375,10 @@ class BulkImportRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -379,12 +409,14 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}, and {@link BulkImportRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BulkImportRequest#equals(Object)}
    *   <li>{@link BulkImportRequest#hashCode()}
@@ -393,7 +425,10 @@ class BulkImportRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -414,17 +449,21 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BulkImportRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -453,17 +492,21 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BulkImportRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -473,7 +516,8 @@ class BulkImportRequestDiffblueTest {
     mapping.setUpdate(true);
 
     BulkImportRequest bulkImportRequest = new BulkImportRequest();
-    bulkImportRequest.setFile("org.thingsboard.server.common.data.sync.ie.importing.csv.BulkImportRequest");
+    bulkImportRequest.setFile(
+        "org.thingsboard.server.common.data.sync.ie.importing.csv.BulkImportRequest");
     bulkImportRequest.setMapping(mapping);
 
     Mapping mapping2 = new Mapping();
@@ -492,17 +536,21 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BulkImportRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Mapping mapping = mock(Mapping.class);
@@ -535,17 +583,68 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BulkImportRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    Mapping mapping = mock(Mapping.class);
+    doNothing().when(mapping).setColumns(Mockito.<List<ColumnMapping>>any());
+    doNothing().when(mapping).setDelimiter(Mockito.<Character>any());
+    doNothing().when(mapping).setHeader(Mockito.<Boolean>any());
+    doNothing().when(mapping).setUpdate(Mockito.<Boolean>any());
+    mapping.setColumns(new ArrayList<>());
+    mapping.setDelimiter('A');
+    mapping.setHeader(true);
+    mapping.setUpdate(true);
+
+    BulkImportRequest bulkImportRequest = new BulkImportRequest();
+    bulkImportRequest.setFile(null);
+    bulkImportRequest.setMapping(mapping);
+
+    Mapping mapping2 = new Mapping();
+    mapping2.setColumns(new ArrayList<>());
+    mapping2.setDelimiter('A');
+    mapping2.setHeader(true);
+    mapping2.setUpdate(true);
+
+    BulkImportRequest bulkImportRequest2 = new BulkImportRequest();
+    bulkImportRequest2.setFile(null);
+    bulkImportRequest2.setMapping(mapping2);
+
+    // Act and Assert
+    assertNotEquals(bulkImportRequest, bulkImportRequest2);
+  }
+
+  /**
+   * Test {@link BulkImportRequest#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -564,17 +663,21 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test {@link BulkImportRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BulkImportRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link BulkImportRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BulkImportRequest.equals(Object)", "int BulkImportRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BulkImportRequest.equals(Object)",
+    "int BulkImportRequest.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     Mapping mapping = new Mapping();
@@ -593,8 +696,9 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link BulkImportRequest}
    *   <li>{@link BulkImportRequest#setFile(String)}
@@ -607,9 +711,14 @@ class BulkImportRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BulkImportRequest.<init>()", "String BulkImportRequest.getFile()",
-      "Mapping BulkImportRequest.getMapping()", "void BulkImportRequest.setFile(String)",
-      "void BulkImportRequest.setMapping(Mapping)", "String BulkImportRequest.toString()"})
+  @MethodsUnderTest({
+    "void BulkImportRequest.<init>()",
+    "String BulkImportRequest.getFile()",
+    "Mapping BulkImportRequest.getMapping()",
+    "void BulkImportRequest.setFile(String)",
+    "void BulkImportRequest.setMapping(Mapping)",
+    "String BulkImportRequest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     BulkImportRequest actualBulkImportRequest = new BulkImportRequest();
@@ -624,27 +733,32 @@ class BulkImportRequestDiffblueTest {
     String actualFile = actualBulkImportRequest.getFile();
 
     // Assert
-    assertEquals("BulkImportRequest(file=File, mapping=BulkImportRequest.Mapping(columns=[], delimiter=A, update=true,"
-        + " header=true))", actualToStringResult);
+    assertEquals(
+        "BulkImportRequest(file=File, mapping=BulkImportRequest.Mapping(columns=[], delimiter=A, update=true,"
+            + " header=true))",
+        actualToStringResult);
     assertEquals("File", actualFile);
     assertSame(mapping, actualBulkImportRequest.getMapping());
   }
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}, and {@link Mapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Mapping#equals(Object)}
    *   <li>{@link Mapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Mapping.equals(Object)", "int Mapping.hashCode()"})
   void testMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -669,19 +783,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}, and {@link Mapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Mapping#equals(Object)}
    *   <li>{@link Mapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Mapping.equals(Object)", "int Mapping.hashCode()"})
   void testMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -706,19 +823,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}, and {@link Mapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Mapping#equals(Object)}
    *   <li>{@link Mapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Mapping.equals(Object)", "int Mapping.hashCode()"})
   void testMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -743,19 +863,22 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}, and {@link Mapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Mapping#equals(Object)}
    *   <li>{@link Mapping#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Mapping equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Mapping.equals(Object)", "int Mapping.hashCode()"})
   void testMappingEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
@@ -780,12 +903,14 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}, and {@link Mapping#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Mapping#equals(Object)}
    *   <li>{@link Mapping#hashCode()}
@@ -811,12 +936,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -849,12 +975,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -880,12 +1007,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -911,12 +1039,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -942,12 +1071,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -973,12 +1103,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -1004,12 +1135,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is different; then return not equal")
@@ -1035,12 +1167,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is 'null'; then return not equal")
@@ -1060,12 +1193,13 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping {@link Mapping#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Mapping#equals(Object)}
+   *
+   * <p>Method under test: {@link Mapping#equals(Object)}
    */
   @Test
   @DisplayName("Test Mapping equals(Object); when other is wrong type; then return not equal")
@@ -1085,8 +1219,9 @@ class BulkImportRequestDiffblueTest {
 
   /**
    * Test Mapping getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Mapping}
    *   <li>{@link Mapping#setColumns(List)}
@@ -1103,10 +1238,18 @@ class BulkImportRequestDiffblueTest {
   @Test
   @DisplayName("Test Mapping getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Mapping.<init>()", "List Mapping.getColumns()", "Character Mapping.getDelimiter()",
-      "Boolean Mapping.getHeader()", "Boolean Mapping.getUpdate()", "void Mapping.setColumns(List)",
-      "void Mapping.setDelimiter(Character)", "void Mapping.setHeader(Boolean)", "void Mapping.setUpdate(Boolean)",
-      "String Mapping.toString()"})
+  @MethodsUnderTest({
+    "void Mapping.<init>()",
+    "List Mapping.getColumns()",
+    "Character Mapping.getDelimiter()",
+    "Boolean Mapping.getHeader()",
+    "Boolean Mapping.getUpdate()",
+    "void Mapping.setColumns(List)",
+    "void Mapping.setDelimiter(Character)",
+    "void Mapping.setHeader(Boolean)",
+    "void Mapping.setUpdate(Boolean)",
+    "String Mapping.toString()"
+  })
   void testMappingGettersAndSetters() {
     // Arrange and Act
     Mapping actualMapping = new Mapping();
@@ -1122,7 +1265,9 @@ class BulkImportRequestDiffblueTest {
     Boolean actualUpdate = actualMapping.getUpdate();
 
     // Assert
-    assertEquals("BulkImportRequest.Mapping(columns=[], delimiter=A, update=true, header=true)", actualToStringResult);
+    assertEquals(
+        "BulkImportRequest.Mapping(columns=[], delimiter=A, update=true, header=true)",
+        actualToStringResult);
     assertEquals('A', actualDelimiter.charValue());
     assertTrue(actualColumns.isEmpty());
     assertTrue(actualHeader);

@@ -13,18 +13,19 @@ import org.junit.jupiter.api.Test;
 class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbGpsGeofencingActionNodeConfiguration TbGpsGeofencingActionNodeConfiguration.defaultConfiguration()"})
+    "TbGpsGeofencingActionNodeConfiguration TbGpsGeofencingActionNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbGpsGeofencingActionNodeConfiguration actualDefaultConfigurationResult = (new TbGpsGeofencingActionNodeConfiguration())
-        .defaultConfiguration();
+    TbGpsGeofencingActionNodeConfiguration actualDefaultConfigurationResult =
+        new TbGpsGeofencingActionNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("MINUTES", actualDefaultConfigurationResult.getMinInsideDurationTimeUnit());
@@ -45,13 +46,16 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link
+   * TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#hashCode()}
@@ -60,12 +64,16 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 =
+        new TbGpsGeofencingActionNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
@@ -74,13 +82,16 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link
+   * TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#hashCode()}
@@ -89,15 +100,21 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit("Min Inside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit(
+        "Min Inside Duration Time Unit");
 
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration2.setMinInsideDurationTimeUnit("Min Inside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration2.setMinInsideDurationTimeUnit(
+        "Min Inside Duration Time Unit");
 
     // Act and Assert
     assertEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
@@ -106,13 +123,16 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link
+   * TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#hashCode()}
@@ -121,15 +141,21 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit("Min Outside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit(
+        "Min Outside Duration Time Unit");
 
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration2.setMinOutsideDurationTimeUnit("Min Outside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration2.setMinOutsideDurationTimeUnit(
+        "Min Outside Duration Time Unit");
 
     // Act and Assert
     assertEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
@@ -138,13 +164,16 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}, and {@link
+   * TbGpsGeofencingActionNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#hashCode()}
@@ -153,11 +182,14 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration);
@@ -167,18 +199,21 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGpsGeofencingActionNodeConfiguration(), 1);
@@ -186,183 +221,227 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
     tbGpsGeofencingActionNodeConfiguration.setMinInsideDuration(1);
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
     tbGpsGeofencingActionNodeConfiguration.setMinOutsideDuration(1);
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit("Min Inside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit(
+        "Min Inside Duration Time Unit");
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit("Min Outside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit(
+        "Min Outside Duration Time Unit");
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
     tbGpsGeofencingActionNodeConfiguration.setReportPresenceStatusOnEachMessage(true);
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, new TbGpsGeofencingActionNodeConfiguration());
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
 
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration2.setMinInsideDurationTimeUnit("Min Inside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration2.setMinInsideDurationTimeUnit(
+        "Min Inside Duration Time Unit");
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
 
-    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 = new TbGpsGeofencingActionNodeConfiguration();
-    tbGpsGeofencingActionNodeConfiguration2.setMinOutsideDurationTimeUnit("Min Outside Duration Time Unit");
+    TbGpsGeofencingActionNodeConfiguration tbGpsGeofencingActionNodeConfiguration2 =
+        new TbGpsGeofencingActionNodeConfiguration();
+    tbGpsGeofencingActionNodeConfiguration2.setMinOutsideDurationTimeUnit(
+        "Min Outside Duration Time Unit");
 
     // Act and Assert
-    assertNotEquals(tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
+    assertNotEquals(
+        tbGpsGeofencingActionNodeConfiguration, tbGpsGeofencingActionNodeConfiguration2);
   }
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGpsGeofencingActionNodeConfiguration(), null);
@@ -370,35 +449,41 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGpsGeofencingActionNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
-      "int TbGpsGeofencingActionNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGpsGeofencingActionNodeConfiguration.equals(Object)",
+    "int TbGpsGeofencingActionNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbGpsGeofencingActionNodeConfiguration(),
+    assertNotEquals(
+        new TbGpsGeofencingActionNodeConfiguration(),
         "Different type to TbGpsGeofencingActionNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGpsGeofencingActionNodeConfiguration}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#setMinInsideDuration(int)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#setMinInsideDurationTimeUnit(String)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#setMinOutsideDuration(int)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#setMinOutsideDurationTimeUnit(String)}
-   *   <li>{@link TbGpsGeofencingActionNodeConfiguration#setReportPresenceStatusOnEachMessage(boolean)}
+   *   <li>{@link
+   *       TbGpsGeofencingActionNodeConfiguration#setReportPresenceStatusOnEachMessage(boolean)}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#toString()}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#getMinInsideDuration()}
    *   <li>{@link TbGpsGeofencingActionNodeConfiguration#getMinInsideDurationTimeUnit()}
@@ -410,35 +495,42 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGpsGeofencingActionNodeConfiguration.<init>()",
-      "int TbGpsGeofencingActionNodeConfiguration.getMinInsideDuration()",
-      "String TbGpsGeofencingActionNodeConfiguration.getMinInsideDurationTimeUnit()",
-      "int TbGpsGeofencingActionNodeConfiguration.getMinOutsideDuration()",
-      "String TbGpsGeofencingActionNodeConfiguration.getMinOutsideDurationTimeUnit()",
-      "boolean TbGpsGeofencingActionNodeConfiguration.isReportPresenceStatusOnEachMessage()",
-      "void TbGpsGeofencingActionNodeConfiguration.setMinInsideDuration(int)",
-      "void TbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit(String)",
-      "void TbGpsGeofencingActionNodeConfiguration.setMinOutsideDuration(int)",
-      "void TbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit(String)",
-      "void TbGpsGeofencingActionNodeConfiguration.setReportPresenceStatusOnEachMessage(boolean)",
-      "String TbGpsGeofencingActionNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbGpsGeofencingActionNodeConfiguration.<init>()",
+    "int TbGpsGeofencingActionNodeConfiguration.getMinInsideDuration()",
+    "String TbGpsGeofencingActionNodeConfiguration.getMinInsideDurationTimeUnit()",
+    "int TbGpsGeofencingActionNodeConfiguration.getMinOutsideDuration()",
+    "String TbGpsGeofencingActionNodeConfiguration.getMinOutsideDurationTimeUnit()",
+    "boolean TbGpsGeofencingActionNodeConfiguration.isReportPresenceStatusOnEachMessage()",
+    "void TbGpsGeofencingActionNodeConfiguration.setMinInsideDuration(int)",
+    "void TbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit(String)",
+    "void TbGpsGeofencingActionNodeConfiguration.setMinOutsideDuration(int)",
+    "void TbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit(String)",
+    "void TbGpsGeofencingActionNodeConfiguration.setReportPresenceStatusOnEachMessage(boolean)",
+    "String TbGpsGeofencingActionNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbGpsGeofencingActionNodeConfiguration actualTbGpsGeofencingActionNodeConfiguration = new TbGpsGeofencingActionNodeConfiguration();
+    TbGpsGeofencingActionNodeConfiguration actualTbGpsGeofencingActionNodeConfiguration =
+        new TbGpsGeofencingActionNodeConfiguration();
     actualTbGpsGeofencingActionNodeConfiguration.setMinInsideDuration(1);
-    actualTbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit("Min Inside Duration Time Unit");
+    actualTbGpsGeofencingActionNodeConfiguration.setMinInsideDurationTimeUnit(
+        "Min Inside Duration Time Unit");
     actualTbGpsGeofencingActionNodeConfiguration.setMinOutsideDuration(1);
-    actualTbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit("Min Outside Duration Time Unit");
+    actualTbGpsGeofencingActionNodeConfiguration.setMinOutsideDurationTimeUnit(
+        "Min Outside Duration Time Unit");
     actualTbGpsGeofencingActionNodeConfiguration.setReportPresenceStatusOnEachMessage(true);
     String actualToStringResult = actualTbGpsGeofencingActionNodeConfiguration.toString();
-    int actualMinInsideDuration = actualTbGpsGeofencingActionNodeConfiguration.getMinInsideDuration();
-    String actualMinInsideDurationTimeUnit = actualTbGpsGeofencingActionNodeConfiguration
-        .getMinInsideDurationTimeUnit();
-    int actualMinOutsideDuration = actualTbGpsGeofencingActionNodeConfiguration.getMinOutsideDuration();
-    String actualMinOutsideDurationTimeUnit = actualTbGpsGeofencingActionNodeConfiguration
-        .getMinOutsideDurationTimeUnit();
-    boolean actualIsReportPresenceStatusOnEachMessageResult = actualTbGpsGeofencingActionNodeConfiguration
-        .isReportPresenceStatusOnEachMessage();
+    int actualMinInsideDuration =
+        actualTbGpsGeofencingActionNodeConfiguration.getMinInsideDuration();
+    String actualMinInsideDurationTimeUnit =
+        actualTbGpsGeofencingActionNodeConfiguration.getMinInsideDurationTimeUnit();
+    int actualMinOutsideDuration =
+        actualTbGpsGeofencingActionNodeConfiguration.getMinOutsideDuration();
+    String actualMinOutsideDurationTimeUnit =
+        actualTbGpsGeofencingActionNodeConfiguration.getMinOutsideDurationTimeUnit();
+    boolean actualIsReportPresenceStatusOnEachMessageResult =
+        actualTbGpsGeofencingActionNodeConfiguration.isReportPresenceStatusOnEachMessage();
 
     // Assert
     assertEquals("Min Inside Duration Time Unit", actualMinInsideDurationTimeUnit);
@@ -459,7 +551,8 @@ class TbGpsGeofencingActionNodeConfigurationDiffblueTest {
     assertNull(actualTbGpsGeofencingActionNodeConfiguration.getRangeUnit());
     assertEquals(1, actualMinInsideDuration);
     assertEquals(1, actualMinOutsideDuration);
-    assertFalse(actualTbGpsGeofencingActionNodeConfiguration.isFetchPerimeterInfoFromMessageMetadata());
+    assertFalse(
+        actualTbGpsGeofencingActionNodeConfiguration.isFetchPerimeterInfoFromMessageMetadata());
     assertTrue(actualIsReportPresenceStatusOnEachMessageResult);
   }
 }

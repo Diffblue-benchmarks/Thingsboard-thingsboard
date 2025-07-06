@@ -16,12 +16,13 @@ import org.junit.jupiter.api.Test;
 class HomeDashboardDiffblueTest {
   /**
    * Test {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return MobileHide.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return MobileHide.
    * </ul>
-   * <p>
-   * Method under test: {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}
+   *
+   * <p>Method under test: {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}
    */
   @Test
   @DisplayName("Test new HomeDashboard(Dashboard, boolean); given 'true'; then return MobileHide")
@@ -57,15 +58,17 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link Dashboard#Dashboard()}.</li>
-   *   <li>Then return not MobileHide.</li>
+   *   <li>When {@link Dashboard#Dashboard()}.
+   *   <li>Then return not MobileHide.
    * </ul>
-   * <p>
-   * Method under test: {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}
+   *
+   * <p>Method under test: {@link HomeDashboard#HomeDashboard(Dashboard, boolean)}
    */
   @Test
-  @DisplayName("Test new HomeDashboard(Dashboard, boolean); when Dashboard(); then return not MobileHide")
+  @DisplayName(
+      "Test new HomeDashboard(Dashboard, boolean); when Dashboard(); then return not MobileHide")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void HomeDashboard.<init>(Dashboard, boolean)"})
   void testNewHomeDashboard_whenDashboard_thenReturnNotMobileHide() {
@@ -94,12 +97,14 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#equals(Object)}, and {@link HomeDashboard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link HomeDashboard#equals(Object)}
    *   <li>{@link HomeDashboard#hashCode()}
@@ -122,12 +127,14 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#equals(Object)}, and {@link HomeDashboard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link HomeDashboard#equals(Object)}
    *   <li>{@link HomeDashboard#hashCode()}
@@ -149,12 +156,13 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link HomeDashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link HomeDashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -170,12 +178,13 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link HomeDashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link HomeDashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -188,12 +197,13 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test {@link HomeDashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link HomeDashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link HomeDashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -206,8 +216,9 @@ class HomeDashboardDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link HomeDashboard#setHideDashboardToolbar(boolean)}
    *   <li>{@link HomeDashboard#toString()}
@@ -217,8 +228,11 @@ class HomeDashboardDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean HomeDashboard.isHideDashboardToolbar()",
-      "void HomeDashboard.setHideDashboardToolbar(boolean)", "String HomeDashboard.toString()"})
+  @MethodsUnderTest({
+    "boolean HomeDashboard.isHideDashboardToolbar()",
+    "void HomeDashboard.setHideDashboardToolbar(boolean)",
+    "String HomeDashboard.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), true);

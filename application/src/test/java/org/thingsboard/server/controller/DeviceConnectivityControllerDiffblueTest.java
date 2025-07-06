@@ -23,28 +23,32 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class DeviceConnectivityControllerDiffblueTest {
-  @InjectMocks
-  private DeviceConnectivityController deviceConnectivityController;
+  @InjectMocks private DeviceConnectivityController deviceConnectivityController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}.
+   * Test {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String,
+   * HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}
    */
   @Test
-  @DisplayName("Test getDevicePublishTelemetryCommands(String, HttpServletRequest); then status isNotFound()")
+  @DisplayName(
+      "Test getDevicePublishTelemetryCommands(String, HttpServletRequest); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.fasterxml.jackson.databind.JsonNode DeviceConnectivityController.getDevicePublishTelemetryCommands(String, HttpServletRequest)"})
+    "com.fasterxml.jackson.databind.JsonNode DeviceConnectivityController.getDevicePublishTelemetryCommands(String, HttpServletRequest)"
+  })
   void testGetDevicePublishTelemetryCommands_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -57,21 +61,27 @@ class DeviceConnectivityControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}.
+   * Test {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String,
+   * HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * DeviceConnectivityController#getDevicePublishTelemetryCommands(String, HttpServletRequest)}
    */
   @Test
-  @DisplayName("Test getDevicePublishTelemetryCommands(String, HttpServletRequest); then status isOk()")
+  @DisplayName(
+      "Test getDevicePublishTelemetryCommands(String, HttpServletRequest); then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.fasterxml.jackson.databind.JsonNode DeviceConnectivityController.getDevicePublishTelemetryCommands(String, HttpServletRequest)"})
+    "com.fasterxml.jackson.databind.JsonNode DeviceConnectivityController.getDevicePublishTelemetryCommands(String, HttpServletRequest)"
+  })
   void testGetDevicePublishTelemetryCommands_thenStatusIsOk() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -84,21 +94,27 @@ class DeviceConnectivityControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityController#downloadGatewayDockerCompose(String, HttpServletRequest)}.
+   * Test {@link DeviceConnectivityController#downloadGatewayDockerCompose(String,
+   * HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConnectivityController#downloadGatewayDockerCompose(String, HttpServletRequest)}
+   *
+   * <p>Method under test: {@link DeviceConnectivityController#downloadGatewayDockerCompose(String,
+   * HttpServletRequest)}
    */
   @Test
-  @DisplayName("Test downloadGatewayDockerCompose(String, HttpServletRequest); then status isNotFound()")
+  @DisplayName(
+      "Test downloadGatewayDockerCompose(String, HttpServletRequest); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResponseEntity DeviceConnectivityController.downloadGatewayDockerCompose(String, HttpServletRequest)"})
+    "ResponseEntity DeviceConnectivityController.downloadGatewayDockerCompose(String, HttpServletRequest)"
+  })
   void testDownloadGatewayDockerCompose_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -111,21 +127,26 @@ class DeviceConnectivityControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceConnectivityController#downloadGatewayDockerCompose(String, HttpServletRequest)}.
+   * Test {@link DeviceConnectivityController#downloadGatewayDockerCompose(String,
+   * HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceConnectivityController#downloadGatewayDockerCompose(String, HttpServletRequest)}
+   *
+   * <p>Method under test: {@link DeviceConnectivityController#downloadGatewayDockerCompose(String,
+   * HttpServletRequest)}
    */
   @Test
   @DisplayName("Test downloadGatewayDockerCompose(String, HttpServletRequest); then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResponseEntity DeviceConnectivityController.downloadGatewayDockerCompose(String, HttpServletRequest)"})
+    "ResponseEntity DeviceConnectivityController.downloadGatewayDockerCompose(String, HttpServletRequest)"
+  })
   void testDownloadGatewayDockerCompose_thenStatusIsOk() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 

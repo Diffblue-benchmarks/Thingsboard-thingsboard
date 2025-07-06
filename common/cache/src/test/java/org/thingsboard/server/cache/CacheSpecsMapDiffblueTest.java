@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class CacheSpecsMapDiffblueTest {
   /**
    * Test {@link CacheSpecsMap#equals(Object)}, and {@link CacheSpecsMap#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecsMap#equals(Object)}
    *   <li>{@link CacheSpecsMap#hashCode()}
@@ -42,12 +44,14 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}, and {@link CacheSpecsMap#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecsMap#equals(Object)}
    *   <li>{@link CacheSpecsMap#hashCode()}
@@ -73,12 +77,14 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}, and {@link CacheSpecsMap#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecsMap#equals(Object)}
    *   <li>{@link CacheSpecsMap#hashCode()}
@@ -100,12 +106,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -118,12 +125,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -140,12 +148,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,12 +171,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -186,12 +196,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -204,12 +215,13 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test {@link CacheSpecsMap#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CacheSpecsMap#equals(Object)}
+   *
+   * <p>Method under test: {@link CacheSpecsMap#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -222,8 +234,9 @@ class CacheSpecsMapDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CacheSpecsMap#setRefreshTokenExpTime(int)}
    *   <li>{@link CacheSpecsMap#setSpecs(Map)}
@@ -235,9 +248,13 @@ class CacheSpecsMapDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int CacheSpecsMap.getRefreshTokenExpTime()", "Map CacheSpecsMap.getSpecs()",
-      "void CacheSpecsMap.setRefreshTokenExpTime(int)", "void CacheSpecsMap.setSpecs(Map)",
-      "String CacheSpecsMap.toString()"})
+  @MethodsUnderTest({
+    "int CacheSpecsMap.getRefreshTokenExpTime()",
+    "Map CacheSpecsMap.getSpecs()",
+    "void CacheSpecsMap.setRefreshTokenExpTime(int)",
+    "void CacheSpecsMap.setSpecs(Map)",
+    "String CacheSpecsMap.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     CacheSpecsMap cacheSpecsMap = new CacheSpecsMap();

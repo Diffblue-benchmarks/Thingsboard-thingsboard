@@ -6,12 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -19,10 +17,7 @@ import com.google.gson.JsonNull;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 import org.eclipse.californium.core.coap.CoAP;
-import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.coap.CoAP.Type;
-import org.eclipse.californium.core.coap.Message;
-import org.eclipse.californium.core.coap.OptionSet;
 import org.eclipse.californium.core.coap.Request;
 import org.eclipse.californium.core.coap.Response;
 import org.eclipse.californium.core.network.Endpoint;
@@ -40,20 +35,24 @@ import org.thingsboard.server.transport.coap.efento.CoapEfentoTransportResource.
 
 class CoapEfentoTransportResourceDiffblueTest {
   /**
-   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link EfentoTelemetry#hashCode()}.
+   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link
+   * EfentoTelemetry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EfentoTelemetry#equals(Object)}
    *   <li>{@link EfentoTelemetry#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -68,20 +67,24 @@ class CoapEfentoTransportResourceDiffblueTest {
   }
 
   /**
-   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link EfentoTelemetry#hashCode()}.
+   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link
+   * EfentoTelemetry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EfentoTelemetry#equals(Object)}
    *   <li>{@link EfentoTelemetry#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -96,20 +99,24 @@ class CoapEfentoTransportResourceDiffblueTest {
   }
 
   /**
-   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link EfentoTelemetry#hashCode()}.
+   * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}, and {@link
+   * EfentoTelemetry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EfentoTelemetry#equals(Object)}
    *   <li>{@link EfentoTelemetry#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -124,15 +131,17 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EfentoTelemetry#equals(Object)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#equals(Object)}
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -145,15 +154,17 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EfentoTelemetry#equals(Object)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#equals(Object)}
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
@@ -166,15 +177,17 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EfentoTelemetry#equals(Object)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#equals(Object)}
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
@@ -187,12 +200,13 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EfentoTelemetry#equals(Object)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#equals(Object)}
    */
   @Test
   @DisplayName("Test EfentoTelemetry equals(Object); when other is 'null'; then return not equal")
@@ -205,15 +219,17 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EfentoTelemetry#equals(Object)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#equals(Object)}
    */
   @Test
-  @DisplayName("Test EfentoTelemetry equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test EfentoTelemetry equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EfentoTelemetry.equals(Object)", "int EfentoTelemetry.hashCode()"})
   void testEfentoTelemetryEquals_whenOtherIsWrongType_thenReturnNotEqual() {
@@ -223,8 +239,9 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test EfentoTelemetry getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EfentoTelemetry#setTs(long)}
    *   <li>{@link EfentoTelemetry#setValues(JsonElement)}
@@ -236,9 +253,13 @@ class CoapEfentoTransportResourceDiffblueTest {
   @Test
   @DisplayName("Test EfentoTelemetry getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long EfentoTelemetry.getTs()", "JsonElement EfentoTelemetry.getValues()",
-      "void EfentoTelemetry.setTs(long)", "void EfentoTelemetry.setValues(JsonElement)",
-      "String EfentoTelemetry.toString()"})
+  @MethodsUnderTest({
+    "long EfentoTelemetry.getTs()",
+    "JsonElement EfentoTelemetry.getValues()",
+    "void EfentoTelemetry.setTs(long)",
+    "void EfentoTelemetry.setValues(JsonElement)",
+    "String EfentoTelemetry.toString()"
+  })
   void testEfentoTelemetryGettersAndSetters() {
     // Arrange
     EfentoTelemetry efentoTelemetry = new EfentoTelemetry(1L, new JsonArray(3));
@@ -251,15 +272,16 @@ class CoapEfentoTransportResourceDiffblueTest {
     long actualTs = efentoTelemetry.getTs();
 
     // Assert
-    assertEquals("CoapEfentoTransportResource.EfentoTelemetry(ts=1, values=[])", actualToStringResult);
+    assertEquals(
+        "CoapEfentoTransportResource.EfentoTelemetry(ts=1, values=[])", actualToStringResult);
     assertEquals(1L, actualTs);
     assertSame(values, efentoTelemetry.getValues());
   }
 
   /**
    * Test EfentoTelemetry {@link EfentoTelemetry#EfentoTelemetry(long, JsonElement)}.
-   * <p>
-   * Method under test: {@link EfentoTelemetry#EfentoTelemetry(long, JsonElement)}
+   *
+   * <p>Method under test: {@link EfentoTelemetry#EfentoTelemetry(long, JsonElement)}
    */
   @Test
   @DisplayName("Test EfentoTelemetry new EfentoTelemetry(long, JsonElement)")
@@ -278,22 +300,26 @@ class CoapEfentoTransportResourceDiffblueTest {
   }
 
   /**
-   * Test {@link CoapEfentoTransportResource#CoapEfentoTransportResource(CoapTransportContext, String)}.
+   * Test {@link CoapEfentoTransportResource#CoapEfentoTransportResource(CoapTransportContext,
+   * String)}.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
-   *   <li>Then return Path is empty string.</li>
+   *   <li>When {@code Name}.
+   *   <li>Then return Path is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#CoapEfentoTransportResource(CoapTransportContext, String)}
+   *
+   * <p>Method under test: {@link
+   * CoapEfentoTransportResource#CoapEfentoTransportResource(CoapTransportContext, String)}
    */
   @Test
-  @DisplayName("Test new CoapEfentoTransportResource(CoapTransportContext, String); when 'Name'; then return Path is empty string")
+  @DisplayName(
+      "Test new CoapEfentoTransportResource(CoapTransportContext, String); when 'Name'; then return Path is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CoapEfentoTransportResource.<init>(CoapTransportContext, String)"})
   void testNewCoapEfentoTransportResource_whenName_thenReturnPathIsEmptyString() {
     // Arrange and Act
-    CoapEfentoTransportResource actualCoapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource actualCoapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
 
     // Assert
     assertEquals("", actualCoapEfentoTransportResource.getPath());
@@ -312,8 +338,8 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
   @DisplayName("Test processHandleGet(CoapExchange)")
@@ -321,12 +347,13 @@ class CoapEfentoTransportResourceDiffblueTest {
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -341,8 +368,8 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
   @DisplayName("Test processHandleGet(CoapExchange)")
@@ -350,12 +377,13 @@ class CoapEfentoTransportResourceDiffblueTest {
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet2() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -370,11 +398,12 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
   @DisplayName("Test processHandleGet(CoapExchange); given 'A'")
@@ -382,16 +411,17 @@ class CoapEfentoTransportResourceDiffblueTest {
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet_givenA() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
-    exchange2.setETag(new byte[]{'A', 2, 'A', 2, 'A', 2, 'A', 2});
+    exchange2.setETag(new byte[] {'A', 2, 'A', 2, 'A', 2, 'A', 2});
 
     // Act
     coapEfentoTransportResource.processHandleGet(exchange2);
@@ -402,11 +432,12 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
+   *   <li>Given empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
   @DisplayName("Test processHandleGet(CoapExchange); given empty string")
@@ -414,12 +445,13 @@ class CoapEfentoTransportResourceDiffblueTest {
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet_givenEmptyString() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -434,25 +466,29 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given two.</li>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.</li>
+   *   <li>Given two.
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
-  @DisplayName("Test processHandleGet(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
+  @DisplayName(
+      "Test processHandleGet(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet_givenTwo_whenCoapExchangeWithExchangeIsExchangeMaxAgeIsTwo() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -467,24 +503,28 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}.
+   *
    * <ul>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)}.</li>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandleGet(CoapExchange)}
    */
   @Test
-  @DisplayName("Test processHandleGet(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor)")
+  @DisplayName(
+      "Test processHandleGet(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandleGet(CoapExchange)"})
   void testProcessHandleGet_whenCoapExchangeWithExchangeIsExchange() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     // Act
@@ -496,147 +536,217 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
-   * <ul>
-   *   <li>Given {@link Request} {@link Message#getOptions()} return {@link OptionSet#OptionSet()}.</li>
-   *   <li>Then calls {@link Message#getOptions()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
    */
   @Test
-  @DisplayName("Test processHandlePost(CoapExchange); given Request getOptions() return OptionSet(); then calls getOptions()")
+  @DisplayName("Test processHandlePost(CoapExchange)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
-  void testProcessHandlePost_givenRequestGetOptionsReturnOptionSet_thenCallsGetOptions() {
+  void testProcessHandlePost() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
-    Request request = mock(Request.class);
-    when(request.getOptions()).thenReturn(new OptionSet());
-    Exchange exchange = mock(Exchange.class);
-    doNothing().when(exchange).sendResponse(Mockito.<Response>any());
-    when(exchange.getCurrentRequest()).thenReturn(Request.newDelete());
-    when(exchange.getRequest()).thenReturn(request);
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationPath("Unexpected uri path size, uri path: [{}]");
+
+    // Act
+    coapEfentoTransportResource.processHandlePost(exchange2);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   */
+  @Test
+  @DisplayName("Test processHandlePost(CoapExchange)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
+  void testProcessHandlePost2() {
+    // Arrange
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("Unexpected uri path size, uri path: [{}]");
+
+    // Act
+    coapEfentoTransportResource.processHandlePost(exchange2);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
+   *
+   * <ul>
+   *   <li>Given {@code A}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   */
+  @Test
+  @DisplayName("Test processHandlePost(CoapExchange); given 'A'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
+  void testProcessHandlePost_givenA() {
+    // Arrange
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setETag(new byte[] {'A', 2, 'A', 2, 'A', 2, 'A', 2});
+
+    // Act
+    coapEfentoTransportResource.processHandlePost(exchange2);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
+   *
+   * <ul>
+   *   <li>Given empty string.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   */
+  @Test
+  @DisplayName("Test processHandlePost(CoapExchange); given empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
+  void testProcessHandlePost_givenEmptyString() {
+    // Arrange
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setLocationQuery("");
+
+    // Act
+    coapEfentoTransportResource.processHandlePost(exchange2);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
+   *
+   * <ul>
+   *   <li>Given two.
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   */
+  @Test
+  @DisplayName(
+      "Test processHandlePost(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
+  void testProcessHandlePost_givenTwo_whenCoapExchangeWithExchangeIsExchangeMaxAgeIsTwo() {
+    // Arrange
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
+
+    CoapExchange exchange2 = new CoapExchange(exchange);
+    exchange2.setMaxAge(2L);
+
+    // Act
+    coapEfentoTransportResource.processHandlePost(exchange2);
+
+    // Assert
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
+  }
+
+  /**
+   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
+   *
+   * <ul>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
+   */
+  @Test
+  @DisplayName(
+      "Test processHandlePost(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
+  void testProcessHandlePost_whenCoapExchangeWithExchangeIsExchange() {
+    // Arrange
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
+    Endpoint endpoint = mock(Endpoint.class);
+    doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
+
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    exchange.setEndpoint(endpoint);
 
     // Act
     coapEfentoTransportResource.processHandlePost(new CoapExchange(exchange));
 
     // Assert
-    verify(request).getOptions();
-    verify(exchange).getCurrentRequest();
-    verify(exchange).getRequest();
-    verify(exchange).sendResponse(isA(Response.class));
-  }
-
-  /**
-   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
-   * <ul>
-   *   <li>Then calls {@link CoapExchange#advanced()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
-   */
-  @Test
-  @DisplayName("Test processHandlePost(CoapExchange); then calls advanced()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
-  void testProcessHandlePost_thenCallsAdvanced() {
-    // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
-    CoapExchange exchange = mock(CoapExchange.class);
-    doNothing().when(exchange).respond(Mockito.<ResponseCode>any());
-    when(exchange.advanced())
-        .thenReturn(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
-
-    // Act
-    coapEfentoTransportResource.processHandlePost(exchange);
-
-    // Assert
-    verify(exchange).advanced();
-    verify(exchange).respond(eq(ResponseCode.BAD_REQUEST));
-  }
-
-  /**
-   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
-   * <ul>
-   *   <li>Then calls {@link Message#getOptions()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
-   */
-  @Test
-  @DisplayName("Test processHandlePost(CoapExchange); then calls getOptions()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
-  void testProcessHandlePost_thenCallsGetOptions() {
-    // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
-
-    OptionSet optionSet = new OptionSet();
-    optionSet.addUriPath("Unexpected uri path size, uri path: [{}]");
-    Request request = mock(Request.class);
-    when(request.getOptions()).thenReturn(optionSet);
-    Exchange exchange = mock(Exchange.class);
-    doNothing().when(exchange).sendResponse(Mockito.<Response>any());
-    when(exchange.getCurrentRequest()).thenReturn(Request.newDelete());
-    when(exchange.getRequest()).thenReturn(request);
-
-    // Act
-    coapEfentoTransportResource.processHandlePost(new CoapExchange(exchange));
-
-    // Assert
-    verify(request).getOptions();
-    verify(exchange).getCurrentRequest();
-    verify(exchange).getRequest();
-    verify(exchange).sendResponse(isA(Response.class));
-  }
-
-  /**
-   * Test {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}.
-   * <ul>
-   *   <li>When {@link Exchange} {@link Exchange#getRequest()} return newDelete.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#processHandlePost(CoapExchange)}
-   */
-  @Test
-  @DisplayName("Test processHandlePost(CoapExchange); when Exchange getRequest() return newDelete")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void CoapEfentoTransportResource.processHandlePost(CoapExchange)"})
-  void testProcessHandlePost_whenExchangeGetRequestReturnNewDelete() {
-    // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
-    Exchange exchange = mock(Exchange.class);
-    doNothing().when(exchange).sendResponse(Mockito.<Response>any());
-    when(exchange.getCurrentRequest()).thenReturn(Request.newDelete());
-    when(exchange.getRequest()).thenReturn(Request.newDelete());
-
-    // Act
-    coapEfentoTransportResource.processHandlePost(new CoapExchange(exchange));
-
-    // Assert
-    verify(exchange).getCurrentRequest();
-    verify(exchange).getRequest();
-    verify(exchange).sendResponse(isA(Response.class));
+    verify(endpoint).sendResponse(isA(Exchange.class), isA(Response.class));
   }
 
   /**
    * Test {@link CoapEfentoTransportResource#getChild(String)}.
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#getChild(String)}
+   *
+   * <p>Method under test: {@link CoapEfentoTransportResource#getChild(String)}
    */
   @Test
   @DisplayName("Test getChild(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.californium.core.server.resources.Resource CoapEfentoTransportResource.getChild(String)"})
+    "org.eclipse.californium.core.server.resources.Resource CoapEfentoTransportResource.getChild(String)"
+  })
   void testGetChild() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
 
     // Act and Assert
     assertSame(coapEfentoTransportResource, coapEfentoTransportResource.getChild("Name"));
@@ -644,25 +754,33 @@ class CoapEfentoTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapEfentoTransportResource#getEfentoMeasurements(ProtoMeasurements, UUID)}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapEfentoTransportResource#getEfentoMeasurements(ProtoMeasurements, UUID)}
+   *
+   * <p>Method under test: {@link
+   * CoapEfentoTransportResource#getEfentoMeasurements(ProtoMeasurements, UUID)}
    */
   @Test
-  @DisplayName("Test getEfentoMeasurements(ProtoMeasurements, UUID); when DefaultInstance; then throw IllegalStateException")
+  @DisplayName(
+      "Test getEfentoMeasurements(ProtoMeasurements, UUID); when DefaultInstance; then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List CoapEfentoTransportResource.getEfentoMeasurements(ProtoMeasurements, UUID)"})
+  @MethodsUnderTest({
+    "java.util.List CoapEfentoTransportResource.getEfentoMeasurements(ProtoMeasurements, UUID)"
+  })
   void testGetEfentoMeasurements_whenDefaultInstance_thenThrowIllegalStateException() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     ProtoMeasurements protoMeasurements = ProtoMeasurements.getDefaultInstance();
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> coapEfentoTransportResource.getEfentoMeasurements(protoMeasurements,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertThrows(
+        IllegalStateException.class,
+        () ->
+            coapEfentoTransportResource.getEfentoMeasurements(
+                protoMeasurements, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 }

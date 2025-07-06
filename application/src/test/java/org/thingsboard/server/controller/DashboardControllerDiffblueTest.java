@@ -43,16 +43,14 @@ import org.thingsboard.server.service.entitiy.dashboard.DefaultTbDashboardServic
 
 @ExtendWith(MockitoExtension.class)
 class DashboardControllerDiffblueTest {
-  @InjectMocks
-  private DashboardController dashboardController;
+  @InjectMocks private DashboardController dashboardController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link DashboardController#getServerTime()}.
-   * <p>
-   * Method under test: {@link DashboardController#getServerTime()}
+   *
+   * <p>Method under test: {@link DashboardController#getServerTime()}
    */
   @Test
   @DisplayName("Test getServerTime()")
@@ -60,7 +58,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"long DashboardController.getServerTime()"})
   void testGetServerTime() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -74,8 +73,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getServerTime()}.
-   * <p>
-   * Method under test: {@link DashboardController#getServerTime()}
+   *
+   * <p>Method under test: {@link DashboardController#getServerTime()}
    */
   @Test
   @DisplayName("Test getServerTime()")
@@ -83,7 +82,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"long DashboardController.getServerTime()"})
   void testGetServerTime2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -93,14 +93,16 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getMaxDatapointsLimit()}.
-   * <p>
-   * Method under test: {@link DashboardController#getMaxDatapointsLimit()}
+   *
+   * <p>Method under test: {@link DashboardController#getMaxDatapointsLimit()}
    */
   @Test
   @DisplayName("Test getMaxDatapointsLimit()")
@@ -108,7 +110,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"long DashboardController.getMaxDatapointsLimit()"})
   void testGetMaxDatapointsLimit() throws ThingsboardException {
     // Arrange
-    DefaultTbDashboardService tbDashboardService = new DefaultTbDashboardService(new DashboardServiceImpl());
+    DefaultTbDashboardService tbDashboardService =
+        new DefaultTbDashboardService(new DashboardServiceImpl());
     JpaTbResourceDao resourceDao = new JpaTbResourceDao(mock(TbResourceRepository.class));
     JpaTbResourceInfoDao resourceInfoDao = new JpaTbResourceInfoDao();
     ResourceDataValidator resourceValidator = new ResourceDataValidator();
@@ -118,26 +121,37 @@ class DashboardControllerDiffblueTest {
     JpaWidgetTypeDao widgetTypeDao = new JpaWidgetTypeDao();
 
     // Act and Assert
-    assertEquals(0L,
-        (new DashboardController(tbDashboardService,
-            new BaseImageService(resourceDao, resourceInfoDao, resourceValidator, assetProfileDao, deviceProfileDao,
-                widgetsBundleDao, widgetTypeDao, new JpaDashboardInfoDao())))
+    assertEquals(
+        0L,
+        new DashboardController(
+                tbDashboardService,
+                new BaseImageService(
+                    resourceDao,
+                    resourceInfoDao,
+                    resourceValidator,
+                    assetProfileDao,
+                    deviceProfileDao,
+                    widgetsBundleDao,
+                    widgetTypeDao,
+                    new JpaDashboardInfoDao()))
             .getMaxDatapointsLimit());
   }
 
   /**
    * Test {@link DashboardController#getDashboardInfoById(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardInfoById(String)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardInfoById(String)}
    */
   @Test
   @DisplayName("Test getDashboardInfoById(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"})
+    "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"
+  })
   void testGetDashboardInfoById() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -151,17 +165,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getDashboardInfoById(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardInfoById(String)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardInfoById(String)}
    */
   @Test
   @DisplayName("Test getDashboardInfoById(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"})
+    "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"
+  })
   void testGetDashboardInfoById2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -171,26 +187,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getDashboardInfoById(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardInfoById(String)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardInfoById(String)}
    */
   @Test
   @DisplayName("Test getDashboardInfoById(String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"})
+    "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"
+  })
   void testGetDashboardInfoById_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -204,21 +225,26 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getDashboardInfoById(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardInfoById(String)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardInfoById(String)}
    */
   @Test
-  @DisplayName("Test getDashboardInfoById(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getDashboardInfoById(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"})
-  void testGetDashboardInfoById_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.DashboardInfo DashboardController.getDashboardInfoById(String)"
+  })
+  void testGetDashboardInfoById_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -234,17 +260,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getDashboardById(String, boolean)}.
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardById(String, boolean)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardById(String, boolean)}
    */
   @Test
   @DisplayName("Test getDashboardById(String, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"
+  })
   void testGetDashboardById() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -258,17 +286,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getDashboardById(String, boolean)}.
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardById(String, boolean)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardById(String, boolean)}
    */
   @Test
   @DisplayName("Test getDashboardById(String, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"
+  })
   void testGetDashboardById2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -278,26 +308,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getDashboardById(String, boolean)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardById(String, boolean)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardById(String, boolean)}
    */
   @Test
   @DisplayName("Test getDashboardById(String, boolean); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"
+  })
   void testGetDashboardById_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -311,21 +346,25 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getDashboardById(String, boolean)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getDashboardById(String, boolean)}
+   *
+   * <p>Method under test: {@link DashboardController#getDashboardById(String, boolean)}
    */
   @Test
-  @DisplayName("Test getDashboardById(String, boolean); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getDashboardById(String, boolean); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.getDashboardById(String, boolean)"
+  })
   void testGetDashboardById_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -341,8 +380,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#deleteDashboard(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#deleteDashboard(String)}
+   *
+   * <p>Method under test: {@link DashboardController#deleteDashboard(String)}
    */
   @Test
   @DisplayName("Test deleteDashboard(String)")
@@ -350,7 +389,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"void DashboardController.deleteDashboard(String)"})
   void testDeleteDashboard() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -364,8 +404,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#deleteDashboard(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#deleteDashboard(String)}
+   *
+   * <p>Method under test: {@link DashboardController#deleteDashboard(String)}
    */
   @Test
   @DisplayName("Test deleteDashboard(String)")
@@ -373,7 +413,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"void DashboardController.deleteDashboard(String)"})
   void testDeleteDashboard2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -383,17 +424,20 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#deleteDashboard(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#deleteDashboard(String)}
+   *
+   * <p>Method under test: {@link DashboardController#deleteDashboard(String)}
    */
   @Test
   @DisplayName("Test deleteDashboard(String); then status isNotFound()")
@@ -401,7 +445,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"void DashboardController.deleteDashboard(String)"})
   void testDeleteDashboard_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -415,20 +460,23 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#deleteDashboard(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#deleteDashboard(String)}
+   *
+   * <p>Method under test: {@link DashboardController#deleteDashboard(String)}
    */
   @Test
-  @DisplayName("Test deleteDashboard(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test deleteDashboard(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardController.deleteDashboard(String)"})
   void testDeleteDashboard_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -444,17 +492,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToCustomer(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToCustomer(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"
+  })
   void testAssignDashboardToCustomer() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -468,17 +518,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToCustomer(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToCustomer(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"
+  })
   void testAssignDashboardToCustomer2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -488,26 +540,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#assignDashboardToCustomer(String, String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToCustomer(String, String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"
+  })
   void testAssignDashboardToCustomer_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -521,21 +578,26 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToCustomer(String, String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToCustomer(String, String)}
    */
   @Test
-  @DisplayName("Test assignDashboardToCustomer(String, String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test assignDashboardToCustomer(String, String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"})
-  void testAssignDashboardToCustomer_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToCustomer(String, String)"
+  })
+  void testAssignDashboardToCustomer_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -551,17 +613,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromCustomer(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromCustomer(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"
+  })
   void testUnassignDashboardFromCustomer() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -575,17 +639,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromCustomer(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromCustomer(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"
+  })
   void testUnassignDashboardFromCustomer2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -595,26 +661,32 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#unassignDashboardFromCustomer(String, String)}.
+   *
    * <ul>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
    */
   @Test
-  @DisplayName("Test unassignDashboardFromCustomer(String, String); then content contentType 'application/json'")
+  @DisplayName(
+      "Test unassignDashboardFromCustomer(String, String); then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"
+  })
   void testUnassignDashboardFromCustomer_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -630,20 +702,23 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromCustomer(String, String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromCustomer(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromCustomer(String, String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromCustomer(String, String)"
+  })
   void testUnassignDashboardFromCustomer_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -657,22 +732,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#updateDashboardCustomers(String, String[])}.
-   * <p>
-   * Method under test: {@link DashboardController#updateDashboardCustomers(String, String[])}
+   *
+   * <p>Method under test: {@link DashboardController#updateDashboardCustomers(String, String[])}
    */
   @Test
   @DisplayName("Test updateDashboardCustomers(String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.updateDashboardCustomers(String, String[])"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.updateDashboardCustomers(String, String[])"
+  })
   void testUpdateDashboardCustomers() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/dashboard/{dashboardId}/customers",
-        "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/dashboard/{dashboardId}/customers", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(new String[]{"foo"}));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(new String[] {"foo"}));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(dashboardController)
@@ -684,22 +761,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#addDashboardCustomers(String, String[])}.
-   * <p>
-   * Method under test: {@link DashboardController#addDashboardCustomers(String, String[])}
+   *
+   * <p>Method under test: {@link DashboardController#addDashboardCustomers(String, String[])}
    */
   @Test
   @DisplayName("Test addDashboardCustomers(String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.addDashboardCustomers(String, String[])"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.addDashboardCustomers(String, String[])"
+  })
   void testAddDashboardCustomers() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/dashboard/{dashboardId}/customers/add",
-        "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/dashboard/{dashboardId}/customers/add", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(new String[]{"foo"}));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(new String[] {"foo"}));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(dashboardController)
@@ -711,22 +790,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#removeDashboardCustomers(String, String[])}.
-   * <p>
-   * Method under test: {@link DashboardController#removeDashboardCustomers(String, String[])}
+   *
+   * <p>Method under test: {@link DashboardController#removeDashboardCustomers(String, String[])}
    */
   @Test
   @DisplayName("Test removeDashboardCustomers(String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.removeDashboardCustomers(String, String[])"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.removeDashboardCustomers(String, String[])"
+  })
   void testRemoveDashboardCustomers() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/dashboard/{dashboardId}/customers/remove", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/dashboard/{dashboardId}/customers/remove", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(new String[]{"foo"}));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(new String[] {"foo"}));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(dashboardController)
@@ -738,17 +819,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToPublicCustomer(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test assignDashboardToPublicCustomer(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"
+  })
   void testAssignDashboardToPublicCustomer() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -762,17 +845,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToPublicCustomer(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test assignDashboardToPublicCustomer(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"
+  })
   void testAssignDashboardToPublicCustomer2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -782,26 +867,33 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#assignDashboardToPublicCustomer(String)}.
+   *
    * <ul>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
    */
   @Test
-  @DisplayName("Test assignDashboardToPublicCustomer(String); then content contentType 'application/json'")
+  @DisplayName(
+      "Test assignDashboardToPublicCustomer(String); then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"})
-  void testAssignDashboardToPublicCustomer_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"
+  })
+  void testAssignDashboardToPublicCustomer_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -817,20 +909,23 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToPublicCustomer(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test assignDashboardToPublicCustomer(String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToPublicCustomer(String)"
+  })
   void testAssignDashboardToPublicCustomer_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -844,17 +939,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromPublicCustomer(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromPublicCustomer(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"
+  })
   void testUnassignDashboardFromPublicCustomer() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -868,17 +965,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromPublicCustomer(String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromPublicCustomer(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"
+  })
   void testUnassignDashboardFromPublicCustomer2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -888,26 +987,33 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#unassignDashboardFromPublicCustomer(String)}.
+   *
    * <ul>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
    */
   @Test
-  @DisplayName("Test unassignDashboardFromPublicCustomer(String); then content contentType 'application/json'")
+  @DisplayName(
+      "Test unassignDashboardFromPublicCustomer(String); then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"})
-  void testUnassignDashboardFromPublicCustomer_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"
+  })
+  void testUnassignDashboardFromPublicCustomer_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -923,20 +1029,23 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromPublicCustomer(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromPublicCustomer(String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromPublicCustomer(String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromPublicCustomer(String)"
+  })
   void testUnassignDashboardFromPublicCustomer_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -949,19 +1058,26 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getTenantDashboards(int, int, Boolean, String, String, String)} with {@code pageSize}, {@code page}, {@code mobile}, {@code textSearch}, {@code sortProperty}, {@code sortOrder}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantDashboards(int, int, Boolean, String, String, String)}
+   * Test {@link DashboardController#getTenantDashboards(int, int, Boolean, String, String, String)}
+   * with {@code pageSize}, {@code page}, {@code mobile}, {@code textSearch}, {@code sortProperty},
+   * {@code sortOrder}.
+   *
+   * <p>Method under test: {@link DashboardController#getTenantDashboards(int, int, Boolean, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getTenantDashboards(int, int, Boolean, String, String, String) with 'pageSize', 'page', 'mobile', 'textSearch', 'sortProperty', 'sortOrder'")
+  @DisplayName(
+      "Test getTenantDashboards(int, int, Boolean, String, String, String) with 'pageSize', 'page', 'mobile', 'textSearch', 'sortProperty', 'sortOrder'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(int, int, Boolean, String, String, String)"})
-  void testGetTenantDashboardsWithPageSizePageMobileTextSearchSortPropertySortOrder() throws Exception {
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(int, int, Boolean, String, String, String)"
+  })
+  void testGetTenantDashboardsWithPageSizePageMobileTextSearchSortPropertySortOrder()
+      throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/dashboards")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/tenant/dashboards")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -973,19 +1089,26 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)} with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code sortProperty}, {@code sortOrder}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code
+   * sortProperty}, {@code sortOrder}.
+   *
+   * <p>Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
+  @DisplayName(
+      "Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"})
-  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder() throws Exception {
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"
+  })
+  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder()
+      throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -997,20 +1120,28 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)} with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code sortProperty}, {@code sortOrder}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code
+   * sortProperty}, {@code sortOrder}.
+   *
+   * <p>Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
+  @DisplayName(
+      "Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"})
-  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder2() throws Exception {
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"
+  })
+  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder2()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1023,20 +1154,28 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)} with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code sortProperty}, {@code sortOrder}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * Test {@link DashboardController#getTenantDashboards(String, int, int, String, String, String)}
+   * with {@code strTenantId}, {@code pageSize}, {@code page}, {@code textSearch}, {@code
+   * sortProperty}, {@code sortOrder}.
+   *
+   * <p>Method under test: {@link DashboardController#getTenantDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
+  @DisplayName(
+      "Test getTenantDashboards(String, int, int, String, String, String) with 'strTenantId', 'pageSize', 'page', 'textSearch', 'sortProperty', 'sortOrder'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"})
-  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder3() throws Exception {
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getTenantDashboards(String, int, int, String, String, String)"
+  })
+  void testGetTenantDashboardsWithStrTenantIdPageSizePageTextSearchSortPropertySortOrder3()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/tenant/{tenantId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1051,20 +1190,25 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}
+   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String,
+   * String, String)}.
+   *
+   * <p>Method under test: {@link DashboardController#getCustomerDashboards(String, int, int,
+   * Boolean, String, String, String)}
    */
   @Test
   @DisplayName("Test getCustomerDashboards(String, int, int, Boolean, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"
+  })
   void testGetCustomerDashboards() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/customer/{customerId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/customer/{customerId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1077,23 +1221,30 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}.
+   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>Then content contentType {@code text/plain;charset=ISO-8859-1}.</li>
+   *   <li>Then content contentType {@code text/plain;charset=ISO-8859-1}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#getCustomerDashboards(String, int, int,
+   * Boolean, String, String, String)}
    */
   @Test
-  @DisplayName("Test getCustomerDashboards(String, int, int, Boolean, String, String, String); then content contentType 'text/plain;charset=ISO-8859-1'")
+  @DisplayName(
+      "Test getCustomerDashboards(String, int, int, Boolean, String, String, String); then content contentType 'text/plain;charset=ISO-8859-1'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"
+  })
   void testGetCustomerDashboards_thenContentContentTypeTextPlainCharsetIso88591() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/customer/{customerId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/customer/{customerId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1108,24 +1259,29 @@ class DashboardControllerDiffblueTest {
   }
 
   /**
-   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}.
+   * Test {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status four hundred.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status four hundred.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getCustomerDashboards(String, int, int, Boolean, String, String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#getCustomerDashboards(String, int, int,
+   * Boolean, String, String, String)}
    */
   @Test
-  @DisplayName("Test getCustomerDashboards(String, int, int, Boolean, String, String, String); when '42'; then status four hundred")
+  @DisplayName(
+      "Test getCustomerDashboards(String, int, int, Boolean, String, String, String); when '42'; then status four hundred")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getCustomerDashboards(String, int, int, Boolean, String, String, String)"
+  })
   void testGetCustomerDashboards_when42_thenStatusFourHundred() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
-        .get("/api/customer/{customerId}/dashboards", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/customer/{customerId}/dashboards", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -1138,16 +1294,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboard()}.
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboard()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboard()}
    */
   @Test
   @DisplayName("Test getHomeDashboard()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"
+  })
   void testGetHomeDashboard() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1161,16 +1320,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboard()}.
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboard()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboard()}
    */
   @Test
   @DisplayName("Test getHomeDashboard()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"
+  })
   void testGetHomeDashboard2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1180,25 +1342,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getHomeDashboard()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboard()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboard()}
    */
   @Test
   @DisplayName("Test getHomeDashboard(); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"
+  })
   void testGetHomeDashboard_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1212,20 +1380,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboard()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboard()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboard()}
    */
   @Test
   @DisplayName("Test getHomeDashboard(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.HomeDashboard DashboardController.getHomeDashboard()"
+  })
   void testGetHomeDashboard_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1241,8 +1413,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboardInfo()}.
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getHomeDashboardInfo()")
@@ -1250,7 +1422,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getHomeDashboardInfo()"})
   void testGetHomeDashboardInfo() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1264,8 +1437,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboardInfo()}.
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getHomeDashboardInfo()")
@@ -1273,7 +1446,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getHomeDashboardInfo()"})
   void testGetHomeDashboardInfo2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1283,17 +1457,20 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getHomeDashboardInfo()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getHomeDashboardInfo(); then status isNotFound()")
@@ -1301,7 +1478,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getHomeDashboardInfo()"})
   void testGetHomeDashboardInfo_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1315,20 +1493,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getHomeDashboardInfo()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getHomeDashboardInfo()}
    */
   @Test
-  @DisplayName("Test getHomeDashboardInfo(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getHomeDashboardInfo(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getHomeDashboardInfo()"})
-  void testGetHomeDashboardInfo_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetHomeDashboardInfo_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1344,8 +1526,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getTenantHomeDashboardInfo()}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getTenantHomeDashboardInfo()")
@@ -1353,7 +1535,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getTenantHomeDashboardInfo()"})
   void testGetTenantHomeDashboardInfo() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1367,8 +1550,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getTenantHomeDashboardInfo()}.
-   * <p>
-   * Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getTenantHomeDashboardInfo()")
@@ -1376,7 +1559,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getTenantHomeDashboardInfo()"})
   void testGetTenantHomeDashboardInfo2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1386,17 +1570,20 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#getTenantHomeDashboardInfo()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
    */
   @Test
   @DisplayName("Test getTenantHomeDashboardInfo(); then status isNotFound()")
@@ -1404,7 +1591,8 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getTenantHomeDashboardInfo()"})
   void testGetTenantHomeDashboardInfo_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1418,20 +1606,24 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getTenantHomeDashboardInfo()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
+   *
+   * <p>Method under test: {@link DashboardController#getTenantHomeDashboardInfo()}
    */
   @Test
-  @DisplayName("Test getTenantHomeDashboardInfo(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getTenantHomeDashboardInfo(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"HomeDashboardInfo DashboardController.getTenantHomeDashboardInfo()"})
-  void testGetTenantHomeDashboardInfo_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetTenantHomeDashboardInfo_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1447,8 +1639,8 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#setTenantHomeDashboardInfo(HomeDashboardInfo)}.
-   * <p>
-   * Method under test: {@link DashboardController#setTenantHomeDashboardInfo(HomeDashboardInfo)}
+   *
+   * <p>Method under test: {@link DashboardController#setTenantHomeDashboardInfo(HomeDashboardInfo)}
    */
   @Test
   @DisplayName("Test setTenantHomeDashboardInfo(HomeDashboardInfo)")
@@ -1456,13 +1648,16 @@ class DashboardControllerDiffblueTest {
   @MethodsUnderTest({"void DashboardController.setTenantHomeDashboardInfo(HomeDashboardInfo)"})
   void testSetTenantHomeDashboardInfo() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/tenant/dashboard/home/info");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/tenant/dashboard/home/info");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content(objectMapper.writeValueAsString(new HomeDashboardInfo(null, true)));
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(
+            objectMapper.writeValueAsString(new HomeDashboardInfo(null, true)));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(dashboardController)
@@ -1474,17 +1669,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToEdge(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToEdge(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"
+  })
   void testAssignDashboardToEdge() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1498,17 +1695,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToEdge(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToEdge(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"
+  })
   void testAssignDashboardToEdge2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1518,26 +1717,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#assignDashboardToEdge(String, String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
    */
   @Test
   @DisplayName("Test assignDashboardToEdge(String, String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"
+  })
   void testAssignDashboardToEdge_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1551,21 +1755,26 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#assignDashboardToEdge(String, String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#assignDashboardToEdge(String, String)}
    */
   @Test
-  @DisplayName("Test assignDashboardToEdge(String, String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test assignDashboardToEdge(String, String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"})
-  void testAssignDashboardToEdge_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.Dashboard DashboardController.assignDashboardToEdge(String, String)"
+  })
+  void testAssignDashboardToEdge_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1581,17 +1790,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromEdge(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromEdge(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"
+  })
   void testUnassignDashboardFromEdge() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1605,17 +1816,19 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromEdge(String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromEdge(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"
+  })
   void testUnassignDashboardFromEdge2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1625,26 +1838,31 @@ class DashboardControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link DashboardController#unassignDashboardFromEdge(String, String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
    */
   @Test
   @DisplayName("Test unassignDashboardFromEdge(String, String); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"})
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"
+  })
   void testUnassignDashboardFromEdge_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1658,21 +1876,26 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#unassignDashboardFromEdge(String, String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#unassignDashboardFromEdge(String, String)}
    */
   @Test
-  @DisplayName("Test unassignDashboardFromEdge(String, String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test unassignDashboardFromEdge(String, String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"})
-  void testUnassignDashboardFromEdge_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+    "org.thingsboard.server.common.data.Dashboard DashboardController.unassignDashboardFromEdge(String, String)"
+  })
+  void testUnassignDashboardFromEdge_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1688,19 +1911,23 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
   @DisplayName("Test getEdgeDashboards(String, int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"
+  })
   void testGetEdgeDashboards() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1714,22 +1941,28 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>Then content contentType {@code text/plain;charset=ISO-8859-1}.</li>
+   *   <li>Then content contentType {@code text/plain;charset=ISO-8859-1}.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getEdgeDashboards(String, int, int, String, String, String); then content contentType 'text/plain;charset=ISO-8859-1'")
+  @DisplayName(
+      "Test getEdgeDashboards(String, int, int, String, String, String); then content contentType 'text/plain;charset=ISO-8859-1'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"
+  })
   void testGetEdgeDashboards_thenContentContentTypeTextPlainCharsetIso88591() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -1745,22 +1978,27 @@ class DashboardControllerDiffblueTest {
 
   /**
    * Test {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status four hundred.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status four hundred.
    * </ul>
-   * <p>
-   * Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link DashboardController#getEdgeDashboards(String, int, int, String,
+   * String, String)}
    */
   @Test
-  @DisplayName("Test getEdgeDashboards(String, int, int, String, String, String); when '42'; then status four hundred")
+  @DisplayName(
+      "Test getEdgeDashboards(String, int, int, String, String, String); when '42'; then status four hundred")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DashboardController.getEdgeDashboards(String, int, int, String, String, String)"
+  })
   void testGetEdgeDashboards_when42_thenStatusFourHundred() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/edge/{edgeId}/dashboards", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert

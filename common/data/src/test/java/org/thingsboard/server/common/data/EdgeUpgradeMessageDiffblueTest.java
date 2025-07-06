@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class EdgeUpgradeMessageDiffblueTest {
   /**
    * Test {@link EdgeUpgradeMessage#equals(Object)}, and {@link EdgeUpgradeMessage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeUpgradeMessage#equals(Object)}
    *   <li>{@link EdgeUpgradeMessage#hashCode()}
@@ -28,7 +30,10 @@ class EdgeUpgradeMessageDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeUpgradeMessage.equals(Object)",
+    "int EdgeUpgradeMessage.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(new HashMap<>());
@@ -42,12 +47,14 @@ class EdgeUpgradeMessageDiffblueTest {
 
   /**
    * Test {@link EdgeUpgradeMessage#equals(Object)}, and {@link EdgeUpgradeMessage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeUpgradeMessage#equals(Object)}
    *   <li>{@link EdgeUpgradeMessage#hashCode()}
@@ -56,7 +63,10 @@ class EdgeUpgradeMessageDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeUpgradeMessage.equals(Object)",
+    "int EdgeUpgradeMessage.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeUpgradeMessage edgeUpgradeMessage = new EdgeUpgradeMessage(new HashMap<>());
@@ -69,17 +79,21 @@ class EdgeUpgradeMessageDiffblueTest {
 
   /**
    * Test {@link EdgeUpgradeMessage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUpgradeMessage#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeUpgradeMessage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeUpgradeMessage.equals(Object)",
+    "int EdgeUpgradeMessage.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashMap<String, EdgeUpgradeInfo> edgeVersions = new HashMap<>();
@@ -92,17 +106,21 @@ class EdgeUpgradeMessageDiffblueTest {
 
   /**
    * Test {@link EdgeUpgradeMessage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUpgradeMessage#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeUpgradeMessage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeUpgradeMessage.equals(Object)",
+    "int EdgeUpgradeMessage.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeUpgradeMessage(new HashMap<>()), null);
@@ -110,26 +128,32 @@ class EdgeUpgradeMessageDiffblueTest {
 
   /**
    * Test {@link EdgeUpgradeMessage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUpgradeMessage#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeUpgradeMessage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EdgeUpgradeMessage.equals(Object)", "int EdgeUpgradeMessage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EdgeUpgradeMessage.equals(Object)",
+    "int EdgeUpgradeMessage.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new EdgeUpgradeMessage(new HashMap<>()), "Different type to EdgeUpgradeMessage");
+    assertNotEquals(
+        new EdgeUpgradeMessage(new HashMap<>()), "Different type to EdgeUpgradeMessage");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeUpgradeMessage#EdgeUpgradeMessage(Map)}
    *   <li>{@link EdgeUpgradeMessage#toString()}
@@ -139,8 +163,11 @@ class EdgeUpgradeMessageDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeUpgradeMessage.<init>(Map)", "Map EdgeUpgradeMessage.getEdgeVersions()",
-      "String EdgeUpgradeMessage.toString()"})
+  @MethodsUnderTest({
+    "void EdgeUpgradeMessage.<init>(Map)",
+    "Map EdgeUpgradeMessage.getEdgeVersions()",
+    "String EdgeUpgradeMessage.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HashMap<String, EdgeUpgradeInfo> edgeVersions = new HashMap<>();

@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 class MetricDataTypeDiffblueTest {
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When eight.</li>
-   *   <li>Then return {@code UInt64}.</li>
+   *   <li>When eight.
+   *   <li>Then return {@code UInt64}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when eight; then return 'UInt64'")
@@ -27,12 +28,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When eighteen.</li>
-   *   <li>Then return {@code File}.</li>
+   *   <li>When eighteen.
+   *   <li>Then return {@code File}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when eighteen; then return 'File'")
@@ -45,12 +47,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When eleven.</li>
-   *   <li>Then return {@code Boolean}.</li>
+   *   <li>When eleven.
+   *   <li>Then return {@code Boolean}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when eleven; then return 'Boolean'")
@@ -63,12 +66,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When fifteen.</li>
-   *   <li>Then return {@code UUID}.</li>
+   *   <li>When fifteen.
+   *   <li>Then return {@code UUID}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when fifteen; then return 'UUID'")
@@ -81,12 +85,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then return {@code UInt8}.</li>
+   *   <li>When five.
+   *   <li>Then return {@code UInt8}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when five; then return 'UInt8'")
@@ -99,12 +104,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When four.</li>
-   *   <li>Then return {@code Int64}.</li>
+   *   <li>When four.
+   *   <li>Then return {@code Int64}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when four; then return 'Int64'")
@@ -117,12 +123,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When fourteen.</li>
-   *   <li>Then return {@code Text}.</li>
+   *   <li>When fourteen.
+   *   <li>Then return {@code Text}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when fourteen; then return 'Text'")
@@ -135,12 +142,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When nine.</li>
-   *   <li>Then return {@code Float}.</li>
+   *   <li>When nine.
+   *   <li>Then return {@code Float}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when nine; then return 'Float'")
@@ -153,12 +161,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When nineteen.</li>
-   *   <li>Then return {@code Template}.</li>
+   *   <li>When nineteen.
+   *   <li>Then return {@code Template}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when nineteen; then return 'Template'")
@@ -171,12 +180,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code Int8}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code Int8}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when one; then return 'Int8'")
@@ -189,12 +199,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@code UInt32}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@code UInt32}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when seven; then return 'UInt32'")
@@ -207,12 +218,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When seventeen.</li>
-   *   <li>Then return {@code Bytes}.</li>
+   *   <li>When seventeen.
+   *   <li>Then return {@code Bytes}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when seventeen; then return 'Bytes'")
@@ -225,12 +237,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When six.</li>
-   *   <li>Then return {@code UInt16}.</li>
+   *   <li>When six.
+   *   <li>Then return {@code UInt16}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when six; then return 'UInt16'")
@@ -243,12 +256,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When {@link Short#SIZE}.</li>
-   *   <li>Then return {@code DataSet}.</li>
+   *   <li>When {@link Short#SIZE}.
+   *   <li>Then return {@code DataSet}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when SIZE; then return 'DataSet'")
@@ -261,12 +275,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When ten.</li>
-   *   <li>Then return {@code Double}.</li>
+   *   <li>When ten.
+   *   <li>Then return {@code Double}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when ten; then return 'Double'")
@@ -279,12 +294,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When thirteen.</li>
-   *   <li>Then return {@code DateTime}.</li>
+   *   <li>When thirteen.
+   *   <li>Then return {@code DateTime}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when thirteen; then return 'DateTime'")
@@ -297,12 +313,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return {@code Int32}.</li>
+   *   <li>When three.
+   *   <li>Then return {@code Int32}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when three; then return 'Int32'")
@@ -315,12 +332,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When twelve.</li>
-   *   <li>Then return {@code String}.</li>
+   *   <li>When twelve.
+   *   <li>Then return {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when twelve; then return 'String'")
@@ -333,12 +351,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return {@code Int16}.</li>
+   *   <li>When two.
+   *   <li>Then return {@code Int16}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when two; then return 'Int16'")
@@ -351,12 +370,13 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test {@link MetricDataType#fromInteger(int)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return {@code Unknown}.</li>
+   *   <li>When zero.
+   *   <li>Then return {@code Unknown}.
    * </ul>
-   * <p>
-   * Method under test: {@link MetricDataType#fromInteger(int)}
+   *
+   * <p>Method under test: {@link MetricDataType#fromInteger(int)}
    */
   @Test
   @DisplayName("Test fromInteger(int); when zero; then return 'Unknown'")
@@ -369,8 +389,9 @@ class MetricDataTypeDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MetricDataType#getClazz()}
    *   <li>{@link MetricDataType#toIntValue()}

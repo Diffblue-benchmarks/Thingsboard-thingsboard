@@ -11,8 +11,8 @@ import org.thingsboard.server.common.data.kv.Aggregation;
 public class ModelConstantsDiffblueTest {
   /**
    * Test {@link ModelConstants#min(String)}.
-   * <p>
-   * Method under test: {@link ModelConstants#min(String)}
+   *
+   * <p>Method under test: {@link ModelConstants#min(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -24,8 +24,8 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#max(String)}.
-   * <p>
-   * Method under test: {@link ModelConstants#max(String)}
+   *
+   * <p>Method under test: {@link ModelConstants#max(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -37,8 +37,8 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#sum(String)}.
-   * <p>
-   * Method under test: {@link ModelConstants#sum(String)}
+   *
+   * <p>Method under test: {@link ModelConstants#sum(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -50,8 +50,8 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#count(String)}.
-   * <p>
-   * Method under test: {@link ModelConstants#count(String)}
+   *
+   * <p>Method under test: {@link ModelConstants#count(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -63,8 +63,8 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -72,36 +72,54 @@ public class ModelConstantsDiffblueTest {
   public void testGetFetchColumnNames() {
     // Arrange, Act and Assert
     assertArrayEquals(
-        new String[]{ModelConstants.LONG_VALUE_COLUMN, ModelConstants.DOUBLE_VALUE_COLUMN,
-            ModelConstants.BOOLEAN_VALUE_COLUMN, ModelConstants.STRING_VALUE_COLUMN, ModelConstants.JSON_VALUE_COLUMN,
-            ModelConstants.ADMIN_SETTINGS_KEY_PROPERTY, ModelConstants.TS_COLUMN},
+        new String[] {
+          ModelConstants.LONG_VALUE_COLUMN,
+          ModelConstants.DOUBLE_VALUE_COLUMN,
+          ModelConstants.BOOLEAN_VALUE_COLUMN,
+          ModelConstants.STRING_VALUE_COLUMN,
+          ModelConstants.JSON_VALUE_COLUMN,
+          ModelConstants.ADMIN_SETTINGS_KEY_PROPERTY,
+          ModelConstants.TS_COLUMN
+        },
         ModelConstants.getFetchColumnNames(Aggregation.NONE));
   }
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
+   *   <li>When {@code AVG}.
    * </ul>
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
   public void testGetFetchColumnNames_whenAvg() {
     // Arrange, Act and Assert
-    assertArrayEquals(new String[]{"count(long_v)", "count(dbl_v)", "count(bool_v)", "count(str_v)", "count(json_v)",
-        "max(ts)", "sum(long_v)", "sum(dbl_v)"}, ModelConstants.getFetchColumnNames(Aggregation.AVG));
+    assertArrayEquals(
+        new String[] {
+          "count(long_v)",
+          "count(dbl_v)",
+          "count(bool_v)",
+          "count(str_v)",
+          "count(json_v)",
+          "max(ts)",
+          "sum(long_v)",
+          "sum(dbl_v)"
+        },
+        ModelConstants.getFetchColumnNames(Aggregation.AVG));
   }
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
+   *
    * <ul>
-   *   <li>When {@code COUNT}.</li>
+   *   <li>When {@code COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -109,18 +127,26 @@ public class ModelConstantsDiffblueTest {
   public void testGetFetchColumnNames_whenCount() {
     // Arrange, Act and Assert
     assertArrayEquals(
-        new String[]{"count(long_v)", "count(dbl_v)", "count(bool_v)", "count(str_v)", "count(json_v)", "max(ts)"},
+        new String[] {
+          "count(long_v)",
+          "count(dbl_v)",
+          "count(bool_v)",
+          "count(str_v)",
+          "count(json_v)",
+          "max(ts)"
+        },
         ModelConstants.getFetchColumnNames(Aggregation.COUNT));
   }
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
+   *
    * <ul>
-   *   <li>When {@code MAX}.</li>
-   *   <li>Then return ninth element is {@code max(bool_v)}.</li>
+   *   <li>When {@code MAX}.
+   *   <li>Then return ninth element is {@code max(bool_v)}.
    * </ul>
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -140,12 +166,13 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return ninth element is {@code min(bool_v)}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return ninth element is {@code min(bool_v)}.
    * </ul>
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -165,18 +192,29 @@ public class ModelConstantsDiffblueTest {
 
   /**
    * Test {@link ModelConstants#getFetchColumnNames(Aggregation)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
+   *   <li>When {@code SUM}.
    * </ul>
-   * <p>
-   * Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
+   *
+   * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
   public void testGetFetchColumnNames_whenSum() {
     // Arrange, Act and Assert
-    assertArrayEquals(new String[]{"count(long_v)", "count(dbl_v)", "count(bool_v)", "count(str_v)", "count(json_v)",
-        "max(ts)", "sum(long_v)", "sum(dbl_v)"}, ModelConstants.getFetchColumnNames(Aggregation.SUM));
+    assertArrayEquals(
+        new String[] {
+          "count(long_v)",
+          "count(dbl_v)",
+          "count(bool_v)",
+          "count(str_v)",
+          "count(json_v)",
+          "max(ts)",
+          "sum(long_v)",
+          "sum(dbl_v)"
+        },
+        ModelConstants.getFetchColumnNames(Aggregation.SUM));
   }
 }

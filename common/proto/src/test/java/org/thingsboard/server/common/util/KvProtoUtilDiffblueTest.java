@@ -41,12 +41,13 @@ import org.thingsboard.server.gen.transport.TransportProtos.TsValueProto;
 class KvProtoUtilDiffblueTest {
   /**
    * Test {@link KvProtoUtil#toAttributeKvList(List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
    */
   @Test
   @DisplayName("Test toAttributeKvList(List); given DefaultInstance; then return size is one")
@@ -81,12 +82,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toAttributeKvList(List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
    */
   @Test
   @DisplayName("Test toAttributeKvList(List); given DefaultInstance; then return size is two")
@@ -110,12 +112,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toAttributeKvList(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toAttributeKvList(List)}
    */
   @Test
   @DisplayName("Test toAttributeKvList(List); when ArrayList(); then return Empty")
@@ -123,7 +126,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"List KvProtoUtil.toAttributeKvList(List)"})
   void testToAttributeKvList_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
-    List<AttributeKvEntry> actualToAttributeKvListResult = KvProtoUtil.toAttributeKvList(new ArrayList<>());
+    List<AttributeKvEntry> actualToAttributeKvListResult =
+        KvProtoUtil.toAttributeKvList(new ArrayList<>());
 
     // Assert
     assertTrue(actualToAttributeKvListResult.isEmpty());
@@ -131,8 +135,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List)")
@@ -148,7 +152,8 @@ class KvProtoUtilDiffblueTest {
     when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
 
     ArrayList<AttributeKvEntry> result = new ArrayList<>();
-    result.add(new BaseAttributeKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L)));
+    result.add(
+        new BaseAttributeKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L)));
     result.add(attributeKvEntry);
 
     // Act
@@ -167,11 +172,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntry} {@link KvEntry#getDoubleValue()} return empty.</li>
+   *   <li>Given {@link AttributeKvEntry} {@link AttributeKvEntry#getDoubleValue()} return empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); given AttributeKvEntry getDoubleValue() return empty")
@@ -209,11 +215,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Given {@link AttributeKvEntry} {@link KvEntry#getLongValue()} return empty.</li>
+   *   <li>Given {@link AttributeKvEntry} {@link AttributeKvEntry#getLongValue()} return empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); given AttributeKvEntry getLongValue() return empty")
@@ -251,11 +258,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv AllFields size is one.</li>
+   *   <li>Then return first Kv AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv AllFields size is one")
@@ -293,11 +301,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv BoolV.</li>
+   *   <li>Then return first Kv BoolV.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv BoolV")
@@ -336,11 +345,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv DoubleV is ten.</li>
+   *   <li>Then return first Kv DoubleV is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv DoubleV is ten")
@@ -378,11 +388,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv StringV is {@code 42}.</li>
+   *   <li>Then return first Kv StringV is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv StringV is '42'")
@@ -413,11 +424,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv TypeValue is four.</li>
+   *   <li>Then return first Kv TypeValue is four.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv TypeValue is four")
@@ -444,11 +456,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv TypeValue is three.</li>
+   *   <li>Then return first Kv TypeValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first Kv TypeValue is three")
@@ -486,11 +499,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return first SerializedSize is thirteen.</li>
+   *   <li>Then return first SerializedSize is thirteen.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return first SerializedSize is thirteen")
@@ -528,11 +542,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return second is first.</li>
+   *   <li>Then return second is first.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return second is first")
@@ -554,11 +569,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>Then return second SerializedSize is eleven.</li>
+   *   <li>Then return second SerializedSize is eleven.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); then return second SerializedSize is eleven")
@@ -574,7 +590,8 @@ class KvProtoUtilDiffblueTest {
     when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
 
     ArrayList<AttributeKvEntry> result = new ArrayList<>();
-    result.add(new BaseAttributeKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L)));
+    result.add(
+        new BaseAttributeKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L)));
     result.add(attributeKvEntry);
 
     // Act
@@ -593,12 +610,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); when ArrayList(); then return Empty")
@@ -614,12 +632,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#attrToTsKvProtos(List)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#attrToTsKvProtos(List)}
    */
   @Test
   @DisplayName("Test attrToTsKvProtos(List); when 'null'; then return Empty")
@@ -635,8 +654,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List)")
@@ -667,14 +686,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Given {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is {@code null}.</li>
+   *   <li>Given {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoList(List); given DoubleDataEntry(String, Double) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProtoList(List); given DoubleDataEntry(String, Double) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List KvProtoUtil.toTsKvProtoList(List)"})
   void testToTsKvProtoList_givenDoubleDataEntryWithKeyAndValueIsNull() {
@@ -698,15 +720,18 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>Given {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoList(List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return size is two")
+  @DisplayName(
+      "Test toTsKvProtoList(List); given JsonDataEntry(String, String) with 'Key' and value is '42'; then return size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List KvProtoUtil.toTsKvProtoList(List)"})
   void testToTsKvProtoList_givenJsonDataEntryWithKeyAndValueIs42_thenReturnSizeIsTwo() {
@@ -725,14 +750,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Given {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is {@code null}.</li>
+   *   <li>Given {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoList(List); given LongDataEntry(String, Long) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProtoList(List); given LongDataEntry(String, Long) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List KvProtoUtil.toTsKvProtoList(List)"})
   void testToTsKvProtoList_givenLongDataEntryWithKeyAndValueIsNull() {
@@ -756,11 +784,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv AllFields size is one.</li>
+   *   <li>Then return first Kv AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv AllFields size is one")
@@ -787,11 +816,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv BoolV.</li>
+   *   <li>Then return first Kv BoolV.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv BoolV")
@@ -819,11 +849,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv DoubleV is ten.</li>
+   *   <li>Then return first Kv DoubleV is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv DoubleV is ten")
@@ -850,11 +881,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv StringV is {@code 42}.</li>
+   *   <li>Then return first Kv StringV is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv StringV is '42'")
@@ -885,11 +917,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv TypeValue is four.</li>
+   *   <li>Then return first Kv TypeValue is four.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv TypeValue is four")
@@ -916,11 +949,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first Kv TypeValue is three.</li>
+   *   <li>Then return first Kv TypeValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first Kv TypeValue is three")
@@ -947,11 +981,12 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Then return first SerializedSize is thirteen.</li>
+   *   <li>Then return first SerializedSize is thirteen.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); then return first SerializedSize is thirteen")
@@ -978,12 +1013,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); when ArrayList(); then return Empty")
@@ -999,12 +1035,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test toTsKvProtoList(List); when 'null'; then return Empty")
@@ -1020,12 +1057,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test fromTsKvProtoList(List); given DefaultInstance; then return size is one")
@@ -1061,12 +1099,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test fromTsKvProtoList(List); given DefaultInstance; then return size is two")
@@ -1090,12 +1129,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsKvProtoList(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsKvProtoList(List)}
    */
   @Test
   @DisplayName("Test fromTsKvProtoList(List); when ArrayList(); then return Empty")
@@ -1103,7 +1143,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"List KvProtoUtil.fromTsKvProtoList(List)"})
   void testFromTsKvProtoList_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
-    List<TsKvEntry> actualFromTsKvProtoListResult = KvProtoUtil.fromTsKvProtoList(new ArrayList<>());
+    List<TsKvEntry> actualFromTsKvProtoListResult =
+        KvProtoUtil.fromTsKvProtoList(new ArrayList<>());
 
     // Assert
     assertTrue(actualFromTsKvProtoListResult.isEmpty());
@@ -1111,8 +1152,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1120,8 +1161,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1130,14 +1171,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1145,8 +1188,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry2() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L, new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1155,14 +1199,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1170,8 +1216,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry3() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1180,14 +1226,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1195,8 +1243,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry4() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1205,14 +1253,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1220,8 +1270,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry5() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1230,14 +1280,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1245,8 +1297,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry6() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1255,14 +1307,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1270,8 +1324,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry7() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1280,14 +1336,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1295,8 +1353,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry8() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1305,14 +1365,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1320,8 +1382,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry9() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1330,14 +1394,16 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'")
@@ -1345,8 +1411,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry10() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L, new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1355,14 +1422,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1370,8 +1440,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1380,14 +1450,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1395,8 +1468,11 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion2() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L),
+            1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1405,14 +1481,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1420,8 +1499,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion3() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1430,14 +1509,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1445,8 +1527,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion4() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1455,14 +1538,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1470,8 +1556,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion5() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1480,14 +1566,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1495,8 +1584,11 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion6() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L),
+            1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1505,14 +1597,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1520,8 +1615,11 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion7() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L),
+            1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1530,14 +1628,17 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
@@ -1545,8 +1646,11 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion8() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L),
+            1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1555,105 +1659,69 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
-   */
-  @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
-  void testToTsKvProtoWithTsKvEntryVersion9() {
-    // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L), 1L);
-
-    // Assert
-    UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
-    TsKvProto defaultInstanceForType = actualToTsKvProtoResult.getDefaultInstanceForType();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    KeyValueProto kv = actualToTsKvProtoResult.getKv();
-    assertSame(unknownFields, kv.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
-  }
-
-  /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
-   */
-  @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
-  void testToTsKvProtoWithTsKvEntryVersion10() {
-    // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L), 1L);
-
-    // Assert
-    UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
-    TsKvProto defaultInstanceForType = actualToTsKvProtoResult.getDefaultInstanceForType();
-    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
-    KeyValueProto kv = actualToTsKvProtoResult.getKv();
-    assertSame(unknownFields, kv.getUnknownFields());
-    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
-    assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
-  }
-
-  /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>Then return Kv AllFields size is one.</li>
+   *   <li>Then return Kv AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; then return Kv AllFields size is one")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; then return Kv AllFields size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_thenReturnKvAllFieldsSizeIsOne() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new BooleanDataEntry("Key", null), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", null), 3L), 1L);
 
     // Assert
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertEquals(1, kv.getAllFields().size());
-    assertEquals(11, actualToTsKvProtoResult.getSerializedSize());
     assertEquals(5, kv.getSerializedSize());
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
     TsKvProto defaultInstanceForType = actualToTsKvProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new BooleanDataEntry("Key", true), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1662,25 +1730,69 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is {@code null}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when DoubleDataEntry(String, Double) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
+  void testToTsKvProtoWithTsKvEntryVersion_whenBooleanDataEntryWithKeyAndValueIsTrue2() {
+    // Arrange and Act
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L),
+            1L);
+
+    // Assert
+    UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
+    TsKvProto defaultInstanceForType = actualToTsKvProtoResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    KeyValueProto kv = actualToTsKvProtoResult.getKv();
+    assertSame(unknownFields, kv.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
+  }
+
+  /**
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
+   * <ul>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   */
+  @Test
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when DoubleDataEntry(String, Double) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenDoubleDataEntryWithKeyAndValueIsNull() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", null), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", null), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1689,25 +1801,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is ten.</li>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenDoubleDataEntryWithKeyAndValueIsTen() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", 10.0d), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", 10.0d), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1716,25 +1835,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenJsonDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new JsonDataEntry("Key", "42"), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new JsonDataEntry("Key", "42"), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1743,25 +1869,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code null}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when JsonDataEntry(String, String) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when JsonDataEntry(String, String) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenJsonDataEntryWithKeyAndValueIsNull() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new JsonDataEntry("Key", null), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new JsonDataEntry("Key", null), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1770,25 +1903,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is forty-two.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new LongDataEntry("Key", 42L), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new LongDataEntry("Key", 42L), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1797,25 +1937,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is {@code null}.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when LongDataEntry(String, Long) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when LongDataEntry(String, Long) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenLongDataEntryWithKeyAndValueIsNull() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new LongDataEntry("Key", null), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new LongDataEntry("Key", null), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1824,26 +1971,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Version is zero.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Version is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when 'null'; then return Version is zero")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when 'null'; then return Version is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenNull_thenReturnVersionIsZero() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new JsonDataEntry("Key", "42"), null);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new BooleanDataEntry("Key", true), null);
 
     // Assert
     assertEquals(0L, actualToTsKvProtoResult.getVersion());
@@ -1855,25 +2008,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when StringDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenStringDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", "42"), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", "42"), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1882,25 +2042,32 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
-   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry}, {@code version}.
+   * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)} with {@code ts}, {@code kvEntry},
+   * {@code version}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code null}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry, Long)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when StringDataEntry(String, String) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry, Long) with 'ts', 'kvEntry', 'version'; when StringDataEntry(String, String) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry, Long)"})
   void testToTsKvProtoWithTsKvEntryVersion_whenStringDataEntryWithKeyAndValueIsNull() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", null), 1L);
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", null), 1L);
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1909,25 +2076,31 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new BooleanDataEntry("Key", true));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new BooleanDataEntry("Key", true));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1936,25 +2109,31 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is ten.</li>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry_whenDoubleDataEntryWithKeyAndValueIsTen() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", 10.0d));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new DoubleDataEntry("Key", 10.0d));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -1963,20 +2142,25 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry_whenJsonDataEntryWithKeyAndValueIs42() {
@@ -1990,20 +2174,25 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is forty-two.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
@@ -2017,25 +2206,31 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsKvProto(long, KvEntry)} with {@code ts}, {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProto(long, KvEntry) with 'ts', 'kvEntry'; when StringDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvProto KvProtoUtil.toTsKvProto(long, KvEntry)"})
   void testToTsKvProtoWithTsKvEntry_whenStringDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    TsKvProto actualToTsKvProtoResult = KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", "42"));
+    TsKvProto actualToTsKvProtoResult =
+        KvProtoUtil.toTsKvProto(1L, new StringDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoResult.getUnknownFields();
@@ -2044,25 +2239,30 @@ class KvProtoUtilDiffblueTest {
     KeyValueProto kv = actualToTsKvProtoResult.getKv();
     assertSame(unknownFields, kv.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     assertSame(kv, actualToTsKvProtoResult.getKvOrBuilder());
   }
 
   /**
    * Test {@link KvProtoUtil#fromTsKvProto(KeyValueProto)} with {@code KeyValueProto}.
+   *
    * <ul>
-   *   <li>Then return {@link BooleanDataEntry}.</li>
+   *   <li>Then return {@link BooleanDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsKvProto(KeyValueProto)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsKvProto(KeyValueProto)}
    */
   @Test
-  @DisplayName("Test fromTsKvProto(KeyValueProto) with 'KeyValueProto'; then return BooleanDataEntry")
+  @DisplayName(
+      "Test fromTsKvProto(KeyValueProto) with 'KeyValueProto'; then return BooleanDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KvEntry KvProtoUtil.fromTsKvProto(KeyValueProto)"})
   void testFromTsKvProtoWithKeyValueProto_thenReturnBooleanDataEntry() {
     // Arrange and Act
-    KvEntry actualFromTsKvProtoResult = KvProtoUtil.fromTsKvProto(KeyValueProto.getDefaultInstance());
+    KvEntry actualFromTsKvProtoResult =
+        KvProtoUtil.fromTsKvProto(KeyValueProto.getDefaultInstance());
 
     // Assert
     assertTrue(actualFromTsKvProtoResult instanceof BooleanDataEntry);
@@ -2083,15 +2283,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsKvProto(TsKvProto)} with {@code TsKvProto}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return {@link BasicTsKvEntry}.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return {@link BasicTsKvEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsKvProto(TsKvProto)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsKvProto(TsKvProto)}
    */
   @Test
-  @DisplayName("Test fromTsKvProto(TsKvProto) with 'TsKvProto'; when DefaultInstance; then return BasicTsKvEntry")
+  @DisplayName(
+      "Test fromTsKvProto(TsKvProto) with 'TsKvProto'; when DefaultInstance; then return BasicTsKvEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TsKvEntry KvProtoUtil.fromTsKvProto(TsKvProto)"})
   void testFromTsKvProtoWithTsKvProto_whenDefaultInstance_thenReturnBasicTsKvEntry() {
@@ -2118,8 +2320,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2127,8 +2329,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2144,8 +2347,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2153,8 +2356,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder2() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new AggTsKvEntry(2L, new JsonDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2170,8 +2374,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2179,8 +2383,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder3() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2196,8 +2401,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2205,8 +2410,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder4() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2222,8 +2428,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2231,8 +2437,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder5() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2248,8 +2455,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2257,8 +2464,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder6() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2274,8 +2481,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2283,8 +2490,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder7() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new BooleanDataEntry("Key", true), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2300,8 +2509,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2309,8 +2518,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder8() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new StringDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2326,8 +2537,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2335,8 +2546,10 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder9() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L,
+            new AggTsKvEntry(2L, new AggTsKvEntry(2L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2352,8 +2565,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsKvProtoBuilder(long, KvEntry)")
@@ -2361,8 +2574,9 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder10() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L,
-        new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(
+            1L, new AggTsKvEntry(2L, new AggTsKvEntry(2L, new LongDataEntry("Key", 42L), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2378,19 +2592,23 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoBuilder(long, KvEntry); when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toTsKvProtoBuilder(long, KvEntry); when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L, new BooleanDataEntry("Key", true));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new BooleanDataEntry("Key", true));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2406,19 +2624,23 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is ten.</li>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoBuilder(long, KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten")
+  @DisplayName(
+      "Test toTsKvProtoBuilder(long, KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder_whenDoubleDataEntryWithKeyAndValueIsTen() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L, new DoubleDataEntry("Key", 10.0d));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new DoubleDataEntry("Key", 10.0d));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2434,19 +2656,23 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoBuilder(long, KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProtoBuilder(long, KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder_whenJsonDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L, new JsonDataEntry("Key", "42"));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new JsonDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2462,19 +2688,23 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is forty-two.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoBuilder(long, KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @DisplayName(
+      "Test toTsKvProtoBuilder(long, KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L, new LongDataEntry("Key", 42L));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new LongDataEntry("Key", 42L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2490,19 +2720,23 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsKvProtoBuilder(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsKvProtoBuilder(long, KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsKvProtoBuilder(long, KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Builder KvProtoUtil.toTsKvProtoBuilder(long, KvEntry)"})
   void testToTsKvProtoBuilder_whenStringDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    Builder actualToTsKvProtoBuilderResult = KvProtoUtil.toTsKvProtoBuilder(1L, new StringDataEntry("Key", "42"));
+    Builder actualToTsKvProtoBuilderResult =
+        KvProtoUtil.toTsKvProtoBuilder(1L, new StringDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsKvProtoBuilderResult.getUnknownFields();
@@ -2518,15 +2752,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(DataType)} with {@code dataType}.
+   *
    * <ul>
-   *   <li>When {@code BOOLEAN}.</li>
-   *   <li>Then return {@code BOOLEAN_V}.</li>
+   *   <li>When {@code BOOLEAN}.
+   *   <li>Then return {@code BOOLEAN_V}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(DataType) with 'dataType'; when 'BOOLEAN'; then return 'BOOLEAN_V'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(DataType) with 'dataType'; when 'BOOLEAN'; then return 'BOOLEAN_V'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueType KvProtoUtil.toKeyValueTypeProto(DataType)"})
   void testToKeyValueTypeProtoWithDataType_whenBoolean_thenReturnBooleanV() {
@@ -2536,15 +2772,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(DataType)} with {@code dataType}.
+   *
    * <ul>
-   *   <li>When {@code DOUBLE}.</li>
-   *   <li>Then return {@code DOUBLE_V}.</li>
+   *   <li>When {@code DOUBLE}.
+   *   <li>Then return {@code DOUBLE_V}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(DataType) with 'dataType'; when 'DOUBLE'; then return 'DOUBLE_V'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(DataType) with 'dataType'; when 'DOUBLE'; then return 'DOUBLE_V'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueType KvProtoUtil.toKeyValueTypeProto(DataType)"})
   void testToKeyValueTypeProtoWithDataType_whenDouble_thenReturnDoubleV() {
@@ -2554,15 +2792,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(DataType)} with {@code dataType}.
+   *
    * <ul>
-   *   <li>When {@code JSON}.</li>
-   *   <li>Then return {@code JSON_V}.</li>
+   *   <li>When {@code JSON}.
+   *   <li>Then return {@code JSON_V}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(DataType) with 'dataType'; when 'JSON'; then return 'JSON_V'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(DataType) with 'dataType'; when 'JSON'; then return 'JSON_V'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueType KvProtoUtil.toKeyValueTypeProto(DataType)"})
   void testToKeyValueTypeProtoWithDataType_whenJson_thenReturnJsonV() {
@@ -2572,15 +2812,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(DataType)} with {@code dataType}.
+   *
    * <ul>
-   *   <li>When {@code LONG}.</li>
-   *   <li>Then return {@code LONG_V}.</li>
+   *   <li>When {@code LONG}.
+   *   <li>Then return {@code LONG_V}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(DataType) with 'dataType'; when 'LONG'; then return 'LONG_V'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(DataType) with 'dataType'; when 'LONG'; then return 'LONG_V'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueType KvProtoUtil.toKeyValueTypeProto(DataType)"})
   void testToKeyValueTypeProtoWithDataType_whenLong_thenReturnLongV() {
@@ -2590,15 +2832,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(DataType)} with {@code dataType}.
+   *
    * <ul>
-   *   <li>When {@code STRING}.</li>
-   *   <li>Then return {@code STRING_V}.</li>
+   *   <li>When {@code STRING}.
+   *   <li>Then return {@code STRING_V}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(DataType)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(DataType) with 'dataType'; when 'STRING'; then return 'STRING_V'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(DataType) with 'dataType'; when 'STRING'; then return 'STRING_V'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueType KvProtoUtil.toKeyValueTypeProto(DataType)"})
   void testToKeyValueTypeProtoWithDataType_whenString_thenReturnStringV() {
@@ -2608,8 +2852,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2617,21 +2861,24 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2639,21 +2886,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry2() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2661,21 +2912,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry3() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2683,21 +2938,24 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry4() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2705,21 +2963,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry5() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2727,21 +2989,24 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry6() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2749,21 +3014,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry7() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2771,21 +3040,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry8() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2793,21 +3066,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry9() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
   @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'")
@@ -2815,148 +3092,189 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry10() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil
-        .toKeyValueTypeProto(new AggTsKvEntry(1L, new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L), 3L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil.toKeyValueTypeProto(new BooleanDataEntry("Key", true));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new BooleanDataEntry("Key", true));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is ten.</li>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
+  @DisplayName(
+      "Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when DoubleDataEntry(String, Double) with 'Key' and value is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry_whenDoubleDataEntryWithKeyAndValueIsTen() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil.toKeyValueTypeProto(new DoubleDataEntry("Key", 10.0d));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new DoubleDataEntry("Key", 10.0d));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry_whenJsonDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil.toKeyValueTypeProto(new JsonDataEntry("Key", "42"));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new JsonDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is forty-two.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @DisplayName(
+      "Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when LongDataEntry(String, Long) with 'Key' and value is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil.toKeyValueTypeProto(new LongDataEntry("Key", 42L));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new LongDataEntry("Key", 42L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)} with {@code kvEntry}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toKeyValueTypeProto(KvEntry)}
    */
   @Test
-  @DisplayName("Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toKeyValueTypeProto(KvEntry) with 'kvEntry'; when StringDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyValueProto KvProtoUtil.toKeyValueTypeProto(KvEntry)"})
   void testToKeyValueTypeProtoWithKvEntry_whenStringDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    KeyValueProto actualToKeyValueTypeProtoResult = KvProtoUtil.toKeyValueTypeProto(new StringDataEntry("Key", "42"));
+    KeyValueProto actualToKeyValueTypeProtoResult =
+        KvProtoUtil.toKeyValueTypeProto(new StringDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToKeyValueTypeProtoResult.getUnknownFields();
-    KeyValueProto defaultInstanceForType = actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
+    KeyValueProto defaultInstanceForType =
+        actualToKeyValueTypeProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#fromTsValueProtoList(String, List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
    */
   @Test
-  @DisplayName("Test fromTsValueProtoList(String, List); given DefaultInstance; then return size is one")
+  @DisplayName(
+      "Test fromTsValueProtoList(String, List); given DefaultInstance; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List KvProtoUtil.fromTsValueProtoList(String, List)"})
   void testFromTsValueProtoList_givenDefaultInstance_thenReturnSizeIsOne() {
@@ -2965,7 +3283,8 @@ class KvProtoUtilDiffblueTest {
     dataList.add(TsValueProto.getDefaultInstance());
 
     // Act
-    List<TsKvEntry> actualFromTsValueProtoListResult = KvProtoUtil.fromTsValueProtoList("Key", dataList);
+    List<TsKvEntry> actualFromTsValueProtoListResult =
+        KvProtoUtil.fromTsValueProtoList("Key", dataList);
 
     // Assert
     assertEquals(1, actualFromTsValueProtoListResult.size());
@@ -2989,15 +3308,17 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsValueProtoList(String, List)}.
+   *
    * <ul>
-   *   <li>Given DefaultInstance.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>Given DefaultInstance.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
    */
   @Test
-  @DisplayName("Test fromTsValueProtoList(String, List); given DefaultInstance; then return size is two")
+  @DisplayName(
+      "Test fromTsValueProtoList(String, List); given DefaultInstance; then return size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List KvProtoUtil.fromTsValueProtoList(String, List)"})
   void testFromTsValueProtoList_givenDefaultInstance_thenReturnSizeIsTwo() {
@@ -3007,7 +3328,8 @@ class KvProtoUtilDiffblueTest {
     dataList.add(TsValueProto.getDefaultInstance());
 
     // Act
-    List<TsKvEntry> actualFromTsValueProtoListResult = KvProtoUtil.fromTsValueProtoList("Key", dataList);
+    List<TsKvEntry> actualFromTsValueProtoListResult =
+        KvProtoUtil.fromTsValueProtoList("Key", dataList);
 
     // Assert
     assertEquals(2, actualFromTsValueProtoListResult.size());
@@ -3018,12 +3340,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromTsValueProtoList(String, List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsValueProtoList(String, List)}
    */
   @Test
   @DisplayName("Test fromTsValueProtoList(String, List); when ArrayList(); then return Empty")
@@ -3031,7 +3354,8 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"List KvProtoUtil.fromTsValueProtoList(String, List)"})
   void testFromTsValueProtoList_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
-    List<TsKvEntry> actualFromTsValueProtoListResult = KvProtoUtil.fromTsValueProtoList("Key", new ArrayList<>());
+    List<TsKvEntry> actualFromTsValueProtoListResult =
+        KvProtoUtil.fromTsValueProtoList("Key", new ArrayList<>());
 
     // Assert
     assertTrue(actualFromTsValueProtoListResult.isEmpty());
@@ -3039,8 +3363,8 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3048,21 +3372,23 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3070,21 +3396,24 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto2() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(
+            1L, new AggTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3092,21 +3421,23 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto3() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3114,21 +3445,23 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto4() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3136,21 +3469,23 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto5() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3158,21 +3493,23 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto6() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3180,21 +3517,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto7() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(
+            1L,
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new BooleanDataEntry("Key", true), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3202,21 +3543,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto8() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(
+            1L,
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3224,21 +3569,25 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto9() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(
+            1L,
+            new AggTsKvEntry(1L, new AggTsKvEntry(1L, new DoubleDataEntry("Key", 10.0d), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
   @DisplayName("Test toTsValueProto(long, KvEntry)")
@@ -3246,153 +3595,190 @@ class KvProtoUtilDiffblueTest {
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto10() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L,
-        new AggTsKvEntry(1L, new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L), 3L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(
+            1L, new AggTsKvEntry(1L, new AggTsKvEntry(1L, new LongDataEntry("Key", 42L), 3L), 3L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsValueProto(long, KvEntry); when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toTsValueProto(long, KvEntry); when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L, new BooleanDataEntry("Key", true));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new BooleanDataEntry("Key", true));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value is ten.</li>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsValueProto(long, KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten")
+  @DisplayName(
+      "Test toTsValueProto(long, KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto_whenDoubleDataEntryWithKeyAndValueIsTen() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L, new DoubleDataEntry("Key", 10.0d));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new DoubleDataEntry("Key", 10.0d));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsValueProto(long, KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsValueProto(long, KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto_whenJsonDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L, new JsonDataEntry("Key", "42"));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new JsonDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is forty-two.</li>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsValueProto(long, KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @DisplayName(
+      "Test toTsValueProto(long, KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L, new LongDataEntry("Key", 42L));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new LongDataEntry("Key", 42L));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#toTsValueProto(long, KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#toTsValueProto(long, KvEntry)}
    */
   @Test
-  @DisplayName("Test toTsValueProto(long, KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toTsValueProto(long, KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TsValueProto KvProtoUtil.toTsValueProto(long, KvEntry)"})
   void testToTsValueProto_whenStringDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    TsValueProto actualToTsValueProtoResult = KvProtoUtil.toTsValueProto(1L, new StringDataEntry("Key", "42"));
+    TsValueProto actualToTsValueProtoResult =
+        KvProtoUtil.toTsValueProto(1L, new StringDataEntry("Key", "42"));
 
     // Assert
     UnknownFieldSet unknownFields = actualToTsValueProtoResult.getUnknownFields();
     TsValueProto defaultInstanceForType = actualToTsValueProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link KvProtoUtil#fromTsValueProto(String, TsValueProto)}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return {@link BooleanDataEntry}.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return {@link BooleanDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromTsValueProto(String, TransportProtos.TsValueProto)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromTsValueProto(String,
+   * TransportProtos.TsValueProto)}
    */
   @Test
-  @DisplayName("Test fromTsValueProto(String, TsValueProto); when DefaultInstance; then return BooleanDataEntry")
+  @DisplayName(
+      "Test fromTsValueProto(String, TsValueProto); when DefaultInstance; then return BooleanDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KvEntry KvProtoUtil.fromTsValueProto(String, TransportProtos.TsValueProto)"})
   void testFromTsValueProto_whenDefaultInstance_thenReturnBooleanDataEntry() {
     // Arrange and Act
-    KvEntry actualFromTsValueProtoResult = KvProtoUtil.fromTsValueProto("Key", TsValueProto.getDefaultInstance());
+    KvEntry actualFromTsValueProtoResult =
+        KvProtoUtil.fromTsValueProto("Key", TsValueProto.getDefaultInstance());
 
     // Assert
     assertTrue(actualFromTsValueProtoResult instanceof BooleanDataEntry);
@@ -3413,12 +3799,13 @@ class KvProtoUtilDiffblueTest {
 
   /**
    * Test {@link KvProtoUtil#fromKeyValueTypeProto(KeyValueType)}.
+   *
    * <ul>
-   *   <li>When {@code BOOLEAN_V}.</li>
-   *   <li>Then return {@code BOOLEAN}.</li>
+   *   <li>When {@code BOOLEAN_V}.
+   *   <li>Then return {@code BOOLEAN}.
    * </ul>
-   * <p>
-   * Method under test: {@link KvProtoUtil#fromKeyValueTypeProto(KeyValueType)}
+   *
+   * <p>Method under test: {@link KvProtoUtil#fromKeyValueTypeProto(KeyValueType)}
    */
   @Test
   @DisplayName("Test fromKeyValueTypeProto(KeyValueType); when 'BOOLEAN_V'; then return 'BOOLEAN'")

@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class NodeConnectionInfoDiffblueTest {
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}, and {@link NodeConnectionInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeConnectionInfo#equals(Object)}
    *   <li>{@link NodeConnectionInfo#hashCode()}
@@ -24,7 +26,10 @@ class NodeConnectionInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -45,12 +50,14 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}, and {@link NodeConnectionInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeConnectionInfo#equals(Object)}
    *   <li>{@link NodeConnectionInfo#hashCode()}
@@ -59,7 +66,10 @@ class NodeConnectionInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -80,12 +90,14 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}, and {@link NodeConnectionInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NodeConnectionInfo#equals(Object)}
    *   <li>{@link NodeConnectionInfo#hashCode()}
@@ -94,7 +106,10 @@ class NodeConnectionInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -110,17 +125,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -139,17 +158,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -168,17 +191,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -197,17 +224,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -226,17 +257,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -250,17 +285,21 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test {@link NodeConnectionInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NodeConnectionInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link NodeConnectionInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NodeConnectionInfo.equals(Object)", "int NodeConnectionInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NodeConnectionInfo.equals(Object)",
+    "int NodeConnectionInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NodeConnectionInfo nodeConnectionInfo = new NodeConnectionInfo();
@@ -274,8 +313,9 @@ class NodeConnectionInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NodeConnectionInfo}
    *   <li>{@link NodeConnectionInfo#setFromIndex(int)}
@@ -290,10 +330,16 @@ class NodeConnectionInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NodeConnectionInfo.<init>()", "int NodeConnectionInfo.getFromIndex()",
-      "int NodeConnectionInfo.getToIndex()", "String NodeConnectionInfo.getType()",
-      "void NodeConnectionInfo.setFromIndex(int)", "void NodeConnectionInfo.setToIndex(int)",
-      "void NodeConnectionInfo.setType(String)", "String NodeConnectionInfo.toString()"})
+  @MethodsUnderTest({
+    "void NodeConnectionInfo.<init>()",
+    "int NodeConnectionInfo.getFromIndex()",
+    "int NodeConnectionInfo.getToIndex()",
+    "String NodeConnectionInfo.getType()",
+    "void NodeConnectionInfo.setFromIndex(int)",
+    "void NodeConnectionInfo.setToIndex(int)",
+    "void NodeConnectionInfo.setType(String)",
+    "String NodeConnectionInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NodeConnectionInfo actualNodeConnectionInfo = new NodeConnectionInfo();

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class BaseDataDiffblueTest {
   /**
    * Test {@link BaseData#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link BaseData#getCreatedTime()}
+   *
+   * <p>Method under test: {@link BaseData#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -18,13 +18,13 @@ class BaseDataDiffblueTest {
   @MethodsUnderTest({"long BaseData.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new ApiUsageState()).getCreatedTime());
+    assertEquals(0L, new ApiUsageState().getCreatedTime());
   }
 
   /**
    * Test {@link BaseData#setCreatedTime(long)}.
-   * <p>
-   * Method under test: {@link BaseData#setCreatedTime(long)}
+   *
+   * <p>Method under test: {@link BaseData#setCreatedTime(long)}
    */
   @Test
   @DisplayName("Test setCreatedTime(long)")

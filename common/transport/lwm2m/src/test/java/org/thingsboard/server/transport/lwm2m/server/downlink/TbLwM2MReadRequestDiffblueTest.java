@@ -20,13 +20,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MReadRequest
 @ContextConfiguration(classes = {TbLwM2MReadRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MReadRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MReadRequestBuilder tbLwM2MReadRequestBuilder;
+  @Autowired private TbLwM2MReadRequestBuilder tbLwM2MReadRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MReadRequest#getRequestContentFormat()}
    *   <li>{@link TbLwM2MReadRequest#getType()}
@@ -35,16 +35,20 @@ class TbLwM2MReadRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional TbLwM2MReadRequest.getRequestContentFormat()",
-      "LwM2MOperationType TbLwM2MReadRequest.getType()"})
+  @MethodsUnderTest({
+    "Optional TbLwM2MReadRequest.getRequestContentFormat()",
+    "LwM2MOperationType TbLwM2MReadRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MReadRequestBuilder builderResult = TbLwM2MReadRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
-    TbLwM2MReadRequest buildResult = builderResult.requestContentFormat(requestContentFormat)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MReadRequest buildResult =
+        builderResult
+            .requestContentFormat(requestContentFormat)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Act
     Optional<ContentFormat> actualRequestContentFormat = buildResult.getRequestContentFormat();
@@ -57,8 +61,9 @@ class TbLwM2MReadRequestDiffblueTest {
 
   /**
    * Test TbLwM2MReadRequestBuilder {@link TbLwM2MReadRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MReadRequestBuilder#build()}
    *   <li>{@link TbLwM2MReadRequestBuilder#requestContentFormat(ContentFormat)}
@@ -69,21 +74,26 @@ class TbLwM2MReadRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MReadRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MReadRequestBuilder.<init>()", "TbLwM2MReadRequest TbLwM2MReadRequestBuilder.build()",
-      "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.requestContentFormat(ContentFormat)",
-      "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.timeout(long)",
-      "String TbLwM2MReadRequestBuilder.toString()",
-      "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MReadRequestBuilder.<init>()",
+    "TbLwM2MReadRequest TbLwM2MReadRequestBuilder.build()",
+    "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.requestContentFormat(ContentFormat)",
+    "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.timeout(long)",
+    "String TbLwM2MReadRequestBuilder.toString()",
+    "TbLwM2MReadRequestBuilder TbLwM2MReadRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MReadRequestBuilderBuild() {
     // Arrange
     TbLwM2MReadRequestBuilder builderResult = TbLwM2MReadRequest.builder();
     ContentFormat requestContentFormat = ContentFormat.fromCode(1);
 
     // Act
-    TbLwM2MReadRequest actualBuildResult = builderResult.requestContentFormat(requestContentFormat)
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MReadRequest actualBuildResult =
+        builderResult
+            .requestContentFormat(requestContentFormat)
+            .timeout(10L)
+            .versionedId("42")
+            .build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class JwtSettingsDiffblueTest {
   /**
    * Test {@link JwtSettings#equals(Object)}, and {@link JwtSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtSettings#equals(Object)}
    *   <li>{@link JwtSettings#hashCode()}
@@ -38,12 +40,14 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}, and {@link JwtSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtSettings#equals(Object)}
    *   <li>{@link JwtSettings#hashCode()}
@@ -66,12 +70,14 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}, and {@link JwtSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtSettings#equals(Object)}
    *   <li>{@link JwtSettings#hashCode()}
@@ -93,12 +99,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -114,12 +121,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -135,12 +143,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -157,12 +166,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -179,12 +189,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -201,12 +212,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -225,12 +237,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -249,12 +262,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -273,12 +287,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -291,12 +306,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test {@link JwtSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JwtSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link JwtSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -309,8 +325,9 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtSettings#JwtSettings()}
    *   <li>{@link JwtSettings#setRefreshTokenExpTime(Integer)}
@@ -327,12 +344,19 @@ class JwtSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JwtSettings.<init>()", "void JwtSettings.<init>(Integer, Integer, String, String)",
-      "Integer JwtSettings.getRefreshTokenExpTime()", "Integer JwtSettings.getTokenExpirationTime()",
-      "String JwtSettings.getTokenIssuer()", "String JwtSettings.getTokenSigningKey()",
-      "void JwtSettings.setRefreshTokenExpTime(Integer)", "void JwtSettings.setTokenExpirationTime(Integer)",
-      "void JwtSettings.setTokenIssuer(String)", "void JwtSettings.setTokenSigningKey(String)",
-      "String JwtSettings.toString()"})
+  @MethodsUnderTest({
+    "void JwtSettings.<init>()",
+    "void JwtSettings.<init>(Integer, Integer, String, String)",
+    "Integer JwtSettings.getRefreshTokenExpTime()",
+    "Integer JwtSettings.getTokenExpirationTime()",
+    "String JwtSettings.getTokenIssuer()",
+    "String JwtSettings.getTokenSigningKey()",
+    "void JwtSettings.setRefreshTokenExpTime(Integer)",
+    "void JwtSettings.setTokenExpirationTime(Integer)",
+    "void JwtSettings.setTokenIssuer(String)",
+    "void JwtSettings.setTokenSigningKey(String)",
+    "String JwtSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     JwtSettings actualJwtSettings = new JwtSettings();
@@ -349,7 +373,8 @@ class JwtSettingsDiffblueTest {
     assertEquals("ABC123", actualTokenIssuer);
     assertEquals("ABC123", actualJwtSettings.getTokenSigningKey());
     assertEquals(
-        "JwtSettings(tokenExpirationTime=1, refreshTokenExpTime=1, tokenIssuer=ABC123, tokenSigningKey" + "=ABC123)",
+        "JwtSettings(tokenExpirationTime=1, refreshTokenExpTime=1, tokenIssuer=ABC123, tokenSigningKey"
+            + "=ABC123)",
         actualToStringResult);
     assertEquals(1, actualRefreshTokenExpTime.intValue());
     assertEquals(1, actualTokenExpirationTime.intValue());
@@ -357,11 +382,13 @@ class JwtSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When one.</li>
+   *   <li>When one.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JwtSettings#JwtSettings(Integer, Integer, String, String)}
    *   <li>{@link JwtSettings#setRefreshTokenExpTime(Integer)}
@@ -378,12 +405,19 @@ class JwtSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JwtSettings.<init>()", "void JwtSettings.<init>(Integer, Integer, String, String)",
-      "Integer JwtSettings.getRefreshTokenExpTime()", "Integer JwtSettings.getTokenExpirationTime()",
-      "String JwtSettings.getTokenIssuer()", "String JwtSettings.getTokenSigningKey()",
-      "void JwtSettings.setRefreshTokenExpTime(Integer)", "void JwtSettings.setTokenExpirationTime(Integer)",
-      "void JwtSettings.setTokenIssuer(String)", "void JwtSettings.setTokenSigningKey(String)",
-      "String JwtSettings.toString()"})
+  @MethodsUnderTest({
+    "void JwtSettings.<init>()",
+    "void JwtSettings.<init>(Integer, Integer, String, String)",
+    "Integer JwtSettings.getRefreshTokenExpTime()",
+    "Integer JwtSettings.getTokenExpirationTime()",
+    "String JwtSettings.getTokenIssuer()",
+    "String JwtSettings.getTokenSigningKey()",
+    "void JwtSettings.setRefreshTokenExpTime(Integer)",
+    "void JwtSettings.setTokenExpirationTime(Integer)",
+    "void JwtSettings.setTokenIssuer(String)",
+    "void JwtSettings.setTokenSigningKey(String)",
+    "String JwtSettings.toString()"
+  })
   void testGettersAndSetters_whenOne() {
     // Arrange and Act
     JwtSettings actualJwtSettings = new JwtSettings(1, 1, "ABC123", "ABC123");
@@ -400,7 +434,8 @@ class JwtSettingsDiffblueTest {
     assertEquals("ABC123", actualTokenIssuer);
     assertEquals("ABC123", actualJwtSettings.getTokenSigningKey());
     assertEquals(
-        "JwtSettings(tokenExpirationTime=1, refreshTokenExpTime=1, tokenIssuer=ABC123, tokenSigningKey" + "=ABC123)",
+        "JwtSettings(tokenExpirationTime=1, refreshTokenExpTime=1, tokenIssuer=ABC123, tokenSigningKey"
+            + "=ABC123)",
         actualToStringResult);
     assertEquals(1, actualRefreshTokenExpTime.intValue());
     assertEquals(1, actualTokenExpirationTime.intValue());

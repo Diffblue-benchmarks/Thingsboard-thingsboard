@@ -1,7 +1,6 @@
 package org.thingsboard.server.common.data.event;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -58,13 +57,13 @@ import org.thingsboard.server.common.data.id.WidgetsBundleId;
 @ContextConfiguration(classes = {RuleChainDebugEventBuilder.class})
 @ExtendWith(SpringExtension.class)
 class RuleChainDebugEventDiffblueTest {
-  @Autowired
-  private RuleChainDebugEventBuilder ruleChainDebugEventBuilder;
+  @Autowired private RuleChainDebugEventBuilder ruleChainDebugEventBuilder;
 
   /**
    * Test RuleChainDebugEventBuilder {@link RuleChainDebugEventBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainDebugEventBuilder#build()}
    *   <li>{@link RuleChainDebugEventBuilder#entityId(UUID)}
@@ -79,29 +78,35 @@ class RuleChainDebugEventDiffblueTest {
   @Test
   @DisplayName("Test RuleChainDebugEventBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChainDebugEventBuilder.<init>()",
-      "RuleChainDebugEvent RuleChainDebugEventBuilder.build()",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.entityId(UUID)",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.error(String)",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.id(UUID)",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.message(String)",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.serviceId(String)",
-      "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.tenantId(TenantId)",
-      "String RuleChainDebugEventBuilder.toString()", "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.ts(long)"})
+  @MethodsUnderTest({
+    "void RuleChainDebugEventBuilder.<init>()",
+    "RuleChainDebugEvent RuleChainDebugEventBuilder.build()",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.entityId(UUID)",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.error(String)",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.id(UUID)",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.message(String)",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.serviceId(String)",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.tenantId(TenantId)",
+    "String RuleChainDebugEventBuilder.toString()",
+    "RuleChainDebugEventBuilder RuleChainDebugEventBuilder.ts(long)"
+  })
   void testRuleChainDebugEventBuilderBuild() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    RuleChainDebugEventBuilder errorResult = builderResult.entityId(entityId).error("An error occurred");
+    RuleChainDebugEventBuilder errorResult =
+        builderResult.entityId(entityId).error("An error occurred");
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    RuleChainDebugEvent actualBuildResult = errorResult.id(id)
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEvent actualBuildResult =
+        errorResult
+            .id(id)
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Assert
     TenantId tenantId = actualBuildResult.getTenantId();
@@ -125,12 +130,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then EntityId return {@link AlarmId}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then EntityId return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'ALARM'; then EntityId return AlarmId")
@@ -139,15 +145,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenAlarm_thenEntityIdReturnAlarmId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.ALARM);
@@ -163,29 +172,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code API_USAGE_STATE}.</li>
-   *   <li>Then EntityId return {@link ApiUsageStateId}.</li>
+   *   <li>When {@code API_USAGE_STATE}.
+   *   <li>Then EntityId return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'API_USAGE_STATE'; then EntityId return ApiUsageStateId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'API_USAGE_STATE'; then EntityId return ApiUsageStateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenApiUsageState_thenEntityIdReturnApiUsageStateId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.API_USAGE_STATE);
@@ -201,12 +215,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET_PROFILE}.</li>
-   *   <li>Then EntityId return {@link AssetProfileId}.</li>
+   *   <li>When {@code ASSET_PROFILE}.
+   *   <li>Then EntityId return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'ASSET_PROFILE'; then EntityId return AssetProfileId")
@@ -215,15 +230,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenAssetProfile_thenEntityIdReturnAssetProfileId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.ASSET_PROFILE);
@@ -239,12 +257,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then EntityId return {@link AssetId}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then EntityId return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'ASSET'; then EntityId return AssetId")
@@ -253,15 +272,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenAsset_thenEntityIdReturnAssetId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.ASSET);
@@ -277,12 +299,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then EntityId return {@link CustomerId}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then EntityId return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'CUSTOMER'; then EntityId return CustomerId")
@@ -291,15 +314,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenCustomer_thenEntityIdReturnCustomerId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.CUSTOMER);
@@ -315,12 +341,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then EntityId return {@link DashboardId}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then EntityId return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'DASHBOARD'; then EntityId return DashboardId")
@@ -329,15 +356,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenDashboard_thenEntityIdReturnDashboardId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.DASHBOARD);
@@ -353,29 +383,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE_PROFILE}.</li>
-   *   <li>Then EntityId return {@link DeviceProfileId}.</li>
+   *   <li>When {@code DEVICE_PROFILE}.
+   *   <li>Then EntityId return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'DEVICE_PROFILE'; then EntityId return DeviceProfileId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'DEVICE_PROFILE'; then EntityId return DeviceProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenDeviceProfile_thenEntityIdReturnDeviceProfileId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.DEVICE_PROFILE);
@@ -391,12 +426,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then EntityId return {@link DeviceId}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then EntityId return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'DEVICE'; then EntityId return DeviceId")
@@ -405,15 +441,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenDevice_thenEntityIdReturnDeviceId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.DEVICE);
@@ -429,12 +468,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DOMAIN}.</li>
-   *   <li>Then EntityId return {@link DomainId}.</li>
+   *   <li>When {@code DOMAIN}.
+   *   <li>Then EntityId return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'DOMAIN'; then EntityId return DomainId")
@@ -443,15 +483,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenDomain_thenEntityIdReturnDomainId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.DOMAIN);
@@ -467,12 +510,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then EntityId return {@link EdgeId}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then EntityId return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'EDGE'; then EntityId return EdgeId")
@@ -481,15 +525,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenEdge_thenEntityIdReturnEdgeId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.EDGE);
@@ -505,12 +552,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then EntityId return {@link EntityViewId}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then EntityId return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'ENTITY_VIEW'; then EntityId return EntityViewId")
@@ -519,15 +567,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenEntityView_thenEntityIdReturnEntityViewId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.ENTITY_VIEW);
@@ -543,12 +594,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code MOBILE_APP}.</li>
-   *   <li>Then EntityId return {@link MobileAppId}.</li>
+   *   <li>When {@code MOBILE_APP}.
+   *   <li>Then EntityId return {@link MobileAppId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'MOBILE_APP'; then EntityId return MobileAppId")
@@ -557,15 +609,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenMobileApp_thenEntityIdReturnMobileAppId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.MOBILE_APP);
@@ -581,29 +636,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_REQUEST}.</li>
-   *   <li>Then EntityId return {@link NotificationRequestId}.</li>
+   *   <li>When {@code NOTIFICATION_REQUEST}.
+   *   <li>Then EntityId return {@link NotificationRequestId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'NOTIFICATION_REQUEST'; then EntityId return NotificationRequestId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'NOTIFICATION_REQUEST'; then EntityId return NotificationRequestId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenNotificationRequest_thenEntityIdReturnNotificationRequestId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.NOTIFICATION_REQUEST);
@@ -619,29 +679,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_RULE}.</li>
-   *   <li>Then EntityId return {@link NotificationRuleId}.</li>
+   *   <li>When {@code NOTIFICATION_RULE}.
+   *   <li>Then EntityId return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'NOTIFICATION_RULE'; then EntityId return NotificationRuleId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'NOTIFICATION_RULE'; then EntityId return NotificationRuleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenNotificationRule_thenEntityIdReturnNotificationRuleId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.NOTIFICATION_RULE);
@@ -657,29 +722,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_TARGET}.</li>
-   *   <li>Then EntityId return {@link NotificationTargetId}.</li>
+   *   <li>When {@code NOTIFICATION_TARGET}.
+   *   <li>Then EntityId return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'NOTIFICATION_TARGET'; then EntityId return NotificationTargetId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'NOTIFICATION_TARGET'; then EntityId return NotificationTargetId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenNotificationTarget_thenEntityIdReturnNotificationTargetId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.NOTIFICATION_TARGET);
@@ -695,29 +765,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_TEMPLATE}.</li>
-   *   <li>Then EntityId return {@link NotificationTemplateId}.</li>
+   *   <li>When {@code NOTIFICATION_TEMPLATE}.
+   *   <li>Then EntityId return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'NOTIFICATION_TEMPLATE'; then EntityId return NotificationTemplateId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'NOTIFICATION_TEMPLATE'; then EntityId return NotificationTemplateId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenNotificationTemplate_thenEntityIdReturnNotificationTemplateId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.NOTIFICATION_TEMPLATE);
@@ -733,12 +808,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION}.</li>
-   *   <li>Then EntityId return {@link NotificationId}.</li>
+   *   <li>When {@code NOTIFICATION}.
+   *   <li>Then EntityId return {@link NotificationId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'NOTIFICATION'; then EntityId return NotificationId")
@@ -747,15 +823,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenNotification_thenEntityIdReturnNotificationId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.NOTIFICATION);
@@ -771,12 +850,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code OAUTH2_CLIENT}.</li>
-   *   <li>Then EntityId return {@link OAuth2ClientId}.</li>
+   *   <li>When {@code OAUTH2_CLIENT}.
+   *   <li>Then EntityId return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'OAUTH2_CLIENT'; then EntityId return OAuth2ClientId")
@@ -785,15 +865,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenOauth2Client_thenEntityIdReturnOAuth2ClientId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.OAUTH2_CLIENT);
@@ -809,12 +892,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then EntityId return {@link OtaPackageId}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then EntityId return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'OTA_PACKAGE'; then EntityId return OtaPackageId")
@@ -823,15 +907,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenOtaPackage_thenEntityIdReturnOtaPackageId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.OTA_PACKAGE);
@@ -847,12 +934,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE_STATS}.</li>
-   *   <li>Then EntityId return {@link QueueStatsId}.</li>
+   *   <li>When {@code QUEUE_STATS}.
+   *   <li>Then EntityId return {@link QueueStatsId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'QUEUE_STATS'; then EntityId return QueueStatsId")
@@ -861,15 +949,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenQueueStats_thenEntityIdReturnQueueStatsId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.QUEUE_STATS);
@@ -885,12 +976,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE}.</li>
-   *   <li>Then EntityId return {@link QueueId}.</li>
+   *   <li>When {@code QUEUE}.
+   *   <li>Then EntityId return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'QUEUE'; then EntityId return QueueId")
@@ -899,15 +991,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenQueue_thenEntityIdReturnQueueId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.QUEUE);
@@ -923,12 +1018,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RPC}.</li>
-   *   <li>Then EntityId return {@link RpcId}.</li>
+   *   <li>When {@code RPC}.
+   *   <li>Then EntityId return {@link RpcId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'RPC'; then EntityId return RpcId")
@@ -937,15 +1033,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenRpc_thenEntityIdReturnRpcId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.RPC);
@@ -961,12 +1060,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then EntityId return {@link RuleChainId}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then EntityId return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'RULE_CHAIN'; then EntityId return RuleChainId")
@@ -975,15 +1075,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenRuleChain_thenEntityIdReturnRuleChainId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.RULE_CHAIN);
@@ -999,12 +1102,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RULE_NODE}.</li>
-   *   <li>Then EntityId return {@link RuleNodeId}.</li>
+   *   <li>When {@code RULE_NODE}.
+   *   <li>Then EntityId return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'RULE_NODE'; then EntityId return RuleNodeId")
@@ -1013,15 +1117,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenRuleNode_thenEntityIdReturnRuleNodeId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.RULE_NODE);
@@ -1037,12 +1144,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then EntityId return {@link TbResourceId}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then EntityId return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'TB_RESOURCE'; then EntityId return TbResourceId")
@@ -1051,15 +1159,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenTbResource_thenEntityIdReturnTbResourceId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.TB_RESOURCE);
@@ -1075,29 +1186,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code TENANT_PROFILE}.</li>
-   *   <li>Then EntityId return {@link TenantProfileId}.</li>
+   *   <li>When {@code TENANT_PROFILE}.
+   *   <li>Then EntityId return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'TENANT_PROFILE'; then EntityId return TenantProfileId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'TENANT_PROFILE'; then EntityId return TenantProfileId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenTenantProfile_thenEntityIdReturnTenantProfileId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.TENANT_PROFILE);
@@ -1113,51 +1229,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code TENANT}.</li>
-   *   <li>Then EntityId return {@link TenantId}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then EntityId return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
-   */
-  @Test
-  @DisplayName("Test toInfo(EntityType); when 'TENANT'; then EntityId return TenantId")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
-  void testToInfo_whenTenant_thenEntityIdReturnTenantId() {
-    // Arrange
-    RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
-
-    // Act
-    EventInfo actualToInfoResult = buildResult.toInfo(EntityType.TENANT);
-
-    // Assert
-    JsonNode body = actualToInfoResult.getBody();
-    assertTrue(body instanceof ObjectNode);
-    assertTrue(body.traverse() instanceof TreeTraversingParser);
-    EntityId entityId = actualToInfoResult.getEntityId();
-    assertTrue(entityId instanceof TenantId);
-    assertEquals(EntityType.TENANT, entityId.getEntityType());
-    assertFalse(((TenantId) entityId).isSysTenantId());
-  }
-
-  /**
-   * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
-   * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then EntityId return {@link UserId}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'USER'; then EntityId return UserId")
@@ -1166,15 +1244,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenUser_thenEntityIdReturnUserId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.USER);
@@ -1190,12 +1271,13 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then EntityId return {@link WidgetTypeId}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then EntityId return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
   @DisplayName("Test toInfo(EntityType); when 'WIDGET_TYPE'; then EntityId return WidgetTypeId")
@@ -1204,15 +1286,18 @@ class RuleChainDebugEventDiffblueTest {
   void testToInfo_whenWidgetType_thenEntityIdReturnWidgetTypeId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.WIDGET_TYPE);
@@ -1228,29 +1313,34 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#toInfo(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGETS_BUNDLE}.</li>
-   *   <li>Then EntityId return {@link WidgetsBundleId}.</li>
+   *   <li>When {@code WIDGETS_BUNDLE}.
+   *   <li>Then EntityId return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#toInfo(EntityType)}
    */
   @Test
-  @DisplayName("Test toInfo(EntityType); when 'WIDGETS_BUNDLE'; then EntityId return WidgetsBundleId")
+  @DisplayName(
+      "Test toInfo(EntityType); when 'WIDGETS_BUNDLE'; then EntityId return WidgetsBundleId")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EventInfo RuleChainDebugEvent.toInfo(EntityType)"})
   void testToInfo_whenWidgetsBundle_thenEntityIdReturnWidgetsBundleId() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     EventInfo actualToInfoResult = buildResult.toInfo(EntityType.WIDGETS_BUNDLE);
@@ -1266,12 +1356,14 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#equals(Object)}, and {@link RuleChainDebugEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainDebugEvent#equals(Object)}
    *   <li>{@link RuleChainDebugEvent#hashCode()}
@@ -1280,29 +1372,38 @@ class RuleChainDebugEventDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainDebugEvent.equals(Object)", "int RuleChainDebugEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainDebugEvent.equals(Object)",
+    "int RuleChainDebugEvent.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
     RuleChainDebugEventBuilder builderResult2 = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult2 = builderResult2
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult2 = errorResult2.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult2 =
+        builderResult2
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult2 =
+        errorResult2
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -1312,12 +1413,14 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#equals(Object)}, and {@link RuleChainDebugEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainDebugEvent#equals(Object)}
    *   <li>{@link RuleChainDebugEvent#hashCode()}
@@ -1326,19 +1429,25 @@ class RuleChainDebugEventDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainDebugEvent.equals(Object)", "int RuleChainDebugEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainDebugEvent.equals(Object)",
+    "int RuleChainDebugEvent.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -1348,40 +1457,51 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainDebugEvent.equals(Object)", "int RuleChainDebugEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainDebugEvent.equals(Object)",
+    "int RuleChainDebugEvent.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventBuilder ruleChainDebugEventBuilder = mock(RuleChainDebugEventBuilder.class);
-    when(ruleChainDebugEventBuilder.entityId(Mockito.<UUID>any())).thenReturn(RuleChainDebugEvent.builder());
-    RuleChainDebugEventBuilder errorResult = ruleChainDebugEventBuilder
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    when(ruleChainDebugEventBuilder.entityId(Mockito.<UUID>any()))
+        .thenReturn(RuleChainDebugEvent.builder());
+    RuleChainDebugEventBuilder errorResult =
+        ruleChainDebugEventBuilder
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult2 = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult2 = errorResult2.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult2 =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult2 =
+        errorResult2
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -1389,29 +1509,36 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainDebugEvent.equals(Object)", "int RuleChainDebugEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainDebugEvent.equals(Object)",
+    "int RuleChainDebugEvent.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -1419,29 +1546,36 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test {@link RuleChainDebugEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainDebugEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainDebugEvent#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainDebugEvent.equals(Object)", "int RuleChainDebugEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainDebugEvent.equals(Object)",
+    "int RuleChainDebugEvent.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to RuleChainDebugEvent");
@@ -1449,8 +1583,9 @@ class RuleChainDebugEventDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainDebugEvent#setError(String)}
    *   <li>{@link RuleChainDebugEvent#setMessage(String)}
@@ -1463,21 +1598,29 @@ class RuleChainDebugEventDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String RuleChainDebugEvent.getError()", "String RuleChainDebugEvent.getMessage()",
-      "EventType RuleChainDebugEvent.getType()", "void RuleChainDebugEvent.setError(String)",
-      "void RuleChainDebugEvent.setMessage(String)", "String RuleChainDebugEvent.toString()"})
+  @MethodsUnderTest({
+    "String RuleChainDebugEvent.getError()",
+    "String RuleChainDebugEvent.getMessage()",
+    "EventType RuleChainDebugEvent.getType()",
+    "void RuleChainDebugEvent.setError(String)",
+    "void RuleChainDebugEvent.setMessage(String)",
+    "String RuleChainDebugEvent.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
-    RuleChainDebugEventBuilder errorResult = builderResult
-        .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .error("An error occurred");
-    RuleChainDebugEvent buildResult = errorResult.id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
-        .message("Not all who wander are lost")
-        .serviceId("42")
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .ts(1L)
-        .build();
+    RuleChainDebugEventBuilder errorResult =
+        builderResult
+            .entityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .error("An error occurred");
+    RuleChainDebugEvent buildResult =
+        errorResult
+            .id(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))
+            .message("Not all who wander are lost")
+            .serviceId("42")
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .ts(1L)
+            .build();
 
     // Act
     buildResult.setError("An error occurred");
@@ -1489,7 +1632,8 @@ class RuleChainDebugEventDiffblueTest {
     // Assert
     assertEquals("An error occurred", actualError);
     assertEquals("Not all who wander are lost", actualMessage);
-    assertEquals("RuleChainDebugEvent(message=Not all who wander are lost, error=An error occurred)",
+    assertEquals(
+        "RuleChainDebugEvent(message=Not all who wander are lost, error=An error occurred)",
         actualToStringResult);
     assertEquals(EventType.DEBUG_RULE_CHAIN, buildResult.getType());
   }

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class UsersFilterTypeDiffblueTest {
   /**
    * Test {@link UsersFilterType#isForRules()}.
-   * <p>
-   * Method under test: {@link UsersFilterType#isForRules()}
+   *
+   * <p>Method under test: {@link UsersFilterType#isForRules()}
    */
   @Test
   @DisplayName("Test isForRules()")

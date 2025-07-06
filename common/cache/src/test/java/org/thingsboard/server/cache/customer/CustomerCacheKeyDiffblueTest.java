@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class CustomerCacheKeyDiffblueTest {
   /**
    * Test {@link CustomerCacheKey#equals(Object)}, and {@link CustomerCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomerCacheKey#equals(Object)}
    *   <li>{@link CustomerCacheKey#hashCode()}
@@ -30,10 +32,12 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean CustomerCacheKey.equals(Object)", "int CustomerCacheKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    CustomerCacheKey customerCacheKey = new CustomerCacheKey(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
-    CustomerCacheKey customerCacheKey2 = new CustomerCacheKey(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
+    CustomerCacheKey customerCacheKey =
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
+    CustomerCacheKey customerCacheKey2 =
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
 
     // Act and Assert
     assertEquals(customerCacheKey, customerCacheKey2);
@@ -43,12 +47,14 @@ class CustomerCacheKeyDiffblueTest {
 
   /**
    * Test {@link CustomerCacheKey#equals(Object)}, and {@link CustomerCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link CustomerCacheKey#equals(Object)}
    *   <li>{@link CustomerCacheKey#hashCode()}
@@ -60,8 +66,9 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean CustomerCacheKey.equals(Object)", "int CustomerCacheKey.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    CustomerCacheKey customerCacheKey = new CustomerCacheKey(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
+    CustomerCacheKey customerCacheKey =
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr");
 
     // Act and Assert
     assertEquals(customerCacheKey, customerCacheKey);
@@ -71,12 +78,13 @@ class CustomerCacheKeyDiffblueTest {
 
   /**
    * Test {@link CustomerCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -87,18 +95,21 @@ class CustomerCacheKeyDiffblueTest {
     CustomerCacheKey customerCacheKey = new CustomerCacheKey(new TenantId(UUID.randomUUID()), "Dr");
 
     // Act and Assert
-    assertNotEquals(customerCacheKey,
-        new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"));
+    assertNotEquals(
+        customerCacheKey,
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"));
   }
 
   /**
    * Test {@link CustomerCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -106,22 +117,26 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean CustomerCacheKey.equals(Object)", "int CustomerCacheKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    CustomerCacheKey customerCacheKey = new CustomerCacheKey(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Mr");
+    CustomerCacheKey customerCacheKey =
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Mr");
 
     // Act and Assert
-    assertNotEquals(customerCacheKey,
-        new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"));
+    assertNotEquals(
+        customerCacheKey,
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"));
   }
 
   /**
    * Test {@link CustomerCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -129,18 +144,21 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean CustomerCacheKey.equals(Object)", "int CustomerCacheKey.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"),
+    assertNotEquals(
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"),
         null);
   }
 
   /**
    * Test {@link CustomerCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -148,17 +166,20 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean CustomerCacheKey.equals(Object)", "int CustomerCacheKey.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"),
+    assertNotEquals(
+        new CustomerCacheKey(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"),
         "Different type to CustomerCacheKey");
   }
 
   /**
    * Test {@link CustomerCacheKey#CustomerCacheKey(TenantId, String)}.
+   *
    * <ul>
-   *   <li>Then return not canEqual {@code Other}.</li>
+   *   <li>Then return not canEqual {@code Other}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerCacheKey#CustomerCacheKey(TenantId, String)}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#CustomerCacheKey(TenantId, String)}
    */
   @Test
   @DisplayName("Test new CustomerCacheKey(TenantId, String); then return not canEqual 'Other'")
@@ -166,14 +187,16 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"void CustomerCacheKey.<init>(TenantId, String)"})
   void testNewCustomerCacheKey_thenReturnNotCanEqualOther() {
     // Arrange, Act and Assert
-    assertFalse((new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr"))
-        .canEqual("Other"));
+    assertFalse(
+        new CustomerCacheKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr")
+            .canEqual("Other"));
   }
 
   /**
    * Test {@link CustomerCacheKey#toString()}.
-   * <p>
-   * Method under test: {@link CustomerCacheKey#toString()}
+   *
+   * <p>Method under test: {@link CustomerCacheKey#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -181,7 +204,10 @@ class CustomerCacheKeyDiffblueTest {
   @MethodsUnderTest({"String CustomerCacheKey.toString()"})
   void testToString() {
     // Arrange, Act and Assert
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9_Dr",
-        (new CustomerCacheKey(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr")).toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9_Dr",
+        new CustomerCacheKey(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr")
+            .toString());
   }
 }

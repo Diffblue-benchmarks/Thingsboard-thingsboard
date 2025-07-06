@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,12 +18,14 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 class WidgetTypeDiffblueTest {
   /**
    * Test {@link WidgetType#equals(Object)}, and {@link WidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetType#equals(Object)}
    *   <li>{@link WidgetType#hashCode()}
@@ -46,12 +48,14 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#equals(Object)}, and {@link WidgetType#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetType#equals(Object)}
    *   <li>{@link WidgetType#hashCode()}
@@ -73,12 +77,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -94,12 +99,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -115,12 +121,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -133,12 +140,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetType#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -151,8 +159,9 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetType#WidgetType(WidgetTypeId)}
    *   <li>{@link WidgetType#setDescriptor(JsonNode)}
@@ -163,21 +172,26 @@ class WidgetTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetType.<init>()", "void WidgetType.<init>(WidgetTypeId)",
-      "JsonNode WidgetType.getDescriptor()", "void WidgetType.setDescriptor(JsonNode)", "String WidgetType.toString()"})
+  @MethodsUnderTest({
+    "void WidgetType.<init>()",
+    "void WidgetType.<init>(WidgetTypeId)",
+    "JsonNode WidgetType.getDescriptor()",
+    "void WidgetType.setDescriptor(JsonNode)",
+    "String WidgetType.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     WidgetTypeId id = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     WidgetType actualWidgetType = new WidgetType(id);
-    MissingNode descriptor = MissingNode.getInstance();
+    DoubleNode descriptor = DoubleNode.valueOf(10.0d);
     actualWidgetType.setDescriptor(descriptor);
     String actualToStringResult = actualWidgetType.toString();
     JsonNode actualDescriptor = actualWidgetType.getDescriptor();
 
     // Assert
-    assertEquals("WidgetType(descriptor=)", actualToStringResult);
+    assertEquals("WidgetType(descriptor=10.0)", actualToStringResult);
     assertNull(actualWidgetType.getVersion());
     assertNull(actualWidgetType.getFqn());
     assertNull(actualWidgetType.getName());
@@ -191,11 +205,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetType#WidgetType()}
    *   <li>{@link WidgetType#setDescriptor(JsonNode)}
@@ -206,18 +222,23 @@ class WidgetTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetType.<init>()", "void WidgetType.<init>(WidgetTypeId)",
-      "JsonNode WidgetType.getDescriptor()", "void WidgetType.setDescriptor(JsonNode)", "String WidgetType.toString()"})
+  @MethodsUnderTest({
+    "void WidgetType.<init>()",
+    "void WidgetType.<init>(WidgetTypeId)",
+    "JsonNode WidgetType.getDescriptor()",
+    "void WidgetType.setDescriptor(JsonNode)",
+    "String WidgetType.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     WidgetType actualWidgetType = new WidgetType();
-    MissingNode descriptor = MissingNode.getInstance();
+    DoubleNode descriptor = DoubleNode.valueOf(10.0d);
     actualWidgetType.setDescriptor(descriptor);
     String actualToStringResult = actualWidgetType.toString();
     JsonNode actualDescriptor = actualWidgetType.getDescriptor();
 
     // Assert
-    assertEquals("WidgetType(descriptor=)", actualToStringResult);
+    assertEquals("WidgetType(descriptor=10.0)", actualToStringResult);
     assertNull(actualWidgetType.getVersion());
     assertNull(actualWidgetType.getFqn());
     assertNull(actualWidgetType.getName());
@@ -231,12 +252,13 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#WidgetType(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Deprecated.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#WidgetType(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetType#WidgetType(BaseWidgetType)}
    */
   @Test
   @DisplayName("Test new WidgetType(BaseWidgetType); given 'true'; then return Deprecated")
@@ -265,15 +287,17 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#WidgetType(WidgetType)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link WidgetType#WidgetType()} Deprecated is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link WidgetType#WidgetType()} Deprecated is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#WidgetType(WidgetType)}
+   *
+   * <p>Method under test: {@link WidgetType#WidgetType(WidgetType)}
    */
   @Test
-  @DisplayName("Test new WidgetType(WidgetType); given 'true'; when WidgetType() Deprecated is 'true'")
+  @DisplayName(
+      "Test new WidgetType(WidgetType); given 'true'; when WidgetType() Deprecated is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetType.<init>(WidgetType)"})
   void testNewWidgetType_givenTrue_whenWidgetTypeDeprecatedIsTrue() {
@@ -287,15 +311,17 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#WidgetType(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.</li>
-   *   <li>Then return not Deprecated.</li>
+   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.
+   *   <li>Then return not Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#WidgetType(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetType#WidgetType(BaseWidgetType)}
    */
   @Test
-  @DisplayName("Test new WidgetType(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
+  @DisplayName(
+      "Test new WidgetType(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetType.<init>(BaseWidgetType)"})
   void testNewWidgetType_whenBaseWidgetType_thenReturnNotDeprecated() {
@@ -317,11 +343,12 @@ class WidgetTypeDiffblueTest {
 
   /**
    * Test {@link WidgetType#WidgetType(WidgetType)}.
+   *
    * <ul>
-   *   <li>When {@link WidgetType#WidgetType()}.</li>
+   *   <li>When {@link WidgetType#WidgetType()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetType#WidgetType(WidgetType)}
+   *
+   * <p>Method under test: {@link WidgetType#WidgetType(WidgetType)}
    */
   @Test
   @DisplayName("Test new WidgetType(WidgetType); when WidgetType()")

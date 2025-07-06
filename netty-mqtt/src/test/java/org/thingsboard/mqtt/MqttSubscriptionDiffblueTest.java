@@ -14,15 +14,17 @@ import org.junit.jupiter.api.Test;
 class MqttSubscriptionDiffblueTest {
   /**
    * Test {@link MqttSubscription#MqttSubscription(String, MqttHandler, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link MqttHandler}.</li>
-   *   <li>Then return {@code Topic}.</li>
+   *   <li>When {@link MqttHandler}.
+   *   <li>Then return {@code Topic}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#MqttSubscription(String, MqttHandler, boolean)}
+   *
+   * <p>Method under test: {@link MqttSubscription#MqttSubscription(String, MqttHandler, boolean)}
    */
   @Test
-  @DisplayName("Test new MqttSubscription(String, MqttHandler, boolean); when MqttHandler; then return 'Topic'")
+  @DisplayName(
+      "Test new MqttSubscription(String, MqttHandler, boolean); when MqttHandler; then return 'Topic'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MqttSubscription.<init>(String, MqttHandler, boolean)"})
   void testNewMqttSubscription_whenMqttHandler_thenReturnTopic() {
@@ -41,8 +43,9 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MqttSubscription#setCalled(boolean)}
    *   <li>{@link MqttSubscription#getHandler()}
@@ -54,12 +57,17 @@ class MqttSubscriptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"MqttHandler MqttSubscription.getHandler()", "String MqttSubscription.getTopic()",
-      "boolean MqttSubscription.isCalled()", "boolean MqttSubscription.isOnce()",
-      "void MqttSubscription.setCalled(boolean)"})
+  @MethodsUnderTest({
+    "MqttHandler MqttSubscription.getHandler()",
+    "String MqttSubscription.getTopic()",
+    "boolean MqttSubscription.isCalled()",
+    "boolean MqttSubscription.isOnce()",
+    "void MqttSubscription.setCalled(boolean)"
+  })
   void testGettersAndSetters() {
     // Arrange
-    MqttSubscription mqttSubscription = new MqttSubscription("Topic", mock(MqttHandler.class), true);
+    MqttSubscription mqttSubscription =
+        new MqttSubscription("Topic", mock(MqttHandler.class), true);
 
     // Act
     mqttSubscription.setCalled(true);
@@ -75,11 +83,12 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#matches(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#matches(String)}
+   *
+   * <p>Method under test: {@link MqttSubscription#matches(String)}
    */
   @Test
   @DisplayName("Test matches(String); then return 'false'")
@@ -87,16 +96,17 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.matches(String)"})
   void testMatches_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new MqttSubscription("42", mock(MqttHandler.class), true)).matches("Topic"));
+    assertFalse(new MqttSubscription("42", mock(MqttHandler.class), true).matches("Topic"));
   }
 
   /**
    * Test {@link MqttSubscription#matches(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#matches(String)}
+   *
+   * <p>Method under test: {@link MqttSubscription#matches(String)}
    */
   @Test
   @DisplayName("Test matches(String); then return 'true'")
@@ -104,17 +114,19 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.matches(String)"})
   void testMatches_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new MqttSubscription("Topic", mock(MqttHandler.class), true)).matches("Topic"));
+    assertTrue(new MqttSubscription("Topic", mock(MqttHandler.class), true).matches("Topic"));
   }
 
   /**
    * Test {@link MqttSubscription#equals(Object)}, and {@link MqttSubscription#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MqttSubscription#equals(Object)}
    *   <li>{@link MqttSubscription#hashCode()}
@@ -126,7 +138,8 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.equals(Object)", "int MqttSubscription.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    MqttSubscription mqttSubscription = new MqttSubscription("Topic", mock(MqttHandler.class), true);
+    MqttSubscription mqttSubscription =
+        new MqttSubscription("Topic", mock(MqttHandler.class), true);
 
     // Act and Assert
     assertEquals(mqttSubscription, mqttSubscription);
@@ -136,12 +149,13 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#equals(Object)}
+   *
+   * <p>Method under test: {@link MqttSubscription#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -149,7 +163,8 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.equals(Object)", "int MqttSubscription.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    MqttSubscription mqttSubscription = new MqttSubscription("Topic", mock(MqttHandler.class), true);
+    MqttSubscription mqttSubscription =
+        new MqttSubscription("Topic", mock(MqttHandler.class), true);
 
     // Act and Assert
     assertNotEquals(mqttSubscription, new MqttSubscription("Topic", mock(MqttHandler.class), true));
@@ -157,12 +172,13 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#equals(Object)}
+   *
+   * <p>Method under test: {@link MqttSubscription#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -178,12 +194,13 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#equals(Object)}
+   *
+   * <p>Method under test: {@link MqttSubscription#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -191,7 +208,8 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.equals(Object)", "int MqttSubscription.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    MqttSubscription mqttSubscription = new MqttSubscription("Topic", mock(MqttHandler.class), false);
+    MqttSubscription mqttSubscription =
+        new MqttSubscription("Topic", mock(MqttHandler.class), false);
 
     // Act and Assert
     assertNotEquals(mqttSubscription, new MqttSubscription("Topic", mock(MqttHandler.class), true));
@@ -199,12 +217,13 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#equals(Object)}
+   *
+   * <p>Method under test: {@link MqttSubscription#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -217,12 +236,13 @@ class MqttSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttSubscription#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttSubscription#equals(Object)}
+   *
+   * <p>Method under test: {@link MqttSubscription#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -230,6 +250,8 @@ class MqttSubscriptionDiffblueTest {
   @MethodsUnderTest({"boolean MqttSubscription.equals(Object)", "int MqttSubscription.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new MqttSubscription("Topic", mock(MqttHandler.class), true), "Different type to MqttSubscription");
+    assertNotEquals(
+        new MqttSubscription("Topic", mock(MqttHandler.class), true),
+        "Different type to MqttSubscription");
   }
 }

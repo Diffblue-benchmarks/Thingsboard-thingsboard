@@ -16,16 +16,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class SqlTsDatabaseUpgradeServiceDiffblueTest {
-  @Mock
-  private InstallScripts installScripts;
+  @Mock private InstallScripts installScripts;
 
-  @InjectMocks
-  private SqlTsDatabaseUpgradeService sqlTsDatabaseUpgradeService;
+  @InjectMocks private SqlTsDatabaseUpgradeService sqlTsDatabaseUpgradeService;
 
   /**
    * Test {@link SqlTsDatabaseUpgradeService#upgradeDatabase(String)}.
-   * <p>
-   * Method under test: {@link SqlTsDatabaseUpgradeService#upgradeDatabase(String)}
+   *
+   * <p>Method under test: {@link SqlTsDatabaseUpgradeService#upgradeDatabase(String)}
    */
   @Test
   @DisplayName("Test upgradeDatabase(String)")
@@ -33,20 +31,24 @@ class SqlTsDatabaseUpgradeServiceDiffblueTest {
   @MethodsUnderTest({"void SqlTsDatabaseUpgradeService.upgradeDatabase(String)"})
   void testUpgradeDatabase() throws Exception {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> sqlTsDatabaseUpgradeService.upgradeDatabase("jane.doe@example.org"));
+    assertThrows(
+        RuntimeException.class,
+        () -> sqlTsDatabaseUpgradeService.upgradeDatabase("jane.doe@example.org"));
   }
 
   /**
    * Test {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link InstallScripts} {@link InstallScripts#getDataDir()} return {@code Data Dir}.</li>
-   *   <li>Then calls {@link InstallScripts#getDataDir()}.</li>
+   *   <li>Given {@link InstallScripts} {@link InstallScripts#getDataDir()} return {@code Data Dir}.
+   *   <li>Then calls {@link InstallScripts#getDataDir()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}
+   *
+   * <p>Method under test: {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}
    */
   @Test
-  @DisplayName("Test loadSql(Connection, String, String); given InstallScripts getDataDir() return 'Data Dir'; then calls getDataDir()")
+  @DisplayName(
+      "Test loadSql(Connection, String, String); given InstallScripts getDataDir() return 'Data Dir'; then calls getDataDir()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SqlTsDatabaseUpgradeService.loadSql(Connection, String, String)"})
   void testLoadSql_givenInstallScriptsGetDataDirReturnDataDir_thenCallsGetDataDir() {
@@ -62,11 +64,12 @@ class SqlTsDatabaseUpgradeServiceDiffblueTest {
 
   /**
    * Test {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}
+   *
+   * <p>Method under test: {@link SqlTsDatabaseUpgradeService#loadSql(Connection, String, String)}
    */
   @Test
   @DisplayName("Test loadSql(Connection, String, String); then throw RuntimeException")
@@ -77,7 +80,8 @@ class SqlTsDatabaseUpgradeServiceDiffblueTest {
     when(installScripts.getDataDir()).thenThrow(new RuntimeException("upgrade"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
+    assertThrows(
+        RuntimeException.class,
         () -> sqlTsDatabaseUpgradeService.loadSql(mock(Connection.class), "foo.txt", "1.0.2"));
     verify(installScripts).getDataDir();
   }

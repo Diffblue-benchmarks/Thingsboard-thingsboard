@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class NotificationExecutorServiceDiffblueTest {
   /**
    * Test {@link NotificationExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link NotificationExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link NotificationExecutorService#getThreadPollSize()}
    */
   @Test
   @DisplayName("Test getThreadPollSize()")
@@ -18,6 +18,6 @@ class NotificationExecutorServiceDiffblueTest {
   @MethodsUnderTest({"int NotificationExecutorService.getThreadPollSize()"})
   void testGetThreadPollSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new NotificationExecutorService()).getThreadPollSize());
+    assertEquals(0, new NotificationExecutorService().getThreadPollSize());
   }
 }

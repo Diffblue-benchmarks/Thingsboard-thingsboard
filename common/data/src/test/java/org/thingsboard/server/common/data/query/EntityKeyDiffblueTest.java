@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class EntityKeyDiffblueTest {
   /**
    * Test {@link EntityKey#equals(Object)}, and {@link EntityKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKey#equals(Object)}
    *   <li>{@link EntityKey#hashCode()}
@@ -38,12 +40,14 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}, and {@link EntityKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKey#equals(Object)}
    *   <li>{@link EntityKey#hashCode()}
@@ -66,12 +70,14 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}, and {@link EntityKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKey#equals(Object)}
    *   <li>{@link EntityKey#hashCode()}
@@ -94,12 +100,14 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}, and {@link EntityKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKey#equals(Object)}
    *   <li>{@link EntityKey#hashCode()}
@@ -121,12 +129,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -142,12 +151,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -163,12 +173,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -184,12 +195,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -197,7 +209,9 @@ class EntityKeyDiffblueTest {
   @MethodsUnderTest({"boolean EntityKey.equals(Object)", "int EntityKey.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    EntityKey entityKey = new EntityKey(EntityKeyType.ATTRIBUTE, "org.thingsboard.server.common.data.query.EntityKey");
+    EntityKey entityKey =
+        new EntityKey(
+            EntityKeyType.ATTRIBUTE, "org.thingsboard.server.common.data.query.EntityKey");
 
     // Act and Assert
     assertNotEquals(entityKey, new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
@@ -205,12 +219,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -223,12 +238,13 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test {@link EntityKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKey#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -241,8 +257,9 @@ class EntityKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKey#EntityKey(EntityKeyType, String)}
    *   <li>{@link EntityKey#toString()}
@@ -253,8 +270,12 @@ class EntityKeyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityKey.<init>(EntityKeyType, String)", "String EntityKey.getKey()",
-      "EntityKeyType EntityKey.getType()", "String EntityKey.toString()"})
+  @MethodsUnderTest({
+    "void EntityKey.<init>(EntityKeyType, String)",
+    "String EntityKey.getKey()",
+    "EntityKeyType EntityKey.getType()",
+    "String EntityKey.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityKey actualEntityKey = new EntityKey(EntityKeyType.ATTRIBUTE, "Key");

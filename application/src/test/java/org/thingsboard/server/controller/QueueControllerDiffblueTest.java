@@ -25,28 +25,29 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class QueueControllerDiffblueTest {
-  @InjectMocks
-  private QueueController queueController;
+  @InjectMocks private QueueController queueController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link QueueController#getTenantQueuesByServiceType(String, int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link QueueController#getTenantQueuesByServiceType(String, int, int, String, String, String)}
+   * Test {@link QueueController#getTenantQueuesByServiceType(String, int, int, String, String,
+   * String)}.
+   *
+   * <p>Method under test: {@link QueueController#getTenantQueuesByServiceType(String, int, int,
+   * String, String, String)}
    */
   @Test
   @DisplayName("Test getTenantQueuesByServiceType(String, int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData QueueController.getTenantQueuesByServiceType(String, int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData QueueController.getTenantQueuesByServiceType(String, int, int, String, String, String)"
+  })
   void testGetTenantQueuesByServiceType() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/queues")
-        .param("page", "https://example.org/example");
-    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1))
-        .param("serviceType", "foo");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/queues").param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        paramResult.param("pageSize", String.valueOf(1)).param("serviceType", "foo");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(queueController)
@@ -58,15 +59,17 @@ class QueueControllerDiffblueTest {
 
   /**
    * Test {@link QueueController#saveQueue(Queue, String)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Given {@code https://example.org/example}.
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueController#saveQueue(Queue, String)}
+   *
+   * <p>Method under test: {@link QueueController#saveQueue(Queue, String)}
    */
   @Test
-  @DisplayName("Test saveQueue(Queue, String); given 'https://example.org/example'; then status four hundred fifteen")
+  @DisplayName(
+      "Test saveQueue(Queue, String); given 'https://example.org/example'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Queue QueueController.saveQueue(Queue, String)"})
   void testSaveQueue_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen() throws Exception {
@@ -98,8 +101,9 @@ class QueueControllerDiffblueTest {
     queue.setSubmitStrategy(submitStrategy);
     queue.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     queue.setTopic("Topic");
-    String content = (new ObjectMapper()).writeValueAsString(queue);
-    MockHttpServletRequestBuilder requestBuilder = paramResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(queue);
+    MockHttpServletRequestBuilder requestBuilder =
+        paramResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(queueController)

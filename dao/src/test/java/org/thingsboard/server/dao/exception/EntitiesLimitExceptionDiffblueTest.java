@@ -14,8 +14,9 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class EntitiesLimitExceptionDiffblueTest {
   /**
    * Test {@link EntitiesLimitException#EntitiesLimitException(TenantId, EntityType)}.
-   * <p>
-   * Method under test: {@link EntitiesLimitException#EntitiesLimitException(TenantId, EntityType)}
+   *
+   * <p>Method under test: {@link EntitiesLimitException#EntitiesLimitException(TenantId,
+   * EntityType)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -25,7 +26,8 @@ public class EntitiesLimitExceptionDiffblueTest {
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
     // Act
-    EntitiesLimitException actualEntitiesLimitException = new EntitiesLimitException(tenantId, EntityType.TENANT);
+    EntitiesLimitException actualEntitiesLimitException =
+        new EntitiesLimitException(tenantId, EntityType.TENANT);
 
     // Assert
     assertEquals("Tenants limit reached", actualEntitiesLimitException.getLocalizedMessage());
@@ -39,8 +41,9 @@ public class EntitiesLimitExceptionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntitiesLimitException#getEntityType()}
    *   <li>{@link EntitiesLimitException#getTenantId()}
@@ -48,12 +51,14 @@ public class EntitiesLimitExceptionDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"EntityType EntitiesLimitException.getEntityType()",
-      "TenantId EntitiesLimitException.getTenantId()"})
+  @MethodsUnderTest({
+    "EntityType EntitiesLimitException.getEntityType()",
+    "TenantId EntitiesLimitException.getTenantId()"
+  })
   public void testGettersAndSetters() {
     // Arrange
-    EntitiesLimitException entitiesLimitException = new EntitiesLimitException(ModelConstants.SYSTEM_TENANT,
-        EntityType.TENANT);
+    EntitiesLimitException entitiesLimitException =
+        new EntitiesLimitException(ModelConstants.SYSTEM_TENANT, EntityType.TENANT);
 
     // Act
     EntityType actualEntityType = entitiesLimitException.getEntityType();

@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class TbKafkaTopicConfigsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaTopicConfigs#getCoreConfigs()}
    *   <li>{@link TbKafkaTopicConfigs#getEdgeConfigs()}
@@ -30,13 +31,20 @@ class TbKafkaTopicConfigsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map TbKafkaTopicConfigs.getCoreConfigs()", "Map TbKafkaTopicConfigs.getEdgeConfigs()",
-      "Map TbKafkaTopicConfigs.getFwUpdatesConfigs()", "Map TbKafkaTopicConfigs.getHousekeeperConfigs()",
-      "Map TbKafkaTopicConfigs.getHousekeeperReprocessingConfigs()",
-      "Map TbKafkaTopicConfigs.getJsExecutorRequestConfigs()", "Map TbKafkaTopicConfigs.getJsExecutorResponseConfigs()",
-      "Map TbKafkaTopicConfigs.getNotificationsConfigs()", "Map TbKafkaTopicConfigs.getRuleEngineConfigs()",
-      "Map TbKafkaTopicConfigs.getTransportApiRequestConfigs()",
-      "Map TbKafkaTopicConfigs.getTransportApiResponseConfigs()", "Map TbKafkaTopicConfigs.getVcConfigs()"})
+  @MethodsUnderTest({
+    "Map TbKafkaTopicConfigs.getCoreConfigs()",
+    "Map TbKafkaTopicConfigs.getEdgeConfigs()",
+    "Map TbKafkaTopicConfigs.getFwUpdatesConfigs()",
+    "Map TbKafkaTopicConfigs.getHousekeeperConfigs()",
+    "Map TbKafkaTopicConfigs.getHousekeeperReprocessingConfigs()",
+    "Map TbKafkaTopicConfigs.getJsExecutorRequestConfigs()",
+    "Map TbKafkaTopicConfigs.getJsExecutorResponseConfigs()",
+    "Map TbKafkaTopicConfigs.getNotificationsConfigs()",
+    "Map TbKafkaTopicConfigs.getRuleEngineConfigs()",
+    "Map TbKafkaTopicConfigs.getTransportApiRequestConfigs()",
+    "Map TbKafkaTopicConfigs.getTransportApiResponseConfigs()",
+    "Map TbKafkaTopicConfigs.getVcConfigs()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbKafkaTopicConfigs tbKafkaTopicConfigs = new TbKafkaTopicConfigs();
@@ -46,13 +54,18 @@ class TbKafkaTopicConfigsDiffblueTest {
     Map<String, String> actualEdgeConfigs = tbKafkaTopicConfigs.getEdgeConfigs();
     Map<String, String> actualFwUpdatesConfigs = tbKafkaTopicConfigs.getFwUpdatesConfigs();
     Map<String, String> actualHousekeeperConfigs = tbKafkaTopicConfigs.getHousekeeperConfigs();
-    Map<String, String> actualHousekeeperReprocessingConfigs = tbKafkaTopicConfigs.getHousekeeperReprocessingConfigs();
-    Map<String, String> actualJsExecutorRequestConfigs = tbKafkaTopicConfigs.getJsExecutorRequestConfigs();
-    Map<String, String> actualJsExecutorResponseConfigs = tbKafkaTopicConfigs.getJsExecutorResponseConfigs();
+    Map<String, String> actualHousekeeperReprocessingConfigs =
+        tbKafkaTopicConfigs.getHousekeeperReprocessingConfigs();
+    Map<String, String> actualJsExecutorRequestConfigs =
+        tbKafkaTopicConfigs.getJsExecutorRequestConfigs();
+    Map<String, String> actualJsExecutorResponseConfigs =
+        tbKafkaTopicConfigs.getJsExecutorResponseConfigs();
     Map<String, String> actualNotificationsConfigs = tbKafkaTopicConfigs.getNotificationsConfigs();
     Map<String, String> actualRuleEngineConfigs = tbKafkaTopicConfigs.getRuleEngineConfigs();
-    Map<String, String> actualTransportApiRequestConfigs = tbKafkaTopicConfigs.getTransportApiRequestConfigs();
-    Map<String, String> actualTransportApiResponseConfigs = tbKafkaTopicConfigs.getTransportApiResponseConfigs();
+    Map<String, String> actualTransportApiRequestConfigs =
+        tbKafkaTopicConfigs.getTransportApiRequestConfigs();
+    Map<String, String> actualTransportApiResponseConfigs =
+        tbKafkaTopicConfigs.getTransportApiResponseConfigs();
 
     // Assert
     assertNull(actualCoreConfigs);

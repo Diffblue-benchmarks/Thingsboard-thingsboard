@@ -1,5 +1,6 @@
 package org.thingsboard.rule.engine.util;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
@@ -9,6 +10,7 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.api.core.ApiFutureToListenableFuture;
 import com.google.api.core.ForwardingApiFuture;
 import com.google.api.core.ListenableFutureToApiFuture;
+import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListenableFutureTask;
 import java.util.UUID;
 import java.util.concurrent.Executor;
@@ -21,38 +23,46 @@ import org.thingsboard.rule.engine.api.RuleEngineAlarmService;
 import org.thingsboard.rule.engine.api.TbContext;
 import org.thingsboard.server.common.data.alarm.Alarm;
 import org.thingsboard.server.common.data.id.AlarmId;
+import org.thingsboard.server.common.data.id.ApiUsageStateId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
 
 class EntitiesAlarmOriginatorIdAsyncLoaderDiffblueTest {
   /**
    * Test {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
+   *   <li>Then calls {@link ListenableFutureTask#addListener(Runnable, Executor)}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext,
+   * EntityId)}
    */
   @Test
-  @DisplayName("Test findEntityIdAsync(TbContext, EntityId); then calls addListener(Runnable, Executor)")
+  @DisplayName(
+      "Test findEntityIdAsync(TbContext, EntityId); then calls addListener(Runnable, Executor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"})
+    "ListenableFuture EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"
+  })
   void testFindEntityIdAsync_thenCallsAddListener() {
     // Arrange
     ListenableFutureTask<Alarm> delegate = mock(ListenableFutureTask.class);
     doNothing().when(delegate).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
     RuleEngineAlarmService ruleEngineAlarmService = mock(RuleEngineAlarmService.class);
-    when(ruleEngineAlarmService.findAlarmByIdAsync(Mockito.<TenantId>any(), Mockito.<AlarmId>any())).thenReturn(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+    when(ruleEngineAlarmService.findAlarmByIdAsync(Mockito.<TenantId>any(), Mockito.<AlarmId>any()))
+        .thenReturn(
+            new ApiFutureToListenableFuture<>(
+                new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
     TbContext ctx = mock(TbContext.class);
     when(ctx.getDbCallbackExecutor()).thenReturn(new TestDbCallbackExecutor());
     when(ctx.getAlarmService()).thenReturn(ruleEngineAlarmService);
-    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(ctx.getTenantId())
+        .thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(ctx,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(
+        ctx, new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     verify(delegate).addListener(isA(Runnable.class), isA(Executor.class));
@@ -60,5 +70,34 @@ class EntitiesAlarmOriginatorIdAsyncLoaderDiffblueTest {
     verify(ctx).getAlarmService();
     verify(ctx).getDbCallbackExecutor();
     verify(ctx).getTenantId();
+  }
+
+  /**
+   * Test {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
+   *
+   * <ul>
+   *   <li>Then return Done.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntitiesAlarmOriginatorIdAsyncLoader#findEntityIdAsync(TbContext,
+   * EntityId)}
+   */
+  @Test
+  @DisplayName("Test findEntityIdAsync(TbContext, EntityId); then return Done")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "ListenableFuture EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"
+  })
+  void testFindEntityIdAsync_thenReturnDone() {
+    // Arrange
+    TbContext ctx = mock(TbContext.class);
+
+    // Act
+    ListenableFuture<EntityId> actualFindEntityIdAsyncResult =
+        EntitiesAlarmOriginatorIdAsyncLoader.findEntityIdAsync(
+            ctx, new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Assert
+    assertTrue(actualFindEntityIdAsyncResult.isDone());
   }
 }

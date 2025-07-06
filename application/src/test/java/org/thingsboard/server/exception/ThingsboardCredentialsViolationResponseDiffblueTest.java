@@ -18,9 +18,11 @@ class ThingsboardCredentialsViolationResponseDiffblueTest {
   private ThingsboardCredentialsViolationResponse thingsboardCredentialsViolationResponse;
 
   /**
-   * Test {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}.
-   * <p>
-   * Method under test: {@link ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}
+   * Test {@link
+   * ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}.
+   *
+   * <p>Method under test: {@link
+   * ThingsboardCredentialsViolationResponse#ThingsboardCredentialsViolationResponse(String)}
    */
   @Test
   @DisplayName("Test new ThingsboardCredentialsViolationResponse(String)")
@@ -28,28 +30,33 @@ class ThingsboardCredentialsViolationResponseDiffblueTest {
   @MethodsUnderTest({"void ThingsboardCredentialsViolationResponse.<init>(String)"})
   void testNewThingsboardCredentialsViolationResponse() {
     // Arrange and Act
-    ThingsboardCredentialsViolationResponse actualThingsboardCredentialsViolationResponse = new ThingsboardCredentialsViolationResponse(
-        "Not all who wander are lost");
+    ThingsboardCredentialsViolationResponse actualThingsboardCredentialsViolationResponse =
+        new ThingsboardCredentialsViolationResponse("Not all who wander are lost");
 
     // Assert
-    assertEquals("Not all who wander are lost", actualThingsboardCredentialsViolationResponse.getMessage());
+    assertEquals(
+        "Not all who wander are lost", actualThingsboardCredentialsViolationResponse.getMessage());
     assertEquals(401, actualThingsboardCredentialsViolationResponse.getStatus().intValue());
-    assertEquals(ThingsboardErrorCode.PASSWORD_VIOLATION, actualThingsboardCredentialsViolationResponse.getErrorCode());
+    assertEquals(
+        ThingsboardErrorCode.PASSWORD_VIOLATION,
+        actualThingsboardCredentialsViolationResponse.getErrorCode());
   }
 
   /**
    * Test {@link ThingsboardCredentialsViolationResponse#of(String)} with {@code message}.
-   * <p>
-   * Method under test: {@link ThingsboardCredentialsViolationResponse#of(String)}
+   *
+   * <p>Method under test: {@link ThingsboardCredentialsViolationResponse#of(String)}
    */
   @Test
   @DisplayName("Test of(String) with 'message'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ThingsboardCredentialsViolationResponse ThingsboardCredentialsViolationResponse.of(String)"})
+  @MethodsUnderTest({
+    "ThingsboardCredentialsViolationResponse ThingsboardCredentialsViolationResponse.of(String)"
+  })
   void testOfWithMessage() {
     // Arrange and Act
-    ThingsboardCredentialsViolationResponse actualOfResult = ThingsboardCredentialsViolationResponse
-        .of("Not all who wander are lost");
+    ThingsboardCredentialsViolationResponse actualOfResult =
+        ThingsboardCredentialsViolationResponse.of("Not all who wander are lost");
 
     // Assert
     assertEquals("Not all who wander are lost", actualOfResult.getMessage());

@@ -14,21 +14,25 @@ import org.thingsboard.server.transport.snmp.SnmpTransportContext;
 
 @ExtendWith(MockitoExtension.class)
 class SnmpTransportListChangedEventListenerDiffblueTest {
-  @Mock
-  private SnmpTransportContext snmpTransportContext;
+  @Mock private SnmpTransportContext snmpTransportContext;
 
-  @InjectMocks
-  private SnmpTransportListChangedEventListener snmpTransportListChangedEventListener;
+  @InjectMocks private SnmpTransportListChangedEventListener snmpTransportListChangedEventListener;
 
   /**
-   * Test {@link SnmpTransportListChangedEventListener#onTbApplicationEvent(SnmpTransportListChangedEvent)} with {@code SnmpTransportListChangedEvent}.
-   * <p>
-   * Method under test: {@link SnmpTransportListChangedEventListener#onTbApplicationEvent(SnmpTransportListChangedEvent)}
+   * Test {@link
+   * SnmpTransportListChangedEventListener#onTbApplicationEvent(SnmpTransportListChangedEvent)} with
+   * {@code SnmpTransportListChangedEvent}.
+   *
+   * <p>Method under test: {@link
+   * SnmpTransportListChangedEventListener#onTbApplicationEvent(SnmpTransportListChangedEvent)}
    */
   @Test
-  @DisplayName("Test onTbApplicationEvent(SnmpTransportListChangedEvent) with 'SnmpTransportListChangedEvent'")
+  @DisplayName(
+      "Test onTbApplicationEvent(SnmpTransportListChangedEvent) with 'SnmpTransportListChangedEvent'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SnmpTransportListChangedEventListener.onTbApplicationEvent(SnmpTransportListChangedEvent)"})
+  @MethodsUnderTest({
+    "void SnmpTransportListChangedEventListener.onTbApplicationEvent(SnmpTransportListChangedEvent)"
+  })
   void testOnTbApplicationEventWithSnmpTransportListChangedEvent() {
     // Arrange
     doNothing().when(snmpTransportContext).onSnmpTransportListChanged();

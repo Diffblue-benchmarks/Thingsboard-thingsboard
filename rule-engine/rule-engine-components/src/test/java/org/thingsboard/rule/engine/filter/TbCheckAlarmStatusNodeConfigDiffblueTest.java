@@ -15,30 +15,35 @@ import org.thingsboard.server.common.data.alarm.AlarmStatus;
 class TbCheckAlarmStatusNodeConfigDiffblueTest {
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbCheckAlarmStatusNodeConfig TbCheckAlarmStatusNodeConfig.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbCheckAlarmStatusNodeConfig TbCheckAlarmStatusNodeConfig.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
-    List<AlarmStatus> alarmStatusList = (new TbCheckAlarmStatusNodeConfig()).defaultConfiguration()
-        .getAlarmStatusList();
+    List<AlarmStatus> alarmStatusList =
+        new TbCheckAlarmStatusNodeConfig().defaultConfiguration().getAlarmStatusList();
     assertEquals(2, alarmStatusList.size());
     assertEquals(AlarmStatus.ACTIVE_ACK, alarmStatusList.get(0));
     assertEquals(AlarmStatus.ACTIVE_UNACK, alarmStatusList.get(1));
   }
 
   /**
-   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link TbCheckAlarmStatusNodeConfig#hashCode()}.
+   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link
+   * TbCheckAlarmStatusNodeConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    *   <li>{@link TbCheckAlarmStatusNodeConfig#hashCode()}
@@ -47,8 +52,10 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbCheckAlarmStatusNodeConfig tbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
@@ -61,13 +68,16 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link TbCheckAlarmStatusNodeConfig#hashCode()}.
+   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link
+   * TbCheckAlarmStatusNodeConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    *   <li>{@link TbCheckAlarmStatusNodeConfig#hashCode()}
@@ -76,8 +86,10 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbCheckAlarmStatusNodeConfig tbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
@@ -93,13 +105,16 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link TbCheckAlarmStatusNodeConfig#hashCode()}.
+   * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}, and {@link
+   * TbCheckAlarmStatusNodeConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    *   <li>{@link TbCheckAlarmStatusNodeConfig#hashCode()}
@@ -108,8 +123,10 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbCheckAlarmStatusNodeConfig tbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
@@ -122,18 +139,21 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
 
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckAlarmStatusNodeConfig(), 1);
@@ -141,18 +161,21 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
 
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbCheckAlarmStatusNodeConfig tbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
@@ -164,18 +187,21 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
 
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbCheckAlarmStatusNodeConfig tbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
@@ -189,18 +215,21 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
 
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCheckAlarmStatusNodeConfig(), null);
@@ -208,27 +237,32 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
 
   /**
    * Test {@link TbCheckAlarmStatusNodeConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCheckAlarmStatusNodeConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
-      "int TbCheckAlarmStatusNodeConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCheckAlarmStatusNodeConfig.equals(Object)",
+    "int TbCheckAlarmStatusNodeConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCheckAlarmStatusNodeConfig(), "Different type to TbCheckAlarmStatusNodeConfig");
+    assertNotEquals(
+        new TbCheckAlarmStatusNodeConfig(), "Different type to TbCheckAlarmStatusNodeConfig");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbCheckAlarmStatusNodeConfig}
    *   <li>{@link TbCheckAlarmStatusNodeConfig#setAlarmStatusList(List)}
@@ -239,16 +273,21 @@ class TbCheckAlarmStatusNodeConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCheckAlarmStatusNodeConfig.<init>()",
-      "List TbCheckAlarmStatusNodeConfig.getAlarmStatusList()",
-      "void TbCheckAlarmStatusNodeConfig.setAlarmStatusList(List)", "String TbCheckAlarmStatusNodeConfig.toString()"})
+  @MethodsUnderTest({
+    "void TbCheckAlarmStatusNodeConfig.<init>()",
+    "List TbCheckAlarmStatusNodeConfig.getAlarmStatusList()",
+    "void TbCheckAlarmStatusNodeConfig.setAlarmStatusList(List)",
+    "String TbCheckAlarmStatusNodeConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbCheckAlarmStatusNodeConfig actualTbCheckAlarmStatusNodeConfig = new TbCheckAlarmStatusNodeConfig();
+    TbCheckAlarmStatusNodeConfig actualTbCheckAlarmStatusNodeConfig =
+        new TbCheckAlarmStatusNodeConfig();
     ArrayList<AlarmStatus> alarmStatusList = new ArrayList<>();
     actualTbCheckAlarmStatusNodeConfig.setAlarmStatusList(alarmStatusList);
     String actualToStringResult = actualTbCheckAlarmStatusNodeConfig.toString();
-    List<AlarmStatus> actualAlarmStatusList = actualTbCheckAlarmStatusNodeConfig.getAlarmStatusList();
+    List<AlarmStatus> actualAlarmStatusList =
+        actualTbCheckAlarmStatusNodeConfig.getAlarmStatusList();
 
     // Assert
     assertEquals("TbCheckAlarmStatusNodeConfig(alarmStatusList=[])", actualToStringResult);

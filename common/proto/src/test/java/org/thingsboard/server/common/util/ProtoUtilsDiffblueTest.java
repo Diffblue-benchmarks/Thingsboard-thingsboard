@@ -10,16 +10,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.BigIntegerNode;
-import com.fasterxml.jackson.databind.node.BinaryNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ByteString.ByteIterator;
+import com.google.protobuf.DescriptorProtos;
+import com.google.protobuf.DescriptorProtos.FileOptions;
 import com.google.protobuf.Descriptors;
+import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.UnknownFieldSet;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -59,10 +58,7 @@ import org.thingsboard.server.common.data.kv.BooleanDataEntry;
 import org.thingsboard.server.common.data.kv.DataType;
 import org.thingsboard.server.common.data.kv.DoubleDataEntry;
 import org.thingsboard.server.common.data.kv.JsonDataEntry;
-import org.thingsboard.server.common.data.kv.KvEntry;
 import org.thingsboard.server.common.data.kv.LongDataEntry;
-import org.thingsboard.server.common.data.kv.StringDataEntry;
-import org.thingsboard.server.common.data.oauth2.OAuth2Client;
 import org.thingsboard.server.common.data.plugin.ComponentLifecycleEvent;
 import org.thingsboard.server.common.data.rpc.ToDeviceRpcRequestBody;
 import org.thingsboard.server.common.data.security.DeviceCredentials;
@@ -79,6 +75,7 @@ import org.thingsboard.server.common.msg.plugin.ComponentLifecycleMsg;
 import org.thingsboard.server.common.msg.rpc.ToDeviceRpcRequest;
 import org.thingsboard.server.common.msg.rpc.ToDeviceRpcRequestActorMsg;
 import org.thingsboard.server.common.msg.rule.engine.DeviceAttributesEventNotificationMsg;
+import org.thingsboard.server.common.msg.rule.engine.DeviceEdgeUpdateMsg;
 import org.thingsboard.server.gen.transport.TransportProtos;
 import org.thingsboard.server.gen.transport.TransportProtos.AttributeValueProto;
 import org.thingsboard.server.gen.transport.TransportProtos.ComponentLifecycleMsgProto;
@@ -101,8 +98,8 @@ import org.thingsboard.server.gen.transport.TransportProtos.ToEdgeSyncRequestMsg
 class ProtoUtilsDiffblueTest {
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
   @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'")
@@ -110,28 +107,34 @@ class ProtoUtilsDiffblueTest {
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42"))));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new BaseAttributeKvEntry(
+                1L, new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42"))));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Given {@code BOOLEAN}.</li>
-   *   <li>Then return SerializedSize is thirteen.</li>
+   *   <li>Given {@code BOOLEAN}.
+   *   <li>Then return SerializedSize is thirteen.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given 'BOOLEAN'; then return SerializedSize is thirteen")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given 'BOOLEAN'; then return SerializedSize is thirteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_givenBoolean_thenReturnSerializedSizeIsThirteen() {
@@ -161,15 +164,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Given {@code LONG}.</li>
-   *   <li>Then return SerializedSize is fifteen.</li>
+   *   <li>Given {@code LONG}.
+   *   <li>Then return SerializedSize is fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given 'LONG'; then return SerializedSize is fifteen")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given 'LONG'; then return SerializedSize is fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_givenLong_thenReturnSerializedSizeIsFifteen() {
@@ -199,15 +204,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Given of ten.</li>
-   *   <li>Then return DoubleV is ten.</li>
+   *   <li>Given of ten.
+   *   <li>Then return DoubleV is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given of ten; then return DoubleV is ten")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; given of ten; then return DoubleV is ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_givenOfTen_thenReturnDoubleVIsTen() {
@@ -237,14 +244,16 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return AllFields size is three.</li>
+   *   <li>Then return AllFields size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return AllFields size is three")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return AllFields size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnAllFieldsSizeIsThree() {
@@ -274,11 +283,12 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return JsonV is {@code foo}.</li>
+   *   <li>Then return JsonV is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
   @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return JsonV is 'foo'")
@@ -318,20 +328,22 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return LongV is forty-two.</li>
+   *   <li>Then return LongV is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return LongV is forty-two")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return LongV is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnLongVIsFortyTwo() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new LongDataEntry("Key", 42L)));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(1L, new LongDataEntry("Key", 42L)));
 
     // Assert
     assertEquals(42L, actualToProtoResult.getLongV());
@@ -339,25 +351,29 @@ class ProtoUtilsDiffblueTest {
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is seventeen.</li>
+   *   <li>Then return SerializedSize is seventeen.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return SerializedSize is seventeen")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return SerializedSize is seventeen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnSerializedSizeIsSeventeen() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(new JsonDataEntry("Key", "42"), 1L, 1L));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(new JsonDataEntry("Key", "42"), 1L, 1L));
 
     // Assert
     assertEquals(17, actualToProtoResult.getSerializedSize());
@@ -365,25 +381,29 @@ class ProtoUtilsDiffblueTest {
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is twenty.</li>
+   *   <li>Then return SerializedSize is twenty.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return SerializedSize is twenty")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return SerializedSize is twenty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnSerializedSizeIsTwenty() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new DoubleDataEntry("Key", 10.0d)));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(1L, new DoubleDataEntry("Key", 10.0d)));
 
     // Assert
     assertEquals(20, actualToProtoResult.getSerializedSize());
@@ -391,19 +411,23 @@ class ProtoUtilsDiffblueTest {
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return StringV is {@code foo}.</li>
+   *   <li>Then return StringV is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return StringV is 'foo'")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return StringV is 'foo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnStringVIsFoo() {
@@ -440,14 +464,16 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>Then return TypeValue is three.</li>
+   *   <li>Then return TypeValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return TypeValue is three")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; then return TypeValue is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_thenReturnTypeValueIsThree() {
@@ -477,14 +503,16 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>When {@link AttributeKvEntry} {@link KvEntry#getDoubleValue()} return empty.</li>
+   *   <li>When {@link AttributeKvEntry} {@link AttributeKvEntry#getDoubleValue()} return empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when AttributeKvEntry getDoubleValue() return empty")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when AttributeKvEntry getDoubleValue() return empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_whenAttributeKvEntryGetDoubleValueReturnEmpty() {
@@ -514,14 +542,16 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>When {@link AttributeKvEntry} {@link KvEntry#getLongValue()} return empty.</li>
+   *   <li>When {@link AttributeKvEntry} {@link AttributeKvEntry#getLongValue()} return empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when AttributeKvEntry getLongValue() return empty")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when AttributeKvEntry getLongValue() return empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_whenAttributeKvEntryGetLongValueReturnEmpty() {
@@ -551,625 +581,878 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_whenBooleanDataEntryWithKeyAndValueIsTrue() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new BooleanDataEntry("Key", true)));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(1L, new BooleanDataEntry("Key", true)));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when JsonDataEntry(String, String) with 'Key' and value is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_whenJsonDataEntryWithKeyAndValueIs42() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(AttributeKvEntry)} with {@code AttributeKvEntry}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code null}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(AttributeKvEntry)}
    */
   @Test
-  @DisplayName("Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when JsonDataEntry(String, String) with 'Key' and value is 'null'")
+  @DisplayName(
+      "Test toProto(AttributeKvEntry) with 'AttributeKvEntry'; when JsonDataEntry(String, String) with 'Key' and value is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeValueProto ProtoUtils.toProto(AttributeKvEntry)"})
   void testToProtoWithAttributeKvEntry_whenJsonDataEntryWithKeyAndValueIsNull() {
     // Arrange and Act
-    AttributeValueProto actualToProtoResult = ProtoUtils
-        .toProto(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", null)));
+    AttributeValueProto actualToProtoResult =
+        ProtoUtils.toProto(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", null)));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
     AttributeValueProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
   @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
   @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg2() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is five.</li>
+   *   <li>Then return EntityTypeValue is five.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is five")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is five")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsFive() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AssetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AssetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(5, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.ASSET, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is four.</li>
+   *   <li>Then return EntityTypeValue is four.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is four")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is four")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsFour() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(4, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.DASHBOARD, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is six.</li>
+   *   <li>Then return EntityTypeValue is six.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is six")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is six")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsSix() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(6, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.DEVICE, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is thirty-six.</li>
+   *   <li>Then return EntityTypeValue is thirty-six.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is thirty-six")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is thirty-six")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsThirtySix() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new DomainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new DomainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(36, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.DOMAIN, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is twenty-one.</li>
+   *   <li>Then return EntityTypeValue is twenty-one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-one")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsTwentyOne() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(21, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.DEVICE_PROFILE, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is twenty-three.</li>
+   *   <li>Then return EntityTypeValue is twenty-three.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-three")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsTwentyThree() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new ApiUsageStateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(23, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.API_USAGE_STATE, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is twenty-two.</li>
+   *   <li>Then return EntityTypeValue is twenty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-two")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is twenty-two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsTwentyTwo() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(22, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.ASSET_PROFILE, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityTypeValue is two.</li>
+   *   <li>Then return EntityTypeValue is two.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is two")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EntityTypeValue is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEntityTypeValueIsTwo() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.randomUUID());
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.CREATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.CREATED));
 
     // Assert
     assertEquals(2, actualToProtoResult.getEntityTypeValue());
     assertEquals(EntityTypeProto.CUSTOMER, actualToProtoResult.getEntityType());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is eight.</li>
+   *   <li>Then return EventValue is eight.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is eight")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is eight")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsEight() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.DEACTIVATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.DEACTIVATED));
 
     // Assert
     assertEquals(8, actualToProtoResult.getEventValue());
-    assertEquals(TransportProtos.ComponentLifecycleEvent.DEACTIVATED, actualToProtoResult.getEvent());
+    assertEquals(
+        TransportProtos.ComponentLifecycleEvent.DEACTIVATED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is five.</li>
+   *   <li>Then return EventValue is five.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is five")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is five")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsFive() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.STOPPED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.STOPPED));
 
     // Assert
     assertEquals(5, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.STOPPED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is four.</li>
+   *   <li>Then return EventValue is four.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is four")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is four")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsFour() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.UPDATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.UPDATED));
 
     // Assert
     assertEquals(4, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.UPDATED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is one.</li>
+   *   <li>Then return EventValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is one")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsOne() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.STARTED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.STARTED));
 
     // Assert
     assertEquals(1, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.STARTED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is seven.</li>
+   *   <li>Then return EventValue is seven.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is seven")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is seven")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsSeven() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.FAILED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.FAILED));
 
     // Assert
     assertEquals(7, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.FAILED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is six.</li>
+   *   <li>Then return EventValue is six.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is six")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is six")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsSix() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.DELETED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.DELETED));
 
     // Assert
     assertEquals(6, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.DELETED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is three.</li>
+   *   <li>Then return EventValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is three")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsThree() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.SUSPENDED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.SUSPENDED));
 
     // Assert
     assertEquals(3, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.SUSPENDED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(ComponentLifecycleMsg)} with {@code ComponentLifecycleMsg}.
+   *
    * <ul>
-   *   <li>Then return EventValue is two.</li>
+   *   <li>Then return EventValue is two.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ComponentLifecycleMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is two")
+  @DisplayName(
+      "Test toProto(ComponentLifecycleMsg) with 'ComponentLifecycleMsg'; then return EventValue is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.ComponentLifecycleMsgProto ProtoUtils.toProto(ComponentLifecycleMsg)"
+  })
   void testToProtoWithComponentLifecycleMsg_thenReturnEventValueIsTwo() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ComponentLifecycleMsgProto actualToProtoResult = ProtoUtils.toProto(new ComponentLifecycleMsg(tenantId,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ComponentLifecycleEvent.ACTIVATED));
+    ComponentLifecycleMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ComponentLifecycleMsg(
+                tenantId,
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                ComponentLifecycleEvent.ACTIVATED));
 
     // Assert
     assertEquals(2, actualToProtoResult.getEventValue());
     assertEquals(TransportProtos.ComponentLifecycleEvent.ACTIVATED, actualToProtoResult.getEvent());
     UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
-    ComponentLifecycleMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    ComponentLifecycleMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceCredentials)} with {@code DeviceCredentials}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
    */
   @Test
   @DisplayName("Test toProto(DeviceCredentials) with 'DeviceCredentials'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"})
+  @MethodsUnderTest({
+    "TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"
+  })
   void testToProtoWithDeviceCredentials() {
+    // Arrange
+    DeviceCredentials deviceCredentials = new DeviceCredentials();
+    deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
+    deviceCredentials.setCredentialsId("42");
+    deviceCredentials.setId(
+        new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    DeviceCredentialsProto actualToProtoResult = ProtoUtils.toProto(deviceCredentials);
+
+    // Assert
+    ByteString credentialsValueBytes = actualToProtoResult.getCredentialsValueBytes();
+    assertEquals("", credentialsValueBytes.toStringUtf8());
+    assertEquals("", actualToProtoResult.getCredentialsValue());
+    assertEquals(0L, actualToProtoResult.getDeviceIdLSB());
+    assertEquals(0L, actualToProtoResult.getDeviceIdMSB());
+    assertEquals(0L, actualToProtoResult.getVersion());
+    assertEquals(25, actualToProtoResult.getSerializedSize());
+    assertEquals(3, actualToProtoResult.getAllFields().size());
+    assertFalse(credentialsValueBytes.iterator().hasNext());
+    assertFalse(actualToProtoResult.hasCredentialsValue());
+    assertFalse(actualToProtoResult.hasVersion());
+    assertTrue(credentialsValueBytes.isEmpty());
+    DeviceCredentialsProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    assertEquals(credentialsValueBytes, defaultInstanceForType.getCredentialsIdBytes());
+    assertEquals(credentialsValueBytes, defaultInstanceForType.getCredentialsValueBytes());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(DeviceCredentials)} with {@code DeviceCredentials}.
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
+   */
+  @Test
+  @DisplayName("Test toProto(DeviceCredentials) with 'DeviceCredentials'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"
+  })
+  void testToProtoWithDeviceCredentials2() {
     // Arrange
     DeviceCredentials deviceCredentials = new DeviceCredentials();
     deviceCredentials.setCredentialsValue("42");
     deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
     deviceCredentials.setCredentialsId("42");
-    deviceCredentials.setId(new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setId(
+        new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
     DeviceCredentialsProto actualToProtoResult = ProtoUtils.toProto(deviceCredentials);
@@ -1188,54 +1471,29 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceCredentials)} with {@code DeviceCredentials}.
+   *
    * <ul>
-   *   <li>Given {@code ACCESS_TOKEN}.</li>
-   *   <li>Then return Version is zero.</li>
+   *   <li>Given one.
+   *   <li>Then return Version is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
    */
   @Test
-  @DisplayName("Test toProto(DeviceCredentials) with 'DeviceCredentials'; given 'ACCESS_TOKEN'; then return Version is zero")
+  @DisplayName(
+      "Test toProto(DeviceCredentials) with 'DeviceCredentials'; given one; then return Version is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"})
-  void testToProtoWithDeviceCredentials_givenAccessToken_thenReturnVersionIsZero() {
-    // Arrange
-    DeviceCredentials deviceCredentials = new DeviceCredentials();
-    deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
-    deviceCredentials.setCredentialsId("42");
-    deviceCredentials.setId(new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act
-    DeviceCredentialsProto actualToProtoResult = ProtoUtils.toProto(deviceCredentials);
-
-    // Assert
-    assertEquals(0L, actualToProtoResult.getVersion());
-    assertEquals(25, actualToProtoResult.getSerializedSize());
-    assertEquals(3, actualToProtoResult.getAllFields().size());
-    assertFalse(actualToProtoResult.hasVersion());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(DeviceCredentials)} with {@code DeviceCredentials}.
-   * <ul>
-   *   <li>Given one.</li>
-   *   <li>Then return Version is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
-   */
-  @Test
-  @DisplayName("Test toProto(DeviceCredentials) with 'DeviceCredentials'; given one; then return Version is one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"})
+  @MethodsUnderTest({
+    "TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"
+  })
   void testToProtoWithDeviceCredentials_givenOne_thenReturnVersionIsOne() {
     // Arrange
     DeviceCredentials deviceCredentials = new DeviceCredentials();
     deviceCredentials.setVersion(1L);
     deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
     deviceCredentials.setCredentialsId("42");
-    deviceCredentials.setId(new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setId(
+        new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
     DeviceCredentialsProto actualToProtoResult = ProtoUtils.toProto(deviceCredentials);
@@ -1248,9 +1506,45 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
+   * Test {@link ProtoUtils#toProto(DeviceCredentials)} with {@code DeviceCredentials}.
+   *
+   * <ul>
+   *   <li>Then return DeviceIdLSB is {@code -7476899250389416711}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceCredentials)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(DeviceCredentials) with 'DeviceCredentials'; then return DeviceIdLSB is '-7476899250389416711'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TransportProtos.DeviceCredentialsProto ProtoUtils.toProto(DeviceCredentials)"
+  })
+  void testToProtoWithDeviceCredentials_thenReturnDeviceIdLSBIs7476899250389416711() {
+    // Arrange
+    DeviceCredentials deviceCredentials = new DeviceCredentials();
+    deviceCredentials.setCredentialsType(DeviceCredentialsType.ACCESS_TOKEN);
+    deviceCredentials.setDeviceId(
+        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceCredentials.setCredentialsId("42");
+    deviceCredentials.setId(
+        new DeviceCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    DeviceCredentialsProto actualToProtoResult = ProtoUtils.toProto(deviceCredentials);
+
+    // Assert
+    assertEquals(-7476899250389416711L, actualToProtoResult.getDeviceIdLSB());
+    assertEquals(46, actualToProtoResult.getSerializedSize());
+    assertEquals(5, actualToProtoResult.getAllFields().size());
+    assertEquals(8669210807411032922L, actualToProtoResult.getDeviceIdMSB());
+  }
+
+  /**
    * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
    */
   @Test
   @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'")
@@ -1263,14 +1557,16 @@ class ProtoUtilsDiffblueTest {
     deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
     deviceProfile.setTransportType(DeviceTransportType.MQTT);
     deviceProfile.setType(DeviceProfileType.DEFAULT);
-    deviceProfile.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setName("");
 
     // Act
     DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
 
     // Assert
-    assertEquals("The characteristics of someone or something", actualToProtoResult.getDescription());
+    assertEquals(
+        "The characteristics of someone or something", actualToProtoResult.getDescription());
     ByteString descriptionBytes = actualToProtoResult.getDescriptionBytes();
     assertFalse(descriptionBytes.isEmpty());
     ByteIterator iteratorResult = descriptionBytes.iterator();
@@ -1285,8 +1581,8 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
    */
   @Test
   @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'")
@@ -1295,11 +1591,13 @@ class ProtoUtilsDiffblueTest {
   void testToProtoWithDeviceProfile2() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setDefaultRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setDefaultRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
     deviceProfile.setTransportType(DeviceTransportType.MQTT);
     deviceProfile.setType(DeviceProfileType.DEFAULT);
-    deviceProfile.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setName("");
 
     // Act
@@ -1308,7 +1606,6 @@ class ProtoUtilsDiffblueTest {
     // Assert
     assertEquals(-7476899250389416711L, actualToProtoResult.getDefaultRuleChainIdLSB());
     assertEquals(67, actualToProtoResult.getSerializedSize());
-    assertEquals(7, actualToProtoResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualToProtoResult.getDefaultRuleChainIdMSB());
     assertTrue(actualToProtoResult.hasDefaultRuleChainIdLSB());
     assertTrue(actualToProtoResult.hasDefaultRuleChainIdMSB());
@@ -1316,54 +1613,135 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
-   * <ul>
-   *   <li>Given {@code DISABLED}.</li>
-   *   <li>Then return Description is empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
    */
   @Test
-  @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'; given 'DISABLED'; then return Description is empty string")
+  @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
-  void testToProtoWithDeviceProfile_givenDisabled_thenReturnDescriptionIsEmptyString() {
+  void testToProtoWithDeviceProfile3() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefaultEdgeRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setDefaultRuleChainId(null);
     deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
     deviceProfile.setTransportType(DeviceTransportType.MQTT);
     deviceProfile.setType(DeviceProfileType.DEFAULT);
-    deviceProfile.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setName("");
 
     // Act
     DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
 
     // Assert
-    assertEquals("", actualToProtoResult.getDescription());
-    assertEquals("", actualToProtoResult.getImage());
-    assertEquals(0L, actualToProtoResult.getDefaultRuleChainIdLSB());
-    assertEquals(0L, actualToProtoResult.getDefaultRuleChainIdMSB());
-    assertEquals(46, actualToProtoResult.getSerializedSize());
-    assertEquals(5, actualToProtoResult.getAllFields().size());
-    assertFalse(actualToProtoResult.hasDefaultRuleChainIdLSB());
-    assertFalse(actualToProtoResult.hasDefaultRuleChainIdMSB());
-    assertFalse(actualToProtoResult.hasDescription());
-    assertFalse(actualToProtoResult.hasDeviceProfileData());
-    assertFalse(actualToProtoResult.hasImage());
+    assertEquals(-7476899250389416711L, actualToProtoResult.getDefaultEdgeRuleChainIdLSB());
+    assertEquals(8, actualToProtoResult.getAllFields().size());
+    assertEquals(8669210807411032922L, actualToProtoResult.getDefaultEdgeRuleChainIdMSB());
+    assertTrue(actualToProtoResult.hasDefaultEdgeRuleChainIdLSB());
+    assertTrue(actualToProtoResult.hasDefaultEdgeRuleChainIdMSB());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
    * <ul>
-   *   <li>Given {@code Image}.</li>
-   *   <li>Then return {@code Image}.</li>
+   *   <li>Given {@code Default Queue Name}.
+   *   <li>Then return {@code Default Queue Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
    */
   @Test
-  @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'; given 'Image'; then return 'Image'")
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; given 'Default Queue Name'; then return 'Default Queue Name'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
+  void testToProtoWithDeviceProfile_givenDefaultQueueName_thenReturnDefaultQueueName() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefaultQueueName("Default Queue Name");
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setDefaultRuleChainId(null);
+    deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfile.setTransportType(DeviceTransportType.MQTT);
+    deviceProfile.setType(DeviceProfileType.DEFAULT);
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setName("");
+
+    // Act
+    DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
+
+    // Assert
+    assertEquals("Default Queue Name", actualToProtoResult.getDefaultQueueName());
+    assertEquals(78, actualToProtoResult.getSerializedSize());
+    assertTrue(actualToProtoResult.hasDefaultQueueName());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
+   * <ul>
+   *   <li>Given {@code DISABLED}.
+   *   <li>Then return SerializedSize is forty-six.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; given 'DISABLED'; then return SerializedSize is forty-six")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
+  void testToProtoWithDeviceProfile_givenDisabled_thenReturnSerializedSizeIsFortySix() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfile.setTransportType(DeviceTransportType.MQTT);
+    deviceProfile.setType(DeviceProfileType.DEFAULT);
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setName("");
+
+    // Act
+    DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
+
+    // Assert
+    assertEquals(46, actualToProtoResult.getSerializedSize());
+    assertEquals(5, actualToProtoResult.getAllFields().size());
+    FileOptions defaultInstanceForType =
+        actualToProtoResult
+            .getDescriptorForType()
+            .getFile()
+            .getOptions()
+            .getDefaultInstanceForType();
+    assertFalse(defaultInstanceForType.hasObjcClassPrefix());
+    assertFalse(defaultInstanceForType.hasOptimizeFor());
+    assertFalse(defaultInstanceForType.hasPhpClassPrefix());
+    assertFalse(actualToProtoResult.hasDeviceProfileData());
+    ByteString expectedDeviceProfileData = actualToProtoResult.getDeviceProfileData();
+    assertSame(
+        expectedDeviceProfileData,
+        actualToProtoResult.getDefaultInstanceForType().getDeviceProfileData());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
+   * <ul>
+   *   <li>Given {@code Image}.
+   *   <li>Then return {@code Image}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; given 'Image'; then return 'Image'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
   void testToProtoWithDeviceProfile_givenImage_thenReturnImage() {
@@ -1373,7 +1751,8 @@ class ProtoUtilsDiffblueTest {
     deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
     deviceProfile.setTransportType(DeviceTransportType.MQTT);
     deviceProfile.setType(DeviceProfileType.DEFAULT);
-    deviceProfile.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setName("");
 
     // Act
@@ -1395,32 +1774,36 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then return not DeviceProfileData Empty.</li>
+   *   <li>Given {@code null}.
+   *   <li>Then return AllFields size is six.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
    */
   @Test
-  @DisplayName("Test toProto(DeviceProfile) with 'DeviceProfile'; given 'null'; then return not DeviceProfileData Empty")
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; given 'null'; then return AllFields size is six")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
-  void testToProtoWithDeviceProfile_givenNull_thenReturnNotDeviceProfileDataEmpty() {
+  void testToProtoWithDeviceProfile_givenNull_thenReturnAllFieldsSizeIsSix() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
-    deviceProfile.setProfileDataBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
     deviceProfile.setDefaultRuleChainId(null);
     deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
     deviceProfile.setTransportType(DeviceTransportType.MQTT);
     deviceProfile.setType(DeviceProfileType.DEFAULT);
-    deviceProfile.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     deviceProfile.setName("");
 
     // Act
     DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
 
     // Assert
+    assertEquals(6, actualToProtoResult.getAllFields().size());
     ByteString deviceProfileData = actualToProtoResult.getDeviceProfileData();
     assertFalse(deviceProfileData.isEmpty());
     ByteIterator iteratorResult = deviceProfileData.iterator();
@@ -1434,21 +1817,106 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
+   * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
+   * <ul>
+   *   <li>Given one.
+   *   <li>Then return Version is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; given one; then return Version is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
+  void testToProtoWithDeviceProfile_givenOne_thenReturnVersionIsOne() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setVersion(1L);
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setDefaultRuleChainId(null);
+    deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfile.setTransportType(DeviceTransportType.MQTT);
+    deviceProfile.setType(DeviceProfileType.DEFAULT);
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setName("");
+
+    // Act
+    DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
+
+    // Assert
+    assertEquals(1L, actualToProtoResult.getVersion());
+    assertEquals(60, actualToProtoResult.getSerializedSize());
+    assertEquals(7, actualToProtoResult.getAllFields().size());
+    assertTrue(actualToProtoResult.hasVersion());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(DeviceProfile)} with {@code DeviceProfile}.
+   *
+   * <ul>
+   *   <li>Then return {@code Provision Device Key}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(DeviceProfile)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(DeviceProfile) with 'DeviceProfile'; then return 'Provision Device Key'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.DeviceProfileProto ProtoUtils.toProto(DeviceProfile)"})
+  void testToProtoWithDeviceProfile_thenReturnProvisionDeviceKey() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProvisionDeviceKey("Provision Device Key");
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    deviceProfile.setDefaultRuleChainId(null);
+    deviceProfile.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfile.setTransportType(DeviceTransportType.MQTT);
+    deviceProfile.setType(DeviceProfileType.DEFAULT);
+    deviceProfile.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    deviceProfile.setName("");
+
+    // Act
+    DeviceProfileProto actualToProtoResult = ProtoUtils.toProto(deviceProfile);
+
+    // Assert
+    assertEquals("Provision Device Key", actualToProtoResult.getProvisionDeviceKey());
+    ByteString provisionDeviceKeyBytes = actualToProtoResult.getProvisionDeviceKeyBytes();
+    assertFalse(provisionDeviceKeyBytes.isEmpty());
+    ByteIterator iteratorResult = provisionDeviceKeyBytes.iterator();
+    assertTrue(iteratorResult.hasNext());
+    assertEquals('P', iteratorResult.next().byteValue());
+    assertEquals('r', iteratorResult.next().byteValue());
+    assertEquals('o', iteratorResult.next().byteValue());
+    assertEquals("Provision Device Key", provisionDeviceKeyBytes.toStringUtf8());
+    assertTrue(actualToProtoResult.hasProvisionDeviceKey());
+  }
+
+  /**
    * Test {@link ProtoUtils#toProto(EdgeEventUpdateMsg)} with {@code EdgeEventUpdateMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeEventUpdateMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EdgeEventUpdateMsg)}
    */
   @Test
   @DisplayName("Test toProto(EdgeEventUpdateMsg) with 'EdgeEventUpdateMsg'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeEventUpdateMsgProto ProtoUtils.toProto(EdgeEventUpdateMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.EdgeEventUpdateMsgProto ProtoUtils.toProto(EdgeEventUpdateMsg)"
+  })
   void testToProtoWithEdgeEventUpdateMsg() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    EdgeEventUpdateMsgProto actualToProtoResult = ProtoUtils
-        .toProto(new EdgeEventUpdateMsg(tenantId, new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    EdgeEventUpdateMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new EdgeEventUpdateMsg(
+                tenantId, new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
 
     // Assert
     assertEquals("", actualToProtoResult.getInitializationErrorString());
@@ -1464,52 +1932,21 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EdgeHighPriorityMsg)} with {@code EdgeHighPriorityMsg}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
-   *   <li>Then return Body is {@code "QQFB"}.</li>
+   *   <li>Given Instance.
+   *   <li>Then return Body is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
    */
   @Test
-  @DisplayName("Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; given 'A'; then return Body is '\"QQFB\"'")
+  @DisplayName(
+      "Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; given Instance; then return Body is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"})
-  void testToProtoWithEdgeHighPriorityMsg_givenA_thenReturnBodyIsQqfb() {
-    // Arrange
-    EdgeEvent edgeEvent = new EdgeEvent();
-    edgeEvent.setBody(new BinaryNode(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1}, 2, 3));
-    edgeEvent.setAction(EdgeEventActionType.ADDED);
-    edgeEvent.setType(EdgeEventType.ASSET);
-
-    // Act
-    EdgeHighPriorityMsgProto actualToProtoResult = ProtoUtils.toProto(
-        new EdgeHighPriorityMsg(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
-
-    // Assert
-    assertEquals("\"QQFB\"", actualToProtoResult.getBody());
-    ByteString bodyBytes = actualToProtoResult.getBodyBytes();
-    ByteIterator iteratorResult = bodyBytes.iterator();
-    assertTrue(iteratorResult.hasNext());
-    assertEquals('"', iteratorResult.next().byteValue());
-    assertEquals('Q', iteratorResult.next().byteValue());
-    assertEquals('Q', iteratorResult.next().byteValue());
-    assertEquals("\"QQFB\"", bodyBytes.toStringUtf8());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(EdgeHighPriorityMsg)} with {@code EdgeHighPriorityMsg}.
-   * <ul>
-   *   <li>Given Instance.</li>
-   *   <li>Then return Body is {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; given Instance; then return Body is 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"
+  })
   void testToProtoWithEdgeHighPriorityMsg_givenInstance_thenReturnBodyIsNull() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent();
@@ -1518,8 +1955,10 @@ class ProtoUtilsDiffblueTest {
     edgeEvent.setType(EdgeEventType.ASSET);
 
     // Act
-    EdgeHighPriorityMsgProto actualToProtoResult = ProtoUtils.toProto(
-        new EdgeHighPriorityMsg(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
+    EdgeHighPriorityMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new EdgeHighPriorityMsg(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
 
     // Assert
     assertEquals("null", actualToProtoResult.getBody());
@@ -1535,16 +1974,20 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EdgeHighPriorityMsg)} with {@code EdgeHighPriorityMsg}.
+   *
    * <ul>
-   *   <li>Then return BodyBytes toStringUtf8 is empty string.</li>
+   *   <li>Then return BodyBytes toStringUtf8 is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
    */
   @Test
-  @DisplayName("Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return BodyBytes toStringUtf8 is empty string")
+  @DisplayName(
+      "Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return BodyBytes toStringUtf8 is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"
+  })
   void testToProtoWithEdgeHighPriorityMsg_thenReturnBodyBytesToStringUtf8IsEmptyString() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent();
@@ -1552,8 +1995,10 @@ class ProtoUtilsDiffblueTest {
     edgeEvent.setType(EdgeEventType.ASSET);
 
     // Act
-    EdgeHighPriorityMsgProto actualToProtoResult = ProtoUtils.toProto(
-        new EdgeHighPriorityMsg(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
+    EdgeHighPriorityMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new EdgeHighPriorityMsg(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
 
     // Assert
     ByteString bodyBytes = actualToProtoResult.getBodyBytes();
@@ -1561,11 +2006,11 @@ class ProtoUtilsDiffblueTest {
     assertEquals("", actualToProtoResult.getBody());
     assertEquals(35, actualToProtoResult.getSerializedSize());
     assertEquals(4, actualToProtoResult.getAllFields().size());
-    assertEquals(9, actualToProtoResult.getDescriptorForType().getFields().size());
     assertFalse(bodyBytes.iterator().hasNext());
     assertFalse(actualToProtoResult.hasBody());
     assertTrue(bodyBytes.isEmpty());
-    EdgeHighPriorityMsgProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    EdgeHighPriorityMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
     assertEquals(bodyBytes, defaultInstanceForType.getActionBytes());
     assertEquals(bodyBytes, defaultInstanceForType.getBodyBytes());
     assertEquals(bodyBytes, defaultInstanceForType.getTypeBytes());
@@ -1573,51 +2018,61 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EdgeHighPriorityMsg)} with {@code EdgeHighPriorityMsg}.
+   *
    * <ul>
-   *   <li>Then return Body is {@code 1}.</li>
+   *   <li>Then return DescriptorForType Oneofs size is five.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
    */
   @Test
-  @DisplayName("Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return Body is '1'")
+  @DisplayName(
+      "Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return DescriptorForType Oneofs size is five")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"})
-  void testToProtoWithEdgeHighPriorityMsg_thenReturnBodyIs1() {
+  @MethodsUnderTest({
+    "TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"
+  })
+  void testToProtoWithEdgeHighPriorityMsg_thenReturnDescriptorForTypeOneofsSizeIsFive() {
     // Arrange
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
     EdgeEvent edgeEvent = new EdgeEvent();
-    edgeEvent.setBody(new BigIntegerNode(BigInteger.valueOf(1L)));
+    edgeEvent.setBody(MissingNode.getInstance());
     edgeEvent.setAction(EdgeEventActionType.ADDED);
     edgeEvent.setType(EdgeEventType.ASSET);
 
     // Act
-    EdgeHighPriorityMsgProto actualToProtoResult = ProtoUtils.toProto(new EdgeHighPriorityMsg(tenantId, edgeEvent));
+    EdgeHighPriorityMsgProto actualToProtoResult =
+        ProtoUtils.toProto(new EdgeHighPriorityMsg(new TenantId(UUID.randomUUID()), edgeEvent));
 
     // Assert
-    assertEquals("1", actualToProtoResult.getBody());
-    ByteString bodyBytes = actualToProtoResult.getBodyBytes();
-    ByteIterator iteratorResult = bodyBytes.iterator();
-    Byte nextResult = iteratorResult.next();
-    assertFalse(iteratorResult.hasNext());
-    assertEquals('1', nextResult.byteValue());
-    assertEquals("1", bodyBytes.toStringUtf8());
-    assertEquals(38, actualToProtoResult.getSerializedSize());
+    Descriptor descriptorForType = actualToProtoResult.getDescriptorForType();
+    assertEquals(5, descriptorForType.getOneofs().size());
+    EdgeHighPriorityMsgProto defaultInstanceForType =
+        actualToProtoResult.getDefaultInstanceForType();
+    assertSame(descriptorForType, defaultInstanceForType.getDescriptorForType());
+    UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(EdgeHighPriorityMsg)} with {@code EdgeHighPriorityMsg}.
+   *
    * <ul>
-   *   <li>Then return EntityIdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Then return EntityIdLSB is {@code -7476899250389416711}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EdgeHighPriorityMsg)}
    */
   @Test
-  @DisplayName("Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return EntityIdLSB is '-7476899250389416711'")
+  @DisplayName(
+      "Test toProto(EdgeHighPriorityMsg) with 'EdgeHighPriorityMsg'; then return EntityIdLSB is '-7476899250389416711'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"})
+  @MethodsUnderTest({
+    "TransportProtos.EdgeHighPriorityMsgProto ProtoUtils.toProto(EdgeHighPriorityMsg)"
+  })
   void testToProtoWithEdgeHighPriorityMsg_thenReturnEntityIdLSBIs7476899250389416711() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent();
@@ -1626,8 +2081,10 @@ class ProtoUtilsDiffblueTest {
     edgeEvent.setType(EdgeEventType.ASSET);
 
     // Act
-    EdgeHighPriorityMsgProto actualToProtoResult = ProtoUtils.toProto(
-        new EdgeHighPriorityMsg(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
+    EdgeHighPriorityMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new EdgeHighPriorityMsg(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), edgeEvent));
 
     // Assert
     assertEquals(-7476899250389416711L, actualToProtoResult.getEntityIdLSB());
@@ -1640,17 +2097,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@code ALARM}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return {@code ALARM}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'ALARM'; then return 'ALARM'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenAlarm_thenReturnAlarm() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.ALARM, ProtoUtils.toProto(EntityType.ALARM));
@@ -1658,17 +2116,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code API_USAGE_STATE}.</li>
-   *   <li>Then return {@code API_USAGE_STATE}.</li>
+   *   <li>When {@code API_USAGE_STATE}.
+   *   <li>Then return {@code API_USAGE_STATE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'API_USAGE_STATE'; then return 'API_USAGE_STATE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'API_USAGE_STATE'; then return 'API_USAGE_STATE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenApiUsageState_thenReturnApiUsageState() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.API_USAGE_STATE, ProtoUtils.toProto(EntityType.API_USAGE_STATE));
@@ -1676,17 +2136,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code ASSET_PROFILE}.</li>
-   *   <li>Then return {@code ASSET_PROFILE}.</li>
+   *   <li>When {@code ASSET_PROFILE}.
+   *   <li>Then return {@code ASSET_PROFILE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'ASSET_PROFILE'; then return 'ASSET_PROFILE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'ASSET_PROFILE'; then return 'ASSET_PROFILE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenAssetProfile_thenReturnAssetProfile() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.ASSET_PROFILE, ProtoUtils.toProto(EntityType.ASSET_PROFILE));
@@ -1694,17 +2156,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then return {@code ASSET}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then return {@code ASSET}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'ASSET'; then return 'ASSET'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenAsset_thenReturnAsset() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.ASSET, ProtoUtils.toProto(EntityType.ASSET));
@@ -1712,17 +2175,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then return {@code CUSTOMER}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then return {@code CUSTOMER}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'CUSTOMER'; then return 'CUSTOMER'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'CUSTOMER'; then return 'CUSTOMER'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenCustomer_thenReturnCustomer() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.CUSTOMER, ProtoUtils.toProto(EntityType.CUSTOMER));
@@ -1730,17 +2195,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then return {@code DASHBOARD}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then return {@code DASHBOARD}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'DASHBOARD'; then return 'DASHBOARD'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'DASHBOARD'; then return 'DASHBOARD'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenDashboard_thenReturnDashboard() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.DASHBOARD, ProtoUtils.toProto(EntityType.DASHBOARD));
@@ -1748,17 +2215,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE_PROFILE}.</li>
-   *   <li>Then return {@code DEVICE_PROFILE}.</li>
+   *   <li>When {@code DEVICE_PROFILE}.
+   *   <li>Then return {@code DEVICE_PROFILE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'DEVICE_PROFILE'; then return 'DEVICE_PROFILE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'DEVICE_PROFILE'; then return 'DEVICE_PROFILE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenDeviceProfile_thenReturnDeviceProfile() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.DEVICE_PROFILE, ProtoUtils.toProto(EntityType.DEVICE_PROFILE));
@@ -1766,17 +2235,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then return {@code DEVICE}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then return {@code DEVICE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'DEVICE'; then return 'DEVICE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenDevice_thenReturnDevice() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.DEVICE, ProtoUtils.toProto(EntityType.DEVICE));
@@ -1784,17 +2254,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then return {@code EDGE}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then return {@code EDGE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'EDGE'; then return 'EDGE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenEdge_thenReturnEdge() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.EDGE, ProtoUtils.toProto(EntityType.EDGE));
@@ -1802,17 +2273,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then return {@code ENTITY_VIEW}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then return {@code ENTITY_VIEW}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'ENTITY_VIEW'; then return 'ENTITY_VIEW'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'ENTITY_VIEW'; then return 'ENTITY_VIEW'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenEntityView_thenReturnEntityView() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.ENTITY_VIEW, ProtoUtils.toProto(EntityType.ENTITY_VIEW));
@@ -1820,17 +2293,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then return {@code OTA_PACKAGE}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then return {@code OTA_PACKAGE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'OTA_PACKAGE'; then return 'OTA_PACKAGE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'OTA_PACKAGE'; then return 'OTA_PACKAGE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenOtaPackage_thenReturnOtaPackage() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.OTA_PACKAGE, ProtoUtils.toProto(EntityType.OTA_PACKAGE));
@@ -1838,17 +2313,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code RPC}.</li>
-   *   <li>Then return {@code RPC}.</li>
+   *   <li>When {@code RPC}.
+   *   <li>Then return {@code RPC}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'RPC'; then return 'RPC'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenRpc_thenReturnRpc() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.RPC, ProtoUtils.toProto(EntityType.RPC));
@@ -1856,17 +2332,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then return {@code RULE_CHAIN}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then return {@code RULE_CHAIN}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'RULE_CHAIN'; then return 'RULE_CHAIN'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'RULE_CHAIN'; then return 'RULE_CHAIN'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenRuleChain_thenReturnRuleChain() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.RULE_CHAIN, ProtoUtils.toProto(EntityType.RULE_CHAIN));
@@ -1874,17 +2352,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code RULE_NODE}.</li>
-   *   <li>Then return {@code RULE_NODE}.</li>
+   *   <li>When {@code RULE_NODE}.
+   *   <li>Then return {@code RULE_NODE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'RULE_NODE'; then return 'RULE_NODE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'RULE_NODE'; then return 'RULE_NODE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenRuleNode_thenReturnRuleNode() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.RULE_NODE, ProtoUtils.toProto(EntityType.RULE_NODE));
@@ -1892,17 +2372,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then return {@code TB_RESOURCE}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then return {@code TB_RESOURCE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'TB_RESOURCE'; then return 'TB_RESOURCE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'TB_RESOURCE'; then return 'TB_RESOURCE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenTbResource_thenReturnTbResource() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.TB_RESOURCE, ProtoUtils.toProto(EntityType.TB_RESOURCE));
@@ -1910,17 +2392,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code TENANT_PROFILE}.</li>
-   *   <li>Then return {@code TENANT_PROFILE}.</li>
+   *   <li>When {@code TENANT_PROFILE}.
+   *   <li>Then return {@code TENANT_PROFILE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'TENANT_PROFILE'; then return 'TENANT_PROFILE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'TENANT_PROFILE'; then return 'TENANT_PROFILE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenTenantProfile_thenReturnTenantProfile() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.TENANT_PROFILE, ProtoUtils.toProto(EntityType.TENANT_PROFILE));
@@ -1928,17 +2412,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code TENANT}.</li>
-   *   <li>Then return {@code TENANT}.</li>
+   *   <li>When {@code TENANT}.
+   *   <li>Then return {@code TENANT}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'TENANT'; then return 'TENANT'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenTenant_thenReturnTenant() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.TENANT, ProtoUtils.toProto(EntityType.TENANT));
@@ -1946,17 +2431,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then return {@code USER}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then return {@code USER}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
   @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'USER'; then return 'USER'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenUser_thenReturnUser() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.USER, ProtoUtils.toProto(EntityType.USER));
@@ -1964,17 +2450,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then return {@code WIDGET_TYPE}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then return {@code WIDGET_TYPE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'WIDGET_TYPE'; then return 'WIDGET_TYPE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'WIDGET_TYPE'; then return 'WIDGET_TYPE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenWidgetType_thenReturnWidgetType() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.WIDGET_TYPE, ProtoUtils.toProto(EntityType.WIDGET_TYPE));
@@ -1982,17 +2470,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(EntityType)} with {@code EntityType}.
+   *
    * <ul>
-   *   <li>When {@code WIDGETS_BUNDLE}.</li>
-   *   <li>Then return {@code WIDGETS_BUNDLE}.</li>
+   *   <li>When {@code WIDGETS_BUNDLE}.
+   *   <li>Then return {@code WIDGETS_BUNDLE}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(EntityType)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(EntityType)}
    */
   @Test
-  @DisplayName("Test toProto(EntityType) with 'EntityType'; when 'WIDGETS_BUNDLE'; then return 'WIDGETS_BUNDLE'")
+  @DisplayName(
+      "Test toProto(EntityType) with 'EntityType'; when 'WIDGETS_BUNDLE'; then return 'WIDGETS_BUNDLE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityTypeProto ProtoUtils.toProto(EntityType)"})
+  @MethodsUnderTest({"EntityTypeProto ProtoUtils.toProto(EntityType)"})
   void testToProtoWithEntityType_whenWidgetsBundle_thenReturnWidgetsBundle() {
     // Arrange, Act and Assert
     assertEquals(EntityTypeProto.WIDGETS_BUNDLE, ProtoUtils.toProto(EntityType.WIDGETS_BUNDLE));
@@ -2000,8 +2490,8 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(FromEdgeSyncResponse)} with {@code FromEdgeSyncResponse}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(FromEdgeSyncResponse)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(FromEdgeSyncResponse)}
    */
   @Test
   @DisplayName("Test toProto(FromEdgeSyncResponse) with 'FromEdgeSyncResponse'")
@@ -2013,8 +2503,14 @@ class ProtoUtilsDiffblueTest {
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    FromEdgeSyncResponseMsgProto actualToProtoResult = ProtoUtils.toProto(new FromEdgeSyncResponse(id, tenantId,
-        new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), true, "An error occurred"));
+    FromEdgeSyncResponseMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new FromEdgeSyncResponse(
+                id,
+                tenantId,
+                new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                true,
+                "An error occurred"));
 
     // Assert
     assertEquals("", actualToProtoResult.getInitializationErrorString());
@@ -2034,13 +2530,13 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
   @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2066,13 +2562,13 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
   @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings2() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2098,17 +2594,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
+   *
    * <ul>
-   *   <li>Given {@code janedoe}.</li>
-   *   <li>Then return Username is {@code janedoe}.</li>
+   *   <li>Given {@code janedoe}.
+   *   <li>Then return Username is {@code janedoe}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
-  @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'; given 'janedoe'; then return Username is 'janedoe'")
+  @DisplayName(
+      "Test toProto(RepositorySettings) with 'RepositorySettings'; given 'janedoe'; then return Username is 'janedoe'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings_givenJanedoe_thenReturnUsernameIsJanedoe() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2134,17 +2632,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
+   *
    * <ul>
-   *   <li>Given {@code Private Key}.</li>
-   *   <li>Then return {@code Private Key}.</li>
+   *   <li>Given {@code Private Key}.
+   *   <li>Then return {@code Private Key}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
-  @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'; given 'Private Key'; then return 'Private Key'")
+  @DisplayName(
+      "Test toProto(RepositorySettings) with 'RepositorySettings'; given 'Private Key'; then return 'Private Key'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings_givenPrivateKey_thenReturnPrivateKey() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2171,16 +2671,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
+   *
    * <ul>
-   *   <li>Then return AllFields size is one.</li>
+   *   <li>Then return AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
-  @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'; then return AllFields size is one")
+  @DisplayName(
+      "Test toProto(RepositorySettings) with 'RepositorySettings'; then return AllFields size is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings_thenReturnAllFieldsSizeIsOne() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2197,16 +2699,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
+   *
    * <ul>
-   *   <li>Then return DefaultBranch is {@code janedoe/featurebranch}.</li>
+   *   <li>Then return DefaultBranch is {@code janedoe/featurebranch}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
-  @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'; then return DefaultBranch is 'janedoe/featurebranch'")
+  @DisplayName(
+      "Test toProto(RepositorySettings) with 'RepositorySettings'; then return DefaultBranch is 'janedoe/featurebranch'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings_thenReturnDefaultBranchIsJanedoeFeaturebranch() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2225,16 +2729,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(RepositorySettings)} with {@code RepositorySettings}.
+   *
    * <ul>
-   *   <li>Then return PasswordBytes toStringUtf8 is {@code iloveyou}.</li>
+   *   <li>Then return PasswordBytes toStringUtf8 is {@code iloveyou}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(RepositorySettings)}
    */
   @Test
-  @DisplayName("Test toProto(RepositorySettings) with 'RepositorySettings'; then return PasswordBytes toStringUtf8 is 'iloveyou'")
+  @DisplayName(
+      "Test toProto(RepositorySettings) with 'RepositorySettings'; then return PasswordBytes toStringUtf8 is 'iloveyou'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
+  @MethodsUnderTest({"RepositorySettingsProto ProtoUtils.toProto(RepositorySettings)"})
   void testToProtoWithRepositorySettings_thenReturnPasswordBytesToStringUtf8IsIloveyou() {
     // Arrange
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -2260,52 +2766,24 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(TenantProfile)} with {@code TenantProfile}.
+   *
    * <ul>
-   *   <li>Given {@code Name}.</li>
-   *   <li>Then return {@code Name}.</li>
+   *   <li>Given {@code A}.
+   *   <li>Then return DescriptorForType Fields size is eight.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(TenantProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(TenantProfile)}
    */
   @Test
-  @DisplayName("Test toProto(TenantProfile) with 'TenantProfile'; given 'Name'; then return 'Name'")
+  @DisplayName(
+      "Test toProto(TenantProfile) with 'TenantProfile'; given 'A'; then return DescriptorForType Fields size is eight")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TenantProfileProto ProtoUtils.toProto(TenantProfile)"})
-  void testToProtoWithTenantProfile_givenName_thenReturnName() {
-    // Arrange
-    TenantProfile tenantProfile = new TenantProfile(
-        new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    tenantProfile.setName("Name");
-
-    // Act
-    TenantProfileProto actualToProtoResult = ProtoUtils.toProto(tenantProfile);
-
-    // Assert
-    assertEquals("Name", actualToProtoResult.getName());
-    assertEquals(-7476899250389416711L, actualToProtoResult.getTenantProfileIdLSB());
-    assertEquals(27, actualToProtoResult.getSerializedSize());
-    assertEquals(3, actualToProtoResult.getAllFields().size());
-    assertEquals(8669210807411032922L, actualToProtoResult.getTenantProfileIdMSB());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(TenantProfile)} with {@code TenantProfile}.
-   * <ul>
-   *   <li>Then return DescriptorForType Fields size is eight.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(TenantProfile)}
-   */
-  @Test
-  @DisplayName("Test toProto(TenantProfile) with 'TenantProfile'; then return DescriptorForType Fields size is eight")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.TenantProfileProto ProtoUtils.toProto(TenantProfile)"})
-  void testToProtoWithTenantProfile_thenReturnDescriptorForTypeFieldsSizeIsEight() throws UnsupportedEncodingException {
+  void testToProtoWithTenantProfile_givenA_thenReturnDescriptorForTypeFieldsSizeIsEight() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setDescription(null);
-    tenantProfile.setName("Tenant Profile");
-    tenantProfile.setProfileDataBytes("AXAXAXAX".getBytes("UTF-8"));
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    tenantProfile.setName("Name");
 
     // Act
     TenantProfileProto actualToProtoResult = ProtoUtils.toProto(tenantProfile);
@@ -2313,75 +2791,70 @@ class ProtoUtilsDiffblueTest {
     // Assert
     List<FieldDescriptor> fields = actualToProtoResult.getDescriptorForType().getFields();
     assertEquals(8, fields.size());
-    ByteString expectedDefaultValue = actualToProtoResult.getDefaultInstanceForType().getProfileData();
+    ByteString expectedDefaultValue =
+        actualToProtoResult.getDefaultInstanceForType().getProfileData();
     assertSame(expectedDefaultValue, fields.get(7).getDefaultValue());
     ByteString profileData = actualToProtoResult.getProfileData();
     assertFalse(profileData.isEmpty());
     ByteIterator iteratorResult = profileData.iterator();
     assertTrue(iteratorResult.hasNext());
     assertEquals('A', iteratorResult.next().byteValue());
-    assertEquals('X', iteratorResult.next().byteValue());
+    assertEquals((byte) 1, iteratorResult.next().byteValue());
     assertEquals('A', iteratorResult.next().byteValue());
-    assertEquals("AXAXAXAX", profileData.toStringUtf8());
-    assertEquals(26, actualToProtoResult.getSerializedSize());
+    assertEquals("A\u0001A\u0001A\u0001A\u0001", profileData.toStringUtf8());
+    assertEquals(Short.SIZE, actualToProtoResult.getSerializedSize());
     assertTrue(actualToProtoResult.hasProfileData());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(TenantProfile)} with {@code TenantProfile}.
+   *
    * <ul>
-   *   <li>Then return NameBytes toStringUtf8 is {@code Tenant Profile}.</li>
+   *   <li>Then return AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(TenantProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(TenantProfile)}
    */
   @Test
-  @DisplayName("Test toProto(TenantProfile) with 'TenantProfile'; then return NameBytes toStringUtf8 is 'Tenant Profile'")
+  @DisplayName(
+      "Test toProto(TenantProfile) with 'TenantProfile'; then return AllFields size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TenantProfileProto ProtoUtils.toProto(TenantProfile)"})
-  void testToProtoWithTenantProfile_thenReturnNameBytesToStringUtf8IsTenantProfile() {
+  void testToProtoWithTenantProfile_thenReturnAllFieldsSizeIsOne() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setDescription(null);
-    tenantProfile.setName("Tenant Profile");
-    tenantProfile.setProfileDataBytes(null);
+    tenantProfile.setName("Name");
 
     // Act
     TenantProfileProto actualToProtoResult = ProtoUtils.toProto(tenantProfile);
 
     // Assert
-    ByteString nameBytes = actualToProtoResult.getNameBytes();
-    assertEquals("Tenant Profile", nameBytes.toStringUtf8());
     assertEquals(1, actualToProtoResult.getAllFields().size());
-    assertEquals(2, actualToProtoResult.getDescriptorForType().getOneofs().size());
-    ByteIterator iteratorResult = nameBytes.iterator();
-    assertTrue(iteratorResult.hasNext());
-    assertEquals(Short.SIZE, actualToProtoResult.getSerializedSize());
-    assertEquals('T', iteratorResult.next().byteValue());
-    assertEquals('e', iteratorResult.next().byteValue());
-    assertEquals('n', iteratorResult.next().byteValue());
+    assertEquals(6, actualToProtoResult.getSerializedSize());
     ByteString expectedProfileData = actualToProtoResult.getProfileData();
-    assertSame(expectedProfileData, actualToProtoResult.getDefaultInstanceForType().getProfileData());
+    assertSame(
+        expectedProfileData, actualToProtoResult.getDefaultInstanceForType().getProfileData());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(TenantProfile)} with {@code TenantProfile}.
+   *
    * <ul>
-   *   <li>Then return ProfileData toStringUtf8 is empty string.</li>
+   *   <li>Then return ProfileData toStringUtf8 is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(TenantProfile)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(TenantProfile)}
    */
   @Test
-  @DisplayName("Test toProto(TenantProfile) with 'TenantProfile'; then return ProfileData toStringUtf8 is empty string")
+  @DisplayName(
+      "Test toProto(TenantProfile) with 'TenantProfile'; then return ProfileData toStringUtf8 is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TransportProtos.TenantProfileProto ProtoUtils.toProto(TenantProfile)"})
   void testToProtoWithTenantProfile_thenReturnProfileDataToStringUtf8IsEmptyString() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setDescription("Tenant Profile");
-    tenantProfile.setName("Tenant Profile");
-    tenantProfile.setProfileDataBytes(null);
+    tenantProfile.setDescription("The characteristics of someone or something");
+    tenantProfile.setName("Name");
 
     // Act
     TenantProfileProto actualToProtoResult = ProtoUtils.toProto(tenantProfile);
@@ -2390,32 +2863,74 @@ class ProtoUtilsDiffblueTest {
     ByteString profileData = actualToProtoResult.getProfileData();
     assertEquals("", profileData.toStringUtf8());
     ByteString descriptionBytes = actualToProtoResult.getDescriptionBytes();
-    assertEquals("Tenant Profile", descriptionBytes.toStringUtf8());
-    assertEquals("Tenant Profile", actualToProtoResult.getDescription());
+    assertEquals("The characteristics of someone or something", descriptionBytes.toStringUtf8());
+    assertEquals(
+        "The characteristics of someone or something", actualToProtoResult.getDescription());
+    assertEquals(51, actualToProtoResult.getSerializedSize());
     assertFalse(descriptionBytes.isEmpty());
     assertFalse(profileData.iterator().hasNext());
     assertTrue(profileData.isEmpty());
     assertTrue(descriptionBytes.iterator().hasNext());
     assertTrue(actualToProtoResult.hasDescription());
-    assertEquals(descriptionBytes, actualToProtoResult.getNameBytes());
     TenantProfileProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
     assertEquals(profileData, defaultInstanceForType.getDescriptionBytes());
     assertEquals(profileData, defaultInstanceForType.getNameBytes());
-    assertEquals(Integer.SIZE, actualToProtoResult.getSerializedSize());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(TenantProfile)} with {@code TenantProfile}.
+   *
+   * <ul>
+   *   <li>Then return TenantProfileIdLSB is {@code -7476899250389416711}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(TenantProfile)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(TenantProfile) with 'TenantProfile'; then return TenantProfileIdLSB is '-7476899250389416711'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.TenantProfileProto ProtoUtils.toProto(TenantProfile)"})
+  void testToProtoWithTenantProfile_thenReturnTenantProfileIdLSBIs7476899250389416711() {
+    // Arrange
+    TenantProfile tenantProfile =
+        new TenantProfile(
+            new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    tenantProfile.setName("Name");
+
+    // Act
+    TenantProfileProto actualToProtoResult = ProtoUtils.toProto(tenantProfile);
+
+    // Assert
+    assertEquals(-7476899250389416711L, actualToProtoResult.getTenantProfileIdLSB());
+    assertEquals(27, actualToProtoResult.getSerializedSize());
+    assertEquals(3, actualToProtoResult.getAllFields().size());
+    assertEquals(8669210807411032922L, actualToProtoResult.getTenantProfileIdMSB());
+    UnknownFieldSet unknownFields = actualToProtoResult.getUnknownFields();
+    TenantProfileProto defaultInstanceForType = actualToProtoResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
+    ByteString expectedProfileData = actualToProtoResult.getProfileData();
+    assertSame(expectedProfileData, defaultInstanceForType.getProfileData());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code 21654}.</li>
-   *   <li>When {@link Tenant#Tenant()} Zip is {@code 21654}.</li>
-   *   <li>Then return Zip is {@code 21654}.</li>
+   *   <li>Given {@code 21654}.
+   *   <li>When {@link Tenant#Tenant()} Zip is {@code 21654}.
+   *   <li>Then return Zip is {@code 21654}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given '21654'; when Tenant() Zip is '21654'; then return Zip is '21654'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given '21654'; when Tenant() Zip is '21654'; then return Zip is '21654'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_given21654_whenTenantZipIs21654_thenReturnZipIs21654() {
@@ -2442,15 +2957,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code 6625550144}.</li>
-   *   <li>Then return Phone is {@code 6625550144}.</li>
+   *   <li>Given {@code 6625550144}.
+   *   <li>Then return Phone is {@code 6625550144}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given '6625550144'; then return Phone is '6625550144'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given '6625550144'; then return Phone is '6625550144'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_given6625550144_thenReturnPhoneIs6625550144() {
@@ -2477,16 +2994,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code Dr}.</li>
-   *   <li>When {@link Tenant#Tenant()} Title is {@code Dr}.</li>
-   *   <li>Then return AllFields size is one.</li>
+   *   <li>Given {@code Dr}.
+   *   <li>When {@link Tenant#Tenant()} Title is {@code Dr}.
+   *   <li>Then return AllFields size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'Dr'; when Tenant() Title is 'Dr'; then return AllFields size is one")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'Dr'; when Tenant() Title is 'Dr'; then return AllFields size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenDr_whenTenantTitleIsDr_thenReturnAllFieldsSizeIsOne() {
@@ -2504,16 +3023,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code GB}.</li>
-   *   <li>When {@link Tenant#Tenant()} Country is {@code GB}.</li>
-   *   <li>Then return Country is {@code GB}.</li>
+   *   <li>Given {@code GB}.
+   *   <li>When {@link Tenant#Tenant()} Country is {@code GB}.
+   *   <li>Then return Country is {@code GB}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'GB'; when Tenant() Country is 'GB'; then return Country is 'GB'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'GB'; when Tenant() Country is 'GB'; then return Country is 'GB'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenGb_whenTenantCountryIsGb_thenReturnCountryIsGb() {
@@ -2541,15 +3062,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code jane.doe@example.org}.</li>
-   *   <li>Then return Email is {@code jane.doe@example.org}.</li>
+   *   <li>Given {@code jane.doe@example.org}.
+   *   <li>Then return Email is {@code jane.doe@example.org}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'jane.doe@example.org'; then return Email is 'jane.doe@example.org'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'jane.doe@example.org'; then return Email is 'jane.doe@example.org'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenJaneDoeExampleOrg_thenReturnEmailIsJaneDoeExampleOrg() {
@@ -2577,16 +3100,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code MD}.</li>
-   *   <li>When {@link Tenant#Tenant()} State is {@code MD}.</li>
-   *   <li>Then return State is {@code MD}.</li>
+   *   <li>Given {@code MD}.
+   *   <li>When {@link Tenant#Tenant()} State is {@code MD}.
+   *   <li>Then return State is {@code MD}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'MD'; when Tenant() State is 'MD'; then return State is 'MD'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'MD'; when Tenant() State is 'MD'; then return State is 'MD'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenMd_whenTenantStateIsMd_thenReturnStateIsMd() {
@@ -2614,43 +3139,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code Mr}.</li>
-   *   <li>Then return Title is {@code Mr}.</li>
+   *   <li>Given one.
+   *   <li>When {@link Tenant#Tenant()} Version is one.
+   *   <li>Then return Version is one.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'Mr'; then return Title is 'Mr'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
-  void testToProtoWithTenant_givenMr_thenReturnTitleIsMr() {
-    // Arrange
-    TenantInfo tenant = new TenantInfo(new Tenant(), "foo.txt");
-    tenant.setTitle("Mr");
-
-    // Act
-    TenantProto actualToProtoResult = ProtoUtils.toProto(tenant);
-
-    // Assert
-    assertEquals("Mr", actualToProtoResult.getTitle());
-    assertEquals("null", actualToProtoResult.getAdditionalInfo());
-    assertTrue(actualToProtoResult.hasAdditionalInfo());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
-   * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link Tenant#Tenant()} Version is one.</li>
-   *   <li>Then return Version is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
-   */
-  @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given one; when Tenant() Version is one; then return Version is one")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given one; when Tenant() Version is one; then return Version is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenOne_whenTenantVersionIsOne_thenReturnVersionIsOne() {
@@ -2670,16 +3170,18 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code Oxford}.</li>
-   *   <li>When {@link Tenant#Tenant()} City is {@code Oxford}.</li>
-   *   <li>Then return City is {@code Oxford}.</li>
+   *   <li>Given {@code Oxford}.
+   *   <li>When {@link Tenant#Tenant()} City is {@code Oxford}.
+   *   <li>Then return City is {@code Oxford}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'Oxford'; when Tenant() City is 'Oxford'; then return City is 'Oxford'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'Oxford'; when Tenant() City is 'Oxford'; then return City is 'Oxford'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenOxford_whenTenantCityIsOxford_thenReturnCityIsOxford() {
@@ -2707,15 +3209,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Given {@code us-east-2}.</li>
-   *   <li>Then return Region is {@code us-east-2}.</li>
+   *   <li>Given {@code us-east-2}.
+   *   <li>Then return Region is {@code us-east-2}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; given 'us-east-2'; then return Region is 'us-east-2'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; given 'us-east-2'; then return Region is 'us-east-2'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_givenUsEast2_thenReturnRegionIsUsEast2() {
@@ -2743,42 +3247,73 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>Then return TenantIdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Then return AllFields size is four.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; then return TenantIdLSB is '-7476899250389416711'")
+  @DisplayName("Test toProto(Tenant) with 'Tenant'; then return AllFields size is four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
-  void testToProtoWithTenant_thenReturnTenantIdLSBIs7476899250389416711() {
+  void testToProtoWithTenant_thenReturnAllFieldsSizeIsFour() {
     // Arrange
-    Tenant tenant = new Tenant(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TenantInfo tenant =
+        new TenantInfo(
+            new Tenant(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))),
+            "foo.txt");
+    tenant.setTitle("Mr");
+
+    // Act
+    TenantProto actualToProtoResult = ProtoUtils.toProto(tenant);
+
+    // Assert
+    assertEquals(4, actualToProtoResult.getAllFields().size());
+    assertEquals(Integer.SIZE, actualToProtoResult.getSerializedSize());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
+   * <ul>
+   *   <li>Then return SerializedSize is twenty-five.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
+   */
+  @Test
+  @DisplayName("Test toProto(Tenant) with 'Tenant'; then return SerializedSize is twenty-five")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
+  void testToProtoWithTenant_thenReturnSerializedSizeIsTwentyFive() {
+    // Arrange
+    Tenant tenant =
+        new Tenant(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     tenant.setTitle("Dr");
 
     // Act
     TenantProto actualToProtoResult = ProtoUtils.toProto(tenant);
 
     // Assert
-    assertEquals(-7476899250389416711L, actualToProtoResult.getTenantIdLSB());
     assertEquals(25, actualToProtoResult.getSerializedSize());
     assertEquals(3, actualToProtoResult.getAllFields().size());
-    assertEquals(8669210807411032922L, actualToProtoResult.getTenantIdMSB());
   }
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>When {@link Tenant#Tenant()} Address2 is {@code 42 Main St}.</li>
-   *   <li>Then return Address2 is {@code 42 Main St}.</li>
+   *   <li>When {@link Tenant#Tenant()} Address2 is {@code 42 Main St}.
+   *   <li>Then return Address2 is {@code 42 Main St}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; when Tenant() Address2 is '42 Main St'; then return Address2 is '42 Main St'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; when Tenant() Address2 is '42 Main St'; then return Address2 is '42 Main St'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_whenTenantAddress2Is42MainSt_thenReturnAddress2Is42MainSt() {
@@ -2805,15 +3340,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(Tenant)} with {@code Tenant}.
+   *
    * <ul>
-   *   <li>When {@link Tenant#Tenant()} Address is {@code 42 Main St}.</li>
-   *   <li>Then return Address is {@code 42 Main St}.</li>
+   *   <li>When {@link Tenant#Tenant()} Address is {@code 42 Main St}.
+   *   <li>Then return Address is {@code 42 Main St}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(Tenant)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(Tenant)}
    */
   @Test
-  @DisplayName("Test toProto(Tenant) with 'Tenant'; when Tenant() Address is '42 Main St'; then return Address is '42 Main St'")
+  @DisplayName(
+      "Test toProto(Tenant) with 'Tenant'; when Tenant() Address is '42 Main St'; then return Address is '42 Main St'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProto ProtoUtils.toProto(Tenant)"})
   void testToProtoWithTenant_whenTenantAddressIs42MainSt_thenReturnAddressIs42MainSt() {
@@ -2839,15 +3376,17 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
   @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
   void testToProtoWithToDeviceActorNotificationMsg() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2855,57 +3394,81 @@ class ProtoUtilsDiffblueTest {
     DeviceId deviceId = new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils
-        .toProto(new ToDeviceRpcRequestActorMsg("42", new ToDeviceRpcRequest(id, tenantId, deviceId, true, 1L,
-            new ToDeviceRpcRequestBody("Method", "Params"), true, 1, "Additional Info")));
+    ToDeviceActorNotificationMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ToDeviceRpcRequestActorMsg(
+                "42",
+                new ToDeviceRpcRequest(
+                    id,
+                    tenantId,
+                    deviceId,
+                    true,
+                    1L,
+                    new ToDeviceRpcRequestBody("Method", "Params"),
+                    true,
+                    1,
+                    "Additional Info")));
 
     // Assert
     assertEquals(93, actualToProtoResult.getSerializedSize());
-    assertFalse(actualToProtoResult.hasDeviceAttributesEventMsg());
     assertTrue(actualToProtoResult.hasToDeviceRpcRequestMsg());
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
   @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
   void testToProtoWithToDeviceActorNotificationMsg2() {
     // Arrange
     ArrayList<AttributeKvEntry> values = new ArrayList<>();
     values.add(new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42")));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
-    // Act and Assert
-    List<AttributeValueProto> valuesList = ProtoUtils
-        .toProto(new DeviceAttributesEventNotificationMsg(tenantId,
-            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true))
-        .getDeviceAttributesEventMsg()
-        .getValuesList();
+    // Act
+    ToDeviceActorNotificationMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new DeviceAttributesEventNotificationMsg(
+                tenantId,
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                null,
+                null,
+                values,
+                true));
+
+    // Assert
+    DeviceAttributesEventMsgProto deviceAttributesEventMsg =
+        actualToProtoResult.getDeviceAttributesEventMsg();
+    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
     assertEquals(1, valuesList.size());
     AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(0L, getResult.getVersion());
+    assertEquals("42", getResult.getJsonV());
+    assertEquals(1, deviceAttributesEventMsg.getValuesCount());
     assertEquals(15, getResult.getSerializedSize());
-    assertEquals(4, getResult.getTypeValue());
-    assertEquals(KeyValueType.JSON_V, getResult.getType());
-    assertFalse(getResult.hasVersion());
+    assertEquals(61, deviceAttributesEventMsg.getSerializedSize());
+    assertEquals(63, actualToProtoResult.getSerializedSize());
+    assertTrue(getResult.getHasV());
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
   @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
   void testToProtoWithToDeviceActorNotificationMsg3() {
     // Arrange
     ArrayList<AttributeKvEntry> values = new ArrayList<>();
@@ -2914,11 +3477,19 @@ class ProtoUtilsDiffblueTest {
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
+    ToDeviceActorNotificationMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new DeviceAttributesEventNotificationMsg(
+                tenantId,
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                null,
+                null,
+                values,
+                true));
 
     // Assert
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
+    DeviceAttributesEventMsgProto deviceAttributesEventMsg =
+        actualToProtoResult.getDeviceAttributesEventMsg();
     List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
     assertEquals(2, valuesList.size());
     assertEquals(2, deviceAttributesEventMsg.getValuesCount());
@@ -2928,15 +3499,17 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
   @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
   void testToProtoWithToDeviceActorNotificationMsg4() {
     // Arrange
     ArrayList<AttributeKvEntry> values = new ArrayList<>();
@@ -2944,307 +3517,112 @@ class ProtoUtilsDiffblueTest {
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
+    ToDeviceActorNotificationMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new DeviceAttributesEventNotificationMsg(
+                tenantId,
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                null,
+                null,
+                values,
+                true));
 
     // Assert
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
+    DeviceAttributesEventMsgProto deviceAttributesEventMsg =
+        actualToProtoResult.getDeviceAttributesEventMsg();
     List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
     assertEquals(1, valuesList.size());
+    AttributeValueProto getResult = valuesList.get(0);
+    assertEquals("", getResult.getJsonV());
     assertEquals(55, deviceAttributesEventMsg.getSerializedSize());
     assertEquals(57, actualToProtoResult.getSerializedSize());
-    AttributeValueProto getResult = valuesList.get(0);
     assertEquals(9, getResult.getSerializedSize());
     assertFalse(getResult.getHasV());
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <ul>
+   *   <li>Then return SerializedSize is forty-four.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
+  @DisplayName(
+      "Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'; then return SerializedSize is forty-four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg5() {
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
+  void testToProtoWithToDeviceActorNotificationMsg_thenReturnSerializedSizeIsFortyFour() {
     // Arrange
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(new BaseAttributeKvEntry(1L, new BaseAttributeKvEntry(1L, new JsonDataEntry("Key", "42"))));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    List<AttributeValueProto> valuesList = ProtoUtils
-        .toProto(new DeviceAttributesEventNotificationMsg(tenantId,
-            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true))
-        .getDeviceAttributesEventMsg()
-        .getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(0L, getResult.getVersion());
-    assertEquals(15, getResult.getSerializedSize());
-    assertEquals(4, getResult.getTypeValue());
-    assertEquals(KeyValueType.JSON_V, getResult.getType());
-    assertFalse(getResult.hasVersion());
+    assertEquals(
+        44,
+        ProtoUtils.toProto(
+                new DeviceEdgeUpdateMsg(
+                    tenantId,
+                    new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                    null))
+            .getSerializedSize());
   }
 
   /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg6() {
-    // Arrange
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(new BaseAttributeKvEntry(1L, new StringDataEntry("Key", "42")));
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals("42", getResult.getStringV());
-    assertEquals(3, getResult.getTypeValue());
-    assertEquals(61, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(63, actualToProtoResult.getSerializedSize());
-    assertEquals(KeyValueType.STRING_V, getResult.getType());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg7() {
-    // Arrange
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(new BaseAttributeKvEntry(new JsonDataEntry("Key", "42"), 1L, 1L));
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals("42", getResult.getJsonV());
-    assertEquals(17, getResult.getSerializedSize());
-    assertEquals(63, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(65, actualToProtoResult.getSerializedSize());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg8() {
-    // Arrange
-    AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
-    when(attributeKvEntry.getVersion()).thenReturn(1L);
-    Optional<Boolean> ofResult = Optional.of(true);
-    when(attributeKvEntry.getBooleanValue()).thenReturn(ofResult);
-    when(attributeKvEntry.getDataType()).thenReturn(DataType.BOOLEAN);
-    when(attributeKvEntry.getKey()).thenReturn("Key");
-    when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
-
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(attributeKvEntry);
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    verify(attributeKvEntry, atLeast(1)).getVersion();
-    verify(attributeKvEntry).getLastUpdateTs();
-    verify(attributeKvEntry, atLeast(1)).getBooleanValue();
-    verify(attributeKvEntry).getDataType();
-    verify(attributeKvEntry).getKey();
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(13, getResult.getSerializedSize());
-    assertEquals(59, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(61, actualToProtoResult.getSerializedSize());
-    assertTrue(getResult.getBoolV());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg9() {
-    // Arrange
-    AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
-    when(attributeKvEntry.getVersion()).thenReturn(1L);
-    Optional<Boolean> emptyResult = Optional.empty();
-    when(attributeKvEntry.getBooleanValue()).thenReturn(emptyResult);
-    when(attributeKvEntry.getDataType()).thenReturn(DataType.BOOLEAN);
-    when(attributeKvEntry.getKey()).thenReturn("Key");
-    when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
-
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(attributeKvEntry);
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    verify(attributeKvEntry, atLeast(1)).getVersion();
-    verify(attributeKvEntry).getLastUpdateTs();
-    verify(attributeKvEntry, atLeast(1)).getBooleanValue();
-    verify(attributeKvEntry).getDataType();
-    verify(attributeKvEntry).getKey();
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(0, getResult.getTypeValue());
-    assertEquals(55, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(57, actualToProtoResult.getSerializedSize());
-    assertEquals(9, getResult.getSerializedSize());
-    assertEquals(KeyValueType.BOOLEAN_V, getResult.getType());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg10() {
-    // Arrange
-    AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
-    Optional<Long> ofResult = Optional.<Long>of(1L);
-    when(attributeKvEntry.getLongValue()).thenReturn(ofResult);
-    when(attributeKvEntry.getVersion()).thenReturn(1L);
-    when(attributeKvEntry.getDataType()).thenReturn(DataType.LONG);
-    when(attributeKvEntry.getKey()).thenReturn("Key");
-    when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
-
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(attributeKvEntry);
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    verify(attributeKvEntry, atLeast(1)).getVersion();
-    verify(attributeKvEntry).getLastUpdateTs();
-    verify(attributeKvEntry).getDataType();
-    verify(attributeKvEntry).getKey();
-    verify(attributeKvEntry, atLeast(1)).getLongValue();
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(1, getResult.getTypeValue());
-    assertEquals(1L, getResult.getLongV());
-    assertEquals(61, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(63, actualToProtoResult.getSerializedSize());
-    assertEquals(KeyValueType.LONG_V, getResult.getType());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
-   */
-  @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
-  void testToProtoWithToDeviceActorNotificationMsg11() {
-    // Arrange
-    AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
-    Optional<Long> emptyResult = Optional.empty();
-    when(attributeKvEntry.getLongValue()).thenReturn(emptyResult);
-    when(attributeKvEntry.getVersion()).thenReturn(1L);
-    when(attributeKvEntry.getDataType()).thenReturn(DataType.LONG);
-    when(attributeKvEntry.getKey()).thenReturn("Key");
-    when(attributeKvEntry.getLastUpdateTs()).thenReturn(1L);
-
-    ArrayList<AttributeKvEntry> values = new ArrayList<>();
-    values.add(attributeKvEntry);
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    ToDeviceActorNotificationMsgProto actualToProtoResult = ProtoUtils.toProto(new DeviceAttributesEventNotificationMsg(
-        tenantId, new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, null, values, true));
-
-    // Assert
-    verify(attributeKvEntry, atLeast(1)).getVersion();
-    verify(attributeKvEntry).getLastUpdateTs();
-    verify(attributeKvEntry).getDataType();
-    verify(attributeKvEntry).getKey();
-    verify(attributeKvEntry, atLeast(1)).getLongValue();
-    DeviceAttributesEventMsgProto deviceAttributesEventMsg = actualToProtoResult.getDeviceAttributesEventMsg();
-    List<AttributeValueProto> valuesList = deviceAttributesEventMsg.getValuesList();
-    assertEquals(1, valuesList.size());
-    AttributeValueProto getResult = valuesList.get(0);
-    assertEquals(1, getResult.getTypeValue());
-    assertEquals(11, getResult.getSerializedSize());
-    assertEquals(57, deviceAttributesEventMsg.getSerializedSize());
-    assertEquals(59, actualToProtoResult.getSerializedSize());
-    assertEquals(KeyValueType.LONG_V, getResult.getType());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code ToDeviceActorNotificationMsg}.
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return SerializedSize is sixty-five.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
    */
   @Test
-  @DisplayName("Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'; when 'null'; then return 'null'")
+  @DisplayName(
+      "Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'; then return SerializedSize is sixty-five")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"})
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
+  void testToProtoWithToDeviceActorNotificationMsg_thenReturnSerializedSizeIsSixtyFive() {
+    // Arrange
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    DeviceId deviceId = new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertEquals(
+        65,
+        ProtoUtils.toProto(
+                new DeviceEdgeUpdateMsg(
+                    tenantId,
+                    deviceId,
+                    new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))))
+            .getSerializedSize());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)} with {@code
+   * ToDeviceActorNotificationMsg}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToDeviceActorNotificationMsg)}
+   */
+  @Test
+  @DisplayName(
+      "Test toProto(ToDeviceActorNotificationMsg) with 'ToDeviceActorNotificationMsg'; when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TransportProtos.ToDeviceActorNotificationMsgProto ProtoUtils.toProto(ToDeviceActorNotificationMsg)"
+  })
   void testToProtoWithToDeviceActorNotificationMsg_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(ProtoUtils.toProto((ToDeviceActorNotificationMsg) null));
@@ -3252,21 +3630,28 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toProto(ToEdgeSyncRequest)} with {@code ToEdgeSyncRequest}.
-   * <p>
-   * Method under test: {@link ProtoUtils#toProto(ToEdgeSyncRequest)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toProto(ToEdgeSyncRequest)}
    */
   @Test
   @DisplayName("Test toProto(ToEdgeSyncRequest) with 'ToEdgeSyncRequest'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ToEdgeSyncRequestMsgProto ProtoUtils.toProto(ToEdgeSyncRequest)"})
+  @MethodsUnderTest({
+    "TransportProtos.ToEdgeSyncRequestMsgProto ProtoUtils.toProto(ToEdgeSyncRequest)"
+  })
   void testToProtoWithToEdgeSyncRequest() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ToEdgeSyncRequestMsgProto actualToProtoResult = ProtoUtils.toProto(
-        new ToEdgeSyncRequest(id, tenantId, new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "42"));
+    ToEdgeSyncRequestMsgProto actualToProtoResult =
+        ProtoUtils.toProto(
+            new ToEdgeSyncRequest(
+                id,
+                tenantId,
+                new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "42"));
 
     // Assert
     assertEquals("", actualToProtoResult.getInitializationErrorString());
@@ -3285,19 +3670,22 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(AttributeValueProto)} with {@code AttributeValueProto}.
+   *
    * <ul>
-   *   <li>Then return {@link BaseAttributeKvEntry}.</li>
+   *   <li>Then return {@link BaseAttributeKvEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(AttributeValueProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(AttributeValueProto)}
    */
   @Test
-  @DisplayName("Test fromProto(AttributeValueProto) with 'AttributeValueProto'; then return BaseAttributeKvEntry")
+  @DisplayName(
+      "Test fromProto(AttributeValueProto) with 'AttributeValueProto'; then return BaseAttributeKvEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AttributeKvEntry ProtoUtils.fromProto(AttributeValueProto)"})
   void testFromProtoWithAttributeValueProto_thenReturnBaseAttributeKvEntry() {
     // Arrange and Act
-    AttributeKvEntry actualFromProtoResult = ProtoUtils.fromProto(AttributeValueProto.getDefaultInstance());
+    AttributeKvEntry actualFromProtoResult =
+        ProtoUtils.fromProto(AttributeValueProto.getDefaultInstance());
 
     // Assert
     assertTrue(actualFromProtoResult instanceof BaseAttributeKvEntry);
@@ -3317,19 +3705,24 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(DeviceCredentialsProto)} with {@code DeviceCredentialsProto}.
+   *
    * <ul>
-   *   <li>Then return CredentialsId is empty string.</li>
+   *   <li>Then return CredentialsId is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.DeviceCredentialsProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(TransportProtos.DeviceCredentialsProto)}
    */
   @Test
-  @DisplayName("Test fromProto(DeviceCredentialsProto) with 'DeviceCredentialsProto'; then return CredentialsId is empty string")
+  @DisplayName(
+      "Test fromProto(DeviceCredentialsProto) with 'DeviceCredentialsProto'; then return CredentialsId is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceCredentials ProtoUtils.fromProto(TransportProtos.DeviceCredentialsProto)"})
+  @MethodsUnderTest({
+    "DeviceCredentials ProtoUtils.fromProto(TransportProtos.DeviceCredentialsProto)"
+  })
   void testFromProtoWithDeviceCredentialsProto_thenReturnCredentialsIdIsEmptyString() {
     // Arrange and Act
-    DeviceCredentials actualFromProtoResult = ProtoUtils.fromProto(DeviceCredentialsProto.getDefaultInstance());
+    DeviceCredentials actualFromProtoResult =
+        ProtoUtils.fromProto(DeviceCredentialsProto.getDefaultInstance());
 
     // Assert
     assertEquals("", actualFromProtoResult.getCredentialsId());
@@ -3348,17 +3741,19 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(DeviceProto)} with {@code DeviceProto}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return Name is empty string.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return Name is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.DeviceProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(DeviceProto)}
    */
   @Test
-  @DisplayName("Test fromProto(DeviceProto) with 'DeviceProto'; when DefaultInstance; then return Name is empty string")
+  @DisplayName(
+      "Test fromProto(DeviceProto) with 'DeviceProto'; when DefaultInstance; then return Name is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Device ProtoUtils.fromProto(TransportProtos.DeviceProto)"})
+  @MethodsUnderTest({"Device ProtoUtils.fromProto(DeviceProto)"})
   void testFromProtoWithDeviceProto_whenDefaultInstance_thenReturnNameIsEmptyString() {
     // Arrange and Act
     Device actualFromProtoResult = ProtoUtils.fromProto(DeviceProto.getDefaultInstance());
@@ -3379,17 +3774,21 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoUtils#fromProto(EdgeEventUpdateMsgProto)} with {@code EdgeEventUpdateMsgProto}.
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.EdgeEventUpdateMsgProto)}
+   * Test {@link ProtoUtils#fromProto(EdgeEventUpdateMsgProto)} with {@code
+   * EdgeEventUpdateMsgProto}.
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(TransportProtos.EdgeEventUpdateMsgProto)}
    */
   @Test
   @DisplayName("Test fromProto(EdgeEventUpdateMsgProto) with 'EdgeEventUpdateMsgProto'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EdgeEventUpdateMsg ProtoUtils.fromProto(TransportProtos.EdgeEventUpdateMsgProto)"})
+  @MethodsUnderTest({
+    "EdgeEventUpdateMsg ProtoUtils.fromProto(TransportProtos.EdgeEventUpdateMsgProto)"
+  })
   void testFromProtoWithEdgeEventUpdateMsgProto() {
     // Arrange and Act
-    EdgeEventUpdateMsg actualFromProtoResult = ProtoUtils.fromProto(EdgeEventUpdateMsgProto.getDefaultInstance());
+    EdgeEventUpdateMsg actualFromProtoResult =
+        ProtoUtils.fromProto(EdgeEventUpdateMsgProto.getDefaultInstance());
 
     // Assert
     EdgeId edgeId = actualFromProtoResult.getEdgeId();
@@ -3406,38 +3805,43 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(EntityTypeProto)} with {@code EntityTypeProto}.
+   *
    * <ul>
-   *   <li>When {@code UNSPECIFIED}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code UNSPECIFIED}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.EntityTypeProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(EntityTypeProto)}
    */
   @Test
-  @DisplayName("Test fromProto(EntityTypeProto) with 'EntityTypeProto'; when 'UNSPECIFIED'; then return 'null'")
+  @DisplayName(
+      "Test fromProto(EntityTypeProto) with 'EntityTypeProto'; when 'UNSPECIFIED'; then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EntityType ProtoUtils.fromProto(TransportProtos.EntityTypeProto)"})
+  @MethodsUnderTest({"EntityType ProtoUtils.fromProto(EntityTypeProto)"})
   void testFromProtoWithEntityTypeProto_whenUnspecified_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(ProtoUtils.fromProto(EntityTypeProto.UNSPECIFIED));
   }
 
   /**
-   * Test {@link ProtoUtils#fromProto(FromEdgeSyncResponseMsgProto)} with {@code FromEdgeSyncResponseMsgProto}.
+   * Test {@link ProtoUtils#fromProto(FromEdgeSyncResponseMsgProto)} with {@code
+   * FromEdgeSyncResponseMsgProto}.
+   *
    * <ul>
-   *   <li>Then return Error is empty string.</li>
+   *   <li>Then return Error is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(FromEdgeSyncResponseMsgProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(FromEdgeSyncResponseMsgProto)}
    */
   @Test
-  @DisplayName("Test fromProto(FromEdgeSyncResponseMsgProto) with 'FromEdgeSyncResponseMsgProto'; then return Error is empty string")
+  @DisplayName(
+      "Test fromProto(FromEdgeSyncResponseMsgProto) with 'FromEdgeSyncResponseMsgProto'; then return Error is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"FromEdgeSyncResponse ProtoUtils.fromProto(FromEdgeSyncResponseMsgProto)"})
   void testFromProtoWithFromEdgeSyncResponseMsgProto_thenReturnErrorIsEmptyString() {
     // Arrange and Act
-    FromEdgeSyncResponse actualFromProtoResult = ProtoUtils
-        .fromProto(FromEdgeSyncResponseMsgProto.getDefaultInstance());
+    FromEdgeSyncResponse actualFromProtoResult =
+        ProtoUtils.fromProto(FromEdgeSyncResponseMsgProto.getDefaultInstance());
 
     // Assert
     assertEquals("", actualFromProtoResult.getError());
@@ -3448,7 +3852,8 @@ class ProtoUtilsDiffblueTest {
     assertEquals("00000000-0000-0000-0000-000000000000", actualFromProtoResult.getId().toString());
     assertEquals(EntityType.EDGE, edgeId.getEntityType());
     assertEquals(EntityType.TENANT, tenantId.getEntityType());
-    assertEquals(MsgType.EDGE_SYNC_RESPONSE_FROM_EDGE_SESSION_MSG, actualFromProtoResult.getMsgType());
+    assertEquals(
+        MsgType.EDGE_SYNC_RESPONSE_FROM_EDGE_SESSION_MSG, actualFromProtoResult.getMsgType());
     assertFalse(edgeId.isNullUid());
     assertFalse(tenantId.isNullUid());
     assertFalse(tenantId.isSysTenantId());
@@ -3457,19 +3862,22 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(TenantProfileProto)} with {@code TenantProfileProto}.
+   *
    * <ul>
-   *   <li>Then return Name is empty string.</li>
+   *   <li>Then return Name is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.TenantProfileProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(TransportProtos.TenantProfileProto)}
    */
   @Test
-  @DisplayName("Test fromProto(TenantProfileProto) with 'TenantProfileProto'; then return Name is empty string")
+  @DisplayName(
+      "Test fromProto(TenantProfileProto) with 'TenantProfileProto'; then return Name is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfile ProtoUtils.fromProto(TransportProtos.TenantProfileProto)"})
   void testFromProtoWithTenantProfileProto_thenReturnNameIsEmptyString() {
     // Arrange and Act
-    TenantProfile actualFromProtoResult = ProtoUtils.fromProto(TenantProfileProto.getDefaultInstance());
+    TenantProfile actualFromProtoResult =
+        ProtoUtils.fromProto(TenantProfileProto.getDefaultInstance());
 
     // Assert
     assertEquals("", actualFromProtoResult.getName());
@@ -3482,15 +3890,17 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#fromProto(TenantProto)} with {@code TenantProto}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return Name is empty string.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return Name is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TenantProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(TenantProto)}
    */
   @Test
-  @DisplayName("Test fromProto(TenantProto) with 'TenantProto'; when DefaultInstance; then return Name is empty string")
+  @DisplayName(
+      "Test fromProto(TenantProto) with 'TenantProto'; when DefaultInstance; then return Name is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Tenant ProtoUtils.fromProto(TenantProto)"})
   void testFromProtoWithTenantProto_whenDefaultInstance_thenReturnNameIsEmptyString() {
@@ -3515,38 +3925,49 @@ class ProtoUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link ProtoUtils#fromProto(ToDeviceActorNotificationMsgProto)} with {@code ToDeviceActorNotificationMsgProto}.
+   * Test {@link ProtoUtils#fromProto(ToDeviceActorNotificationMsgProto)} with {@code
+   * ToDeviceActorNotificationMsgProto}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.ToDeviceActorNotificationMsgProto)}
+   *
+   * <p>Method under test: {@link
+   * ProtoUtils#fromProto(TransportProtos.ToDeviceActorNotificationMsgProto)}
    */
   @Test
-  @DisplayName("Test fromProto(ToDeviceActorNotificationMsgProto) with 'ToDeviceActorNotificationMsgProto'; then return 'null'")
+  @DisplayName(
+      "Test fromProto(ToDeviceActorNotificationMsgProto) with 'ToDeviceActorNotificationMsgProto'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ToDeviceActorNotificationMsg ProtoUtils.fromProto(TransportProtos.ToDeviceActorNotificationMsgProto)"})
+    "ToDeviceActorNotificationMsg ProtoUtils.fromProto(TransportProtos.ToDeviceActorNotificationMsgProto)"
+  })
   void testFromProtoWithToDeviceActorNotificationMsgProto_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(ProtoUtils.fromProto(ToDeviceActorNotificationMsgProto.getDefaultInstance()));
   }
 
   /**
-   * Test {@link ProtoUtils#fromProto(ToEdgeSyncRequestMsgProto)} with {@code ToEdgeSyncRequestMsgProto}.
+   * Test {@link ProtoUtils#fromProto(ToEdgeSyncRequestMsgProto)} with {@code
+   * ToEdgeSyncRequestMsgProto}.
+   *
    * <ul>
-   *   <li>Then return ServiceId is empty string.</li>
+   *   <li>Then return ServiceId is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#fromProto(TransportProtos.ToEdgeSyncRequestMsgProto)}
+   *
+   * <p>Method under test: {@link ProtoUtils#fromProto(TransportProtos.ToEdgeSyncRequestMsgProto)}
    */
   @Test
-  @DisplayName("Test fromProto(ToEdgeSyncRequestMsgProto) with 'ToEdgeSyncRequestMsgProto'; then return ServiceId is empty string")
+  @DisplayName(
+      "Test fromProto(ToEdgeSyncRequestMsgProto) with 'ToEdgeSyncRequestMsgProto'; then return ServiceId is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToEdgeSyncRequest ProtoUtils.fromProto(TransportProtos.ToEdgeSyncRequestMsgProto)"})
+  @MethodsUnderTest({
+    "ToEdgeSyncRequest ProtoUtils.fromProto(TransportProtos.ToEdgeSyncRequestMsgProto)"
+  })
   void testFromProtoWithToEdgeSyncRequestMsgProto_thenReturnServiceIdIsEmptyString() {
     // Arrange and Act
-    ToEdgeSyncRequest actualFromProtoResult = ProtoUtils.fromProto(ToEdgeSyncRequestMsgProto.getDefaultInstance());
+    ToEdgeSyncRequest actualFromProtoResult =
+        ProtoUtils.fromProto(ToEdgeSyncRequestMsgProto.getDefaultInstance());
 
     // Assert
     assertEquals("", actualFromProtoResult.getServiceId());
@@ -3565,36 +3986,12 @@ class ProtoUtilsDiffblueTest {
 
   /**
    * Test {@link ProtoUtils#toEntityUpdateProto(Object)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link OAuth2Client#OAuth2Client()} AdditionalInfo is {@code null}.</li>
+   *   <li>When {@code Entity}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toEntityUpdateProto(Object)}
-   */
-  @Test
-  @DisplayName("Test toEntityUpdateProto(Object); given 'null'; when OAuth2Client() AdditionalInfo is 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.EntityUpdateMsg ProtoUtils.toEntityUpdateProto(Object)"})
-  void testToEntityUpdateProto_givenNull_whenOAuth2ClientAdditionalInfoIsNull() {
-    // Arrange
-    OAuth2Client oAuth2Client = new OAuth2Client();
-    oAuth2Client.setAdditionalInfo(null);
-
-    // Act
-    EntityUpdateMsg actualToEntityUpdateProtoResult = ProtoUtils.toEntityUpdateProto(oAuth2Client);
-
-    // Assert
-    assertEquals(actualToEntityUpdateProtoResult, actualToEntityUpdateProtoResult.getDefaultInstanceForType());
-  }
-
-  /**
-   * Test {@link ProtoUtils#toEntityUpdateProto(Object)}.
-   * <ul>
-   *   <li>When {@code Entity}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoUtils#toEntityUpdateProto(Object)}
+   *
+   * <p>Method under test: {@link ProtoUtils#toEntityUpdateProto(Object)}
    */
   @Test
   @DisplayName("Test toEntityUpdateProto(Object); when 'Entity'")
@@ -3605,6 +4002,31 @@ class ProtoUtilsDiffblueTest {
     EntityUpdateMsg actualToEntityUpdateProtoResult = ProtoUtils.toEntityUpdateProto("Entity");
 
     // Assert
-    assertEquals(actualToEntityUpdateProtoResult, actualToEntityUpdateProtoResult.getDefaultInstanceForType());
+    assertEquals(
+        actualToEntityUpdateProtoResult,
+        actualToEntityUpdateProtoResult.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoUtils#toEntityUpdateProto(Object)}.
+   *
+   * <ul>
+   *   <li>When minus one.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoUtils#toEntityUpdateProto(Object)}
+   */
+  @Test
+  @DisplayName("Test toEntityUpdateProto(Object); when minus one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TransportProtos.EntityUpdateMsg ProtoUtils.toEntityUpdateProto(Object)"})
+  void testToEntityUpdateProto_whenMinusOne() {
+    // Arrange and Act
+    EntityUpdateMsg actualToEntityUpdateProtoResult = ProtoUtils.<Object>toEntityUpdateProto(-1);
+
+    // Assert
+    assertEquals(
+        actualToEntityUpdateProtoResult,
+        actualToEntityUpdateProtoResult.getDefaultInstanceForType());
   }
 }

@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 class LongDataEntryDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LongDataEntry#LongDataEntry(String, Long)}
    *   <li>{@link LongDataEntry#toString()}
@@ -24,8 +25,12 @@ class LongDataEntryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LongDataEntry.<init>(String, Long)", "DataType LongDataEntry.getDataType()",
-      "Object LongDataEntry.getValue()", "String LongDataEntry.toString()"})
+  @MethodsUnderTest({
+    "void LongDataEntry.<init>(String, Long)",
+    "DataType LongDataEntry.getDataType()",
+    "Object LongDataEntry.getValue()",
+    "String LongDataEntry.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LongDataEntry actualLongDataEntry = new LongDataEntry("Key", 42L);
@@ -42,8 +47,8 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#getLongValue()}.
-   * <p>
-   * Method under test: {@link LongDataEntry#getLongValue()}
+   *
+   * <p>Method under test: {@link LongDataEntry#getLongValue()}
    */
   @Test
   @DisplayName("Test getLongValue()")
@@ -51,7 +56,7 @@ class LongDataEntryDiffblueTest {
   @MethodsUnderTest({"Optional LongDataEntry.getLongValue()"})
   void testGetLongValue() {
     // Arrange and Act
-    Optional<Long> actualLongValue = (new LongDataEntry("Key", 42L)).getLongValue();
+    Optional<Long> actualLongValue = new LongDataEntry("Key", 42L).getLongValue();
 
     // Assert
     assertEquals(42L, actualLongValue.get().longValue());
@@ -60,12 +65,14 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#equals(Object)}, and {@link LongDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LongDataEntry#equals(Object)}
    *   <li>{@link LongDataEntry#hashCode()}
@@ -88,12 +95,14 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#equals(Object)}, and {@link LongDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LongDataEntry#equals(Object)}
    *   <li>{@link LongDataEntry#hashCode()}
@@ -115,12 +124,13 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LongDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link LongDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -128,7 +138,8 @@ class LongDataEntryDiffblueTest {
   @MethodsUnderTest({"boolean LongDataEntry.equals(Object)", "int LongDataEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    LongDataEntry longDataEntry = new LongDataEntry("org.thingsboard.server.common.data.kv.LongDataEntry", 42L);
+    LongDataEntry longDataEntry =
+        new LongDataEntry("org.thingsboard.server.common.data.kv.LongDataEntry", 42L);
 
     // Act and Assert
     assertNotEquals(longDataEntry, new LongDataEntry("Key", 42L));
@@ -136,12 +147,13 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LongDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link LongDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -154,12 +166,13 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LongDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link LongDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -172,8 +185,8 @@ class LongDataEntryDiffblueTest {
 
   /**
    * Test {@link LongDataEntry#getValueAsString()}.
-   * <p>
-   * Method under test: {@link LongDataEntry#getValueAsString()}
+   *
+   * <p>Method under test: {@link LongDataEntry#getValueAsString()}
    */
   @Test
   @DisplayName("Test getValueAsString()")
@@ -181,6 +194,6 @@ class LongDataEntryDiffblueTest {
   @MethodsUnderTest({"String LongDataEntry.getValueAsString()"})
   void testGetValueAsString() {
     // Arrange, Act and Assert
-    assertEquals("42", (new LongDataEntry("Key", 42L)).getValueAsString());
+    assertEquals("42", new LongDataEntry("Key", 42L).getValueAsString());
   }
 }

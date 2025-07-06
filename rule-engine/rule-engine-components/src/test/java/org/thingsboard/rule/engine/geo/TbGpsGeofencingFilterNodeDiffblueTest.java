@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class TbGpsGeofencingFilterNodeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGpsGeofencingFilterNode}
    *   <li>{@link TbGpsGeofencingFilterNode#getConfigClazz()}
@@ -19,14 +20,18 @@ class TbGpsGeofencingFilterNodeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGpsGeofencingFilterNode.<init>()", "Class TbGpsGeofencingFilterNode.getConfigClazz()"})
+  @MethodsUnderTest({
+    "void TbGpsGeofencingFilterNode.<init>()",
+    "Class TbGpsGeofencingFilterNode.getConfigClazz()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    Class<TbGpsGeofencingFilterNodeConfiguration> actualConfigClazz = (new TbGpsGeofencingFilterNode())
-        .getConfigClazz();
+    Class<TbGpsGeofencingFilterNodeConfiguration> actualConfigClazz =
+        new TbGpsGeofencingFilterNode().getConfigClazz();
 
     // Assert
-    Class<TbGpsGeofencingFilterNodeConfiguration> expectedConfigClazz = TbGpsGeofencingFilterNodeConfiguration.class;
+    Class<TbGpsGeofencingFilterNodeConfiguration> expectedConfigClazz =
+        TbGpsGeofencingFilterNodeConfiguration.class;
     assertEquals(expectedConfigClazz, actualConfigClazz);
   }
 }

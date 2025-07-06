@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,8 +17,9 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AdminSettingsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#AdminSettings()}
    *   <li>{@link AdminSettings#setJsonValue(JsonNode)}
@@ -33,14 +34,21 @@ class AdminSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdminSettings.<init>()", "void AdminSettings.<init>(AdminSettingsId)",
-      "JsonNode AdminSettings.getJsonValue()", "String AdminSettings.getKey()", "TenantId AdminSettings.getTenantId()",
-      "void AdminSettings.setJsonValue(JsonNode)", "void AdminSettings.setKey(String)",
-      "void AdminSettings.setTenantId(TenantId)", "String AdminSettings.toString()"})
+  @MethodsUnderTest({
+    "void AdminSettings.<init>()",
+    "void AdminSettings.<init>(AdminSettingsId)",
+    "JsonNode AdminSettings.getJsonValue()",
+    "String AdminSettings.getKey()",
+    "TenantId AdminSettings.getTenantId()",
+    "void AdminSettings.setJsonValue(JsonNode)",
+    "void AdminSettings.setKey(String)",
+    "void AdminSettings.setTenantId(TenantId)",
+    "String AdminSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AdminSettings actualAdminSettings = new AdminSettings();
-    MissingNode jsonValue = MissingNode.getInstance();
+    DoubleNode jsonValue = DoubleNode.valueOf(10.0d);
     actualAdminSettings.setJsonValue(jsonValue);
     actualAdminSettings.setKey("Key");
     actualAdminSettings.setTenantId(TenantId.SYS_TENANT_ID);
@@ -50,7 +58,8 @@ class AdminSettingsDiffblueTest {
     TenantId actualTenantId = actualAdminSettings.getTenantId();
 
     // Assert
-    assertEquals("AdminSettings [key=Key, jsonValue=, createdTime=0, id=null]", actualToStringResult);
+    assertEquals(
+        "AdminSettings [key=Key, jsonValue=10.0, createdTime=0, id=null]", actualToStringResult);
     assertEquals("Key", actualKey);
     assertNull(actualAdminSettings.getId());
     assertEquals(0L, actualAdminSettings.getCreatedTime());
@@ -60,8 +69,9 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#AdminSettings(AdminSettingsId)}
    *   <li>{@link AdminSettings#setJsonValue(JsonNode)}
@@ -76,17 +86,25 @@ class AdminSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AdminSettings.<init>()", "void AdminSettings.<init>(AdminSettingsId)",
-      "JsonNode AdminSettings.getJsonValue()", "String AdminSettings.getKey()", "TenantId AdminSettings.getTenantId()",
-      "void AdminSettings.setJsonValue(JsonNode)", "void AdminSettings.setKey(String)",
-      "void AdminSettings.setTenantId(TenantId)", "String AdminSettings.toString()"})
+  @MethodsUnderTest({
+    "void AdminSettings.<init>()",
+    "void AdminSettings.<init>(AdminSettingsId)",
+    "JsonNode AdminSettings.getJsonValue()",
+    "String AdminSettings.getKey()",
+    "TenantId AdminSettings.getTenantId()",
+    "void AdminSettings.setJsonValue(JsonNode)",
+    "void AdminSettings.setKey(String)",
+    "void AdminSettings.setTenantId(TenantId)",
+    "String AdminSettings.toString()"
+  })
   void testGettersAndSetters2() {
     // Arrange
-    AdminSettingsId id = new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    AdminSettingsId id =
+        new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     AdminSettings actualAdminSettings = new AdminSettings(id);
-    MissingNode jsonValue = MissingNode.getInstance();
+    DoubleNode jsonValue = DoubleNode.valueOf(10.0d);
     actualAdminSettings.setJsonValue(jsonValue);
     actualAdminSettings.setKey("Key");
     actualAdminSettings.setTenantId(TenantId.SYS_TENANT_ID);
@@ -96,7 +114,8 @@ class AdminSettingsDiffblueTest {
     TenantId actualTenantId = actualAdminSettings.getTenantId();
 
     // Assert
-    assertEquals("AdminSettings [key=Key, jsonValue=, createdTime=0, id=784f394c-42b6-435a-983c-b7beff2784f9]",
+    assertEquals(
+        "AdminSettings [key=Key, jsonValue=10.0, createdTime=0, id=784f394c-42b6-435a-983c-b7beff2784f9]",
         actualToStringResult);
     assertEquals("Key", actualKey);
     assertEquals(0L, actualAdminSettings.getCreatedTime());
@@ -107,8 +126,8 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#AdminSettings(AdminSettings)}.
-   * <p>
-   * Method under test: {@link AdminSettings#AdminSettings(AdminSettings)}
+   *
+   * <p>Method under test: {@link AdminSettings#AdminSettings(AdminSettings)}
    */
   @Test
   @DisplayName("Test new AdminSettings(AdminSettings)")
@@ -124,11 +143,12 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#getId()}.
+   *
    * <ul>
-   *   <li>Then return Id is fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return Id is fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#getId()}
+   *
+   * <p>Method under test: {@link AdminSettings#getId()}
    */
   @Test
   @DisplayName("Test getId(); then return Id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
@@ -136,7 +156,7 @@ class AdminSettingsDiffblueTest {
   @MethodsUnderTest({"AdminSettingsId AdminSettings.getId()"})
   void testGetId_thenReturnIdIsFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
-    AdminSettings adminSettings = new AdminSettings();
+    AdminSettings adminSettings = new AdminSettings(new AdminSettings());
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     adminSettings.setId(new AdminSettingsId(id));
 
@@ -146,8 +166,8 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link AdminSettings#getCreatedTime()}
+   *
+   * <p>Method under test: {@link AdminSettings#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -155,17 +175,19 @@ class AdminSettingsDiffblueTest {
   @MethodsUnderTest({"long AdminSettings.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new AdminSettings()).getCreatedTime());
+    assertEquals(0L, new AdminSettings().getCreatedTime());
   }
 
   /**
    * Test {@link AdminSettings#equals(Object)}, and {@link AdminSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#equals(Object)}
    *   <li>{@link AdminSettings#hashCode()}
@@ -188,12 +210,14 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}, and {@link AdminSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#equals(Object)}
    *   <li>{@link AdminSettings#hashCode()}
@@ -219,12 +243,14 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}, and {@link AdminSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#equals(Object)}
    *   <li>{@link AdminSettings#hashCode()}
@@ -237,10 +263,10 @@ class AdminSettingsDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AdminSettings adminSettings = new AdminSettings();
-    adminSettings.setJsonValue(MissingNode.getInstance());
+    adminSettings.setJsonValue(DoubleNode.valueOf(10.0d));
 
     AdminSettings adminSettings2 = new AdminSettings();
-    adminSettings2.setJsonValue(MissingNode.getInstance());
+    adminSettings2.setJsonValue(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertEquals(adminSettings, adminSettings2);
@@ -250,12 +276,14 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}, and {@link AdminSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AdminSettings#equals(Object)}
    *   <li>{@link AdminSettings#hashCode()}
@@ -277,12 +305,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -290,8 +319,9 @@ class AdminSettingsDiffblueTest {
   @MethodsUnderTest({"boolean AdminSettings.equals(Object)", "int AdminSettings.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    AdminSettings adminSettings = new AdminSettings(
-        new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    AdminSettings adminSettings =
+        new AdminSettings(
+            new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(adminSettings, new AdminSettings());
@@ -299,12 +329,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -321,12 +352,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -335,7 +367,7 @@ class AdminSettingsDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AdminSettings adminSettings = new AdminSettings();
-    adminSettings.setJsonValue(MissingNode.getInstance());
+    adminSettings.setJsonValue(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(adminSettings, new AdminSettings());
@@ -343,12 +375,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -367,12 +400,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -383,7 +417,7 @@ class AdminSettingsDiffblueTest {
     AdminSettings adminSettings = new AdminSettings();
 
     AdminSettings adminSettings2 = new AdminSettings();
-    adminSettings2.setJsonValue(MissingNode.getInstance());
+    adminSettings2.setJsonValue(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(adminSettings, adminSettings2);
@@ -391,12 +425,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -409,12 +444,13 @@ class AdminSettingsDiffblueTest {
 
   /**
    * Test {@link AdminSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link AdminSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

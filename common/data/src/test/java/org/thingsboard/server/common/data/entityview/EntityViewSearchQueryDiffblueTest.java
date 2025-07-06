@@ -22,11 +22,12 @@ import org.thingsboard.server.common.data.relation.RelationsSearchParameters;
 class EntityViewSearchQueryDiffblueTest {
   /**
    * Test {@link EntityViewSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code Contains}.</li>
+   *   <li>Then return Filters first RelationType is {@code Contains}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'Contains'")
@@ -34,7 +35,8 @@ class EntityViewSearchQueryDiffblueTest {
   @MethodsUnderTest({"EntityRelationsQuery EntityViewSearchQuery.toEntitySearchQuery()"})
   void testToEntitySearchQuery_thenReturnFiltersFirstRelationTypeIsContains() {
     // Arrange and Act
-    EntityRelationsQuery actualToEntitySearchQueryResult = (new EntityViewSearchQuery()).toEntitySearchQuery();
+    EntityRelationsQuery actualToEntitySearchQueryResult =
+        new EntityViewSearchQuery().toEntitySearchQuery();
 
     // Assert
     List<RelationEntityTypeFilter> filters = actualToEntitySearchQueryResult.getFilters();
@@ -50,11 +52,12 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#toEntitySearchQuery()}.
+   *
    * <ul>
-   *   <li>Then return Filters first RelationType is {@code foo}.</li>
+   *   <li>Then return Filters first RelationType is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#toEntitySearchQuery()}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#toEntitySearchQuery()}
    */
   @Test
   @DisplayName("Test toEntitySearchQuery(); then return Filters first RelationType is 'foo'")
@@ -66,7 +69,8 @@ class EntityViewSearchQueryDiffblueTest {
     entityViewSearchQuery.setRelationType("foo");
 
     // Act
-    EntityRelationsQuery actualToEntitySearchQueryResult = entityViewSearchQuery.toEntitySearchQuery();
+    EntityRelationsQuery actualToEntitySearchQueryResult =
+        entityViewSearchQuery.toEntitySearchQuery();
 
     // Assert
     List<RelationEntityTypeFilter> filters = actualToEntitySearchQueryResult.getFilters();
@@ -81,13 +85,16 @@ class EntityViewSearchQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link EntityViewSearchQuery#hashCode()}.
+   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link
+   * EntityViewSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewSearchQuery#equals(Object)}
    *   <li>{@link EntityViewSearchQuery#hashCode()}
@@ -96,7 +103,10 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -109,13 +119,16 @@ class EntityViewSearchQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link EntityViewSearchQuery#hashCode()}.
+   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link
+   * EntityViewSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewSearchQuery#equals(Object)}
    *   <li>{@link EntityViewSearchQuery#hashCode()}
@@ -124,16 +137,19 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
-    entityViewSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    entityViewSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     EntityViewSearchQuery entityViewSearchQuery2 = new EntityViewSearchQuery();
-    entityViewSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    entityViewSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertEquals(entityViewSearchQuery, entityViewSearchQuery2);
@@ -142,13 +158,16 @@ class EntityViewSearchQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link EntityViewSearchQuery#hashCode()}.
+   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link
+   * EntityViewSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewSearchQuery#equals(Object)}
    *   <li>{@link EntityViewSearchQuery#hashCode()}
@@ -157,7 +176,10 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -173,13 +195,16 @@ class EntityViewSearchQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link EntityViewSearchQuery#hashCode()}.
+   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link
+   * EntityViewSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewSearchQuery#equals(Object)}
    *   <li>{@link EntityViewSearchQuery#hashCode()}
@@ -188,7 +213,10 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -204,13 +232,16 @@ class EntityViewSearchQueryDiffblueTest {
   }
 
   /**
-   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link EntityViewSearchQuery#hashCode()}.
+   * Test {@link EntityViewSearchQuery#equals(Object)}, and {@link
+   * EntityViewSearchQuery#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewSearchQuery#equals(Object)}
    *   <li>{@link EntityViewSearchQuery#hashCode()}
@@ -219,7 +250,10 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -232,17 +266,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewSearchQuery(), 1);
@@ -250,22 +288,26 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
-    entityViewSearchQuery
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    entityViewSearchQuery.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(entityViewSearchQuery, new EntityViewSearchQuery());
@@ -273,17 +315,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -295,17 +341,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -317,24 +367,28 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
 
     EntityViewSearchQuery entityViewSearchQuery2 = new EntityViewSearchQuery();
-    entityViewSearchQuery2
-        .setParameters(new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
+    entityViewSearchQuery2.setParameters(
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true));
 
     // Act and Assert
     assertNotEquals(entityViewSearchQuery, entityViewSearchQuery2);
@@ -342,17 +396,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -366,17 +424,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityViewSearchQuery entityViewSearchQuery = new EntityViewSearchQuery();
@@ -390,17 +452,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewSearchQuery(), null);
@@ -408,17 +474,21 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test {@link EntityViewSearchQuery#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewSearchQuery#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityViewSearchQuery#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityViewSearchQuery.equals(Object)", "int EntityViewSearchQuery.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityViewSearchQuery.equals(Object)",
+    "int EntityViewSearchQuery.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewSearchQuery(), "Different type to EntityViewSearchQuery");
@@ -426,8 +496,9 @@ class EntityViewSearchQueryDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EntityViewSearchQuery}
    *   <li>{@link EntityViewSearchQuery#setEntityViewTypes(List)}
@@ -442,18 +513,23 @@ class EntityViewSearchQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityViewSearchQuery.<init>()", "List EntityViewSearchQuery.getEntityViewTypes()",
-      "RelationsSearchParameters EntityViewSearchQuery.getParameters()",
-      "String EntityViewSearchQuery.getRelationType()", "void EntityViewSearchQuery.setEntityViewTypes(List)",
-      "void EntityViewSearchQuery.setParameters(RelationsSearchParameters)",
-      "void EntityViewSearchQuery.setRelationType(String)", "String EntityViewSearchQuery.toString()"})
+  @MethodsUnderTest({
+    "void EntityViewSearchQuery.<init>()",
+    "List EntityViewSearchQuery.getEntityViewTypes()",
+    "RelationsSearchParameters EntityViewSearchQuery.getParameters()",
+    "String EntityViewSearchQuery.getRelationType()",
+    "void EntityViewSearchQuery.setEntityViewTypes(List)",
+    "void EntityViewSearchQuery.setParameters(RelationsSearchParameters)",
+    "void EntityViewSearchQuery.setRelationType(String)",
+    "String EntityViewSearchQuery.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityViewSearchQuery actualEntityViewSearchQuery = new EntityViewSearchQuery();
     ArrayList<String> entityViewTypes = new ArrayList<>();
     actualEntityViewSearchQuery.setEntityViewTypes(entityViewTypes);
-    RelationsSearchParameters parameters = new RelationsSearchParameters(TenantId.SYS_TENANT_ID,
-        EntitySearchDirection.FROM, 3, true);
+    RelationsSearchParameters parameters =
+        new RelationsSearchParameters(TenantId.SYS_TENANT_ID, EntitySearchDirection.FROM, 3, true);
 
     actualEntityViewSearchQuery.setParameters(parameters);
     actualEntityViewSearchQuery.setRelationType("Relation Type");

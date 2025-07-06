@@ -8,9 +8,11 @@ import org.junit.jupiter.api.Test;
 
 class MqttTransportServerInitializerDiffblueTest {
   /**
-   * Test {@link MqttTransportServerInitializer#MqttTransportServerInitializer(MqttTransportContext, boolean)}.
-   * <p>
-   * Method under test: {@link MqttTransportServerInitializer#MqttTransportServerInitializer(MqttTransportContext, boolean)}
+   * Test {@link MqttTransportServerInitializer#MqttTransportServerInitializer(MqttTransportContext,
+   * boolean)}.
+   *
+   * <p>Method under test: {@link
+   * MqttTransportServerInitializer#MqttTransportServerInitializer(MqttTransportContext, boolean)}
    */
   @Test
   @DisplayName("Test new MqttTransportServerInitializer(MqttTransportContext, boolean)")
@@ -22,6 +24,6 @@ class MqttTransportServerInitializerDiffblueTest {
     //   a non-Spring test was created.
 
     // Arrange, Act and Assert
-    assertTrue((new MqttTransportServerInitializer(new MqttTransportContext(), true)).isSharable());
+    assertTrue(new MqttTransportServerInitializer(new MqttTransportContext(), true).isSharable());
   }
 }

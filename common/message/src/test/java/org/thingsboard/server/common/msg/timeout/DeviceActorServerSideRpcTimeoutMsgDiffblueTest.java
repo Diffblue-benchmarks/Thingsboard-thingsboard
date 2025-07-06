@@ -10,22 +10,26 @@ import org.thingsboard.server.common.msg.MsgType;
 class DeviceActorServerSideRpcTimeoutMsgDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link DeviceActorServerSideRpcTimeoutMsg#DeviceActorServerSideRpcTimeoutMsg(Integer, long)}
+   *   <li>{@link DeviceActorServerSideRpcTimeoutMsg#DeviceActorServerSideRpcTimeoutMsg(Integer,
+   *       long)}
    *   <li>{@link DeviceActorServerSideRpcTimeoutMsg#getMsgType()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceActorServerSideRpcTimeoutMsg.<init>(Integer, long)",
-      "MsgType DeviceActorServerSideRpcTimeoutMsg.getMsgType()"})
+  @MethodsUnderTest({
+    "void DeviceActorServerSideRpcTimeoutMsg.<init>(Integer, long)",
+    "MsgType DeviceActorServerSideRpcTimeoutMsg.getMsgType()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    DeviceActorServerSideRpcTimeoutMsg actualDeviceActorServerSideRpcTimeoutMsg = new DeviceActorServerSideRpcTimeoutMsg(
-        1, 10L);
+    DeviceActorServerSideRpcTimeoutMsg actualDeviceActorServerSideRpcTimeoutMsg =
+        new DeviceActorServerSideRpcTimeoutMsg(1, 10L);
     MsgType actualMsgType = actualDeviceActorServerSideRpcTimeoutMsg.getMsgType();
 
     // Assert

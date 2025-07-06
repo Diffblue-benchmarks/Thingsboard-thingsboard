@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class OAuth2ParamsIdDiffblueTest {
   /**
    * Test {@link OAuth2ParamsId#OAuth2ParamsId(UUID)}.
-   * <p>
-   * Method under test: {@link OAuth2ParamsId#OAuth2ParamsId(UUID)}
+   *
+   * <p>Method under test: {@link OAuth2ParamsId#OAuth2ParamsId(UUID)}
    */
   @Test
   @DisplayName("Test new OAuth2ParamsId(UUID)")
@@ -23,7 +23,7 @@ class OAuth2ParamsIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new OAuth2ParamsId(id)).getId();
+    UUID id2 = new OAuth2ParamsId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

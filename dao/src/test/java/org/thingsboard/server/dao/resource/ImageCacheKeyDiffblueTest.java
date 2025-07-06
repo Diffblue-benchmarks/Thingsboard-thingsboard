@@ -16,8 +16,8 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class ImageCacheKeyDiffblueTest {
   /**
    * Test {@link ImageCacheKey#forImage(TenantId, String)} with {@code tenantId}, {@code key}.
-   * <p>
-   * Method under test: {@link ImageCacheKey#forImage(TenantId, String)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#forImage(TenantId, String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -39,9 +39,10 @@ public class ImageCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link ImageCacheKey#forImage(TenantId, String, boolean)} with {@code tenantId}, {@code key}, {@code preview}.
-   * <p>
-   * Method under test: {@link ImageCacheKey#forImage(TenantId, String, boolean)}
+   * Test {@link ImageCacheKey#forImage(TenantId, String, boolean)} with {@code tenantId}, {@code
+   * key}, {@code preview}.
+   *
+   * <p>Method under test: {@link ImageCacheKey#forImage(TenantId, String, boolean)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -64,8 +65,8 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#forPublicImage(String)}.
-   * <p>
-   * Method under test: {@link ImageCacheKey#forPublicImage(String)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#forPublicImage(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -84,12 +85,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#isPublic()}.
+   *
    * <ul>
-   *   <li>Given forPublicImage {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given forPublicImage {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#isPublic()}
+   *
+   * <p>Method under test: {@link ImageCacheKey#isPublic()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -101,12 +103,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#isPublic()}.
+   *
    * <ul>
-   *   <li>Given forPublicImage {@code Public Key}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given forPublicImage {@code Public Key}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#isPublic()}
+   *
+   * <p>Method under test: {@link ImageCacheKey#isPublic()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -118,12 +121,14 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}, and {@link ImageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageCacheKey#equals(Object)}
    *   <li>{@link ImageCacheKey#hashCode()}
@@ -145,12 +150,14 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}, and {@link ImageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageCacheKey#equals(Object)}
    *   <li>{@link ImageCacheKey#hashCode()}
@@ -172,12 +179,14 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}, and {@link ImageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageCacheKey#equals(Object)}
    *   <li>{@link ImageCacheKey#hashCode()}
@@ -188,8 +197,10 @@ public class ImageCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean ImageCacheKey.equals(Object)", "int ImageCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    ImageCacheKey forImageResult = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
-    ImageCacheKey forImageResult2 = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
+    ImageCacheKey forImageResult =
+        ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
+    ImageCacheKey forImageResult2 =
+        ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
 
     // Act and Assert
     assertEquals(forImageResult, forImageResult2);
@@ -199,12 +210,14 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}, and {@link ImageCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageCacheKey#equals(Object)}
    *   <li>{@link ImageCacheKey#hashCode()}
@@ -225,12 +238,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -245,20 +259,21 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean ImageCacheKey.equals(Object)", "int ImageCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    ImageCacheKey forPublicImageResult = ImageCacheKey
-        .forPublicImage("org.thingsboard.server.dao.resource.ImageCacheKey");
+    ImageCacheKey forPublicImageResult =
+        ImageCacheKey.forPublicImage("org.thingsboard.server.dao.resource.ImageCacheKey");
 
     // Act and Assert
     assertNotEquals(forPublicImageResult, ImageCacheKey.forPublicImage("Public Key"));
@@ -266,19 +281,21 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean ImageCacheKey.equals(Object)", "int ImageCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    ImageCacheKey forImageResult = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
+    ImageCacheKey forImageResult =
+        ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true);
 
     // Act and Assert
     assertNotEquals(forImageResult, ImageCacheKey.forPublicImage("Public Key"));
@@ -286,19 +303,21 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean ImageCacheKey.equals(Object)", "int ImageCacheKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    ImageCacheKey forImageResult = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", false);
+    ImageCacheKey forImageResult =
+        ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", false);
 
     // Act and Assert
     assertNotEquals(forImageResult, ImageCacheKey.forPublicImage("Public Key"));
@@ -306,12 +325,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -326,12 +346,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -341,17 +362,19 @@ public class ImageCacheKeyDiffblueTest {
     ImageCacheKey forImageResult = ImageCacheKey.forImage(null, "Public Key", true);
 
     // Act and Assert
-    assertNotEquals(forImageResult, ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true));
+    assertNotEquals(
+        forImageResult, ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true));
   }
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -361,17 +384,19 @@ public class ImageCacheKeyDiffblueTest {
     ImageCacheKey forImageResult = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, null, true);
 
     // Act and Assert
-    assertNotEquals(forImageResult, ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true));
+    assertNotEquals(
+        forImageResult, ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Public Key", true));
   }
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -383,12 +408,13 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -400,8 +426,9 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ImageCacheKey#toString()}
    *   <li>{@link ImageCacheKey#getPublicResourceKey()}
@@ -412,8 +439,13 @@ public class ImageCacheKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"String ImageCacheKey.getPublicResourceKey()", "String ImageCacheKey.getResourceKey()",
-      "TenantId ImageCacheKey.getTenantId()", "boolean ImageCacheKey.isPreview()", "String ImageCacheKey.toString()"})
+  @MethodsUnderTest({
+    "String ImageCacheKey.getPublicResourceKey()",
+    "String ImageCacheKey.getResourceKey()",
+    "TenantId ImageCacheKey.getTenantId()",
+    "boolean ImageCacheKey.isPreview()",
+    "String ImageCacheKey.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     ImageCacheKey forPublicImageResult = ImageCacheKey.forPublicImage("Public Key");
@@ -425,7 +457,8 @@ public class ImageCacheKeyDiffblueTest {
     TenantId actualTenantId = forPublicImageResult.getTenantId();
 
     // Assert
-    assertEquals("ImageCacheKey(tenantId=null, resourceKey=null, preview=false, publicResourceKey=Public Key)",
+    assertEquals(
+        "ImageCacheKey(tenantId=null, resourceKey=null, preview=false, publicResourceKey=Public Key)",
         actualToStringResult);
     assertEquals("Public Key", actualPublicResourceKey);
     assertNull(actualResourceKey);
@@ -435,15 +468,16 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#withPreview(boolean)}.
-   * <p>
-   * Method under test: {@link ImageCacheKey#withPreview(boolean)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#withPreview(boolean)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"ImageCacheKey ImageCacheKey.withPreview(boolean)"})
   public void testWithPreview() {
     // Arrange
-    ImageCacheKey forImageResult = ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Key", true);
+    ImageCacheKey forImageResult =
+        ImageCacheKey.forImage(ModelConstants.SYSTEM_TENANT, "Key", true);
 
     // Act and Assert
     assertSame(forImageResult, forImageResult.withPreview(true));
@@ -451,18 +485,20 @@ public class ImageCacheKeyDiffblueTest {
 
   /**
    * Test {@link ImageCacheKey#withPreview(boolean)}.
+   *
    * <ul>
-   *   <li>Then return PublicResourceKey is {@code Public Key}.</li>
+   *   <li>Then return PublicResourceKey is {@code Public Key}.
    * </ul>
-   * <p>
-   * Method under test: {@link ImageCacheKey#withPreview(boolean)}
+   *
+   * <p>Method under test: {@link ImageCacheKey#withPreview(boolean)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"ImageCacheKey ImageCacheKey.withPreview(boolean)"})
   public void testWithPreview_thenReturnPublicResourceKeyIsPublicKey() {
     // Arrange and Act
-    ImageCacheKey actualWithPreviewResult = ImageCacheKey.forPublicImage("Public Key").withPreview(true);
+    ImageCacheKey actualWithPreviewResult =
+        ImageCacheKey.forPublicImage("Public Key").withPreview(true);
 
     // Assert
     assertEquals("Public Key", actualWithPreviewResult.getPublicResourceKey());

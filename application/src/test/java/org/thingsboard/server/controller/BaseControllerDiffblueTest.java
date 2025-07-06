@@ -1,7 +1,6 @@
 package org.thingsboard.server.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -13,43 +12,30 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.google.api.core.ApiFutureToListenableFuture;
-import com.google.api.core.ForwardingApiFuture;
-import com.google.api.core.ListenableFutureToApiFuture;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListenableFutureTask;
-import com.google.common.util.concurrent.SettableFuture;
-import java.io.IOException;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.Executor;
-import java.util.function.Function;
+import org.apache.catalina.connector.Response;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.PropertySource;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
-import org.springframework.web.context.request.async.DeferredResult;
-import org.thingsboard.server.cluster.TbClusterService;
-import org.thingsboard.server.common.data.Customer;
 import org.thingsboard.server.common.data.EntityType;
-import org.thingsboard.server.common.data.HasName;
 import org.thingsboard.server.common.data.HasTenantId;
-import org.thingsboard.server.common.data.audit.ActionType;
 import org.thingsboard.server.common.data.exception.EntityVersionMismatchException;
-import org.thingsboard.server.common.data.exception.ThingsboardErrorCode;
 import org.thingsboard.server.common.data.exception.ThingsboardException;
 import org.thingsboard.server.common.data.id.AlarmCommentId;
 import org.thingsboard.server.common.data.id.AlarmId;
@@ -80,355 +66,202 @@ import org.thingsboard.server.common.data.id.RuleNodeId;
 import org.thingsboard.server.common.data.id.TbResourceId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.id.TenantProfileId;
-import org.thingsboard.server.common.data.id.UUIDBased;
 import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.id.WidgetTypeId;
 import org.thingsboard.server.common.data.id.WidgetsBundleId;
 import org.thingsboard.server.common.data.page.PageLink;
 import org.thingsboard.server.common.data.page.SortOrder;
+import org.thingsboard.server.common.data.page.SortOrder.Direction;
 import org.thingsboard.server.common.data.page.TimePageLink;
+import org.thingsboard.server.common.data.plugin.ComponentDescriptor;
+import org.thingsboard.server.common.data.plugin.ComponentType;
 import org.thingsboard.server.common.data.query.EntityDataSortOrder;
 import org.thingsboard.server.common.data.query.EntityKey;
 import org.thingsboard.server.common.data.query.EntityKeyType;
-import org.thingsboard.server.dao.alarm.AlarmCommentService;
-import org.thingsboard.server.dao.asset.AssetProfileService;
-import org.thingsboard.server.dao.asset.AssetService;
-import org.thingsboard.server.dao.attributes.AttributesService;
-import org.thingsboard.server.dao.audit.AuditLogService;
-import org.thingsboard.server.dao.customer.CustomerService;
-import org.thingsboard.server.dao.dashboard.DashboardService;
-import org.thingsboard.server.dao.device.ClaimDevicesService;
-import org.thingsboard.server.dao.device.DeviceCredentialsService;
-import org.thingsboard.server.dao.device.DeviceProfileService;
-import org.thingsboard.server.dao.device.DeviceService;
-import org.thingsboard.server.dao.domain.DomainService;
-import org.thingsboard.server.dao.edge.EdgeService;
-import org.thingsboard.server.dao.entityview.EntityViewService;
+import org.thingsboard.server.common.data.rule.RuleChainType;
 import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.exception.IncorrectParameterException;
-import org.thingsboard.server.dao.mobile.MobileAppService;
-import org.thingsboard.server.dao.oauth2.OAuth2ClientService;
-import org.thingsboard.server.dao.oauth2.OAuth2ConfigTemplateService;
-import org.thingsboard.server.dao.ota.OtaPackageService;
-import org.thingsboard.server.dao.queue.QueueService;
-import org.thingsboard.server.dao.relation.RelationService;
-import org.thingsboard.server.dao.resource.ResourceService;
-import org.thingsboard.server.dao.rpc.RpcService;
-import org.thingsboard.server.dao.rule.RuleChainService;
-import org.thingsboard.server.dao.tenant.TbTenantProfileCache;
-import org.thingsboard.server.dao.tenant.TenantProfileService;
-import org.thingsboard.server.dao.tenant.TenantService;
-import org.thingsboard.server.dao.user.UserService;
-import org.thingsboard.server.dao.widget.WidgetTypeService;
-import org.thingsboard.server.dao.widget.WidgetsBundleService;
 import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
-import org.thingsboard.server.queue.discovery.PartitionService;
-import org.thingsboard.server.queue.discovery.TbServiceInfoProvider;
-import org.thingsboard.server.queue.provider.TbQueueProducerProvider;
-import org.thingsboard.server.service.action.EntityActionService;
 import org.thingsboard.server.service.component.ComponentDiscoveryService;
-import org.thingsboard.server.service.entitiy.TbLogEntityActionService;
-import org.thingsboard.server.service.entitiy.user.TbUserSettingsService;
-import org.thingsboard.server.service.ota.OtaPackageStateService;
-import org.thingsboard.server.service.profile.TbAssetProfileCache;
-import org.thingsboard.server.service.profile.TbDeviceProfileCache;
-import org.thingsboard.server.service.security.model.SecurityUser;
-import org.thingsboard.server.service.security.permission.AccessControlService;
 import org.thingsboard.server.service.security.permission.Operation;
 import org.thingsboard.server.service.security.permission.Resource;
-import org.thingsboard.server.service.state.DeviceStateService;
-import org.thingsboard.server.service.sync.ie.exporting.ExportableEntitiesService;
-import org.thingsboard.server.service.sync.vc.EntitiesVersionControlService;
 import org.thingsboard.server.service.telemetry.AlarmSubscriptionService;
-import org.thingsboard.server.service.telemetry.TelemetrySubscriptionService;
 
-@PropertySource("classpath:application-test.properties")
-@EnableConfigurationProperties
-@DisabledInAotMode
+@ExtendWith(MockitoExtension.class)
 class BaseControllerDiffblueTest {
-  @MockBean
-  private AccessControlService accessControlService;
+  @Mock private AlarmSubscriptionService alarmSubscriptionService;
 
-  @MockBean
-  private AlarmCommentService alarmCommentService;
+  @InjectMocks private AuditLogController auditLogController;
 
-  @MockBean
-  private AlarmSubscriptionService alarmSubscriptionService;
+  @Mock private ComponentDiscoveryService componentDiscoveryService;
 
-  @MockBean
-  private AssetProfileService assetProfileService;
-
-  @MockBean
-  private AssetService assetService;
-
-  @MockBean
-  private AttributesService attributesService;
-
-  @MockBean
-  private AuditLogService auditLogService;
-
-  @MockBean
-  private ClaimDevicesService claimDevicesService;
-
-  @MockBean
-  private ComponentDiscoveryService componentDiscoveryService;
-
-  @MockBean
-  private CustomerService customerService;
-
-  @MockBean
-  private DashboardService dashboardService;
-
-  @MockBean
-  private DeviceCredentialsService deviceCredentialsService;
-
-  @MockBean
-  private DeviceProfileService deviceProfileService;
-
-  @MockBean
-  private DeviceService deviceService;
-
-  @MockBean
-  private DeviceStateService deviceStateService;
-
-  @MockBean
-  private DomainService domainService;
-
-  @MockBean
-  private EdgeService edgeService;
-
-  @MockBean
-  private EntitiesVersionControlService entitiesVersionControlService;
-
-  @MockBean
-  private EntityActionService entityActionService;
-
-  @MockBean
-  private EntityViewService entityViewService;
-
-  @MockBean
-  private ExportableEntitiesService exportableEntitiesService;
-
-  @MockBean
-  private MobileAppService mobileAppService;
-
-  @MockBean
-  private OAuth2ClientService oAuth2ClientService;
-
-  @MockBean
-  private OAuth2ConfigTemplateService oAuth2ConfigTemplateService;
-
-  @MockBean
-  private OtaPackageService otaPackageService;
-
-  @MockBean
-  private OtaPackageStateService otaPackageStateService;
-
-  @MockBean
-  private PartitionService partitionService;
-
-  @MockBean
-  private QueueService queueService;
-
-  @MockBean
-  private RelationService relationService;
-
-  @MockBean
-  private ResourceService resourceService;
-
-  @MockBean
-  private RpcService rpcService;
-
-  @MockBean
-  private RuleChainService ruleChainService;
-
-  @MockBean
-  private TbAssetProfileCache tbAssetProfileCache;
-
-  @MockBean
-  private TbClusterService tbClusterService;
-
-  @MockBean
-  private TbDeviceProfileCache tbDeviceProfileCache;
-
-  @MockBean
-  private TbLogEntityActionService tbLogEntityActionService;
-
-  @MockBean
-  private TbQueueProducerProvider tbQueueProducerProvider;
-
-  @MockBean
-  private TbServiceInfoProvider tbServiceInfoProvider;
-
-  @MockBean
-  private TbTenantProfileCache tbTenantProfileCache;
-
-  @MockBean
-  private TbUserSettingsService tbUserSettingsService;
-
-  @MockBean
-  private TelemetrySubscriptionService telemetrySubscriptionService;
-
-  @MockBean
-  private TenantProfileService tenantProfileService;
-
-  @MockBean
-  private TenantService tenantService;
-
-  @MockBean
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
-
-  @MockBean
-  private UserService userService;
-
-  @MockBean
-  private WidgetTypeService widgetTypeService;
-
-  @MockBean
-  private WidgetsBundleService widgetsBundleService;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link BaseController#handleException(Exception)} with
-   * {@code exception}.
+   * Test {@link BaseController#handleControllerException(Exception, HttpServletResponse)}.
+   *
    * <ul>
-   *   <li>Then return LocalizedMessage is {@code foo}.</li>
+   *   <li>Then calls {@link ThingsboardErrorResponseHandler#handle(Exception,
+   *       HttpServletResponse)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#handleException(Exception)}
+   *
+   * <p>Method under test: {@link BaseController#handleControllerException(Exception,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test handleException(Exception) with 'exception'; then return LocalizedMessage is 'foo'")
-  void testHandleExceptionWithException_thenReturnLocalizedMessageIsFoo() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test handleControllerException(Exception, HttpServletResponse); then calls handle(Exception, HttpServletResponse)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void BaseController.handleControllerException(Exception, HttpServletResponse)"
+  })
+  void testHandleControllerException_thenCallsHandle() {
     // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    Exception exception = new Exception("foo");
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
+        .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
+    Exception e = new Exception("foo");
 
     // Act
-    ThingsboardException actualHandleExceptionResult = auditLogController.handleException(exception);
+    auditLogController.handleControllerException(e, new Response());
 
     // Assert
-    assertEquals("foo", actualHandleExceptionResult.getLocalizedMessage());
-    assertEquals("foo", actualHandleExceptionResult.getMessage());
-    assertEquals(0, actualHandleExceptionResult.getSuppressed().length);
-    assertEquals(ThingsboardErrorCode.GENERAL, actualHandleExceptionResult.getErrorCode());
-    assertSame(exception, actualHandleExceptionResult.getCause());
+    verify(thingsboardErrorResponseHandler)
+        .handle(isA(Exception.class), isA(HttpServletResponse.class));
   }
 
   /**
-   * Test {@link BaseController#checkNotNull(Object, String)} with {@code Object},
-   * {@code String}.
+   * Test {@link BaseController#checkNotNull(Object, String)} with {@code Object}, {@code String}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Object, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Object, String)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Object, String) with 'Object', 'String'; when 'null'; then throw ThingsboardException")
-  void testCheckNotNullWithObjectString_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Object, String) with 'Object', 'String'; when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Object, String)"})
+  void testCheckNotNullWithObjectString_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkNotNull((Object) null, "Not Found Message"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkNotNull((Object) null, "Not Found Message"));
   }
 
   /**
-   * Test {@link BaseController#checkNotNull(Object, String)} with {@code Object},
-   * {@code String}.
+   * Test {@link BaseController#checkNotNull(Object, String)} with {@code Object}, {@code String}.
+   *
    * <ul>
-   *   <li>When {@code Reference}.</li>
-   *   <li>Then return {@code Reference}.</li>
+   *   <li>When {@code Reference}.
+   *   <li>Then return {@code Reference}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Object, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Object, String)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Object, String) with 'Object', 'String'; when 'Reference'; then return 'Reference'")
-  void testCheckNotNullWithObjectString_whenReference_thenReturnReference() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Object, String) with 'Object', 'String'; when 'Reference'; then return 'Reference'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Object, String)"})
+  void testCheckNotNullWithObjectString_whenReference_thenReturnReference()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertEquals("Reference", (new AuditLogController()).checkNotNull("Reference", "Not Found Message"));
+    assertEquals(
+        "Reference", new AuditLogController().checkNotNull("Reference", "Not Found Message"));
   }
 
   /**
    * Test {@link BaseController#checkNotNull(Object)} with {@code Object}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Object)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Object)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Object) with 'Object'; when 'null'; then throw ThingsboardException")
-  void testCheckNotNullWithObject_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Object) with 'Object'; when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Object)"})
+  void testCheckNotNullWithObject_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkNotNull((Object) null));
+    assertThrows(
+        ThingsboardException.class, () -> new AuditLogController().checkNotNull((Object) null));
   }
 
   /**
    * Test {@link BaseController#checkNotNull(Object)} with {@code Object}.
+   *
    * <ul>
-   *   <li>When {@code Reference}.</li>
-   *   <li>Then return {@code Reference}.</li>
+   *   <li>When {@code Reference}.
+   *   <li>Then return {@code Reference}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Object)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Object)}
    */
   @Test
   @DisplayName("Test checkNotNull(Object) with 'Object'; when 'Reference'; then return 'Reference'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Object)"})
   void testCheckNotNullWithObject_whenReference_thenReturnReference() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertEquals("Reference", (new AuditLogController()).checkNotNull("Reference"));
+    assertEquals("Reference", new AuditLogController().checkNotNull("Reference"));
   }
 
   /**
-   * Test {@link BaseController#checkNotNull(Optional, String)} with
-   * {@code Optional}, {@code String}.
+   * Test {@link BaseController#checkNotNull(Optional, String)} with {@code Optional}, {@code
+   * String}.
+   *
    * <ul>
-   *   <li>When empty.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When empty.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Optional, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Optional, String)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Optional, String) with 'Optional', 'String'; when empty; then throw ThingsboardException")
-  void testCheckNotNullWithOptionalString_whenEmpty_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Optional, String) with 'Optional', 'String'; when empty; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Optional, String)"})
+  void testCheckNotNullWithOptionalString_whenEmpty_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     Optional<Object> reference = Optional.empty();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkNotNull(reference, "Not Found Message"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkNotNull(reference, "Not Found Message"));
   }
 
   /**
-   * Test {@link BaseController#checkNotNull(Optional, String)} with
-   * {@code Optional}, {@code String}.
+   * Test {@link BaseController#checkNotNull(Optional, String)} with {@code Optional}, {@code
+   * String}.
+   *
    * <ul>
-   *   <li>When {@link Optional} with {@code 42}.</li>
-   *   <li>Then return {@code 42}.</li>
+   *   <li>When {@link Optional} with {@code 42}.
+   *   <li>Then return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Optional, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Optional, String)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Optional, String) with 'Optional', 'String'; when Optional with '42'; then return '42'")
-  void testCheckNotNullWithOptionalString_whenOptionalWith42_thenReturn42() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Optional, String) with 'Optional', 'String'; when Optional with '42'; then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Optional, String)"})
+  void testCheckNotNullWithOptionalString_whenOptionalWith42_thenReturn42()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     Optional<Object> reference = Optional.of("42");
@@ -439,18 +272,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#checkNotNull(Optional)} with {@code Optional}.
+   *
    * <ul>
-   *   <li>When empty.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When empty.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Optional)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Optional)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Optional) with 'Optional'; when empty; then throw ThingsboardException")
-  void testCheckNotNullWithOptional_whenEmpty_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkNotNull(Optional) with 'Optional'; when empty; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Optional)"})
+  void testCheckNotNullWithOptional_whenEmpty_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     Optional<Object> reference = Optional.empty();
@@ -461,18 +297,20 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#checkNotNull(Optional)} with {@code Optional}.
+   *
    * <ul>
-   *   <li>When {@link Optional} with {@code 42}.</li>
-   *   <li>Then return {@code 42}.</li>
+   *   <li>When {@link Optional} with {@code 42}.
+   *   <li>Then return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkNotNull(Optional)}
+   *
+   * <p>Method under test: {@link BaseController#checkNotNull(Optional)}
    */
   @Test
-  @DisplayName("Test checkNotNull(Optional) with 'Optional'; when Optional with '42'; then return '42'")
+  @DisplayName(
+      "Test checkNotNull(Optional) with 'Optional'; when Optional with '42'; then return '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object BaseController.checkNotNull(Optional)"})
   void testCheckNotNullWithOptional_whenOptionalWith42_thenReturn42() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     Optional<Object> reference = Optional.of("42");
@@ -483,255 +321,183 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#checkParameter(String, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When empty string.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkParameter(String, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkParameter(String, String)}
    */
   @Test
-  @DisplayName("Test checkParameter(String, String); when empty string; then throw ThingsboardException")
-  void testCheckParameter_whenEmptyString_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkParameter(String, String); when empty string; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkParameter(String, String)"})
+  void testCheckParameter_whenEmptyString_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkParameter("Name", ""));
+    assertThrows(
+        ThingsboardException.class, () -> new AuditLogController().checkParameter("Name", ""));
   }
 
   /**
    * Test {@link BaseController#checkParameter(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkParameter(String, String)}
+   *
+   * <p>Method under test: {@link BaseController#checkParameter(String, String)}
    */
   @Test
   @DisplayName("Test checkParameter(String, String); when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkParameter(String, String)"})
   void testCheckParameter_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkParameter("Name", null));
+    assertThrows(
+        ThingsboardException.class, () -> new AuditLogController().checkParameter("Name", null));
   }
 
   /**
    * Test {@link BaseController#checkArrayParameter(String, String[])}.
+   *
    * <ul>
-   *   <li>When array of {@link String} with empty string.</li>
+   *   <li>When array of {@link String} with empty string.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkArrayParameter(String, String[])}
+   *
+   * <p>Method under test: {@link BaseController#checkArrayParameter(String, String[])}
    */
   @Test
   @DisplayName("Test checkArrayParameter(String, String[]); when array of String with empty string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkArrayParameter(String, String[])"})
   void testCheckArrayParameter_whenArrayOfStringWithEmptyString() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkArrayParameter("Name", new String[]{""}));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkArrayParameter("Name", new String[] {""}));
   }
 
   /**
    * Test {@link BaseController#checkArrayParameter(String, String[])}.
+   *
    * <ul>
-   *   <li>When array of {@link String} with {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When array of {@link String} with {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkArrayParameter(String, String[])}
+   *
+   * <p>Method under test: {@link BaseController#checkArrayParameter(String, String[])}
    */
   @Test
-  @DisplayName("Test checkArrayParameter(String, String[]); when array of String with 'null'; then throw ThingsboardException")
-  void testCheckArrayParameter_whenArrayOfStringWithNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkArrayParameter(String, String[]); when array of String with 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkArrayParameter(String, String[])"})
+  void testCheckArrayParameter_whenArrayOfStringWithNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkArrayParameter("Name", new String[]{null}));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkArrayParameter("Name", new String[] {null}));
   }
 
   /**
    * Test {@link BaseController#checkArrayParameter(String, String[])}.
+   *
    * <ul>
-   *   <li>When empty array of {@link String}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When empty array of {@link String}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkArrayParameter(String, String[])}
+   *
+   * <p>Method under test: {@link BaseController#checkArrayParameter(String, String[])}
    */
   @Test
-  @DisplayName("Test checkArrayParameter(String, String[]); when empty array of String; then throw ThingsboardException")
-  void testCheckArrayParameter_whenEmptyArrayOfString_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkArrayParameter(String, String[]); when empty array of String; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkArrayParameter(String, String[])"})
+  void testCheckArrayParameter_whenEmptyArrayOfString_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkArrayParameter("Name", new String[]{}));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkArrayParameter("Name", new String[] {}));
   }
 
   /**
    * Test {@link BaseController#checkArrayParameter(String, String[])}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkArrayParameter(String, String[])}
+   *
+   * <p>Method under test: {@link BaseController#checkArrayParameter(String, String[])}
    */
   @Test
-  @DisplayName("Test checkArrayParameter(String, String[]); when 'null'; then throw ThingsboardException")
-  void testCheckArrayParameter_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkArrayParameter(String, String[]); when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkArrayParameter(String, String[])"})
+  void testCheckArrayParameter_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkArrayParameter("Name", null));
-  }
-
-  /**
-   * Test {@link BaseController#checkEnumParameter(String, String, Function)}.
-   * <ul>
-   *   <li>Given {@code Apply}.</li>
-   *   <li>When {@link Function} {@link Function#apply(Object)} return
-   * {@code Apply}.</li>
-   *   <li>Then return {@code Apply}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEnumParameter(String, String, Function)}
-   */
-  @Test
-  @DisplayName("Test checkEnumParameter(String, String, Function); given 'Apply'; when Function apply(Object) return 'Apply'; then return 'Apply'")
-  void testCheckEnumParameter_givenApply_whenFunctionApplyReturnApply_thenReturnApply() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    Function<String, Object> valueOf = mock(Function.class);
-    when(valueOf.apply(Mockito.<String>any())).thenReturn("Apply");
-
-    // Act
-    Object actualCheckEnumParameterResult = auditLogController.checkEnumParameter("Name", "Param", valueOf);
-
-    // Assert
-    verify(valueOf).apply(eq("PARAM"));
-    assertEquals("Apply", actualCheckEnumParameterResult);
-  }
-
-  /**
-   * Test {@link BaseController#checkEnumParameter(String, String, Function)}.
-   * <ul>
-   *   <li>Then throw {@link IncorrectParameterException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEnumParameter(String, String, Function)}
-   */
-  @Test
-  @DisplayName("Test checkEnumParameter(String, String, Function); then throw IncorrectParameterException")
-  void testCheckEnumParameter_thenThrowIncorrectParameterException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    Function<String, Object> valueOf = mock(Function.class);
-    when(valueOf.apply(Mockito.<String>any())).thenThrow(new IncorrectParameterException("An error occurred"));
-
-    // Act and Assert
-    assertThrows(IncorrectParameterException.class,
-        () -> auditLogController.checkEnumParameter("Name", "Param", valueOf));
-    verify(valueOf).apply(eq("PARAM"));
-  }
-
-  /**
-   * Test {@link BaseController#checkEnumParameter(String, String, Function)}.
-   * <ul>
-   *   <li>Then throw {@link ThingsboardException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEnumParameter(String, String, Function)}
-   */
-  @Test
-  @DisplayName("Test checkEnumParameter(String, String, Function); then throw ThingsboardException")
-  void testCheckEnumParameter_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    Function<String, Object> valueOf = mock(Function.class);
-    when(valueOf.apply(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEnumParameter("Name", "Param", valueOf));
-    verify(valueOf).apply(eq("PARAM"));
-  }
-
-  /**
-   * Test {@link BaseController#toUUID(String)}.
-   * <p>
-   * Method under test: {@link BaseController#toUUID(String)}
-   */
-  @Test
-  @DisplayName("Test toUUID(String)")
-  void testToUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).toUUID("42"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkArrayParameter("Name", null));
   }
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When {@code asc}.</li>
-   *   <li>Then return SortOrder Property is {@code U}.</li>
+   *   <li>Then return SortOrder Property is {@code homeDashboardId}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when 'asc'; then return SortOrder Property is 'U'")
-  void testCreatePageLink_whenAsc_thenReturnSortOrderPropertyIsU() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); then return SortOrder Property is 'homeDashboardId'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
+  void testCreatePageLink_thenReturnSortOrderPropertyIsHomeDashboardId()
+      throws ThingsboardException {
     // Arrange and Act
-    PageLink actualCreatePageLinkResult = (new AuditLogController()).createPageLink(3, 1, "Text Search", "U", "asc");
+    PageLink actualCreatePageLinkResult =
+        new AuditLogController().createPageLink(3, 1, "Text Search", "homeDashboardId", "asc");
 
     // Assert
     assertEquals("Text Search", actualCreatePageLinkResult.getTextSearch());
     SortOrder sortOrder = actualCreatePageLinkResult.getSortOrder();
-    assertEquals("U", sortOrder.getProperty());
+    assertEquals("homeDashboardId", sortOrder.getProperty());
     assertEquals(1, actualCreatePageLinkResult.getPage());
     assertEquals(3, actualCreatePageLinkResult.getPageSize());
-    assertEquals(SortOrder.Direction.ASC, sortOrder.getDirection());
+    assertEquals(Direction.ASC, sortOrder.getDirection());
   }
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return SortOrder is {@code null}.</li>
+   *   <li>When empty string.
+   *   <li>Then return SortOrder is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when empty string; then return SortOrder is 'null'")
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when empty string; then return SortOrder is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
   void testCreatePageLink_whenEmptyString_thenReturnSortOrderIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    PageLink actualCreatePageLinkResult = (new AuditLogController()).createPageLink(3, 1, "Text Search", "", null);
+    PageLink actualCreatePageLinkResult =
+        new AuditLogController().createPageLink(3, 1, "Text Search", "", "not empty");
 
     // Assert
     assertEquals("Text Search", actualCreatePageLinkResult.getTextSearch());
@@ -742,21 +508,24 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return SortOrder Property is {@code U}.</li>
+   *   <li>When empty string.
+   *   <li>Then return SortOrder Property is {@code U}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when empty string; then return SortOrder Property is 'U'")
-  void testCreatePageLink_whenEmptyString_thenReturnSortOrderPropertyIsU() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when empty string; then return SortOrder Property is 'U'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
+  void testCreatePageLink_whenEmptyString_thenReturnSortOrderPropertyIsU()
+      throws ThingsboardException {
     // Arrange and Act
-    PageLink actualCreatePageLinkResult = (new AuditLogController()).createPageLink(3, 1, "Text Search", "U", "");
+    PageLink actualCreatePageLinkResult =
+        new AuditLogController().createPageLink(3, 1, "Text Search", "U", "");
 
     // Assert
     assertEquals("Text Search", actualCreatePageLinkResult.getTextSearch());
@@ -764,26 +533,28 @@ class BaseControllerDiffblueTest {
     assertEquals("U", sortOrder.getProperty());
     assertEquals(1, actualCreatePageLinkResult.getPage());
     assertEquals(3, actualCreatePageLinkResult.getPageSize());
-    assertEquals(SortOrder.Direction.ASC, sortOrder.getDirection());
+    assertEquals(Direction.ASC, sortOrder.getDirection());
   }
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return SortOrder is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return SortOrder is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when 'null'; then return SortOrder is 'null'")
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when 'null'; then return SortOrder is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
   void testCreatePageLink_whenNull_thenReturnSortOrderIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    PageLink actualCreatePageLinkResult = (new AuditLogController()).createPageLink(3, 1, "Text Search", null, null);
+    PageLink actualCreatePageLinkResult =
+        new AuditLogController().createPageLink(3, 1, "Text Search", null, "not empty");
 
     // Assert
     assertEquals("Text Search", actualCreatePageLinkResult.getTextSearch());
@@ -794,63 +565,100 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When {@code Sort Property}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Sort Property}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when 'Sort Property'; then throw IllegalArgumentException")
-  void testCreatePageLink_whenSortProperty_thenThrowIllegalArgumentException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when 'Sort Property'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
+  void testCreatePageLink_whenSortProperty_thenThrowIllegalArgumentException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> (new AuditLogController()).createPageLink(3, 1, "Text Search", "Sort Property", "asc"));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> new AuditLogController().createPageLink(3, 1, "Text Search", "Sort Property", "asc"));
   }
 
   /**
    * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
    * <ul>
-   *   <li>When {@code U}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code U}.
+   *   <li>Then return SortOrder Property is {@code U}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createPageLink(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
    */
   @Test
-  @DisplayName("Test createPageLink(int, int, String, String, String); when 'U'; then throw ThingsboardException")
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when 'U'; then return SortOrder Property is 'U'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
+  void testCreatePageLink_whenU_thenReturnSortOrderPropertyIsU() throws ThingsboardException {
+    // Arrange and Act
+    PageLink actualCreatePageLinkResult =
+        new AuditLogController().createPageLink(3, 1, "Text Search", "U", "asc");
+
+    // Assert
+    assertEquals("Text Search", actualCreatePageLinkResult.getTextSearch());
+    SortOrder sortOrder = actualCreatePageLinkResult.getSortOrder();
+    assertEquals("U", sortOrder.getProperty());
+    assertEquals(1, actualCreatePageLinkResult.getPage());
+    assertEquals(3, actualCreatePageLinkResult.getPageSize());
+    assertEquals(Direction.ASC, sortOrder.getDirection());
+  }
+
+  /**
+   * Test {@link BaseController#createPageLink(int, int, String, String, String)}.
+   *
+   * <ul>
+   *   <li>When {@code U}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#createPageLink(int, int, String, String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test createPageLink(int, int, String, String, String); when 'U'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"PageLink BaseController.createPageLink(int, int, String, String, String)"})
   void testCreatePageLink_whenU_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).createPageLink(3, 1, "Text Search", "U", "U"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().createPageLink(3, 1, "Text Search", "U", "U"));
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When {@code asc}.</li>
-   *   <li>Then return SortOrder Property is {@code U}.</li>
+   *   <li>When {@code asc}.
+   *   <li>Then return SortOrder Property is {@code U}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when 'asc'; then return SortOrder Property is 'U'")
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when 'asc'; then return SortOrder Property is 'U'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
   void testCreateTimePageLink_whenAsc_thenReturnSortOrderPropertyIsU() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    TimePageLink actualCreateTimePageLinkResult = (new AuditLogController()).createTimePageLink(3, 1, "Text Search",
-        "U", "asc", 1L, 1L);
+    TimePageLink actualCreateTimePageLinkResult =
+        new AuditLogController().createTimePageLink(3, 1, "Text Search", "U", "asc", 1L, 1L);
 
     // Assert
     assertEquals("Text Search", actualCreateTimePageLinkResult.getTextSearch());
@@ -860,28 +668,32 @@ class BaseControllerDiffblueTest {
     assertEquals(1L, actualCreateTimePageLinkResult.getEndTime().longValue());
     assertEquals(1L, actualCreateTimePageLinkResult.getStartTime().longValue());
     assertEquals(3, actualCreateTimePageLinkResult.getPageSize());
-    assertEquals(SortOrder.Direction.ASC, sortOrder.getDirection());
+    assertEquals(Direction.ASC, sortOrder.getDirection());
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return SortOrder is {@code null}.</li>
+   *   <li>When empty string.
+   *   <li>Then return SortOrder is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when empty string; then return SortOrder is 'null'")
-  void testCreateTimePageLink_whenEmptyString_thenReturnSortOrderIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when empty string; then return SortOrder is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
+  void testCreateTimePageLink_whenEmptyString_thenReturnSortOrderIsNull()
+      throws ThingsboardException {
     // Arrange and Act
-    TimePageLink actualCreateTimePageLinkResult = (new AuditLogController()).createTimePageLink(3, 1, "Text Search", "",
-        null, 1L, 1L);
+    TimePageLink actualCreateTimePageLinkResult =
+        new AuditLogController().createTimePageLink(3, 1, "Text Search", "", "not empty", 1L, 1L);
 
     // Assert
     assertEquals("Text Search", actualCreateTimePageLinkResult.getTextSearch());
@@ -893,24 +705,28 @@ class BaseControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return SortOrder Property is {@code U}.</li>
+   *   <li>When empty string.
+   *   <li>Then return SortOrder Property is {@code U}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when empty string; then return SortOrder Property is 'U'")
-  void testCreateTimePageLink_whenEmptyString_thenReturnSortOrderPropertyIsU() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when empty string; then return SortOrder Property is 'U'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
+  void testCreateTimePageLink_whenEmptyString_thenReturnSortOrderPropertyIsU()
+      throws ThingsboardException {
     // Arrange and Act
-    TimePageLink actualCreateTimePageLinkResult = (new AuditLogController()).createTimePageLink(3, 1, "Text Search",
-        "U", "", 1L, 1L);
+    TimePageLink actualCreateTimePageLinkResult =
+        new AuditLogController().createTimePageLink(3, 1, "Text Search", "U", "", 1L, 1L);
 
     // Assert
     assertEquals("Text Search", actualCreateTimePageLinkResult.getTextSearch());
@@ -920,28 +736,31 @@ class BaseControllerDiffblueTest {
     assertEquals(1L, actualCreateTimePageLinkResult.getEndTime().longValue());
     assertEquals(1L, actualCreateTimePageLinkResult.getStartTime().longValue());
     assertEquals(3, actualCreateTimePageLinkResult.getPageSize());
-    assertEquals(SortOrder.Direction.ASC, sortOrder.getDirection());
+    assertEquals(Direction.ASC, sortOrder.getDirection());
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return SortOrder is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return SortOrder is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when 'null'; then return SortOrder is 'null'")
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when 'null'; then return SortOrder is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
   void testCreateTimePageLink_whenNull_thenReturnSortOrderIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    TimePageLink actualCreateTimePageLinkResult = (new AuditLogController()).createTimePageLink(3, 1, "Text Search",
-        null, null, 1L, 1L);
+    TimePageLink actualCreateTimePageLinkResult =
+        new AuditLogController().createTimePageLink(3, 1, "Text Search", null, "not empty", 1L, 1L);
 
     // Assert
     assertEquals("Text Search", actualCreateTimePageLinkResult.getTextSearch());
@@ -953,1244 +772,3254 @@ class BaseControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When {@code Sort Property}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Sort Property}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when 'Sort Property'; then throw IllegalArgumentException")
-  void testCreateTimePageLink_whenSortProperty_thenThrowIllegalArgumentException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when 'Sort Property'; then throw IllegalArgumentException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
+  void testCreateTimePageLink_whenSortProperty_thenThrowIllegalArgumentException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> (new AuditLogController()).createTimePageLink(3, 1, "Text Search", "Sort Property", "asc", 1L, 1L));
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            new AuditLogController()
+                .createTimePageLink(3, 1, "Text Search", "Sort Property", "asc", 1L, 1L));
   }
 
   /**
-   * Test
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   * Test {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}.
+   *
    * <ul>
-   *   <li>When {@code U}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code U}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createTimePageLink(int, int, String, String, String, Long, Long)}
+   *
+   * <p>Method under test: {@link BaseController#createTimePageLink(int, int, String, String,
+   * String, Long, Long)}
    */
   @Test
-  @DisplayName("Test createTimePageLink(int, int, String, String, String, Long, Long); when 'U'; then throw ThingsboardException")
+  @DisplayName(
+      "Test createTimePageLink(int, int, String, String, String, Long, Long); when 'U'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TimePageLink BaseController.createTimePageLink(int, int, String, String, String, Long, Long)"
+  })
   void testCreateTimePageLink_whenU_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).createTimePageLink(3, 1, "Text Search", "U", "U", 1L, 1L));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().createTimePageLink(3, 1, "Text Search", "U", "U", 1L, 1L));
   }
 
   /**
    * Test {@link BaseController#getCurrentUser()}.
-   * <p>
-   * Method under test: {@link BaseController#getCurrentUser()}
+   *
+   * <p>Method under test: {@link BaseController#getCurrentUser()}
    */
   @Test
   @DisplayName("Test getCurrentUser()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.service.security.model.SecurityUser BaseController.getCurrentUser()"
+  })
   void testGetCurrentUser() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).getCurrentUser());
+    assertThrows(ThingsboardException.class, () -> new AuditLogController().getCurrentUser());
   }
 
   /**
    * Test {@link BaseController#checkTenantId(TenantId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantId(TenantId, Operation); when 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.Tenant BaseController.checkTenantId(TenantId, Operation)"
+  })
   void testCheckTenantId_whenNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkTenantId(null, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkTenantId(null, Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkTenantId(TenantId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@link TenantId#TenantId(UUID)} with id is {@code null}.</li>
+   *   <li>When {@link TenantId#TenantId(UUID)} with id is fromString {@code
+   *       784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkTenantId(TenantId, Operation); when TenantId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.Tenant BaseController.checkTenantId(TenantId, Operation)"
+  })
+  void testCheckTenantId_whenTenantIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9()
+      throws ThingsboardException {
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkTenantId(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkTenantId(TenantId, Operation)}.
+   *
+   * <ul>
+   *   <li>When {@link TenantId#TenantId(UUID)} with id is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantId(TenantId, Operation); when TenantId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.Tenant BaseController.checkTenantId(TenantId, Operation)"
+  })
   void testCheckTenantId_whenTenantIdWithIdIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkTenantId(new TenantId(null), Operation.ALL));
-  }
-
-  /**
-   * Test {@link BaseController#checkTenantId(TenantId, Operation)}.
-   * <ul>
-   *   <li>When {@link TenantId#TenantId(UUID)} with id is randomUUID.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkTenantId(TenantId, Operation)}
-   */
-  @Test
-  @DisplayName("Test checkTenantId(TenantId, Operation); when TenantId(UUID) with id is randomUUID")
-  void testCheckTenantId_whenTenantIdWithIdIsRandomUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkTenantId(new TenantId(UUID.randomUUID()), Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkTenantId(new TenantId(null), Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkTenantInfoId(TenantId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkTenantInfoId(TenantId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkTenantInfoId(TenantId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantInfo BaseController.checkTenantInfoId(TenantId, Operation)"
+  })
+  void testCheckTenantInfoId() throws ThingsboardException {
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkTenantInfoId(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkTenantInfoId(TenantId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantInfoId(TenantId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantInfoId(TenantId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantInfoId(TenantId, Operation); when 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantInfo BaseController.checkTenantInfoId(TenantId, Operation)"
+  })
   void testCheckTenantInfoId_whenNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkTenantInfoId(null, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkTenantInfoId(null, Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkTenantInfoId(TenantId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@link TenantId#TenantId(UUID)} with id is {@code null}.</li>
+   *   <li>When {@link TenantId#TenantId(UUID)} with id is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantInfoId(TenantId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantInfoId(TenantId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantInfoId(TenantId, Operation); when TenantId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantInfo BaseController.checkTenantInfoId(TenantId, Operation)"
+  })
   void testCheckTenantInfoId_whenTenantIdWithIdIsNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantInfoId(new TenantId(null), Operation.ALL));
   }
 
   /**
-   * Test {@link BaseController#checkTenantInfoId(TenantId, Operation)}.
-   * <ul>
-   *   <li>When {@link TenantId#TenantId(UUID)} with id is randomUUID.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantInfoId(TenantId, Operation)}
+   * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
-  @DisplayName("Test checkTenantInfoId(TenantId, Operation); when TenantId(UUID) with id is randomUUID")
-  void testCheckTenantInfoId_whenTenantIdWithIdIsRandomUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkTenantInfoId(new TenantId(UUID.randomUUID()), Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkTenantProfileId(
+                new TenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation)")
-  void testCheckTenantProfileId() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId2() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId()).thenThrow(new DataValidationException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation)")
-  void testCheckTenantProfileId2() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId3() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId()).thenThrow(new EmptyResultDataAccessException(3));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation)")
-  void testCheckTenantProfileId3() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId4() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId())
-        .thenThrow(new ConstraintViolationException("An error occurred", new SQLException(), "Constraint Name"));
+        .thenThrow(
+            new ConstraintViolationException(
+                "An error occurred", new SQLException(), "Constraint Name"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
   @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation)")
-  void testCheckTenantProfileId4() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId5() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
-    when(tenantProfileId.getId()).thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+    when(tenantProfileId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
+   *
    * <ul>
-   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).</li>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
-  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation); given AsyncRequestTimeoutException (default constructor)")
+  @DisplayName(
+      "Test checkTenantProfileId(TenantProfileId, Operation); given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
   void testCheckTenantProfileId_givenAsyncRequestTimeoutException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId()).thenThrow(new AsyncRequestTimeoutException());
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
+   *
    * <ul>
-   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)}
-   * with {@code foo}.</li>
+   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code foo}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
-  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation); given IllegalArgumentException(String) with 'foo'")
+  @DisplayName(
+      "Test checkTenantProfileId(TenantProfileId, Operation); given IllegalArgumentException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
   void testCheckTenantProfileId_givenIllegalArgumentExceptionWithFoo() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
     verify(tenantProfileId).getId();
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link TenantProfileId} {@link UUIDBased#getId()} return
-   * {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
-  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation); given 'null'; when TenantProfileId getId() return 'null'")
-  void testCheckTenantProfileId_givenNull_whenTenantProfileIdGetIdReturnNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    TenantProfileId tenantProfileId = mock(TenantProfileId.class);
-    when(tenantProfileId.getId()).thenReturn(null);
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkTenantProfileId(tenantProfileId, Operation.ALL));
-    verify(tenantProfileId).getId();
-  }
-
-  /**
-   * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
-   */
-  @Test
-  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation); when 'null'; then throw ThingsboardException")
-  void testCheckTenantProfileId_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkTenantProfileId(TenantProfileId, Operation); when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkTenantProfileId(null, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkTenantProfileId(null, Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@link TenantProfileId#TenantProfileId(UUID)} with id is
-   * randomUUID.</li>
+   *   <li>When {@link TenantProfileId#TenantProfileId(UUID)} with id is {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkTenantProfileId(TenantProfileId, Operation)}
    */
   @Test
-  @DisplayName("Test checkTenantProfileId(TenantProfileId, Operation); when TenantProfileId(UUID) with id is randomUUID")
-  void testCheckTenantProfileId_whenTenantProfileIdWithIdIsRandomUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkTenantProfileId(TenantProfileId, Operation); when TenantProfileId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.TenantProfile BaseController.checkTenantProfileId(TenantProfileId, Operation)"
+  })
+  void testCheckTenantProfileId_whenTenantProfileIdWithIdIsNull() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkTenantProfileId(new TenantProfileId(UUID.randomUUID()), Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkTenantProfileId(new TenantProfileId(null), Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#getTenantId()}.
-   * <p>
-   * Method under test: {@link BaseController#getTenantId()}
+   *
+   * <p>Method under test: {@link BaseController#getTenantId()}
    */
   @Test
   @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TenantId BaseController.getTenantId()"})
   void testGetTenantId() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).getTenantId());
+    assertThrows(ThingsboardException.class, () -> new AuditLogController().getTenantId());
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
   void testCheckEntityWithEntityIdEntityResource() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenThrow(new IncorrectParameterException("An error occurred"));
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
-    verify(alarmId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
   void testCheckEntityWithEntityIdEntityResource2() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenThrow(new DataValidationException("An error occurred"));
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenThrow(new DataValidationException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
-    verify(alarmId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
   void testCheckEntityWithEntityIdEntityResource3() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenThrow(new EmptyResultDataAccessException(3));
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenThrow(new EmptyResultDataAccessException(3));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
-    verify(alarmId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
   void testCheckEntityWithEntityIdEntityResource4() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
-    verify(alarmId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <ul>
-   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given AsyncRequestTimeoutException (default constructor)")
-  void testCheckEntityWithEntityIdEntityResource_givenAsyncRequestTimeoutException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenThrow(new AsyncRequestTimeoutException());
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
-    verify(alarmId).getEntityType();
-    verify(alarmId).getId();
-  }
-
-  /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
-   * <ul>
-   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)}
-   * with {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
-   */
-  @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given IllegalArgumentException(String) with 'foo'")
-  void testCheckEntityWithEntityIdEntityResource_givenIllegalArgumentExceptionWithFoo() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource5() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenThrow(new IllegalArgumentException("foo"));
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getEntityType();
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link AlarmId} {@link UUIDBased#getId()} return {@code null}.</li>
+   *   <li>Given {@code ALARM}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'null'; when AlarmId getId() return 'null'")
-  void testCheckEntityWithEntityIdEntityResource_givenNull_whenAlarmIdGetIdReturnNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'ALARM'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenAlarm() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.ALARM);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code ASSET}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'ASSET'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenAsset() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.ASSET);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenAsyncRequestTimeoutException()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getId()).thenReturn(null);
+    when(alarmId.getId()).thenThrow(new AsyncRequestTimeoutException());
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>Given {@code RULE_NODE}.</li>
+   *   <li>Given {@code CUSTOMER}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'RULE_NODE'")
-  void testCheckEntityWithEntityIdEntityResource_givenRuleNode() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenCustomer() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.CUSTOMER);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code DASHBOARD}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'DASHBOARD'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenDashboard() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.DASHBOARD);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code DEVICE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'DEVICE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenDevice() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.DEVICE);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code DEVICE_PROFILE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'DEVICE_PROFILE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenDeviceProfile() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.DEVICE_PROFILE);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code ENTITY_VIEW}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'ENTITY_VIEW'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenEntityView() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.ENTITY_VIEW);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given randomUUID.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given randomUUID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenRandomUUID() throws ThingsboardException {
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.TENANT);
+    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code RULE_CHAIN}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'RULE_CHAIN'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenRuleChain() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.RULE_CHAIN);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code RULE_NODE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'RULE_NODE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenRuleNode() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenReturn(EntityType.RULE_NODE);
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getEntityType();
     verify(alarmId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>Given {@code TENANT}.</li>
+   *   <li>Given {@code TENANT}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'TENANT'")
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'TENANT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
   void testCheckEntityWithEntityIdEntityResource_givenTenant() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenReturn(EntityType.TENANT);
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getEntityType();
     verify(alarmId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>Given {@code TENANT_PROFILE}.</li>
+   *   <li>Given {@code TENANT}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'TENANT_PROFILE'")
-  void testCheckEntityWithEntityIdEntityResource_givenTenantProfile() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'TENANT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenTenant2() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.TENANT);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code TENANT_PROFILE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'TENANT_PROFILE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenTenantProfile() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenReturn(EntityType.TENANT_PROFILE);
-    when(alarmId.getId()).thenReturn(UUID.randomUUID());
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getEntityType();
     verify(alarmId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>Given {@link UUID#UUID(long, long)} with one and one.</li>
+   *   <li>Given {@code USER}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given UUID(long, long) with one and one")
-  void testCheckEntityWithEntityIdEntityResource_givenUuidWithOneAndOne() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'USER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenUser() throws ThingsboardException {
     // Arrange
-    AuditLogController auditLogController = new AuditLogController();
     AlarmId alarmId = mock(AlarmId.class);
-    when(alarmId.getEntityType()).thenReturn(EntityType.TENANT);
-    when(alarmId.getId()).thenReturn(new UUID(1L, 1L));
+    when(alarmId.getEntityType()).thenReturn(EntityType.USER);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkEntity(alarmId, mock(HasTenantId.class), Resource.ALARM));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
     verify(alarmId).getEntityType();
     verify(alarmId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with
-   * {@code entityId}, {@code entity}, {@code resource}.
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>Given {@code WIDGET_TYPE}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
    */
   @Test
-  @DisplayName("Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; when 'null'; then throw ThingsboardException")
-  void testCheckEntityWithEntityIdEntityResource_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'WIDGET_TYPE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenWidgetType() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.WIDGET_TYPE);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>Given {@code WIDGETS_BUNDLE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; given 'WIDGETS_BUNDLE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_givenWidgetsBundle() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getEntityType()).thenReturn(EntityType.WIDGETS_BUNDLE);
+    when(alarmId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                alarmId, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    verify(alarmId).getEntityType();
+    verify(alarmId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>When {@link AlarmId#AlarmId(UUID)} with id is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; when AlarmId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_whenAlarmIdWithIdIsNull()
+      throws ThingsboardException {
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkEntity(
+                new AlarmId(null), mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+  }
+
+  /**
+   * Test {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)} with {@code entityId},
+   * {@code entity}, {@code resource}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntity(EntityId, HasTenantId, Resource)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntity(EntityId, HasTenantId, Resource) with 'entityId', 'entity', 'resource'; when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntity(EntityId, HasTenantId, Resource)"})
+  void testCheckEntityWithEntityIdEntityResource_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new AuditLogController()).checkEntity(null, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            new AuditLogController()
+                .checkEntity(null, mock(HasTenantId.class), Resource.ADMIN_SETTINGS));
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
   @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenThrow(new IncorrectParameterException("An error occurred"));
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
   @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation2() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenThrow(new DataValidationException("An error occurred"));
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenThrow(new DataValidationException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
   @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation3() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenThrow(new EmptyResultDataAccessException(3));
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenThrow(new EmptyResultDataAccessException(3));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
   @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation4() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <ul>
-   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given AsyncRequestTimeoutException (default constructor)")
-  void testCheckEntityIdWithEntityIdOperation_givenAsyncRequestTimeoutException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenThrow(new AsyncRequestTimeoutException());
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
-    verify(entityId).getId();
-  }
-
-  /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
-   * <ul>
-   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)}
-   * with {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
-   */
-  @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given IllegalArgumentException(String) with 'foo'")
-  void testCheckEntityIdWithEntityIdOperation_givenIllegalArgumentExceptionWithFoo() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation5() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
     when(entityId.getEntityType()).thenThrow(new IllegalArgumentException("foo"));
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getEntityType();
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link AlarmId} {@link UUIDBased#getId()} return {@code null}.</li>
+   *   <li>Given {@code ALARM}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'null'; when AlarmId getId() return 'null'")
-  void testCheckEntityIdWithEntityIdOperation_givenNull_whenAlarmIdGetIdReturnNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'ALARM'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenAlarm() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.ALARM);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code ASSET}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'ASSET'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenAsset() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.ASSET);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenAsyncRequestTimeoutException()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getId()).thenReturn(null);
+    when(entityId.getId()).thenThrow(new AsyncRequestTimeoutException());
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>Given {@code RULE_NODE}.</li>
+   *   <li>Given {@code CUSTOMER}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'RULE_NODE'")
-  void testCheckEntityIdWithEntityIdOperation_givenRuleNode() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenCustomer() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.CUSTOMER);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code DASHBOARD}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'DASHBOARD'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenDashboard() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code DEVICE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'DEVICE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenDevice() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.DEVICE);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code DEVICE_PROFILE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'DEVICE_PROFILE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenDeviceProfile() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.DEVICE_PROFILE);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code ENTITY_VIEW}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'ENTITY_VIEW'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenEntityView() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.ENTITY_VIEW);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given randomUUID.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given randomUUID")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenRandomUUID() throws ThingsboardException {
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
+    when(entityId.getId()).thenReturn(UUID.randomUUID());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code RULE_CHAIN}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'RULE_CHAIN'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenRuleChain() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.RULE_CHAIN);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code RULE_NODE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'RULE_NODE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenRuleNode() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
     when(entityId.getEntityType()).thenReturn(EntityType.RULE_NODE);
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getEntityType();
     verify(entityId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>Given {@code TENANT}.</li>
+   *   <li>Given {@code TENANT}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'TENANT'")
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'TENANT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation_givenTenant() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getEntityType();
     verify(entityId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>Given {@code TENANT_PROFILE}.</li>
+   *   <li>Given {@code TENANT_PROFILE}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'TENANT_PROFILE'")
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'TENANT_PROFILE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
   void testCheckEntityIdWithEntityIdOperation_givenTenantProfile() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmId entityId = mock(AlarmId.class);
     when(entityId.getEntityType()).thenReturn(EntityType.TENANT_PROFILE);
-    when(entityId.getId()).thenReturn(UUID.randomUUID());
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
     verify(entityId).getEntityType();
     verify(entityId, atLeast(1)).getId();
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>Given {@link UUID#UUID(long, long)} with one and one.</li>
+   *   <li>Given {@code USER}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given UUID(long, long) with one and one")
-  void testCheckEntityIdWithEntityIdOperation_givenUuidWithOneAndOne() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'USER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenUser() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.USER);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code WIDGET_TYPE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'WIDGET_TYPE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenWidgetType() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.WIDGET_TYPE);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>Given {@code WIDGETS_BUNDLE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; given 'WIDGETS_BUNDLE'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_givenWidgetsBundle() throws ThingsboardException {
+    // Arrange
+    AlarmId entityId = mock(AlarmId.class);
+    when(entityId.getEntityType()).thenReturn(EntityType.WIDGETS_BUNDLE);
+    when(entityId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(entityId, Operation.ALL));
+    verify(entityId).getEntityType();
+    verify(entityId, atLeast(1)).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
+   * <ul>
+   *   <li>When {@link AlarmId#AlarmId(UUID)} with id is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; when AlarmId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_whenAlarmIdWithIdIsNull()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
-    AlarmId entityId = mock(AlarmId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.TENANT);
-    when(entityId.getId()).thenReturn(new UUID(1L, 1L));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkEntityId(entityId, Operation.ALL));
-    verify(entityId).getEntityType();
-    verify(entityId, atLeast(1)).getId();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkEntityId(new AlarmId(null), Operation.ALL));
   }
 
   /**
-   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with
-   * {@code entityId}, {@code operation}.
+   * Test {@link BaseController#checkEntityId(EntityId, Operation)} with {@code entityId}, {@code
+   * operation}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkEntityId(EntityId, Operation)}
    */
   @Test
-  @DisplayName("Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; when 'null'; then throw ThingsboardException")
-  void testCheckEntityIdWithEntityIdOperation_whenNull_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkEntityId(EntityId, Operation) with 'entityId', 'operation'; when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void BaseController.checkEntityId(EntityId, Operation)"})
+  void testCheckEntityIdWithEntityIdOperation_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new AuditLogController()).checkEntityId(null, Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () -> new AuditLogController().checkEntityId(null, Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmId(AlarmId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId())
+        .thenThrow(
+            new ConstraintViolationException(
+                "An error occurred", new SQLException(), "Invalid entity id"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmId(AlarmId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId2() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenAsyncRequestTimeoutException() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new AsyncRequestTimeoutException());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link AuditLogController}.
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given AuditLogController; when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenAuditLogController_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(null, Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link DataValidationException#DataValidationException(String)} with message is
+   *       {@code An error occurred}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given DataValidationException(String) with message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenDataValidationExceptionWithMessageIsAnErrorOccurred()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link EmptyResultDataAccessException#EmptyResultDataAccessException(int)} with
+   *       expectedSize is three.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given EmptyResultDataAccessException(int) with expectedSize is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenEmptyResultDataAccessExceptionWithExpectedSizeIsThree()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code
+   *       Invalid entity id}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given IllegalArgumentException(String) with 'Invalid entity id'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenIllegalArgumentExceptionWithInvalidEntityId()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new IllegalArgumentException("Invalid entity id"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@code null}.
+   *   <li>When {@link AlarmId} {@link AlarmId#getId()} return {@code null}.
+   *   <li>Then calls {@link AlarmId#getId()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); given 'null'; when AlarmId getId() return 'null'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_givenNull_whenAlarmIdGetIdReturnNull_thenCallsGetId()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenReturn(null);
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>When {@link AlarmId#AlarmId(UUID)} with id is fromString {@code
+   *       784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmId(AlarmId, Operation); when AlarmId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.Alarm BaseController.checkAlarmId(AlarmId, Operation)"
+  })
+  void testCheckAlarmId_whenAlarmIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9()
+      throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkAlarmId(
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmInfoId(AlarmId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId() throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkAlarmInfoId(
+                new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmInfoId(AlarmId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId2() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId())
+        .thenThrow(
+            new ConstraintViolationException(
+                "An error occurred", new SQLException(), "Invalid entity id"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmInfoId(AlarmId, Operation)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId3() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_givenAsyncRequestTimeoutException() throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new AsyncRequestTimeoutException());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link DataValidationException#DataValidationException(String)} with message is
+   *       {@code An error occurred}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); given DataValidationException(String) with message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_givenDataValidationExceptionWithMessageIsAnErrorOccurred()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link EmptyResultDataAccessException#EmptyResultDataAccessException(int)} with
+   *       expectedSize is three.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); given EmptyResultDataAccessException(int) with expectedSize is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_givenEmptyResultDataAccessExceptionWithExpectedSizeIsThree()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code
+   *       Invalid entity id}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); given IllegalArgumentException(String) with 'Invalid entity id'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_givenIllegalArgumentExceptionWithInvalidEntityId()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenThrow(new IllegalArgumentException("Invalid entity id"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>Given {@code null}.
+   *   <li>When {@link AlarmId} {@link AlarmId#getId()} return {@code null}.
+   *   <li>Then calls {@link AlarmId#getId()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); given 'null'; when AlarmId getId() return 'null'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_givenNull_whenAlarmIdGetIdReturnNull_thenCallsGetId()
+      throws ThingsboardException {
+    // Arrange
+    AlarmId alarmId = mock(AlarmId.class);
+    when(alarmId.getId()).thenReturn(null);
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmInfoId(alarmId, Operation.ALL));
+    verify(alarmId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmInfoId(AlarmId, Operation)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmInfoId(AlarmId, Operation); when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmInfo BaseController.checkAlarmInfoId(AlarmId, Operation)"
+  })
+  void testCheckAlarmInfoId_whenNull_thenThrowThingsboardException() throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> auditLogController.checkAlarmInfoId(null, Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
   @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
   void testCheckAlarmCommentId() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+    // Arrange
+    AuditLogController auditLogController = new AuditLogController();
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkAlarmCommentId(
+                new AlarmCommentId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   */
+  @Test
+  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId2() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId()).thenThrow(new EmptyResultDataAccessException(3));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
   @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId)")
-  void testCheckAlarmCommentId2() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId3() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId())
-        .thenThrow(new ConstraintViolationException("An error occurred", new SQLException(), "Constraint Name"));
+        .thenThrow(
+            new ConstraintViolationException(
+                "An error occurred", new SQLException(), "Constraint Name"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
   @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId)")
-  void testCheckAlarmCommentId3() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId4() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
-    when(alarmCommentId.getId()).thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+    when(alarmCommentId.getId())
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
    * <ul>
-   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).</li>
+   *   <li>Given {@link AsyncRequestTimeoutException} (default constructor).
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AsyncRequestTimeoutException (default constructor)")
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AsyncRequestTimeoutException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
   void testCheckAlarmCommentId_givenAsyncRequestTimeoutException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId()).thenThrow(new AsyncRequestTimeoutException());
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
    * <ul>
-   *   <li>Given {@link DataValidationException#DataValidationException(String)}
-   * with message is {@code An error occurred}.</li>
+   *   <li>Given {@link AuditLogController}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given DataValidationException(String) with message is 'An error occurred'")
-  void testCheckAlarmCommentId_givenDataValidationExceptionWithMessageIsAnErrorOccurred() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AuditLogController")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId_givenAuditLogController() throws ThingsboardException {
+    // Arrange
+    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
+    when(alarmCommentId.getId()).thenThrow(new EmptyResultDataAccessException(3));
 
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    verify(alarmCommentId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
+   * <ul>
+   *   <li>Given {@link AuditLogController} (default constructor).
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AuditLogController (default constructor); then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId_givenAuditLogController_thenThrowThingsboardException()
+      throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> new AuditLogController().checkAlarmCommentId(null, null));
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
+   * <ul>
+   *   <li>Given {@link DataValidationException#DataValidationException(String)} with message is
+   *       {@code An error occurred}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given DataValidationException(String) with message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId_givenDataValidationExceptionWithMessageIsAnErrorOccurred()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId()).thenThrow(new DataValidationException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
    * <ul>
-   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)}
-   * with {@code foo}.</li>
+   *   <li>Given {@link IllegalArgumentException#IllegalArgumentException(String)} with {@code foo}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given IllegalArgumentException(String) with 'foo'")
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given IllegalArgumentException(String) with 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
   void testCheckAlarmCommentId_givenIllegalArgumentExceptionWithFoo() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link AlarmCommentId} {@link UUIDBased#getId()} return
-   * {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link AlarmCommentId} {@link AlarmCommentId#getId()} return {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
    */
   @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given 'null'; when AlarmCommentId getId() return 'null'")
-  void testCheckAlarmCommentId_givenNull_whenAlarmCommentIdGetIdReturnNull() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given 'null'; when AlarmCommentId getId() return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId_givenNull_whenAlarmCommentIdGetIdReturnNull()
+      throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
     AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
     when(alarmCommentId.getId()).thenReturn(null);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
   }
 
   /**
-   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   * <ul>
-   *   <li>Given randomUUID.</li>
-   *   <li>When {@link AlarmCommentId} {@link UUIDBased#getId()} return
-   * randomUUID.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
    */
   @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given randomUUID; when AlarmCommentId getId() return randomUUID")
-  void testCheckAlarmCommentId_givenRandomUUID_whenAlarmCommentIdGetIdReturnRandomUUID() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz() throws ThingsboardException {
     // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
-    when(alarmCommentId.getId()).thenReturn(UUID.randomUUID());
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new IllegalArgumentException("[{}] Lookup component descriptor"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
-    verify(alarmCommentId).getId();
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz2() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz3() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz4() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new AsyncRequestTimeoutException());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz5() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz6() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponent(Mockito.<String>any()))
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz7() throws ThingsboardException {
+    // Arrange
+    Optional<ComponentDescriptor> emptyResult = Optional.empty();
+    when(componentDiscoveryService.getComponent(Mockito.<String>any())).thenReturn(emptyResult);
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> auditLogController.checkComponentDescriptorByClazz("Clazz"));
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorByClazz(String)}.
+   *
+   * <ul>
+   *   <li>Then return {@link ComponentDescriptor#ComponentDescriptor()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorByClazz(String)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorByClazz(String); then return ComponentDescriptor()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ComponentDescriptor BaseController.checkComponentDescriptorByClazz(String)"})
+  void testCheckComponentDescriptorByClazz_thenReturnComponentDescriptor()
+      throws ThingsboardException {
+    // Arrange
+    ComponentDescriptor componentDescriptor = new ComponentDescriptor();
+    Optional<ComponentDescriptor> ofResult = Optional.of(componentDescriptor);
+    when(componentDiscoveryService.getComponent(Mockito.<String>any())).thenReturn(ofResult);
+
+    // Act
+    ComponentDescriptor actualCheckComponentDescriptorByClazzResult =
+        auditLogController.checkComponentDescriptorByClazz("Clazz");
+
+    // Assert
+    verify(componentDiscoveryService).getComponent(eq("Clazz"));
+    assertSame(componentDescriptor, actualCheckComponentDescriptorByClazzResult);
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new IllegalArgumentException("[{}] Lookup component descriptors"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType2() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType3() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType4() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new AsyncRequestTimeoutException());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType5() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByType(ComponentType, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType6() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByType(
+                ComponentType.ENRICHMENT, RuleChainType.CORE));
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByType(ComponentType, RuleChainType)}.
+   *
+   * <ul>
+   *   <li>Then return Empty.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByType(ComponentType,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkComponentDescriptorsByType(ComponentType, RuleChainType); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "List BaseController.checkComponentDescriptorsByType(ComponentType, RuleChainType)"
+  })
+  void testCheckComponentDescriptorsByType_thenReturnEmpty() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<ComponentType>any(), Mockito.<RuleChainType>any()))
+        .thenReturn(new ArrayList<>());
+
+    // Act
+    List<ComponentDescriptor> actualCheckComponentDescriptorsByTypeResult =
+        auditLogController.checkComponentDescriptorsByType(
+            ComponentType.ENRICHMENT, RuleChainType.CORE);
+
+    // Assert
+    verify(componentDiscoveryService)
+        .getComponents(eq(ComponentType.ENRICHMENT), eq(RuleChainType.CORE));
+    assertTrue(actualCheckComponentDescriptorsByTypeResult.isEmpty());
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new IllegalArgumentException("[{}] Lookup component descriptors"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes2() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes3() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes4() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new AsyncRequestTimeoutException());
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes5() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes6() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenThrow(new EntityVersionMismatchException("0123456789ABCDEF", new Throwable()));
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkComponentDescriptorsByTypes(
+                new HashSet<>(), RuleChainType.CORE));
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <ul>
+   *   <li>Given {@code ENRICHMENT}.
+   *   <li>When {@link HashSet#HashSet()} add {@code ENRICHMENT}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkComponentDescriptorsByTypes(Set, RuleChainType); given 'ENRICHMENT'; when HashSet() add 'ENRICHMENT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes_givenEnrichment_whenHashSetAddEnrichment()
+      throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenReturn(new ArrayList<>());
+
+    HashSet<ComponentType> types = new HashSet<>();
+    types.add(ComponentType.ENRICHMENT);
+
+    // Act
+    List<ComponentDescriptor> actualCheckComponentDescriptorsByTypesResult =
+        auditLogController.checkComponentDescriptorsByTypes(types, RuleChainType.CORE);
+
+    // Assert
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+    assertTrue(actualCheckComponentDescriptorsByTypesResult.isEmpty());
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <ul>
+   *   <li>Given {@code FILTER}.
+   *   <li>When {@link HashSet#HashSet()} add {@code FILTER}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkComponentDescriptorsByTypes(Set, RuleChainType); given 'FILTER'; when HashSet() add 'FILTER'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes_givenFilter_whenHashSetAddFilter()
+      throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenReturn(new ArrayList<>());
+
+    HashSet<ComponentType> types = new HashSet<>();
+    types.add(ComponentType.FILTER);
+    types.add(ComponentType.ENRICHMENT);
+
+    // Act
+    List<ComponentDescriptor> actualCheckComponentDescriptorsByTypesResult =
+        auditLogController.checkComponentDescriptorsByTypes(types, RuleChainType.CORE);
+
+    // Assert
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+    assertTrue(actualCheckComponentDescriptorsByTypesResult.isEmpty());
+  }
+
+  /**
+   * Test {@link BaseController#checkComponentDescriptorsByTypes(Set, RuleChainType)}.
+   *
+   * <ul>
+   *   <li>Then return Empty.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkComponentDescriptorsByTypes(Set,
+   * RuleChainType)}
+   */
+  @Test
+  @DisplayName("Test checkComponentDescriptorsByTypes(Set, RuleChainType); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.checkComponentDescriptorsByTypes(Set, RuleChainType)"})
+  void testCheckComponentDescriptorsByTypes_thenReturnEmpty() throws ThingsboardException {
+    // Arrange
+    when(componentDiscoveryService.getComponents(
+            Mockito.<Set<ComponentType>>any(), Mockito.<RuleChainType>any()))
+        .thenReturn(new ArrayList<>());
+
+    // Act
+    List<ComponentDescriptor> actualCheckComponentDescriptorsByTypesResult =
+        auditLogController.checkComponentDescriptorsByTypes(new HashSet<>(), RuleChainType.CORE);
+
+    // Assert
+    verify(componentDiscoveryService).getComponents(isA(Set.class), eq(RuleChainType.CORE));
+    assertTrue(actualCheckComponentDescriptorsByTypesResult.isEmpty());
   }
 
   /**
    * Test {@link BaseController#checkRuleNode(RuleNodeId, Operation)}.
+   *
    * <ul>
-   *   <li>When {@link RuleNodeId#RuleNodeId(UUID)} with id is randomUUID.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#checkRuleNode(RuleNodeId, Operation)}
+   *
+   * <p>Method under test: {@link BaseController#checkRuleNode(RuleNodeId, Operation)}
    */
   @Test
-  @DisplayName("Test checkRuleNode(RuleNodeId, Operation); when RuleNodeId(UUID) with id is randomUUID; then throw ThingsboardException")
-  void testCheckRuleNode_whenRuleNodeIdWithIdIsRandomUUID_thenThrowThingsboardException() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName("Test checkRuleNode(RuleNodeId, Operation); then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.rule.RuleNode BaseController.checkRuleNode(RuleNodeId, Operation)"
+  })
+  void testCheckRuleNode_thenThrowThingsboardException() throws ThingsboardException {
     // Arrange
     AuditLogController auditLogController = new AuditLogController();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> auditLogController.checkRuleNode(new RuleNodeId(UUID.randomUUID()), Operation.ALL));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            auditLogController.checkRuleNode(
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                Operation.ALL));
   }
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then return {@link AlarmId}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then return {@link AlarmId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'ALARM'; then return AlarmId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenAlarm_thenReturnAlarmId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.ALARM);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.ALARM);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof AlarmId);
@@ -2201,20 +4030,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code API_USAGE_STATE}.</li>
-   *   <li>Then return {@link ApiUsageStateId}.</li>
+   *   <li>When {@code API_USAGE_STATE}.
+   *   <li>Then return {@link ApiUsageStateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'API_USAGE_STATE'; then return ApiUsageStateId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenApiUsageState_thenReturnApiUsageStateId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.API_USAGE_STATE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.API_USAGE_STATE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof ApiUsageStateId);
@@ -2225,20 +4055,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET_PROFILE}.</li>
-   *   <li>Then return {@link AssetProfileId}.</li>
+   *   <li>When {@code ASSET_PROFILE}.
+   *   <li>Then return {@link AssetProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'ASSET_PROFILE'; then return AssetProfileId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenAssetProfile_thenReturnAssetProfileId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.ASSET_PROFILE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.ASSET_PROFILE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof AssetProfileId);
@@ -2249,20 +4080,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ASSET}.</li>
-   *   <li>Then return {@link AssetId}.</li>
+   *   <li>When {@code ASSET}.
+   *   <li>Then return {@link AssetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'ASSET'; then return AssetId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenAsset_thenReturnAssetId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.ASSET);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.ASSET);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof AssetId);
@@ -2273,20 +4105,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER}.</li>
-   *   <li>Then return {@link CustomerId}.</li>
+   *   <li>When {@code CUSTOMER}.
+   *   <li>Then return {@link CustomerId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'CUSTOMER'; then return CustomerId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenCustomer_thenReturnCustomerId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.CUSTOMER);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.CUSTOMER);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof CustomerId);
@@ -2297,20 +4130,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DASHBOARD}.</li>
-   *   <li>Then return {@link DashboardId}.</li>
+   *   <li>When {@code DASHBOARD}.
+   *   <li>Then return {@link DashboardId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'DASHBOARD'; then return DashboardId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenDashboard_thenReturnDashboardId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.DASHBOARD);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.DASHBOARD);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof DashboardId);
@@ -2321,20 +4155,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE_PROFILE}.</li>
-   *   <li>Then return {@link DeviceProfileId}.</li>
+   *   <li>When {@code DEVICE_PROFILE}.
+   *   <li>Then return {@link DeviceProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'DEVICE_PROFILE'; then return DeviceProfileId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenDeviceProfile_thenReturnDeviceProfileId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.DEVICE_PROFILE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.DEVICE_PROFILE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof DeviceProfileId);
@@ -2345,20 +4180,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DEVICE}.</li>
-   *   <li>Then return {@link DeviceId}.</li>
+   *   <li>When {@code DEVICE}.
+   *   <li>Then return {@link DeviceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'DEVICE'; then return DeviceId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenDevice_thenReturnDeviceId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.DEVICE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.DEVICE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof DeviceId);
@@ -2369,20 +4205,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code DOMAIN}.</li>
-   *   <li>Then return {@link DomainId}.</li>
+   *   <li>When {@code DOMAIN}.
+   *   <li>Then return {@link DomainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'DOMAIN'; then return DomainId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenDomain_thenReturnDomainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.DOMAIN);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.DOMAIN);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof DomainId);
@@ -2393,20 +4230,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
-   *   <li>Then return {@link EdgeId}.</li>
+   *   <li>When {@code EDGE}.
+   *   <li>Then return {@link EdgeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'EDGE'; then return EdgeId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenEdge_thenReturnEdgeId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.EDGE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.EDGE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof EdgeId);
@@ -2417,20 +4255,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code ENTITY_VIEW}.</li>
-   *   <li>Then return {@link EntityViewId}.</li>
+   *   <li>When {@code ENTITY_VIEW}.
+   *   <li>Then return {@link EntityViewId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'ENTITY_VIEW'; then return EntityViewId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenEntityView_thenReturnEntityViewId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.ENTITY_VIEW);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.ENTITY_VIEW);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof EntityViewId);
@@ -2441,20 +4280,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code MOBILE_APP}.</li>
-   *   <li>Then return {@link MobileAppId}.</li>
+   *   <li>When {@code MOBILE_APP}.
+   *   <li>Then return {@link MobileAppId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'MOBILE_APP'; then return MobileAppId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenMobileApp_thenReturnMobileAppId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.MOBILE_APP);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.MOBILE_APP);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof MobileAppId);
@@ -2465,20 +4305,23 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_REQUEST}.</li>
-   *   <li>Then return {@link NotificationRequestId}.</li>
+   *   <li>When {@code NOTIFICATION_REQUEST}.
+   *   <li>Then return {@link NotificationRequestId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
-  @DisplayName("Test emptyId(EntityType); when 'NOTIFICATION_REQUEST'; then return NotificationRequestId")
+  @DisplayName(
+      "Test emptyId(EntityType); when 'NOTIFICATION_REQUEST'; then return NotificationRequestId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenNotificationRequest_thenReturnNotificationRequestId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.NOTIFICATION_REQUEST);
+    EntityId actualEmptyIdResult =
+        new AuditLogController().emptyId(EntityType.NOTIFICATION_REQUEST);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof NotificationRequestId);
@@ -2489,20 +4332,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_RULE}.</li>
-   *   <li>Then return {@link NotificationRuleId}.</li>
+   *   <li>When {@code NOTIFICATION_RULE}.
+   *   <li>Then return {@link NotificationRuleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'NOTIFICATION_RULE'; then return NotificationRuleId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenNotificationRule_thenReturnNotificationRuleId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.NOTIFICATION_RULE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.NOTIFICATION_RULE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof NotificationRuleId);
@@ -2513,20 +4357,22 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_TARGET}.</li>
-   *   <li>Then return {@link NotificationTargetId}.</li>
+   *   <li>When {@code NOTIFICATION_TARGET}.
+   *   <li>Then return {@link NotificationTargetId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
-  @DisplayName("Test emptyId(EntityType); when 'NOTIFICATION_TARGET'; then return NotificationTargetId")
+  @DisplayName(
+      "Test emptyId(EntityType); when 'NOTIFICATION_TARGET'; then return NotificationTargetId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenNotificationTarget_thenReturnNotificationTargetId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.NOTIFICATION_TARGET);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.NOTIFICATION_TARGET);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof NotificationTargetId);
@@ -2537,20 +4383,23 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION_TEMPLATE}.</li>
-   *   <li>Then return {@link NotificationTemplateId}.</li>
+   *   <li>When {@code NOTIFICATION_TEMPLATE}.
+   *   <li>Then return {@link NotificationTemplateId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
-  @DisplayName("Test emptyId(EntityType); when 'NOTIFICATION_TEMPLATE'; then return NotificationTemplateId")
+  @DisplayName(
+      "Test emptyId(EntityType); when 'NOTIFICATION_TEMPLATE'; then return NotificationTemplateId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenNotificationTemplate_thenReturnNotificationTemplateId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.NOTIFICATION_TEMPLATE);
+    EntityId actualEmptyIdResult =
+        new AuditLogController().emptyId(EntityType.NOTIFICATION_TEMPLATE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof NotificationTemplateId);
@@ -2561,20 +4410,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code NOTIFICATION}.</li>
-   *   <li>Then return {@link NotificationId}.</li>
+   *   <li>When {@code NOTIFICATION}.
+   *   <li>Then return {@link NotificationId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'NOTIFICATION'; then return NotificationId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenNotification_thenReturnNotificationId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.NOTIFICATION);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.NOTIFICATION);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof NotificationId);
@@ -2585,20 +4435,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code OAUTH2_CLIENT}.</li>
-   *   <li>Then return {@link OAuth2ClientId}.</li>
+   *   <li>When {@code OAUTH2_CLIENT}.
+   *   <li>Then return {@link OAuth2ClientId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'OAUTH2_CLIENT'; then return OAuth2ClientId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenOauth2Client_thenReturnOAuth2ClientId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.OAUTH2_CLIENT);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.OAUTH2_CLIENT);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof OAuth2ClientId);
@@ -2609,20 +4460,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code OTA_PACKAGE}.</li>
-   *   <li>Then return {@link OtaPackageId}.</li>
+   *   <li>When {@code OTA_PACKAGE}.
+   *   <li>Then return {@link OtaPackageId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'OTA_PACKAGE'; then return OtaPackageId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenOtaPackage_thenReturnOtaPackageId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.OTA_PACKAGE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.OTA_PACKAGE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof OtaPackageId);
@@ -2633,20 +4485,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE_STATS}.</li>
-   *   <li>Then return {@link QueueStatsId}.</li>
+   *   <li>When {@code QUEUE_STATS}.
+   *   <li>Then return {@link QueueStatsId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'QUEUE_STATS'; then return QueueStatsId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenQueueStats_thenReturnQueueStatsId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.QUEUE_STATS);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.QUEUE_STATS);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof QueueStatsId);
@@ -2657,20 +4510,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code QUEUE}.</li>
-   *   <li>Then return {@link QueueId}.</li>
+   *   <li>When {@code QUEUE}.
+   *   <li>Then return {@link QueueId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'QUEUE'; then return QueueId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenQueue_thenReturnQueueId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.QUEUE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.QUEUE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof QueueId);
@@ -2681,20 +4535,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RPC}.</li>
-   *   <li>Then return {@link RpcId}.</li>
+   *   <li>When {@code RPC}.
+   *   <li>Then return {@link RpcId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'RPC'; then return RpcId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenRpc_thenReturnRpcId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.RPC);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.RPC);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof RpcId);
@@ -2705,20 +4560,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RULE_CHAIN}.</li>
-   *   <li>Then return {@link RuleChainId}.</li>
+   *   <li>When {@code RULE_CHAIN}.
+   *   <li>Then return {@link RuleChainId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'RULE_CHAIN'; then return RuleChainId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenRuleChain_thenReturnRuleChainId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.RULE_CHAIN);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.RULE_CHAIN);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof RuleChainId);
@@ -2729,20 +4585,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code RULE_NODE}.</li>
-   *   <li>Then return {@link RuleNodeId}.</li>
+   *   <li>When {@code RULE_NODE}.
+   *   <li>Then return {@link RuleNodeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'RULE_NODE'; then return RuleNodeId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenRuleNode_thenReturnRuleNodeId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.RULE_NODE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.RULE_NODE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof RuleNodeId);
@@ -2753,20 +4610,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code TB_RESOURCE}.</li>
-   *   <li>Then return {@link TbResourceId}.</li>
+   *   <li>When {@code TB_RESOURCE}.
+   *   <li>Then return {@link TbResourceId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'TB_RESOURCE'; then return TbResourceId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenTbResource_thenReturnTbResourceId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.TB_RESOURCE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.TB_RESOURCE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof TbResourceId);
@@ -2777,20 +4635,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code TENANT_PROFILE}.</li>
-   *   <li>Then return {@link TenantProfileId}.</li>
+   *   <li>When {@code TENANT_PROFILE}.
+   *   <li>Then return {@link TenantProfileId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'TENANT_PROFILE'; then return TenantProfileId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenTenantProfile_thenReturnTenantProfileId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.TENANT_PROFILE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.TENANT_PROFILE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof TenantProfileId);
@@ -2801,20 +4660,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code USER}.</li>
-   *   <li>Then return {@link UserId}.</li>
+   *   <li>When {@code USER}.
+   *   <li>Then return {@link UserId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'USER'; then return UserId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenUser_thenReturnUserId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.USER);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.USER);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof UserId);
@@ -2825,20 +4685,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGET_TYPE}.</li>
-   *   <li>Then return {@link WidgetTypeId}.</li>
+   *   <li>When {@code WIDGET_TYPE}.
+   *   <li>Then return {@link WidgetTypeId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'WIDGET_TYPE'; then return WidgetTypeId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenWidgetType_thenReturnWidgetTypeId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.WIDGET_TYPE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.WIDGET_TYPE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof WidgetTypeId);
@@ -2849,20 +4710,21 @@ class BaseControllerDiffblueTest {
 
   /**
    * Test {@link BaseController#emptyId(EntityType)}.
+   *
    * <ul>
-   *   <li>When {@code WIDGETS_BUNDLE}.</li>
-   *   <li>Then return {@link WidgetsBundleId}.</li>
+   *   <li>When {@code WIDGETS_BUNDLE}.
+   *   <li>Then return {@link WidgetsBundleId}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#emptyId(EntityType)}
+   *
+   * <p>Method under test: {@link BaseController#emptyId(EntityType)}
    */
   @Test
   @DisplayName("Test emptyId(EntityType); when 'WIDGETS_BUNDLE'; then return WidgetsBundleId")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"EntityId BaseController.emptyId(EntityType)"})
   void testEmptyId_whenWidgetsBundle_thenReturnWidgetsBundleId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange and Act
-    EntityId actualEmptyIdResult = (new AuditLogController()).emptyId(EntityType.WIDGETS_BUNDLE);
+    EntityId actualEmptyIdResult = new AuditLogController().emptyId(EntityType.WIDGETS_BUNDLE);
 
     // Assert
     assertTrue(actualEmptyIdResult instanceof WidgetsBundleId);
@@ -2872,402 +4734,103 @@ class BaseControllerDiffblueTest {
   }
 
   /**
-   * Test {@link BaseController#toException(Throwable)}.
-   * <ul>
-   *   <li>When {@link IOException#IOException(String)} with {@code foo}.</li>
-   *   <li>Then return LocalizedMessage is {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#toException(Throwable)}
-   */
-  @Test
-  @DisplayName("Test toException(Throwable); when IOException(String) with 'foo'; then return LocalizedMessage is 'foo'")
-  void testToException_whenIOExceptionWithFoo_thenReturnLocalizedMessageIsFoo() {
-    // Arrange and Act
-    Exception actualToExceptionResult = BaseController.toException(new IOException("foo"));
-
-    // Assert
-    assertEquals("foo", actualToExceptionResult.getLocalizedMessage());
-    assertEquals("foo", actualToExceptionResult.getMessage());
-    assertNull(actualToExceptionResult.getCause());
-    assertEquals(0, actualToExceptionResult.getSuppressed().length);
-  }
-
-  /**
-   * Test {@link BaseController#toException(Throwable)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#toException(Throwable)}
-   */
-  @Test
-  @DisplayName("Test toException(Throwable); when 'null'; then return 'null'")
-  void testToException_whenNull_thenReturnNull() {
-    // Arrange, Act and Assert
-    assertNull(BaseController.toException(null));
-  }
-
-  /**
-   * Test {@link BaseController#toException(Throwable)}.
-   * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return LocalizedMessage is {@code java.lang.Throwable}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#toException(Throwable)}
-   */
-  @Test
-  @DisplayName("Test toException(Throwable); when Throwable(); then return LocalizedMessage is 'java.lang.Throwable'")
-  void testToException_whenThrowable_thenReturnLocalizedMessageIsJavaLangThrowable() {
-    // Arrange
-    Throwable error = new Throwable();
-
-    // Act
-    Exception actualToExceptionResult = BaseController.toException(error);
-
-    // Assert
-    assertEquals("java.lang.Throwable", actualToExceptionResult.getLocalizedMessage());
-    assertEquals("java.lang.Throwable", actualToExceptionResult.getMessage());
-    assertSame(error, actualToExceptionResult.getCause());
-  }
-
-  /**
-   * Test
-   * {@link BaseController#logEntityAction(SecurityUser, EntityType, HasName, ActionType)}
-   * with {@code user}, {@code entityType}, {@code savedEntity},
-   * {@code actionType}.
-   * <p>
-   * Method under test:
-   * {@link BaseController#logEntityAction(SecurityUser, EntityType, HasName, ActionType)}
-   */
-  @Test
-  @DisplayName("Test logEntityAction(SecurityUser, EntityType, HasName, ActionType) with 'user', 'entityType', 'savedEntity', 'actionType'")
-  void testLogEntityActionWithUserEntityTypeSavedEntityActionType() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    SecurityUser user = new SecurityUser();
-    Customer customer = mock(Customer.class);
-    when(customer.getId()).thenThrow(new IllegalArgumentException("foo"));
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> auditLogController.logEntityAction(user, EntityType.TENANT, customer, ActionType.ADDED));
-    verify(customer).getId();
-  }
-
-  /**
-   * Test {@link BaseController#parseMediaType(String)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@link MediaType#APPLICATION_OCTET_STREAM}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#parseMediaType(String)}
-   */
-  @Test
-  @DisplayName("Test parseMediaType(String); when 'null'; then return APPLICATION_OCTET_STREAM")
-  void testParseMediaType_whenNull_thenReturnApplication_octet_stream() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange and Act
-    MediaType actualParseMediaTypeResult = (new AuditLogController()).parseMediaType(null);
-
-    // Assert
-    assertSame(actualParseMediaTypeResult.APPLICATION_OCTET_STREAM, actualParseMediaTypeResult);
-  }
-
-  /**
-   * Test {@link BaseController#parseMediaType(String)}.
-   * <ul>
-   *   <li>When {@code text/plain}.</li>
-   *   <li>Then return {@link MediaType#TEXT_PLAIN}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#parseMediaType(String)}
-   */
-  @Test
-  @DisplayName("Test parseMediaType(String); when 'text/plain'; then return TEXT_PLAIN")
-  void testParseMediaType_whenTextPlain_thenReturnText_plain() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange and Act
-    MediaType actualParseMediaTypeResult = (new AuditLogController()).parseMediaType("text/plain");
-
-    // Assert
-    assertEquals(actualParseMediaTypeResult.TEXT_PLAIN, actualParseMediaTypeResult);
-  }
-
-  /**
-   * Test {@link BaseController#wrapFuture(ListenableFuture, long)} with
-   * {@code future}, {@code timeoutMs}.
-   * <p>
-   * Method under test: {@link BaseController#wrapFuture(ListenableFuture, long)}
-   */
-  @Test
-  @DisplayName("Test wrapFuture(ListenableFuture, long) with 'future', 'timeoutMs'")
-  void testWrapFutureWithFutureTimeoutMs() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    SettableFuture<Object> delegate = SettableFuture.create();
-
-    // Act
-    DeferredResult<Object> actualWrapFutureResult = auditLogController.wrapFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))), 10L);
-
-    // Assert
-    assertNull(actualWrapFutureResult.getResult());
-    assertFalse(actualWrapFutureResult.hasResult());
-    assertFalse(actualWrapFutureResult.isSetOrExpired());
-  }
-
-  /**
-   * Test {@link BaseController#wrapFuture(ListenableFuture, long)} with
-   * {@code future}, {@code timeoutMs}.
-   * <ul>
-   *   <li>Then calls
-   * {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#wrapFuture(ListenableFuture, long)}
-   */
-  @Test
-  @DisplayName("Test wrapFuture(ListenableFuture, long) with 'future', 'timeoutMs'; then calls addListener(Runnable, Executor)")
-  void testWrapFutureWithFutureTimeoutMs_thenCallsAddListener() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    ListenableFutureTask<Object> delegate = mock(ListenableFutureTask.class);
-    doNothing().when(delegate).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
-
-    // Act
-    DeferredResult<Object> actualWrapFutureResult = auditLogController.wrapFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))), 10L);
-
-    // Assert
-    verify(delegate).addListener(isA(Runnable.class), isA(Executor.class));
-    assertNull(actualWrapFutureResult.getResult());
-    assertFalse(actualWrapFutureResult.hasResult());
-    assertFalse(actualWrapFutureResult.isSetOrExpired());
-  }
-
-  /**
-   * Test {@link BaseController#wrapFuture(ListenableFuture)} with {@code future}.
-   * <ul>
-   *   <li>Then calls
-   * {@link ListenableFutureTask#addListener(Runnable, Executor)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#wrapFuture(ListenableFuture)}
-   */
-  @Test
-  @DisplayName("Test wrapFuture(ListenableFuture) with 'future'; then calls addListener(Runnable, Executor)")
-  void testWrapFutureWithFuture_thenCallsAddListener() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    ListenableFutureTask<Object> delegate = mock(ListenableFutureTask.class);
-    doNothing().when(delegate).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
-
-    // Act
-    DeferredResult<Object> actualWrapFutureResult = auditLogController.wrapFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
-
-    // Assert
-    verify(delegate).addListener(isA(Runnable.class), isA(Executor.class));
-    assertNull(actualWrapFutureResult.getResult());
-    assertFalse(actualWrapFutureResult.hasResult());
-    assertFalse(actualWrapFutureResult.isSetOrExpired());
-  }
-
-  /**
-   * Test {@link BaseController#wrapFuture(ListenableFuture)} with {@code future}.
-   * <ul>
-   *   <li>When
-   * {@link ListenableFutureToApiFuture#ListenableFutureToApiFuture(ListenableFuture)}
-   * with delegate is create.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#wrapFuture(ListenableFuture)}
-   */
-  @Test
-  @DisplayName("Test wrapFuture(ListenableFuture) with 'future'; when ListenableFutureToApiFuture(ListenableFuture) with delegate is create")
-  void testWrapFutureWithFuture_whenListenableFutureToApiFutureWithDelegateIsCreate() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    AuditLogController auditLogController = new AuditLogController();
-    SettableFuture<Object> delegate = SettableFuture.create();
-
-    // Act
-    DeferredResult<Object> actualWrapFutureResult = auditLogController.wrapFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
-
-    // Assert
-    assertNull(actualWrapFutureResult.getResult());
-    assertFalse(actualWrapFutureResult.hasResult());
-    assertFalse(actualWrapFutureResult.isSetOrExpired());
-  }
-
-  /**
    * Test {@link BaseController#createEntityDataSortOrder(String, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When empty string.
+   *   <li>Then return Key Key is {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createEntityDataSortOrder(String, String)}
+   *
+   * <p>Method under test: {@link BaseController#createEntityDataSortOrder(String, String)}
    */
   @Test
-  @DisplayName("Test createEntityDataSortOrder(String, String); when empty string; then return 'null'")
-  void testCreateEntityDataSortOrder_whenEmptyString_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertNull((new AuditLogController()).createEntityDataSortOrder("", null));
-  }
-
-  /**
-   * Test {@link BaseController#createEntityDataSortOrder(String, String)}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createEntityDataSortOrder(String, String)}
-   */
-  @Test
-  @DisplayName("Test createEntityDataSortOrder(String, String); when 'null'; then return 'null'")
-  void testCreateEntityDataSortOrder_whenNull_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertNull((new AuditLogController()).createEntityDataSortOrder(null, null));
-  }
-
-  /**
-   * Test {@link BaseController#createEntityDataSortOrder(String, String)}.
-   * <ul>
-   *   <li>When {@code Sort Property}.</li>
-   *   <li>Then return Key Key is {@code Sort Property}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link BaseController#createEntityDataSortOrder(String, String)}
-   */
-  @Test
-  @DisplayName("Test createEntityDataSortOrder(String, String); when 'Sort Property'; then return Key Key is 'Sort Property'")
-  void testCreateEntityDataSortOrder_whenSortProperty_thenReturnKeyKeyIsSortProperty() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createEntityDataSortOrder(String, String); when empty string; then return Key Key is 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "EntityDataSortOrder BaseController.createEntityDataSortOrder(String, String)"
+  })
+  void testCreateEntityDataSortOrder_whenEmptyString_thenReturnKeyKeyIsNotEmpty() {
     // Arrange and Act
-    EntityDataSortOrder actualCreateEntityDataSortOrderResult = (new AuditLogController())
-        .createEntityDataSortOrder("Sort Property", null);
+    EntityDataSortOrder actualCreateEntityDataSortOrderResult =
+        new AuditLogController().createEntityDataSortOrder("not empty", "");
 
     // Assert
     EntityKey key = actualCreateEntityDataSortOrderResult.getKey();
-    assertEquals("Sort Property", key.getKey());
+    assertEquals("not empty", key.getKey());
     assertNull(actualCreateEntityDataSortOrderResult.getDirection());
     assertEquals(EntityKeyType.ENTITY_FIELD, key.getType());
   }
 
   /**
-   * Test {@link BaseController#redirectTo(String)}.
-   * <p>
-   * Method under test: {@link BaseController#redirectTo(String)}
+   * Test {@link BaseController#createEntityDataSortOrder(String, String)}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return Key Key is {@code not empty}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#createEntityDataSortOrder(String, String)}
    */
   @Test
-  @DisplayName("Test redirectTo(String)")
-  void testRedirectTo() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test createEntityDataSortOrder(String, String); when 'null'; then return Key Key is 'not empty'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "EntityDataSortOrder BaseController.createEntityDataSortOrder(String, String)"
+  })
+  void testCreateEntityDataSortOrder_whenNull_thenReturnKeyKeyIsNotEmpty() {
     // Arrange and Act
-    ResponseEntity<Object> actualRedirectToResult = (new AuditLogController()).redirectTo("Location");
+    EntityDataSortOrder actualCreateEntityDataSortOrderResult =
+        new AuditLogController().createEntityDataSortOrder("not empty", null);
 
     // Assert
-    HttpStatusCode statusCode = actualRedirectToResult.getStatusCode();
-    assertTrue(statusCode instanceof HttpStatus);
-    HttpHeaders headers = actualRedirectToResult.getHeaders();
-    assertEquals(1, headers.size());
-    List<String> getResult = headers.get(HttpHeaders.LOCATION);
-    assertEquals(1, getResult.size());
-    assertEquals("Location", getResult.get(0));
-    assertNull(actualRedirectToResult.getBody());
-    assertEquals(303, actualRedirectToResult.getStatusCodeValue());
-    assertEquals(HttpStatus.SEE_OTHER, statusCode);
-    assertFalse(actualRedirectToResult.hasBody());
+    EntityKey key = actualCreateEntityDataSortOrderResult.getKey();
+    assertEquals("not empty", key.getKey());
+    assertNull(actualCreateEntityDataSortOrderResult.getDirection());
+    assertEquals(EntityKeyType.ENTITY_FIELD, key.getType());
+  }
+
+  /**
+   * Test {@link BaseController#createEntityDataSortOrder(String, String)}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#createEntityDataSortOrder(String, String)}
+   */
+  @Test
+  @DisplayName("Test createEntityDataSortOrder(String, String); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "EntityDataSortOrder BaseController.createEntityDataSortOrder(String, String)"
+  })
+  void testCreateEntityDataSortOrder_whenNull_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(new AuditLogController().createEntityDataSortOrder(null, "not empty"));
   }
 
   /**
    * Test {@link BaseController#getOAuth2ClientIds(UUID[])}.
+   *
    * <ul>
-   *   <li>When empty array of {@link UUID}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@link AuditLogController} (default constructor).
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseController#getOAuth2ClientIds(UUID[])}
+   *
+   * <p>Method under test: {@link BaseController#getOAuth2ClientIds(UUID[])}
    */
   @Test
-  @DisplayName("Test getOAuth2ClientIds(UUID[]); when empty array of UUID; then return Empty")
-  void testGetOAuth2ClientIds_whenEmptyArrayOfUuid_thenReturnEmpty() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
+  @DisplayName(
+      "Test getOAuth2ClientIds(UUID[]); given AuditLogController (default constructor); when 'null'; then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List BaseController.getOAuth2ClientIds(UUID[])"})
+  void testGetOAuth2ClientIds_givenAuditLogController_whenNull_thenReturnEmpty()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertTrue((new AuditLogController()).getOAuth2ClientIds(new UUID[]{}).isEmpty());
-  }
-
-  /**
-   * Test {@link BaseController#getOAuth2ClientIds(UUID[])}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseController#getOAuth2ClientIds(UUID[])}
-   */
-  @Test
-  @DisplayName("Test getOAuth2ClientIds(UUID[]); when 'null'; then return Empty")
-  void testGetOAuth2ClientIds_whenNull_thenReturnEmpty() throws ThingsboardException {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertTrue((new AuditLogController()).getOAuth2ClientIds(null).isEmpty());
-  }
-
-  /**
-   * Test {@link BaseController#isEdgesEnabled()}.
-   * <p>
-   * Method under test: {@link BaseController#isEdgesEnabled()}
-   */
-  @Test
-  @DisplayName("Test isEdgesEnabled()")
-  void testIsEdgesEnabled() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertFalse((new AuditLogController()).isEdgesEnabled());
-  }
-
-  /**
-   * Test {@link BaseController#isLogControllerErrorStackTrace()}.
-   * <p>
-   * Method under test: {@link BaseController#isLogControllerErrorStackTrace()}
-   */
-  @Test
-  @DisplayName("Test isLogControllerErrorStackTrace()")
-  void testIsLogControllerErrorStackTrace() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange, Act and Assert
-    assertFalse((new AuditLogController()).isLogControllerErrorStackTrace());
+    assertTrue(new AuditLogController().getOAuth2ClientIds(null).isEmpty());
   }
 }

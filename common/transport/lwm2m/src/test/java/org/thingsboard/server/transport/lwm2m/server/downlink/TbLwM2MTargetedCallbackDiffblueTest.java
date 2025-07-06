@@ -18,8 +18,8 @@ import org.thingsboard.server.transport.lwm2m.server.log.LwM2MTelemetryLogServic
 class TbLwM2MTargetedCallbackDiffblueTest {
   /**
    * Test {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
    */
   @Test
   @DisplayName("Test onSuccess(Object, Object)")
@@ -29,22 +29,26 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
-    TbLwM2MDeleteCallback tbLwM2MDeleteCallback = new TbLwM2MDeleteCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null);
+    TbLwM2MDeleteCallback tbLwM2MDeleteCallback =
+        new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null);
     DeleteRequest deleteRequest = new DeleteRequest(1, 1);
 
     // Act
     tbLwM2MDeleteCallback.onSuccess(deleteRequest, DeleteResponse.methodNotAllowed());
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class), eq(
-        "[error]: DeleteRequest [null] failed to process successful. Result: DeleteResponse [code=METHOD_NOT_ALLOWED(405)]"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq(
+                "[error]: DeleteRequest [null] failed to process successful. Result: DeleteResponse [code=METHOD_NOT_ALLOWED(405)]"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
    */
   @Test
   @DisplayName("Test onSuccess(Object, Object)")
@@ -54,25 +58,30 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
-    TbLwM2MDeleteCallback tbLwM2MDeleteCallback = new TbLwM2MDeleteCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null);
+    TbLwM2MDeleteCallback tbLwM2MDeleteCallback =
+        new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null);
     DeleteRequest deleteRequest = new DeleteRequest(1, 1);
 
     // Act
     tbLwM2MDeleteCallback.onSuccess(deleteRequest, DeleteResponse.success());
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class),
-        eq("[info]: DeleteRequest [null] successful. Result: DeleteResponse [code=DELETED(202)]"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq(
+                "[info]: DeleteRequest [null] successful. Result: DeleteResponse [code=DELETED(202)]"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}.
+   *
    * <ul>
-   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
+   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
    */
   @Test
   @DisplayName("Test onSuccess(Object, Object); then calls log(LwM2mClient, String)")
@@ -82,26 +91,31 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
-    TbLwM2MDeleteCallback tbLwM2MDeleteCallback = new TbLwM2MDeleteCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42");
+    TbLwM2MDeleteCallback tbLwM2MDeleteCallback =
+        new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42");
     DeleteRequest deleteRequest = new DeleteRequest(1, 1);
 
     // Act
     tbLwM2MDeleteCallback.onSuccess(deleteRequest, DeleteResponse.methodNotAllowed());
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class), eq(
-        "[error]: DeleteRequest [42] failed to process successful. Result: DeleteResponse [code=METHOD_NOT_ALLOWED(405)]"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq(
+                "[error]: DeleteRequest [42] failed to process successful. Result: DeleteResponse [code=METHOD_NOT_ALLOWED(405)]"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}.
+   *
    * <ul>
-   *   <li>When success.</li>
-   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.</li>
+   *   <li>When success.
+   *   <li>Then calls {@link LwM2MTelemetryLogService#log(LwM2mClient, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#onSuccess(Object, Object)}
    */
   @Test
   @DisplayName("Test onSuccess(Object, Object); when success; then calls log(LwM2mClient, String)")
@@ -111,22 +125,26 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     // Arrange
     LwM2MTelemetryLogService logService = mock(LwM2MTelemetryLogService.class);
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
-    TbLwM2MDeleteCallback tbLwM2MDeleteCallback = new TbLwM2MDeleteCallback(logService,
-        new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42");
+    TbLwM2MDeleteCallback tbLwM2MDeleteCallback =
+        new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42");
     DeleteRequest deleteRequest = new DeleteRequest(1, 1);
 
     // Act
     tbLwM2MDeleteCallback.onSuccess(deleteRequest, DeleteResponse.success());
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class),
-        eq("[info]: DeleteRequest [42] successful. Result: DeleteResponse [code=DELETED(202)]"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq(
+                "[info]: DeleteRequest [42] successful. Result: DeleteResponse [code=DELETED(202)]"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
    */
   @Test
   @DisplayName("Test logForBadResponse(int, String, String)")
@@ -138,17 +156,21 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
 
     // Act
-    (new TbLwM2MDeleteCallback(logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42"))
+    new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42")
         .logForBadResponse(1, "Response Str", "Request Name");
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class), eq("[info]: Request Name [42] successful. Result: Response Str"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq("[info]: Request Name [42] successful. Result: Response Str"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
    */
   @Test
   @DisplayName("Test logForBadResponse(int, String, String)")
@@ -160,17 +182,21 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
 
     // Act
-    (new TbLwM2MDeleteCallback(logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null))
+    new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null)
         .logForBadResponse(1, "Response Str", "Request Name");
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class), eq("[info]: Request Name [null] successful. Result: Response Str"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq("[info]: Request Name [null] successful. Result: Response Str"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
    */
   @Test
   @DisplayName("Test logForBadResponse(int, String, String)")
@@ -182,18 +208,21 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
 
     // Act
-    (new TbLwM2MDeleteCallback(logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42"))
+    new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), "42")
         .logForBadResponse(206, "Response Str", "Request Name");
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class),
-        eq("[error]: Request Name [42] failed to process successful. Result: Response Str"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq("[error]: Request Name [42] failed to process successful. Result: Response Str"));
   }
 
   /**
    * Test {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}.
-   * <p>
-   * Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
+   *
+   * <p>Method under test: {@link TbLwM2MTargetedCallback#logForBadResponse(int, String, String)}
    */
   @Test
   @DisplayName("Test logForBadResponse(int, String, String)")
@@ -205,11 +234,14 @@ class TbLwM2MTargetedCallbackDiffblueTest {
     doNothing().when(logService).log(Mockito.<LwM2mClient>any(), Mockito.<String>any());
 
     // Act
-    (new TbLwM2MDeleteCallback(logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null))
+    new TbLwM2MDeleteCallback(
+            logService, new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"), null)
         .logForBadResponse(206, "Response Str", "Request Name");
 
     // Assert
-    verify(logService).log(isA(LwM2mClient.class),
-        eq("[error]: Request Name [null] failed to process successful. Result: Response Str"));
+    verify(logService)
+        .log(
+            isA(LwM2mClient.class),
+            eq("[error]: Request Name [null] failed to process successful. Result: Response Str"));
   }
 }

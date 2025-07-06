@@ -26,15 +26,17 @@ import org.thingsboard.server.queue.settings.TbQueueVersionControlSettings;
 
 class KafkaMonolithQueueFactoryDiffblueTest {
   /**
-   * Test {@link KafkaMonolithQueueFactory#createToRuleEngineMsgConsumer(Queue)} with {@code configuration}.
-   * <p>
-   * Method under test: {@link KafkaMonolithQueueFactory#createToRuleEngineMsgConsumer(Queue)}
+   * Test {@link KafkaMonolithQueueFactory#createToRuleEngineMsgConsumer(Queue)} with {@code
+   * configuration}.
+   *
+   * <p>Method under test: {@link KafkaMonolithQueueFactory#createToRuleEngineMsgConsumer(Queue)}
    */
   @Test
   @DisplayName("Test createToRuleEngineMsgConsumer(Queue) with 'configuration'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.queue.TbQueueConsumer KafkaMonolithQueueFactory.createToRuleEngineMsgConsumer(Queue)"})
+    "org.thingsboard.server.queue.TbQueueConsumer KafkaMonolithQueueFactory.createToRuleEngineMsgConsumer(Queue)"
+  })
   void testCreateToRuleEngineMsgConsumerWithConfiguration() {
     // Arrange
     TbKafkaTopicConfigs kafkaTopicConfigs = mock(TbKafkaTopicConfigs.class);
@@ -56,18 +58,30 @@ class KafkaMonolithQueueFactoryDiffblueTest {
     TbQueueCoreSettings coreSettings = new TbQueueCoreSettings();
     TbQueueRuleEngineSettings ruleEngineSettings = new TbQueueRuleEngineSettings();
     TbQueueTransportApiSettings transportApiSettings = new TbQueueTransportApiSettings();
-    TbQueueTransportNotificationSettings transportNotificationSettings = new TbQueueTransportNotificationSettings();
+    TbQueueTransportNotificationSettings transportNotificationSettings =
+        new TbQueueTransportNotificationSettings();
     TbQueueRemoteJsInvokeSettings jsInvokeSettings = new TbQueueRemoteJsInvokeSettings();
     TbQueueVersionControlSettings vcSettings = new TbQueueVersionControlSettings();
     TbQueueEdgeSettings edgeSettings = new TbQueueEdgeSettings();
     TbKafkaSettings kafkaSettings2 = new TbKafkaSettings();
-    KafkaMonolithQueueFactory kafkaMonolithQueueFactory = new KafkaMonolithQueueFactory(topicService, kafkaSettings,
-        serviceInfoProvider, coreSettings, ruleEngineSettings, transportApiSettings, transportNotificationSettings,
-        jsInvokeSettings, vcSettings, edgeSettings,
-        new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()), kafkaTopicConfigs);
+    KafkaMonolithQueueFactory kafkaMonolithQueueFactory =
+        new KafkaMonolithQueueFactory(
+            topicService,
+            kafkaSettings,
+            serviceInfoProvider,
+            coreSettings,
+            ruleEngineSettings,
+            transportApiSettings,
+            transportNotificationSettings,
+            jsInvokeSettings,
+            vcSettings,
+            edgeSettings,
+            new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig()),
+            kafkaTopicConfigs);
 
     // Act and Assert
-    assertThrows(UnsupportedOperationException.class,
+    assertThrows(
+        UnsupportedOperationException.class,
         () -> kafkaMonolithQueueFactory.createToRuleEngineMsgConsumer(new Queue()));
     verify(kafkaTopicConfigs).getCoreConfigs();
     verify(kafkaTopicConfigs).getEdgeConfigs();

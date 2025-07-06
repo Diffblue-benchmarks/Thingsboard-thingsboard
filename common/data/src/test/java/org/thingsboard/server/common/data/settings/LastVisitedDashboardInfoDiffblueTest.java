@@ -13,13 +13,16 @@ import org.thingsboard.server.common.data.id.EntityId;
 
 class LastVisitedDashboardInfoDiffblueTest {
   /**
-   * Test {@link LastVisitedDashboardInfo#equals(Object)}, and {@link LastVisitedDashboardInfo#hashCode()}.
+   * Test {@link LastVisitedDashboardInfo#equals(Object)}, and {@link
+   * LastVisitedDashboardInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LastVisitedDashboardInfo#equals(Object)}
    *   <li>{@link LastVisitedDashboardInfo#hashCode()}
@@ -28,7 +31,10 @@ class LastVisitedDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -50,13 +56,16 @@ class LastVisitedDashboardInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LastVisitedDashboardInfo#equals(Object)}, and {@link LastVisitedDashboardInfo#hashCode()}.
+   * Test {@link LastVisitedDashboardInfo#equals(Object)}, and {@link
+   * LastVisitedDashboardInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LastVisitedDashboardInfo#equals(Object)}
    *   <li>{@link LastVisitedDashboardInfo#hashCode()}
@@ -65,7 +74,10 @@ class LastVisitedDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -82,17 +94,21 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test {@link LastVisitedDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -113,17 +129,21 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test {@link LastVisitedDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -144,17 +164,21 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test {@link LastVisitedDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -175,17 +199,21 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test {@link LastVisitedDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -200,17 +228,21 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test {@link LastVisitedDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LastVisitedDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LastVisitedDashboardInfo.equals(Object)", "int LastVisitedDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LastVisitedDashboardInfo.equals(Object)",
+    "int LastVisitedDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LastVisitedDashboardInfo lastVisitedDashboardInfo = new LastVisitedDashboardInfo();
@@ -225,8 +257,9 @@ class LastVisitedDashboardInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LastVisitedDashboardInfo}
    *   <li>{@link LastVisitedDashboardInfo#setLastVisited(long)}
@@ -239,9 +272,14 @@ class LastVisitedDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LastVisitedDashboardInfo.<init>()", "long LastVisitedDashboardInfo.getLastVisited()",
-      "boolean LastVisitedDashboardInfo.isStarred()", "void LastVisitedDashboardInfo.setLastVisited(long)",
-      "void LastVisitedDashboardInfo.setStarred(boolean)", "String LastVisitedDashboardInfo.toString()"})
+  @MethodsUnderTest({
+    "void LastVisitedDashboardInfo.<init>()",
+    "long LastVisitedDashboardInfo.getLastVisited()",
+    "boolean LastVisitedDashboardInfo.isStarred()",
+    "void LastVisitedDashboardInfo.setLastVisited(long)",
+    "void LastVisitedDashboardInfo.setStarred(boolean)",
+    "String LastVisitedDashboardInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LastVisitedDashboardInfo actualLastVisitedDashboardInfo = new LastVisitedDashboardInfo();

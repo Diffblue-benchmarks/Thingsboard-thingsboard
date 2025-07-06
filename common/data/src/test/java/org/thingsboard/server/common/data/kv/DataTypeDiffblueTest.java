@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class DataTypeDiffblueTest {
   /**
    * Test {@link DataType#getProtoNumber()}.
-   * <p>
-   * Method under test: {@link DataType#getProtoNumber()}
+   *
+   * <p>Method under test: {@link DataType#getProtoNumber()}
    */
   @Test
   @DisplayName("Test getProtoNumber()")

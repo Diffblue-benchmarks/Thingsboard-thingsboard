@@ -16,16 +16,20 @@ import org.thingsboard.server.common.data.notification.rule.trigger.config.TaskP
 @ExtendWith(SpringExtension.class)
 class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
   @Autowired
-  private TaskProcessingFailureNotificationRuleTriggerConfigBuilder taskProcessingFailureNotificationRuleTriggerConfigBuilder;
+  private TaskProcessingFailureNotificationRuleTriggerConfigBuilder
+      taskProcessingFailureNotificationRuleTriggerConfigBuilder;
 
   /**
-   * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link
+   * TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}
@@ -34,16 +38,16 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
-      "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
+    "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TaskProcessingFailureNotificationRuleTriggerConfig buildResult = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
-    TaskProcessingFailureNotificationRuleTriggerConfig buildResult2 = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
+    TaskProcessingFailureNotificationRuleTriggerConfig buildResult =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
+    TaskProcessingFailureNotificationRuleTriggerConfig buildResult2 =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -52,13 +56,16 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}, and {@link
+   * TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#hashCode()}
@@ -67,13 +74,14 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
-      "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
+    "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TaskProcessingFailureNotificationRuleTriggerConfig buildResult = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
+    TaskProcessingFailureNotificationRuleTriggerConfig buildResult =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -83,23 +91,25 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
-      "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
+    "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationRuleTriggerConfig buildResult = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
+    TaskProcessingFailureNotificationRuleTriggerConfig buildResult =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -107,34 +117,39 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
-      "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationRuleTriggerConfig.equals(Object)",
+    "int TaskProcessingFailureNotificationRuleTriggerConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationRuleTriggerConfig buildResult = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
+    TaskProcessingFailureNotificationRuleTriggerConfig buildResult =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
 
     // Act and Assert
-    assertNotEquals(buildResult, "Different type to TaskProcessingFailureNotificationRuleTriggerConfig");
+    assertNotEquals(
+        buildResult, "Different type to TaskProcessingFailureNotificationRuleTriggerConfig");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>default or parameterless constructor of {@link TaskProcessingFailureNotificationRuleTriggerConfig}
+   *   <li>default or parameterless constructor of {@link
+   *       TaskProcessingFailureNotificationRuleTriggerConfig}
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#toString()}
    *   <li>{@link TaskProcessingFailureNotificationRuleTriggerConfig#getTriggerType()}
    * </ul>
@@ -142,39 +157,48 @@ class TaskProcessingFailureNotificationRuleTriggerConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureNotificationRuleTriggerConfig.<init>()",
-      "NotificationRuleTriggerType TaskProcessingFailureNotificationRuleTriggerConfig.getTriggerType()",
-      "String TaskProcessingFailureNotificationRuleTriggerConfig.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureNotificationRuleTriggerConfig.<init>()",
+    "NotificationRuleTriggerType TaskProcessingFailureNotificationRuleTriggerConfig.getTriggerType()",
+    "String TaskProcessingFailureNotificationRuleTriggerConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TaskProcessingFailureNotificationRuleTriggerConfig actualTaskProcessingFailureNotificationRuleTriggerConfig = new TaskProcessingFailureNotificationRuleTriggerConfig();
-    String actualToStringResult = actualTaskProcessingFailureNotificationRuleTriggerConfig.toString();
+    TaskProcessingFailureNotificationRuleTriggerConfig
+        actualTaskProcessingFailureNotificationRuleTriggerConfig =
+            new TaskProcessingFailureNotificationRuleTriggerConfig();
+    String actualToStringResult =
+        actualTaskProcessingFailureNotificationRuleTriggerConfig.toString();
 
     // Assert
     assertEquals("TaskProcessingFailureNotificationRuleTriggerConfig()", actualToStringResult);
-    assertEquals(NotificationRuleTriggerType.TASK_PROCESSING_FAILURE,
+    assertEquals(
+        NotificationRuleTriggerType.TASK_PROCESSING_FAILURE,
         actualTaskProcessingFailureNotificationRuleTriggerConfig.getTriggerType());
   }
 
   /**
-   * Test TaskProcessingFailureNotificationRuleTriggerConfigBuilder {@link TaskProcessingFailureNotificationRuleTriggerConfigBuilder#build()}.
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfigBuilder#build()}
+   * Test TaskProcessingFailureNotificationRuleTriggerConfigBuilder {@link
+   * TaskProcessingFailureNotificationRuleTriggerConfigBuilder#build()}.
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationRuleTriggerConfigBuilder#build()}
    */
   @Test
   @DisplayName("Test TaskProcessingFailureNotificationRuleTriggerConfigBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureNotificationRuleTriggerConfigBuilder.<init>()",
-      "TaskProcessingFailureNotificationRuleTriggerConfig TaskProcessingFailureNotificationRuleTriggerConfigBuilder.build()",
-      "String TaskProcessingFailureNotificationRuleTriggerConfigBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureNotificationRuleTriggerConfigBuilder.<init>()",
+    "TaskProcessingFailureNotificationRuleTriggerConfig TaskProcessingFailureNotificationRuleTriggerConfigBuilder.build()",
+    "String TaskProcessingFailureNotificationRuleTriggerConfigBuilder.toString()"
+  })
   void testTaskProcessingFailureNotificationRuleTriggerConfigBuilderBuild() {
     // Arrange and Act
-    TaskProcessingFailureNotificationRuleTriggerConfig actualBuildResult = TaskProcessingFailureNotificationRuleTriggerConfig
-        .builder()
-        .build();
+    TaskProcessingFailureNotificationRuleTriggerConfig actualBuildResult =
+        TaskProcessingFailureNotificationRuleTriggerConfig.builder().build();
 
     // Assert
     assertEquals("#", actualBuildResult.getDeduplicationKey());
-    assertEquals(NotificationRuleTriggerType.TASK_PROCESSING_FAILURE, actualBuildResult.getTriggerType());
+    assertEquals(
+        NotificationRuleTriggerType.TASK_PROCESSING_FAILURE, actualBuildResult.getTriggerType());
   }
 }

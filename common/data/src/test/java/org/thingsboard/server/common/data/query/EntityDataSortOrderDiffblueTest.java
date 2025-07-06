@@ -12,12 +12,14 @@ import org.thingsboard.server.common.data.query.EntityDataSortOrder.Direction;
 class EntityDataSortOrderDiffblueTest {
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}, and {@link EntityDataSortOrder#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataSortOrder#equals(Object)}
    *   <li>{@link EntityDataSortOrder#hashCode()}
@@ -26,7 +28,10 @@ class EntityDataSortOrderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder();
@@ -40,12 +45,14 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}, and {@link EntityDataSortOrder#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataSortOrder#equals(Object)}
    *   <li>{@link EntityDataSortOrder#hashCode()}
@@ -54,11 +61,16 @@ class EntityDataSortOrderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
-    EntityDataSortOrder entityDataSortOrder2 = new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
+    EntityDataSortOrder entityDataSortOrder =
+        new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
+    EntityDataSortOrder entityDataSortOrder2 =
+        new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
 
     // Act and Assert
     assertEquals(entityDataSortOrder, entityDataSortOrder2);
@@ -68,12 +80,14 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}, and {@link EntityDataSortOrder#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataSortOrder#equals(Object)}
    *   <li>{@link EntityDataSortOrder#hashCode()}
@@ -82,7 +96,10 @@ class EntityDataSortOrderDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder();
@@ -95,20 +112,25 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
+    EntityDataSortOrder entityDataSortOrder =
+        new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"));
 
     // Act and Assert
     assertNotEquals(entityDataSortOrder, new EntityDataSortOrder());
@@ -116,38 +138,48 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder();
 
     // Act and Assert
-    assertNotEquals(entityDataSortOrder, new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key")));
+    assertNotEquals(
+        entityDataSortOrder,
+        new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key")));
   }
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder();
@@ -159,17 +191,21 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = new EntityDataSortOrder();
@@ -183,17 +219,21 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityDataSortOrder(), null);
@@ -201,17 +241,21 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test {@link EntityDataSortOrder#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityDataSortOrder.equals(Object)", "int EntityDataSortOrder.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityDataSortOrder.equals(Object)",
+    "int EntityDataSortOrder.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityDataSortOrder(), "Different type to EntityDataSortOrder");
@@ -219,8 +263,9 @@ class EntityDataSortOrderDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataSortOrder#EntityDataSortOrder()}
    *   <li>{@link EntityDataSortOrder#setDirection(Direction)}
@@ -233,10 +278,15 @@ class EntityDataSortOrderDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityDataSortOrder.<init>()", "void EntityDataSortOrder.<init>(EntityKey, Direction)",
-      "Direction EntityDataSortOrder.getDirection()", "EntityKey EntityDataSortOrder.getKey()",
-      "void EntityDataSortOrder.setDirection(Direction)", "void EntityDataSortOrder.setKey(EntityKey)",
-      "String EntityDataSortOrder.toString()"})
+  @MethodsUnderTest({
+    "void EntityDataSortOrder.<init>()",
+    "void EntityDataSortOrder.<init>(EntityKey, Direction)",
+    "Direction EntityDataSortOrder.getDirection()",
+    "EntityKey EntityDataSortOrder.getKey()",
+    "void EntityDataSortOrder.setDirection(Direction)",
+    "void EntityDataSortOrder.setKey(EntityKey)",
+    "String EntityDataSortOrder.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityDataSortOrder actualEntityDataSortOrder = new EntityDataSortOrder();
@@ -248,18 +298,23 @@ class EntityDataSortOrderDiffblueTest {
     Direction actualDirection = actualEntityDataSortOrder.getDirection();
 
     // Assert
-    assertEquals("EntityDataSortOrder(key=EntityKey(type=ATTRIBUTE, key=Key), direction=ASC)", actualToStringResult);
+    assertEquals(
+        "EntityDataSortOrder(key=EntityKey(type=ATTRIBUTE, key=Key), direction=ASC)",
+        actualToStringResult);
     assertEquals(Direction.ASC, actualDirection);
     assertSame(key, actualEntityDataSortOrder.getKey());
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link EntityKey#EntityKey(EntityKeyType, String)} with type is {@code ATTRIBUTE} and {@code Key}.</li>
+   *   <li>When {@link EntityKey#EntityKey(EntityKeyType, String)} with type is {@code ATTRIBUTE}
+   *       and {@code Key}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataSortOrder#EntityDataSortOrder(EntityKey, Direction)}
    *   <li>{@link EntityDataSortOrder#setDirection(Direction)}
@@ -270,16 +325,22 @@ class EntityDataSortOrderDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when EntityKey(EntityKeyType, String) with type is 'ATTRIBUTE' and 'Key'")
+  @DisplayName(
+      "Test getters and setters; when EntityKey(EntityKeyType, String) with type is 'ATTRIBUTE' and 'Key'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityDataSortOrder.<init>()", "void EntityDataSortOrder.<init>(EntityKey, Direction)",
-      "Direction EntityDataSortOrder.getDirection()", "EntityKey EntityDataSortOrder.getKey()",
-      "void EntityDataSortOrder.setDirection(Direction)", "void EntityDataSortOrder.setKey(EntityKey)",
-      "String EntityDataSortOrder.toString()"})
+  @MethodsUnderTest({
+    "void EntityDataSortOrder.<init>()",
+    "void EntityDataSortOrder.<init>(EntityKey, Direction)",
+    "Direction EntityDataSortOrder.getDirection()",
+    "EntityKey EntityDataSortOrder.getKey()",
+    "void EntityDataSortOrder.setDirection(Direction)",
+    "void EntityDataSortOrder.setKey(EntityKey)",
+    "String EntityDataSortOrder.toString()"
+  })
   void testGettersAndSetters_whenEntityKeyWithTypeIsAttributeAndKey() {
     // Arrange and Act
-    EntityDataSortOrder actualEntityDataSortOrder = new EntityDataSortOrder(
-        new EntityKey(EntityKeyType.ATTRIBUTE, "Key"), Direction.ASC);
+    EntityDataSortOrder actualEntityDataSortOrder =
+        new EntityDataSortOrder(new EntityKey(EntityKeyType.ATTRIBUTE, "Key"), Direction.ASC);
     actualEntityDataSortOrder.setDirection(Direction.ASC);
     EntityKey key = new EntityKey(EntityKeyType.ATTRIBUTE, "Key");
 
@@ -288,15 +349,17 @@ class EntityDataSortOrderDiffblueTest {
     Direction actualDirection = actualEntityDataSortOrder.getDirection();
 
     // Assert
-    assertEquals("EntityDataSortOrder(key=EntityKey(type=ATTRIBUTE, key=Key), direction=ASC)", actualToStringResult);
+    assertEquals(
+        "EntityDataSortOrder(key=EntityKey(type=ATTRIBUTE, key=Key), direction=ASC)",
+        actualToStringResult);
     assertEquals(Direction.ASC, actualDirection);
     assertSame(key, actualEntityDataSortOrder.getKey());
   }
 
   /**
    * Test {@link EntityDataSortOrder#EntityDataSortOrder(EntityKey)}.
-   * <p>
-   * Method under test: {@link EntityDataSortOrder#EntityDataSortOrder(EntityKey)}
+   *
+   * <p>Method under test: {@link EntityDataSortOrder#EntityDataSortOrder(EntityKey)}
    */
   @Test
   @DisplayName("Test new EntityDataSortOrder(EntityKey)")

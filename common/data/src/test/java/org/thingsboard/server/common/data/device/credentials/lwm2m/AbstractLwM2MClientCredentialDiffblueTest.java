@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class AbstractLwM2MClientCredentialDiffblueTest {
   /**
    * Test {@link AbstractLwM2MClientCredential#getEndpoint()}.
-   * <p>
-   * Method under test: {@link AbstractLwM2MClientCredential#getEndpoint()}
+   *
+   * <p>Method under test: {@link AbstractLwM2MClientCredential#getEndpoint()}
    */
   @Test
   @DisplayName("Test getEndpoint()")
@@ -19,13 +19,13 @@ class AbstractLwM2MClientCredentialDiffblueTest {
   @MethodsUnderTest({"String AbstractLwM2MClientCredential.getEndpoint()"})
   void testGetEndpoint() {
     // Arrange, Act and Assert
-    assertNull((new NoSecClientCredential()).getEndpoint());
+    assertNull(new NoSecClientCredential().getEndpoint());
   }
 
   /**
    * Test {@link AbstractLwM2MClientCredential#setEndpoint(String)}.
-   * <p>
-   * Method under test: {@link AbstractLwM2MClientCredential#setEndpoint(String)}
+   *
+   * <p>Method under test: {@link AbstractLwM2MClientCredential#setEndpoint(String)}
    */
   @Test
   @DisplayName("Test setEndpoint(String)")

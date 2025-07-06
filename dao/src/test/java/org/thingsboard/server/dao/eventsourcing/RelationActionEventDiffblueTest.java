@@ -17,12 +17,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class RelationActionEventDiffblueTest {
   /**
    * Test {@link RelationActionEvent#equals(Object)}, and {@link RelationActionEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#equals(Object)}
    *   <li>{@link RelationActionEvent#hashCode()}
@@ -30,13 +32,18 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), ActionType.ADDED);
-    RelationActionEvent relationActionEvent2 = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent2 =
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED);
 
     // Act and Assert
     assertEquals(relationActionEvent, relationActionEvent2);
@@ -46,12 +53,14 @@ public class RelationActionEventDiffblueTest {
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}, and {@link RelationActionEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#equals(Object)}
    *   <li>{@link RelationActionEvent#hashCode()}
@@ -59,11 +68,16 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
-    RelationActionEvent relationActionEvent2 = new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent2 =
+        new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
 
     // Act and Assert
     assertEquals(relationActionEvent, relationActionEvent2);
@@ -73,12 +87,14 @@ public class RelationActionEventDiffblueTest {
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}, and {@link RelationActionEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#equals(Object)}
    *   <li>{@link RelationActionEvent#hashCode()}
@@ -86,13 +102,16 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null,
-        ActionType.ADDED);
-    RelationActionEvent relationActionEvent2 = new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null,
-        ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null, ActionType.ADDED);
+    RelationActionEvent relationActionEvent2 =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null, ActionType.ADDED);
 
     // Act and Assert
     assertEquals(relationActionEvent, relationActionEvent2);
@@ -102,12 +121,14 @@ public class RelationActionEventDiffblueTest {
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}, and {@link RelationActionEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#equals(Object)}
    *   <li>{@link RelationActionEvent#hashCode()}
@@ -115,13 +136,16 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), null);
-    RelationActionEvent relationActionEvent2 = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), null);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), null);
+    RelationActionEvent relationActionEvent2 =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), null);
 
     // Act and Assert
     assertEquals(relationActionEvent, relationActionEvent2);
@@ -131,12 +155,14 @@ public class RelationActionEventDiffblueTest {
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}, and {@link RelationActionEvent#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#equals(Object)}
    *   <li>{@link RelationActionEvent#hashCode()}
@@ -144,11 +170,15 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED);
 
     // Act and Assert
     assertEquals(relationActionEvent, relationActionEvent);
@@ -158,176 +188,231 @@ public class RelationActionEventDiffblueTest {
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RelationActionEvent relationActionEvent = new RelationActionEvent(tenantId, new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(tenantId, new EntityRelation(), ActionType.ADDED);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(null, new EntityRelation(), ActionType.ADDED);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null,
-        ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, null, ActionType.ADDED);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(BaseEntityService.NULL_CUSTOMER_ID, BaseEntityService.NULL_CUSTOMER_ID, "Type"),
-        ActionType.ADDED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT,
+            new EntityRelation(
+                BaseEntityService.NULL_CUSTOMER_ID, BaseEntityService.NULL_CUSTOMER_ID, "Type"),
+            ActionType.ADDED);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), null);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), null);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RelationActionEvent relationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT,
-        new EntityRelation(), ActionType.DELETED);
+    RelationActionEvent relationActionEvent =
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.DELETED);
 
     // Act and Assert
-    assertNotEquals(relationActionEvent,
-        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
+    assertNotEquals(
+        relationActionEvent,
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED));
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED),
+    assertNotEquals(
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED),
         null);
   }
 
   /**
    * Test {@link RelationActionEvent#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RelationActionEvent#equals(Object)}
+   *
+   * <p>Method under test: {@link RelationActionEvent#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean RelationActionEvent.equals(Object)", "int RelationActionEvent.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RelationActionEvent.equals(Object)",
+    "int RelationActionEvent.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new RelationActionEvent(ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED),
+    assertNotEquals(
+        new RelationActionEvent(
+            ModelConstants.SYSTEM_TENANT, new EntityRelation(), ActionType.ADDED),
         "Different type to RelationActionEvent");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RelationActionEvent#RelationActionEvent(TenantId, EntityRelation, ActionType)}
    *   <li>{@link RelationActionEvent#toString()}
@@ -338,16 +423,20 @@ public class RelationActionEventDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void RelationActionEvent.<init>(TenantId, EntityRelation, ActionType)",
-      "ActionType RelationActionEvent.getActionType()", "EntityRelation RelationActionEvent.getRelation()",
-      "TenantId RelationActionEvent.getTenantId()", "String RelationActionEvent.toString()"})
+  @MethodsUnderTest({
+    "void RelationActionEvent.<init>(TenantId, EntityRelation, ActionType)",
+    "ActionType RelationActionEvent.getActionType()",
+    "EntityRelation RelationActionEvent.getRelation()",
+    "TenantId RelationActionEvent.getTenantId()",
+    "String RelationActionEvent.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     EntityRelation relation = new EntityRelation();
 
     // Act
-    RelationActionEvent actualRelationActionEvent = new RelationActionEvent(ModelConstants.SYSTEM_TENANT, relation,
-        ActionType.ADDED);
+    RelationActionEvent actualRelationActionEvent =
+        new RelationActionEvent(ModelConstants.SYSTEM_TENANT, relation, ActionType.ADDED);
     String actualToStringResult = actualRelationActionEvent.toString();
     ActionType actualActionType = actualRelationActionEvent.getActionType();
     EntityRelation actualRelation = actualRelationActionEvent.getRelation();

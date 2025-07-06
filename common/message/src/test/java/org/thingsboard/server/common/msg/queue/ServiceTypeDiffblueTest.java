@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 class ServiceTypeDiffblueTest {
   /**
    * Test {@link ServiceType#of(String)}.
+   *
    * <ul>
-   *   <li>When {@code JS_EXECUTOR}.</li>
-   *   <li>Then return {@code JS_EXECUTOR}.</li>
+   *   <li>When {@code JS_EXECUTOR}.
+   *   <li>Then return {@code JS_EXECUTOR}.
    * </ul>
-   * <p>
-   * Method under test: {@link ServiceType#of(String)}
+   *
+   * <p>Method under test: {@link ServiceType#of(String)}
    */
   @Test
   @DisplayName("Test of(String); when 'JS_EXECUTOR'; then return 'JS_EXECUTOR'")
@@ -27,8 +28,8 @@ class ServiceTypeDiffblueTest {
 
   /**
    * Test {@link ServiceType#getLabel()}.
-   * <p>
-   * Method under test: {@link ServiceType#getLabel()}
+   *
+   * <p>Method under test: {@link ServiceType#getLabel()}
    */
   @Test
   @DisplayName("Test getLabel()")

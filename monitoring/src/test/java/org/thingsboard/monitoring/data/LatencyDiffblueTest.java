@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class LatencyDiffblueTest {
   /**
    * Test {@link Latency#getFormattedValue()}.
-   * <p>
-   * Method under test: {@link Latency#getFormattedValue()}
+   *
+   * <p>Method under test: {@link Latency#getFormattedValue()}
    */
   @Test
   @DisplayName("Test getFormattedValue()")
@@ -24,12 +24,14 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}, and {@link Latency#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Latency#equals(Object)}
    *   <li>{@link Latency#hashCode()}
@@ -52,12 +54,14 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}, and {@link Latency#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Latency#equals(Object)}
    *   <li>{@link Latency#hashCode()}
@@ -80,12 +84,14 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}, and {@link Latency#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Latency#equals(Object)}
    *   <li>{@link Latency#hashCode()}
@@ -107,12 +113,13 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Latency#equals(Object)}
+   *
+   * <p>Method under test: {@link Latency#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -128,12 +135,13 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Latency#equals(Object)}
+   *
+   * <p>Method under test: {@link Latency#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -149,12 +157,13 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Latency#equals(Object)}
+   *
+   * <p>Method under test: {@link Latency#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -170,12 +179,13 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Latency#equals(Object)}
+   *
+   * <p>Method under test: {@link Latency#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -188,12 +198,13 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Latency#equals(Object)}
+   *
+   * <p>Method under test: {@link Latency#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -206,8 +217,9 @@ class LatencyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Latency#toString()}
    *   <li>{@link Latency#getKey()}
@@ -217,7 +229,11 @@ class LatencyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String Latency.getKey()", "double Latency.getValue()", "String Latency.toString()"})
+  @MethodsUnderTest({
+    "String Latency.getKey()",
+    "double Latency.getValue()",
+    "String Latency.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Latency ofResult = Latency.of("Key", 10.0d);
@@ -234,8 +250,8 @@ class LatencyDiffblueTest {
 
   /**
    * Test {@link Latency#of(String, double)}.
-   * <p>
-   * Method under test: {@link Latency#of(String, double)}
+   *
+   * <p>Method under test: {@link Latency#of(String, double)}
    */
   @Test
   @DisplayName("Test of(String, double)")

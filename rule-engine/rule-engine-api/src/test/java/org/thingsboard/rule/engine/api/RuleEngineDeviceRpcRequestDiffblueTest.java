@@ -14,27 +14,45 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class RuleEngineDeviceRpcRequestDiffblueTest {
   /**
-   * Test {@link RuleEngineDeviceRpcRequest#RuleEngineDeviceRpcRequest(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)}.
+   * Test {@link RuleEngineDeviceRpcRequest#RuleEngineDeviceRpcRequest(TenantId, DeviceId, int,
+   * UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return OriginServiceId is {@code 42}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return OriginServiceId is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineDeviceRpcRequest#RuleEngineDeviceRpcRequest(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)}
+   *
+   * <p>Method under test: {@link RuleEngineDeviceRpcRequest#RuleEngineDeviceRpcRequest(TenantId,
+   * DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)}
    */
   @Test
-  @DisplayName("Test new RuleEngineDeviceRpcRequest(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer); when 'null'; then return OriginServiceId is '42'")
+  @DisplayName(
+      "Test new RuleEngineDeviceRpcRequest(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer); when 'null'; then return OriginServiceId is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void RuleEngineDeviceRpcRequest.<init>(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)"})
+    "void RuleEngineDeviceRpcRequest.<init>(TenantId, DeviceId, int, UUID, String, boolean, boolean, String, String, long, boolean, String, Integer)"
+  })
   void testNewRuleEngineDeviceRpcRequest_whenNull_thenReturnOriginServiceIdIs42() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID requestUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    RuleEngineDeviceRpcRequest actualRuleEngineDeviceRpcRequest = new RuleEngineDeviceRpcRequest(tenantId, null, 1,
-        requestUUID, "42", true, true, "Method", "Not all who wander are lost", 1L, true, "Additional Info", 1);
+    RuleEngineDeviceRpcRequest actualRuleEngineDeviceRpcRequest =
+        new RuleEngineDeviceRpcRequest(
+            tenantId,
+            null,
+            1,
+            requestUUID,
+            "42",
+            true,
+            true,
+            "Method",
+            "Not all who wander are lost",
+            1L,
+            true,
+            "Additional Info",
+            1);
 
     // Assert
     assertEquals("42", actualRuleEngineDeviceRpcRequest.getOriginServiceId());

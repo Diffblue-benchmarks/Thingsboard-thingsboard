@@ -14,16 +14,18 @@ import org.junit.jupiter.api.Test;
 class OtaPackageDiffblueTest {
   /**
    * Test {@link OtaPackage#OtaPackage(OtaPackage)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link OtaPackage#OtaPackage()} HasData is {@code true}.</li>
-   *   <li>Then return HasData.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link OtaPackage#OtaPackage()} HasData is {@code true}.
+   *   <li>Then return HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
+   *
+   * <p>Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
    */
   @Test
-  @DisplayName("Test new OtaPackage(OtaPackage); given 'true'; when OtaPackage() HasData is 'true'; then return HasData")
+  @DisplayName(
+      "Test new OtaPackage(OtaPackage); given 'true'; when OtaPackage() HasData is 'true'; then return HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackage.<init>(OtaPackage)"})
   void testNewOtaPackage_givenTrue_whenOtaPackageHasDataIsTrue_thenReturnHasData() {
@@ -59,15 +61,18 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#OtaPackage(OtaPackage)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackage#OtaPackage(OtaPackage)} with otaPackage is {@link OtaPackage#OtaPackage()}.</li>
-   *   <li>Then return not HasData.</li>
+   *   <li>When {@link OtaPackage#OtaPackage(OtaPackage)} with otaPackage is {@link
+   *       OtaPackage#OtaPackage()}.
+   *   <li>Then return not HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
+   *
+   * <p>Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
    */
   @Test
-  @DisplayName("Test new OtaPackage(OtaPackage); when OtaPackage(OtaPackage) with otaPackage is OtaPackage(); then return not HasData")
+  @DisplayName(
+      "Test new OtaPackage(OtaPackage); when OtaPackage(OtaPackage) with otaPackage is OtaPackage(); then return not HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackage.<init>(OtaPackage)"})
   void testNewOtaPackage_whenOtaPackageWithOtaPackageIsOtaPackage_thenReturnNotHasData() {
@@ -99,15 +104,18 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#OtaPackage(OtaPackage)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackage#OtaPackage(OtaPackage)} with otaPackage is {@link OtaPackage#OtaPackage(OtaPackage)}.</li>
-   *   <li>Then return not HasData.</li>
+   *   <li>When {@link OtaPackage#OtaPackage(OtaPackage)} with otaPackage is {@link
+   *       OtaPackage#OtaPackage(OtaPackage)}.
+   *   <li>Then return not HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
+   *
+   * <p>Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
    */
   @Test
-  @DisplayName("Test new OtaPackage(OtaPackage); when OtaPackage(OtaPackage) with otaPackage is OtaPackage(OtaPackage); then return not HasData")
+  @DisplayName(
+      "Test new OtaPackage(OtaPackage); when OtaPackage(OtaPackage) with otaPackage is OtaPackage(OtaPackage); then return not HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackage.<init>(OtaPackage)"})
   void testNewOtaPackage_whenOtaPackageWithOtaPackageIsOtaPackage_thenReturnNotHasData2() {
@@ -139,12 +147,13 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#OtaPackage(OtaPackage)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackage#OtaPackage()}.</li>
-   *   <li>Then return not HasData.</li>
+   *   <li>When {@link OtaPackage#OtaPackage()}.
+   *   <li>Then return not HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
+   *
+   * <p>Method under test: {@link OtaPackage#OtaPackage(OtaPackage)}
    */
   @Test
   @DisplayName("Test new OtaPackage(OtaPackage); when OtaPackage(); then return not HasData")
@@ -179,12 +188,14 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#equals(Object)}, and {@link OtaPackage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackage#equals(Object)}
    *   <li>{@link OtaPackage#hashCode()}
@@ -207,12 +218,14 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#equals(Object)}, and {@link OtaPackage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackage#equals(Object)}
    *   <li>{@link OtaPackage#hashCode()}
@@ -234,12 +247,13 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -255,12 +269,13 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -273,12 +288,13 @@ class OtaPackageDiffblueTest {
 
   /**
    * Test {@link OtaPackage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackage#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

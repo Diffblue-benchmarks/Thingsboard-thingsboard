@@ -23,11 +23,12 @@ import org.thingsboard.server.service.entitiy.entity.relation.DefaultTbEntityRel
 class EntityRelationControllerDiffblueTest {
   /**
    * Test {@link EntityRelationController#saveRelation(EntityRelation)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationController#saveRelation(EntityRelation)}
+   *
+   * <p>Method under test: {@link EntityRelationController#saveRelation(EntityRelation)}
    */
   @Test
   @DisplayName("Test saveRelation(EntityRelation); then throw IllegalArgumentException")
@@ -44,24 +45,33 @@ class EntityRelationControllerDiffblueTest {
     RelationCaffeineCache cache = new RelationCaffeineCache(new CaffeineCacheManager());
     ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
     JpaExecutorService executor = new JpaExecutorService();
-    EntityRelationController entityRelationController = new EntityRelationController(
-        new DefaultTbEntityRelationService(new BaseRelationService(relationDao, entityService, cache, eventPublisher,
-            executor, new JpaRelationQueryExecutorService())));
+    EntityRelationController entityRelationController =
+        new EntityRelationController(
+            new DefaultTbEntityRelationService(
+                new BaseRelationService(
+                    relationDao,
+                    entityService,
+                    cache,
+                    eventPublisher,
+                    executor,
+                    new JpaRelationQueryExecutorService())));
     EntityRelation relation = mock(EntityRelation.class);
     when(relation.getFrom()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> entityRelationController.saveRelation(relation));
+    assertThrows(
+        IllegalArgumentException.class, () -> entityRelationController.saveRelation(relation));
     verify(relation).getFrom();
   }
 
   /**
    * Test {@link EntityRelationController#saveRelationV2(EntityRelation)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationController#saveRelationV2(EntityRelation)}
+   *
+   * <p>Method under test: {@link EntityRelationController#saveRelationV2(EntityRelation)}
    */
   @Test
   @DisplayName("Test saveRelationV2(EntityRelation); then throw IllegalArgumentException")
@@ -78,14 +88,22 @@ class EntityRelationControllerDiffblueTest {
     RelationCaffeineCache cache = new RelationCaffeineCache(new CaffeineCacheManager());
     ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
     JpaExecutorService executor = new JpaExecutorService();
-    EntityRelationController entityRelationController = new EntityRelationController(
-        new DefaultTbEntityRelationService(new BaseRelationService(relationDao, entityService, cache, eventPublisher,
-            executor, new JpaRelationQueryExecutorService())));
+    EntityRelationController entityRelationController =
+        new EntityRelationController(
+            new DefaultTbEntityRelationService(
+                new BaseRelationService(
+                    relationDao,
+                    entityService,
+                    cache,
+                    eventPublisher,
+                    executor,
+                    new JpaRelationQueryExecutorService())));
     EntityRelation relation = mock(EntityRelation.class);
     when(relation.getFrom()).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> entityRelationController.saveRelationV2(relation));
+    assertThrows(
+        IllegalArgumentException.class, () -> entityRelationController.saveRelationV2(relation));
     verify(relation).getFrom();
   }
 }

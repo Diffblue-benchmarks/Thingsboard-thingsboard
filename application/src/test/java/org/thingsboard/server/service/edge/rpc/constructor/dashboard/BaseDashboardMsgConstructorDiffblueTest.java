@@ -15,23 +15,29 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseDashboardMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseDashboardMsgConstructor#constructDashboardDeleteMsg(DashboardId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseDashboardMsgConstructor#constructDashboardDeleteMsg(DashboardId)}
+   *
+   * <p>Method under test: {@link
+   * BaseDashboardMsgConstructor#constructDashboardDeleteMsg(DashboardId)}
    */
   @Test
-  @DisplayName("Test constructDashboardDeleteMsg(DashboardId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructDashboardDeleteMsg(DashboardId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DashboardUpdateMsg BaseDashboardMsgConstructor.constructDashboardDeleteMsg(DashboardId)"})
+  @MethodsUnderTest({
+    "DashboardUpdateMsg BaseDashboardMsgConstructor.constructDashboardDeleteMsg(DashboardId)"
+  })
   void testConstructDashboardDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
     // Arrange
     DashboardMsgConstructorV1 dashboardMsgConstructorV1 = new DashboardMsgConstructorV1();
 
     // Act
-    DashboardUpdateMsg actualConstructDashboardDeleteMsgResult = dashboardMsgConstructorV1
-        .constructDashboardDeleteMsg(new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    DashboardUpdateMsg actualConstructDashboardDeleteMsgResult =
+        dashboardMsgConstructorV1.constructDashboardDeleteMsg(
+            new DashboardId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructDashboardDeleteMsgResult.getInitializationErrorString());
@@ -48,7 +54,9 @@ class BaseDashboardMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructDashboardDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructDashboardDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructDashboardDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructDashboardDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructDashboardDeleteMsgResult.getMsgType());
     assertFalse(actualConstructDashboardDeleteMsgResult.getMobileHide());
     assertFalse(actualConstructDashboardDeleteMsgResult.hasAssignedCustomers());
     assertFalse(actualConstructDashboardDeleteMsgResult.hasCustomerIdLSB());

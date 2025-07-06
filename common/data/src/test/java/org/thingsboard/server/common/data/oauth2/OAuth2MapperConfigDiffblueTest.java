@@ -20,17 +20,18 @@ import org.thingsboard.server.common.data.oauth2.OAuth2MapperConfig.OAuth2Mapper
 @ContextConfiguration(classes = {OAuth2MapperConfigBuilder.class})
 @ExtendWith(SpringExtension.class)
 class OAuth2MapperConfigDiffblueTest {
-  @Autowired
-  private OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder;
+  @Autowired private OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder;
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}, and {@link OAuth2MapperConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2MapperConfig#equals(Object)}
    *   <li>{@link OAuth2MapperConfig#hashCode()}
@@ -39,50 +40,55 @@ class OAuth2MapperConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult2 =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic2 =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
-    OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom2 =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult2 = basicResult2.custom(custom2).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -93,12 +99,14 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}, and {@link OAuth2MapperConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2MapperConfig#equals(Object)}
    *   <li>{@link OAuth2MapperConfig#hashCode()}
@@ -107,29 +115,33 @@ class OAuth2MapperConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -140,61 +152,69 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2MapperConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2MapperConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(OAuth2MapperConfigBuilder.class);
-    when(oAuth2MapperConfigBuilder.activateUser(anyBoolean())).thenReturn(OAuth2MapperConfig.builder());
-    OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder.activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    when(oAuth2MapperConfigBuilder.activateUser(anyBoolean()))
+        .thenReturn(OAuth2MapperConfig.builder());
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        oAuth2MapperConfigBuilder.activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult2 =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic2 =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
-    OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom2 =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult2 = basicResult2.custom(custom2).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -203,63 +223,72 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2MapperConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2MapperConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder = mock(OAuth2MapperConfigBuilder.class);
-    when(oAuth2MapperConfigBuilder.allowUserCreation(anyBoolean())).thenReturn(OAuth2MapperConfig.builder());
+    when(oAuth2MapperConfigBuilder.allowUserCreation(anyBoolean()))
+        .thenReturn(OAuth2MapperConfig.builder());
     OAuth2MapperConfigBuilder oAuth2MapperConfigBuilder2 = mock(OAuth2MapperConfigBuilder.class);
-    when(oAuth2MapperConfigBuilder2.activateUser(anyBoolean())).thenReturn(oAuth2MapperConfigBuilder);
-    OAuth2MapperConfigBuilder allowUserCreationResult = oAuth2MapperConfigBuilder2.activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    when(oAuth2MapperConfigBuilder2.activateUser(anyBoolean()))
+        .thenReturn(oAuth2MapperConfigBuilder);
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        oAuth2MapperConfigBuilder2.activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
-    OAuth2MapperConfigBuilder allowUserCreationResult2 = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult2 =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic2 =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult2 = allowUserCreationResult2.basic(basic2);
-    OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom2 =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult2 = basicResult2.custom(custom2).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -268,39 +297,44 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2MapperConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2MapperConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -309,39 +343,44 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test {@link OAuth2MapperConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2MapperConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2MapperConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2MapperConfig.equals(Object)", "int OAuth2MapperConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2MapperConfig.equals(Object)",
+    "int OAuth2MapperConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig buildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
 
     // Act and Assert
@@ -350,10 +389,12 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link OAuth2MapperConfig#OAuth2MapperConfig(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)}
+   *   <li>{@link OAuth2MapperConfig#OAuth2MapperConfig(boolean, boolean, MapperType,
+   *       OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)}
    *   <li>{@link OAuth2MapperConfig#setActivateUser(boolean)}
    *   <li>{@link OAuth2MapperConfig#setAllowUserCreation(boolean)}
    *   <li>{@link OAuth2MapperConfig#setBasic(OAuth2BasicMapperConfig)}
@@ -372,54 +413,65 @@ class OAuth2MapperConfigDiffblueTest {
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void OAuth2MapperConfig.<init>(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)",
-      "OAuth2BasicMapperConfig OAuth2MapperConfig.getBasic()",
-      "OAuth2CustomMapperConfig OAuth2MapperConfig.getCustom()", "MapperType OAuth2MapperConfig.getType()",
-      "boolean OAuth2MapperConfig.isActivateUser()", "boolean OAuth2MapperConfig.isAllowUserCreation()",
-      "void OAuth2MapperConfig.setActivateUser(boolean)", "void OAuth2MapperConfig.setAllowUserCreation(boolean)",
-      "void OAuth2MapperConfig.setBasic(OAuth2BasicMapperConfig)",
-      "void OAuth2MapperConfig.setCustom(OAuth2CustomMapperConfig)", "void OAuth2MapperConfig.setType(MapperType)",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfig.toBuilder()", "String OAuth2MapperConfig.toString()"})
+    "void OAuth2MapperConfig.<init>(boolean, boolean, MapperType, OAuth2BasicMapperConfig, OAuth2CustomMapperConfig)",
+    "OAuth2BasicMapperConfig OAuth2MapperConfig.getBasic()",
+    "OAuth2CustomMapperConfig OAuth2MapperConfig.getCustom()",
+    "MapperType OAuth2MapperConfig.getType()",
+    "boolean OAuth2MapperConfig.isActivateUser()",
+    "boolean OAuth2MapperConfig.isAllowUserCreation()",
+    "void OAuth2MapperConfig.setActivateUser(boolean)",
+    "void OAuth2MapperConfig.setAllowUserCreation(boolean)",
+    "void OAuth2MapperConfig.setBasic(OAuth2BasicMapperConfig)",
+    "void OAuth2MapperConfig.setCustom(OAuth2CustomMapperConfig)",
+    "void OAuth2MapperConfig.setType(MapperType)",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfig.toBuilder()",
+    "String OAuth2MapperConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
 
     // Act
-    OAuth2MapperConfig actualOAuth2MapperConfig = new OAuth2MapperConfig(true, true, MapperType.BASIC, basic, custom);
+    OAuth2MapperConfig actualOAuth2MapperConfig =
+        new OAuth2MapperConfig(true, true, MapperType.BASIC, basic, custom);
     actualOAuth2MapperConfig.setActivateUser(true);
     actualOAuth2MapperConfig.setAllowUserCreation(true);
-    OAuth2BasicMapperConfig basic2 = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2BasicMapperConfig basic2 =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     actualOAuth2MapperConfig.setBasic(basic2);
-    OAuth2CustomMapperConfig custom2 = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom2 =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     actualOAuth2MapperConfig.setCustom(custom2);
     actualOAuth2MapperConfig.setType(MapperType.BASIC);
     String actualToStringResult = actualOAuth2MapperConfig.toString();
@@ -447,8 +499,9 @@ class OAuth2MapperConfigDiffblueTest {
 
   /**
    * Test OAuth2MapperConfigBuilder {@link OAuth2MapperConfigBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2MapperConfigBuilder#build()}
    *   <li>{@link OAuth2MapperConfigBuilder#activateUser(boolean)}
@@ -461,39 +514,43 @@ class OAuth2MapperConfigDiffblueTest {
   @Test
   @DisplayName("Test OAuth2MapperConfigBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2MapperConfigBuilder.<init>()",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.activateUser(boolean)",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.allowUserCreation(boolean)",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.basic(OAuth2BasicMapperConfig)",
-      "OAuth2MapperConfig OAuth2MapperConfigBuilder.build()",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.custom(OAuth2CustomMapperConfig)",
-      "String OAuth2MapperConfigBuilder.toString()",
-      "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.type(MapperType)"})
+  @MethodsUnderTest({
+    "void OAuth2MapperConfigBuilder.<init>()",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.activateUser(boolean)",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.allowUserCreation(boolean)",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.basic(OAuth2BasicMapperConfig)",
+    "OAuth2MapperConfig OAuth2MapperConfigBuilder.build()",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.custom(OAuth2CustomMapperConfig)",
+    "String OAuth2MapperConfigBuilder.toString()",
+    "OAuth2MapperConfigBuilder OAuth2MapperConfigBuilder.type(MapperType)"
+  })
   void testOAuth2MapperConfigBuilderBuild() {
     // Arrange
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
 
     // Act
-    OAuth2MapperConfig actualBuildResult = basicResult.custom(custom).type(MapperType.BASIC).build();
+    OAuth2MapperConfig actualBuildResult =
+        basicResult.custom(custom).type(MapperType.BASIC).build();
 
     // Assert
     OAuth2BasicMapperConfig basic2 = actualBuildResult.getBasic();

@@ -25,28 +25,31 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class DefaultStatsFactoryDiffblueTest {
-  @Autowired
-  private DefaultStatsFactory defaultStatsFactory;
+  @Autowired private DefaultStatsFactory defaultStatsFactory;
 
-  @MockBean
-  private MeterRegistry meterRegistry;
+  @MockBean private MeterRegistry meterRegistry;
 
   /**
    * Test {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}.
+   *
    * <ul>
-   *   <li>When {@code Key}.</li>
-   *   <li>Then return Name is {@code Stats Name}.</li>
+   *   <li>When {@code Key}.
+   *   <li>Then return Name is {@code Stats Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
    */
   @Test
-  @DisplayName("Test createStatsCounter(String, String, String[]); when 'Key'; then return Name is 'Stats Name'")
+  @DisplayName(
+      "Test createStatsCounter(String, String, String[]); when 'Key'; then return Name is 'Stats Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"})
+  @MethodsUnderTest({
+    "StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"
+  })
   void testCreateStatsCounter_whenKey_thenReturnNameIsStatsName() {
     // Arrange and Act
-    StatsCounter actualCreateStatsCounterResult = defaultStatsFactory.createStatsCounter("Key", "Stats Name");
+    StatsCounter actualCreateStatsCounterResult =
+        defaultStatsFactory.createStatsCounter("Key", "Stats Name");
 
     // Assert
     assertEquals("Stats Name", actualCreateStatsCounterResult.getName());
@@ -55,39 +58,49 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}.
+   *
    * <ul>
-   *   <li>When {@code Other Tags}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Other Tags}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
    */
   @Test
-  @DisplayName("Test createStatsCounter(String, String, String[]); when 'Other Tags'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test createStatsCounter(String, String, String[]); when 'Other Tags'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"})
+  @MethodsUnderTest({
+    "StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"
+  })
   void testCreateStatsCounter_whenOtherTags_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> defaultStatsFactory.createStatsCounter("Key", "Stats Name", "Other Tags"));
   }
 
   /**
    * Test {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}.
+   *
    * <ul>
-   *   <li>When {@code statsName} and {@code Invalid tags array size}.</li>
+   *   <li>When {@code statsName} and {@code Invalid tags array size}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
    */
   @Test
-  @DisplayName("Test createStatsCounter(String, String, String[]); when 'statsName' and 'Invalid tags array size'")
+  @DisplayName(
+      "Test createStatsCounter(String, String, String[]); when 'statsName' and 'Invalid tags array size'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"})
+  @MethodsUnderTest({
+    "StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"
+  })
   void testCreateStatsCounter_whenStatsNameAndInvalidTagsArraySize() {
     // Arrange and Act
-    StatsCounter actualCreateStatsCounterResult = defaultStatsFactory.createStatsCounter("Key", "Stats Name",
-        "statsName", "Invalid tags array size");
+    StatsCounter actualCreateStatsCounterResult =
+        defaultStatsFactory.createStatsCounter(
+            "Key", "Stats Name", "statsName", "Invalid tags array size");
 
     // Assert
     assertEquals("Stats Name", actualCreateStatsCounterResult.getName());
@@ -96,21 +109,26 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}.
+   *
    * <ul>
-   *   <li>When {@code statsName}.</li>
-   *   <li>Then return Name is {@code Stats Name}.</li>
+   *   <li>When {@code statsName}.
+   *   <li>Then return Name is {@code Stats Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createStatsCounter(String, String, String[])}
    */
   @Test
-  @DisplayName("Test createStatsCounter(String, String, String[]); when 'statsName'; then return Name is 'Stats Name'")
+  @DisplayName(
+      "Test createStatsCounter(String, String, String[]); when 'statsName'; then return Name is 'Stats Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"})
+  @MethodsUnderTest({
+    "StatsCounter DefaultStatsFactory.createStatsCounter(String, String, String[])"
+  })
   void testCreateStatsCounter_whenStatsName_thenReturnNameIsStatsName() {
     // Arrange and Act
-    StatsCounter actualCreateStatsCounterResult = defaultStatsFactory.createStatsCounter("statsName", "Stats Name",
-        "statsName", "Invalid tags array size");
+    StatsCounter actualCreateStatsCounterResult =
+        defaultStatsFactory.createStatsCounter(
+            "statsName", "Stats Name", "statsName", "Invalid tags array size");
 
     // Assert
     assertEquals("Stats Name", actualCreateStatsCounterResult.getName());
@@ -119,14 +137,15 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createDefaultCounter(String, String[])}.
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createDefaultCounter(String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createDefaultCounter(String, String[])}
    */
   @Test
   @DisplayName("Test createDefaultCounter(String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.stats.DefaultCounter DefaultStatsFactory.createDefaultCounter(String, String[])"})
+    "org.thingsboard.server.common.stats.DefaultCounter DefaultStatsFactory.createDefaultCounter(String, String[])"
+  })
   void testCreateDefaultCounter() {
     // Arrange, Act and Assert
     assertEquals(0, defaultStatsFactory.createDefaultCounter("Key", "Tags").get());
@@ -134,21 +153,27 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createGauge(String, Number, String[])}.
+   *
    * <ul>
-   *   <li>Given {@link MeterRegistry} {@link MeterRegistry#gauge(String, Iterable, Number)} return one.</li>
-   *   <li>Then return intValue is one.</li>
+   *   <li>Given {@link MeterRegistry} {@link MeterRegistry#gauge(String, Iterable, Number)} return
+   *       one.
+   *   <li>Then return intValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
    */
   @Test
-  @DisplayName("Test createGauge(String, Number, String[]); given MeterRegistry gauge(String, Iterable, Number) return one; then return intValue is one")
+  @DisplayName(
+      "Test createGauge(String, Number, String[]); given MeterRegistry gauge(String, Iterable, Number) return one; then return intValue is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Number DefaultStatsFactory.createGauge(String, Number, String[])"})
   void testCreateGauge_givenMeterRegistryGaugeReturnOne_thenReturnIntValueIsOne() {
     // Arrange
-    when(meterRegistry.gauge(Mockito.<String>any(), Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
-        Mockito.<Integer>any())).thenReturn(1);
+    when(meterRegistry.gauge(
+            Mockito.<String>any(),
+            Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
+            Mockito.<Integer>any()))
+        .thenReturn(1);
     Integer valueOfResult = Integer.valueOf(1);
 
     // Act
@@ -162,11 +187,12 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createGauge(String, Number, String[])}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
    */
   @Test
   @DisplayName("Test createGauge(String, Number, String[]); then throw IllegalArgumentException")
@@ -174,35 +200,112 @@ class DefaultStatsFactoryDiffblueTest {
   @MethodsUnderTest({"Number DefaultStatsFactory.createGauge(String, Number, String[])"})
   void testCreateGauge_thenThrowIllegalArgumentException() {
     // Arrange
-    when(meterRegistry.gauge(Mockito.<String>any(), Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
-        Mockito.<Integer>any())).thenThrow(new IllegalArgumentException("foo"));
+    when(meterRegistry.gauge(
+            Mockito.<String>any(),
+            Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
+            Mockito.<Integer>any()))
+        .thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> defaultStatsFactory.createGauge("Key", Integer.valueOf(1)));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> defaultStatsFactory.createGauge("Key", Integer.valueOf(1), null));
     verify(meterRegistry).gauge(eq("Key"), isA(Iterable.class), eq(1));
   }
 
   /**
    * Test {@link DefaultStatsFactory#createGauge(String, Number, String[])}.
+   *
    * <ul>
-   *   <li>When {@code Tags} and {@code ,}.</li>
-   *   <li>Then return intValue is one.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return intValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
    */
   @Test
-  @DisplayName("Test createGauge(String, Number, String[]); when 'Tags' and ','; then return intValue is one")
+  @DisplayName(
+      "Test createGauge(String, Number, String[]); when 'null'; then return intValue is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Number DefaultStatsFactory.createGauge(String, Number, String[])"})
+  void testCreateGauge_whenNull_thenReturnIntValueIsOne() {
+    // Arrange
+    when(meterRegistry.gauge(
+            Mockito.<String>any(),
+            Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
+            Mockito.<Integer>any()))
+        .thenReturn(1);
+    Integer valueOfResult = Integer.valueOf(1);
+
+    // Act
+    Number actualCreateGaugeResult = defaultStatsFactory.createGauge("Key", valueOfResult, null);
+
+    // Assert
+    verify(meterRegistry).gauge(eq("Key"), isA(Iterable.class), eq(1));
+    assertEquals(1, actualCreateGaugeResult.intValue());
+    assertSame(valueOfResult, actualCreateGaugeResult);
+  }
+
+  /**
+   * Test {@link DefaultStatsFactory#createGauge(String, Number, String[])}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then return intValue is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
+   */
+  @Test
+  @DisplayName(
+      "Test createGauge(String, Number, String[]); when 'null'; then return intValue is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Number DefaultStatsFactory.createGauge(String, Number, String[])"})
+  void testCreateGauge_whenNull_thenReturnIntValueIsOne2() {
+    // Arrange
+    when(meterRegistry.gauge(
+            Mockito.<String>any(),
+            Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
+            Mockito.<Integer>any()))
+        .thenReturn(1);
+    Integer valueOfResult = Integer.valueOf(1);
+
+    // Act
+    Number actualCreateGaugeResult = defaultStatsFactory.createGauge("Key", valueOfResult, null);
+
+    // Assert
+    verify(meterRegistry).gauge(eq("Key"), isA(Iterable.class), eq(1));
+    assertEquals(1, actualCreateGaugeResult.intValue());
+    assertSame(valueOfResult, actualCreateGaugeResult);
+  }
+
+  /**
+   * Test {@link DefaultStatsFactory#createGauge(String, Number, String[])}.
+   *
+   * <ul>
+   *   <li>When {@code Tags} and {@code ,}.
+   *   <li>Then return intValue is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createGauge(String, Number, String[])}
+   */
+  @Test
+  @DisplayName(
+      "Test createGauge(String, Number, String[]); when 'Tags' and ','; then return intValue is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Number DefaultStatsFactory.createGauge(String, Number, String[])"})
   void testCreateGauge_whenTagsAndComma_thenReturnIntValueIsOne() {
     // Arrange
-    when(meterRegistry.gauge(Mockito.<String>any(), Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
-        Mockito.<Integer>any())).thenReturn(1);
+    when(meterRegistry.gauge(
+            Mockito.<String>any(),
+            Mockito.<Iterable<io.micrometer.core.instrument.Tag>>any(),
+            Mockito.<Integer>any()))
+        .thenReturn(1);
     Integer valueOfResult = Integer.valueOf(1);
 
     // Act
-    Number actualCreateGaugeResult = defaultStatsFactory.createGauge("Key", valueOfResult, "Tags", ",");
+    Number actualCreateGaugeResult =
+        defaultStatsFactory.createGauge("Key", valueOfResult, "Tags", ",");
 
     // Assert
     verify(meterRegistry).gauge(eq("Key"), isA(Iterable.class), eq(1));
@@ -212,8 +315,8 @@ class DefaultStatsFactoryDiffblueTest {
 
   /**
    * Test {@link DefaultStatsFactory#createMessagesStats(String)}.
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createMessagesStats(String)}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createMessagesStats(String)}
    */
   @Test
   @DisplayName("Test createMessagesStats(String)")
@@ -231,26 +334,31 @@ class DefaultStatsFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultStatsFactory#createTimer(StatsType, String, String[])} with {@code type}, {@code name}, {@code tags}.
+   * Test {@link DefaultStatsFactory#createTimer(StatsType, String, String[])} with {@code type},
+   * {@code name}, {@code tags}.
+   *
    * <ul>
-   *   <li>When {@code Tags}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Tags}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultStatsFactory#createTimer(StatsType, String, String[])}
+   *
+   * <p>Method under test: {@link DefaultStatsFactory#createTimer(StatsType, String, String[])}
    */
   @Test
-  @DisplayName("Test createTimer(StatsType, String, String[]) with 'type', 'name', 'tags'; when 'Tags'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test createTimer(StatsType, String, String[]) with 'type', 'name', 'tags'; when 'Tags'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.stats.StatsTimer DefaultStatsFactory.createTimer(StatsType, String, String[])"})
+    "org.thingsboard.server.common.stats.StatsTimer DefaultStatsFactory.createTimer(StatsType, String, String[])"
+  })
   void testCreateTimerWithTypeNameTags_whenTags_thenThrowIllegalArgumentException() {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
-        () -> (new DefaultStatsFactory()).createTimer(StatsType.RULE_ENGINE, "Name", "Tags"));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> new DefaultStatsFactory().createTimer(StatsType.RULE_ENGINE, "Name", "Tags"));
   }
 }

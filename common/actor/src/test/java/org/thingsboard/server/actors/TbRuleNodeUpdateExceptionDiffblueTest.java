@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class TbRuleNodeUpdateExceptionDiffblueTest {
   /**
    * Test {@link TbRuleNodeUpdateException#TbRuleNodeUpdateException(String, Throwable)}.
-   * <p>
-   * Method under test: {@link TbRuleNodeUpdateException#TbRuleNodeUpdateException(String, Throwable)}
+   *
+   * <p>Method under test: {@link TbRuleNodeUpdateException#TbRuleNodeUpdateException(String,
+   * Throwable)}
    */
   @Test
   @DisplayName("Test new TbRuleNodeUpdateException(String, Throwable)")
@@ -22,8 +23,8 @@ class TbRuleNodeUpdateExceptionDiffblueTest {
     Throwable cause = new Throwable();
 
     // Act
-    TbRuleNodeUpdateException actualTbRuleNodeUpdateException = new TbRuleNodeUpdateException("An error occurred",
-        cause);
+    TbRuleNodeUpdateException actualTbRuleNodeUpdateException =
+        new TbRuleNodeUpdateException("An error occurred", cause);
 
     // Assert
     assertEquals("An error occurred", actualTbRuleNodeUpdateException.getMessage());

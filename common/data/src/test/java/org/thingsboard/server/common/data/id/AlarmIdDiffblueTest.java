@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class AlarmIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmId#AlarmId(UUID)}
    *   <li>{@link AlarmId#getEntityType()}

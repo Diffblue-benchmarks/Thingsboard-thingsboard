@@ -19,12 +19,14 @@ import org.thingsboard.server.common.data.widget.WidgetTypeInfo;
 public class WidgetTypeInfoEntityDiffblueTest {
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}, and {@link WidgetTypeInfoEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfoEntity#equals(Object)}
    *   <li>{@link WidgetTypeInfoEntity#hashCode()}
@@ -32,7 +34,10 @@ public class WidgetTypeInfoEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -44,7 +49,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -59,7 +64,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -73,12 +78,14 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}, and {@link WidgetTypeInfoEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfoEntity#equals(Object)}
    *   <li>{@link WidgetTypeInfoEntity#hashCode()}
@@ -86,7 +93,10 @@ public class WidgetTypeInfoEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -98,7 +108,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -112,16 +122,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -133,7 +147,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -148,7 +162,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -160,16 +174,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -181,7 +199,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -196,7 +214,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -208,16 +226,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -229,7 +251,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -244,7 +266,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -256,16 +278,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -277,7 +303,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Fqn");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -292,7 +318,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -304,16 +330,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -325,7 +355,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage(null);
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -340,7 +370,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -352,16 +382,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -373,7 +407,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Fqn"});
+    widgetTypeInfoEntity.setTags(new String[] {"Fqn"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -388,7 +422,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -400,16 +434,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -421,7 +459,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -436,7 +474,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -448,16 +486,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -469,7 +511,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -484,7 +526,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity2.setImage("Image");
     widgetTypeInfoEntity2.setName("Name");
     widgetTypeInfoEntity2.setScada(true);
-    widgetTypeInfoEntity2.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity2.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity2.setVersion(1L);
@@ -496,16 +538,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -517,7 +563,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -529,16 +575,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetTypeInfoEntity.equals(Object)", "int WidgetTypeInfoEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetTypeInfoEntity.equals(Object)",
+    "int WidgetTypeInfoEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
@@ -550,7 +600,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
@@ -562,8 +612,9 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link WidgetTypeInfoEntity}
    *   <li>{@link WidgetTypeInfoEntity#setDescription(String)}
@@ -579,17 +630,24 @@ public class WidgetTypeInfoEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void WidgetTypeInfoEntity.<init>()", "String WidgetTypeInfoEntity.getDescription()",
-      "String WidgetTypeInfoEntity.getImage()", "String[] WidgetTypeInfoEntity.getTags()",
-      "String WidgetTypeInfoEntity.getWidgetType()", "void WidgetTypeInfoEntity.setDescription(String)",
-      "void WidgetTypeInfoEntity.setImage(String)", "void WidgetTypeInfoEntity.setTags(String[])",
-      "void WidgetTypeInfoEntity.setWidgetType(String)", "String WidgetTypeInfoEntity.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeInfoEntity.<init>()",
+    "String WidgetTypeInfoEntity.getDescription()",
+    "String WidgetTypeInfoEntity.getImage()",
+    "String[] WidgetTypeInfoEntity.getTags()",
+    "String WidgetTypeInfoEntity.getWidgetType()",
+    "void WidgetTypeInfoEntity.setDescription(String)",
+    "void WidgetTypeInfoEntity.setImage(String)",
+    "void WidgetTypeInfoEntity.setTags(String[])",
+    "void WidgetTypeInfoEntity.setWidgetType(String)",
+    "String WidgetTypeInfoEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     WidgetTypeInfoEntity actualWidgetTypeInfoEntity = new WidgetTypeInfoEntity();
     actualWidgetTypeInfoEntity.setDescription("The characteristics of someone or something");
     actualWidgetTypeInfoEntity.setImage("Image");
-    String[] tags = new String[]{"Tags"};
+    String[] tags = new String[] {"Tags"};
     actualWidgetTypeInfoEntity.setTags(tags);
     actualWidgetTypeInfoEntity.setWidgetType("Widget Type");
     String actualToStringResult = actualWidgetTypeInfoEntity.toString();
@@ -615,17 +673,18 @@ public class WidgetTypeInfoEntityDiffblueTest {
     assertFalse(actualWidgetTypeInfoEntity.isDeprecated());
     assertFalse(actualWidgetTypeInfoEntity.isScada());
     assertSame(tags, actualTags);
-    assertArrayEquals(new String[]{"Tags"}, actualTags);
+    assertArrayEquals(new String[] {"Tags"}, actualTags);
   }
 
   /**
    * Test {@link WidgetTypeInfoEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeInfoEntity} (default constructor) TenantId is {@code null}.</li>
-   *   <li>Then return {@code Fqn}.</li>
+   *   <li>Given {@link WidgetTypeInfoEntity} (default constructor) TenantId is {@code null}.
+   *   <li>Then return {@code Fqn}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -641,7 +700,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     widgetTypeInfoEntity.setUuid(id);
     widgetTypeInfoEntity.setVersion(1L);
@@ -655,7 +714,8 @@ public class WidgetTypeInfoEntityDiffblueTest {
     assertEquals("Fqn", actualToDataResult.getFqn());
     assertEquals("Image", actualToDataResult.getImage());
     assertEquals("Name", actualToDataResult.getName());
-    assertEquals("The characteristics of someone or something", actualToDataResult.getDescription());
+    assertEquals(
+        "The characteristics of someone or something", actualToDataResult.getDescription());
     assertEquals("Widget Type", actualToDataResult.getWidgetType());
     assertNull(actualToDataResult.getTenantId());
     assertEquals(1, actualToDataResult.getTags().length);
@@ -668,19 +728,20 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetTypeInfoEntity} (default constructor).</li>
-   *   <li>Then return Version is {@code null}.</li>
+   *   <li>Given {@link WidgetTypeInfoEntity} (default constructor).
+   *   <li>Then return Version is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"WidgetTypeInfo WidgetTypeInfoEntity.toData()"})
   public void testToData_givenWidgetTypeInfoEntity_thenReturnVersionIsNull() {
     // Arrange and Act
-    WidgetTypeInfo actualToDataResult = (new WidgetTypeInfoEntity()).toData();
+    WidgetTypeInfo actualToDataResult = new WidgetTypeInfoEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getVersion());
@@ -699,11 +760,12 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -719,7 +781,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
     widgetTypeInfoEntity.setWidgetType("Widget Type");
@@ -736,11 +798,12 @@ public class WidgetTypeInfoEntityDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfoEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfoEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -756,7 +819,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     widgetTypeInfoEntity.setImage("Image");
     widgetTypeInfoEntity.setName("Name");
     widgetTypeInfoEntity.setScada(true);
-    widgetTypeInfoEntity.setTags(new String[]{"Tags"});
+    widgetTypeInfoEntity.setTags(new String[] {"Tags"});
     widgetTypeInfoEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     widgetTypeInfoEntity.setVersion(1L);
     widgetTypeInfoEntity.setWidgetType("Widget Type");

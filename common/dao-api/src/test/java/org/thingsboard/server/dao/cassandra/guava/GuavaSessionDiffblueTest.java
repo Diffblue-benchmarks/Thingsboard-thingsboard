@@ -24,11 +24,12 @@ import org.mockito.Mockito;
 class GuavaSessionDiffblueTest {
   /**
    * Test {@link GuavaSession#executeAsync(String)} with {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link SettableFuture}.</li>
+   *   <li>Then return {@link SettableFuture}.
    * </ul>
-   * <p>
-   * Method under test: {@link GuavaSession#executeAsync(String)}
+   *
+   * <p>Method under test: {@link GuavaSession#executeAsync(String)}
    */
   @Test
   @DisplayName("Test executeAsync(String) with 'String'; then return SettableFuture")
@@ -38,12 +39,14 @@ class GuavaSessionDiffblueTest {
     // Arrange
     Session delegate = mock(Session.class);
     SettableFuture<AsyncResultSet> createResult = SettableFuture.create();
-    when(delegate.execute(Mockito.<DefaultSimpleStatement>any(),
-        Mockito.<GenericType<ListenableFuture<AsyncResultSet>>>any())).thenReturn(createResult);
+    when(delegate.execute(
+            Mockito.<DefaultSimpleStatement>any(),
+            Mockito.<GenericType<ListenableFuture<AsyncResultSet>>>any()))
+        .thenReturn(createResult);
 
     // Act
-    ListenableFuture<AsyncResultSet> actualExecuteAsyncResult = (new DefaultGuavaSession(
-        new DefaultDseSession(delegate))).executeAsync("MD");
+    ListenableFuture<AsyncResultSet> actualExecuteAsyncResult =
+        new DefaultGuavaSession(new DefaultDseSession(delegate)).executeAsync("MD");
 
     // Assert
     verify(delegate).execute(isA(DefaultSimpleStatement.class), isA(GenericType.class));
@@ -53,11 +56,12 @@ class GuavaSessionDiffblueTest {
 
   /**
    * Test {@link GuavaSession#prepareAsync(String)} with {@code String}.
+   *
    * <ul>
-   *   <li>Then return {@link SettableFuture}.</li>
+   *   <li>Then return {@link SettableFuture}.
    * </ul>
-   * <p>
-   * Method under test: {@link GuavaSession#prepareAsync(String)}
+   *
+   * <p>Method under test: {@link GuavaSession#prepareAsync(String)}
    */
   @Test
   @DisplayName("Test prepareAsync(String) with 'String'; then return SettableFuture")
@@ -67,12 +71,14 @@ class GuavaSessionDiffblueTest {
     // Arrange
     Session delegate = mock(Session.class);
     SettableFuture<PreparedStatement> createResult = SettableFuture.create();
-    when(delegate.execute(Mockito.<DefaultPrepareRequest>any(),
-        Mockito.<GenericType<ListenableFuture<PreparedStatement>>>any())).thenReturn(createResult);
+    when(delegate.execute(
+            Mockito.<DefaultPrepareRequest>any(),
+            Mockito.<GenericType<ListenableFuture<PreparedStatement>>>any()))
+        .thenReturn(createResult);
 
     // Act
-    ListenableFuture<PreparedStatement> actualPrepareAsyncResult = (new DefaultGuavaSession(
-        new DefaultDseSession(delegate))).prepareAsync("MD");
+    ListenableFuture<PreparedStatement> actualPrepareAsyncResult =
+        new DefaultGuavaSession(new DefaultDseSession(delegate)).prepareAsync("MD");
 
     // Assert
     verify(delegate).execute(isA(DefaultPrepareRequest.class), isA(GenericType.class));

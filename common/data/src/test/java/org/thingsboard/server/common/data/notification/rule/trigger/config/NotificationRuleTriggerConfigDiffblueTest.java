@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class NotificationRuleTriggerConfigDiffblueTest {
   /**
    * Test {@link NotificationRuleTriggerConfig#getDeduplicationKey()}.
-   * <p>
-   * Method under test: {@link NotificationRuleTriggerConfig#getDeduplicationKey()}
+   *
+   * <p>Method under test: {@link NotificationRuleTriggerConfig#getDeduplicationKey()}
    */
   @Test
   @DisplayName("Test getDeduplicationKey()")
@@ -18,6 +18,6 @@ class NotificationRuleTriggerConfigDiffblueTest {
   @MethodsUnderTest({"java.lang.String NotificationRuleTriggerConfig.getDeduplicationKey()"})
   void testGetDeduplicationKey() {
     // Arrange, Act and Assert
-    assertEquals("#", (new AlarmAssignmentNotificationRuleTriggerConfig()).getDeduplicationKey());
+    assertEquals("#", new AlarmAssignmentNotificationRuleTriggerConfig().getDeduplicationKey());
   }
 }

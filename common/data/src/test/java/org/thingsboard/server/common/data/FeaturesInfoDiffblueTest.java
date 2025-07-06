@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class FeaturesInfoDiffblueTest {
   /**
    * Test {@link FeaturesInfo#equals(Object)}, and {@link FeaturesInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FeaturesInfo#equals(Object)}
    *   <li>{@link FeaturesInfo#hashCode()}
@@ -50,12 +52,14 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}, and {@link FeaturesInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FeaturesInfo#equals(Object)}
    *   <li>{@link FeaturesInfo#hashCode()}
@@ -82,12 +86,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -115,12 +120,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -148,12 +154,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -181,12 +188,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -214,12 +222,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -247,12 +256,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -273,12 +283,13 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test {@link FeaturesInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FeaturesInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link FeaturesInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -299,8 +310,9 @@ class FeaturesInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link FeaturesInfo}
    *   <li>{@link FeaturesInfo#setEmailEnabled(boolean)}
@@ -319,12 +331,20 @@ class FeaturesInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void FeaturesInfo.<init>()", "boolean FeaturesInfo.isEmailEnabled()",
-      "boolean FeaturesInfo.isNotificationEnabled()", "boolean FeaturesInfo.isOauthEnabled()",
-      "boolean FeaturesInfo.isSmsEnabled()", "boolean FeaturesInfo.isTwoFaEnabled()",
-      "void FeaturesInfo.setEmailEnabled(boolean)", "void FeaturesInfo.setNotificationEnabled(boolean)",
-      "void FeaturesInfo.setOauthEnabled(boolean)", "void FeaturesInfo.setSmsEnabled(boolean)",
-      "void FeaturesInfo.setTwoFaEnabled(boolean)", "String FeaturesInfo.toString()"})
+  @MethodsUnderTest({
+    "void FeaturesInfo.<init>()",
+    "boolean FeaturesInfo.isEmailEnabled()",
+    "boolean FeaturesInfo.isNotificationEnabled()",
+    "boolean FeaturesInfo.isOauthEnabled()",
+    "boolean FeaturesInfo.isSmsEnabled()",
+    "boolean FeaturesInfo.isTwoFaEnabled()",
+    "void FeaturesInfo.setEmailEnabled(boolean)",
+    "void FeaturesInfo.setNotificationEnabled(boolean)",
+    "void FeaturesInfo.setOauthEnabled(boolean)",
+    "void FeaturesInfo.setSmsEnabled(boolean)",
+    "void FeaturesInfo.setTwoFaEnabled(boolean)",
+    "String FeaturesInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     FeaturesInfo actualFeaturesInfo = new FeaturesInfo();
@@ -340,8 +360,10 @@ class FeaturesInfoDiffblueTest {
     boolean actualIsSmsEnabledResult = actualFeaturesInfo.isSmsEnabled();
 
     // Assert
-    assertEquals("FeaturesInfo(isEmailEnabled=true, isSmsEnabled=true, isNotificationEnabled=true, isOauthEnabled=true,"
-        + " isTwoFaEnabled=true)", actualToStringResult);
+    assertEquals(
+        "FeaturesInfo(isEmailEnabled=true, isSmsEnabled=true, isNotificationEnabled=true, isOauthEnabled=true,"
+            + " isTwoFaEnabled=true)",
+        actualToStringResult);
     assertTrue(actualIsEmailEnabledResult);
     assertTrue(actualIsNotificationEnabledResult);
     assertTrue(actualIsOauthEnabledResult);

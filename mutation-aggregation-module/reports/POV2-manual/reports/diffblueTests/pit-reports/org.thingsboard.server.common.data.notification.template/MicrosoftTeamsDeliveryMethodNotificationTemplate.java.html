@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MicrosoftTeamsDeliveryMethodNotificationTemplate.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.notification.template;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.EqualsAndHashCode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.NoArgsConstructor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.ToString;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.notification.NotificationDeliveryMethod;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.UUID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_28'>40</a>
+<span>
+
+1. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+3. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+4. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; NO_COVERAGE<br/>
+
+5. equals : negated conditional &rarr; SURVIVED<br/>
+
+6. equals : negated conditional &rarr; SURVIVED<br/>
+
+7. equals : negated conditional &rarr; SURVIVED<br/>
+
+8. equals : negated conditional &rarr; SURVIVED<br/>
+
+9. equals : negated conditional &rarr; SURVIVED<br/>
+
+10. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+11. equals : negated conditional &rarr; SURVIVED<br/>
+
+12. equals : negated conditional &rarr; SURVIVED<br/>
+
+13. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+14. equals : negated conditional &rarr; SURVIVED<br/>
+
+15. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+16. equals : negated conditional &rarr; SURVIVED<br/>
+
+17. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+18. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::hashCode &rarr; SURVIVED<br/>
+
+19. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+20. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+21. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+22. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::canEqual &rarr; SURVIVED<br/>
+
+23. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::canEqual &rarr; SURVIVED<br/>
+
+24. equals : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; NO_COVERAGE<br/>
+
+25. hashCode : negated conditional &rarr; KILLED<br/>
+
+26. equals : negated conditional &rarr; KILLED<br/>
+
+27. equals : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+28. equals : negated conditional &rarr; KILLED<br/>
+
+29. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+30. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+31. equals : negated conditional &rarr; KILLED<br/>
+
+32. equals : negated conditional &rarr; KILLED<br/>
+
+33. equals : negated conditional &rarr; KILLED<br/>
+
+34. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+35. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+36. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+37. equals : negated conditional &rarr; KILLED<br/>
+
+38. hashCode : negated conditional &rarr; KILLED<br/>
+
+39. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED<br/>
+
+40. hashCode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@EqualsAndHashCode(callSuper = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>@NoArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_30'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::toString &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@ToString(callSuper = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class MicrosoftTeamsDeliveryMethodNotificationTemplate extends DeliveryMethodNotificationTemplate implements HasSubject {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_33'>1</a>
+<span>
+
+1. getSubject : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getSubject &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String subject;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_34'>1</a>
+<span>
+
+1. getThemeColor : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getThemeColor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String themeColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_35'>1</a>
+<span>
+
+1. getButton : replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getButton &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Button button;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_37'>1</a>
+<span>
+
+1. getTemplatableValues : replaced return value with Collections.emptyList for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getTemplatableValues &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final List&#60;TemplatableValue&#62; templatableValues = List.of(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            TemplatableValue.of(this::getBody, this::setBody),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            TemplatableValue.of(this::getSubject, this::setSubject),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_40'>2</a>
+<span>
+
+1. lambda$new$0 : negated conditional &rarr; KILLED<br/>
+
+2. lambda$new$0 : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::lambda$new$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            TemplatableValue.of(() -&#62; button != null ? button.getText() : null,</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_41'>2</a>
+<span>
+
+1. lambda$new$1 : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. lambda$new$1 : removed call to org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::setText &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    processed -&#62; { if (button != null) button.setText(processed); }),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_42'>2</a>
+<span>
+
+1. lambda$new$2 : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::lambda$new$2 &rarr; KILLED<br/>
+
+2. lambda$new$2 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            TemplatableValue.of(() -&#62; button != null ? button.getLink() : null,</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_43'>2</a>
+<span>
+
+1. lambda$new$3 : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. lambda$new$3 : removed call to org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::setLink &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    processed -&#62; { if (button != null) button.setLink(processed); })</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    );</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public MicrosoftTeamsDeliveryMethodNotificationTemplate(MicrosoftTeamsDeliveryMethodNotificationTemplate other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(other);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.subject = other.subject;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.themeColor = other.themeColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_50'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.button = other.button != null ? new Button(other.button) : null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public NotificationDeliveryMethod getMethod() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_55'>1</a>
+<span>
+
+1. getMethod : replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getMethod &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return NotificationDeliveryMethod.MICROSOFT_TEAMS;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public MicrosoftTeamsDeliveryMethodNotificationTemplate copy() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_60'>1</a>
+<span>
+
+1. copy : replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::copy &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new MicrosoftTeamsDeliveryMethodNotificationTemplate(this);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_63'>56</a>
+<span>
+
+1. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+2. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::canEqual &rarr; SURVIVED<br/>
+
+3. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+4. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+5. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+6. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+7. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+8. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+9. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+10. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+11. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+12. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+13. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+14. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+15. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+16. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::hashCode &rarr; SURVIVED<br/>
+
+17. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+18. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+19. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; NO_COVERAGE<br/>
+
+20. equals : negated conditional &rarr; KILLED<br/>
+
+21. equals : negated conditional &rarr; KILLED<br/>
+
+22. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::toString &rarr; KILLED<br/>
+
+23. hashCode : negated conditional &rarr; KILLED<br/>
+
+24. equals : negated conditional &rarr; KILLED<br/>
+
+25. equals : negated conditional &rarr; KILLED<br/>
+
+26. equals : negated conditional &rarr; KILLED<br/>
+
+27. equals : negated conditional &rarr; KILLED<br/>
+
+28. equals : negated conditional &rarr; KILLED<br/>
+
+29. equals : negated conditional &rarr; KILLED<br/>
+
+30. equals : negated conditional &rarr; KILLED<br/>
+
+31. equals : negated conditional &rarr; KILLED<br/>
+
+32. hashCode : negated conditional &rarr; KILLED<br/>
+
+33. equals : negated conditional &rarr; KILLED<br/>
+
+34. equals : negated conditional &rarr; KILLED<br/>
+
+35. equals : negated conditional &rarr; KILLED<br/>
+
+36. equals : negated conditional &rarr; KILLED<br/>
+
+37. equals : negated conditional &rarr; KILLED<br/>
+
+38. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+39. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+40. equals : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+41. hashCode : negated conditional &rarr; KILLED<br/>
+
+42. equals : negated conditional &rarr; KILLED<br/>
+
+43. equals : negated conditional &rarr; KILLED<br/>
+
+44. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+45. equals : negated conditional &rarr; KILLED<br/>
+
+46. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+47. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+48. equals : negated conditional &rarr; KILLED<br/>
+
+49. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+50. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+51. equals : negated conditional &rarr; KILLED<br/>
+
+52. hashCode : negated conditional &rarr; KILLED<br/>
+
+53. hashCode : negated conditional &rarr; KILLED<br/>
+
+54. equals : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+55. equals : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED<br/>
+
+56. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::canEqual &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    @Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    @NoArgsConstructor</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static class Button {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_66'>2</a>
+<span>
+
+1. isEnabled : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isEnabled &rarr; KILLED<br/>
+
+2. isEnabled : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isEnabled &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private boolean enabled;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_67'>1</a>
+<span>
+
+1. getText : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getText &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private String text;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_68'/>
+68
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_68'>1</a>
+<span>
+
+1. getLinkType : replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getLinkType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private LinkType linkType;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_69'>1</a>
+<span>
+
+1. getLink : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getLink &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private String link;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_71'>1</a>
+<span>
+
+1. getDashboardId : replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getDashboardId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private UUID dashboardId;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_72'>1</a>
+<span>
+
+1. getDashboardState : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getDashboardState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private String dashboardState;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_73'>2</a>
+<span>
+
+1. isSetEntityIdInState : replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isSetEntityIdInState &rarr; KILLED<br/>
+
+2. isSetEntityIdInState : replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isSetEntityIdInState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        private boolean setEntityIdInState;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        public Button(Button other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.enabled = other.enabled;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.text = other.text;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.linkType = other.linkType;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.link = other.link;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.dashboardId = other.dashboardId;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.dashboardState = other.dashboardState;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.setEntityIdInState = other.setEntityIdInState;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        public enum LinkType {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            LINK, DASHBOARD</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e239398_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[16],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[105],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[105],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[105],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[80],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[84],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[73],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[35],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=equals,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[24],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=hashCode,-methodDesc=()I],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::equals &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_30'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b></span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::toString &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=toString,-methodDesc=()Ljava/lang/String;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=toString,-methodDesc=()Ljava/lang/String;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate,-method=toString,-methodDesc=()Ljava/lang/String;],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSubject<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getSubject &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getThemeColor<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getThemeColor &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getButton<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate_thenReturnButtonIsButton()]</span></span> replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getButton &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTemplatableValues<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with Collections.emptyList for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getTemplatableValues &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$new$0<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$new$0<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::lambda$new$0 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_41'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$new$1<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$new$1<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::setText &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$new$2<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::lambda$new$2 &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$new$2<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_43'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$new$3<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$new$3<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::setLink &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testCopy_thenReturnBodyIsNull()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMethod<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testNewMicrosoftTeamsDeliveryMethodNotificationTemplate()]</span></span> replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::getMethod &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>copy<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testCopy_thenReturnBodyIsNull()]</span></span> replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate::copy &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::toString &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[113],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[113],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[113],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual4()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[37],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[132],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[132],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[132],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[75],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[135],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[135],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[135],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplate$Button,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonNewButton_whenButton_thenReturnButton()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::canEqual &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::equals &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnabled<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isEnabled &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnabled<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isEnabled &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getText<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getText &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_68'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLinkType<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getLinkType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLink<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getLink &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDashboardId<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> replaced return value with null for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getDashboardId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDashboardState<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::getDashboardState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e239398_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e239398_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSetEntityIdInState<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isSetEntityIdInState &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSetEntityIdInState<br/><b>Killed by : </b>org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.notification.template.MicrosoftTeamsDeliveryMethodNotificationTemplateDiffblueTest]/[method:testButtonEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/notification/template/MicrosoftTeamsDeliveryMethodNotificationTemplate$Button::isSetEntityIdInState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

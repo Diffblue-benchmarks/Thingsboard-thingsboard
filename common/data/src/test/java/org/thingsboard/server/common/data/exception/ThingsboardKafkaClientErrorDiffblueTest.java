@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class ThingsboardKafkaClientErrorDiffblueTest {
   /**
    * Test {@link ThingsboardKafkaClientError#ThingsboardKafkaClientError(String)}.
-   * <p>
-   * Method under test: {@link ThingsboardKafkaClientError#ThingsboardKafkaClientError(String)}
+   *
+   * <p>Method under test: {@link ThingsboardKafkaClientError#ThingsboardKafkaClientError(String)}
    */
   @Test
   @DisplayName("Test new ThingsboardKafkaClientError(String)")
@@ -19,8 +19,8 @@ class ThingsboardKafkaClientErrorDiffblueTest {
   @MethodsUnderTest({"void ThingsboardKafkaClientError.<init>(String)"})
   void testNewThingsboardKafkaClientError() {
     // Arrange and Act
-    ThingsboardKafkaClientError actualThingsboardKafkaClientError = new ThingsboardKafkaClientError(
-        "Not all who wander are lost");
+    ThingsboardKafkaClientError actualThingsboardKafkaClientError =
+        new ThingsboardKafkaClientError("Not all who wander are lost");
 
     // Assert
     assertEquals("Not all who wander are lost", actualThingsboardKafkaClientError.getMessage());

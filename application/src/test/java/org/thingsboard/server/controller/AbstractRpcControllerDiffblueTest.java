@@ -11,21 +11,34 @@ import org.thingsboard.server.common.data.id.DeviceId;
 
 class AbstractRpcControllerDiffblueTest {
   /**
-   * Test {@link AbstractRpcController#handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus)}.
+   * Test {@link AbstractRpcController#handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus,
+   * HttpStatus)}.
+   *
    * <ul>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractRpcController#handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus)}
+   *
+   * <p>Method under test: {@link AbstractRpcController#handleDeviceRPCRequest(boolean, DeviceId,
+   * String, HttpStatus, HttpStatus)}
    */
   @Test
-  @DisplayName("Test handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus); then throw ThingsboardException")
+  @DisplayName(
+      "Test handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus); then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AbstractRpcController.handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus)"})
+    "org.springframework.web.context.request.async.DeferredResult AbstractRpcController.handleDeviceRPCRequest(boolean, DeviceId, String, HttpStatus, HttpStatus)"
+  })
   void testHandleDeviceRPCRequest_thenThrowThingsboardException() throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> (new RpcV1Controller()).handleDeviceRPCRequest(true, null,
-        "Not all who wander are lost", HttpStatus.CONTINUE, HttpStatus.CONTINUE));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            new RpcV1Controller()
+                .handleDeviceRPCRequest(
+                    true,
+                    null,
+                    "Not all who wander are lost",
+                    HttpStatus.CONTINUE,
+                    HttpStatus.CONTINUE));
   }
 }

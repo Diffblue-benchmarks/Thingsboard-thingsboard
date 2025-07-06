@@ -15,17 +15,19 @@ import org.thingsboard.rule.engine.util.TbMsgSource;
 class TbCopyKeysNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbCopyKeysNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbCopyKeysNodeConfiguration TbCopyKeysNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbCopyKeysNodeConfiguration TbCopyKeysNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbCopyKeysNodeConfiguration actualDefaultConfigurationResult = (new TbCopyKeysNodeConfiguration())
-        .defaultConfiguration();
+    TbCopyKeysNodeConfiguration actualDefaultConfigurationResult =
+        new TbCopyKeysNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals(TbMsgSource.DATA, actualDefaultConfigurationResult.getCopyFrom());
@@ -33,13 +35,16 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link TbCopyKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link
+   * TbCopyKeysNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCopyKeysNodeConfiguration#equals(Object)}
    *   <li>{@link TbCopyKeysNodeConfiguration#hashCode()}
@@ -48,8 +53,10 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -62,13 +69,16 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link TbCopyKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link
+   * TbCopyKeysNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCopyKeysNodeConfiguration#equals(Object)}
    *   <li>{@link TbCopyKeysNodeConfiguration#hashCode()}
@@ -77,8 +87,10 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -94,13 +106,16 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link TbCopyKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link
+   * TbCopyKeysNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCopyKeysNodeConfiguration#equals(Object)}
    *   <li>{@link TbCopyKeysNodeConfiguration#hashCode()}
@@ -109,8 +124,10 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -126,13 +143,16 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link TbCopyKeysNodeConfiguration#hashCode()}.
+   * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}, and {@link
+   * TbCopyKeysNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCopyKeysNodeConfiguration#equals(Object)}
    *   <li>{@link TbCopyKeysNodeConfiguration#hashCode()}
@@ -141,8 +161,10 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -155,18 +177,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCopyKeysNodeConfiguration(), 1);
@@ -174,18 +199,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -197,18 +225,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -220,18 +251,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -245,18 +279,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbCopyKeysNodeConfiguration tbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
@@ -270,18 +307,21 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCopyKeysNodeConfiguration(), null);
@@ -289,27 +329,32 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbCopyKeysNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCopyKeysNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCopyKeysNodeConfiguration.equals(Object)",
-      "int TbCopyKeysNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCopyKeysNodeConfiguration.equals(Object)",
+    "int TbCopyKeysNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCopyKeysNodeConfiguration(), "Different type to TbCopyKeysNodeConfiguration");
+    assertNotEquals(
+        new TbCopyKeysNodeConfiguration(), "Different type to TbCopyKeysNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbCopyKeysNodeConfiguration}
    *   <li>{@link TbCopyKeysNodeConfiguration#setCopyFrom(TbMsgSource)}
@@ -322,13 +367,18 @@ class TbCopyKeysNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCopyKeysNodeConfiguration.<init>()",
-      "TbMsgSource TbCopyKeysNodeConfiguration.getCopyFrom()", "Set TbCopyKeysNodeConfiguration.getKeys()",
-      "void TbCopyKeysNodeConfiguration.setCopyFrom(TbMsgSource)", "void TbCopyKeysNodeConfiguration.setKeys(Set)",
-      "String TbCopyKeysNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbCopyKeysNodeConfiguration.<init>()",
+    "TbMsgSource TbCopyKeysNodeConfiguration.getCopyFrom()",
+    "Set TbCopyKeysNodeConfiguration.getKeys()",
+    "void TbCopyKeysNodeConfiguration.setCopyFrom(TbMsgSource)",
+    "void TbCopyKeysNodeConfiguration.setKeys(Set)",
+    "String TbCopyKeysNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbCopyKeysNodeConfiguration actualTbCopyKeysNodeConfiguration = new TbCopyKeysNodeConfiguration();
+    TbCopyKeysNodeConfiguration actualTbCopyKeysNodeConfiguration =
+        new TbCopyKeysNodeConfiguration();
     actualTbCopyKeysNodeConfiguration.setCopyFrom(TbMsgSource.DATA);
     HashSet<String> keys = new HashSet<>();
     actualTbCopyKeysNodeConfiguration.setKeys(keys);

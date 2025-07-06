@@ -12,15 +12,17 @@ import org.junit.jupiter.api.Test;
 class PSKClientCredentialDiffblueTest {
   /**
    * Test {@link PSKClientCredential#getDecoded()}.
+   *
    * <ul>
-   *   <li>Given {@link PSKClientCredential} (default constructor) Key is {@code 42}.</li>
-   *   <li>Then return array of {@code byte} with {@code B}.</li>
+   *   <li>Given {@link PSKClientCredential} (default constructor) Key is {@code 42}.
+   *   <li>Then return array of {@code byte} with {@code B}.
    * </ul>
-   * <p>
-   * Method under test: {@link PSKClientCredential#getDecoded()}
+   *
+   * <p>Method under test: {@link PSKClientCredential#getDecoded()}
    */
   @Test
-  @DisplayName("Test getDecoded(); given PSKClientCredential (default constructor) Key is '42'; then return array of byte with 'B'")
+  @DisplayName(
+      "Test getDecoded(); given PSKClientCredential (default constructor) Key is '42'; then return array of byte with 'B'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] PSKClientCredential.getDecoded()"})
   void testGetDecoded_givenPSKClientCredentialKeyIs42_thenReturnArrayOfByteWithB()
@@ -32,13 +34,14 @@ class PSKClientCredentialDiffblueTest {
     pskClientCredential.setKey("42");
 
     // Act and Assert
-    assertArrayEquals(new byte[]{'B'}, pskClientCredential.getDecoded());
+    assertArrayEquals(new byte[] {'B'}, pskClientCredential.getDecoded());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link PSKClientCredential}
    *   <li>{@link PSKClientCredential#setIdentity(String)}
@@ -49,15 +52,19 @@ class PSKClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PSKClientCredential.<init>()", "String PSKClientCredential.getIdentity()",
-      "LwM2MSecurityMode PSKClientCredential.getSecurityConfigClientMode()",
-      "void PSKClientCredential.setIdentity(String)"})
+  @MethodsUnderTest({
+    "void PSKClientCredential.<init>()",
+    "String PSKClientCredential.getIdentity()",
+    "LwM2MSecurityMode PSKClientCredential.getSecurityConfigClientMode()",
+    "void PSKClientCredential.setIdentity(String)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PSKClientCredential actualPskClientCredential = new PSKClientCredential();
     actualPskClientCredential.setIdentity("Identity");
     String actualIdentity = actualPskClientCredential.getIdentity();
-    LwM2MSecurityMode actualSecurityConfigClientMode = actualPskClientCredential.getSecurityConfigClientMode();
+    LwM2MSecurityMode actualSecurityConfigClientMode =
+        actualPskClientCredential.getSecurityConfigClientMode();
 
     // Assert
     assertEquals("Identity", actualIdentity);

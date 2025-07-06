@@ -11,13 +11,16 @@ import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProvi
 
 class TotpTwoFaAccountConfigDiffblueTest {
   /**
-   * Test {@link TotpTwoFaAccountConfig#equals(Object)}, and {@link TotpTwoFaAccountConfig#hashCode()}.
+   * Test {@link TotpTwoFaAccountConfig#equals(Object)}, and {@link
+   * TotpTwoFaAccountConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TotpTwoFaAccountConfig#equals(Object)}
    *   <li>{@link TotpTwoFaAccountConfig#hashCode()}
@@ -26,16 +29,19 @@ class TotpTwoFaAccountConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig.setUseByDefault(true);
 
     TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig2.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig2.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig2.setUseByDefault(true);
 
@@ -46,48 +52,16 @@ class TotpTwoFaAccountConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TotpTwoFaAccountConfig#equals(Object)}, and {@link TotpTwoFaAccountConfig#hashCode()}.
+   * Test {@link TotpTwoFaAccountConfig#equals(Object)}, and {@link
+   * TotpTwoFaAccountConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link TotpTwoFaAccountConfig#equals(Object)}
-   *   <li>{@link TotpTwoFaAccountConfig#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
-    // Arrange
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl(null);
-    totpTwoFaAccountConfig.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig.setUseByDefault(true);
-
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig2.setAuthUrl(null);
-    totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig2.setUseByDefault(true);
-
-    // Act and Assert
-    assertEquals(totpTwoFaAccountConfig, totpTwoFaAccountConfig2);
-    int expectedHashCodeResult = totpTwoFaAccountConfig.hashCode();
-    assertEquals(expectedHashCodeResult, totpTwoFaAccountConfig2.hashCode());
-  }
-
-  /**
-   * Test {@link TotpTwoFaAccountConfig#equals(Object)}, and {@link TotpTwoFaAccountConfig#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TotpTwoFaAccountConfig#equals(Object)}
    *   <li>{@link TotpTwoFaAccountConfig#hashCode()}
@@ -96,11 +70,14 @@ class TotpTwoFaAccountConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig.setUseByDefault(true);
 
@@ -112,84 +89,30 @@ class TotpTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("Auth Url");
-    totpTwoFaAccountConfig.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig.setUseByDefault(true);
-
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig2.setAuthUrl("https://example.org/example");
-    totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig2.setUseByDefault(true);
-
-    // Act and Assert
-    assertNotEquals(totpTwoFaAccountConfig, totpTwoFaAccountConfig2);
-  }
-
-  /**
-   * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl(null);
-    totpTwoFaAccountConfig.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig.setUseByDefault(true);
-
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig2.setAuthUrl("https://example.org/example");
-    totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
-    totpTwoFaAccountConfig2.setUseByDefault(true);
-
-    // Act and Assert
-    assertNotEquals(totpTwoFaAccountConfig, totpTwoFaAccountConfig2);
-  }
-
-  /**
-   * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig.setUseByDefault(false);
 
     TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig2.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig2.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig2.setUseByDefault(true);
 
@@ -199,21 +122,59 @@ class TotpTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
+    totpTwoFaAccountConfig.setAuthUrl(
+        "otpauth://totp/UUU:UUU?issuer=UUU&secret=UUUotpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
+    totpTwoFaAccountConfig.setSerializeHiddenFields(true);
+    totpTwoFaAccountConfig.setUseByDefault(true);
+
+    TotpTwoFaAccountConfig totpTwoFaAccountConfig2 = new TotpTwoFaAccountConfig();
+    totpTwoFaAccountConfig2.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
+    totpTwoFaAccountConfig2.setSerializeHiddenFields(true);
+    totpTwoFaAccountConfig2.setUseByDefault(true);
+
+    // Act and Assert
+    assertNotEquals(totpTwoFaAccountConfig, totpTwoFaAccountConfig2);
+  }
+
+  /**
+   * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig.setUseByDefault(true);
 
@@ -223,21 +184,25 @@ class TotpTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test {@link TotpTwoFaAccountConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TotpTwoFaAccountConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TotpTwoFaAccountConfig.equals(Object)", "int TotpTwoFaAccountConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TotpTwoFaAccountConfig.equals(Object)",
+    "int TotpTwoFaAccountConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TotpTwoFaAccountConfig totpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    totpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    totpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     totpTwoFaAccountConfig.setSerializeHiddenFields(true);
     totpTwoFaAccountConfig.setUseByDefault(true);
 
@@ -247,8 +212,9 @@ class TotpTwoFaAccountConfigDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TotpTwoFaAccountConfig}
    *   <li>{@link TotpTwoFaAccountConfig#setAuthUrl(String)}
@@ -260,19 +226,25 @@ class TotpTwoFaAccountConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TotpTwoFaAccountConfig.<init>()", "String TotpTwoFaAccountConfig.getAuthUrl()",
-      "TwoFaProviderType TotpTwoFaAccountConfig.getProviderType()", "void TotpTwoFaAccountConfig.setAuthUrl(String)",
-      "String TotpTwoFaAccountConfig.toString()"})
+  @MethodsUnderTest({
+    "void TotpTwoFaAccountConfig.<init>()",
+    "String TotpTwoFaAccountConfig.getAuthUrl()",
+    "TwoFaProviderType TotpTwoFaAccountConfig.getProviderType()",
+    "void TotpTwoFaAccountConfig.setAuthUrl(String)",
+    "String TotpTwoFaAccountConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TotpTwoFaAccountConfig actualTotpTwoFaAccountConfig = new TotpTwoFaAccountConfig();
-    actualTotpTwoFaAccountConfig.setAuthUrl("https://example.org/example");
+    actualTotpTwoFaAccountConfig.setAuthUrl("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU");
     String actualToStringResult = actualTotpTwoFaAccountConfig.toString();
     String actualAuthUrl = actualTotpTwoFaAccountConfig.getAuthUrl();
 
     // Assert
-    assertEquals("TotpTwoFaAccountConfig(authUrl=https://example.org/example)", actualToStringResult);
-    assertEquals("https://example.org/example", actualAuthUrl);
+    assertEquals(
+        "TotpTwoFaAccountConfig(authUrl=otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU)",
+        actualToStringResult);
+    assertEquals("otpauth://totp/UUU:UUU?issuer=UUU&secret=UUU", actualAuthUrl);
     assertEquals(TwoFaProviderType.TOTP, actualTotpTwoFaAccountConfig.getProviderType());
     assertFalse(actualTotpTwoFaAccountConfig.isSerializeHiddenFields());
     assertFalse(actualTotpTwoFaAccountConfig.isUseByDefault());

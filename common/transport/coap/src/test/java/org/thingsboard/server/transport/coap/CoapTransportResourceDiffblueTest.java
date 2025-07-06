@@ -11,11 +11,12 @@ import org.junit.jupiter.api.Test;
 class CoapTransportResourceDiffblueTest {
   /**
    * Test {@link CoapTransportResource#getRequestId(Request)}.
+   *
    * <ul>
-   *   <li>Given {@code Failed to decode feature type: {}}.</li>
+   *   <li>Given {@code Failed to decode feature type: {}}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapTransportResource#getRequestId(Request)}
+   *
+   * <p>Method under test: {@link CoapTransportResource#getRequestId(Request)}
    */
   @Test
   @DisplayName("Test getRequestId(Request); given 'Failed to decode feature type: {}'")
@@ -35,12 +36,13 @@ class CoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link CoapTransportResource#getRequestId(Request)}.
+   *
    * <ul>
-   *   <li>When newDelete.</li>
-   *   <li>Then return not Present.</li>
+   *   <li>When newDelete.
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapTransportResource#getRequestId(Request)}
+   *
+   * <p>Method under test: {@link CoapTransportResource#getRequestId(Request)}
    */
   @Test
   @DisplayName("Test getRequestId(Request); when newDelete; then return not Present")

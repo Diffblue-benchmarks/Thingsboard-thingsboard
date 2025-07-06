@@ -24,16 +24,14 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class WidgetsBundleControllerDiffblueTest {
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
-  @InjectMocks
-  private WidgetsBundleController widgetsBundleController;
+  @InjectMocks private WidgetsBundleController widgetsBundleController;
 
   /**
    * Test {@link WidgetsBundleController#saveWidgetsBundle(WidgetsBundle)}.
-   * <p>
-   * Method under test: {@link WidgetsBundleController#saveWidgetsBundle(WidgetsBundle)}
+   *
+   * <p>Method under test: {@link WidgetsBundleController#saveWidgetsBundle(WidgetsBundle)}
    */
   @Test
   @DisplayName("Test saveWidgetsBundle(WidgetsBundle)")
@@ -48,16 +46,20 @@ class WidgetsBundleControllerDiffblueTest {
     widgetsBundle.setAlias("Alias");
     widgetsBundle.setCreatedTime(1L);
     widgetsBundle.setDescription("The characteristics of someone or something");
-    widgetsBundle.setExternalId(new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    widgetsBundle.setId(new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetsBundle.setExternalId(
+        new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetsBundle.setId(
+        new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     widgetsBundle.setImage("Image");
     widgetsBundle.setOrder(1);
     widgetsBundle.setScada(true);
-    widgetsBundle.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetsBundle.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     widgetsBundle.setTitle("Dr");
     widgetsBundle.setVersion(1L);
-    String content = (new ObjectMapper()).writeValueAsString(widgetsBundle);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(widgetsBundle);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetsBundleController)
@@ -69,8 +71,9 @@ class WidgetsBundleControllerDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleController#updateWidgetsBundleWidgetTypes(String, List)}.
-   * <p>
-   * Method under test: {@link WidgetsBundleController#updateWidgetsBundleWidgetTypes(String, List)}
+   *
+   * <p>Method under test: {@link WidgetsBundleController#updateWidgetsBundleWidgetTypes(String,
+   * List)}
    */
   @Test
   @DisplayName("Test updateWidgetsBundleWidgetTypes(String, List)")
@@ -78,14 +81,15 @@ class WidgetsBundleControllerDiffblueTest {
   @MethodsUnderTest({"void WidgetsBundleController.updateWidgetsBundleWidgetTypes(String, List)"})
   void testUpdateWidgetsBundleWidgetTypes() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/widgetsBundle/{widgetsBundleId}/widgetTypes", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/widgetsBundle/{widgetsBundleId}/widgetTypes", "42");
     postResult.characterEncoding("https://example.org/example");
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
 
-    ArrayList<String> stringList = new ArrayList<>();
-    stringList.add("foo");
-    String content = (new ObjectMapper()).writeValueAsString(stringList);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    ObjectMapper objectMapper = new ObjectMapper();
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(objectMapper.writeValueAsString(new ArrayList<>()));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetsBundleController)
@@ -97,8 +101,9 @@ class WidgetsBundleControllerDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleController#updateWidgetsBundleWidgetFqns(String, List)}.
-   * <p>
-   * Method under test: {@link WidgetsBundleController#updateWidgetsBundleWidgetFqns(String, List)}
+   *
+   * <p>Method under test: {@link WidgetsBundleController#updateWidgetsBundleWidgetFqns(String,
+   * List)}
    */
   @Test
   @DisplayName("Test updateWidgetsBundleWidgetFqns(String, List)")
@@ -106,14 +111,15 @@ class WidgetsBundleControllerDiffblueTest {
   @MethodsUnderTest({"void WidgetsBundleController.updateWidgetsBundleWidgetFqns(String, List)"})
   void testUpdateWidgetsBundleWidgetFqns() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/widgetsBundle/{widgetsBundleId}/widgetTypeFqns", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/widgetsBundle/{widgetsBundleId}/widgetTypeFqns", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content(objectMapper.writeValueAsString(new ArrayList<>()));
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(objectMapper.writeValueAsString(new ArrayList<>()));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetsBundleController)
@@ -124,19 +130,25 @@ class WidgetsBundleControllerDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleController#getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean)} with {@code int}, {@code int}, {@code String}, {@code String}, {@code String}, {@code Boolean}, {@code Boolean}, {@code Boolean}.
-   * <p>
-   * Method under test: {@link WidgetsBundleController#getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean)}
+   * Test {@link WidgetsBundleController#getWidgetsBundles(int, int, String, String, String,
+   * Boolean, Boolean, Boolean)} with {@code int}, {@code int}, {@code String}, {@code String},
+   * {@code String}, {@code Boolean}, {@code Boolean}, {@code Boolean}.
+   *
+   * <p>Method under test: {@link WidgetsBundleController#getWidgetsBundles(int, int, String,
+   * String, String, Boolean, Boolean, Boolean)}
    */
   @Test
-  @DisplayName("Test getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean) with 'int', 'int', 'String', 'String', 'String', 'Boolean', 'Boolean', 'Boolean'")
+  @DisplayName(
+      "Test getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean) with 'int', 'int', 'String', 'String', 'String', 'Boolean', 'Boolean', 'Boolean'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData WidgetsBundleController.getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean)"})
+    "org.thingsboard.server.common.data.page.PageData WidgetsBundleController.getWidgetsBundles(int, int, String, String, String, Boolean, Boolean, Boolean)"
+  })
   void testGetWidgetsBundlesWithIntIntStringStringStringBooleanBooleanBoolean() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/widgetsBundles")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/widgetsBundles")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert

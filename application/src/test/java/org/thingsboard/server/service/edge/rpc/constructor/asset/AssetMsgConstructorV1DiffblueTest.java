@@ -14,8 +14,8 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ByteString.ByteIterator;
 import java.io.IOException;
@@ -35,34 +35,39 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 
 @ExtendWith(MockitoExtension.class)
 class AssetMsgConstructorV1DiffblueTest {
-  @InjectMocks
-  private AssetMsgConstructorV1 assetMsgConstructorV1;
+  @InjectMocks private AssetMsgConstructorV1 assetMsgConstructorV1;
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
   @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg() {
     // Arrange
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
-    when(assetProfileId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(assetProfileId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Asset asset = mock(Asset.class);
     when(asset.getAdditionalInfo()).thenReturn(null);
     when(asset.getLabel()).thenReturn("Label");
     when(asset.getAssetProfileId()).thenReturn(assetProfileId);
-    when(asset.getCustomerId()).thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(asset.getCustomerId())
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(asset.getType()).thenReturn("Type");
     when(asset.getName()).thenReturn("Name");
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     verify(asset).getAdditionalInfo();
@@ -76,13 +81,15 @@ class AssetMsgConstructorV1DiffblueTest {
     ByteString additionalInfoBytes = actualConstructAssetUpdatedMsgResult.getAdditionalInfoBytes();
     assertEquals("", additionalInfoBytes.toStringUtf8());
     assertEquals("", actualConstructAssetUpdatedMsgResult.getAdditionalInfo());
-    assertEquals(12, actualConstructAssetUpdatedMsgResult.getDescriptorForType().getFields().size());
+    assertEquals(
+        12, actualConstructAssetUpdatedMsgResult.getDescriptorForType().getFields().size());
     assertEquals(82, actualConstructAssetUpdatedMsgResult.getSerializedSize());
     assertEquals(9, actualConstructAssetUpdatedMsgResult.getAllFields().size());
     assertFalse(additionalInfoBytes.iterator().hasNext());
     assertFalse(actualConstructAssetUpdatedMsgResult.hasAdditionalInfo());
     assertTrue(additionalInfoBytes.isEmpty());
-    AssetUpdateMsg defaultInstanceForType = actualConstructAssetUpdatedMsgResult.getDefaultInstanceForType();
+    AssetUpdateMsg defaultInstanceForType =
+        actualConstructAssetUpdatedMsgResult.getDefaultInstanceForType();
     assertEquals(additionalInfoBytes, defaultInstanceForType.getAdditionalInfoBytes());
     assertEquals(additionalInfoBytes, defaultInstanceForType.getEntityBytes());
     assertEquals(additionalInfoBytes, actualConstructAssetUpdatedMsgResult.getEntityBytes());
@@ -93,29 +100,36 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
   @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg2() {
     // Arrange
     Asset asset = mock(Asset.class);
-    when(asset.getAdditionalInfo()).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true), 3));
+    when(asset.getAdditionalInfo())
+        .thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true), 3));
     when(asset.getLabel()).thenReturn("Label");
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
-    when(assetProfileId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(assetProfileId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(asset.getAssetProfileId()).thenReturn(assetProfileId);
-    when(asset.getCustomerId()).thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(asset.getCustomerId())
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(asset.getType()).thenReturn("Type");
     when(asset.getName()).thenReturn("Name");
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     assertEquals("[]", actualConstructAssetUpdatedMsgResult.getAdditionalInfo());
@@ -140,32 +154,42 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code
+   *       true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
-  @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @DisplayName(
+      "Test constructAssetUpdatedMsg(UpdateMsgType, Asset); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg_givenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     Asset asset = mock(Asset.class);
-    when(asset.getAdditionalInfo()).thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
+    when(asset.getAdditionalInfo())
+        .thenReturn(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
     when(asset.getLabel()).thenReturn("Label");
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
-    when(assetProfileId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(assetProfileId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     when(asset.getAssetProfileId()).thenReturn(assetProfileId);
-    when(asset.getCustomerId()).thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(asset.getCustomerId())
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(asset.getType()).thenReturn("Type");
     when(asset.getName()).thenReturn("Name");
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     assertEquals("[]", actualConstructAssetUpdatedMsgResult.getAdditionalInfo());
@@ -190,41 +214,48 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
+   *
    * <ul>
-   *   <li>Then return AdditionalInfo is {@code null}.</li>
+   *   <li>Then return AdditionalInfo is {@code 10.0}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
-  @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return AdditionalInfo is 'null'")
+  @DisplayName(
+      "Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return AdditionalInfo is '10.0'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
-  void testConstructAssetUpdatedMsg_thenReturnAdditionalInfoIsNull() {
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
+  void testConstructAssetUpdatedMsg_thenReturnAdditionalInfoIs100() {
     // Arrange
     Asset asset = mock(Asset.class);
-    when(asset.getAdditionalInfo()).thenReturn(MissingNode.getInstance());
+    when(asset.getAdditionalInfo()).thenReturn(DoubleNode.valueOf(10.0d));
     when(asset.getLabel()).thenReturn("Label");
     when(asset.getAssetProfileId())
         .thenReturn(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    when(asset.getCustomerId()).thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(asset.getCustomerId())
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(asset.getType()).thenReturn("Type");
     when(asset.getName()).thenReturn("Name");
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
-    assertEquals("null", actualConstructAssetUpdatedMsgResult.getAdditionalInfo());
+    assertEquals("10.0", actualConstructAssetUpdatedMsgResult.getAdditionalInfo());
     ByteString additionalInfoBytes = actualConstructAssetUpdatedMsgResult.getAdditionalInfoBytes();
     ByteIterator iteratorResult = additionalInfoBytes.iterator();
     assertTrue(iteratorResult.hasNext());
-    assertEquals('n', iteratorResult.next().byteValue());
-    assertEquals('u', iteratorResult.next().byteValue());
-    assertEquals('l', iteratorResult.next().byteValue());
-    assertEquals("null", additionalInfoBytes.toStringUtf8());
+    assertEquals('1', iteratorResult.next().byteValue());
+    assertEquals('0', iteratorResult.next().byteValue());
+    assertEquals('.', iteratorResult.next().byteValue());
+    assertEquals("10.0", additionalInfoBytes.toStringUtf8());
     assertEquals(88, actualConstructAssetUpdatedMsgResult.getSerializedSize());
     verify(asset, atLeast(1)).getAdditionalInfo();
     verify(asset, atLeast(1)).getLabel();
@@ -237,30 +268,37 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
+   *
    * <ul>
-   *   <li>Then return AssetProfileIdLSB is zero.</li>
+   *   <li>Then return AssetProfileIdLSB is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
-  @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return AssetProfileIdLSB is zero")
+  @DisplayName(
+      "Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return AssetProfileIdLSB is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg_thenReturnAssetProfileIdLSBIsZero() {
     // Arrange
     Asset asset = mock(Asset.class);
-    when(asset.getAdditionalInfo()).thenReturn(MissingNode.getInstance());
+    when(asset.getAdditionalInfo()).thenReturn(DoubleNode.valueOf(10.0d));
     when(asset.getLabel()).thenReturn("Label");
     when(asset.getAssetProfileId()).thenReturn(null);
-    when(asset.getCustomerId()).thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(asset.getCustomerId())
+        .thenReturn(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(asset.getType()).thenReturn("Type");
     when(asset.getName()).thenReturn("Name");
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     verify(asset, atLeast(1)).getAdditionalInfo();
@@ -279,22 +317,30 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
+   *
    * <ul>
-   *   <li>Then return CustomerIdLSB is zero.</li>
+   *   <li>Then return CustomerIdLSB is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
-  @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return CustomerIdLSB is zero")
+  @DisplayName(
+      "Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return CustomerIdLSB is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg_thenReturnCustomerIdLSBIsZero() throws IOException {
     // Arrange
     JsonNode jsonNode = mock(JsonNode.class);
-    doNothing().when(jsonNode).serialize(Mockito.<JsonGenerator>any(), Mockito.<SerializerProvider>any());
+    doNothing()
+        .when(jsonNode)
+        .serialize(Mockito.<JsonGenerator>any(), Mockito.<SerializerProvider>any());
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
-    when(assetProfileId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(assetProfileId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Asset asset = mock(Asset.class);
     when(asset.getAdditionalInfo()).thenReturn(jsonNode);
     when(asset.getLabel()).thenReturn("Label");
@@ -305,8 +351,9 @@ class AssetMsgConstructorV1DiffblueTest {
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     verify(jsonNode).serialize(isA(JsonGenerator.class), isA(SerializerProvider.class));
@@ -328,22 +375,30 @@ class AssetMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}.
+   *
    * <ul>
-   *   <li>Then return Label is empty string.</li>
+   *   <li>Then return Label is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType, Asset)}
+   *
+   * <p>Method under test: {@link AssetMsgConstructorV1#constructAssetUpdatedMsg(UpdateMsgType,
+   * Asset)}
    */
   @Test
-  @DisplayName("Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return Label is empty string")
+  @DisplayName(
+      "Test constructAssetUpdatedMsg(UpdateMsgType, Asset); then return Label is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"})
+  @MethodsUnderTest({
+    "AssetUpdateMsg AssetMsgConstructorV1.constructAssetUpdatedMsg(UpdateMsgType, Asset)"
+  })
   void testConstructAssetUpdatedMsg_thenReturnLabelIsEmptyString() throws IOException {
     // Arrange
     JsonNode jsonNode = mock(JsonNode.class);
-    doNothing().when(jsonNode).serialize(Mockito.<JsonGenerator>any(), Mockito.<SerializerProvider>any());
+    doNothing()
+        .when(jsonNode)
+        .serialize(Mockito.<JsonGenerator>any(), Mockito.<SerializerProvider>any());
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
-    when(assetProfileId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(assetProfileId.getId())
+        .thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Asset asset = mock(Asset.class);
     when(asset.getAdditionalInfo()).thenReturn(jsonNode);
     when(asset.getLabel()).thenReturn(null);
@@ -354,8 +409,9 @@ class AssetMsgConstructorV1DiffblueTest {
     when(asset.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    AssetUpdateMsg actualConstructAssetUpdatedMsgResult = assetMsgConstructorV1
-        .constructAssetUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
+    AssetUpdateMsg actualConstructAssetUpdatedMsgResult =
+        assetMsgConstructorV1.constructAssetUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, asset);
 
     // Assert
     verify(jsonNode).serialize(isA(JsonGenerator.class), isA(SerializerProvider.class));

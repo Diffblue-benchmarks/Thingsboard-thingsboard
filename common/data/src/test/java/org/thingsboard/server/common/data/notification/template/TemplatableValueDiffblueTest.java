@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 class TemplatableValueDiffblueTest {
   /**
    * Test {@link TemplatableValue#TemplatableValue(Supplier, Consumer)}.
-   * <p>
-   * Method under test: {@link TemplatableValue#TemplatableValue(Supplier, Consumer)}
+   *
+   * <p>Method under test: {@link TemplatableValue#TemplatableValue(Supplier, Consumer)}
    */
   @Test
   @DisplayName("Test new TemplatableValue(Supplier, Consumer)")
@@ -21,6 +21,6 @@ class TemplatableValueDiffblueTest {
   @MethodsUnderTest({"void TemplatableValue.<init>(Supplier, Consumer)"})
   void testNewTemplatableValue() {
     // Arrange, Act and Assert
-    assertNull((new TemplatableValue(mock(Supplier.class), mock(Consumer.class))).get());
+    assertNull(new TemplatableValue(mock(Supplier.class), mock(Consumer.class)).get());
   }
 }

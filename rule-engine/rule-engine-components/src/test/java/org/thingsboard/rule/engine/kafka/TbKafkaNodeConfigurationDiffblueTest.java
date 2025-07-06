@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class TbKafkaNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbKafkaNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -25,16 +25,19 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbKafkaNodeConfiguration TbKafkaNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbKafkaNodeConfiguration actualDefaultConfigurationResult = (new TbKafkaNodeConfiguration()).defaultConfiguration();
+    TbKafkaNodeConfiguration actualDefaultConfigurationResult =
+        new TbKafkaNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("-1", actualDefaultConfigurationResult.getAcks());
     assertEquals("UTF-8", actualDefaultConfigurationResult.getKafkaHeadersCharset());
     assertEquals("localhost:9092", actualDefaultConfigurationResult.getBootstrapServers());
     assertEquals("my-topic", actualDefaultConfigurationResult.getTopicPattern());
-    assertEquals("org.apache.kafka.common.serialization.StringSerializer",
+    assertEquals(
+        "org.apache.kafka.common.serialization.StringSerializer",
         actualDefaultConfigurationResult.getKeySerializer());
-    assertEquals("org.apache.kafka.common.serialization.StringSerializer",
+    assertEquals(
+        "org.apache.kafka.common.serialization.StringSerializer",
         actualDefaultConfigurationResult.getValueSerializer());
     assertNull(actualDefaultConfigurationResult.getKeyPattern());
     assertEquals(0, actualDefaultConfigurationResult.getLinger());
@@ -46,13 +49,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -61,7 +67,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -74,13 +83,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -89,7 +101,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -105,13 +120,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -120,7 +138,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -136,13 +157,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -151,7 +175,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -167,13 +194,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -182,7 +212,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -198,13 +231,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -213,7 +249,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -229,13 +268,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -244,7 +286,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -260,13 +305,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -275,7 +323,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual8() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -291,13 +342,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -306,7 +360,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual9() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -322,13 +379,16 @@ class TbKafkaNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link TbKafkaNodeConfiguration#hashCode()}.
+   * Test {@link TbKafkaNodeConfiguration#equals(Object)}, and {@link
+   * TbKafkaNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaNodeConfiguration#equals(Object)}
    *   <li>{@link TbKafkaNodeConfiguration#hashCode()}
@@ -337,7 +397,10 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -350,17 +413,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbKafkaNodeConfiguration(), 1);
@@ -368,17 +435,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -390,17 +461,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -412,17 +487,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -434,17 +513,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -456,17 +539,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -478,17 +565,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -500,17 +591,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -522,17 +617,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -544,17 +643,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -566,17 +669,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -588,17 +695,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -610,17 +721,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -632,17 +747,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -654,17 +773,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -678,17 +801,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -702,17 +829,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -726,17 +857,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -750,17 +885,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -774,17 +913,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -798,17 +941,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -822,17 +969,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TbKafkaNodeConfiguration tbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -846,17 +997,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbKafkaNodeConfiguration(), null);
@@ -864,17 +1019,21 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbKafkaNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbKafkaNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbKafkaNodeConfiguration.equals(Object)", "int TbKafkaNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbKafkaNodeConfiguration.equals(Object)",
+    "int TbKafkaNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbKafkaNodeConfiguration(), "Different type to TbKafkaNodeConfiguration");
@@ -882,8 +1041,9 @@ class TbKafkaNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbKafkaNodeConfiguration}
    *   <li>{@link TbKafkaNodeConfiguration#setAcks(String)}
@@ -918,23 +1078,36 @@ class TbKafkaNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbKafkaNodeConfiguration.<init>()", "String TbKafkaNodeConfiguration.getAcks()",
-      "int TbKafkaNodeConfiguration.getBatchSize()", "String TbKafkaNodeConfiguration.getBootstrapServers()",
-      "int TbKafkaNodeConfiguration.getBufferMemory()", "String TbKafkaNodeConfiguration.getKafkaHeadersCharset()",
-      "String TbKafkaNodeConfiguration.getKeyPattern()", "String TbKafkaNodeConfiguration.getKeySerializer()",
-      "int TbKafkaNodeConfiguration.getLinger()", "Map TbKafkaNodeConfiguration.getOtherProperties()",
-      "int TbKafkaNodeConfiguration.getRetries()", "String TbKafkaNodeConfiguration.getTopicPattern()",
-      "String TbKafkaNodeConfiguration.getValueSerializer()",
-      "boolean TbKafkaNodeConfiguration.isAddMetadataKeyValuesAsKafkaHeaders()",
-      "void TbKafkaNodeConfiguration.setAcks(String)",
-      "void TbKafkaNodeConfiguration.setAddMetadataKeyValuesAsKafkaHeaders(boolean)",
-      "void TbKafkaNodeConfiguration.setBatchSize(int)", "void TbKafkaNodeConfiguration.setBootstrapServers(String)",
-      "void TbKafkaNodeConfiguration.setBufferMemory(int)",
-      "void TbKafkaNodeConfiguration.setKafkaHeadersCharset(String)",
-      "void TbKafkaNodeConfiguration.setKeyPattern(String)", "void TbKafkaNodeConfiguration.setKeySerializer(String)",
-      "void TbKafkaNodeConfiguration.setLinger(int)", "void TbKafkaNodeConfiguration.setOtherProperties(Map)",
-      "void TbKafkaNodeConfiguration.setRetries(int)", "void TbKafkaNodeConfiguration.setTopicPattern(String)",
-      "void TbKafkaNodeConfiguration.setValueSerializer(String)", "String TbKafkaNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbKafkaNodeConfiguration.<init>()",
+    "String TbKafkaNodeConfiguration.getAcks()",
+    "int TbKafkaNodeConfiguration.getBatchSize()",
+    "String TbKafkaNodeConfiguration.getBootstrapServers()",
+    "int TbKafkaNodeConfiguration.getBufferMemory()",
+    "String TbKafkaNodeConfiguration.getKafkaHeadersCharset()",
+    "String TbKafkaNodeConfiguration.getKeyPattern()",
+    "String TbKafkaNodeConfiguration.getKeySerializer()",
+    "int TbKafkaNodeConfiguration.getLinger()",
+    "Map TbKafkaNodeConfiguration.getOtherProperties()",
+    "int TbKafkaNodeConfiguration.getRetries()",
+    "String TbKafkaNodeConfiguration.getTopicPattern()",
+    "String TbKafkaNodeConfiguration.getValueSerializer()",
+    "boolean TbKafkaNodeConfiguration.isAddMetadataKeyValuesAsKafkaHeaders()",
+    "void TbKafkaNodeConfiguration.setAcks(String)",
+    "void TbKafkaNodeConfiguration.setAddMetadataKeyValuesAsKafkaHeaders(boolean)",
+    "void TbKafkaNodeConfiguration.setBatchSize(int)",
+    "void TbKafkaNodeConfiguration.setBootstrapServers(String)",
+    "void TbKafkaNodeConfiguration.setBufferMemory(int)",
+    "void TbKafkaNodeConfiguration.setKafkaHeadersCharset(String)",
+    "void TbKafkaNodeConfiguration.setKeyPattern(String)",
+    "void TbKafkaNodeConfiguration.setKeySerializer(String)",
+    "void TbKafkaNodeConfiguration.setLinger(int)",
+    "void TbKafkaNodeConfiguration.setOtherProperties(Map)",
+    "void TbKafkaNodeConfiguration.setRetries(int)",
+    "void TbKafkaNodeConfiguration.setTopicPattern(String)",
+    "void TbKafkaNodeConfiguration.setValueSerializer(String)",
+    "String TbKafkaNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbKafkaNodeConfiguration actualTbKafkaNodeConfiguration = new TbKafkaNodeConfiguration();
@@ -965,8 +1138,8 @@ class TbKafkaNodeConfigurationDiffblueTest {
     int actualRetries = actualTbKafkaNodeConfiguration.getRetries();
     String actualTopicPattern = actualTbKafkaNodeConfiguration.getTopicPattern();
     String actualValueSerializer = actualTbKafkaNodeConfiguration.getValueSerializer();
-    boolean actualIsAddMetadataKeyValuesAsKafkaHeadersResult = actualTbKafkaNodeConfiguration
-        .isAddMetadataKeyValuesAsKafkaHeaders();
+    boolean actualIsAddMetadataKeyValuesAsKafkaHeadersResult =
+        actualTbKafkaNodeConfiguration.isAddMetadataKeyValuesAsKafkaHeaders();
 
     // Assert
     assertEquals("42", actualValueSerializer);

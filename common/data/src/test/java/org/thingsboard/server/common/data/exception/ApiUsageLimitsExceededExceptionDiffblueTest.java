@@ -10,21 +10,26 @@ import org.junit.jupiter.api.Test;
 class ApiUsageLimitsExceededExceptionDiffblueTest {
   /**
    * Test {@link ApiUsageLimitsExceededException#ApiUsageLimitsExceededException(String)}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code An error occurred}.</li>
+   *   <li>Then return Message is {@code An error occurred}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitsExceededException#ApiUsageLimitsExceededException(String)}
+   *
+   * <p>Method under test: {@link
+   * ApiUsageLimitsExceededException#ApiUsageLimitsExceededException(String)}
    */
   @Test
-  @DisplayName("Test new ApiUsageLimitsExceededException(String); then return Message is 'An error occurred'")
+  @DisplayName(
+      "Test new ApiUsageLimitsExceededException(String); then return Message is 'An error occurred'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ApiUsageLimitsExceededException.<init>()",
-      "void ApiUsageLimitsExceededException.<init>(String)"})
+  @MethodsUnderTest({
+    "void ApiUsageLimitsExceededException.<init>()",
+    "void ApiUsageLimitsExceededException.<init>(String)"
+  })
   void testNewApiUsageLimitsExceededException_thenReturnMessageIsAnErrorOccurred() {
     // Arrange and Act
-    ApiUsageLimitsExceededException actualApiUsageLimitsExceededException = new ApiUsageLimitsExceededException(
-        "An error occurred");
+    ApiUsageLimitsExceededException actualApiUsageLimitsExceededException =
+        new ApiUsageLimitsExceededException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualApiUsageLimitsExceededException.getMessage());
@@ -34,20 +39,24 @@ class ApiUsageLimitsExceededExceptionDiffblueTest {
 
   /**
    * Test {@link ApiUsageLimitsExceededException#ApiUsageLimitsExceededException()}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code null}.</li>
+   *   <li>Then return Message is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageLimitsExceededException#ApiUsageLimitsExceededException()}
+   *
+   * <p>Method under test: {@link ApiUsageLimitsExceededException#ApiUsageLimitsExceededException()}
    */
   @Test
   @DisplayName("Test new ApiUsageLimitsExceededException(); then return Message is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ApiUsageLimitsExceededException.<init>()",
-      "void ApiUsageLimitsExceededException.<init>(String)"})
+  @MethodsUnderTest({
+    "void ApiUsageLimitsExceededException.<init>()",
+    "void ApiUsageLimitsExceededException.<init>(String)"
+  })
   void testNewApiUsageLimitsExceededException_thenReturnMessageIsNull() {
     // Arrange and Act
-    ApiUsageLimitsExceededException actualApiUsageLimitsExceededException = new ApiUsageLimitsExceededException();
+    ApiUsageLimitsExceededException actualApiUsageLimitsExceededException =
+        new ApiUsageLimitsExceededException();
 
     // Assert
     assertNull(actualApiUsageLimitsExceededException.getMessage());

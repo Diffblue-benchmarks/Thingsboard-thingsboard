@@ -14,45 +14,55 @@ import org.thingsboard.server.common.data.TransportPayloadType;
 class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}.
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}
+   *
+   * <p>Method under test: {@link
+   * DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}
    */
   @Test
   @DisplayName("Test getTransportPayloadTypeConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportPayloadTypeConfiguration DefaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration()"})
+    "TransportPayloadTypeConfiguration DefaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration()"
+  })
   void testGetTransportPayloadTypeConfiguration() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
 
     // Act
-    TransportPayloadTypeConfiguration actualTransportPayloadTypeConfiguration = defaultCoapDeviceTypeConfiguration
-        .getTransportPayloadTypeConfiguration();
-    TransportPayloadType actualTransportPayloadType = actualTransportPayloadTypeConfiguration.getTransportPayloadType();
+    TransportPayloadTypeConfiguration actualTransportPayloadTypeConfiguration =
+        defaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration();
+    TransportPayloadType actualTransportPayloadType =
+        actualTransportPayloadTypeConfiguration.getTransportPayloadType();
 
     // Assert
-    assertTrue(actualTransportPayloadTypeConfiguration instanceof JsonTransportPayloadConfiguration);
+    assertTrue(
+        actualTransportPayloadTypeConfiguration instanceof JsonTransportPayloadConfiguration);
     assertEquals(CoapDeviceType.DEFAULT, defaultCoapDeviceTypeConfiguration.getCoapDeviceType());
-    assertEquals(TransportPayloadType.JSON, actualTransportPayloadTypeConfiguration.getTransportPayloadType());
+    assertEquals(
+        TransportPayloadType.JSON,
+        actualTransportPayloadTypeConfiguration.getTransportPayloadType());
     assertEquals(TransportPayloadType.JSON, actualTransportPayloadType);
   }
 
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}.
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}
+   *
+   * <p>Method under test: {@link
+   * DefaultCoapDeviceTypeConfiguration#getTransportPayloadTypeConfiguration()}
    */
   @Test
   @DisplayName("Test getTransportPayloadTypeConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportPayloadTypeConfiguration DefaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration()"})
+    "TransportPayloadTypeConfiguration DefaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration()"
+  })
   void testGetTransportPayloadTypeConfiguration2() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act
     defaultCoapDeviceTypeConfiguration.getTransportPayloadTypeConfiguration();
@@ -62,13 +72,16 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}, and {@link DefaultCoapDeviceTypeConfiguration#hashCode()}.
+   * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}, and {@link
+   * DefaultCoapDeviceTypeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#hashCode()}
@@ -77,15 +90,20 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
     defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(null);
 
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration2.setTransportPayloadTypeConfiguration(new JsonTransportPayloadConfiguration());
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration2.setTransportPayloadTypeConfiguration(
+        new JsonTransportPayloadConfiguration());
 
     // Act and Assert
     assertEquals(defaultCoapDeviceTypeConfiguration, defaultCoapDeviceTypeConfiguration2);
@@ -94,13 +112,16 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}, and {@link DefaultCoapDeviceTypeConfiguration#hashCode()}.
+   * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}, and {@link
+   * DefaultCoapDeviceTypeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#hashCode()}
@@ -109,13 +130,16 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act and Assert
     assertEquals(defaultCoapDeviceTypeConfiguration, defaultCoapDeviceTypeConfiguration);
@@ -125,27 +149,32 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration2
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration2.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act and Assert
     assertNotEquals(defaultCoapDeviceTypeConfiguration, defaultCoapDeviceTypeConfiguration2);
@@ -153,26 +182,31 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
     defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(null);
 
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration2
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration2 =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration2.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act and Assert
     assertNotEquals(defaultCoapDeviceTypeConfiguration, defaultCoapDeviceTypeConfiguration2);
@@ -180,23 +214,27 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act and Assert
     assertNotEquals(defaultCoapDeviceTypeConfiguration, null);
@@ -204,35 +242,42 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultCoapDeviceTypeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
-      "int DefaultCoapDeviceTypeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultCoapDeviceTypeConfiguration.equals(Object)",
+    "int DefaultCoapDeviceTypeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    defaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration defaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    defaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
 
     // Act and Assert
-    assertNotEquals(defaultCoapDeviceTypeConfiguration, "Different type to DefaultCoapDeviceTypeConfiguration");
+    assertNotEquals(
+        defaultCoapDeviceTypeConfiguration, "Different type to DefaultCoapDeviceTypeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DefaultCoapDeviceTypeConfiguration}
-   *   <li>{@link DefaultCoapDeviceTypeConfiguration#setTransportPayloadTypeConfiguration(TransportPayloadTypeConfiguration)}
+   *   <li>{@link
+   *       DefaultCoapDeviceTypeConfiguration#setTransportPayloadTypeConfiguration(TransportPayloadTypeConfiguration)}
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#toString()}
    *   <li>{@link DefaultCoapDeviceTypeConfiguration#getCoapDeviceType()}
    * </ul>
@@ -240,18 +285,22 @@ class DefaultCoapDeviceTypeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultCoapDeviceTypeConfiguration.<init>()",
-      "CoapDeviceType DefaultCoapDeviceTypeConfiguration.getCoapDeviceType()",
-      "void DefaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(TransportPayloadTypeConfiguration)",
-      "java.lang.String DefaultCoapDeviceTypeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void DefaultCoapDeviceTypeConfiguration.<init>()",
+    "CoapDeviceType DefaultCoapDeviceTypeConfiguration.getCoapDeviceType()",
+    "void DefaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(TransportPayloadTypeConfiguration)",
+    "java.lang.String DefaultCoapDeviceTypeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    DefaultCoapDeviceTypeConfiguration actualDefaultCoapDeviceTypeConfiguration = new DefaultCoapDeviceTypeConfiguration();
-    actualDefaultCoapDeviceTypeConfiguration
-        .setTransportPayloadTypeConfiguration(mock(TransportPayloadTypeConfiguration.class));
+    DefaultCoapDeviceTypeConfiguration actualDefaultCoapDeviceTypeConfiguration =
+        new DefaultCoapDeviceTypeConfiguration();
+    actualDefaultCoapDeviceTypeConfiguration.setTransportPayloadTypeConfiguration(
+        mock(TransportPayloadTypeConfiguration.class));
     actualDefaultCoapDeviceTypeConfiguration.toString();
 
     // Assert
-    assertEquals(CoapDeviceType.DEFAULT, actualDefaultCoapDeviceTypeConfiguration.getCoapDeviceType());
+    assertEquals(
+        CoapDeviceType.DEFAULT, actualDefaultCoapDeviceTypeConfiguration.getCoapDeviceType());
   }
 }

@@ -17,16 +17,19 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 
 class TbSendEmailNodeDiffblueTest {
   /**
-   * Test {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#fields()}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>Then calls {@link JsonNode#fields()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; given 'START_OBJECT'; then calls fields()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; given 'START_OBJECT'; then calls fields()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbSendEmailNode.init(TbContext, TbNodeConfiguration)"})
   void testInitWithCtxConfiguration_givenStartObject_thenCallsFields() throws TbNodeException {
@@ -39,26 +42,32 @@ class TbSendEmailNodeDiffblueTest {
     when(data.asToken()).thenReturn(JsonToken.START_OBJECT);
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbSendEmailNode.init(ctx, new TbNodeConfiguration(data)));
+    assertThrows(
+        IllegalStateException.class,
+        () -> tbSendEmailNode.init(ctx, new TbNodeConfiguration(data)));
     verify(data, atLeast(1)).asToken();
     verify(data).fields();
     verify(ctx).isExternalNodeForceAck();
   }
 
   /**
-   * Test {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>Given {@code VALUE_EMBEDDED_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#isPojo()}.</li>
+   *   <li>Given {@link JsonToken#VALUE_EMBEDDED_OBJECT}.
+   *   <li>Then calls {@link JsonNode#isPojo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbSendEmailNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; given 'VALUE_EMBEDDED_OBJECT'; then calls isPojo()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; given VALUE_EMBEDDED_OBJECT; then calls isPojo()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbSendEmailNode.init(TbContext, TbNodeConfiguration)"})
-  void testInitWithCtxConfiguration_givenValueEmbeddedObject_thenCallsIsPojo() throws TbNodeException {
+  void testInitWithCtxConfiguration_givenValue_embedded_object_thenCallsIsPojo()
+      throws TbNodeException {
     // Arrange
     TbSendEmailNode tbSendEmailNode = new TbSendEmailNode();
     TbContext ctx = mock(TbContext.class);
@@ -68,7 +77,9 @@ class TbSendEmailNodeDiffblueTest {
     when(data.asToken()).thenReturn(JsonToken.VALUE_EMBEDDED_OBJECT);
 
     // Act and Assert
-    assertThrows(IllegalStateException.class, () -> tbSendEmailNode.init(ctx, new TbNodeConfiguration(data)));
+    assertThrows(
+        IllegalStateException.class,
+        () -> tbSendEmailNode.init(ctx, new TbNodeConfiguration(data)));
     verify(data, atLeast(1)).asToken();
     verify(data).isPojo();
     verify(ctx).isExternalNodeForceAck();

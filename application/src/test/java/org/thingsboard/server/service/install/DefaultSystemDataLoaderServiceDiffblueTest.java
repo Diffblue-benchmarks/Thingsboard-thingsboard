@@ -21,38 +21,30 @@ import org.thingsboard.server.common.data.mobile.MobileApp;
 import org.thingsboard.server.common.data.page.PageData;
 import org.thingsboard.server.common.data.page.PageLink;
 import org.thingsboard.server.common.data.security.model.JwtSettings;
-import org.thingsboard.server.dao.Dao;
 import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.mobile.MobileAppDao;
 import org.thingsboard.server.service.security.auth.jwt.settings.JwtSettingsService;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultSystemDataLoaderServiceDiffblueTest {
-  @InjectMocks
-  private DefaultSystemDataLoaderService defaultSystemDataLoaderService;
+  @InjectMocks private DefaultSystemDataLoaderService defaultSystemDataLoaderService;
 
-  @Mock
-  private InstallScripts installScripts;
+  @Mock private InstallScripts installScripts;
 
-  @Mock
-  private JwtSettingsService jwtSettingsService;
+  @Mock private JwtSettingsService jwtSettingsService;
 
-  @Mock
-  private MobileAppDao mobileAppDao;
+  @Mock private MobileAppDao mobileAppDao;
 
   /**
    * Test {@link DefaultSystemDataLoaderService#createRandomJwtSettings()}.
-   * <ul>
-   *   <li>Then calls {@link JwtSettingsService#getJwtSettings()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#createRandomJwtSettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#createRandomJwtSettings()}
    */
   @Test
-  @DisplayName("Test createRandomJwtSettings(); then calls getJwtSettings()")
+  @DisplayName("Test createRandomJwtSettings()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.createRandomJwtSettings()"})
-  void testCreateRandomJwtSettings_thenCallsGetJwtSettings() throws Exception {
+  void testCreateRandomJwtSettings() throws Exception {
     // Arrange
     when(jwtSettingsService.getJwtSettings()).thenReturn(new JwtSettings());
 
@@ -64,9 +56,30 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
   }
 
   /**
+   * Test {@link DefaultSystemDataLoaderService#createRandomJwtSettings()}.
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#createRandomJwtSettings()}
+   */
+  @Test
+  @DisplayName("Test createRandomJwtSettings()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultSystemDataLoaderService.createRandomJwtSettings()"})
+  void testCreateRandomJwtSettings2() throws Exception {
+    // Arrange
+    when(jwtSettingsService.getJwtSettings())
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> defaultSystemDataLoaderService.createRandomJwtSettings());
+    verify(jwtSettingsService).getJwtSettings();
+  }
+
+  /**
    * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
    */
   @Test
   @DisplayName("Test updateSecuritySettings()")
@@ -76,22 +89,22 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
     jwtSettings.setTokenSigningKey("ABC123");
-    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any())).thenReturn(new JwtSettings());
-    when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
-    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
         .thenThrow(new DataValidationException("An error occurred"));
+    when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> defaultSystemDataLoaderService.updateSecuritySettings());
-    verify(mobileAppDao).findByTenantId(isA(TenantId.class), isA(PageLink.class));
+    assertThrows(
+        DataValidationException.class,
+        () -> defaultSystemDataLoaderService.updateSecuritySettings());
     verify(jwtSettingsService).getJwtSettings();
     verify(jwtSettingsService).saveJwtSettings(isA(JwtSettings.class));
   }
 
   /**
    * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
    */
   @Test
   @DisplayName("Test updateSecuritySettings()")
@@ -100,11 +113,41 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
   void testUpdateSecuritySettings2() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
+    jwtSettings.setTokenSigningKey("ABC123");
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
+    when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> defaultSystemDataLoaderService.updateSecuritySettings());
+    verify(mobileAppDao).findByTenantId(isA(TenantId.class), isA(PageLink.class));
+    verify(jwtSettingsService).getJwtSettings();
+    verify(jwtSettingsService).saveJwtSettings(isA(JwtSettings.class));
+  }
+
+  /**
+   * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   */
+  @Test
+  @DisplayName("Test updateSecuritySettings()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultSystemDataLoaderService.updateSecuritySettings()"})
+  void testUpdateSecuritySettings3() {
+    // Arrange
+    JwtSettings jwtSettings = new JwtSettings();
     jwtSettings.setTokenSigningKey("thingsboardDefaultSigningKey");
-    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any())).thenReturn(new JwtSettings());
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
     when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
     PageData<MobileApp> emptyPageDataResult = PageData.emptyPageData();
-    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(emptyPageDataResult);
 
     // Act
     defaultSystemDataLoaderService.updateSecuritySettings();
@@ -117,18 +160,47 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
    */
   @Test
   @DisplayName("Test updateSecuritySettings()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.updateSecuritySettings()"})
-  void testUpdateSecuritySettings3() {
+  void testUpdateSecuritySettings4() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
     jwtSettings.setTokenSigningKey("ABC123");
-    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any())).thenReturn(new JwtSettings());
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
+    when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(new PageData<>(null, 5, 5L, true));
+
+    // Act
+    defaultSystemDataLoaderService.updateSecuritySettings();
+
+    // Assert
+    verify(mobileAppDao).findByTenantId(isA(TenantId.class), isA(PageLink.class));
+    verify(jwtSettingsService).getJwtSettings();
+    verify(jwtSettingsService).saveJwtSettings(isA(JwtSettings.class));
+  }
+
+  /**
+   * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   */
+  @Test
+  @DisplayName("Test updateSecuritySettings()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultSystemDataLoaderService.updateSecuritySettings()"})
+  void testUpdateSecuritySettings5() {
+    // Arrange
+    JwtSettings jwtSettings = new JwtSettings();
+    jwtSettings.setTokenSigningKey("ABC123");
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
     when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
 
     MobileApp mobileApp = new MobileApp();
@@ -140,10 +212,13 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
     when(mobileAppDao.save(Mockito.<TenantId>any(), Mockito.<MobileApp>any()))
         .thenThrow(new DataValidationException("An error occurred"));
-    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(pageData);
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> defaultSystemDataLoaderService.updateSecuritySettings());
+    assertThrows(
+        DataValidationException.class,
+        () -> defaultSystemDataLoaderService.updateSecuritySettings());
     verify(mobileAppDao).save(isA(TenantId.class), isA(MobileApp.class));
     verify(mobileAppDao).findByTenantId(isA(TenantId.class), isA(PageLink.class));
     verify(jwtSettingsService).getJwtSettings();
@@ -152,24 +227,29 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
+   *
    * <ul>
-   *   <li>Given {@link MobileAppDao} {@link MobileAppDao#findByTenantId(TenantId, PageLink)} return emptyPageData.</li>
+   *   <li>Given {@link MobileAppDao} {@link MobileAppDao#findByTenantId(TenantId, PageLink)} return
+   *       emptyPageData.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
    */
   @Test
-  @DisplayName("Test updateSecuritySettings(); given MobileAppDao findByTenantId(TenantId, PageLink) return emptyPageData")
+  @DisplayName(
+      "Test updateSecuritySettings(); given MobileAppDao findByTenantId(TenantId, PageLink) return emptyPageData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.updateSecuritySettings()"})
   void testUpdateSecuritySettings_givenMobileAppDaoFindByTenantIdReturnEmptyPageData() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
     jwtSettings.setTokenSigningKey("ABC123");
-    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any())).thenReturn(new JwtSettings());
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
     when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
     PageData<MobileApp> emptyPageDataResult = PageData.emptyPageData();
-    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(emptyPageDataResult);
 
     // Act
     defaultSystemDataLoaderService.updateSecuritySettings();
@@ -182,22 +262,26 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#updateSecuritySettings()}.
+   *
    * <ul>
-   *   <li>Given {@link MobileAppDao} {@link Dao#save(TenantId, Object)} return {@link MobileApp#MobileApp()}.</li>
-   *   <li>Then calls {@link Dao#save(TenantId, Object)}.</li>
+   *   <li>Given {@link MobileAppDao} {@link MobileAppDao#save(TenantId, Object)} return {@link
+   *       MobileApp#MobileApp()}.
+   *   <li>Then calls {@link MobileAppDao#save(TenantId, Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#updateSecuritySettings()}
    */
   @Test
-  @DisplayName("Test updateSecuritySettings(); given MobileAppDao save(TenantId, Object) return MobileApp(); then calls save(TenantId, Object)")
+  @DisplayName(
+      "Test updateSecuritySettings(); given MobileAppDao save(TenantId, Object) return MobileApp(); then calls save(TenantId, Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.updateSecuritySettings()"})
   void testUpdateSecuritySettings_givenMobileAppDaoSaveReturnMobileApp_thenCallsSave() {
     // Arrange
     JwtSettings jwtSettings = new JwtSettings();
     jwtSettings.setTokenSigningKey("ABC123");
-    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any())).thenReturn(new JwtSettings());
+    when(jwtSettingsService.saveJwtSettings(Mockito.<JwtSettings>any()))
+        .thenReturn(new JwtSettings());
     when(jwtSettingsService.getJwtSettings()).thenReturn(jwtSettings);
 
     MobileApp mobileApp = new MobileApp();
@@ -207,8 +291,10 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
     data.add(mobileApp);
     PageData<MobileApp> pageData = new PageData<>(data, 5, 5L, true);
 
-    when(mobileAppDao.save(Mockito.<TenantId>any(), Mockito.<MobileApp>any())).thenReturn(new MobileApp());
-    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(pageData);
+    when(mobileAppDao.save(Mockito.<TenantId>any(), Mockito.<MobileApp>any()))
+        .thenReturn(new MobileApp());
+    when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
 
     // Act
     defaultSystemDataLoaderService.updateSecuritySettings();
@@ -222,17 +308,20 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#createOAuth2Templates()}.
+   *
    * <ul>
-   *   <li>Given {@link InstallScripts} {@link InstallScripts#createOAuth2Templates()} does nothing.</li>
+   *   <li>Given {@link InstallScripts} {@link InstallScripts#createOAuth2Templates()} does nothing.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#createOAuth2Templates()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#createOAuth2Templates()}
    */
   @Test
-  @DisplayName("Test createOAuth2Templates(); given InstallScripts createOAuth2Templates() does nothing")
+  @DisplayName(
+      "Test createOAuth2Templates(); given InstallScripts createOAuth2Templates() does nothing")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.createOAuth2Templates()"})
-  void testCreateOAuth2Templates_givenInstallScriptsCreateOAuth2TemplatesDoesNothing() throws Exception {
+  void testCreateOAuth2Templates_givenInstallScriptsCreateOAuth2TemplatesDoesNothing()
+      throws Exception {
     // Arrange
     doNothing().when(installScripts).createOAuth2Templates();
 
@@ -245,11 +334,12 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#createOAuth2Templates()}.
+   *
    * <ul>
-   *   <li>Then throw {@link DataValidationException}.</li>
+   *   <li>Then throw {@link DataValidationException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#createOAuth2Templates()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#createOAuth2Templates()}
    */
   @Test
   @DisplayName("Test createOAuth2Templates(); then throw DataValidationException")
@@ -257,20 +347,25 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.createOAuth2Templates()"})
   void testCreateOAuth2Templates_thenThrowDataValidationException() throws Exception {
     // Arrange
-    doThrow(new DataValidationException("An error occurred")).when(installScripts).createOAuth2Templates();
+    doThrow(new DataValidationException("An error occurred"))
+        .when(installScripts)
+        .createOAuth2Templates();
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> defaultSystemDataLoaderService.createOAuth2Templates());
+    assertThrows(
+        DataValidationException.class,
+        () -> defaultSystemDataLoaderService.createOAuth2Templates());
     verify(installScripts).createOAuth2Templates();
   }
 
   /**
    * Test {@link DefaultSystemDataLoaderService#loadSystemWidgets()}.
+   *
    * <ul>
-   *   <li>Given {@link InstallScripts} {@link InstallScripts#loadSystemWidgets()} does nothing.</li>
+   *   <li>Given {@link InstallScripts} {@link InstallScripts#loadSystemWidgets()} does nothing.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#loadSystemWidgets()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#loadSystemWidgets()}
    */
   @Test
   @DisplayName("Test loadSystemWidgets(); given InstallScripts loadSystemWidgets() does nothing")
@@ -289,11 +384,12 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
 
   /**
    * Test {@link DefaultSystemDataLoaderService#loadSystemWidgets()}.
+   *
    * <ul>
-   *   <li>Then throw {@link DataValidationException}.</li>
+   *   <li>Then throw {@link DataValidationException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultSystemDataLoaderService#loadSystemWidgets()}
+   *
+   * <p>Method under test: {@link DefaultSystemDataLoaderService#loadSystemWidgets()}
    */
   @Test
   @DisplayName("Test loadSystemWidgets(); then throw DataValidationException")
@@ -301,10 +397,13 @@ class DefaultSystemDataLoaderServiceDiffblueTest {
   @MethodsUnderTest({"void DefaultSystemDataLoaderService.loadSystemWidgets()"})
   void testLoadSystemWidgets_thenThrowDataValidationException() throws Exception {
     // Arrange
-    doThrow(new DataValidationException("An error occurred")).when(installScripts).loadSystemWidgets();
+    doThrow(new DataValidationException("An error occurred"))
+        .when(installScripts)
+        .loadSystemWidgets();
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> defaultSystemDataLoaderService.loadSystemWidgets());
+    assertThrows(
+        DataValidationException.class, () -> defaultSystemDataLoaderService.loadSystemWidgets());
     verify(installScripts).loadSystemWidgets();
   }
 }

@@ -13,15 +13,18 @@ import org.junit.jupiter.api.Test;
 class KeystoreSslCredentialsDiffblueTest {
   /**
    * Test {@link KeystoreSslCredentials#canUse()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code classpath:}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code
+   *       classpath:}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#canUse()}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#canUse()}
    */
   @Test
-  @DisplayName("Test canUse(); given KeystoreSslCredentials (default constructor) StoreFile is 'classpath:'; then return 'true'")
+  @DisplayName(
+      "Test canUse(); given KeystoreSslCredentials (default constructor) StoreFile is 'classpath:'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean KeystoreSslCredentials.canUse()"})
   void testCanUse_givenKeystoreSslCredentialsStoreFileIsClasspath_thenReturnTrue() {
@@ -35,15 +38,18 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#canUse()}.
+   *
    * <ul>
-   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code Store File}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link KeystoreSslCredentials} (default constructor) StoreFile is {@code Store
+   *       File}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#canUse()}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#canUse()}
    */
   @Test
-  @DisplayName("Test canUse(); given KeystoreSslCredentials (default constructor) StoreFile is 'Store File'; then return 'false'")
+  @DisplayName(
+      "Test canUse(); given KeystoreSslCredentials (default constructor) StoreFile is 'Store File'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean KeystoreSslCredentials.canUse()"})
   void testCanUse_givenKeystoreSslCredentialsStoreFileIsStoreFile_thenReturnFalse() {
@@ -56,13 +62,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -71,7 +80,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -84,13 +96,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -99,7 +114,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -115,13 +133,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -130,7 +151,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -146,13 +170,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -161,7 +188,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -177,13 +207,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -192,7 +225,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -208,13 +244,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -223,7 +262,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -239,13 +281,16 @@ class KeystoreSslCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link KeystoreSslCredentials#hashCode()}.
+   * Test {@link KeystoreSslCredentials#equals(Object)}, and {@link
+   * KeystoreSslCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link KeystoreSslCredentials#equals(Object)}
    *   <li>{@link KeystoreSslCredentials#hashCode()}
@@ -254,7 +299,10 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -267,17 +315,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new KeystoreSslCredentials(), 1);
@@ -285,17 +337,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -307,17 +363,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -329,17 +389,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -351,17 +415,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -373,17 +441,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -395,17 +467,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -419,17 +495,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -443,17 +523,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -467,17 +551,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -491,17 +579,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     KeystoreSslCredentials keystoreSslCredentials = new KeystoreSslCredentials();
@@ -515,17 +607,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new KeystoreSslCredentials(), null);
@@ -533,17 +629,21 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test {@link KeystoreSslCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link KeystoreSslCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link KeystoreSslCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean KeystoreSslCredentials.equals(Object)", "int KeystoreSslCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean KeystoreSslCredentials.equals(Object)",
+    "int KeystoreSslCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new KeystoreSslCredentials(), "Different type to KeystoreSslCredentials");
@@ -551,8 +651,9 @@ class KeystoreSslCredentialsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link KeystoreSslCredentials}
    *   <li>{@link KeystoreSslCredentials#setKeyAlias(String)}
@@ -572,13 +673,21 @@ class KeystoreSslCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void KeystoreSslCredentials.<init>()", "String KeystoreSslCredentials.getKeyAlias()",
-      "String KeystoreSslCredentials.getKeyPassword()", "String KeystoreSslCredentials.getStoreFile()",
-      "String KeystoreSslCredentials.getStorePassword()", "String KeystoreSslCredentials.getType()",
-      "void KeystoreSslCredentials.setKeyAlias(String)", "void KeystoreSslCredentials.setKeyPassword(String)",
-      "void KeystoreSslCredentials.setStoreFile(String)", "void KeystoreSslCredentials.setStorePassword(String)",
-      "void KeystoreSslCredentials.setType(String)", "String KeystoreSslCredentials.toString()",
-      "void KeystoreSslCredentials.updateKeyAlias(String)"})
+  @MethodsUnderTest({
+    "void KeystoreSslCredentials.<init>()",
+    "String KeystoreSslCredentials.getKeyAlias()",
+    "String KeystoreSslCredentials.getKeyPassword()",
+    "String KeystoreSslCredentials.getStoreFile()",
+    "String KeystoreSslCredentials.getStorePassword()",
+    "String KeystoreSslCredentials.getType()",
+    "void KeystoreSslCredentials.setKeyAlias(String)",
+    "void KeystoreSslCredentials.setKeyPassword(String)",
+    "void KeystoreSslCredentials.setStoreFile(String)",
+    "void KeystoreSslCredentials.setStorePassword(String)",
+    "void KeystoreSslCredentials.setType(String)",
+    "String KeystoreSslCredentials.toString()",
+    "void KeystoreSslCredentials.updateKeyAlias(String)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     KeystoreSslCredentials actualKeystoreSslCredentials = new KeystoreSslCredentials();
@@ -596,8 +705,10 @@ class KeystoreSslCredentialsDiffblueTest {
 
     // Assert
     assertEquals("Key Alias", actualKeyAlias);
-    assertEquals("KeystoreSslCredentials(type=Type, storeFile=Store File, storePassword=iloveyou, keyPassword=iloveyou,"
-        + " keyAlias=Key Alias)", actualToStringResult);
+    assertEquals(
+        "KeystoreSslCredentials(type=Type, storeFile=Store File, storePassword=iloveyou, keyPassword=iloveyou,"
+            + " keyAlias=Key Alias)",
+        actualToStringResult);
     assertEquals("Store File", actualStoreFile);
     assertEquals("Type", actualKeystoreSslCredentials.getType());
     assertEquals("iloveyou", actualKeyPassword);

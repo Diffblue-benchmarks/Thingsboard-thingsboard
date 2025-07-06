@@ -13,25 +13,28 @@ import org.thingsboard.server.queue.TbQueueMsg;
 
 @ExtendWith(MockitoExtension.class)
 class TbServiceBusProducerTemplateDiffblueTest {
-  @Mock
-  private TbQueueAdmin tbQueueAdmin;
+  @Mock private TbQueueAdmin tbQueueAdmin;
 
-  @Mock
-  private TbServiceBusSettings tbServiceBusSettings;
+  @Mock private TbServiceBusSettings tbServiceBusSettings;
 
   /**
-   * Test {@link TbServiceBusProducerTemplate#TbServiceBusProducerTemplate(TbQueueAdmin, TbServiceBusSettings, String)}.
-   * <p>
-   * Method under test: {@link TbServiceBusProducerTemplate#TbServiceBusProducerTemplate(TbQueueAdmin, TbServiceBusSettings, String)}
+   * Test {@link TbServiceBusProducerTemplate#TbServiceBusProducerTemplate(TbQueueAdmin,
+   * TbServiceBusSettings, String)}.
+   *
+   * <p>Method under test: {@link
+   * TbServiceBusProducerTemplate#TbServiceBusProducerTemplate(TbQueueAdmin, TbServiceBusSettings,
+   * String)}
    */
   @Test
   @DisplayName("Test new TbServiceBusProducerTemplate(TbQueueAdmin, TbServiceBusSettings, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbServiceBusProducerTemplate.<init>(TbQueueAdmin, TbServiceBusSettings, String)"})
+  @MethodsUnderTest({
+    "void TbServiceBusProducerTemplate.<init>(TbQueueAdmin, TbServiceBusSettings, String)"
+  })
   void testNewTbServiceBusProducerTemplate() {
     // Arrange and Act
-    TbServiceBusProducerTemplate<TbQueueMsg> actualTbServiceBusProducerTemplate = new TbServiceBusProducerTemplate<>(
-        tbQueueAdmin, tbServiceBusSettings, "Default Topic");
+    TbServiceBusProducerTemplate<TbQueueMsg> actualTbServiceBusProducerTemplate =
+        new TbServiceBusProducerTemplate<>(tbQueueAdmin, tbServiceBusSettings, "Default Topic");
 
     // Assert
     assertEquals("Default Topic", actualTbServiceBusProducerTemplate.getDefaultTopic());

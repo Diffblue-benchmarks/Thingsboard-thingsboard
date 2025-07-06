@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.api.TbContext;
+import org.thingsboard.server.common.data.exception.ApiUsageLimitsExceededException;
 import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.kv.BooleanDataEntry;
 import org.thingsboard.server.common.data.kv.DataType;
@@ -24,38 +25,45 @@ import org.thingsboard.server.common.data.rule.RuleNodeState;
 
 class DeviceStateDiffblueTest {
   /**
-   * Test {@link DeviceState#DeviceState(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState)}.
+   * Test {@link DeviceState#DeviceState(TbContext, TbDeviceProfileNodeConfiguration, DeviceId,
+   * ProfileState, RuleNodeState)}.
+   *
    * <ul>
-   *   <li>Given {@link RuntimeException#RuntimeException(String)} with {@code foo}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link ApiUsageLimitsExceededException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#DeviceState(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState)}
+   *
+   * <p>Method under test: {@link DeviceState#DeviceState(TbContext,
+   * TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState)}
    */
   @Test
-  @DisplayName("Test new DeviceState(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState); given RuntimeException(String) with 'foo'; then throw RuntimeException")
+  @DisplayName(
+      "Test new DeviceState(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState); then throw ApiUsageLimitsExceededException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DeviceState.<init>(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState)"})
-  void testNewDeviceState_givenRuntimeExceptionWithFoo_thenThrowRuntimeException() {
+    "void DeviceState.<init>(TbContext, TbDeviceProfileNodeConfiguration, DeviceId, ProfileState, RuleNodeState)"
+  })
+  void testNewDeviceState_thenThrowApiUsageLimitsExceededException() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
-    when(ctx.getTenantId()).thenThrow(new RuntimeException("foo"));
+    when(ctx.getTenantId()).thenThrow(new ApiUsageLimitsExceededException("An error occurred"));
     TbDeviceProfileNodeConfiguration config = new TbDeviceProfileNodeConfiguration();
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> new DeviceState(ctx, config, null, null, new RuleNodeState()));
+    assertThrows(
+        ApiUsageLimitsExceededException.class,
+        () -> new DeviceState(ctx, config, null, null, new RuleNodeState()));
 
     verify(ctx).getTenantId();
   }
 
   /**
    * Test {@link DeviceState#toEntityValue(KvEntry)}.
+   *
    * <ul>
-   *   <li>Then return DataType is {@code BOOLEAN}.</li>
+   *   <li>Then return DataType is {@code BOOLEAN}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#toEntityValue(KvEntry)}
+   *
+   * <p>Method under test: {@link DeviceState#toEntityValue(KvEntry)}
    */
   @Test
   @DisplayName("Test toEntityValue(KvEntry); then return DataType is 'BOOLEAN'")
@@ -63,7 +71,8 @@ class DeviceStateDiffblueTest {
   @MethodsUnderTest({"EntityKeyValue DeviceState.toEntityValue(KvEntry)"})
   void testToEntityValue_thenReturnDataTypeIsBoolean() {
     // Arrange and Act
-    EntityKeyValue actualToEntityValueResult = DeviceState.toEntityValue(new BooleanDataEntry("Key", true));
+    EntityKeyValue actualToEntityValueResult =
+        DeviceState.toEntityValue(new BooleanDataEntry("Key", true));
 
     // Assert
     assertNull(actualToEntityValueResult.getDblValue());
@@ -76,11 +85,12 @@ class DeviceStateDiffblueTest {
 
   /**
    * Test {@link DeviceState#toEntityValue(KvEntry)}.
+   *
    * <ul>
-   *   <li>Then return DblValue doubleValue is ten.</li>
+   *   <li>Then return DblValue doubleValue is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#toEntityValue(KvEntry)}
+   *
+   * <p>Method under test: {@link DeviceState#toEntityValue(KvEntry)}
    */
   @Test
   @DisplayName("Test toEntityValue(KvEntry); then return DblValue doubleValue is ten")
@@ -88,7 +98,8 @@ class DeviceStateDiffblueTest {
   @MethodsUnderTest({"EntityKeyValue DeviceState.toEntityValue(KvEntry)"})
   void testToEntityValue_thenReturnDblValueDoubleValueIsTen() {
     // Arrange and Act
-    EntityKeyValue actualToEntityValueResult = DeviceState.toEntityValue(new DoubleDataEntry("Key", 10.0d));
+    EntityKeyValue actualToEntityValueResult =
+        DeviceState.toEntityValue(new DoubleDataEntry("Key", 10.0d));
 
     // Assert
     assertNull(actualToEntityValueResult.getBoolValue());
@@ -101,11 +112,12 @@ class DeviceStateDiffblueTest {
 
   /**
    * Test {@link DeviceState#toEntityValue(KvEntry)}.
+   *
    * <ul>
-   *   <li>Then return LngValue longValue is forty-two.</li>
+   *   <li>Then return LngValue longValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#toEntityValue(KvEntry)}
+   *
+   * <p>Method under test: {@link DeviceState#toEntityValue(KvEntry)}
    */
   @Test
   @DisplayName("Test toEntityValue(KvEntry); then return LngValue longValue is forty-two")
@@ -113,7 +125,8 @@ class DeviceStateDiffblueTest {
   @MethodsUnderTest({"EntityKeyValue DeviceState.toEntityValue(KvEntry)"})
   void testToEntityValue_thenReturnLngValueLongValueIsFortyTwo() {
     // Arrange and Act
-    EntityKeyValue actualToEntityValueResult = DeviceState.toEntityValue(new LongDataEntry("Key", 42L));
+    EntityKeyValue actualToEntityValueResult =
+        DeviceState.toEntityValue(new LongDataEntry("Key", 42L));
 
     // Assert
     assertNull(actualToEntityValueResult.getBoolValue());
@@ -126,20 +139,24 @@ class DeviceStateDiffblueTest {
 
   /**
    * Test {@link DeviceState#toEntityValue(KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
-   *   <li>Then return JsonValue is {@code 42}.</li>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return JsonValue is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#toEntityValue(KvEntry)}
+   *
+   * <p>Method under test: {@link DeviceState#toEntityValue(KvEntry)}
    */
   @Test
-  @DisplayName("Test toEntityValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'; then return JsonValue is '42'")
+  @DisplayName(
+      "Test toEntityValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'; then return JsonValue is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityKeyValue DeviceState.toEntityValue(KvEntry)"})
   void testToEntityValue_whenJsonDataEntryWithKeyAndValueIs42_thenReturnJsonValueIs42() {
     // Arrange and Act
-    EntityKeyValue actualToEntityValueResult = DeviceState.toEntityValue(new JsonDataEntry("Key", "42"));
+    EntityKeyValue actualToEntityValueResult =
+        DeviceState.toEntityValue(new JsonDataEntry("Key", "42"));
 
     // Assert
     assertEquals("42", actualToEntityValueResult.getJsonValue());
@@ -152,20 +169,24 @@ class DeviceStateDiffblueTest {
 
   /**
    * Test {@link DeviceState#toEntityValue(KvEntry)}.
+   *
    * <ul>
-   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value is {@code 42}.</li>
-   *   <li>Then return StrValue is {@code 42}.</li>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
+   *   <li>Then return StrValue is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceState#toEntityValue(KvEntry)}
+   *
+   * <p>Method under test: {@link DeviceState#toEntityValue(KvEntry)}
    */
   @Test
-  @DisplayName("Test toEntityValue(KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'; then return StrValue is '42'")
+  @DisplayName(
+      "Test toEntityValue(KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'; then return StrValue is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityKeyValue DeviceState.toEntityValue(KvEntry)"})
   void testToEntityValue_whenStringDataEntryWithKeyAndValueIs42_thenReturnStrValueIs42() {
     // Arrange and Act
-    EntityKeyValue actualToEntityValueResult = DeviceState.toEntityValue(new StringDataEntry("Key", "42"));
+    EntityKeyValue actualToEntityValueResult =
+        DeviceState.toEntityValue(new StringDataEntry("Key", "42"));
 
     // Assert
     assertEquals("42", actualToEntityValueResult.getStrValue());

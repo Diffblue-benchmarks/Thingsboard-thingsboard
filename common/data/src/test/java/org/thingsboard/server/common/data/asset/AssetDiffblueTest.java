@@ -18,8 +18,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AssetDiffblueTest {
   /**
    * Test {@link Asset#getExternalId()}.
-   * <p>
-   * Method under test: {@link Asset#getExternalId()}
+   *
+   * <p>Method under test: {@link Asset#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -27,16 +27,17 @@ class AssetDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetId Asset.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new Asset()).getExternalId());
+    assertNull(new Asset().getExternalId());
   }
 
   /**
    * Test {@link Asset#Asset(Asset)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset()}.</li>
+   *   <li>When {@link Asset#Asset()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#Asset(Asset)}
+   *
+   * <p>Method under test: {@link Asset#Asset(Asset)}
    */
   @Test
   @DisplayName("Test new Asset(Asset); when Asset()")
@@ -63,11 +64,12 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#Asset(Asset)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.</li>
+   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#Asset(Asset)}
+   *
+   * <p>Method under test: {@link Asset#Asset(Asset)}
    */
   @Test
   @DisplayName("Test new Asset(Asset); when Asset(Asset) with asset is Asset()")
@@ -94,11 +96,12 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#Asset(Asset)}.
+   *
    * <ul>
-   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.</li>
+   *   <li>When {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#Asset(Asset)}
+   *
+   * <p>Method under test: {@link Asset#Asset(Asset)}
    */
   @Test
   @DisplayName("Test new Asset(Asset); when Asset(Asset) with asset is Asset(Asset)")
@@ -125,8 +128,8 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#getId()}.
-   * <p>
-   * Method under test: {@link Asset#getId()}
+   *
+   * <p>Method under test: {@link Asset#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -134,13 +137,13 @@ class AssetDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetId Asset.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new Asset()).getId());
+    assertNull(new Asset().getId());
   }
 
   /**
    * Test {@link Asset#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link Asset#getCreatedTime()}
+   *
+   * <p>Method under test: {@link Asset#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -148,25 +151,27 @@ class AssetDiffblueTest {
   @MethodsUnderTest({"long Asset.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new Asset()).getCreatedTime());
+    assertEquals(0L, new Asset().getCreatedTime());
   }
 
   /**
    * Test {@link Asset#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset()}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Asset#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Asset(Asset) with asset is Asset(); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Asset(Asset) with asset is Asset(); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Asset.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenAssetWithAssetIsAsset_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Asset(new Asset())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Asset(new Asset()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -174,20 +179,22 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Asset#Asset(Asset)} with asset is {@link Asset#Asset(Asset)}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Asset#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Asset(Asset) with asset is Asset(Asset); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Asset(Asset) with asset is Asset(Asset); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Asset.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenAssetWithAssetIsAsset_thenReturnInstance2() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Asset(new Asset(new Asset()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Asset(new Asset(new Asset())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -195,12 +202,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Asset#Asset()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Asset#Asset()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Asset#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Asset(); then return 'null'")
@@ -208,17 +216,19 @@ class AssetDiffblueTest {
   @MethodsUnderTest({"JsonNode Asset.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenAsset_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new Asset()).getAdditionalInfo());
+    assertNull(new Asset().getAdditionalInfo());
   }
 
   /**
    * Test {@link Asset#equals(Object)}, and {@link Asset#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Asset#equals(Object)}
    *   <li>{@link Asset#hashCode()}
@@ -241,12 +251,14 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}, and {@link Asset#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Asset#equals(Object)}
    *   <li>{@link Asset#hashCode()}
@@ -268,12 +280,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -289,12 +302,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -310,12 +324,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -331,12 +346,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -353,12 +369,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -375,12 +392,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -397,12 +415,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -419,12 +438,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -441,12 +461,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -463,12 +484,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -487,12 +509,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -511,12 +534,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -535,12 +559,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -559,12 +584,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -583,12 +609,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -607,12 +634,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -625,12 +653,13 @@ class AssetDiffblueTest {
 
   /**
    * Test {@link Asset#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Asset#equals(Object)}
+   *
+   * <p>Method under test: {@link Asset#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

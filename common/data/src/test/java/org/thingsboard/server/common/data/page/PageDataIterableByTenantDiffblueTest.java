@@ -17,8 +17,9 @@ import org.thingsboard.server.common.data.page.PageDataIterableByTenant.FetchFun
 class PageDataIterableByTenantDiffblueTest {
   /**
    * Test {@link PageDataIterableByTenant#PageDataIterableByTenant(FetchFunction, TenantId, int)}.
-   * <p>
-   * Method under test: {@link PageDataIterableByTenant#PageDataIterableByTenant(FetchFunction, TenantId, int)}
+   *
+   * <p>Method under test: {@link PageDataIterableByTenant#PageDataIterableByTenant(FetchFunction,
+   * TenantId, int)}
    */
   @Test
   @DisplayName("Test new PageDataIterableByTenant(FetchFunction, TenantId, int)")
@@ -26,8 +27,8 @@ class PageDataIterableByTenantDiffblueTest {
   @MethodsUnderTest({"void PageDataIterableByTenant.<init>(FetchFunction, TenantId, int)"})
   void testNewPageDataIterableByTenant() {
     // Arrange and Act
-    PageDataIterableByTenant<Object> actualPageDataIterableByTenant = new PageDataIterableByTenant<>(
-        mock(FetchFunction.class), TenantId.SYS_TENANT_ID, 3);
+    PageDataIterableByTenant<Object> actualPageDataIterableByTenant =
+        new PageDataIterableByTenant<>(mock(FetchFunction.class), TenantId.SYS_TENANT_ID, 3);
 
     // Assert
     assertFalse(actualPageDataIterableByTenant.hasNext());
@@ -35,8 +36,8 @@ class PageDataIterableByTenantDiffblueTest {
 
   /**
    * Test {@link PageDataIterableByTenant#fetchPageData(PageLink)}.
-   * <p>
-   * Method under test: {@link PageDataIterableByTenant#fetchPageData(PageLink)}
+   *
+   * <p>Method under test: {@link PageDataIterableByTenant#fetchPageData(PageLink)}
    */
   @Test
   @DisplayName("Test fetchPageData(PageLink)")
@@ -46,12 +47,14 @@ class PageDataIterableByTenantDiffblueTest {
     // Arrange
     FetchFunction<Object> function = mock(FetchFunction.class);
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
-    when(function.fetch(Mockito.<TenantId>any(), Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
-    PageDataIterableByTenant<Object> pageDataIterableByTenant = new PageDataIterableByTenant<>(function,
-        TenantId.SYS_TENANT_ID, 3);
+    when(function.fetch(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(emptyPageDataResult);
+    PageDataIterableByTenant<Object> pageDataIterableByTenant =
+        new PageDataIterableByTenant<>(function, TenantId.SYS_TENANT_ID, 3);
 
     // Act
-    PageData<Object> actualFetchPageDataResult = pageDataIterableByTenant.fetchPageData(new PageLink(3));
+    PageData<Object> actualFetchPageDataResult =
+        pageDataIterableByTenant.fetchPageData(new PageLink(3));
 
     // Assert
     verify(function).fetch(isA(TenantId.class), isA(PageLink.class));

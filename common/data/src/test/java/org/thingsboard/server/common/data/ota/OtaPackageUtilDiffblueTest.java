@@ -18,15 +18,17 @@ import org.thingsboard.server.common.data.HasOtaPackage;
 class OtaPackageUtilDiffblueTest {
   /**
    * Test {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}.
+   *
    * <ul>
-   *   <li>When {@code FIRMWARE}.</li>
-   *   <li>Then return sixth is {@code fw_checksum}.</li>
+   *   <li>When {@code FIRMWARE}.
+   *   <li>Then return sixth is {@code fw_checksum}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getAttributeKeys(OtaPackageType); when 'FIRMWARE'; then return sixth is 'fw_checksum'")
+  @DisplayName(
+      "Test getAttributeKeys(OtaPackageType); when 'FIRMWARE'; then return sixth is 'fw_checksum'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List OtaPackageUtil.getAttributeKeys(OtaPackageType)"})
   void testGetAttributeKeys_whenFirmware_thenReturnSixthIsFwChecksum() {
@@ -48,15 +50,17 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}.
+   *
    * <ul>
-   *   <li>When {@code SOFTWARE}.</li>
-   *   <li>Then return sixth is {@code sw_checksum}.</li>
+   *   <li>When {@code SOFTWARE}.
+   *   <li>Then return sixth is {@code sw_checksum}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getAttributeKeys(OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getAttributeKeys(OtaPackageType); when 'SOFTWARE'; then return sixth is 'sw_checksum'")
+  @DisplayName(
+      "Test getAttributeKeys(OtaPackageType); when 'SOFTWARE'; then return sixth is 'sw_checksum'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List OtaPackageUtil.getAttributeKeys(OtaPackageType)"})
   void testGetAttributeKeys_whenSoftware_thenReturnSixthIsSwChecksum() {
@@ -78,8 +82,8 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getAttributeKey(OtaPackageType, OtaPackageKey)}.
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getAttributeKey(OtaPackageType, OtaPackageKey)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getAttributeKey(OtaPackageType, OtaPackageKey)}
    */
   @Test
   @DisplayName("Test getAttributeKey(OtaPackageType, OtaPackageKey)")
@@ -87,13 +91,15 @@ class OtaPackageUtilDiffblueTest {
   @MethodsUnderTest({"String OtaPackageUtil.getAttributeKey(OtaPackageType, OtaPackageKey)"})
   void testGetAttributeKey() {
     // Arrange, Act and Assert
-    assertEquals("fw_title", OtaPackageUtil.getAttributeKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
+    assertEquals(
+        "fw_title", OtaPackageUtil.getAttributeKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
   }
 
   /**
    * Test {@link OtaPackageUtil#getTargetTelemetryKey(OtaPackageType, OtaPackageKey)}.
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getTargetTelemetryKey(OtaPackageType, OtaPackageKey)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getTargetTelemetryKey(OtaPackageType,
+   * OtaPackageKey)}
    */
   @Test
   @DisplayName("Test getTargetTelemetryKey(OtaPackageType, OtaPackageKey)")
@@ -101,13 +107,16 @@ class OtaPackageUtilDiffblueTest {
   @MethodsUnderTest({"String OtaPackageUtil.getTargetTelemetryKey(OtaPackageType, OtaPackageKey)"})
   void testGetTargetTelemetryKey() {
     // Arrange, Act and Assert
-    assertEquals("target_fw_title", OtaPackageUtil.getTargetTelemetryKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
+    assertEquals(
+        "target_fw_title",
+        OtaPackageUtil.getTargetTelemetryKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
   }
 
   /**
    * Test {@link OtaPackageUtil#getCurrentTelemetryKey(OtaPackageType, OtaPackageKey)}.
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getCurrentTelemetryKey(OtaPackageType, OtaPackageKey)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getCurrentTelemetryKey(OtaPackageType,
+   * OtaPackageKey)}
    */
   @Test
   @DisplayName("Test getCurrentTelemetryKey(OtaPackageType, OtaPackageKey)")
@@ -115,14 +124,16 @@ class OtaPackageUtilDiffblueTest {
   @MethodsUnderTest({"String OtaPackageUtil.getCurrentTelemetryKey(OtaPackageType, OtaPackageKey)"})
   void testGetCurrentTelemetryKey() {
     // Arrange, Act and Assert
-    assertEquals("current_fw_title",
+    assertEquals(
+        "current_fw_title",
         OtaPackageUtil.getCurrentTelemetryKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
   }
 
   /**
-   * Test {@link OtaPackageUtil#getTelemetryKey(OtaPackageType, OtaPackageKey)} with {@code type}, {@code key}.
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getTelemetryKey(OtaPackageType, OtaPackageKey)}
+   * Test {@link OtaPackageUtil#getTelemetryKey(OtaPackageType, OtaPackageKey)} with {@code type},
+   * {@code key}.
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getTelemetryKey(OtaPackageType, OtaPackageKey)}
    */
   @Test
   @DisplayName("Test getTelemetryKey(OtaPackageType, OtaPackageKey) with 'type', 'key'")
@@ -130,23 +141,27 @@ class OtaPackageUtilDiffblueTest {
   @MethodsUnderTest({"String OtaPackageUtil.getTelemetryKey(OtaPackageType, OtaPackageKey)"})
   void testGetTelemetryKeyWithTypeKey() {
     // Arrange, Act and Assert
-    assertEquals("fw_title", OtaPackageUtil.getTelemetryKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
+    assertEquals(
+        "fw_title", OtaPackageUtil.getTelemetryKey(OtaPackageType.FIRMWARE, OtaPackageKey.TITLE));
   }
 
   /**
    * Test {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Device#Device()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getOtaPackageId(HasOtaPackage, OtaPackageType); when Device(); then return 'null'")
+  @DisplayName(
+      "Test getOtaPackageId(HasOtaPackage, OtaPackageType); when Device(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.id.OtaPackageId OtaPackageUtil.getOtaPackageId(HasOtaPackage, OtaPackageType)"})
+    "org.thingsboard.server.common.data.id.OtaPackageId OtaPackageUtil.getOtaPackageId(HasOtaPackage, OtaPackageType)"
+  })
   void testGetOtaPackageId_whenDevice_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(OtaPackageUtil.getOtaPackageId(new Device(), OtaPackageType.FIRMWARE));
@@ -154,18 +169,21 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Device#Device()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getOtaPackageId(HasOtaPackage, OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getOtaPackageId(HasOtaPackage, OtaPackageType); when Device(); then return 'null'")
+  @DisplayName(
+      "Test getOtaPackageId(HasOtaPackage, OtaPackageType); when Device(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.id.OtaPackageId OtaPackageUtil.getOtaPackageId(HasOtaPackage, OtaPackageType)"})
+    "org.thingsboard.server.common.data.id.OtaPackageId OtaPackageUtil.getOtaPackageId(HasOtaPackage, OtaPackageType)"
+  })
   void testGetOtaPackageId_whenDevice_thenReturnNull2() {
     // Arrange, Act and Assert
     assertNull(OtaPackageUtil.getOtaPackageId(new Device(), OtaPackageType.SOFTWARE));
@@ -173,26 +191,32 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}.
+   *
    * <ul>
-   *   <li>Given {@code Get}.</li>
-   *   <li>When {@code FIRMWARE}.</li>
-   *   <li>Then return {@code Get}.</li>
+   *   <li>Given {@code Get}.
+   *   <li>When {@link Supplier} {@link Supplier#get()} return {@code Get}.
+   *   <li>Then return {@code Get}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier,
+   * OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given 'Get'; when 'FIRMWARE'; then return 'Get'")
+  @DisplayName(
+      "Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given 'Get'; when Supplier get() return 'Get'; then return 'Get'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"})
-  void testGetByOtaPackageType_givenGet_whenFirmware_thenReturnGet() {
+  @MethodsUnderTest({
+    "Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"
+  })
+  void testGetByOtaPackageType_givenGet_whenSupplierGetReturnGet_thenReturnGet() {
     // Arrange
     Supplier<Object> firmwareSupplier = mock(Supplier.class);
     when(firmwareSupplier.get()).thenReturn("Get");
 
     // Act
-    Object actualByOtaPackageType = OtaPackageUtil.getByOtaPackageType(firmwareSupplier, mock(Supplier.class),
-        OtaPackageType.FIRMWARE);
+    Object actualByOtaPackageType =
+        OtaPackageUtil.getByOtaPackageType(
+            firmwareSupplier, mock(Supplier.class), OtaPackageType.FIRMWARE);
 
     // Assert
     verify(firmwareSupplier).get();
@@ -201,27 +225,33 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}.
+   *
    * <ul>
-   *   <li>Given {@code Get}.</li>
-   *   <li>When {@link Supplier} {@link Supplier#get()} return {@code Get}.</li>
-   *   <li>Then return {@code Get}.</li>
+   *   <li>Given {@code Get}.
+   *   <li>When {@link Supplier} {@link Supplier#get()} return {@code Get}.
+   *   <li>Then return {@code Get}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier,
+   * OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given 'Get'; when Supplier get() return 'Get'; then return 'Get'")
+  @DisplayName(
+      "Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given 'Get'; when Supplier get() return 'Get'; then return 'Get'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"})
-  void testGetByOtaPackageType_givenGet_whenSupplierGetReturnGet_thenReturnGet() {
+  @MethodsUnderTest({
+    "Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"
+  })
+  void testGetByOtaPackageType_givenGet_whenSupplierGetReturnGet_thenReturnGet2() {
     // Arrange
     Supplier<Object> firmwareSupplier = mock(Supplier.class);
     Supplier<Object> softwareSupplier = mock(Supplier.class);
     when(softwareSupplier.get()).thenReturn("Get");
 
     // Act
-    Object actualByOtaPackageType = OtaPackageUtil.getByOtaPackageType(firmwareSupplier, softwareSupplier,
-        OtaPackageType.SOFTWARE);
+    Object actualByOtaPackageType =
+        OtaPackageUtil.getByOtaPackageType(
+            firmwareSupplier, softwareSupplier, OtaPackageType.SOFTWARE);
 
     // Assert
     verify(softwareSupplier).get();
@@ -230,26 +260,66 @@ class OtaPackageUtilDiffblueTest {
 
   /**
    * Test {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}.
+   *
    * <ul>
-   *   <li>Given {@link RuntimeException#RuntimeException(String)} with {@code foo}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Given {@link RuntimeException#RuntimeException(String)} with {@code foo}.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier,
+   * OtaPackageType)}
    */
   @Test
-  @DisplayName("Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given RuntimeException(String) with 'foo'; then throw RuntimeException")
+  @DisplayName(
+      "Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given RuntimeException(String) with 'foo'; then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"})
+  @MethodsUnderTest({
+    "Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"
+  })
   void testGetByOtaPackageType_givenRuntimeExceptionWithFoo_thenThrowRuntimeException() {
+    // Arrange
+    Supplier<Object> firmwareSupplier = mock(Supplier.class);
+    when(firmwareSupplier.get()).thenThrow(new RuntimeException("foo"));
+
+    // Act and Assert
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            OtaPackageUtil.getByOtaPackageType(
+                firmwareSupplier, mock(Supplier.class), OtaPackageType.FIRMWARE));
+    verify(firmwareSupplier).get();
+  }
+
+  /**
+   * Test {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier, OtaPackageType)}.
+   *
+   * <ul>
+   *   <li>Given {@link RuntimeException#RuntimeException(String)} with {@code foo}.
+   *   <li>Then throw {@link RuntimeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link OtaPackageUtil#getByOtaPackageType(Supplier, Supplier,
+   * OtaPackageType)}
+   */
+  @Test
+  @DisplayName(
+      "Test getByOtaPackageType(Supplier, Supplier, OtaPackageType); given RuntimeException(String) with 'foo'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "Object OtaPackageUtil.getByOtaPackageType(Supplier, Supplier, OtaPackageType)"
+  })
+  void testGetByOtaPackageType_givenRuntimeExceptionWithFoo_thenThrowRuntimeException2() {
     // Arrange
     Supplier<Object> firmwareSupplier = mock(Supplier.class);
     Supplier<Object> softwareSupplier = mock(Supplier.class);
     when(softwareSupplier.get()).thenThrow(new RuntimeException("foo"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> OtaPackageUtil.getByOtaPackageType(firmwareSupplier, softwareSupplier, OtaPackageType.SOFTWARE));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            OtaPackageUtil.getByOtaPackageType(
+                firmwareSupplier, softwareSupplier, OtaPackageType.SOFTWARE));
     verify(softwareSupplier).get();
   }
 }

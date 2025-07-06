@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class TbMsgTypeSwitchNodeDiffblueTest {
   /**
    * Test new {@link TbMsgTypeSwitchNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbMsgTypeSwitchNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbMsgTypeSwitchNode}
    */
   @Test
   @DisplayName("Test new TbMsgTypeSwitchNode (default constructor)")
@@ -18,6 +18,6 @@ class TbMsgTypeSwitchNodeDiffblueTest {
   @MethodsUnderTest({"void TbMsgTypeSwitchNode.<init>()"})
   void testNewTbMsgTypeSwitchNode() {
     // Arrange, Act and Assert
-    assertNull((new TbMsgTypeSwitchNode()).config);
+    assertNull(new TbMsgTypeSwitchNode().config);
   }
 }

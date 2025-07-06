@@ -14,15 +14,17 @@ import org.thingsboard.server.common.data.id.EntityId;
 class SemaphoreWithTbMsgQueueDiffblueTest {
   /**
    * Test {@link SemaphoreWithTbMsgQueue#SemaphoreWithTbMsgQueue(EntityId)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return EntityId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SemaphoreWithTbMsgQueue#SemaphoreWithTbMsgQueue(EntityId)}
+   *
+   * <p>Method under test: {@link SemaphoreWithTbMsgQueue#SemaphoreWithTbMsgQueue(EntityId)}
    */
   @Test
-  @DisplayName("Test new SemaphoreWithTbMsgQueue(EntityId); when 'null'; then return EntityId is 'null'")
+  @DisplayName(
+      "Test new SemaphoreWithTbMsgQueue(EntityId); when 'null'; then return EntityId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SemaphoreWithTbMsgQueue.<init>(EntityId)"})
   void testNewSemaphoreWithTbMsgQueue_whenNull_thenReturnEntityIdIsNull() {

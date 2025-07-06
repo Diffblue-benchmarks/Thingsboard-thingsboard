@@ -12,12 +12,14 @@ import org.junit.experimental.categories.Category;
 public class TsKvCompositeKeyDiffblueTest {
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}, and {@link TsKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvCompositeKey#equals(Object)}
    *   <li>{@link TsKvCompositeKey#hashCode()}
@@ -39,12 +41,14 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}, and {@link TsKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvCompositeKey#equals(Object)}
    *   <li>{@link TsKvCompositeKey#hashCode()}
@@ -55,10 +59,10 @@ public class TsKvCompositeKeyDiffblueTest {
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1,
-        1L);
-    TsKvCompositeKey tsKvCompositeKey2 = new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"),
-        1, 1L);
+    TsKvCompositeKey tsKvCompositeKey =
+        new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
+    TsKvCompositeKey tsKvCompositeKey2 =
+        new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
 
     // Act and Assert
     assertEquals(tsKvCompositeKey, tsKvCompositeKey2);
@@ -68,12 +72,14 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}, and {@link TsKvCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvCompositeKey#equals(Object)}
    *   <li>{@link TsKvCompositeKey#hashCode()}
@@ -94,20 +100,21 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1,
-        1L);
+    TsKvCompositeKey tsKvCompositeKey =
+        new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
 
     // Act and Assert
     assertNotEquals(tsKvCompositeKey, new TsKvCompositeKey());
@@ -115,12 +122,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -136,12 +144,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -157,12 +166,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -180,12 +190,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -197,12 +208,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -214,8 +226,9 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvCompositeKey#TsKvCompositeKey()}
    *   <li>{@link TsKvCompositeKey#setEntityId(UUID)}
@@ -229,10 +242,17 @@ public class TsKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TsKvCompositeKey.<init>()", "void TsKvCompositeKey.<init>(UUID, int, long)",
-      "UUID TsKvCompositeKey.getEntityId()", "int TsKvCompositeKey.getKey()", "long TsKvCompositeKey.getTs()",
-      "void TsKvCompositeKey.setEntityId(UUID)", "void TsKvCompositeKey.setKey(int)",
-      "void TsKvCompositeKey.setTs(long)", "String TsKvCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void TsKvCompositeKey.<init>()",
+    "void TsKvCompositeKey.<init>(UUID, int, long)",
+    "UUID TsKvCompositeKey.getEntityId()",
+    "int TsKvCompositeKey.getKey()",
+    "long TsKvCompositeKey.getTs()",
+    "void TsKvCompositeKey.setEntityId(UUID)",
+    "void TsKvCompositeKey.setKey(int)",
+    "void TsKvCompositeKey.setTs(long)",
+    "String TsKvCompositeKey.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     TsKvCompositeKey actualTsKvCompositeKey = new TsKvCompositeKey();
@@ -247,7 +267,9 @@ public class TsKvCompositeKeyDiffblueTest {
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
-    assertEquals("TsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)", actualToStringResult);
+    assertEquals(
+        "TsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)",
+        actualToStringResult);
     assertEquals(1, actualKey);
     assertEquals(1L, actualTs);
     assertSame(entityId, actualEntityId);
@@ -255,11 +277,13 @@ public class TsKvCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvCompositeKey#TsKvCompositeKey(UUID, int, long)}
    *   <li>{@link TsKvCompositeKey#setEntityId(UUID)}
@@ -273,14 +297,21 @@ public class TsKvCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TsKvCompositeKey.<init>()", "void TsKvCompositeKey.<init>(UUID, int, long)",
-      "UUID TsKvCompositeKey.getEntityId()", "int TsKvCompositeKey.getKey()", "long TsKvCompositeKey.getTs()",
-      "void TsKvCompositeKey.setEntityId(UUID)", "void TsKvCompositeKey.setKey(int)",
-      "void TsKvCompositeKey.setTs(long)", "String TsKvCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void TsKvCompositeKey.<init>()",
+    "void TsKvCompositeKey.<init>(UUID, int, long)",
+    "UUID TsKvCompositeKey.getEntityId()",
+    "int TsKvCompositeKey.getKey()",
+    "long TsKvCompositeKey.getTs()",
+    "void TsKvCompositeKey.setEntityId(UUID)",
+    "void TsKvCompositeKey.setKey(int)",
+    "void TsKvCompositeKey.setTs(long)",
+    "String TsKvCompositeKey.toString()"
+  })
   public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
-    TsKvCompositeKey actualTsKvCompositeKey = new TsKvCompositeKey(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
+    TsKvCompositeKey actualTsKvCompositeKey =
+        new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualTsKvCompositeKey.setEntityId(entityId);
     actualTsKvCompositeKey.setKey(1);
@@ -292,7 +323,9 @@ public class TsKvCompositeKeyDiffblueTest {
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
-    assertEquals("TsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)", actualToStringResult);
+    assertEquals(
+        "TsKvCompositeKey(entityId=784f394c-42b6-435a-983c-b7beff2784f9, key=1, ts=1)",
+        actualToStringResult);
     assertEquals(1, actualKey);
     assertEquals(1L, actualTs);
     assertSame(entityId, actualEntityId);

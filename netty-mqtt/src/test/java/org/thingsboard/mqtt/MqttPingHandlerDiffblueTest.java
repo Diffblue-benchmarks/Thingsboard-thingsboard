@@ -17,6 +17,7 @@ import io.netty.handler.codec.mqtt.MqttConnAckMessage;
 import io.netty.handler.codec.mqtt.MqttConnAckVariableHeader;
 import io.netty.handler.codec.mqtt.MqttConnectReturnCode;
 import io.netty.handler.codec.mqtt.MqttFixedHeader;
+import io.netty.handler.codec.mqtt.MqttMessage;
 import io.netty.handler.codec.mqtt.MqttMessageType;
 import io.netty.handler.codec.mqtt.MqttPublishMessage;
 import io.netty.handler.codec.mqtt.MqttPublishVariableHeader;
@@ -29,8 +30,8 @@ import org.mockito.Mockito;
 class MqttPingHandlerDiffblueTest {
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
-   * <p>
-   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test channelRead(ChannelHandlerContext, Object)")
@@ -41,11 +42,15 @@ class MqttPingHandlerDiffblueTest {
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
     ChannelHandlerContext ctx = mock(ChannelHandlerContext.class);
     when(ctx.fireChannelRead(Mockito.<Object>any())).thenReturn(mock(ChannelHandlerContext.class));
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
     // Act
-    mqttPingHandler.channelRead(ctx, new MqttConnAckMessage(mqttFixedHeader,
-        new MqttConnAckVariableHeader(MqttConnectReturnCode.CONNECTION_ACCEPTED, true)));
+    mqttPingHandler.channelRead(
+        ctx,
+        new MqttConnAckMessage(
+            mqttFixedHeader,
+            new MqttConnAckVariableHeader(MqttConnectReturnCode.CONNECTION_ACCEPTED, true)));
 
     // Assert
     verify(ctx).fireChannelRead(isA(Object.class));
@@ -53,19 +58,22 @@ class MqttPingHandlerDiffblueTest {
 
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
+   *
    * <ul>
-   *   <li>Given {@link ChannelHandlerContext}.</li>
-   *   <li>When {@code Msg}.</li>
-   *   <li>Then calls {@link ChannelHandlerContext#fireChannelRead(Object)}.</li>
+   *   <li>Given {@link ChannelHandlerContext}.
+   *   <li>When {@code Msg}.
+   *   <li>Then calls {@link ChannelHandlerContext#fireChannelRead(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
-  @DisplayName("Test channelRead(ChannelHandlerContext, Object); given ChannelHandlerContext; when 'Msg'; then calls fireChannelRead(Object)")
+  @DisplayName(
+      "Test channelRead(ChannelHandlerContext, Object); given ChannelHandlerContext; when 'Msg'; then calls fireChannelRead(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
-  void testChannelRead_givenChannelHandlerContext_whenMsg_thenCallsFireChannelRead() throws Exception {
+  void testChannelRead_givenChannelHandlerContext_whenMsg_thenCallsFireChannelRead()
+      throws Exception {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
     ChannelHandlerContext ctx = mock(ChannelHandlerContext.class);
@@ -80,15 +88,17 @@ class MqttPingHandlerDiffblueTest {
 
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
+   *
    * <ul>
-   *   <li>Given {@link EmbeddedChannel#EmbeddedChannel()}.</li>
-   *   <li>Then calls {@link ByteBuf#capacity()}.</li>
+   *   <li>Given {@link EmbeddedChannel#EmbeddedChannel()}.
+   *   <li>Then calls {@link ByteBuf#capacity()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
-  @DisplayName("Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls capacity()")
+  @DisplayName(
+      "Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls capacity()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_givenEmbeddedChannel_thenCallsCapacity() throws Exception {
@@ -101,12 +111,16 @@ class MqttPingHandlerDiffblueTest {
     when(buffer.maxCapacity()).thenReturn(3);
     when(buffer.readerIndex()).thenReturn(1);
     when(buffer.writerIndex()).thenReturn(1);
-    DuplicatedByteBuf payload = new DuplicatedByteBuf(new ReadOnlyByteBuf(new DuplicatedByteBuf(buffer)));
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.PINGREQ, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DuplicatedByteBuf payload =
+        new DuplicatedByteBuf(new ReadOnlyByteBuf(new DuplicatedByteBuf(buffer)));
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.PINGREQ, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
     // Act
-    mqttPingHandler.channelRead(ctx,
-        new MqttPublishMessage(mqttFixedHeader, new MqttPublishVariableHeader("Topic Name", 1), payload));
+    mqttPingHandler.channelRead(
+        ctx,
+        new MqttPublishMessage(
+            mqttFixedHeader, new MqttPublishVariableHeader("Topic Name", 1), payload));
 
     // Assert
     verify(buffer, atLeast(1)).capacity();
@@ -118,14 +132,48 @@ class MqttPingHandlerDiffblueTest {
 
   /**
    * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
+   *
    * <ul>
-   *   <li>When {@link EmptyByteBuf#EmptyByteBuf(ByteBufAllocator)} with alloc is {@link PooledByteBufAllocator#PooledByteBufAllocator()}.</li>
+   *   <li>Given {@link EmbeddedChannel#EmbeddedChannel()}.
+   *   <li>Then calls {@link ChannelHandlerContext#channel()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
-  @DisplayName("Test channelRead(ChannelHandlerContext, Object); when EmptyByteBuf(ByteBufAllocator) with alloc is PooledByteBufAllocator()")
+  @DisplayName(
+      "Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls channel()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
+  void testChannelRead_givenEmbeddedChannel_thenCallsChannel() throws Exception {
+    // Arrange
+    MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
+    ChannelHandlerContext ctx = mock(ChannelHandlerContext.class);
+    when(ctx.channel()).thenReturn(new EmbeddedChannel());
+
+    // Act
+    mqttPingHandler.channelRead(
+        ctx,
+        new MqttMessage(
+            new MqttFixedHeader(MqttMessageType.PINGRESP, true, MqttQoS.AT_MOST_ONCE, true, 3)));
+
+    // Assert
+    verify(ctx).channel();
+  }
+
+  /**
+   * Test {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}.
+   *
+   * <ul>
+   *   <li>When {@link EmptyByteBuf#EmptyByteBuf(ByteBufAllocator)} with alloc is {@link
+   *       PooledByteBufAllocator#PooledByteBufAllocator()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MqttPingHandler#channelRead(ChannelHandlerContext, Object)}
+   */
+  @Test
+  @DisplayName(
+      "Test channelRead(ChannelHandlerContext, Object); when EmptyByteBuf(ByteBufAllocator) with alloc is PooledByteBufAllocator()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MqttPingHandler.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_whenEmptyByteBufWithAllocIsPooledByteBufAllocator() throws Exception {
@@ -133,13 +181,18 @@ class MqttPingHandlerDiffblueTest {
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
     ChannelHandlerContext ctx = mock(ChannelHandlerContext.class);
     when(ctx.fireChannelRead(Mockito.<Object>any())).thenReturn(mock(ChannelHandlerContext.class));
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
     MqttPublishVariableHeader variableHeader = new MqttPublishVariableHeader("Topic Name", 1);
 
     // Act
-    mqttPingHandler.channelRead(ctx, new MqttPublishMessage(mqttFixedHeader, variableHeader,
-        new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator()))));
+    mqttPingHandler.channelRead(
+        ctx,
+        new MqttPublishMessage(
+            mqttFixedHeader,
+            variableHeader,
+            new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator()))));
 
     // Assert
     verify(ctx).fireChannelRead(isA(Object.class));
@@ -147,8 +200,8 @@ class MqttPingHandlerDiffblueTest {
 
   /**
    * Test {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}.
-   * <p>
-   * Method under test: {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link MqttPingHandler#userEventTriggered(ChannelHandlerContext, Object)}
    */
   @Test
   @DisplayName("Test userEventTriggered(ChannelHandlerContext, Object)")
@@ -158,7 +211,8 @@ class MqttPingHandlerDiffblueTest {
     // Arrange
     MqttPingHandler mqttPingHandler = new MqttPingHandler(1);
     ChannelHandlerContext ctx = mock(ChannelHandlerContext.class);
-    when(ctx.fireUserEventTriggered(Mockito.<Object>any())).thenReturn(mock(ChannelHandlerContext.class));
+    when(ctx.fireUserEventTriggered(Mockito.<Object>any()))
+        .thenReturn(mock(ChannelHandlerContext.class));
 
     // Act
     mqttPingHandler.userEventTriggered(ctx, "Evt");

@@ -12,21 +12,21 @@ import org.junit.experimental.categories.Category;
 public class EventEntityDiffblueTest {
   /**
    * Test {@link EventEntity#getUuid()}.
-   * <p>
-   * Method under test: {@link EventEntity#getUuid()}
+   *
+   * <p>Method under test: {@link EventEntity#getUuid()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"UUID EventEntity.getUuid()"})
   public void testGetUuid() {
     // Arrange, Act and Assert
-    assertNull((new ErrorEventEntity()).getUuid());
+    assertNull(new ErrorEventEntity().getUuid());
   }
 
   /**
    * Test {@link EventEntity#setUuid(UUID)}.
-   * <p>
-   * Method under test: {@link EventEntity#setUuid(UUID)}
+   *
+   * <p>Method under test: {@link EventEntity#setUuid(UUID)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -46,21 +46,21 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link EventEntity#getCreatedTime()}
+   *
+   * <p>Method under test: {@link EventEntity#getCreatedTime()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"long EventEntity.getCreatedTime()"})
   public void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new ErrorEventEntity()).getCreatedTime());
+    assertEquals(0L, new ErrorEventEntity().getCreatedTime());
   }
 
   /**
    * Test {@link EventEntity#setCreatedTime(long)}.
-   * <p>
-   * Method under test: {@link EventEntity#setCreatedTime(long)}
+   *
+   * <p>Method under test: {@link EventEntity#setCreatedTime(long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -79,73 +79,73 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#getEntityId()}.
-   * <p>
-   * Method under test: {@link EventEntity#getEntityId()}
+   *
+   * <p>Method under test: {@link EventEntity#getEntityId()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"UUID EventEntity.getEntityId()"})
   public void testGetEntityId() {
     // Arrange, Act and Assert
-    assertNull((new ErrorEventEntity()).getEntityId());
+    assertNull(new ErrorEventEntity().getEntityId());
   }
 
   /**
    * Test {@link EventEntity#getId()}.
-   * <p>
-   * Method under test: {@link EventEntity#getId()}
+   *
+   * <p>Method under test: {@link EventEntity#getId()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"UUID EventEntity.getId()"})
   public void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new ErrorEventEntity()).getId());
+    assertNull(new ErrorEventEntity().getId());
   }
 
   /**
    * Test {@link EventEntity#getServiceId()}.
-   * <p>
-   * Method under test: {@link EventEntity#getServiceId()}
+   *
+   * <p>Method under test: {@link EventEntity#getServiceId()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String EventEntity.getServiceId()"})
   public void testGetServiceId() {
     // Arrange, Act and Assert
-    assertNull((new ErrorEventEntity()).getServiceId());
+    assertNull(new ErrorEventEntity().getServiceId());
   }
 
   /**
    * Test {@link EventEntity#getTenantId()}.
-   * <p>
-   * Method under test: {@link EventEntity#getTenantId()}
+   *
+   * <p>Method under test: {@link EventEntity#getTenantId()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"UUID EventEntity.getTenantId()"})
   public void testGetTenantId() {
     // Arrange, Act and Assert
-    assertNull((new ErrorEventEntity()).getTenantId());
+    assertNull(new ErrorEventEntity().getTenantId());
   }
 
   /**
    * Test {@link EventEntity#getTs()}.
-   * <p>
-   * Method under test: {@link EventEntity#getTs()}
+   *
+   * <p>Method under test: {@link EventEntity#getTs()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"long EventEntity.getTs()"})
   public void testGetTs() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new ErrorEventEntity()).getTs());
+    assertEquals(0L, new ErrorEventEntity().getTs());
   }
 
   /**
    * Test {@link EventEntity#setEntityId(UUID)}.
-   * <p>
-   * Method under test: {@link EventEntity#setEntityId(UUID)}
+   *
+   * <p>Method under test: {@link EventEntity#setEntityId(UUID)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -164,8 +164,8 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#setId(UUID)}.
-   * <p>
-   * Method under test: {@link EventEntity#setId(UUID)}
+   *
+   * <p>Method under test: {@link EventEntity#setId(UUID)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -185,8 +185,8 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#setServiceId(String)}.
-   * <p>
-   * Method under test: {@link EventEntity#setServiceId(String)}
+   *
+   * <p>Method under test: {@link EventEntity#setServiceId(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -204,8 +204,8 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#setTenantId(UUID)}.
-   * <p>
-   * Method under test: {@link EventEntity#setTenantId(UUID)}
+   *
+   * <p>Method under test: {@link EventEntity#setTenantId(UUID)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -224,8 +224,8 @@ public class EventEntityDiffblueTest {
 
   /**
    * Test {@link EventEntity#setTs(long)}.
-   * <p>
-   * Method under test: {@link EventEntity#setTs(long)}
+   *
+   * <p>Method under test: {@link EventEntity#setTs(long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

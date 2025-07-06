@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.MissingNode;
@@ -27,12 +28,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class RuleChainDiffblueTest {
   /**
    * Test {@link RuleChain#equals(Object)}, and {@link RuleChain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChain#equals(Object)}
    *   <li>{@link RuleChain#hashCode()}
@@ -55,12 +58,14 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}, and {@link RuleChain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChain#equals(Object)}
    *   <li>{@link RuleChain#hashCode()}
@@ -82,12 +87,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -95,7 +101,8 @@ class RuleChainDiffblueTest {
   @MethodsUnderTest({"boolean RuleChain.equals(Object)", "int RuleChain.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RuleChain ruleChain = new RuleChain(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleChain ruleChain =
+        new RuleChain(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChain, new RuleChain());
@@ -103,12 +110,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -125,12 +133,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -147,12 +156,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -169,12 +179,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -183,7 +194,8 @@ class RuleChainDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setFirstRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChain.setFirstRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChain, new RuleChain());
@@ -191,12 +203,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -213,12 +226,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -235,12 +249,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -249,7 +264,8 @@ class RuleChainDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setExternalId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChain.setExternalId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChain, new RuleChain());
@@ -257,12 +273,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -279,12 +296,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -293,7 +311,7 @@ class RuleChainDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setConfigurationBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    ruleChain.setConfigurationBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
 
     // Act and Assert
     assertNotEquals(ruleChain, new RuleChain());
@@ -301,12 +319,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +344,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -349,12 +369,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -373,12 +394,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -389,7 +411,8 @@ class RuleChainDiffblueTest {
     RuleChain ruleChain = new RuleChain();
 
     RuleChain ruleChain2 = new RuleChain();
-    ruleChain2.setFirstRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChain2.setFirstRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChain, ruleChain2);
@@ -397,12 +420,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -413,7 +437,8 @@ class RuleChainDiffblueTest {
     RuleChain ruleChain = new RuleChain();
 
     RuleChain ruleChain2 = new RuleChain();
-    ruleChain2.setExternalId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleChain2.setExternalId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleChain, ruleChain2);
@@ -421,12 +446,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -445,12 +471,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -463,12 +490,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -481,8 +509,8 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getExternalId()}.
-   * <p>
-   * Method under test: {@link RuleChain#getExternalId()}
+   *
+   * <p>Method under test: {@link RuleChain#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -490,13 +518,14 @@ class RuleChainDiffblueTest {
   @MethodsUnderTest({"RuleChainId RuleChain.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new RuleChain()).getExternalId());
+    assertNull(new RuleChain().getExternalId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChain#RuleChain(RuleChainId)}
    *   <li>{@link RuleChain#setConfigurationBytes(byte[])}
@@ -522,14 +551,28 @@ class RuleChainDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChain.<init>()", "void RuleChain.<init>(RuleChainId)",
-      "byte[] RuleChain.getConfigurationBytes()", "RuleNodeId RuleChain.getFirstRuleNodeId()",
-      "String RuleChain.getName()", "TenantId RuleChain.getTenantId()", "RuleChainType RuleChain.getType()",
-      "Long RuleChain.getVersion()", "boolean RuleChain.isDebugMode()", "boolean RuleChain.isRoot()",
-      "void RuleChain.setConfigurationBytes(byte[])", "void RuleChain.setDebugMode(boolean)",
-      "void RuleChain.setExternalId(RuleChainId)", "void RuleChain.setFirstRuleNodeId(RuleNodeId)",
-      "void RuleChain.setName(String)", "void RuleChain.setRoot(boolean)", "void RuleChain.setTenantId(TenantId)",
-      "void RuleChain.setType(RuleChainType)", "void RuleChain.setVersion(Long)", "String RuleChain.toString()"})
+  @MethodsUnderTest({
+    "void RuleChain.<init>()",
+    "void RuleChain.<init>(RuleChainId)",
+    "byte[] RuleChain.getConfigurationBytes()",
+    "RuleNodeId RuleChain.getFirstRuleNodeId()",
+    "String RuleChain.getName()",
+    "TenantId RuleChain.getTenantId()",
+    "RuleChainType RuleChain.getType()",
+    "Long RuleChain.getVersion()",
+    "boolean RuleChain.isDebugMode()",
+    "boolean RuleChain.isRoot()",
+    "void RuleChain.setConfigurationBytes(byte[])",
+    "void RuleChain.setDebugMode(boolean)",
+    "void RuleChain.setExternalId(RuleChainId)",
+    "void RuleChain.setFirstRuleNodeId(RuleNodeId)",
+    "void RuleChain.setName(String)",
+    "void RuleChain.setRoot(boolean)",
+    "void RuleChain.setTenantId(TenantId)",
+    "void RuleChain.setType(RuleChainType)",
+    "void RuleChain.setVersion(Long)",
+    "String RuleChain.toString()"
+  })
   void testGettersAndSetters() throws UnsupportedEncodingException {
     // Arrange
     RuleChainId id = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -539,9 +582,11 @@ class RuleChainDiffblueTest {
     byte[] configurationBytes = "AXAXAXAX".getBytes("UTF-8");
     actualRuleChain.setConfigurationBytes(configurationBytes);
     actualRuleChain.setDebugMode(true);
-    RuleChainId externalId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId externalId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChain.setExternalId(externalId);
-    RuleNodeId firstRuleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleNodeId firstRuleNodeId =
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChain.setFirstRuleNodeId(firstRuleNodeId);
     actualRuleChain.setName("Name");
     actualRuleChain.setRoot(true);
@@ -580,11 +625,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChain#RuleChain()}
    *   <li>{@link RuleChain#setConfigurationBytes(byte[])}
@@ -610,23 +657,39 @@ class RuleChainDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChain.<init>()", "void RuleChain.<init>(RuleChainId)",
-      "byte[] RuleChain.getConfigurationBytes()", "RuleNodeId RuleChain.getFirstRuleNodeId()",
-      "String RuleChain.getName()", "TenantId RuleChain.getTenantId()", "RuleChainType RuleChain.getType()",
-      "Long RuleChain.getVersion()", "boolean RuleChain.isDebugMode()", "boolean RuleChain.isRoot()",
-      "void RuleChain.setConfigurationBytes(byte[])", "void RuleChain.setDebugMode(boolean)",
-      "void RuleChain.setExternalId(RuleChainId)", "void RuleChain.setFirstRuleNodeId(RuleNodeId)",
-      "void RuleChain.setName(String)", "void RuleChain.setRoot(boolean)", "void RuleChain.setTenantId(TenantId)",
-      "void RuleChain.setType(RuleChainType)", "void RuleChain.setVersion(Long)", "String RuleChain.toString()"})
+  @MethodsUnderTest({
+    "void RuleChain.<init>()",
+    "void RuleChain.<init>(RuleChainId)",
+    "byte[] RuleChain.getConfigurationBytes()",
+    "RuleNodeId RuleChain.getFirstRuleNodeId()",
+    "String RuleChain.getName()",
+    "TenantId RuleChain.getTenantId()",
+    "RuleChainType RuleChain.getType()",
+    "Long RuleChain.getVersion()",
+    "boolean RuleChain.isDebugMode()",
+    "boolean RuleChain.isRoot()",
+    "void RuleChain.setConfigurationBytes(byte[])",
+    "void RuleChain.setDebugMode(boolean)",
+    "void RuleChain.setExternalId(RuleChainId)",
+    "void RuleChain.setFirstRuleNodeId(RuleNodeId)",
+    "void RuleChain.setName(String)",
+    "void RuleChain.setRoot(boolean)",
+    "void RuleChain.setTenantId(TenantId)",
+    "void RuleChain.setType(RuleChainType)",
+    "void RuleChain.setVersion(Long)",
+    "String RuleChain.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() throws UnsupportedEncodingException {
     // Arrange and Act
     RuleChain actualRuleChain = new RuleChain();
     byte[] configurationBytes = "AXAXAXAX".getBytes("UTF-8");
     actualRuleChain.setConfigurationBytes(configurationBytes);
     actualRuleChain.setDebugMode(true);
-    RuleChainId externalId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId externalId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChain.setExternalId(externalId);
-    RuleNodeId firstRuleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleNodeId firstRuleNodeId =
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleChain.setFirstRuleNodeId(firstRuleNodeId);
     actualRuleChain.setName("Name");
     actualRuleChain.setRoot(true);
@@ -665,11 +728,12 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
   @DisplayName("Test new RuleChain(RuleChain); given 'A'")
@@ -678,7 +742,7 @@ class RuleChainDiffblueTest {
   void testNewRuleChain_givenA() throws UnsupportedEncodingException {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setConfigurationBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    ruleChain.setConfigurationBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     RuleChain actualRuleChain = new RuleChain(ruleChain);
@@ -695,21 +759,24 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
-   *   <li>Then Configuration return {@link MissingNode}.</li>
+   *   <li>Given empty array of {@code byte}.
+   *   <li>Then Configuration return {@link MissingNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
-  @DisplayName("Test new RuleChain(RuleChain); given empty array of byte; then Configuration return MissingNode")
+  @DisplayName(
+      "Test new RuleChain(RuleChain); given empty array of byte; then Configuration return MissingNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChain.<init>(RuleChain)"})
-  void testNewRuleChain_givenEmptyArrayOfByte_thenConfigurationReturnMissingNode() throws UnsupportedEncodingException {
+  void testNewRuleChain_givenEmptyArrayOfByte_thenConfigurationReturnMissingNode()
+      throws UnsupportedEncodingException {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setConfigurationBytes(new byte[]{});
+    ruleChain.setConfigurationBytes(new byte[] {});
 
     // Act
     RuleChain actualRuleChain = new RuleChain(ruleChain);
@@ -722,19 +789,22 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link RuleChain#RuleChain()} Root is {@code true}.</li>
-   *   <li>Then return Root.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link RuleChain#RuleChain()} Root is {@code true}.
+   *   <li>Then return Root.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
-  @DisplayName("Test new RuleChain(RuleChain); given 'true'; when RuleChain() Root is 'true'; then return Root")
+  @DisplayName(
+      "Test new RuleChain(RuleChain); given 'true'; when RuleChain() Root is 'true'; then return Root")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChain.<init>(RuleChain)"})
-  void testNewRuleChain_givenTrue_whenRuleChainRootIsTrue_thenReturnRoot() throws UnsupportedEncodingException {
+  void testNewRuleChain_givenTrue_whenRuleChainRootIsTrue_thenReturnRoot()
+      throws UnsupportedEncodingException {
     // Arrange
     RuleChain ruleChain = new RuleChain();
     ruleChain.setRoot(true);
@@ -754,18 +824,22 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is {@link RuleChain#RuleChain()}.</li>
-   *   <li>Then return not Root.</li>
+   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is {@link
+   *       RuleChain#RuleChain()}.
+   *   <li>Then return not Root.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
-  @DisplayName("Test new RuleChain(RuleChain); when RuleChain(RuleChain) with ruleChain is RuleChain(); then return not Root")
+  @DisplayName(
+      "Test new RuleChain(RuleChain); when RuleChain(RuleChain) with ruleChain is RuleChain(); then return not Root")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChain.<init>(RuleChain)"})
-  void testNewRuleChain_whenRuleChainWithRuleChainIsRuleChain_thenReturnNotRoot() throws UnsupportedEncodingException {
+  void testNewRuleChain_whenRuleChainWithRuleChainIsRuleChain_thenReturnNotRoot()
+      throws UnsupportedEncodingException {
     // Arrange and Act
     RuleChain actualRuleChain = new RuleChain(new RuleChain(new RuleChain()));
 
@@ -781,18 +855,22 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is {@link RuleChain#RuleChain(RuleChain)}.</li>
-   *   <li>Then return not Root.</li>
+   *   <li>When {@link RuleChain#RuleChain(RuleChain)} with ruleChain is {@link
+   *       RuleChain#RuleChain(RuleChain)}.
+   *   <li>Then return not Root.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
-  @DisplayName("Test new RuleChain(RuleChain); when RuleChain(RuleChain) with ruleChain is RuleChain(RuleChain); then return not Root")
+  @DisplayName(
+      "Test new RuleChain(RuleChain); when RuleChain(RuleChain) with ruleChain is RuleChain(RuleChain); then return not Root")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChain.<init>(RuleChain)"})
-  void testNewRuleChain_whenRuleChainWithRuleChainIsRuleChain_thenReturnNotRoot2() throws UnsupportedEncodingException {
+  void testNewRuleChain_whenRuleChainWithRuleChainIsRuleChain_thenReturnNotRoot2()
+      throws UnsupportedEncodingException {
     // Arrange and Act
     RuleChain actualRuleChain = new RuleChain(new RuleChain(new RuleChain(new RuleChain())));
 
@@ -808,12 +886,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#RuleChain(RuleChain)}.
+   *
    * <ul>
-   *   <li>When {@link RuleChain#RuleChain()}.</li>
-   *   <li>Then return not Root.</li>
+   *   <li>When {@link RuleChain#RuleChain()}.
+   *   <li>Then return not Root.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#RuleChain(RuleChain)}
+   *
+   * <p>Method under test: {@link RuleChain#RuleChain(RuleChain)}
    */
   @Test
   @DisplayName("Test new RuleChain(RuleChain); when RuleChain(); then return not Root")
@@ -835,8 +914,8 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getId()}.
-   * <p>
-   * Method under test: {@link RuleChain#getId()}
+   *
+   * <p>Method under test: {@link RuleChain#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -844,13 +923,13 @@ class RuleChainDiffblueTest {
   @MethodsUnderTest({"RuleChainId RuleChain.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new RuleChain()).getId());
+    assertNull(new RuleChain().getId());
   }
 
   /**
    * Test {@link RuleChain#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link RuleChain#getCreatedTime()}
+   *
+   * <p>Method under test: {@link RuleChain#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -858,13 +937,13 @@ class RuleChainDiffblueTest {
   @MethodsUnderTest({"long RuleChain.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new RuleChain()).getCreatedTime());
+    assertEquals(0L, new RuleChain().getCreatedTime());
   }
 
   /**
    * Test {@link RuleChain#getConfiguration()}.
-   * <p>
-   * Method under test: {@link RuleChain#getConfiguration()}
+   *
+   * <p>Method under test: {@link RuleChain#getConfiguration()}
    */
   @Test
   @DisplayName("Test getConfiguration()")
@@ -885,8 +964,8 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getConfiguration()}.
-   * <p>
-   * Method under test: {@link RuleChain#getConfiguration()}
+   *
+   * <p>Method under test: {@link RuleChain#getConfiguration()}
    */
   @Test
   @DisplayName("Test getConfiguration()")
@@ -907,14 +986,17 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChain#RuleChain()} ConfigurationBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link RuleChain#RuleChain()} ConfigurationBytes is {@code AXAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#getConfiguration()}
+   *
+   * <p>Method under test: {@link RuleChain#getConfiguration()}
    */
   @Test
-  @DisplayName("Test getConfiguration(); given RuleChain() ConfigurationBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getConfiguration(); given RuleChain() ConfigurationBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode RuleChain.getConfiguration()"})
   void testGetConfiguration_givenRuleChainConfigurationBytesIsAxaxaxaxBytesIsUtf8()
@@ -933,15 +1015,17 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChain#RuleChain()}.</li>
-   *   <li>Then {@link RuleChain#RuleChain()} AdditionalInfo is {@code null}.</li>
+   *   <li>Given {@link RuleChain#RuleChain()}.
+   *   <li>Then {@link RuleChain#RuleChain()} AdditionalInfo is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#getConfiguration()}
+   *
+   * <p>Method under test: {@link RuleChain#getConfiguration()}
    */
   @Test
-  @DisplayName("Test getConfiguration(); given RuleChain(); then RuleChain() AdditionalInfo is 'null'")
+  @DisplayName(
+      "Test getConfiguration(); given RuleChain(); then RuleChain() AdditionalInfo is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode RuleChain.getConfiguration()"})
   void testGetConfiguration_givenRuleChain_thenRuleChainAdditionalInfoIsNull() {
@@ -958,11 +1042,12 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#getConfiguration()}.
+   *
    * <ul>
-   *   <li>Then return {@link MissingNode}.</li>
+   *   <li>Then return {@link MissingNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#getConfiguration()}
+   *
+   * <p>Method under test: {@link RuleChain#getConfiguration()}
    */
   @Test
   @DisplayName("Test getConfiguration(); then return MissingNode")
@@ -971,7 +1056,7 @@ class RuleChainDiffblueTest {
   void testGetConfiguration_thenReturnMissingNode() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    ruleChain.setConfigurationBytes(new byte[]{});
+    ruleChain.setConfigurationBytes(new byte[] {});
 
     // Act
     JsonNode actualConfiguration = ruleChain.getConfiguration();
@@ -988,8 +1073,8 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#setConfiguration(JsonNode)}.
-   * <p>
-   * Method under test: {@link RuleChain#setConfiguration(JsonNode)}
+   *
+   * <p>Method under test: {@link RuleChain#setConfiguration(JsonNode)}
    */
   @Test
   @DisplayName("Test setConfiguration(JsonNode)")
@@ -1013,8 +1098,8 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#setConfiguration(JsonNode)}.
-   * <p>
-   * Method under test: {@link RuleChain#setConfiguration(JsonNode)}
+   *
+   * <p>Method under test: {@link RuleChain#setConfiguration(JsonNode)}
    */
   @Test
   @DisplayName("Test setConfiguration(JsonNode)")
@@ -1039,39 +1124,43 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#setConfiguration(JsonNode)}.
+   *
    * <ul>
-   *   <li>When Instance.</li>
-   *   <li>Then {@link RuleChain#RuleChain()} Configuration is Instance.</li>
+   *   <li>When valueOf ten.
+   *   <li>Then {@link RuleChain#RuleChain()} Configuration is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#setConfiguration(JsonNode)}
+   *
+   * <p>Method under test: {@link RuleChain#setConfiguration(JsonNode)}
    */
   @Test
-  @DisplayName("Test setConfiguration(JsonNode); when Instance; then RuleChain() Configuration is Instance")
+  @DisplayName(
+      "Test setConfiguration(JsonNode); when valueOf ten; then RuleChain() Configuration is valueOf ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChain.setConfiguration(JsonNode)"})
-  void testSetConfiguration_whenInstance_thenRuleChainConfigurationIsInstance() throws UnsupportedEncodingException {
+  void testSetConfiguration_whenValueOfTen_thenRuleChainConfigurationIsValueOfTen()
+      throws UnsupportedEncodingException {
     // Arrange
     RuleChain ruleChain = new RuleChain();
-    MissingNode data = MissingNode.getInstance();
+    DoubleNode data = DoubleNode.valueOf(10.0d);
 
     // Act
     ruleChain.setConfiguration(data);
 
     // Assert
     assertSame(data, ruleChain.getConfiguration());
-    byte[] expectedConfigurationBytes = "null".getBytes("UTF-8");
+    byte[] expectedConfigurationBytes = "10.0".getBytes("UTF-8");
     assertArrayEquals(expectedConfigurationBytes, ruleChain.getConfigurationBytes());
   }
 
   /**
    * Test {@link RuleChain#isDefault()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChain#RuleChain()} Root is {@code true}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link RuleChain#RuleChain()} Root is {@code true}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#isDefault()}
+   *
+   * <p>Method under test: {@link RuleChain#isDefault()}
    */
   @Test
   @DisplayName("Test isDefault(); given RuleChain() Root is 'true'; then return 'false'")
@@ -1088,12 +1177,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#isDefault()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChain#RuleChain()} Type is {@code CORE}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link RuleChain#RuleChain()} Type is {@code CORE}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#isDefault()}
+   *
+   * <p>Method under test: {@link RuleChain#isDefault()}
    */
   @Test
   @DisplayName("Test isDefault(); given RuleChain() Type is 'CORE'; then return 'true'")
@@ -1111,12 +1201,13 @@ class RuleChainDiffblueTest {
 
   /**
    * Test {@link RuleChain#isDefault()}.
+   *
    * <ul>
-   *   <li>Given {@link RuleChain#RuleChain()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link RuleChain#RuleChain()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChain#isDefault()}
+   *
+   * <p>Method under test: {@link RuleChain#isDefault()}
    */
   @Test
   @DisplayName("Test isDefault(); given RuleChain(); then return 'false'")
@@ -1124,6 +1215,6 @@ class RuleChainDiffblueTest {
   @MethodsUnderTest({"boolean RuleChain.isDefault()"})
   void testIsDefault_givenRuleChain_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new RuleChain()).isDefault());
+    assertFalse(new RuleChain().isDefault());
   }
 }

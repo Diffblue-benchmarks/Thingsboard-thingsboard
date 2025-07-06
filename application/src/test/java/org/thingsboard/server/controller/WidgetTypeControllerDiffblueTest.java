@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -38,21 +38,21 @@ import org.thingsboard.server.service.entitiy.widgets.type.DefaultWidgetTypeServ
 
 @ExtendWith(MockitoExtension.class)
 class WidgetTypeControllerDiffblueTest {
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
-  @InjectMocks
-  private WidgetTypeController widgetTypeController;
+  @InjectMocks private WidgetTypeController widgetTypeController;
 
   /**
    * Test {@link WidgetTypeController#saveWidgetType(WidgetTypeDetails, Boolean)}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#saveWidgetType(WidgetTypeDetails, Boolean)}
+   *
+   * <p>Method under test: {@link WidgetTypeController#saveWidgetType(WidgetTypeDetails, Boolean)}
    */
   @Test
   @DisplayName("Test saveWidgetType(WidgetTypeDetails, Boolean)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WidgetTypeDetails WidgetTypeController.saveWidgetType(WidgetTypeDetails, Boolean)"})
+  @MethodsUnderTest({
+    "WidgetTypeDetails WidgetTypeController.saveWidgetType(WidgetTypeDetails, Boolean)"
+  })
   void testSaveWidgetType() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/widgetType");
@@ -62,18 +62,22 @@ class WidgetTypeControllerDiffblueTest {
     widgetTypeDetails.setCreatedTime(1L);
     widgetTypeDetails.setDeprecated(true);
     widgetTypeDetails.setDescription("The characteristics of someone or something");
-    widgetTypeDetails.setDescriptor(MissingNode.getInstance());
-    widgetTypeDetails.setExternalId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setDescriptor(DoubleNode.valueOf(10.0d));
+    widgetTypeDetails.setExternalId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     widgetTypeDetails.setFqn("Fqn");
-    widgetTypeDetails.setId(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setId(
+        new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     widgetTypeDetails.setImage("Image");
     widgetTypeDetails.setName("Name");
     widgetTypeDetails.setScada(true);
-    widgetTypeDetails.setTags(new String[]{"Tags"});
-    widgetTypeDetails.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    widgetTypeDetails.setTags(new String[] {"Tags"});
+    widgetTypeDetails.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     widgetTypeDetails.setVersion(1L);
-    String content = (new ObjectMapper()).writeValueAsString(widgetTypeDetails);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(widgetTypeDetails);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -84,22 +88,27 @@ class WidgetTypeControllerDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeController#getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean)}.
+   * Test {@link WidgetTypeController#getWidgetTypes(int, int, String, String, String, Boolean,
+   * Boolean, String, String[], Boolean)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
+   *   <li>When {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeController#getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean)}
+   *
+   * <p>Method under test: {@link WidgetTypeController#getWidgetTypes(int, int, String, String,
+   * String, Boolean, Boolean, String, String[], Boolean)}
    */
   @Test
-  @DisplayName("Test getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean); when 'https://example.org/example'")
+  @DisplayName(
+      "Test getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean); when 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData WidgetTypeController.getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean)"})
+    "org.thingsboard.server.common.data.page.PageData WidgetTypeController.getWidgetTypes(int, int, String, String, String, Boolean, Boolean, String, String[], Boolean)"
+  })
   void testGetWidgetTypes_whenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/widgetTypes")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/widgetTypes").param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -112,18 +121,22 @@ class WidgetTypeControllerDiffblueTest {
 
   /**
    * Test {@link WidgetTypeController#getBundleWidgetTypesByBundleAlias(boolean, String)}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#getBundleWidgetTypesByBundleAlias(boolean, String)}
+   *
+   * <p>Method under test: {@link WidgetTypeController#getBundleWidgetTypesByBundleAlias(boolean,
+   * String)}
    */
   @Test
   @DisplayName("Test getBundleWidgetTypesByBundleAlias(boolean, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List WidgetTypeController.getBundleWidgetTypesByBundleAlias(boolean, String)"})
+  @MethodsUnderTest({
+    "java.util.List WidgetTypeController.getBundleWidgetTypesByBundleAlias(boolean, String)"
+  })
   void testGetBundleWidgetTypesByBundleAlias() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/widgetTypes")
-        .param("bundleAlias", "foo")
-        .param("isSystem", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/widgetTypes")
+            .param("bundleAlias", "foo")
+            .param("isSystem", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -135,18 +148,22 @@ class WidgetTypeControllerDiffblueTest {
 
   /**
    * Test {@link WidgetTypeController#getBundleWidgetTypesDetailsByBundleAlias(boolean, String)}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#getBundleWidgetTypesDetailsByBundleAlias(boolean, String)}
+   *
+   * <p>Method under test: {@link
+   * WidgetTypeController#getBundleWidgetTypesDetailsByBundleAlias(boolean, String)}
    */
   @Test
   @DisplayName("Test getBundleWidgetTypesDetailsByBundleAlias(boolean, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List WidgetTypeController.getBundleWidgetTypesDetailsByBundleAlias(boolean, String)"})
+  @MethodsUnderTest({
+    "java.util.List WidgetTypeController.getBundleWidgetTypesDetailsByBundleAlias(boolean, String)"
+  })
   void testGetBundleWidgetTypesDetailsByBundleAlias() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/widgetTypesDetails")
-        .param("bundleAlias", "foo")
-        .param("isSystem", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/widgetTypesDetails")
+            .param("bundleAlias", "foo")
+            .param("isSystem", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -158,18 +175,22 @@ class WidgetTypeControllerDiffblueTest {
 
   /**
    * Test {@link WidgetTypeController#getBundleWidgetTypesInfosByBundleAlias(boolean, String)}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#getBundleWidgetTypesInfosByBundleAlias(boolean, String)}
+   *
+   * <p>Method under test: {@link
+   * WidgetTypeController#getBundleWidgetTypesInfosByBundleAlias(boolean, String)}
    */
   @Test
   @DisplayName("Test getBundleWidgetTypesInfosByBundleAlias(boolean, String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List WidgetTypeController.getBundleWidgetTypesInfosByBundleAlias(boolean, String)"})
+  @MethodsUnderTest({
+    "java.util.List WidgetTypeController.getBundleWidgetTypesInfosByBundleAlias(boolean, String)"
+  })
   void testGetBundleWidgetTypesInfosByBundleAlias() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/widgetTypesInfos")
-        .param("bundleAlias", "foo")
-        .param("isSystem", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/widgetTypesInfos")
+            .param("bundleAlias", "foo")
+            .param("isSystem", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -180,21 +201,26 @@ class WidgetTypeControllerDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeController#getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])}
+   * Test {@link WidgetTypeController#getBundleWidgetTypesInfos(String, int, int, String, String,
+   * String, Boolean, String, String[])}.
+   *
+   * <p>Method under test: {@link WidgetTypeController#getBundleWidgetTypesInfos(String, int, int,
+   * String, String, String, Boolean, String, String[])}
    */
   @Test
-  @DisplayName("Test getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])")
+  @DisplayName(
+      "Test getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData WidgetTypeController.getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])"})
+    "org.thingsboard.server.common.data.page.PageData WidgetTypeController.getBundleWidgetTypesInfos(String, int, int, String, String, String, Boolean, String, String[])"
+  })
   void testGetBundleWidgetTypesInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/widgetTypesInfos")
-        .param("page", "https://example.org/example");
-    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1))
-        .param("widgetsBundleId", "foo");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/widgetTypesInfos")
+            .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        paramResult.param("pageSize", String.valueOf(1)).param("widgetsBundleId", "foo");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -205,21 +231,25 @@ class WidgetTypeControllerDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeController#getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)}.
-   * <p>
-   * Method under test: {@link WidgetTypeController#getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)}
+   * Test {@link WidgetTypeController#getWidgetTypeByBundleAliasAndTypeAlias(boolean, String,
+   * String)}.
+   *
+   * <p>Method under test: {@link
+   * WidgetTypeController#getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)}
    */
   @Test
   @DisplayName("Test getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)"})
+    "org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetTypeByBundleAliasAndTypeAlias(boolean, String, String)"
+  })
   void testGetWidgetTypeByBundleAliasAndTypeAlias() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/widgetType")
-        .param("alias", "foo")
-        .param("bundleAlias", "foo")
-        .param("isSystem", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/widgetType")
+            .param("alias", "foo")
+            .param("bundleAlias", "foo")
+            .param("isSystem", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(widgetTypeController)
@@ -231,23 +261,27 @@ class WidgetTypeControllerDiffblueTest {
 
   /**
    * Test {@link WidgetTypeController#getWidgetType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Fqn}.</li>
+   *   <li>When {@code Fqn}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeController#getWidgetType(String)}
+   *
+   * <p>Method under test: {@link WidgetTypeController#getWidgetType(String)}
    */
   @Test
   @DisplayName("Test getWidgetType(String); when 'Fqn'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetType(String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetType(String)"
+  })
   void testGetWidgetType_whenFqn() throws ThingsboardException {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
-    DefaultWidgetTypeService tbWidgetTypeService = new DefaultWidgetTypeService(new WidgetTypeServiceImpl());
+    DefaultWidgetTypeService tbWidgetTypeService =
+        new DefaultWidgetTypeService(new WidgetTypeServiceImpl());
     JpaTbResourceDao resourceDao = new JpaTbResourceDao(mock(TbResourceRepository.class));
     JpaTbResourceInfoDao resourceInfoDao = new JpaTbResourceInfoDao();
     ResourceDataValidator resourceValidator = new ResourceDataValidator();
@@ -257,32 +291,46 @@ class WidgetTypeControllerDiffblueTest {
     JpaWidgetTypeDao widgetTypeDao = new JpaWidgetTypeDao();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new WidgetTypeController(tbWidgetTypeService,
-            new BaseImageService(resourceDao, resourceInfoDao, resourceValidator, assetProfileDao, deviceProfileDao,
-                widgetsBundleDao, widgetTypeDao, new JpaDashboardInfoDao())))
-            .getWidgetType("Fqn"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            new WidgetTypeController(
+                    tbWidgetTypeService,
+                    new BaseImageService(
+                        resourceDao,
+                        resourceInfoDao,
+                        resourceValidator,
+                        assetProfileDao,
+                        deviceProfileDao,
+                        widgetsBundleDao,
+                        widgetTypeDao,
+                        new JpaDashboardInfoDao()))
+                .getWidgetType("Fqn"));
   }
 
   /**
    * Test {@link WidgetTypeController#getWidgetType(String)}.
+   *
    * <ul>
-   *   <li>When {@code java.util.List}.</li>
+   *   <li>When {@code java.util.List}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeController#getWidgetType(String)}
+   *
+   * <p>Method under test: {@link WidgetTypeController#getWidgetType(String)}
    */
   @Test
   @DisplayName("Test getWidgetType(String); when 'java.util.List'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetType(String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.widget.WidgetType WidgetTypeController.getWidgetType(String)"
+  })
   void testGetWidgetType_whenJavaUtilList() throws ThingsboardException {
     //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
     //   Run dcover create --keep-partial-tests to gain insights into why
     //   a non-Spring test was created.
 
     // Arrange
-    DefaultWidgetTypeService tbWidgetTypeService = new DefaultWidgetTypeService(new WidgetTypeServiceImpl());
+    DefaultWidgetTypeService tbWidgetTypeService =
+        new DefaultWidgetTypeService(new WidgetTypeServiceImpl());
     JpaTbResourceDao resourceDao = new JpaTbResourceDao(mock(TbResourceRepository.class));
     JpaTbResourceInfoDao resourceInfoDao = new JpaTbResourceInfoDao();
     ResourceDataValidator resourceValidator = new ResourceDataValidator();
@@ -292,10 +340,20 @@ class WidgetTypeControllerDiffblueTest {
     JpaWidgetTypeDao widgetTypeDao = new JpaWidgetTypeDao();
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> (new WidgetTypeController(tbWidgetTypeService,
-            new BaseImageService(resourceDao, resourceInfoDao, resourceValidator, assetProfileDao, deviceProfileDao,
-                widgetsBundleDao, widgetTypeDao, new JpaDashboardInfoDao())))
-            .getWidgetType("java.util.List"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            new WidgetTypeController(
+                    tbWidgetTypeService,
+                    new BaseImageService(
+                        resourceDao,
+                        resourceInfoDao,
+                        resourceValidator,
+                        assetProfileDao,
+                        deviceProfileDao,
+                        widgetsBundleDao,
+                        widgetTypeDao,
+                        new JpaDashboardInfoDao()))
+                .getWidgetType("java.util.List"));
   }
 }

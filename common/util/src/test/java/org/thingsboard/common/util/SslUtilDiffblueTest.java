@@ -13,20 +13,23 @@ import org.junit.jupiter.api.Test;
 class SslUtilDiffblueTest {
   /**
    * Test {@link SslUtil#readCertFile(String)} with {@code fileContent}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code Not all who wander are lost}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String) with 'fileContent'; when 'Not all who wander are lost'; then return Empty")
+  @DisplayName(
+      "Test readCertFile(String) with 'fileContent'; when 'Not all who wander are lost'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List SslUtil.readCertFile(String)"})
   void testReadCertFileWithFileContent_whenNotAllWhoWanderAreLost_thenReturnEmpty() {
     // Arrange and Act
-    List<X509Certificate> actualReadCertFileResult = SslUtil.readCertFile("Not all who wander are lost");
+    List<X509Certificate> actualReadCertFileResult =
+        SslUtil.readCertFile("Not all who wander are lost");
 
     // Assert
     assertTrue(actualReadCertFileResult.isEmpty());
@@ -34,14 +37,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKey(String, String)} with {@code fileContent}, {@code passStr}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKey(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKey(String, String)}
    */
   @Test
-  @DisplayName("Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when empty string")
+  @DisplayName(
+      "Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.security.PrivateKey SslUtil.readPrivateKey(String, String)"})
   void testReadPrivateKeyWithFileContentPassStr_whenEmptyString() {
@@ -51,14 +56,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKey(String, String)} with {@code fileContent}, {@code passStr}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKey(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKey(String, String)}
    */
   @Test
-  @DisplayName("Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'Not all who wander are lost'")
+  @DisplayName(
+      "Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'Not all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.security.PrivateKey SslUtil.readPrivateKey(String, String)"})
   void testReadPrivateKeyWithFileContentPassStr_whenNotAllWhoWanderAreLost() {
@@ -68,14 +75,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKey(String, String)} with {@code fileContent}, {@code passStr}.
+   *
    * <ul>
-   *   <li>When {@code not empty}.</li>
+   *   <li>When {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKey(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKey(String, String)}
    */
   @Test
-  @DisplayName("Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'not empty'")
+  @DisplayName(
+      "Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.security.PrivateKey SslUtil.readPrivateKey(String, String)"})
   void testReadPrivateKeyWithFileContentPassStr_whenNotEmpty() {
@@ -85,14 +94,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKey(String, String)} with {@code fileContent}, {@code passStr}.
+   *
    * <ul>
-   *   <li>When {@code not empty}.</li>
+   *   <li>When {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKey(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKey(String, String)}
    */
   @Test
-  @DisplayName("Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'not empty'")
+  @DisplayName(
+      "Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.security.PrivateKey SslUtil.readPrivateKey(String, String)"})
   void testReadPrivateKeyWithFileContentPassStr_whenNotEmpty2() {
@@ -102,11 +113,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKey(String, String)} with {@code fileContent}, {@code passStr}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKey(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKey(String, String)}
    */
   @Test
   @DisplayName("Test readPrivateKey(String, String) with 'fileContent', 'passStr'; when 'null'")
@@ -119,15 +131,17 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKeyByFilePath(String, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When empty string.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKeyByFilePath(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKeyByFilePath(String, String)}
    */
   @Test
-  @DisplayName("Test readPrivateKeyByFilePath(String, String); when empty string; then return 'null'")
+  @DisplayName(
+      "Test readPrivateKeyByFilePath(String, String); when empty string; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.security.PrivateKey SslUtil.readPrivateKeyByFilePath(String, String)"})
   void testReadPrivateKeyByFilePath_whenEmptyString_thenReturnNull() {
@@ -137,12 +151,13 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readPrivateKeyByFilePath(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readPrivateKeyByFilePath(String, String)}
+   *
+   * <p>Method under test: {@link SslUtil#readPrivateKeyByFilePath(String, String)}
    */
   @Test
   @DisplayName("Test readPrivateKeyByFilePath(String, String); when 'null'; then return 'null'")
@@ -155,12 +170,13 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#getPassword(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return empty array of {@code char}.</li>
+   *   <li>When empty string.
+   *   <li>Then return empty array of {@code char}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#getPassword(String)}
+   *
+   * <p>Method under test: {@link SslUtil#getPassword(String)}
    */
   @Test
   @DisplayName("Test getPassword(String); when empty string; then return empty array of char")
@@ -168,17 +184,18 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"char[] SslUtil.getPassword(String)"})
   void testGetPassword_whenEmptyString_thenReturnEmptyArrayOfChar() {
     // Arrange, Act and Assert
-    assertArrayEquals(new char[]{}, SslUtil.getPassword(""));
+    assertArrayEquals(new char[] {}, SslUtil.getPassword(""));
   }
 
   /**
    * Test {@link SslUtil#getPassword(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return empty array of {@code char}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return empty array of {@code char}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#getPassword(String)}
+   *
+   * <p>Method under test: {@link SslUtil#getPassword(String)}
    */
   @Test
   @DisplayName("Test getPassword(String); when 'null'; then return empty array of char")
@@ -186,17 +203,18 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"char[] SslUtil.getPassword(String)"})
   void testGetPassword_whenNull_thenReturnEmptyArrayOfChar() {
     // Arrange, Act and Assert
-    assertArrayEquals(new char[]{}, SslUtil.getPassword(null));
+    assertArrayEquals(new char[] {}, SslUtil.getPassword(null));
   }
 
   /**
    * Test {@link SslUtil#getPassword(String)}.
+   *
    * <ul>
-   *   <li>When {@code Pass Str}.</li>
-   *   <li>Then return {@code Pass Str} toCharArray.</li>
+   *   <li>When {@code Pass Str}.
+   *   <li>Then return {@code Pass Str} toCharArray.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#getPassword(String)}
+   *
+   * <p>Method under test: {@link SslUtil#getPassword(String)}
    */
   @Test
   @DisplayName("Test getPassword(String); when 'Pass Str'; then return 'Pass Str' toCharArray")

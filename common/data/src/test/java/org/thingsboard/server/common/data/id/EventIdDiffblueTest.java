@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class EventIdDiffblueTest {
   /**
    * Test {@link EventId#EventId(UUID)}.
-   * <p>
-   * Method under test: {@link EventId#EventId(UUID)}
+   *
+   * <p>Method under test: {@link EventId#EventId(UUID)}
    */
   @Test
   @DisplayName("Test new EventId(UUID)")
@@ -23,7 +23,7 @@ class EventIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new EventId(id)).getId();
+    UUID id2 = new EventId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

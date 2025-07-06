@@ -14,15 +14,17 @@ import org.thingsboard.server.transport.mqtt.MqttTransportContext;
 class ProxyIpFilterDiffblueTest {
   /**
    * Test {@link ProxyIpFilter#channelRead(ChannelHandlerContext, Object)}.
+   *
    * <ul>
-   *   <li>Given {@link EmbeddedChannel#EmbeddedChannel()}.</li>
-   *   <li>Then calls {@link ChannelHandlerContext#channel()}.</li>
+   *   <li>Given {@link EmbeddedChannel#EmbeddedChannel()}.
+   *   <li>Then calls {@link ChannelHandlerContext#channel()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProxyIpFilter#channelRead(ChannelHandlerContext, Object)}
+   *
+   * <p>Method under test: {@link ProxyIpFilter#channelRead(ChannelHandlerContext, Object)}
    */
   @Test
-  @DisplayName("Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls channel()")
+  @DisplayName(
+      "Test channelRead(ChannelHandlerContext, Object); given EmbeddedChannel(); then calls channel()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProxyIpFilter.channelRead(ChannelHandlerContext, Object)"})
   void testChannelRead_givenEmbeddedChannel_thenCallsChannel() throws Exception {

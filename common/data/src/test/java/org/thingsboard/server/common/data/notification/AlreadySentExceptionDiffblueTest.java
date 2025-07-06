@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class AlreadySentExceptionDiffblueTest {
   /**
    * Test new {@link AlreadySentException} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link AlreadySentException}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link AlreadySentException}
    */
   @Test
   @DisplayName("Test new AlreadySentException (default constructor)")

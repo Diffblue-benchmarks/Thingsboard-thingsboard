@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class AlarmCommentIdDiffblueTest {
   /**
    * Test {@link AlarmCommentId#AlarmCommentId(UUID)}.
-   * <p>
-   * Method under test: {@link AlarmCommentId#AlarmCommentId(UUID)}
+   *
+   * <p>Method under test: {@link AlarmCommentId#AlarmCommentId(UUID)}
    */
   @Test
   @DisplayName("Test new AlarmCommentId(UUID)")
@@ -23,7 +23,7 @@ class AlarmCommentIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new AlarmCommentId(id)).getId();
+    UUID id2 = new AlarmCommentId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class TsValueDiffblueTest {
   /**
    * Test {@link TsValue#TsValue(long, String)}.
-   * <p>
-   * Method under test: {@link TsValue#TsValue(long, String)}
+   *
+   * <p>Method under test: {@link TsValue#TsValue(long, String)}
    */
   @Test
   @DisplayName("Test new TsValue(long, String)")
@@ -30,8 +30,8 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#TsValue(long, String, Long)}.
-   * <p>
-   * Method under test: {@link TsValue#TsValue(long, String, Long)}
+   *
+   * <p>Method under test: {@link TsValue#TsValue(long, String, Long)}
    */
   @Test
   @DisplayName("Test new TsValue(long, String, Long)")
@@ -49,12 +49,14 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}, and {@link TsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsValue#equals(Object)}
    *   <li>{@link TsValue#hashCode()}
@@ -77,12 +79,14 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}, and {@link TsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsValue#equals(Object)}
    *   <li>{@link TsValue#hashCode()}
@@ -105,12 +109,14 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}, and {@link TsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsValue#equals(Object)}
    *   <li>{@link TsValue#hashCode()}
@@ -133,12 +139,14 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}, and {@link TsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsValue#equals(Object)}
    *   <li>{@link TsValue#hashCode()}
@@ -160,12 +168,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -178,12 +187,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -196,12 +206,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -217,12 +228,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -235,12 +247,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -256,12 +269,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -274,12 +288,13 @@ class TsValueDiffblueTest {
 
   /**
    * Test {@link TsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link TsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -292,8 +307,9 @@ class TsValueDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsValue#toString()}
    *   <li>{@link TsValue#getCount()}
@@ -304,8 +320,12 @@ class TsValueDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Long TsValue.getCount()", "long TsValue.getTs()", "String TsValue.getValue()",
-      "String TsValue.toString()"})
+  @MethodsUnderTest({
+    "Long TsValue.getCount()",
+    "long TsValue.getTs()",
+    "String TsValue.getValue()",
+    "String TsValue.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TsValue tsValue = new TsValue(1L, "42");

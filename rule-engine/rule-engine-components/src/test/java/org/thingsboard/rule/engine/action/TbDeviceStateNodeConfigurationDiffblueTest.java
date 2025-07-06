@@ -11,26 +11,33 @@ import org.thingsboard.server.common.data.msg.TbMsgType;
 class TbDeviceStateNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbDeviceStateNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbDeviceStateNodeConfiguration TbDeviceStateNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbDeviceStateNodeConfiguration TbDeviceStateNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbMsgType.ACTIVITY_EVENT, (new TbDeviceStateNodeConfiguration()).defaultConfiguration().getEvent());
+    assertEquals(
+        TbMsgType.ACTIVITY_EVENT,
+        new TbDeviceStateNodeConfiguration().defaultConfiguration().getEvent());
   }
 
   /**
-   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link TbDeviceStateNodeConfiguration#hashCode()}.
+   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link
+   * TbDeviceStateNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbDeviceStateNodeConfiguration#equals(Object)}
    *   <li>{@link TbDeviceStateNodeConfiguration#hashCode()}
@@ -39,12 +46,16 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 =
+        new TbDeviceStateNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbDeviceStateNodeConfiguration, tbDeviceStateNodeConfiguration2);
@@ -53,13 +64,16 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link TbDeviceStateNodeConfiguration#hashCode()}.
+   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link
+   * TbDeviceStateNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbDeviceStateNodeConfiguration#equals(Object)}
    *   <li>{@link TbDeviceStateNodeConfiguration#hashCode()}
@@ -68,14 +82,18 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
     tbDeviceStateNodeConfiguration.setEvent(TbMsgType.POST_ATTRIBUTES_REQUEST);
 
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 =
+        new TbDeviceStateNodeConfiguration();
     tbDeviceStateNodeConfiguration2.setEvent(TbMsgType.POST_ATTRIBUTES_REQUEST);
 
     // Act and Assert
@@ -85,13 +103,16 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link TbDeviceStateNodeConfiguration#hashCode()}.
+   * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}, and {@link
+   * TbDeviceStateNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbDeviceStateNodeConfiguration#equals(Object)}
    *   <li>{@link TbDeviceStateNodeConfiguration#hashCode()}
@@ -100,11 +121,14 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbDeviceStateNodeConfiguration, tbDeviceStateNodeConfiguration);
@@ -114,18 +138,21 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbDeviceStateNodeConfiguration(), 1);
@@ -133,21 +160,25 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
     tbDeviceStateNodeConfiguration.setEvent(TbMsgType.POST_ATTRIBUTES_REQUEST);
 
     // Act and Assert
@@ -156,23 +187,28 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
 
-    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration tbDeviceStateNodeConfiguration2 =
+        new TbDeviceStateNodeConfiguration();
     tbDeviceStateNodeConfiguration2.setEvent(TbMsgType.POST_ATTRIBUTES_REQUEST);
 
     // Act and Assert
@@ -181,18 +217,21 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbDeviceStateNodeConfiguration(), null);
@@ -200,27 +239,32 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbDeviceStateNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbDeviceStateNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbDeviceStateNodeConfiguration.equals(Object)",
-      "int TbDeviceStateNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbDeviceStateNodeConfiguration.equals(Object)",
+    "int TbDeviceStateNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbDeviceStateNodeConfiguration(), "Different type to TbDeviceStateNodeConfiguration");
+    assertNotEquals(
+        new TbDeviceStateNodeConfiguration(), "Different type to TbDeviceStateNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbDeviceStateNodeConfiguration}
    *   <li>{@link TbDeviceStateNodeConfiguration#setEvent(TbMsgType)}
@@ -231,17 +275,23 @@ class TbDeviceStateNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbDeviceStateNodeConfiguration.<init>()",
-      "TbMsgType TbDeviceStateNodeConfiguration.getEvent()", "void TbDeviceStateNodeConfiguration.setEvent(TbMsgType)",
-      "String TbDeviceStateNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbDeviceStateNodeConfiguration.<init>()",
+    "TbMsgType TbDeviceStateNodeConfiguration.getEvent()",
+    "void TbDeviceStateNodeConfiguration.setEvent(TbMsgType)",
+    "String TbDeviceStateNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbDeviceStateNodeConfiguration actualTbDeviceStateNodeConfiguration = new TbDeviceStateNodeConfiguration();
+    TbDeviceStateNodeConfiguration actualTbDeviceStateNodeConfiguration =
+        new TbDeviceStateNodeConfiguration();
     actualTbDeviceStateNodeConfiguration.setEvent(TbMsgType.POST_ATTRIBUTES_REQUEST);
     String actualToStringResult = actualTbDeviceStateNodeConfiguration.toString();
 
     // Assert
-    assertEquals("TbDeviceStateNodeConfiguration(event=POST_ATTRIBUTES_REQUEST)", actualToStringResult);
-    assertEquals(TbMsgType.POST_ATTRIBUTES_REQUEST, actualTbDeviceStateNodeConfiguration.getEvent());
+    assertEquals(
+        "TbDeviceStateNodeConfiguration(event=POST_ATTRIBUTES_REQUEST)", actualToStringResult);
+    assertEquals(
+        TbMsgType.POST_ATTRIBUTES_REQUEST, actualTbDeviceStateNodeConfiguration.getEvent());
   }
 }

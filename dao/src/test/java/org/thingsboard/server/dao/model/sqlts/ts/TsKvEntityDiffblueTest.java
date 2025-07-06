@@ -14,12 +14,14 @@ import org.junit.experimental.categories.Category;
 public class TsKvEntityDiffblueTest {
   /**
    * Test {@link TsKvEntity#equals(Object)}, and {@link TsKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvEntity#equals(Object)}
    *   <li>{@link TsKvEntity#hashCode()}
@@ -64,12 +66,14 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#equals(Object)}, and {@link TsKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvEntity#equals(Object)}
    *   <li>{@link TsKvEntity#hashCode()}
@@ -101,12 +105,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -145,12 +150,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -176,12 +182,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -207,11 +214,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return AggValuesLastTs is {@code null}.</li>
+   *   <li>Then return AggValuesLastTs is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvEntity#TsKvEntity()}
    *   <li>{@link TsKvEntity#toString()}
@@ -219,8 +228,11 @@ public class TsKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TsKvEntity.<init>()", "void TsKvEntity.<init>(String, Long)",
-      "String TsKvEntity.toString()"})
+  @MethodsUnderTest({
+    "void TsKvEntity.<init>()",
+    "void TsKvEntity.<init>(String, Long)",
+    "String TsKvEntity.toString()"
+  })
   public void testGettersAndSetters_thenReturnAggValuesLastTsIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity();
@@ -242,12 +254,14 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return StrValue is {@code 42}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return StrValue is {@code 42}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TsKvEntity#TsKvEntity(String, Long)}
    *   <li>{@link TsKvEntity#toString()}
@@ -255,8 +269,11 @@ public class TsKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TsKvEntity.<init>()", "void TsKvEntity.<init>(String, Long)",
-      "String TsKvEntity.toString()"})
+  @MethodsUnderTest({
+    "void TsKvEntity.<init>()",
+    "void TsKvEntity.<init>(String, Long)",
+    "String TsKvEntity.toString()"
+  })
   public void testGettersAndSetters_when42_thenReturnStrValueIs42() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity("42", 42L);
@@ -279,12 +296,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code Agg Type}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code Agg Type}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -311,12 +329,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return AggValuesCount longValue is one.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return AggValuesCount longValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -343,12 +362,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return AggValuesCount longValue is zero.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return AggValuesCount longValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -375,12 +395,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return AggValuesCount longValue is zero.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return AggValuesCount longValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -407,12 +428,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return AggValuesCount longValue is zero.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return AggValuesCount longValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -439,12 +461,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return LongValue longValue is three.</li>
+   *   <li>When forty-two.
+   *   <li>Then return LongValue longValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -471,12 +494,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MAX}.</li>
-   *   <li>Then return DoubleValue doubleValue is forty-two.</li>
+   *   <li>When {@code MAX}.
+   *   <li>Then return DoubleValue doubleValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -503,12 +527,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MAX}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MAX}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -535,12 +560,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -567,12 +593,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -599,12 +626,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -631,12 +659,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
-   *   <li>Then return DoubleValue doubleValue is ten.</li>
+   *   <li>When {@code SUM}.
+   *   <li>Then return DoubleValue doubleValue is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -663,12 +692,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code SUM}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -695,12 +725,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return DoubleValue doubleValue is fifty-two.</li>
+   *   <li>When three.
+   *   <li>Then return DoubleValue doubleValue is fifty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -727,12 +758,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return DoubleValue doubleValue is ten.</li>
+   *   <li>When three.
+   *   <li>Then return DoubleValue doubleValue is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -759,12 +791,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return LongValue longValue is six.</li>
+   *   <li>When zero.
+   *   <li>Then return LongValue longValue is six.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -791,12 +824,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return LongValue longValue is three.</li>
+   *   <li>When zero.
+   *   <li>Then return LongValue longValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -823,12 +857,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return LongValue longValue is three.</li>
+   *   <li>When zero.
+   *   <li>Then return LongValue longValue is three.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -855,12 +890,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TsKvEntity#TsKvEntity()} BooleanValue is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TsKvEntity#TsKvEntity()} BooleanValue is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -886,12 +922,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TsKvEntity#TsKvEntity()} DoubleValue is ten.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TsKvEntity#TsKvEntity()} DoubleValue is ten.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -917,12 +954,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TsKvEntity#TsKvEntity()} LongValue is one.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TsKvEntity#TsKvEntity()} LongValue is one.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -948,12 +986,13 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TsKvEntity#TsKvEntity()} StrValue is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TsKvEntity#TsKvEntity()} StrValue is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -979,18 +1018,19 @@ public class TsKvEntityDiffblueTest {
 
   /**
    * Test {@link TsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TsKvEntity#TsKvEntity()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TsKvEntity#TsKvEntity()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
   public void testIsNotEmpty_givenTsKvEntity_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TsKvEntity()).isNotEmpty());
+    assertFalse(new TsKvEntity().isNotEmpty());
   }
 }

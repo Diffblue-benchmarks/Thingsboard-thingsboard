@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class OriginatorEntityOwnerUsersFilterDiffblueTest {
   /**
-   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
+   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link
+   * OriginatorEntityOwnerUsersFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OriginatorEntityOwnerUsersFilter#equals(Object)}
    *   <li>{@link OriginatorEntityOwnerUsersFilter#hashCode()}
@@ -24,12 +27,16 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
-      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+    "int OriginatorEntityOwnerUsersFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();
-    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter2 = new OriginatorEntityOwnerUsersFilter();
+    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter =
+        new OriginatorEntityOwnerUsersFilter();
+    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter2 =
+        new OriginatorEntityOwnerUsersFilter();
 
     // Act and Assert
     assertEquals(originatorEntityOwnerUsersFilter, originatorEntityOwnerUsersFilter2);
@@ -38,13 +45,16 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
   }
 
   /**
-   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link OriginatorEntityOwnerUsersFilter#hashCode()}.
+   * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}, and {@link
+   * OriginatorEntityOwnerUsersFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OriginatorEntityOwnerUsersFilter#equals(Object)}
    *   <li>{@link OriginatorEntityOwnerUsersFilter#hashCode()}
@@ -53,11 +63,14 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
-      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+    "int OriginatorEntityOwnerUsersFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();
+    OriginatorEntityOwnerUsersFilter originatorEntityOwnerUsersFilter =
+        new OriginatorEntityOwnerUsersFilter();
 
     // Act and Assert
     assertEquals(originatorEntityOwnerUsersFilter, originatorEntityOwnerUsersFilter);
@@ -67,18 +80,21 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
 
   /**
    * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
-      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+    "int OriginatorEntityOwnerUsersFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OriginatorEntityOwnerUsersFilter(), 1);
@@ -86,18 +102,21 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
 
   /**
    * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
-      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+    "int OriginatorEntityOwnerUsersFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OriginatorEntityOwnerUsersFilter(), null);
@@ -105,27 +124,33 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
 
   /**
    * Test {@link OriginatorEntityOwnerUsersFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link OriginatorEntityOwnerUsersFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
-      "int OriginatorEntityOwnerUsersFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OriginatorEntityOwnerUsersFilter.equals(Object)",
+    "int OriginatorEntityOwnerUsersFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new OriginatorEntityOwnerUsersFilter(), "Different type to OriginatorEntityOwnerUsersFilter");
+    assertNotEquals(
+        new OriginatorEntityOwnerUsersFilter(),
+        "Different type to OriginatorEntityOwnerUsersFilter");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link OriginatorEntityOwnerUsersFilter}
    *   <li>{@link OriginatorEntityOwnerUsersFilter#toString()}
@@ -135,16 +160,21 @@ class OriginatorEntityOwnerUsersFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OriginatorEntityOwnerUsersFilter.<init>()",
-      "UsersFilterType OriginatorEntityOwnerUsersFilter.getType()",
-      "String OriginatorEntityOwnerUsersFilter.toString()"})
+  @MethodsUnderTest({
+    "void OriginatorEntityOwnerUsersFilter.<init>()",
+    "UsersFilterType OriginatorEntityOwnerUsersFilter.getType()",
+    "String OriginatorEntityOwnerUsersFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    OriginatorEntityOwnerUsersFilter actualOriginatorEntityOwnerUsersFilter = new OriginatorEntityOwnerUsersFilter();
+    OriginatorEntityOwnerUsersFilter actualOriginatorEntityOwnerUsersFilter =
+        new OriginatorEntityOwnerUsersFilter();
     String actualToStringResult = actualOriginatorEntityOwnerUsersFilter.toString();
 
     // Assert
     assertEquals("OriginatorEntityOwnerUsersFilter()", actualToStringResult);
-    assertEquals(UsersFilterType.ORIGINATOR_ENTITY_OWNER_USERS, actualOriginatorEntityOwnerUsersFilter.getType());
+    assertEquals(
+        UsersFilterType.ORIGINATOR_ENTITY_OWNER_USERS,
+        actualOriginatorEntityOwnerUsersFilter.getType());
   }
 }

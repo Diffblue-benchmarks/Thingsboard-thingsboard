@@ -23,13 +23,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class TbLwM2MDtlsCertificateVerifierDiffblueTest {
-  @InjectMocks
-  private TbLwM2MDtlsCertificateVerifier tbLwM2MDtlsCertificateVerifier;
+  @InjectMocks private TbLwM2MDtlsCertificateVerifier tbLwM2MDtlsCertificateVerifier;
 
   /**
    * Test {@link TbLwM2MDtlsCertificateVerifier#getSupportedCertificateTypes()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsCertificateVerifier#getSupportedCertificateTypes()}
+   *
+   * <p>Method under test: {@link TbLwM2MDtlsCertificateVerifier#getSupportedCertificateTypes()}
    */
   @Test
   @DisplayName("Test getSupportedCertificateTypes()")
@@ -37,8 +36,8 @@ class TbLwM2MDtlsCertificateVerifierDiffblueTest {
   @MethodsUnderTest({"List TbLwM2MDtlsCertificateVerifier.getSupportedCertificateTypes()"})
   void testGetSupportedCertificateTypes() {
     // Arrange and Act
-    List<CertificateType> actualSupportedCertificateTypes = tbLwM2MDtlsCertificateVerifier
-        .getSupportedCertificateTypes();
+    List<CertificateType> actualSupportedCertificateTypes =
+        tbLwM2MDtlsCertificateVerifier.getSupportedCertificateTypes();
 
     // Assert
     assertEquals(2, actualSupportedCertificateTypes.size());
@@ -47,15 +46,19 @@ class TbLwM2MDtlsCertificateVerifierDiffblueTest {
   }
 
   /**
-   * Test {@link TbLwM2MDtlsCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
+   * Test {@link TbLwM2MDtlsCertificateVerifier#verifyCertificate(ConnectionId, ServerNames,
+   * InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
+   *
+   * <p>Method under test: {@link TbLwM2MDtlsCertificateVerifier#verifyCertificate(ConnectionId,
+   * ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
    */
   @Test
-  @DisplayName("Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
+  @DisplayName(
+      "Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "CertificateVerificationResult TbLwM2MDtlsCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"})
+    "CertificateVerificationResult TbLwM2MDtlsCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"
+  })
   void testVerifyCertificate() throws UnsupportedEncodingException {
     // Arrange
     ConnectionId cid = new ConnectionId("AXAXAXAX".getBytes("UTF-8"));
@@ -63,8 +66,9 @@ class TbLwM2MDtlsCertificateVerifierDiffblueTest {
     InetSocketAddress remotePeer = InetSocketAddress.createUnresolved("foo", 1);
 
     // Act
-    CertificateVerificationResult actualVerifyCertificateResult = tbLwM2MDtlsCertificateVerifier.verifyCertificate(cid,
-        serverName, remotePeer, true, true, true, new CertificateMessage());
+    CertificateVerificationResult actualVerifyCertificateResult =
+        tbLwM2MDtlsCertificateVerifier.verifyCertificate(
+            cid, serverName, remotePeer, true, true, true, new CertificateMessage());
 
     // Assert
     HandshakeException exception = actualVerifyCertificateResult.getException();
@@ -80,8 +84,8 @@ class TbLwM2MDtlsCertificateVerifierDiffblueTest {
 
   /**
    * Test {@link TbLwM2MDtlsCertificateVerifier#getAcceptedIssuers()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsCertificateVerifier#getAcceptedIssuers()}
+   *
+   * <p>Method under test: {@link TbLwM2MDtlsCertificateVerifier#getAcceptedIssuers()}
    */
   @Test
   @DisplayName("Test getAcceptedIssuers()")

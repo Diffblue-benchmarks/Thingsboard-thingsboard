@@ -11,37 +11,41 @@ import org.thingsboard.server.service.edge.rpc.processor.alarm.AlarmEdgeProcesso
 class BaseEdgeProcessorFactoryDiffblueTest {
   /**
    * Test {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}.
+   *
    * <ul>
-   *   <li>When {@code V_3_3_0}.</li>
+   *   <li>When {@code V_3_3_0}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}
+   *
+   * <p>Method under test: {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}
    */
   @Test
   @DisplayName("Test getProcessorByEdgeVersion(EdgeVersion); when 'V_3_3_0'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.service.edge.rpc.processor.EdgeProcessor BaseEdgeProcessorFactory.getProcessorByEdgeVersion(EdgeVersion)"})
+    "org.thingsboard.server.service.edge.rpc.processor.EdgeProcessor BaseEdgeProcessorFactory.getProcessorByEdgeVersion(EdgeVersion)"
+  })
   void testGetProcessorByEdgeVersion_whenV330() {
     // Arrange, Act and Assert
-    assertNull((new AlarmEdgeProcessorFactory()).getProcessorByEdgeVersion(EdgeVersion.V_3_3_0));
+    assertNull(new AlarmEdgeProcessorFactory().getProcessorByEdgeVersion(EdgeVersion.V_3_3_0));
   }
 
   /**
    * Test {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}.
+   *
    * <ul>
-   *   <li>When {@code V_3_6_2}.</li>
+   *   <li>When {@code V_3_6_2}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}
+   *
+   * <p>Method under test: {@link BaseEdgeProcessorFactory#getProcessorByEdgeVersion(EdgeVersion)}
    */
   @Test
   @DisplayName("Test getProcessorByEdgeVersion(EdgeVersion); when 'V_3_6_2'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.service.edge.rpc.processor.EdgeProcessor BaseEdgeProcessorFactory.getProcessorByEdgeVersion(EdgeVersion)"})
+    "org.thingsboard.server.service.edge.rpc.processor.EdgeProcessor BaseEdgeProcessorFactory.getProcessorByEdgeVersion(EdgeVersion)"
+  })
   void testGetProcessorByEdgeVersion_whenV362() {
     // Arrange, Act and Assert
-    assertNull((new AlarmEdgeProcessorFactory()).getProcessorByEdgeVersion(EdgeVersion.V_3_6_2));
+    assertNull(new AlarmEdgeProcessorFactory().getProcessorByEdgeVersion(EdgeVersion.V_3_6_2));
   }
 }

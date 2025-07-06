@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {AccessDeniedException.class, String.class})
 @ExtendWith(SpringExtension.class)
 class AccessDeniedExceptionDiffblueTest {
-  @Autowired
-  private AccessDeniedException accessDeniedException;
+  @Autowired private AccessDeniedException accessDeniedException;
 
   /**
    * Test {@link AccessDeniedException#AccessDeniedException(String)}.
-   * <p>
-   * Method under test: {@link AccessDeniedException#AccessDeniedException(String)}
+   *
+   * <p>Method under test: {@link AccessDeniedException#AccessDeniedException(String)}
    */
   @Test
   @DisplayName("Test new AccessDeniedException(String)")
@@ -32,7 +31,8 @@ class AccessDeniedExceptionDiffblueTest {
   @MethodsUnderTest({"void AccessDeniedException.<init>(String)"})
   void testNewAccessDeniedException() {
     // Arrange and Act
-    AccessDeniedException actualAccessDeniedException = new AccessDeniedException("An error occurred");
+    AccessDeniedException actualAccessDeniedException =
+        new AccessDeniedException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualAccessDeniedException.getMessage());
@@ -42,8 +42,8 @@ class AccessDeniedExceptionDiffblueTest {
 
   /**
    * Test {@link AccessDeniedException#toErrorResponseEntity()}.
-   * <p>
-   * Method under test: {@link AccessDeniedException#toErrorResponseEntity()}
+   *
+   * <p>Method under test: {@link AccessDeniedException#toErrorResponseEntity()}
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
@@ -51,7 +51,8 @@ class AccessDeniedExceptionDiffblueTest {
   @MethodsUnderTest({"ResponseEntity AccessDeniedException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
-    ResponseEntity<String> actualToErrorResponseEntityResult = accessDeniedException.toErrorResponseEntity();
+    ResponseEntity<String> actualToErrorResponseEntityResult =
+        accessDeniedException.toErrorResponseEntity();
 
     // Assert
     HttpStatusCode statusCode = actualToErrorResponseEntityResult.getStatusCode();

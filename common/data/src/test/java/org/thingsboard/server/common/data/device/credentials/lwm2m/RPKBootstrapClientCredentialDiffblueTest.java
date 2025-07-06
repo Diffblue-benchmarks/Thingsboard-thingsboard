@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class RPKBootstrapClientCredentialDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RPKBootstrapClientCredential}
    *   <li>{@link RPKBootstrapClientCredential#getSecurityMode()}
@@ -20,11 +21,14 @@ class RPKBootstrapClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RPKBootstrapClientCredential.<init>()",
-      "LwM2MSecurityMode RPKBootstrapClientCredential.getSecurityMode()"})
+  @MethodsUnderTest({
+    "void RPKBootstrapClientCredential.<init>()",
+    "LwM2MSecurityMode RPKBootstrapClientCredential.getSecurityMode()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    RPKBootstrapClientCredential actualRpkBootstrapClientCredential = new RPKBootstrapClientCredential();
+    RPKBootstrapClientCredential actualRpkBootstrapClientCredential =
+        new RPKBootstrapClientCredential();
     LwM2MSecurityMode actualSecurityMode = actualRpkBootstrapClientCredential.getSecurityMode();
 
     // Assert

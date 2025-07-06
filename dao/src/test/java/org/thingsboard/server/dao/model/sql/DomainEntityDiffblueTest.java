@@ -20,12 +20,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class DomainEntityDiffblueTest {
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#equals(Object)}
    *   <li>{@link DomainEntity#hashCode()}
@@ -62,12 +64,14 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#equals(Object)}
    *   <li>{@link DomainEntity#hashCode()}
@@ -104,12 +108,14 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#equals(Object)}
    *   <li>{@link DomainEntity#hashCode()}
@@ -146,12 +152,14 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#equals(Object)}
    *   <li>{@link DomainEntity#hashCode()}
@@ -188,12 +196,14 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#equals(Object)}
    *   <li>{@link DomainEntity#hashCode()}
@@ -221,12 +231,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -257,12 +268,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -293,12 +305,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -329,12 +342,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -365,12 +379,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -401,12 +416,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -437,12 +453,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -473,12 +490,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -509,12 +527,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -545,12 +564,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -572,12 +592,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -599,8 +620,9 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DomainEntity#DomainEntity()}
    *   <li>{@link DomainEntity#setName(String)}
@@ -616,11 +638,18 @@ public class DomainEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DomainEntity.<init>()", "String DomainEntity.getName()",
-      "Boolean DomainEntity.getOauth2Enabled()", "Boolean DomainEntity.getPropagateToEdge()",
-      "UUID DomainEntity.getTenantId()", "void DomainEntity.setName(String)",
-      "void DomainEntity.setOauth2Enabled(Boolean)", "void DomainEntity.setPropagateToEdge(Boolean)",
-      "void DomainEntity.setTenantId(UUID)", "String DomainEntity.toString()"})
+  @MethodsUnderTest({
+    "void DomainEntity.<init>()",
+    "String DomainEntity.getName()",
+    "Boolean DomainEntity.getOauth2Enabled()",
+    "Boolean DomainEntity.getPropagateToEdge()",
+    "UUID DomainEntity.getTenantId()",
+    "void DomainEntity.setName(String)",
+    "void DomainEntity.setOauth2Enabled(Boolean)",
+    "void DomainEntity.setPropagateToEdge(Boolean)",
+    "void DomainEntity.setTenantId(UUID)",
+    "String DomainEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     DomainEntity actualDomainEntity = new DomainEntity();
@@ -652,25 +681,27 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#DomainEntity(Domain)}.
+   *
    * <ul>
-   *   <li>Then return TenantId toString is {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return TenantId toString is {@code 13814000-1dd2-11b2-8080-808080808080}.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#DomainEntity(Domain)}
+   *
+   * <p>Method under test: {@link DomainEntity#DomainEntity(Domain)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void DomainEntity.<init>(Domain)"})
   public void testNewDomainEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
-    Domain domain = new Domain();
+    Domain domain = new Domain(new Domain());
     domain.setTenantId(ModelConstants.SYSTEM_TENANT);
 
     // Act
     DomainEntity actualDomainEntity = new DomainEntity(domain);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualDomainEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualDomainEntity.getTenantId().toString());
     assertNull(actualDomainEntity.getName());
     assertNull(actualDomainEntity.getId());
     assertNull(actualDomainEntity.getUuid());
@@ -681,12 +712,13 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#DomainEntity(Domain)}.
+   *
    * <ul>
-   *   <li>When {@link Domain#Domain()}.</li>
-   *   <li>Then return TenantId is {@code null}.</li>
+   *   <li>When {@link Domain#Domain()}.
+   *   <li>Then return TenantId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#DomainEntity(Domain)}
+   *
+   * <p>Method under test: {@link DomainEntity#DomainEntity(Domain)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -707,11 +739,12 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#toData()}
+   *
+   * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -738,11 +771,12 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#toData()}
+   *
+   * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -768,11 +802,12 @@ public class DomainEntityDiffblueTest {
 
   /**
    * Test {@link DomainEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainEntity#toData()}
+   *
+   * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

@@ -13,8 +13,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class RuleNodeStateDiffblueTest {
   /**
    * Test {@link RuleNodeState#RuleNodeState(RuleNodeState)}.
-   * <p>
-   * Method under test: {@link RuleNodeState#RuleNodeState(RuleNodeState)}
+   *
+   * <p>Method under test: {@link RuleNodeState#RuleNodeState(RuleNodeState)}
    */
   @Test
   @DisplayName("Test new RuleNodeState(RuleNodeState)")
@@ -30,12 +30,14 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}, and {@link RuleNodeState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeState#equals(Object)}
    *   <li>{@link RuleNodeState#hashCode()}
@@ -58,12 +60,14 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}, and {@link RuleNodeState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeState#equals(Object)}
    *   <li>{@link RuleNodeState#hashCode()}
@@ -76,10 +80,12 @@ class RuleNodeStateDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleNodeState ruleNodeState = new RuleNodeState();
-    ruleNodeState.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleNodeState.setRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     RuleNodeState ruleNodeState2 = new RuleNodeState();
-    ruleNodeState2.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleNodeState2.setRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(ruleNodeState, ruleNodeState2);
@@ -89,12 +95,14 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}, and {@link RuleNodeState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeState#equals(Object)}
    *   <li>{@link RuleNodeState#hashCode()}
@@ -120,12 +128,14 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}, and {@link RuleNodeState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeState#equals(Object)}
    *   <li>{@link RuleNodeState#hashCode()}
@@ -151,12 +161,14 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}, and {@link RuleNodeState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleNodeState#equals(Object)}
    *   <li>{@link RuleNodeState#hashCode()}
@@ -178,12 +190,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -196,12 +209,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -210,7 +224,8 @@ class RuleNodeStateDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleNodeState ruleNodeState = new RuleNodeState();
-    ruleNodeState.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleNodeState.setRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleNodeState, new RuleNodeState());
@@ -218,12 +233,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -240,12 +256,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -262,12 +279,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -278,7 +296,8 @@ class RuleNodeStateDiffblueTest {
     RuleNodeState ruleNodeState = new RuleNodeState();
 
     RuleNodeState ruleNodeState2 = new RuleNodeState();
-    ruleNodeState2.setRuleNodeId(new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ruleNodeState2.setRuleNodeId(
+        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(ruleNodeState, ruleNodeState2);
@@ -286,12 +305,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -310,12 +330,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -334,12 +355,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -352,12 +374,13 @@ class RuleNodeStateDiffblueTest {
 
   /**
    * Test {@link RuleNodeState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleNodeState#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleNodeState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

@@ -12,12 +12,14 @@ import org.thingsboard.server.common.data.ota.OtaPackageType;
 class LwM2MClientSwOtaInfoDiffblueTest {
   /**
    * Test {@link LwM2MClientSwOtaInfo#equals(Object)}, and {@link LwM2MClientSwOtaInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MClientSwOtaInfo#equals(Object)}
    *   <li>{@link LwM2MClientSwOtaInfo#hashCode()}
@@ -26,13 +28,22 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MClientSwOtaInfo.equals(Object)", "int LwM2MClientSwOtaInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MClientSwOtaInfo.equals(Object)",
+    "int LwM2MClientSwOtaInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo2 = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo2 =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
 
     // Act and Assert
     assertEquals(lwM2MClientSwOtaInfo, lwM2MClientSwOtaInfo2);
@@ -42,12 +53,14 @@ class LwM2MClientSwOtaInfoDiffblueTest {
 
   /**
    * Test {@link LwM2MClientSwOtaInfo#equals(Object)}, and {@link LwM2MClientSwOtaInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MClientSwOtaInfo#equals(Object)}
    *   <li>{@link LwM2MClientSwOtaInfo#hashCode()}
@@ -56,11 +69,17 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MClientSwOtaInfo.equals(Object)", "int LwM2MClientSwOtaInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MClientSwOtaInfo.equals(Object)",
+    "int LwM2MClientSwOtaInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
 
     // Act and Assert
     assertEquals(lwM2MClientSwOtaInfo, lwM2MClientSwOtaInfo);
@@ -70,72 +89,101 @@ class LwM2MClientSwOtaInfoDiffblueTest {
 
   /**
    * Test {@link LwM2MClientSwOtaInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MClientSwOtaInfo.equals(Object)", "int LwM2MClientSwOtaInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MClientSwOtaInfo.equals(Object)",
+    "int LwM2MClientSwOtaInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://example.org/example",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://example.org/example",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
 
     // Act and Assert
-    assertNotEquals(lwM2MClientSwOtaInfo, new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY));
+    assertNotEquals(
+        lwM2MClientSwOtaInfo,
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY));
   }
 
   /**
    * Test {@link LwM2MClientSwOtaInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MClientSwOtaInfo.equals(Object)", "int LwM2MClientSwOtaInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MClientSwOtaInfo.equals(Object)",
+    "int LwM2MClientSwOtaInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
-        LwM2MSoftwareUpdateStrategy.BINARY), null);
+    assertNotEquals(
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY),
+        null);
   }
 
   /**
    * Test {@link LwM2MClientSwOtaInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MClientSwOtaInfo.equals(Object)", "int LwM2MClientSwOtaInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MClientSwOtaInfo.equals(Object)",
+    "int LwM2MClientSwOtaInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com", "https://example.org/example",
-        LwM2MSoftwareUpdateStrategy.BINARY), "Different type to LwM2MClientSwOtaInfo");
+    assertNotEquals(
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY),
+        "Different type to LwM2MClientSwOtaInfo");
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return BaseUrl is {@code null}.</li>
+   *   <li>Then return BaseUrl is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MClientSwOtaInfo#LwM2MClientSwOtaInfo()}
    *   <li>{@link LwM2MClientSwOtaInfo#toString()}
@@ -145,9 +193,12 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return BaseUrl is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MClientSwOtaInfo.<init>()",
-      "void LwM2MClientSwOtaInfo.<init>(String, String, LwM2MSoftwareUpdateStrategy)",
-      "OtaPackageType LwM2MClientSwOtaInfo.getType()", "String LwM2MClientSwOtaInfo.toString()"})
+  @MethodsUnderTest({
+    "void LwM2MClientSwOtaInfo.<init>()",
+    "void LwM2MClientSwOtaInfo.<init>(String, String, LwM2MSoftwareUpdateStrategy)",
+    "OtaPackageType LwM2MClientSwOtaInfo.getType()",
+    "String LwM2MClientSwOtaInfo.toString()"
+  })
   void testGettersAndSetters_thenReturnBaseUrlIsNull() {
     // Arrange and Act
     LwM2MClientSwOtaInfo actualLwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo();
@@ -155,10 +206,12 @@ class LwM2MClientSwOtaInfoDiffblueTest {
     OtaPackageType actualType = actualLwM2MClientSwOtaInfo.getType();
 
     // Assert
-    assertEquals("LwM2MClientSwOtaInfo(super=LwM2MClientOtaInfo(endpoint=null, baseUrl=null, targetName=null,"
-        + " targetVersion=null, targetTag=null, targetUrl=null, strategy=null, updateState=null, result=null,"
-        + " status=null, failedPackageId=null, retryAttempts=0, currentName=null, currentVersion3=null,"
-        + " currentVersion=null))", actualToStringResult);
+    assertEquals(
+        "LwM2MClientSwOtaInfo(super=LwM2MClientOtaInfo(endpoint=null, baseUrl=null, targetName=null,"
+            + " targetVersion=null, targetTag=null, targetUrl=null, strategy=null, updateState=null, result=null,"
+            + " status=null, failedPackageId=null, retryAttempts=0, currentName=null, currentVersion3=null,"
+            + " currentVersion=null))",
+        actualToStringResult);
     assertNull(actualLwM2MClientSwOtaInfo.getBaseUrl());
     assertNull(actualLwM2MClientSwOtaInfo.getCurrentName());
     assertNull(actualLwM2MClientSwOtaInfo.getCurrentVersion());
@@ -179,36 +232,49 @@ class LwM2MClientSwOtaInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Endpoint is {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>Then return Endpoint is {@code https://config.us-east-2.amazonaws.com}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link LwM2MClientSwOtaInfo#LwM2MClientSwOtaInfo(String, String, LwM2MSoftwareUpdateStrategy)}
+   *   <li>{@link LwM2MClientSwOtaInfo#LwM2MClientSwOtaInfo(String, String,
+   *       LwM2MSoftwareUpdateStrategy)}
    *   <li>{@link LwM2MClientSwOtaInfo#toString()}
    *   <li>{@link LwM2MClientSwOtaInfo#getType()}
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; then return Endpoint is 'https://config.us-east-2.amazonaws.com'")
+  @DisplayName(
+      "Test getters and setters; then return Endpoint is 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MClientSwOtaInfo.<init>()",
-      "void LwM2MClientSwOtaInfo.<init>(String, String, LwM2MSoftwareUpdateStrategy)",
-      "OtaPackageType LwM2MClientSwOtaInfo.getType()", "String LwM2MClientSwOtaInfo.toString()"})
+  @MethodsUnderTest({
+    "void LwM2MClientSwOtaInfo.<init>()",
+    "void LwM2MClientSwOtaInfo.<init>(String, String, LwM2MSoftwareUpdateStrategy)",
+    "OtaPackageType LwM2MClientSwOtaInfo.getType()",
+    "String LwM2MClientSwOtaInfo.toString()"
+  })
   void testGettersAndSetters_thenReturnEndpointIsHttpsConfigUsEast2AmazonawsCom() {
     // Arrange and Act
-    LwM2MClientSwOtaInfo actualLwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo actualLwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
     String actualToStringResult = actualLwM2MClientSwOtaInfo.toString();
     OtaPackageType actualType = actualLwM2MClientSwOtaInfo.getType();
 
     // Assert
-    assertEquals("LwM2MClientSwOtaInfo(super=LwM2MClientOtaInfo(endpoint=https://config.us-east-2.amazonaws.com,"
-        + " baseUrl=https://example.org/example, targetName=null, targetVersion=null, targetTag=null, targetUrl=null,"
-        + " strategy=BINARY, updateState=null, result=null, status=null, failedPackageId=null, retryAttempts=0,"
-        + " currentName=null, currentVersion3=null, currentVersion=null))", actualToStringResult);
-    assertEquals("https://config.us-east-2.amazonaws.com", actualLwM2MClientSwOtaInfo.getEndpoint());
+    assertEquals(
+        "LwM2MClientSwOtaInfo(super=LwM2MClientOtaInfo(endpoint=https://config.us-east-2.amazonaws.com,"
+            + " baseUrl=https://example.org/example, targetName=null, targetVersion=null, targetTag=null, targetUrl=null,"
+            + " strategy=BINARY, updateState=null, result=null, status=null, failedPackageId=null, retryAttempts=0,"
+            + " currentName=null, currentVersion3=null, currentVersion=null))",
+        actualToStringResult);
+    assertEquals(
+        "https://config.us-east-2.amazonaws.com", actualLwM2MClientSwOtaInfo.getEndpoint());
     assertEquals("https://example.org/example", actualLwM2MClientSwOtaInfo.getBaseUrl());
     assertNull(actualLwM2MClientSwOtaInfo.getCurrentName());
     assertNull(actualLwM2MClientSwOtaInfo.getCurrentVersion());
@@ -227,9 +293,10 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code SoftwareUpdateResult}.
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
+   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code
+   * SoftwareUpdateResult}.
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(SoftwareUpdateResult) with 'SoftwareUpdateResult'")
@@ -237,8 +304,11 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @MethodsUnderTest({"void LwM2MClientSwOtaInfo.update(SoftwareUpdateResult)"})
   void testUpdateWithSoftwareUpdateResult() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
 
     // Act
     lwM2MClientSwOtaInfo.update(SoftwareUpdateResult.INITIAL);
@@ -249,9 +319,10 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code SoftwareUpdateResult}.
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
+   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code
+   * SoftwareUpdateResult}.
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(SoftwareUpdateResult) with 'SoftwareUpdateResult'")
@@ -259,8 +330,11 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @MethodsUnderTest({"void LwM2MClientSwOtaInfo.update(SoftwareUpdateResult)"})
   void testUpdateWithSoftwareUpdateResult2() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
 
     // Act
     lwM2MClientSwOtaInfo.update(SoftwareUpdateResult.DOWNLOADING);
@@ -271,9 +345,10 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code SoftwareUpdateResult}.
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
+   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code
+   * SoftwareUpdateResult}.
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(SoftwareUpdateResult) with 'SoftwareUpdateResult'")
@@ -281,8 +356,11 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @MethodsUnderTest({"void LwM2MClientSwOtaInfo.update(SoftwareUpdateResult)"})
   void testUpdateWithSoftwareUpdateResult3() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
     lwM2MClientSwOtaInfo.setTargetName("Target Name");
 
     // Act
@@ -294,9 +372,10 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code SoftwareUpdateResult}.
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
+   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code
+   * SoftwareUpdateResult}.
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(SoftwareUpdateResult) with 'SoftwareUpdateResult'")
@@ -304,8 +383,11 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @MethodsUnderTest({"void LwM2MClientSwOtaInfo.update(SoftwareUpdateResult)"})
   void testUpdateWithSoftwareUpdateResult4() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
     lwM2MClientSwOtaInfo.setTargetVersion("1.0.2");
 
     // Act
@@ -317,9 +399,10 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code SoftwareUpdateResult}.
-   * <p>
-   * Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
+   * Test {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)} with {@code
+   * SoftwareUpdateResult}.
+   *
+   * <p>Method under test: {@link LwM2MClientSwOtaInfo#update(SoftwareUpdateResult)}
    */
   @Test
   @DisplayName("Test update(SoftwareUpdateResult) with 'SoftwareUpdateResult'")
@@ -327,8 +410,11 @@ class LwM2MClientSwOtaInfoDiffblueTest {
   @MethodsUnderTest({"void LwM2MClientSwOtaInfo.update(SoftwareUpdateResult)"})
   void testUpdateWithSoftwareUpdateResult5() {
     // Arrange
-    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo = new LwM2MClientSwOtaInfo("https://config.us-east-2.amazonaws.com",
-        "https://example.org/example", LwM2MSoftwareUpdateStrategy.BINARY);
+    LwM2MClientSwOtaInfo lwM2MClientSwOtaInfo =
+        new LwM2MClientSwOtaInfo(
+            "https://config.us-east-2.amazonaws.com",
+            "https://example.org/example",
+            LwM2MSoftwareUpdateStrategy.BINARY);
     lwM2MClientSwOtaInfo.setTargetName("");
 
     // Act

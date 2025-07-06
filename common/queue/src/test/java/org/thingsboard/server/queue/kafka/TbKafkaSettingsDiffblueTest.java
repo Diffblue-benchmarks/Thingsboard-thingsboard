@@ -18,20 +18,22 @@ import org.thingsboard.server.common.data.TbProperty;
 class TbKafkaSettingsDiffblueTest {
   /**
    * Test {@link TbKafkaSettings#toProps()}.
+   *
    * <ul>
-   *   <li>Given {@link TbKafkaSettings} (default constructor).</li>
-   *   <li>Then return {@code request.timeout.ms} intValue is zero.</li>
+   *   <li>Given {@link TbKafkaSettings} (default constructor).
+   *   <li>Then return {@code request.timeout.ms} intValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaSettings#toProps()}
+   *
+   * <p>Method under test: {@link TbKafkaSettings#toProps()}
    */
   @Test
-  @DisplayName("Test toProps(); given TbKafkaSettings (default constructor); then return 'request.timeout.ms' intValue is zero")
+  @DisplayName(
+      "Test toProps(); given TbKafkaSettings (default constructor); then return 'request.timeout.ms' intValue is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Properties TbKafkaSettings.toProps()"})
   void testToProps_givenTbKafkaSettings_thenReturnRequestTimeoutMsIntValueIsZero() {
     // Arrange and Act
-    Properties actualToPropsResult = (new TbKafkaSettings()).toProps();
+    Properties actualToPropsResult = new TbKafkaSettings().toProps();
 
     // Assert
     assertEquals(1, actualToPropsResult.size());
@@ -40,15 +42,17 @@ class TbKafkaSettingsDiffblueTest {
 
   /**
    * Test {@link TbKafkaSettings#toProps()}.
+   *
    * <ul>
-   *   <li>Given {@link TbProperty} (default constructor) Key is {@code Key}.</li>
-   *   <li>Then return size is two.</li>
+   *   <li>Given {@link TbProperty} (default constructor) Key is {@code Key}.
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaSettings#toProps()}
+   *
+   * <p>Method under test: {@link TbKafkaSettings#toProps()}
    */
   @Test
-  @DisplayName("Test toProps(); given TbProperty (default constructor) Key is 'Key'; then return size is two")
+  @DisplayName(
+      "Test toProps(); given TbProperty (default constructor) Key is 'Key'; then return size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Properties TbKafkaSettings.toProps()"})
   void testToProps_givenTbPropertyKeyIsKey_thenReturnSizeIsTwo() {
@@ -79,15 +83,17 @@ class TbKafkaSettingsDiffblueTest {
 
   /**
    * Test {@link TbKafkaSettings#toProps()}.
+   *
    * <ul>
-   *   <li>Given {@link TbProperty} (default constructor) Key is {@code request.timeout.ms}.</li>
-   *   <li>Then return {@code request.timeout.ms} is {@code 42}.</li>
+   *   <li>Given {@link TbProperty} (default constructor) Key is {@code request.timeout.ms}.
+   *   <li>Then return {@code request.timeout.ms} is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaSettings#toProps()}
+   *
+   * <p>Method under test: {@link TbKafkaSettings#toProps()}
    */
   @Test
-  @DisplayName("Test toProps(); given TbProperty (default constructor) Key is 'request.timeout.ms'; then return 'request.timeout.ms' is '42'")
+  @DisplayName(
+      "Test toProps(); given TbProperty (default constructor) Key is 'request.timeout.ms'; then return 'request.timeout.ms' is '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Properties TbKafkaSettings.toProps()"})
   void testToProps_givenTbPropertyKeyIsRequestTimeoutMs_thenReturnRequestTimeoutMsIs42() {
@@ -112,11 +118,12 @@ class TbKafkaSettingsDiffblueTest {
 
   /**
    * Test {@link TbKafkaSettings#toProps()}.
+   *
    * <ul>
-   *   <li>Then return {@code request.timeout.ms} intValue is zero.</li>
+   *   <li>Then return {@code request.timeout.ms} intValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaSettings#toProps()}
+   *
+   * <p>Method under test: {@link TbKafkaSettings#toProps()}
    */
   @Test
   @DisplayName("Test toProps(); then return 'request.timeout.ms' intValue is zero")
@@ -137,8 +144,9 @@ class TbKafkaSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaSettings#setConsumerPropertiesPerTopic(Map)}
    *   <li>{@link TbKafkaSettings#setOther(List)}
@@ -148,8 +156,11 @@ class TbKafkaSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"short TbKafkaSettings.getReplicationFactor()",
-      "void TbKafkaSettings.setConsumerPropertiesPerTopic(Map)", "void TbKafkaSettings.setOther(List)"})
+  @MethodsUnderTest({
+    "short TbKafkaSettings.getReplicationFactor()",
+    "void TbKafkaSettings.setConsumerPropertiesPerTopic(Map)",
+    "void TbKafkaSettings.setOther(List)"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbKafkaSettings tbKafkaSettings = new TbKafkaSettings();

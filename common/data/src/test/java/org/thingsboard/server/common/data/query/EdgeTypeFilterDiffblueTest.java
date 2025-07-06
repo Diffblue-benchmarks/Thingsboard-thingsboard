@@ -14,12 +14,13 @@ import org.junit.jupiter.api.Test;
 class EdgeTypeFilterDiffblueTest {
   /**
    * Test {@link EdgeTypeFilter#getEdgeTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.</li>
-   *   <li>Then return first is {@code foo}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return first is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#getEdgeTypes()}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#getEdgeTypes()}
    */
   @Test
   @DisplayName("Test getEdgeTypes(); given ArrayList() add 'foo'; then return first is 'foo'")
@@ -44,20 +45,22 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#getEdgeTypes()}.
+   *
    * <ul>
-   *   <li>Given {@link EdgeTypeFilter} (default constructor).</li>
-   *   <li>Then return first is {@code null}.</li>
+   *   <li>Given {@link EdgeTypeFilter} (default constructor).
+   *   <li>Then return first is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#getEdgeTypes()}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#getEdgeTypes()}
    */
   @Test
-  @DisplayName("Test getEdgeTypes(); given EdgeTypeFilter (default constructor); then return first is 'null'")
+  @DisplayName(
+      "Test getEdgeTypes(); given EdgeTypeFilter (default constructor); then return first is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List EdgeTypeFilter.getEdgeTypes()"})
   void testGetEdgeTypes_givenEdgeTypeFilter_thenReturnFirstIsNull() {
     // Arrange and Act
-    List<String> actualEdgeTypes = (new EdgeTypeFilter()).getEdgeTypes();
+    List<String> actualEdgeTypes = new EdgeTypeFilter().getEdgeTypes();
 
     // Assert
     assertEquals(1, actualEdgeTypes.size());
@@ -66,12 +69,14 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeTypeFilter#equals(Object)}
    *   <li>{@link EdgeTypeFilter#hashCode()}
@@ -101,12 +106,14 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeTypeFilter#equals(Object)}
    *   <li>{@link EdgeTypeFilter#hashCode()}
@@ -139,12 +146,14 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeTypeFilter#equals(Object)}
    *   <li>{@link EdgeTypeFilter#hashCode()}
@@ -174,12 +183,14 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeTypeFilter#equals(Object)}
    *   <li>{@link EdgeTypeFilter#hashCode()}
@@ -209,12 +220,14 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}, and {@link EdgeTypeFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeTypeFilter#equals(Object)}
    *   <li>{@link EdgeTypeFilter#hashCode()}
@@ -239,12 +252,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -268,12 +282,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -297,12 +312,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -326,12 +342,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -355,12 +372,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -388,12 +406,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -412,12 +431,13 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test {@link EdgeTypeFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeTypeFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeTypeFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -436,8 +456,9 @@ class EdgeTypeFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EdgeTypeFilter}
    *   <li>{@link EdgeTypeFilter#setEdgeNameFilter(String)}
@@ -451,10 +472,15 @@ class EdgeTypeFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeTypeFilter.<init>()", "String EdgeTypeFilter.getEdgeNameFilter()",
-      "EntityFilterType EdgeTypeFilter.getType()", "void EdgeTypeFilter.setEdgeNameFilter(String)",
-      "void EdgeTypeFilter.setEdgeType(String)", "void EdgeTypeFilter.setEdgeTypes(List)",
-      "String EdgeTypeFilter.toString()"})
+  @MethodsUnderTest({
+    "void EdgeTypeFilter.<init>()",
+    "String EdgeTypeFilter.getEdgeNameFilter()",
+    "EntityFilterType EdgeTypeFilter.getType()",
+    "void EdgeTypeFilter.setEdgeNameFilter(String)",
+    "void EdgeTypeFilter.setEdgeType(String)",
+    "void EdgeTypeFilter.setEdgeTypes(List)",
+    "String EdgeTypeFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeTypeFilter actualEdgeTypeFilter = new EdgeTypeFilter();
@@ -466,7 +492,8 @@ class EdgeTypeFilterDiffblueTest {
 
     // Assert
     assertEquals("Edge Name Filter", actualEdgeNameFilter);
-    assertEquals("EdgeTypeFilter(edgeType=Edge Type, edgeTypes=[Edge Type], edgeNameFilter=Edge Name Filter)",
+    assertEquals(
+        "EdgeTypeFilter(edgeType=Edge Type, edgeTypes=[Edge Type], edgeNameFilter=Edge Name Filter)",
         actualToStringResult);
     assertEquals(EntityFilterType.EDGE_TYPE, actualEdgeTypeFilter.getType());
   }

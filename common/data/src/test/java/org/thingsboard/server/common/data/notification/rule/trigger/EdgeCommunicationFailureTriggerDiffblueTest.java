@@ -14,11 +14,12 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EdgeCommunicationFailureTriggerDiffblueTest {
   /**
    * Test {@link EdgeCommunicationFailureTrigger#deduplicate()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeCommunicationFailureTrigger#deduplicate()}
+   *
+   * <p>Method under test: {@link EdgeCommunicationFailureTrigger#deduplicate()}
    */
   @Test
   @DisplayName("Test deduplicate(); then return 'true'")
@@ -26,15 +27,21 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
   @MethodsUnderTest({"boolean EdgeCommunicationFailureTrigger.deduplicate()"})
   void testDeduplicate_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new EdgeCommunicationFailureTrigger(TenantId.SYS_TENANT_ID,
-        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, "Edge Name", "Failure Msg",
-        "An error occurred")).deduplicate());
+    assertTrue(
+        new EdgeCommunicationFailureTrigger(
+                TenantId.SYS_TENANT_ID,
+                new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                null,
+                "Edge Name",
+                "Failure Msg",
+                "An error occurred")
+            .deduplicate());
   }
 
   /**
    * Test {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}.
-   * <p>
-   * Method under test: {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}
+   *
+   * <p>Method under test: {@link EdgeCommunicationFailureTrigger#getDeduplicationKey()}
    */
   @Test
   @DisplayName("Test getDeduplicationKey()")
@@ -45,19 +52,26 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertEquals("EDGE_COMMUNICATION_FAILURE:EDGE:784f394c-42b6-435a-983c-b7beff2784f9:An error occurred",
-        (new EdgeCommunicationFailureTrigger(TenantId.SYS_TENANT_ID, customerId,
-            new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Edge Name", "Failure Msg",
-            "An error occurred")).getDeduplicationKey());
+    assertEquals(
+        "EDGE_COMMUNICATION_FAILURE:EDGE:784f394c-42b6-435a-983c-b7beff2784f9:An error occurred",
+        new EdgeCommunicationFailureTrigger(
+                TenantId.SYS_TENANT_ID,
+                customerId,
+                new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Edge Name",
+                "Failure Msg",
+                "An error occurred")
+            .getDeduplicationKey());
   }
 
   /**
    * Test {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}.
+   *
    * <ul>
-   *   <li>Then return {@code 1800000}.</li>
+   *   <li>Then return {@code 1800000}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}
+   *
+   * <p>Method under test: {@link EdgeCommunicationFailureTrigger#getDefaultDeduplicationDuration()}
    */
   @Test
   @DisplayName("Test getDefaultDeduplicationDuration(); then return '1800000'")
@@ -65,9 +79,15 @@ class EdgeCommunicationFailureTriggerDiffblueTest {
   @MethodsUnderTest({"long EdgeCommunicationFailureTrigger.getDefaultDeduplicationDuration()"})
   void testGetDefaultDeduplicationDuration_thenReturn1800000() {
     // Arrange, Act and Assert
-    assertEquals(1800000L,
-        (new EdgeCommunicationFailureTrigger(TenantId.SYS_TENANT_ID,
-            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, "Edge Name", "Failure Msg",
-            "An error occurred")).getDefaultDeduplicationDuration());
+    assertEquals(
+        1800000L,
+        new EdgeCommunicationFailureTrigger(
+                TenantId.SYS_TENANT_ID,
+                new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                null,
+                "Edge Name",
+                "Failure Msg",
+                "An error occurred")
+            .getDefaultDeduplicationDuration());
   }
 }

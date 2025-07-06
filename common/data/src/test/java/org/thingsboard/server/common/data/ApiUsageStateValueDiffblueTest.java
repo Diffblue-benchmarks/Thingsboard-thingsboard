@@ -9,39 +9,53 @@ import org.junit.jupiter.api.Test;
 class ApiUsageStateValueDiffblueTest {
   /**
    * Test {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>When {@code ENABLED}.</li>
-   *   <li>Then return {@code ENABLED}.</li>
+   *   <li>When {@code ENABLED}.
+   *   <li>Then return {@code ENABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue,
+   * ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue); when 'ENABLED'; then return 'ENABLED'")
+  @DisplayName(
+      "Test toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue); when 'ENABLED'; then return 'ENABLED'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ApiUsageStateValue ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)"})
+  @MethodsUnderTest({
+    "ApiUsageStateValue ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)"
+  })
   void testToMoreRestricted_whenEnabled_thenReturnEnabled() {
     // Arrange, Act and Assert
-    assertEquals(ApiUsageStateValue.ENABLED,
-        ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue.ENABLED, ApiUsageStateValue.ENABLED));
+    assertEquals(
+        ApiUsageStateValue.ENABLED,
+        ApiUsageStateValue.toMoreRestricted(
+            ApiUsageStateValue.ENABLED, ApiUsageStateValue.ENABLED));
   }
 
   /**
    * Test {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>When {@code WARNING}.</li>
-   *   <li>Then return {@code WARNING}.</li>
+   *   <li>When {@code WARNING}.
+   *   <li>Then return {@code WARNING}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link ApiUsageStateValue#toMoreRestricted(ApiUsageStateValue,
+   * ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue); when 'WARNING'; then return 'WARNING'")
+  @DisplayName(
+      "Test toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue); when 'WARNING'; then return 'WARNING'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ApiUsageStateValue ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)"})
+  @MethodsUnderTest({
+    "ApiUsageStateValue ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue, ApiUsageStateValue)"
+  })
   void testToMoreRestricted_whenWarning_thenReturnWarning() {
     // Arrange, Act and Assert
-    assertEquals(ApiUsageStateValue.WARNING,
-        ApiUsageStateValue.toMoreRestricted(ApiUsageStateValue.WARNING, ApiUsageStateValue.ENABLED));
+    assertEquals(
+        ApiUsageStateValue.WARNING,
+        ApiUsageStateValue.toMoreRestricted(
+            ApiUsageStateValue.WARNING, ApiUsageStateValue.ENABLED));
   }
 }

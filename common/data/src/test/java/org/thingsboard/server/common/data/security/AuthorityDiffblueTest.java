@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class AuthorityDiffblueTest {
   /**
    * Test {@link Authority#getCode()}.
-   * <p>
-   * Method under test: {@link Authority#getCode()}
+   *
+   * <p>Method under test: {@link Authority#getCode()}
    */
   @Test
   @DisplayName("Test getCode()")
@@ -24,12 +24,13 @@ class AuthorityDiffblueTest {
 
   /**
    * Test {@link Authority#parse(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Authority#parse(String)}
+   *
+   * <p>Method under test: {@link Authority#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String); when '42'; then return 'null'")
@@ -42,12 +43,13 @@ class AuthorityDiffblueTest {
 
   /**
    * Test {@link Authority#parse(String)}.
+   *
    * <ul>
-   *   <li>When {@code CUSTOMER_USER}.</li>
-   *   <li>Then return {@code CUSTOMER_USER}.</li>
+   *   <li>When {@code CUSTOMER_USER}.
+   *   <li>Then return {@code CUSTOMER_USER}.
    * </ul>
-   * <p>
-   * Method under test: {@link Authority#parse(String)}
+   *
+   * <p>Method under test: {@link Authority#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String); when 'CUSTOMER_USER'; then return 'CUSTOMER_USER'")
@@ -60,12 +62,13 @@ class AuthorityDiffblueTest {
 
   /**
    * Test {@link Authority#parse(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When empty string.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Authority#parse(String)}
+   *
+   * <p>Method under test: {@link Authority#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String); when empty string; then return 'null'")
@@ -78,12 +81,13 @@ class AuthorityDiffblueTest {
 
   /**
    * Test {@link Authority#parse(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Authority#parse(String)}
+   *
+   * <p>Method under test: {@link Authority#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String); when 'null'; then return 'null'")

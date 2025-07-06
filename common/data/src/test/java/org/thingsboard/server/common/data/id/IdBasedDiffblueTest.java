@@ -14,8 +14,8 @@ import org.thingsboard.server.common.data.ApiUsageState;
 class IdBasedDiffblueTest {
   /**
    * Test {@link IdBased#setId(UUIDBased)}.
-   * <p>
-   * Method under test: {@link IdBased#setId(UUIDBased)}
+   *
+   * <p>Method under test: {@link IdBased#setId(UUIDBased)}
    */
   @Test
   @DisplayName("Test setId(UUIDBased)")
@@ -37,8 +37,8 @@ class IdBasedDiffblueTest {
 
   /**
    * Test {@link IdBased#getId()}.
-   * <p>
-   * Method under test: {@link IdBased#getId()}
+   *
+   * <p>Method under test: {@link IdBased#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -46,17 +46,18 @@ class IdBasedDiffblueTest {
   @MethodsUnderTest({"UUIDBased IdBased.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new ApiUsageState()).getId());
+    assertNull(new ApiUsageState().getId());
   }
 
   /**
    * Test {@link IdBased#getUuidId()}.
+   *
    * <ul>
-   *   <li>Given {@link AdminSettings#AdminSettings()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link AdminSettings#AdminSettings()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link IdBased#getUuidId()}
+   *
+   * <p>Method under test: {@link IdBased#getUuidId()}
    */
   @Test
   @DisplayName("Test getUuidId(); given AdminSettings(); then return 'null'")
@@ -64,16 +65,17 @@ class IdBasedDiffblueTest {
   @MethodsUnderTest({"UUID IdBased.getUuidId()"})
   void testGetUuidId_givenAdminSettings_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new AdminSettings()).getUuidId());
+    assertNull(new AdminSettings().getUuidId());
   }
 
   /**
    * Test {@link IdBased#getUuidId()}.
+   *
    * <ul>
-   *   <li>Then return toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link IdBased#getUuidId()}
+   *
+   * <p>Method under test: {@link IdBased#getUuidId()}
    */
   @Test
   @DisplayName("Test getUuidId(); then return toString is '784f394c-42b6-435a-983c-b7beff2784f9'")

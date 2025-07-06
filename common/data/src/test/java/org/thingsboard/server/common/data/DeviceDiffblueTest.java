@@ -28,8 +28,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DeviceDiffblueTest {
   /**
    * Test {@link Device#getExternalId()}.
-   * <p>
-   * Method under test: {@link Device#getExternalId()}
+   *
+   * <p>Method under test: {@link Device#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -37,16 +37,17 @@ class DeviceDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceId Device.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new Device()).getExternalId());
+    assertNull(new Device().getExternalId());
   }
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and minus one.</li>
+   *   <li>Given array of {@code byte} with {@code A} and minus one.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with 'A' and minus one")
@@ -55,7 +56,7 @@ class DeviceDiffblueTest {
   void testNewDevice_givenArrayOfByteWithAAndMinusOne() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualDevice = new Device(device);
@@ -81,11 +82,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
+   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with MAX_VALUE and 'X'")
@@ -94,7 +96,7 @@ class DeviceDiffblueTest {
   void testNewDevice_givenArrayOfByteWithMax_valueAndX() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualDevice = new Device(device);
@@ -120,11 +122,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with zero and {@code X}.</li>
+   *   <li>Given array of {@code byte} with zero and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given array of byte with zero and 'X'")
@@ -133,7 +136,7 @@ class DeviceDiffblueTest {
   void testNewDevice_givenArrayOfByteWithZeroAndX() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualDevice = new Device(device);
@@ -159,11 +162,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); given 'AXAXAXAX' Bytes is 'UTF-8'")
@@ -198,21 +202,23 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
-   *   <li>When {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
+   *   <li>When {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
-  @DisplayName("Test new Device(Device); given empty array of byte; when Device() DeviceDataBytes is empty array of byte")
+  @DisplayName(
+      "Test new Device(Device); given empty array of byte; when Device() DeviceDataBytes is empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Device.<init>(Device)"})
   void testNewDevice_givenEmptyArrayOfByte_whenDeviceDeviceDataBytesIsEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{});
+    device.setDeviceDataBytes(new byte[] {});
 
     // Act
     Device actualDevice = new Device(device);
@@ -238,11 +244,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); when Device()")
@@ -273,11 +280,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); when Device(Device) with device is Device()")
@@ -308,11 +316,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#Device(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#Device(Device)}
+   *
+   * <p>Method under test: {@link Device#Device(Device)}
    */
   @Test
   @DisplayName("Test new Device(Device); when Device(Device) with device is Device(Device)")
@@ -343,11 +352,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and minus one.</li>
+   *   <li>Given array of {@code byte} with {@code A} and minus one.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with 'A' and minus one")
@@ -358,7 +368,7 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     Device device2 = new Device();
-    device2.setDeviceDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
+    device2.setDeviceDataBytes(new byte[] {'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualUpdateDeviceResult = device.updateDevice(device2);
@@ -384,11 +394,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
+   *   <li>Given array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with MAX_VALUE and 'X'")
@@ -399,7 +410,7 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     Device device2 = new Device();
-    device2.setDeviceDataBytes(new byte[]{Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device2.setDeviceDataBytes(new byte[] {Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualUpdateDeviceResult = device.updateDevice(device2);
@@ -425,11 +436,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with zero and {@code X}.</li>
+   *   <li>Given array of {@code byte} with zero and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given array of byte with zero and 'X'")
@@ -440,7 +452,7 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     Device device2 = new Device();
-    device2.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device2.setDeviceDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     Device actualUpdateDeviceResult = device.updateDevice(device2);
@@ -466,11 +478,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given 'AXAXAXAX' Bytes is 'UTF-8'")
@@ -507,11 +520,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); given empty array of byte")
@@ -522,7 +536,7 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     Device device2 = new Device();
-    device2.setDeviceDataBytes(new byte[]{});
+    device2.setDeviceDataBytes(new byte[] {});
 
     // Act
     Device actualUpdateDeviceResult = device.updateDevice(device2);
@@ -548,15 +562,17 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
-   *   <li>Then AdditionalInfo return {@link NullNode}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.
+   *   <li>Then AdditionalInfo return {@link NullNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
-  @DisplayName("Test updateDevice(Device); when Device(Device) with device is Device(); then AdditionalInfo return NullNode")
+  @DisplayName(
+      "Test updateDevice(Device); when Device(Device) with device is Device(); then AdditionalInfo return NullNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode() {
@@ -564,20 +580,23 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     // Act and Assert
-    assertTrue(device.updateDevice(new Device(new Device())).getAdditionalInfo() instanceof NullNode);
+    assertTrue(
+        device.updateDevice(new Device(new Device())).getAdditionalInfo() instanceof NullNode);
   }
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
-   *   <li>Then AdditionalInfo return {@link NullNode}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.
+   *   <li>Then AdditionalInfo return {@link NullNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
-  @DisplayName("Test updateDevice(Device); when Device(Device) with device is Device(Device); then AdditionalInfo return NullNode")
+  @DisplayName(
+      "Test updateDevice(Device); when Device(Device) with device is Device(Device); then AdditionalInfo return NullNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device Device.updateDevice(Device)"})
   void testUpdateDevice_whenDeviceWithDeviceIsDevice_thenAdditionalInfoReturnNullNode2() {
@@ -585,17 +604,20 @@ class DeviceDiffblueTest {
     Device device = new Device();
 
     // Act and Assert
-    assertTrue(device.updateDevice(new Device(new Device(new Device()))).getAdditionalInfo() instanceof NullNode);
+    assertTrue(
+        device.updateDevice(new Device(new Device(new Device()))).getAdditionalInfo()
+            instanceof NullNode);
   }
 
   /**
    * Test {@link Device#updateDevice(Device)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()}.</li>
-   *   <li>Then return {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device()}.
+   *   <li>Then return {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#updateDevice(Device)}
+   *
+   * <p>Method under test: {@link Device#updateDevice(Device)}
    */
   @Test
   @DisplayName("Test updateDevice(Device); when Device(); then return Device()")
@@ -611,8 +633,8 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getId()}.
-   * <p>
-   * Method under test: {@link Device#getId()}
+   *
+   * <p>Method under test: {@link Device#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -620,13 +642,13 @@ class DeviceDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.DeviceId Device.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new Device()).getId());
+    assertNull(new Device().getId());
   }
 
   /**
    * Test {@link Device#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link Device#getCreatedTime()}
+   *
+   * <p>Method under test: {@link Device#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -634,13 +656,13 @@ class DeviceDiffblueTest {
   @MethodsUnderTest({"long Device.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new Device()).getCreatedTime());
+    assertEquals(0L, new Device().getCreatedTime());
   }
 
   /**
    * Test {@link Device#getDeviceData()}.
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData()")
@@ -649,7 +671,7 @@ class DeviceDiffblueTest {
   void testGetDeviceData() {
     // Arrange
     Device device = new Device(new Device());
-    device.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -657,11 +679,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()}.</li>
+   *   <li>Given {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device()")
@@ -669,25 +692,28 @@ class DeviceDiffblueTest {
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDevice() {
     // Arrange, Act and Assert
-    assertNull((new Device()).getDeviceData());
+    assertNull(new Device().getDeviceData());
   }
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@code A} and minus one.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@code A} and
+   *       minus one.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with 'A' and minus one")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is array of byte with 'A' and minus one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithAAndMinusOne() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -695,20 +721,23 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@link Byte#MAX_VALUE} and {@code X}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with {@link
+   *       Byte#MAX_VALUE} and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with MAX_VALUE and 'X'")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is array of byte with MAX_VALUE and 'X'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithMax_valueAndX() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {Byte.MAX_VALUE, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -716,20 +745,23 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and {@code X}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and
+   *       {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and 'X'")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and 'X'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndX() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -737,20 +769,23 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and zero.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and
+   *       zero.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndZero() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -758,20 +793,23 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and zero.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is array of {@code byte} with zero and
+   *       zero.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is array of byte with zero and zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
   void testGetDeviceData_givenDeviceDeviceDataBytesIsArrayOfByteWithZeroAndZero2() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -779,17 +817,20 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
-  @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getDeviceData(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceData Device.getDeviceData()"})
-  void testGetDeviceData_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
+  void testGetDeviceData_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8()
+      throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes("AXAXAXAX".getBytes("UTF-8"));
@@ -800,11 +841,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device() DeviceDataBytes is empty array of byte")
@@ -813,7 +855,7 @@ class DeviceDiffblueTest {
   void testGetDeviceData_givenDeviceDeviceDataBytesIsEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{});
+    device.setDeviceDataBytes(new byte[] {});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -821,11 +863,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getDeviceData()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getDeviceData()}
+   *
+   * <p>Method under test: {@link Device#getDeviceData()}
    */
   @Test
   @DisplayName("Test getDeviceData(); given Device(Device) with device is Device()")
@@ -834,7 +877,7 @@ class DeviceDiffblueTest {
   void testGetDeviceData_givenDeviceWithDeviceIsDevice() {
     // Arrange
     Device device = new Device(new Device(new Device()));
-    device.setDeviceDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    device.setDeviceDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act and Assert
     assertNull(device.getDeviceData());
@@ -842,8 +885,8 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData)")
@@ -859,27 +902,32 @@ class DeviceDiffblueTest {
 
     // Assert
     assertSame(data, device.getDeviceData());
-    byte[] expectedDeviceDataBytes = "{\"configuration\":null,\"transportConfiguration\":null}".getBytes("UTF-8");
+    byte[] expectedDeviceDataBytes =
+        "{\"configuration\":null,\"transportConfiguration\":null}".getBytes("UTF-8");
     assertArrayEquals(expectedDeviceDataBytes, device.getDeviceDataBytes());
   }
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Given {@link CoapDeviceTransportConfiguration} (default constructor) {@code null} is {@code Value}.</li>
+   *   <li>Given {@link CoapDeviceTransportConfiguration} (default constructor) {@code null} is
+   *       {@code Value}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); given CoapDeviceTransportConfiguration (default constructor) 'null' is 'Value'")
+  @DisplayName(
+      "Test setDeviceData(DeviceData); given CoapDeviceTransportConfiguration (default constructor) 'null' is 'Value'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenCoapDeviceTransportConfigurationNullIsValue() {
     // Arrange
     Device device = new Device();
 
-    CoapDeviceTransportConfiguration transportConfiguration = new CoapDeviceTransportConfiguration();
+    CoapDeviceTransportConfiguration transportConfiguration =
+        new CoapDeviceTransportConfiguration();
     transportConfiguration.put(null, "Value");
 
     DeviceData data = new DeviceData();
@@ -896,11 +944,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceConfiguration}.</li>
+   *   <li>Given {@link DeviceConfiguration}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); given DeviceConfiguration")
@@ -924,15 +973,17 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceInfo#DeviceInfo()}.</li>
-   *   <li>Then {@link DeviceInfo#DeviceInfo()} DeviceDataBytes is {@code null}.</li>
+   *   <li>Given {@link DeviceInfo#DeviceInfo()}.
+   *   <li>Then {@link DeviceInfo#DeviceInfo()} DeviceDataBytes is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); given DeviceInfo(); then DeviceInfo() DeviceDataBytes is 'null'")
+  @DisplayName(
+      "Test setDeviceData(DeviceData); given DeviceInfo(); then DeviceInfo() DeviceDataBytes is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenDeviceInfo_thenDeviceInfoDeviceDataBytesIsNull() {
@@ -953,16 +1004,18 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()}.</li>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link Device#Device()} DeviceData is {@code null}.</li>
+   *   <li>Given {@link Device#Device()}.
+   *   <li>When {@code null}.
+   *   <li>Then {@link Device#Device()} DeviceData is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); given Device(); when 'null'; then Device() DeviceData is 'null'")
+  @DisplayName(
+      "Test setDeviceData(DeviceData); given Device(); when 'null'; then Device() DeviceData is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_givenDevice_whenNull_thenDeviceDeviceDataIsNull() {
@@ -979,11 +1032,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then array length is eighty.</li>
+   *   <li>Then array length is eighty.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is eighty")
@@ -1006,11 +1060,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then array length is one hundred sixty-seven.</li>
+   *   <li>Then array length is one hundred sixty-seven.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is one hundred sixty-seven")
@@ -1033,11 +1088,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then array length is three hundred thirty-three.</li>
+   *   <li>Then array length is three hundred thirty-three.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is three hundred thirty-three")
@@ -1060,11 +1116,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then array length is two hundred fifty-seven.</li>
+   *   <li>Then array length is two hundred fifty-seven.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then array length is two hundred fifty-seven")
@@ -1074,9 +1131,10 @@ class DeviceDiffblueTest {
     // Arrange
     Device device = new Device();
 
-    CoapDeviceTransportConfiguration transportConfiguration = new CoapDeviceTransportConfiguration();
-    transportConfiguration.put("org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfiguration",
-        "Value");
+    CoapDeviceTransportConfiguration transportConfiguration =
+        new CoapDeviceTransportConfiguration();
+    transportConfiguration.put(
+        "org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfiguration", "Value");
 
     DeviceData data = new DeviceData();
     data.setConfiguration(new DefaultDeviceConfiguration());
@@ -1091,11 +1149,12 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then {@link Device#Device()} DeviceDataBytes is {@code null}.</li>
+   *   <li>Then {@link Device#Device()} DeviceDataBytes is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
   @DisplayName("Test setDeviceData(DeviceData); then Device() DeviceDataBytes is 'null'")
@@ -1119,14 +1178,17 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#setDeviceData(DeviceData)}.
+   *
    * <ul>
-   *   <li>Then {@link Device#Device(Device)} with device is {@link Device#Device()} DeviceDataBytes is {@code null}.</li>
+   *   <li>Then {@link Device#Device(Device)} with device is {@link Device#Device()} DeviceDataBytes
+   *       is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#setDeviceData(DeviceData)}
+   *
+   * <p>Method under test: {@link Device#setDeviceData(DeviceData)}
    */
   @Test
-  @DisplayName("Test setDeviceData(DeviceData); then Device(Device) with device is Device() DeviceDataBytes is 'null'")
+  @DisplayName(
+      "Test setDeviceData(DeviceData); then Device(Device) with device is Device() DeviceDataBytes is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Device.setDeviceData(DeviceData)"})
   void testSetDeviceData_thenDeviceWithDeviceIsDeviceDeviceDataBytesIsNull() {
@@ -1147,23 +1209,26 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link Device#Device()} DeviceDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Device#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Device() DeviceDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
-  void testGetAdditionalInfo_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
+  void testGetAdditionalInfo_givenDeviceDeviceDataBytesIsAxaxaxaxBytesIsUtf8()
+      throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes("AXAXAXAX".getBytes("UTF-8"));
 
     // Act
-    JsonNode actualAdditionalInfo = (new Device(device)).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Device(device).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -1171,20 +1236,22 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device()}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Device#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Device(Device) with device is Device(); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Device(Device) with device is Device(); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDeviceWithDeviceIsDevice_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Device(new Device())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Device(new Device()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -1192,20 +1259,22 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Device#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Device(Device) with device is Device(Device); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Device(Device) with device is Device(Device); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDeviceWithDeviceIsDevice_thenReturnInstance2() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Device(new Device(new Device()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Device(new Device(new Device())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -1213,12 +1282,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Device#Device()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Device#Device()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Device#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Device(); then return 'null'")
@@ -1226,17 +1296,19 @@ class DeviceDiffblueTest {
   @MethodsUnderTest({"JsonNode Device.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenDevice_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new Device()).getAdditionalInfo());
+    assertNull(new Device().getAdditionalInfo());
   }
 
   /**
    * Test {@link Device#equals(Object)}, and {@link Device#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Device#equals(Object)}
    *   <li>{@link Device#hashCode()}
@@ -1259,12 +1331,14 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}, and {@link Device#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Device#equals(Object)}
    *   <li>{@link Device#hashCode()}
@@ -1286,12 +1360,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1307,12 +1382,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1328,12 +1404,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1349,12 +1426,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1371,12 +1449,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1393,12 +1472,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1415,12 +1495,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1437,12 +1518,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1459,12 +1541,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1473,7 +1556,7 @@ class DeviceDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{'A', 1, 'A', 1, 'A', 1, 'A', 1});
+    device.setDeviceDataBytes(new byte[] {'A', 1, 'A', 1, 'A', 1, 'A', 1});
 
     // Act and Assert
     assertNotEquals(device, new Device());
@@ -1481,12 +1564,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1503,12 +1587,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1527,12 +1612,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1551,12 +1637,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1575,12 +1662,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1599,12 +1687,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1623,12 +1712,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1647,12 +1737,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1665,12 +1756,13 @@ class DeviceDiffblueTest {
 
   /**
    * Test {@link Device#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Device#equals(Object)}
+   *
+   * <p>Method under test: {@link Device#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

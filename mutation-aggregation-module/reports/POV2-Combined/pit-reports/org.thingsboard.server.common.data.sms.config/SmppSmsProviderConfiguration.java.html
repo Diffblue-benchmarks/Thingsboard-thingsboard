@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>SmppSmsProviderConfiguration.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.sms.config;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.swagger.v3.oas.annotations.media.Schema;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_21'>116</a>
+<span>
+
+1. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+3. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+4. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+5. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+6. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+7. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+8. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+9. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+10. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+11. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+12. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+13. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+14. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+15. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+16. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+17. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+18. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+19. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+20. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+21. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+22. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+23. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+24. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+25. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+26. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+27. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; NO_COVERAGE<br/>
+
+28. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+29. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+30. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+31. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+32. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+33. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+34. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+35. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+36. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+37. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::canEqual &rarr; SURVIVED<br/>
+
+38. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::hashCode &rarr; SURVIVED<br/>
+
+39. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+40. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+41. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+42. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+43. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+44. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+45. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+46. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+47. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+48. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+49. equals : negated conditional &rarr; KILLED<br/>
+
+50. equals : negated conditional &rarr; KILLED<br/>
+
+51. equals : negated conditional &rarr; KILLED<br/>
+
+52. equals : negated conditional &rarr; KILLED<br/>
+
+53. equals : negated conditional &rarr; KILLED<br/>
+
+54. equals : negated conditional &rarr; KILLED<br/>
+
+55. equals : negated conditional &rarr; KILLED<br/>
+
+56. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+57. equals : negated conditional &rarr; KILLED<br/>
+
+58. equals : negated conditional &rarr; KILLED<br/>
+
+59. equals : negated conditional &rarr; KILLED<br/>
+
+60. equals : negated conditional &rarr; KILLED<br/>
+
+61. equals : negated conditional &rarr; KILLED<br/>
+
+62. equals : negated conditional &rarr; KILLED<br/>
+
+63. equals : negated conditional &rarr; KILLED<br/>
+
+64. equals : negated conditional &rarr; KILLED<br/>
+
+65. equals : negated conditional &rarr; KILLED<br/>
+
+66. equals : negated conditional &rarr; KILLED<br/>
+
+67. equals : replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+68. equals : negated conditional &rarr; KILLED<br/>
+
+69. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+70. equals : negated conditional &rarr; KILLED<br/>
+
+71. equals : negated conditional &rarr; KILLED<br/>
+
+72. equals : negated conditional &rarr; KILLED<br/>
+
+73. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+74. equals : negated conditional &rarr; KILLED<br/>
+
+75. equals : negated conditional &rarr; KILLED<br/>
+
+76. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+77. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+78. equals : negated conditional &rarr; KILLED<br/>
+
+79. equals : negated conditional &rarr; KILLED<br/>
+
+80. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+81. equals : negated conditional &rarr; KILLED<br/>
+
+82. equals : negated conditional &rarr; KILLED<br/>
+
+83. equals : negated conditional &rarr; KILLED<br/>
+
+84. equals : negated conditional &rarr; KILLED<br/>
+
+85. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+86. equals : negated conditional &rarr; KILLED<br/>
+
+87. equals : negated conditional &rarr; KILLED<br/>
+
+88. equals : negated conditional &rarr; KILLED<br/>
+
+89. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+90. equals : negated conditional &rarr; KILLED<br/>
+
+91. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+92. equals : negated conditional &rarr; KILLED<br/>
+
+93. equals : negated conditional &rarr; KILLED<br/>
+
+94. equals : negated conditional &rarr; KILLED<br/>
+
+95. equals : negated conditional &rarr; KILLED<br/>
+
+96. equals : negated conditional &rarr; KILLED<br/>
+
+97. equals : negated conditional &rarr; KILLED<br/>
+
+98. equals : negated conditional &rarr; KILLED<br/>
+
+99. equals : negated conditional &rarr; KILLED<br/>
+
+100. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::toString &rarr; KILLED<br/>
+
+101. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+102. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+103. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+104. equals : negated conditional &rarr; KILLED<br/>
+
+105. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+106. equals : negated conditional &rarr; KILLED<br/>
+
+107. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+108. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+109. equals : negated conditional &rarr; KILLED<br/>
+
+110. equals : replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+111. equals : negated conditional &rarr; KILLED<br/>
+
+112. equals : negated conditional &rarr; KILLED<br/>
+
+113. equals : negated conditional &rarr; KILLED<br/>
+
+114. equals : replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED<br/>
+
+115. equals : negated conditional &rarr; KILLED<br/>
+
+116. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::canEqual &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class SmppSmsProviderConfiguration implements SmsProviderConfiguration {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;SMPP version&#34;, allowableValues = &#34;3.3, 3.4&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_24'>1</a>
+<span>
+
+1. getProtocolVersion : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getProtocolVersion &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String protocolVersion;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;SMPP host&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_27'>1</a>
+<span>
+
+1. getHost : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getHost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String host;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;SMPP port&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_29'>1</a>
+<span>
+
+1. getPort : replaced Integer return value with 0 for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getPort &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Integer port;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;System ID&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_32'>1</a>
+<span>
+
+1. getSystemId : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSystemId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String systemId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Password&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_34'>1</a>
+<span>
+
+1. getPassword : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getPassword &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String password;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;System type&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_37'>1</a>
+<span>
+
+1. getSystemType : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSystemType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String systemType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;TX - Transmitter, RX - Receiver, TRX - Transciever. By default TX is used&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_39'>1</a>
+<span>
+
+1. getBindType : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getBindType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private SmppBindType bindType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Service type&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_41'>1</a>
+<span>
+
+1. getServiceType : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getServiceType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String serviceType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Source address&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_44'>1</a>
+<span>
+
+1. getSourceAddress : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceAddress &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String sourceAddress;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Source TON (Type of Number). Needed is source address is set. 5 by default.\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;0 - Unknown\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;1 - International\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;2 - National\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;3 - Network Specific\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;4 - Subscriber Number\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;5 - Alphanumeric\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;6 - Abbreviated&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_53'>1</a>
+<span>
+
+1. getSourceTon : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceTon &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Byte sourceTon;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Source NPI (Numbering Plan Identification). Needed is source address is set. 0 by default.\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;0 - Unknown\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;1 - ISDN/telephone numbering plan (E163/E164)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;3 - Data numbering plan (X.121)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;4 - Telex numbering plan (F.69)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;6 - Land Mobile (E.212) =6\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;8 - National numbering plan\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;9 - Private numbering plan\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;10 - ERMES numbering plan (ETSI DE/PS 3 01-3)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;13 - Internet (IP)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;18 - WAP Client Id (to be defined by WAP Forum)&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_65'>1</a>
+<span>
+
+1. getSourceNpi : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceNpi &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Byte sourceNpi;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Destination TON (Type of Number). 5 by default.\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;0 - Unknown\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;1 - International\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;2 - National\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;3 - Network Specific\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;4 - Subscriber Number\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;5 - Alphanumeric\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;6 - Abbreviated&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_75'>1</a>
+<span>
+
+1. getDestinationTon : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getDestinationTon &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Byte destinationTon;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Destination NPI (Numbering Plan Identification). 0 by default.\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;0 - Unknown\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;1 - ISDN/telephone numbering plan (E163/E164)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;3 - Data numbering plan (X.121)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;4 - Telex numbering plan (F.69)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;6 - Land Mobile (E.212) =6\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;8 - National numbering plan\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;9 - Private numbering plan\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;10 - ERMES numbering plan (ETSI DE/PS 3 01-3)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;13 - Internet (IP)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;18 - WAP Client Id (to be defined by WAP Forum)&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_87'>1</a>
+<span>
+
+1. getDestinationNpi : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getDestinationNpi &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Byte destinationNpi;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Address range&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_90'>1</a>
+<span>
+
+1. getAddressRange : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getAddressRange &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private String addressRange;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(allowableValues = {&#34;0-10&#34; ,&#34;13-14&#34;},</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            description = &#34;0 - SMSC Default Alphabet (ASCII for short and long code and to GSM for toll-free, used as default)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;1 - IA5 (ASCII for short and long code, Latin 9 for toll-free (ISO-8859-9))\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;2 - Octet Unspecified (8-bit binary)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;3 - Latin 1 (ISO-8859-1)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;4 - Octet Unspecified (8-bit binary)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;5 - JIS (X 0208-1990)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;6 - Cyrillic (ISO-8859-5)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;7 - Latin/Hebrew (ISO-8859-8)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;8 - UCS2/UTF-16 (ISO/IEC-10646)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;9 - Pictogram Encoding\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;10 - Music Codes (ISO-2022-JP)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;13 - Extended Kanji JIS (X 0212-1990)\n&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;14 - Korean Graphic Character Set (KS C 5601/KS X 1001)&#34;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_106'>1</a>
+<span>
+
+1. getCodingScheme : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getCodingScheme &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Byte codingScheme;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public SmsProviderType getType() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_110'/>
+110
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_110'>1</a>
+<span>
+
+1. getType : replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getType &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return SmsProviderType.SMPP;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public enum SmppBindType {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        TX, RX, TRX</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@51b2b433_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual17()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[216],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[216],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[216],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual14()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual16()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual26()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[131],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[131],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[131],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual28()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual12()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[167],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[167],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[167],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[159],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[159],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[159],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual18()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[281],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[281],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[281],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual25()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual23()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[91],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[91],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[91],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[188],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[188],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[188],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual15()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[273],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[273],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[273],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[83],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[245],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[245],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[245],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual24()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[224],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[224],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[224],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual26()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[34],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual12()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual30()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual28()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual28()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual14()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[243],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[243],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[243],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual12()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[235],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[235],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[235],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual29()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[112],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[112],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[112],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual21()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[45],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual18()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual19()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual4()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual19()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>57.<span><b>57</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>58.<span><b>58</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual29()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>59.<span><b>59</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual22()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>60.<span><b>60</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual22()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>61.<span><b>61</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual8()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>62.<span><b>62</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>63.<span><b>63</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual27()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>64.<span><b>64</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>65.<span><b>65</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual20()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>66.<span><b>66</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>67.<span><b>67</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[110],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>68.<span><b>68</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>69.<span><b>69</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual30()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>70.<span><b>70</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>71.<span><b>71</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[169],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[169],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[169],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>72.<span><b>72</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual24()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>73.<span><b>73</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[292],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[292],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[292],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>74.<span><b>74</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>75.<span><b>75</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>76.<span><b>76</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[121],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>77.<span><b>77</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[226],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[226],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[226],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>78.<span><b>78</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>79.<span><b>79</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::toString &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>80.<span><b>80</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[72],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>81.<span><b>81</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual16()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>82.<span><b>82</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[64],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>83.<span><b>83</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual25()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>84.<span><b>84</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual23()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>85.<span><b>85</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[262],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[262],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[262],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>86.<span><b>86</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>87.<span><b>87</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[186],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[186],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[186],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>88.<span><b>88</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual10()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>89.<span><b>89</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual22()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>90.<span><b>90</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[93],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[93],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[93],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>91.<span><b>91</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[178],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[178],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[178],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>92.<span><b>92</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[283],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[283],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[283],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>93.<span><b>93</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>94.<span><b>94</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[150],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[150],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[150],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>95.<span><b>95</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual6()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>96.<span><b>96</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual20()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>97.<span><b>97</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual17()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>98.<span><b>98</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[129],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[129],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[129],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>99.<span><b>99</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>100.<span><b>100</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>101.<span><b>101</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>102.<span><b>102</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual16()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>103.<span><b>103</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>104.<span><b>104</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[295],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[295],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[295],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>105.<span><b>105</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[148],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>106.<span><b>106</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>107.<span><b>107</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[140],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>108.<span><b>108</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[207],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[207],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[207],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>109.<span><b>109</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[254],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[254],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[254],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>110.<span><b>110</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>111.<span><b>111</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsWrongType_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>112.<span><b>112</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[205],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[205],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[205],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>113.<span><b>113</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::canEqual &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>114.<span><b>114</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[264],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>115.<span><b>115</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[197],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[197],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[197],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>116.<span><b>116</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguration,-method=hashCode,-methodDesc=()I],-indexes=[74],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getProtocolVersion<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual17()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getProtocolVersion &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHost<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual11()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getHost &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPort<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual16()]</span></span> replaced Integer return value with 0 for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getPort &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSystemId<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual27()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSystemId &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPassword<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual13()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getPassword &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSystemType<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual29()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSystemType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBindType<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual3()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getBindType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getServiceType<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual19()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getServiceType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceAddress<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual22()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceAddress &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceTon<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual25()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceTon &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceNpi<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual24()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getSourceNpi &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDestinationTon<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual9()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getDestinationTon &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDestinationNpi<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual7()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getDestinationNpi &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAddressRange<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getAddressRange &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCodingScheme<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual5()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getCodingScheme &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@51b2b433_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@51b2b433_110'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getType<br/><b>Killed by : </b>org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfigurationDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with null for org/thingsboard/server/common/data/sms/config/SmppSmsProviderConfiguration::getType &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

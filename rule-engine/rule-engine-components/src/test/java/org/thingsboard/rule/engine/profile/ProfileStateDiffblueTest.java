@@ -32,11 +32,12 @@ import org.thingsboard.server.common.data.id.DeviceProfileId;
 class ProfileStateDiffblueTest {
   /**
    * Test {@link ProfileState#ProfileState(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Then return AlarmSettings is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return AlarmSettings is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#ProfileState(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProfileState#ProfileState(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new ProfileState(DeviceProfile); then return AlarmSettings is ArrayList()")
@@ -89,11 +90,12 @@ class ProfileStateDiffblueTest {
 
   /**
    * Test {@link ProfileState#ProfileState(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Then return ProfileId is {@code null}.</li>
+   *   <li>Then return ProfileId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#ProfileState(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProfileState#ProfileState(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new ProfileState(DeviceProfile); then return ProfileId is 'null'")
@@ -121,11 +123,12 @@ class ProfileStateDiffblueTest {
 
   /**
    * Test {@link ProfileState#updateDeviceProfile(DeviceProfile)}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceProfile#getProfileData()}.</li>
+   *   <li>Then calls {@link DeviceProfile#getProfileData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#updateDeviceProfile(DeviceProfile)}
+   *
+   * <p>Method under test: {@link ProfileState#updateDeviceProfile(DeviceProfile)}
    */
   @Test
   @DisplayName("Test updateDeviceProfile(DeviceProfile); then calls getProfileData()")
@@ -160,15 +163,18 @@ class ProfileStateDiffblueTest {
 
   /**
    * Test {@link ProfileState#getProfileId()}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link
+   *       ArrayList#ArrayList()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#getProfileId()}
+   *
+   * <p>Method under test: {@link ProfileState#getProfileId()}
    */
   @Test
-  @DisplayName("Test getProfileId(); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return 'null'")
+  @DisplayName(
+      "Test getProfileId(); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileId ProfileState.getProfileId()"})
   void testGetProfileId_givenDeviceProfileDataAlarmsIsArrayList_thenReturnNull() {
@@ -183,7 +189,7 @@ class ProfileStateDiffblueTest {
     when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
 
     // Act
-    DeviceProfileId actualProfileId = (new ProfileState(deviceProfile)).getProfileId();
+    DeviceProfileId actualProfileId = new ProfileState(deviceProfile).getProfileId();
 
     // Assert
     verify(deviceProfile).getId();
@@ -193,15 +199,18 @@ class ProfileStateDiffblueTest {
 
   /**
    * Test {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link
+   *       ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}
+   *
+   * <p>Method under test: {@link ProfileState#getCreateAlarmKeys(String, AlarmSeverity)}
    */
   @Test
-  @DisplayName("Test getCreateAlarmKeys(String, AlarmSeverity); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
+  @DisplayName(
+      "Test getCreateAlarmKeys(String, AlarmSeverity); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set ProfileState.getCreateAlarmKeys(String, AlarmSeverity)"})
   void testGetCreateAlarmKeys_givenDeviceProfileDataAlarmsIsArrayList_thenReturnEmpty() {
@@ -215,8 +224,8 @@ class ProfileStateDiffblueTest {
     when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
 
     // Act
-    Set<AlarmConditionFilterKey> actualCreateAlarmKeys = (new ProfileState(deviceProfile)).getCreateAlarmKeys("42",
-        AlarmSeverity.CRITICAL);
+    Set<AlarmConditionFilterKey> actualCreateAlarmKeys =
+        new ProfileState(deviceProfile).getCreateAlarmKeys("42", AlarmSeverity.CRITICAL);
 
     // Assert
     verify(deviceProfile, atLeast(1)).getProfileData();
@@ -225,15 +234,18 @@ class ProfileStateDiffblueTest {
 
   /**
    * Test {@link ProfileState#getClearAlarmKeys(String)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>Given {@link DeviceProfileData} (default constructor) Alarms is {@link
+   *       ArrayList#ArrayList()}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ProfileState#getClearAlarmKeys(String)}
+   *
+   * <p>Method under test: {@link ProfileState#getClearAlarmKeys(String)}
    */
   @Test
-  @DisplayName("Test getClearAlarmKeys(String); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
+  @DisplayName(
+      "Test getClearAlarmKeys(String); given DeviceProfileData (default constructor) Alarms is ArrayList(); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set ProfileState.getClearAlarmKeys(String)"})
   void testGetClearAlarmKeys_givenDeviceProfileDataAlarmsIsArrayList_thenReturnEmpty() {
@@ -247,7 +259,8 @@ class ProfileStateDiffblueTest {
     when(deviceProfile.getProfileData()).thenReturn(deviceProfileData);
 
     // Act
-    Set<AlarmConditionFilterKey> actualClearAlarmKeys = (new ProfileState(deviceProfile)).getClearAlarmKeys("42");
+    Set<AlarmConditionFilterKey> actualClearAlarmKeys =
+        new ProfileState(deviceProfile).getClearAlarmKeys("42");
 
     // Assert
     verify(deviceProfile, atLeast(1)).getProfileData();

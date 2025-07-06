@@ -14,13 +14,16 @@ import org.junit.jupiter.api.Test;
 
 class TenantAdministratorsFilterDiffblueTest {
   /**
-   * Test {@link TenantAdministratorsFilter#equals(Object)}, and {@link TenantAdministratorsFilter#hashCode()}.
+   * Test {@link TenantAdministratorsFilter#equals(Object)}, and {@link
+   * TenantAdministratorsFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantAdministratorsFilter#equals(Object)}
    *   <li>{@link TenantAdministratorsFilter#hashCode()}
@@ -29,7 +32,10 @@ class TenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantAdministratorsFilter tenantAdministratorsFilter = new TenantAdministratorsFilter();
@@ -47,13 +53,16 @@ class TenantAdministratorsFilterDiffblueTest {
   }
 
   /**
-   * Test {@link TenantAdministratorsFilter#equals(Object)}, and {@link TenantAdministratorsFilter#hashCode()}.
+   * Test {@link TenantAdministratorsFilter#equals(Object)}, and {@link
+   * TenantAdministratorsFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantAdministratorsFilter#equals(Object)}
    *   <li>{@link TenantAdministratorsFilter#hashCode()}
@@ -62,7 +71,10 @@ class TenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantAdministratorsFilter tenantAdministratorsFilter = new TenantAdministratorsFilter();
@@ -77,17 +89,21 @@ class TenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link TenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<UUID> tenantProfilesIds = new HashSet<>();
@@ -107,17 +123,21 @@ class TenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link TenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     HashSet<UUID> tenantsIds = new HashSet<>();
@@ -137,17 +157,21 @@ class TenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link TenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TenantAdministratorsFilter tenantAdministratorsFilter = new TenantAdministratorsFilter();
@@ -160,17 +184,21 @@ class TenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test {@link TenantAdministratorsFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantAdministratorsFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantAdministratorsFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantAdministratorsFilter.equals(Object)", "int TenantAdministratorsFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantAdministratorsFilter.equals(Object)",
+    "int TenantAdministratorsFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TenantAdministratorsFilter tenantAdministratorsFilter = new TenantAdministratorsFilter();
@@ -183,8 +211,9 @@ class TenantAdministratorsFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TenantAdministratorsFilter}
    *   <li>{@link TenantAdministratorsFilter#setTenantProfilesIds(Set)}
@@ -198,11 +227,15 @@ class TenantAdministratorsFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantAdministratorsFilter.<init>()",
-      "Set TenantAdministratorsFilter.getTenantProfilesIds()", "Set TenantAdministratorsFilter.getTenantsIds()",
-      "UsersFilterType TenantAdministratorsFilter.getType()",
-      "void TenantAdministratorsFilter.setTenantProfilesIds(Set)", "void TenantAdministratorsFilter.setTenantsIds(Set)",
-      "String TenantAdministratorsFilter.toString()"})
+  @MethodsUnderTest({
+    "void TenantAdministratorsFilter.<init>()",
+    "Set TenantAdministratorsFilter.getTenantProfilesIds()",
+    "Set TenantAdministratorsFilter.getTenantsIds()",
+    "UsersFilterType TenantAdministratorsFilter.getType()",
+    "void TenantAdministratorsFilter.setTenantProfilesIds(Set)",
+    "void TenantAdministratorsFilter.setTenantsIds(Set)",
+    "String TenantAdministratorsFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TenantAdministratorsFilter actualTenantAdministratorsFilter = new TenantAdministratorsFilter();
@@ -215,7 +248,8 @@ class TenantAdministratorsFilterDiffblueTest {
     Set<UUID> actualTenantsIds = actualTenantAdministratorsFilter.getTenantsIds();
 
     // Assert
-    assertEquals("TenantAdministratorsFilter(tenantsIds=[], tenantProfilesIds=[])", actualToStringResult);
+    assertEquals(
+        "TenantAdministratorsFilter(tenantsIds=[], tenantProfilesIds=[])", actualToStringResult);
     assertEquals(UsersFilterType.TENANT_ADMINISTRATORS, actualTenantAdministratorsFilter.getType());
     assertTrue(actualTenantProfilesIds.isEmpty());
     assertTrue(actualTenantsIds.isEmpty());

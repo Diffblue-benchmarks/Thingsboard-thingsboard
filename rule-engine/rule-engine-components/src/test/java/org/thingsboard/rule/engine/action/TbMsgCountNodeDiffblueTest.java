@@ -13,8 +13,8 @@ import org.thingsboard.server.common.data.util.TbPair;
 class TbMsgCountNodeDiffblueTest {
   /**
    * Test new {@link TbMsgCountNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbMsgCountNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbMsgCountNode}
    */
   @Test
   @DisplayName("Test new TbMsgCountNode (default constructor)")
@@ -22,7 +22,7 @@ class TbMsgCountNodeDiffblueTest {
   @MethodsUnderTest({"void TbMsgCountNode.<init>()"})
   void testNewTbMsgCountNode() throws TbNodeException {
     // Arrange, Act and Assert
-    TbPair<Boolean, JsonNode> upgradeResult = (new TbMsgCountNode()).upgrade(1, null);
+    TbPair<Boolean, JsonNode> upgradeResult = new TbMsgCountNode().upgrade(1, null);
     assertNull(upgradeResult.getSecond());
     assertFalse(upgradeResult.getFirst());
   }

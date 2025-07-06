@@ -17,12 +17,14 @@ import org.thingsboard.server.common.data.query.KeyFilterPredicate;
 class AlarmConditionDiffblueTest {
   /**
    * Test {@link AlarmCondition#equals(Object)}, and {@link AlarmCondition#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCondition#equals(Object)}
    *   <li>{@link AlarmCondition#hashCode()}
@@ -50,12 +52,14 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}, and {@link AlarmCondition#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmCondition#equals(Object)}
    *   <li>{@link AlarmCondition#hashCode()}
@@ -79,12 +83,13 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCondition#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCondition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -106,12 +111,13 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCondition#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCondition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -120,7 +126,8 @@ class AlarmConditionDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmConditionFilter alarmConditionFilter = new AlarmConditionFilter();
-    alarmConditionFilter.setKey(new AlarmConditionFilterKey(AlarmConditionKeyType.ATTRIBUTE, "Key"));
+    alarmConditionFilter.setKey(
+        new AlarmConditionFilterKey(AlarmConditionKeyType.ATTRIBUTE, "Key"));
     alarmConditionFilter.setPredicate(mock(KeyFilterPredicate.class));
     alarmConditionFilter.setValue("Value");
     alarmConditionFilter.setValueType(EntityKeyValueType.STRING);
@@ -142,12 +149,13 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCondition#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCondition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -169,12 +177,13 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCondition#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCondition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -192,12 +201,13 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test {@link AlarmCondition#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCondition#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmCondition#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -215,8 +225,9 @@ class AlarmConditionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AlarmCondition}
    *   <li>{@link AlarmCondition#setCondition(List)}
@@ -229,9 +240,14 @@ class AlarmConditionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmCondition.<init>()", "List AlarmCondition.getCondition()",
-      "AlarmConditionSpec AlarmCondition.getSpec()", "void AlarmCondition.setCondition(List)",
-      "void AlarmCondition.setSpec(AlarmConditionSpec)", "java.lang.String AlarmCondition.toString()"})
+  @MethodsUnderTest({
+    "void AlarmCondition.<init>()",
+    "List AlarmCondition.getCondition()",
+    "AlarmConditionSpec AlarmCondition.getSpec()",
+    "void AlarmCondition.setCondition(List)",
+    "void AlarmCondition.setSpec(AlarmConditionSpec)",
+    "java.lang.String AlarmCondition.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmCondition actualAlarmCondition = new AlarmCondition();

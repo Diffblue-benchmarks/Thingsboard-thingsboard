@@ -16,8 +16,9 @@ import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 class DeviceProfileAlarmDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceProfileAlarm}
    *   <li>{@link DeviceProfileAlarm#setAlarmType(String)}
@@ -41,15 +42,26 @@ class DeviceProfileAlarmDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceProfileAlarm.<init>()", "String DeviceProfileAlarm.getAlarmType()",
-      "AlarmRule DeviceProfileAlarm.getClearRule()", "TreeMap DeviceProfileAlarm.getCreateRules()",
-      "String DeviceProfileAlarm.getId()", "List DeviceProfileAlarm.getPropagateRelationTypes()",
-      "boolean DeviceProfileAlarm.isPropagate()", "boolean DeviceProfileAlarm.isPropagateToOwner()",
-      "boolean DeviceProfileAlarm.isPropagateToTenant()", "void DeviceProfileAlarm.setAlarmType(String)",
-      "void DeviceProfileAlarm.setClearRule(AlarmRule)", "void DeviceProfileAlarm.setCreateRules(TreeMap)",
-      "void DeviceProfileAlarm.setId(String)", "void DeviceProfileAlarm.setPropagate(boolean)",
-      "void DeviceProfileAlarm.setPropagateRelationTypes(List)", "void DeviceProfileAlarm.setPropagateToOwner(boolean)",
-      "void DeviceProfileAlarm.setPropagateToTenant(boolean)", "String DeviceProfileAlarm.toString()"})
+  @MethodsUnderTest({
+    "void DeviceProfileAlarm.<init>()",
+    "String DeviceProfileAlarm.getAlarmType()",
+    "AlarmRule DeviceProfileAlarm.getClearRule()",
+    "TreeMap DeviceProfileAlarm.getCreateRules()",
+    "String DeviceProfileAlarm.getId()",
+    "List DeviceProfileAlarm.getPropagateRelationTypes()",
+    "boolean DeviceProfileAlarm.isPropagate()",
+    "boolean DeviceProfileAlarm.isPropagateToOwner()",
+    "boolean DeviceProfileAlarm.isPropagateToTenant()",
+    "void DeviceProfileAlarm.setAlarmType(String)",
+    "void DeviceProfileAlarm.setClearRule(AlarmRule)",
+    "void DeviceProfileAlarm.setCreateRules(TreeMap)",
+    "void DeviceProfileAlarm.setId(String)",
+    "void DeviceProfileAlarm.setPropagate(boolean)",
+    "void DeviceProfileAlarm.setPropagateRelationTypes(List)",
+    "void DeviceProfileAlarm.setPropagateToOwner(boolean)",
+    "void DeviceProfileAlarm.setPropagateToTenant(boolean)",
+    "String DeviceProfileAlarm.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceProfileAlarm actualDeviceProfileAlarm = new DeviceProfileAlarm();
@@ -67,7 +79,8 @@ class DeviceProfileAlarmDiffblueTest {
     AlarmRule actualClearRule = actualDeviceProfileAlarm.getClearRule();
     TreeMap<AlarmSeverity, AlarmRule> actualCreateRules = actualDeviceProfileAlarm.getCreateRules();
     String actualId = actualDeviceProfileAlarm.getId();
-    List<String> actualPropagateRelationTypes = actualDeviceProfileAlarm.getPropagateRelationTypes();
+    List<String> actualPropagateRelationTypes =
+        actualDeviceProfileAlarm.getPropagateRelationTypes();
     boolean actualIsPropagateResult = actualDeviceProfileAlarm.isPropagate();
     boolean actualIsPropagateToOwnerResult = actualDeviceProfileAlarm.isPropagateToOwner();
     boolean actualIsPropagateToTenantResult = actualDeviceProfileAlarm.isPropagateToTenant();
@@ -75,8 +88,10 @@ class DeviceProfileAlarmDiffblueTest {
     // Assert
     assertEquals("42", actualId);
     assertEquals("Alarm Type", actualAlarmType);
-    assertEquals("DeviceProfileAlarm(id=42, alarmType=Alarm Type, createRules={}, clearRule=null, propagate=true,"
-        + " propagateToOwner=true, propagateToTenant=true, propagateRelationTypes=[])", actualToStringResult);
+    assertEquals(
+        "DeviceProfileAlarm(id=42, alarmType=Alarm Type, createRules={}, clearRule=null, propagate=true,"
+            + " propagateToOwner=true, propagateToTenant=true, propagateRelationTypes=[])",
+        actualToStringResult);
     assertNull(actualClearRule);
     assertTrue(actualPropagateRelationTypes.isEmpty());
     assertTrue(actualIsPropagateResult);

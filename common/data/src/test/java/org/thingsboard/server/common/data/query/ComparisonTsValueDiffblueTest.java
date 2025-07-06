@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class ComparisonTsValueDiffblueTest {
   /**
    * Test {@link ComparisonTsValue#equals(Object)}, and {@link ComparisonTsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ComparisonTsValue#equals(Object)}
    *   <li>{@link ComparisonTsValue#hashCode()}
@@ -25,7 +27,10 @@ class ComparisonTsValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue();
@@ -39,12 +44,14 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}, and {@link ComparisonTsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ComparisonTsValue#equals(Object)}
    *   <li>{@link ComparisonTsValue#hashCode()}
@@ -53,7 +60,10 @@ class ComparisonTsValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue(TsValue.EMPTY, TsValue.EMPTY);
@@ -67,12 +77,14 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}, and {@link ComparisonTsValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ComparisonTsValue#equals(Object)}
    *   <li>{@link ComparisonTsValue#hashCode()}
@@ -81,7 +93,10 @@ class ComparisonTsValueDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue();
@@ -94,17 +109,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue(TsValue.EMPTY, TsValue.EMPTY);
@@ -115,17 +134,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue();
@@ -136,17 +159,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue();
@@ -158,17 +185,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ComparisonTsValue comparisonTsValue = new ComparisonTsValue();
@@ -182,17 +213,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ComparisonTsValue(), null);
@@ -200,17 +235,21 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test {@link ComparisonTsValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ComparisonTsValue#equals(Object)}
+   *
+   * <p>Method under test: {@link ComparisonTsValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ComparisonTsValue.equals(Object)", "int ComparisonTsValue.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ComparisonTsValue.equals(Object)",
+    "int ComparisonTsValue.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ComparisonTsValue(), "Different type to ComparisonTsValue");
@@ -218,8 +257,9 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ComparisonTsValue#ComparisonTsValue()}
    *   <li>{@link ComparisonTsValue#setCurrent(TsValue)}
@@ -232,10 +272,15 @@ class ComparisonTsValueDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ComparisonTsValue.<init>()", "void ComparisonTsValue.<init>(TsValue, TsValue)",
-      "TsValue ComparisonTsValue.getCurrent()", "TsValue ComparisonTsValue.getPrevious()",
-      "void ComparisonTsValue.setCurrent(TsValue)", "void ComparisonTsValue.setPrevious(TsValue)",
-      "String ComparisonTsValue.toString()"})
+  @MethodsUnderTest({
+    "void ComparisonTsValue.<init>()",
+    "void ComparisonTsValue.<init>(TsValue, TsValue)",
+    "TsValue ComparisonTsValue.getCurrent()",
+    "TsValue ComparisonTsValue.getPrevious()",
+    "void ComparisonTsValue.setCurrent(TsValue)",
+    "void ComparisonTsValue.setPrevious(TsValue)",
+    "String ComparisonTsValue.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ComparisonTsValue actualComparisonTsValue = new ComparisonTsValue();
@@ -247,7 +292,8 @@ class ComparisonTsValueDiffblueTest {
 
     // Assert
     assertEquals(
-        "ComparisonTsValue(current=TsValue(ts=0, value=, count=null), previous=TsValue(ts=0, value=," + " count=null))",
+        "ComparisonTsValue(current=TsValue(ts=0, value=, count=null), previous=TsValue(ts=0, value=,"
+            + " count=null))",
         actualToStringResult);
     TsValue tsValue = actualPrevious.EMPTY;
     assertSame(tsValue, actualCurrent);
@@ -256,11 +302,13 @@ class ComparisonTsValueDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TsValue#EMPTY}.</li>
+   *   <li>When {@link TsValue#EMPTY}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ComparisonTsValue#ComparisonTsValue(TsValue, TsValue)}
    *   <li>{@link ComparisonTsValue#setCurrent(TsValue)}
@@ -273,10 +321,15 @@ class ComparisonTsValueDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when EMPTY")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ComparisonTsValue.<init>()", "void ComparisonTsValue.<init>(TsValue, TsValue)",
-      "TsValue ComparisonTsValue.getCurrent()", "TsValue ComparisonTsValue.getPrevious()",
-      "void ComparisonTsValue.setCurrent(TsValue)", "void ComparisonTsValue.setPrevious(TsValue)",
-      "String ComparisonTsValue.toString()"})
+  @MethodsUnderTest({
+    "void ComparisonTsValue.<init>()",
+    "void ComparisonTsValue.<init>(TsValue, TsValue)",
+    "TsValue ComparisonTsValue.getCurrent()",
+    "TsValue ComparisonTsValue.getPrevious()",
+    "void ComparisonTsValue.setCurrent(TsValue)",
+    "void ComparisonTsValue.setPrevious(TsValue)",
+    "String ComparisonTsValue.toString()"
+  })
   void testGettersAndSetters_whenEmpty() {
     // Arrange and Act
     ComparisonTsValue actualComparisonTsValue = new ComparisonTsValue(TsValue.EMPTY, TsValue.EMPTY);
@@ -288,7 +341,8 @@ class ComparisonTsValueDiffblueTest {
 
     // Assert
     assertEquals(
-        "ComparisonTsValue(current=TsValue(ts=0, value=, count=null), previous=TsValue(ts=0, value=," + " count=null))",
+        "ComparisonTsValue(current=TsValue(ts=0, value=, count=null), previous=TsValue(ts=0, value=,"
+            + " count=null))",
         actualToStringResult);
     TsValue tsValue = actualPrevious.EMPTY;
     assertSame(tsValue, actualCurrent);

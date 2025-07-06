@@ -29,13 +29,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {NetworkReceive.class})
 @ExtendWith(SpringExtension.class)
 class NetworkReceiveDiffblueTest {
-  @Autowired
-  private NetworkReceive networkReceive;
+  @Autowired private NetworkReceive networkReceive;
 
   /**
    * Test {@link NetworkReceive#NetworkReceive()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive()}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive()}
    */
   @Test
   @DisplayName("Test new NetworkReceive()")
@@ -52,8 +51,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(String)}.
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(String)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(String)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(String)")
@@ -70,8 +69,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(String, ByteBuffer)}.
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(String, ByteBuffer)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(String, ByteBuffer)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(String, ByteBuffer)")
@@ -92,11 +91,12 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(int, String)}.
+   *
    * <ul>
-   *   <li>When three.</li>
+   *   <li>When three.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(int, String)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(int, String)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String); when three")
@@ -113,11 +113,12 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}.
+   *
    * <ul>
-   *   <li>When three.</li>
+   *   <li>When three.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String, MemoryPool); when three")
@@ -125,8 +126,8 @@ class NetworkReceiveDiffblueTest {
   @MethodsUnderTest({"void NetworkReceive.<init>(int, String, MemoryPool)"})
   void testNewNetworkReceive_whenThree2() {
     // Arrange and Act
-    NetworkReceive actualNetworkReceive = new NetworkReceive(3, "Source",
-        new GarbageCollectedMemoryPool(3L, 3, true, null));
+    NetworkReceive actualNetworkReceive =
+        new NetworkReceive(3, "Source", new GarbageCollectedMemoryPool(3L, 3, true, null));
 
     // Assert
     assertEquals("Source", actualNetworkReceive.source());
@@ -135,11 +136,12 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(int, String)}.
+   *
    * <ul>
-   *   <li>When {@link NetworkReceive#UNLIMITED}.</li>
+   *   <li>When {@link NetworkReceive#UNLIMITED}.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(int, String)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(int, String)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String); when UNLIMITED")
@@ -156,11 +158,12 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}.
+   *
    * <ul>
-   *   <li>When {@link NetworkReceive#UNLIMITED}.</li>
+   *   <li>When {@link NetworkReceive#UNLIMITED}.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
+   *
+   * <p>Method under test: {@link NetworkReceive#NetworkReceive(int, String, MemoryPool)}
    */
   @Test
   @DisplayName("Test new NetworkReceive(int, String, MemoryPool); when UNLIMITED")
@@ -168,8 +171,9 @@ class NetworkReceiveDiffblueTest {
   @MethodsUnderTest({"void NetworkReceive.<init>(int, String, MemoryPool)"})
   void testNewNetworkReceive_whenUnlimited2() {
     // Arrange and Act
-    NetworkReceive actualNetworkReceive = new NetworkReceive(NetworkReceive.UNLIMITED, "Source",
-        new GarbageCollectedMemoryPool(3L, 3, true, null));
+    NetworkReceive actualNetworkReceive =
+        new NetworkReceive(
+            NetworkReceive.UNLIMITED, "Source", new GarbageCollectedMemoryPool(3L, 3, true, null));
 
     // Assert
     assertEquals("Source", actualNetworkReceive.source());
@@ -178,8 +182,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#source()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#source()}
+   *
+   * <p>Method under test: {@link NetworkReceive#source()}
    */
   @Test
   @DisplayName("Test source()")
@@ -187,13 +191,13 @@ class NetworkReceiveDiffblueTest {
   @MethodsUnderTest({"String NetworkReceive.source()"})
   void testSource() {
     // Arrange, Act and Assert
-    assertEquals(NetworkReceive.UNKNOWN_SOURCE, (new NetworkReceive()).source());
+    assertEquals(NetworkReceive.UNKNOWN_SOURCE, new NetworkReceive().source());
   }
 
   /**
    * Test {@link NetworkReceive#complete()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#complete()}
+   *
+   * <p>Method under test: {@link NetworkReceive#complete()}
    */
   @Test
   @DisplayName("Test complete()")
@@ -206,19 +210,23 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#readFrom(ScatteringByteChannel)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link PlaintextTransportLayer} {@link PlaintextTransportLayer#read(ByteBuffer)} return one.</li>
-   *   <li>Then return one.</li>
+   *   <li>Given one.
+   *   <li>When {@link PlaintextTransportLayer} {@link PlaintextTransportLayer#read(ByteBuffer)}
+   *       return one.
+   *   <li>Then return one.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#readFrom(ScatteringByteChannel)}
+   *
+   * <p>Method under test: {@link NetworkReceive#readFrom(ScatteringByteChannel)}
    */
   @Test
-  @DisplayName("Test readFrom(ScatteringByteChannel); given one; when PlaintextTransportLayer read(ByteBuffer) return one; then return one")
+  @DisplayName(
+      "Test readFrom(ScatteringByteChannel); given one; when PlaintextTransportLayer read(ByteBuffer) return one; then return one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long NetworkReceive.readFrom(ScatteringByteChannel)"})
-  void testReadFrom_givenOne_whenPlaintextTransportLayerReadReturnOne_thenReturnOne() throws IOException {
+  void testReadFrom_givenOne_whenPlaintextTransportLayerReadReturnOne_thenReturnOne()
+      throws IOException {
     // Arrange
     PlaintextTransportLayer channel = mock(PlaintextTransportLayer.class);
     when(channel.read(Mockito.<ByteBuffer>any())).thenReturn(1);
@@ -233,12 +241,13 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#readFrom(ScatteringByteChannel)}.
+   *
    * <ul>
-   *   <li>Given {@link NetworkReceive#UNLIMITED}.</li>
-   *   <li>Then throw {@link EOFException}.</li>
+   *   <li>Given {@link NetworkReceive#UNLIMITED}.
+   *   <li>Then throw {@link EOFException}.
    * </ul>
-   * <p>
-   * Method under test: {@link NetworkReceive#readFrom(ScatteringByteChannel)}
+   *
+   * <p>Method under test: {@link NetworkReceive#readFrom(ScatteringByteChannel)}
    */
   @Test
   @DisplayName("Test readFrom(ScatteringByteChannel); given UNLIMITED; then throw EOFException")
@@ -256,8 +265,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#requiredMemoryAmountKnown()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#requiredMemoryAmountKnown()}
+   *
+   * <p>Method under test: {@link NetworkReceive#requiredMemoryAmountKnown()}
    */
   @Test
   @DisplayName("Test requiredMemoryAmountKnown()")
@@ -270,8 +279,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#memoryAllocated()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#memoryAllocated()}
+   *
+   * <p>Method under test: {@link NetworkReceive#memoryAllocated()}
    */
   @Test
   @DisplayName("Test memoryAllocated()")
@@ -284,8 +293,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#payload()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#payload()}
+   *
+   * <p>Method under test: {@link NetworkReceive#payload()}
    */
   @Test
   @DisplayName("Test payload()")
@@ -298,8 +307,8 @@ class NetworkReceiveDiffblueTest {
 
   /**
    * Test {@link NetworkReceive#bytesRead()}.
-   * <p>
-   * Method under test: {@link NetworkReceive#bytesRead()}
+   *
+   * <p>Method under test: {@link NetworkReceive#bytesRead()}
    */
   @Test
   @DisplayName("Test bytesRead()")

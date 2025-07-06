@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class DeviceTokenCredentialsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceTokenCredentials#DeviceTokenCredentials(String)}
    *   <li>{@link DeviceTokenCredentials#toString()}
@@ -21,8 +22,12 @@ class DeviceTokenCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceTokenCredentials.<init>(String)", "String DeviceTokenCredentials.getCredentialsId()",
-      "DeviceCredentialsType DeviceTokenCredentials.getCredentialsType()", "String DeviceTokenCredentials.toString()"})
+  @MethodsUnderTest({
+    "void DeviceTokenCredentials.<init>(String)",
+    "String DeviceTokenCredentials.getCredentialsId()",
+    "DeviceCredentialsType DeviceTokenCredentials.getCredentialsType()",
+    "String DeviceTokenCredentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceTokenCredentials actualDeviceTokenCredentials = new DeviceTokenCredentials("ABC123");
@@ -32,6 +37,7 @@ class DeviceTokenCredentialsDiffblueTest {
     // Assert
     assertEquals("ABC123", actualCredentialsId);
     assertEquals("DeviceTokenCredentials [token=ABC123]", actualToStringResult);
-    assertEquals(DeviceCredentialsType.ACCESS_TOKEN, actualDeviceTokenCredentials.getCredentialsType());
+    assertEquals(
+        DeviceCredentialsType.ACCESS_TOKEN, actualDeviceTokenCredentials.getCredentialsType());
   }
 }

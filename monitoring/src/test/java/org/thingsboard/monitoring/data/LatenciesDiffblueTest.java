@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class LatenciesDiffblueTest {
   /**
    * Test {@link Latencies#request(String)}.
-   * <p>
-   * Method under test: {@link Latencies#request(String)}
+   *
+   * <p>Method under test: {@link Latencies#request(String)}
    */
   @Test
   @DisplayName("Test request(String)")
@@ -23,8 +23,8 @@ class LatenciesDiffblueTest {
 
   /**
    * Test {@link Latencies#wsUpdate(String)}.
-   * <p>
-   * Method under test: {@link Latencies#wsUpdate(String)}
+   *
+   * <p>Method under test: {@link Latencies#wsUpdate(String)}
    */
   @Test
   @DisplayName("Test wsUpdate(String)")

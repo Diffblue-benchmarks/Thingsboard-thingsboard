@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 class DefaultTbQueueMsgHeadersDiffblueTest {
   /**
    * Test {@link DefaultTbQueueMsgHeaders#put(String, byte[])}.
-   * <p>
-   * Method under test: {@link DefaultTbQueueMsgHeaders#put(String, byte[])}
+   *
+   * <p>Method under test: {@link DefaultTbQueueMsgHeaders#put(String, byte[])}
    */
   @Test
   @DisplayName("Test put(String, byte[])")
@@ -35,8 +35,8 @@ class DefaultTbQueueMsgHeadersDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueMsgHeaders#get(String)}.
-   * <p>
-   * Method under test: {@link DefaultTbQueueMsgHeaders#get(String)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueMsgHeaders#get(String)}
    */
   @Test
   @DisplayName("Test get(String)")
@@ -44,13 +44,14 @@ class DefaultTbQueueMsgHeadersDiffblueTest {
   @MethodsUnderTest({"byte[] DefaultTbQueueMsgHeaders.get(String)"})
   void testGet() {
     // Arrange, Act and Assert
-    assertNull((new DefaultTbQueueMsgHeaders()).get("Key"));
+    assertNull(new DefaultTbQueueMsgHeaders().get("Key"));
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DefaultTbQueueMsgHeaders}
    *   <li>{@link DefaultTbQueueMsgHeaders#getData()}
@@ -59,9 +60,12 @@ class DefaultTbQueueMsgHeadersDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueMsgHeaders.<init>()", "Map DefaultTbQueueMsgHeaders.getData()"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueMsgHeaders.<init>()",
+    "Map DefaultTbQueueMsgHeaders.getData()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertTrue((new DefaultTbQueueMsgHeaders()).getData().isEmpty());
+    assertTrue(new DefaultTbQueueMsgHeaders().getData().isEmpty());
   }
 }

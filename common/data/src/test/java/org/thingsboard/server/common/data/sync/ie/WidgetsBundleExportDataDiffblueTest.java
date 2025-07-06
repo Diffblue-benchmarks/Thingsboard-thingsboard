@@ -17,11 +17,12 @@ import org.thingsboard.server.common.data.widget.WidgetsBundle;
 class WidgetsBundleExportDataDiffblueTest {
   /**
    * Test {@link WidgetsBundleExportData#addFqn(String)}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetsBundleExportData} (default constructor).</li>
+   *   <li>Given {@link WidgetsBundleExportData} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#addFqn(String)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#addFqn(String)}
    */
   @Test
   @DisplayName("Test addFqn(String); given WidgetsBundleExportData (default constructor)")
@@ -42,14 +43,17 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#addFqn(String)}.
+   *
    * <ul>
-   *   <li>Then {@link WidgetsBundleExportData} (default constructor) Fqns is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then {@link WidgetsBundleExportData} (default constructor) Fqns is {@link
+   *       ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#addFqn(String)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#addFqn(String)}
    */
   @Test
-  @DisplayName("Test addFqn(String); then WidgetsBundleExportData (default constructor) Fqns is ArrayList()")
+  @DisplayName(
+      "Test addFqn(String); then WidgetsBundleExportData (default constructor) Fqns is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetsBundleExportData.addFqn(String)"})
   void testAddFqn_thenWidgetsBundleExportDataFqnsIsArrayList() {
@@ -69,13 +73,16 @@ class WidgetsBundleExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link WidgetsBundleExportData#hashCode()}.
+   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link
+   * WidgetsBundleExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleExportData#equals(Object)}
    *   <li>{@link WidgetsBundleExportData#hashCode()}
@@ -84,7 +91,10 @@ class WidgetsBundleExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -97,13 +107,16 @@ class WidgetsBundleExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link WidgetsBundleExportData#hashCode()}.
+   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link
+   * WidgetsBundleExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleExportData#equals(Object)}
    *   <li>{@link WidgetsBundleExportData#hashCode()}
@@ -112,7 +125,10 @@ class WidgetsBundleExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -128,13 +144,16 @@ class WidgetsBundleExportDataDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link WidgetsBundleExportData#hashCode()}.
+   * Test {@link WidgetsBundleExportData#equals(Object)}, and {@link
+   * WidgetsBundleExportData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleExportData#equals(Object)}
    *   <li>{@link WidgetsBundleExportData#hashCode()}
@@ -143,7 +162,10 @@ class WidgetsBundleExportDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -156,17 +178,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -178,17 +204,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -201,17 +231,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -224,17 +258,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -248,17 +286,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -273,17 +315,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     WidgetsBundleExportData widgetsBundleExportData = new WidgetsBundleExportData();
@@ -299,17 +345,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetsBundleExportData(), null);
@@ -317,17 +367,21 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleExportData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleExportData#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleExportData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WidgetsBundleExportData.equals(Object)", "int WidgetsBundleExportData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleExportData.equals(Object)",
+    "int WidgetsBundleExportData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetsBundleExportData(), "Different type to WidgetsBundleExportData");
@@ -335,8 +389,9 @@ class WidgetsBundleExportDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link WidgetsBundleExportData}
    *   <li>{@link WidgetsBundleExportData#setFqns(List)}
@@ -349,9 +404,14 @@ class WidgetsBundleExportDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetsBundleExportData.<init>()", "List WidgetsBundleExportData.getFqns()",
-      "List WidgetsBundleExportData.getWidgets()", "void WidgetsBundleExportData.setFqns(List)",
-      "void WidgetsBundleExportData.setWidgets(List)", "String WidgetsBundleExportData.toString()"})
+  @MethodsUnderTest({
+    "void WidgetsBundleExportData.<init>()",
+    "List WidgetsBundleExportData.getFqns()",
+    "List WidgetsBundleExportData.getWidgets()",
+    "void WidgetsBundleExportData.setFqns(List)",
+    "void WidgetsBundleExportData.setWidgets(List)",
+    "String WidgetsBundleExportData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     WidgetsBundleExportData actualWidgetsBundleExportData = new WidgetsBundleExportData();

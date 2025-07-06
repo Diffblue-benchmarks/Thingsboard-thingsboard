@@ -36,24 +36,80 @@ import org.thingsboard.server.dao.exception.DataValidationException;
 @ContextConfiguration(classes = {ConstraintValidator.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ConstraintValidatorDiffblueTest {
-  @Autowired
-  private ConstraintValidator constraintValidator;
+  @Autowired private ConstraintValidator constraintValidator;
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code constraintViolation}.
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
   public void testGetErrorMessageWithConstraintViolation() {
     // Arrange
-    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl = mock(ConstraintDescriptorImpl.class);
+    ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
+    org.mockito.Mockito.<ConstraintDescriptor<?>>when(constraintViolation.getConstraintDescriptor())
+        .thenThrow(new DataValidationException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> ConstraintValidator.getErrorMessage(constraintViolation));
+    verify(constraintViolation).getConstraintDescriptor();
+  }
+
+  /**
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
+  public void testGetErrorMessageWithConstraintViolation2() {
+    // Arrange
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
+    when(constraintDescriptorImpl.getAnnotation()).thenReturn(null);
+    when(constraintDescriptorImpl.getAttributes()).thenReturn(new HashMap<>());
+    ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
+    when(constraintViolation.getMessage())
+        .thenThrow(new DataValidationException("An error occurred"));
+    when(constraintViolation.getPropertyPath()).thenReturn(PathImpl.createRootPath());
+    org.mockito.Mockito.<ConstraintDescriptor<?>>when(constraintViolation.getConstraintDescriptor())
+        .thenReturn(constraintDescriptorImpl);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> ConstraintValidator.getErrorMessage(constraintViolation));
+    verify(constraintViolation).getConstraintDescriptor();
+    verify(constraintViolation).getMessage();
+    verify(constraintViolation).getPropertyPath();
+    verify(constraintDescriptorImpl).getAnnotation();
+    verify(constraintDescriptorImpl).getAttributes();
+  }
+
+  /**
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
+  public void testGetErrorMessageWithConstraintViolation3() {
+    // Arrange
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
     when(constraintDescriptorImpl.getAnnotation()).thenReturn(null);
     when(constraintDescriptorImpl.getAttributes()).thenReturn(new HashMap<>());
     PathImpl createRootPathResult = PathImpl.createRootPath();
-    createRootPathResult.addCrossParameterNode();
+    createRootPathResult.addPropertyNode("Node Name");
     ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
     when(constraintViolation.getMessage()).thenReturn("Not all who wander are lost");
     when(constraintViolation.getPropertyPath()).thenReturn(createRootPathResult);
@@ -69,23 +125,26 @@ public class ConstraintValidatorDiffblueTest {
     verify(constraintViolation).getPropertyPath();
     verify(constraintDescriptorImpl).getAnnotation();
     verify(constraintDescriptorImpl).getAttributes();
-    assertEquals("<cross-parameter> Not all who wander are lost", actualErrorMessage);
+    assertEquals("Node Name Not all who wander are lost", actualErrorMessage);
   }
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code constraintViolation}.
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
    * <ul>
-   *   <li>Then calls {@link Iterable#iterator()}.</li>
+   *   <li>Then calls {@link Path#iterator()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
   public void testGetErrorMessageWithConstraintViolation_thenCallsIterator() {
     // Arrange
-    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl = mock(ConstraintDescriptorImpl.class);
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
     when(constraintDescriptorImpl.getAnnotation()).thenReturn(null);
     when(constraintDescriptorImpl.getAttributes()).thenReturn(new HashMap<>());
 
@@ -113,12 +172,14 @@ public class ConstraintValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code constraintViolation}.
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
    * <ul>
-   *   <li>Then return {@code 42 Not all who wander are lost}.</li>
+   *   <li>Then return {@code 42 Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -127,7 +188,8 @@ public class ConstraintValidatorDiffblueTest {
     // Arrange
     HashMap<String, Object> stringObjectMap = new HashMap<>();
     stringObjectMap.put("fieldName", "42");
-    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl = mock(ConstraintDescriptorImpl.class);
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
     when(constraintDescriptorImpl.getAttributes()).thenReturn(stringObjectMap);
     ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
     when(constraintViolation.getMessage()).thenReturn("Not all who wander are lost");
@@ -145,19 +207,22 @@ public class ConstraintValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code constraintViolation}.
+   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code
+   * constraintViolation}.
+   *
    * <ul>
-   *   <li>Then return {@code Not all who wander are lost}.</li>
+   *   <li>Then return {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
   public void testGetErrorMessageWithConstraintViolation_thenReturnNotAllWhoWanderAreLost() {
     // Arrange
-    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl = mock(ConstraintDescriptorImpl.class);
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
     when(constraintDescriptorImpl.getAnnotation()).thenReturn(null);
     when(constraintDescriptorImpl.getAttributes()).thenReturn(new HashMap<>());
     ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
@@ -179,39 +244,15 @@ public class ConstraintValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(ConstraintViolation)} with {@code constraintViolation}.
-   * <ul>
-   *   <li>Then throw {@link DataValidationException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(ConstraintViolation)}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(ConstraintViolation)"})
-  public void testGetErrorMessageWithConstraintViolation_thenThrowDataValidationException() {
-    // Arrange
-    ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
-    org.mockito.Mockito.<ConstraintDescriptor<?>>when(constraintViolation.getConstraintDescriptor())
-        .thenThrow(new DataValidationException("An error occurred"));
-
-    // Act and Assert
-    assertThrows(DataValidationException.class, () -> ConstraintValidator.getErrorMessage(constraintViolation));
-    verify(constraintViolation).getConstraintDescriptor();
-  }
-
-  /**
-   * Test {@link ConstraintValidator#getErrorMessage(Collection)} with {@code constraintsViolations}.
-   * <ul>
-   *   <li>Then throw {@link DataValidationException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(Collection)}
+   * Test {@link ConstraintValidator#getErrorMessage(Collection)} with {@code
+   * constraintsViolations}.
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(Collection)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(Collection)"})
-  public void testGetErrorMessageWithConstraintsViolations_thenThrowDataValidationException() {
+  public void testGetErrorMessageWithConstraintsViolations() {
     // Arrange
     ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
     org.mockito.Mockito.<ConstraintDescriptor<?>>when(constraintViolation.getConstraintDescriptor())
@@ -219,21 +260,65 @@ public class ConstraintValidatorDiffblueTest {
 
     ArrayList<ConstraintViolation<Object>> constraintsViolations = new ArrayList<>();
     constraintsViolations.add(constraintViolation);
-    constraintsViolations.add(mock(ConstraintViolation.class));
 
     // Act and Assert
-    assertThrows(DataValidationException.class, () -> ConstraintValidator.getErrorMessage(constraintsViolations));
+    assertThrows(
+        DataValidationException.class,
+        () -> ConstraintValidator.getErrorMessage(constraintsViolations));
     verify(constraintViolation).getConstraintDescriptor();
   }
 
   /**
-   * Test {@link ConstraintValidator#getErrorMessage(Collection)} with {@code constraintsViolations}.
+   * Test {@link ConstraintValidator#getErrorMessage(Collection)} with {@code
+   * constraintsViolations}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>Then calls {@link ConstraintViolation#getMessage()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#getErrorMessage(Collection)}
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(Collection)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String ConstraintValidator.getErrorMessage(Collection)"})
+  public void testGetErrorMessageWithConstraintsViolations_thenCallsGetMessage() {
+    // Arrange
+    ConstraintDescriptorImpl<Annotation> constraintDescriptorImpl =
+        mock(ConstraintDescriptorImpl.class);
+    when(constraintDescriptorImpl.getAnnotation()).thenReturn(null);
+    when(constraintDescriptorImpl.getAttributes()).thenReturn(new HashMap<>());
+    ConstraintViolation<Object> constraintViolation = mock(ConstraintViolation.class);
+    when(constraintViolation.getMessage())
+        .thenThrow(new DataValidationException("An error occurred"));
+    when(constraintViolation.getPropertyPath()).thenReturn(PathImpl.createRootPath());
+    org.mockito.Mockito.<ConstraintDescriptor<?>>when(constraintViolation.getConstraintDescriptor())
+        .thenReturn(constraintDescriptorImpl);
+
+    ArrayList<ConstraintViolation<Object>> constraintsViolations = new ArrayList<>();
+    constraintsViolations.add(constraintViolation);
+    constraintsViolations.add(mock(ConstraintViolation.class));
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> ConstraintValidator.getErrorMessage(constraintsViolations));
+    verify(constraintViolation).getConstraintDescriptor();
+    verify(constraintViolation).getMessage();
+    verify(constraintViolation).getPropertyPath();
+    verify(constraintDescriptorImpl).getAnnotation();
+    verify(constraintDescriptorImpl).getAttributes();
+  }
+
+  /**
+   * Test {@link ConstraintValidator#getErrorMessage(Collection)} with {@code
+   * constraintsViolations}.
+   *
+   * <ul>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return empty string.
+   * </ul>
+   *
+   * <p>Method under test: {@link ConstraintValidator#getErrorMessage(Collection)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -245,43 +330,54 @@ public class ConstraintValidatorDiffblueTest {
 
   /**
    * Test {@link ConstraintValidator#validatorFactoryBean()}.
+   *
    * <ul>
-   *   <li>Given {@link ConstraintValidator} (default constructor).</li>
+   *   <li>Given {@link ConstraintValidator} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#validatorFactoryBean()}
+   *
+   * <p>Method under test: {@link ConstraintValidator#validatorFactoryBean()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"LocalValidatorFactoryBean ConstraintValidator.validatorFactoryBean()"})
   public void testValidatorFactoryBean_givenConstraintValidator() {
     // Arrange, Act and Assert
-    assertTrue((new ConstraintValidator()).validatorFactoryBean().getValidationPropertyMap().isEmpty());
+    assertTrue(
+        new ConstraintValidator().validatorFactoryBean().getValidationPropertyMap().isEmpty());
   }
 
   /**
    * Test {@link ConstraintValidator#validatorFactoryBean()}.
+   *
    * <ul>
-   *   <li>Then ClockProvider return {@link DefaultClockProvider}.</li>
+   *   <li>Then ClockProvider return {@link DefaultClockProvider}.
    * </ul>
-   * <p>
-   * Method under test: {@link ConstraintValidator#validatorFactoryBean()}
+   *
+   * <p>Method under test: {@link ConstraintValidator#validatorFactoryBean()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"LocalValidatorFactoryBean ConstraintValidator.validatorFactoryBean()"})
   public void testValidatorFactoryBean_thenClockProviderReturnDefaultClockProvider() {
     // Arrange and Act
-    LocalValidatorFactoryBean actualValidatorFactoryBeanResult = constraintValidator.validatorFactoryBean();
+    LocalValidatorFactoryBean actualValidatorFactoryBeanResult =
+        constraintValidator.validatorFactoryBean();
 
     // Assert
     assertTrue(actualValidatorFactoryBeanResult.getClockProvider() instanceof DefaultClockProvider);
-    assertTrue(actualValidatorFactoryBeanResult.getParameterNameProvider() instanceof DefaultParameterNameProvider);
-    assertTrue(actualValidatorFactoryBeanResult.getValidator() instanceof ValidatorImpl);
-    assertTrue(actualValidatorFactoryBeanResult.getTraversableResolver() instanceof JPATraversableResolver);
-    assertTrue(actualValidatorFactoryBeanResult.getMessageInterpolator() instanceof LocaleContextMessageInterpolator);
     assertTrue(
-        actualValidatorFactoryBeanResult.getConstraintValidatorFactory() instanceof SpringConstraintValidatorFactory);
+        actualValidatorFactoryBeanResult.getParameterNameProvider()
+            instanceof DefaultParameterNameProvider);
+    assertTrue(actualValidatorFactoryBeanResult.getValidator() instanceof ValidatorImpl);
+    assertTrue(
+        actualValidatorFactoryBeanResult.getTraversableResolver()
+            instanceof JPATraversableResolver);
+    assertTrue(
+        actualValidatorFactoryBeanResult.getMessageInterpolator()
+            instanceof LocaleContextMessageInterpolator);
+    assertTrue(
+        actualValidatorFactoryBeanResult.getConstraintValidatorFactory()
+            instanceof SpringConstraintValidatorFactory);
     assertTrue(actualValidatorFactoryBeanResult.getValidationPropertyMap().isEmpty());
   }
 }

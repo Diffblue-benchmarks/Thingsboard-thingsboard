@@ -19,35 +19,176 @@ import org.thingsboard.server.common.data.transport.snmp.SnmpProtocolVersion;
 
 @ExtendWith(MockitoExtension.class)
 class SnmpAuthServiceDiffblueTest {
-  @InjectMocks
-  private SnmpAuthService snmpAuthService;
+  @InjectMocks private SnmpAuthService snmpAuthService;
 
   /**
-   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}.
-   * <ul>
-   *   <li>Given {@link UnsupportedOperationException#UnsupportedOperationException(String)} with {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
    */
   @Test
-  @DisplayName("Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration); given UnsupportedOperationException(String) with 'foo'")
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"})
-  void testSetUpSnmpTarget_givenUnsupportedOperationExceptionWithFoo() {
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget() {
     // Arrange
-    SnmpDeviceProfileTransportConfiguration profileTransportConfig = new SnmpDeviceProfileTransportConfiguration();
-    SnmpDeviceTransportConfiguration deviceTransportConfig = mock(SnmpDeviceTransportConfiguration.class);
-    when(deviceTransportConfig.getAuthenticationPassphrase()).thenThrow(new UnsupportedOperationException("foo"));
-    when(deviceTransportConfig.getEngineId()).thenReturn("42");
-    when(deviceTransportConfig.getAuthenticationProtocol()).thenReturn(AuthenticationProtocol.SHA_1);
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getCommunity()).thenThrow(new UnsupportedOperationException("foo"));
+    when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V1);
+
+    // Act and Assert
+    assertThrows(
+        UnsupportedOperationException.class,
+        () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
+    verify(deviceTransportConfig).getCommunity();
+    verify(deviceTransportConfig).getProtocolVersion();
+  }
+
+  /**
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget2() {
+    // Arrange
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getUsername()).thenThrow(new UnsupportedOperationException("foo"));
+    when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    // Act and Assert
+    assertThrows(
+        UnsupportedOperationException.class,
+        () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
+    verify(deviceTransportConfig).getProtocolVersion();
+    verify(deviceTransportConfig).getUsername();
+  }
+
+  /**
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget3() {
+    // Arrange
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getSecurityName())
+        .thenThrow(new UnsupportedOperationException("foo"));
+    when(deviceTransportConfig.getUsername()).thenReturn("janedoe");
+    when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    // Act and Assert
+    assertThrows(
+        UnsupportedOperationException.class,
+        () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
+    verify(deviceTransportConfig).getProtocolVersion();
+    verify(deviceTransportConfig).getSecurityName();
+    verify(deviceTransportConfig).getUsername();
+  }
+
+  /**
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget4() {
+    // Arrange
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getEngineId()).thenThrow(new UnsupportedOperationException("foo"));
     when(deviceTransportConfig.getSecurityName()).thenReturn("Security Name");
     when(deviceTransportConfig.getUsername()).thenReturn("janedoe");
     when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
 
     // Act and Assert
-    assertThrows(UnsupportedOperationException.class,
+    assertThrows(
+        UnsupportedOperationException.class,
+        () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
+    verify(deviceTransportConfig).getEngineId();
+    verify(deviceTransportConfig).getProtocolVersion();
+    verify(deviceTransportConfig).getSecurityName();
+    verify(deviceTransportConfig).getUsername();
+  }
+
+  /**
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget5() {
+    // Arrange
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getAuthenticationPassphrase())
+        .thenThrow(new UnsupportedOperationException("foo"));
+    when(deviceTransportConfig.getEngineId()).thenReturn("42");
+    when(deviceTransportConfig.getAuthenticationProtocol())
+        .thenReturn(AuthenticationProtocol.SHA_1);
+    when(deviceTransportConfig.getSecurityName()).thenReturn("Security Name");
+    when(deviceTransportConfig.getUsername()).thenReturn("janedoe");
+    when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
+
+    // Act and Assert
+    assertThrows(
+        UnsupportedOperationException.class,
         () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
     verify(deviceTransportConfig).getAuthenticationPassphrase();
     verify(deviceTransportConfig).getAuthenticationProtocol();
@@ -58,28 +199,38 @@ class SnmpAuthServiceDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}.
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Given {@code Community}.
+   *   <li>Then calls {@link SnmpDeviceTransportConfiguration#getHost()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
    */
   @Test
-  @DisplayName("Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration); then throw IllegalArgumentException")
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration); given 'Community'; then calls getHost()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"})
-  void testSetUpSnmpTarget_thenThrowIllegalArgumentException() {
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget_givenCommunity_thenCallsGetHost() {
     // Arrange
-    SnmpDeviceProfileTransportConfiguration profileTransportConfig = new SnmpDeviceProfileTransportConfiguration();
-    SnmpDeviceTransportConfiguration deviceTransportConfig = mock(SnmpDeviceTransportConfiguration.class);
-    when(deviceTransportConfig.getHost()).thenThrow(new IllegalArgumentException("foo"));
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getHost()).thenThrow(new UnsupportedOperationException("foo"));
     when(deviceTransportConfig.getCommunity()).thenReturn("Community");
     when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V1);
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        UnsupportedOperationException.class,
         () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
     verify(deviceTransportConfig).getCommunity();
     verify(deviceTransportConfig).getHost();
@@ -87,31 +238,42 @@ class SnmpAuthServiceDiffblueTest {
   }
 
   /**
-   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}.
+   * Test {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}.
+   *
    * <ul>
-   *   <li>Then throw {@link UnsupportedOperationException}.</li>
+   *   <li>Then calls {@link SnmpDeviceTransportConfiguration#getAuthenticationPassphrase()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * SnmpAuthService#setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration,
+   * SnmpDeviceTransportConfiguration)}
    */
   @Test
-  @DisplayName("Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration); then throw UnsupportedOperationException")
+  @DisplayName(
+      "Test setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration); then calls getAuthenticationPassphrase()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"})
-  void testSetUpSnmpTarget_thenThrowUnsupportedOperationException() {
+    "org.snmp4j.Target SnmpAuthService.setUpSnmpTarget(SnmpDeviceProfileTransportConfiguration, SnmpDeviceTransportConfiguration)"
+  })
+  void testSetUpSnmpTarget_thenCallsGetAuthenticationPassphrase() {
     // Arrange
-    SnmpDeviceProfileTransportConfiguration profileTransportConfig = new SnmpDeviceProfileTransportConfiguration();
-    SnmpDeviceTransportConfiguration deviceTransportConfig = mock(SnmpDeviceTransportConfiguration.class);
-    when(deviceTransportConfig.getAuthenticationPassphrase()).thenReturn("Authentication Passphrase");
+    SnmpDeviceProfileTransportConfiguration profileTransportConfig =
+        new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceTransportConfiguration deviceTransportConfig =
+        mock(SnmpDeviceTransportConfiguration.class);
+    when(deviceTransportConfig.getAuthenticationPassphrase())
+        .thenReturn("Authentication Passphrase");
     when(deviceTransportConfig.getEngineId()).thenReturn("42");
-    when(deviceTransportConfig.getAuthenticationProtocol()).thenReturn(AuthenticationProtocol.SHA_1);
+    when(deviceTransportConfig.getAuthenticationProtocol())
+        .thenReturn(AuthenticationProtocol.SHA_1);
     when(deviceTransportConfig.getSecurityName()).thenReturn("Security Name");
     when(deviceTransportConfig.getUsername()).thenReturn("janedoe");
     when(deviceTransportConfig.getProtocolVersion()).thenReturn(SnmpProtocolVersion.V3);
 
     // Act and Assert
-    assertThrows(UnsupportedOperationException.class,
+    assertThrows(
+        UnsupportedOperationException.class,
         () -> snmpAuthService.setUpSnmpTarget(profileTransportConfig, deviceTransportConfig));
     verify(deviceTransportConfig).getAuthenticationPassphrase();
     verify(deviceTransportConfig, atLeast(1)).getAuthenticationProtocol();

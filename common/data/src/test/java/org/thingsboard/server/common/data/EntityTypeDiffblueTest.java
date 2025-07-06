@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class EntityTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityType#getNormalName()}
    *   <li>{@link EntityType#getProtoNumber()}
@@ -20,8 +21,11 @@ class EntityTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String EntityType.getNormalName()", "int EntityType.getProtoNumber()",
-      "String EntityType.getTableName()"})
+  @MethodsUnderTest({
+    "String EntityType.getNormalName()",
+    "int EntityType.getProtoNumber()",
+    "String EntityType.getTableName()"
+  })
   void testGettersAndSetters() {
     // Arrange
     EntityType valueOfResult = EntityType.valueOf(DataConstants.TENANT);

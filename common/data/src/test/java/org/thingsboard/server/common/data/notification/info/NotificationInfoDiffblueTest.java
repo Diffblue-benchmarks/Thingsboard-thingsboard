@@ -9,29 +9,33 @@ import org.junit.jupiter.api.Test;
 class NotificationInfoDiffblueTest {
   /**
    * Test {@link NotificationInfo#getStateEntityId()}.
-   * <p>
-   * Method under test: {@link NotificationInfo#getStateEntityId()}
+   *
+   * <p>Method under test: {@link NotificationInfo#getStateEntityId()}
    */
   @Test
   @DisplayName("Test getStateEntityId()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.id.EntityId NotificationInfo.getStateEntityId()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.id.EntityId NotificationInfo.getStateEntityId()"
+  })
   void testGetStateEntityId() {
     // Arrange, Act and Assert
-    assertNull((new ApiUsageLimitNotificationInfo()).getStateEntityId());
+    assertNull(new ApiUsageLimitNotificationInfo().getStateEntityId());
   }
 
   /**
    * Test {@link NotificationInfo#getDashboardId()}.
-   * <p>
-   * Method under test: {@link NotificationInfo#getDashboardId()}
+   *
+   * <p>Method under test: {@link NotificationInfo#getDashboardId()}
    */
   @Test
   @DisplayName("Test getDashboardId()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId NotificationInfo.getDashboardId()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.id.DashboardId NotificationInfo.getDashboardId()"
+  })
   void testGetDashboardId() {
     // Arrange, Act and Assert
-    assertNull((new ApiUsageLimitNotificationInfo()).getDashboardId());
+    assertNull(new ApiUsageLimitNotificationInfo().getDashboardId());
   }
 }

@@ -15,14 +15,16 @@ import org.thingsboard.server.gen.edge.v1.UserUpdateMsg;
 class BaseUserMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseUserMsgConstructor#constructUserDeleteMsg(UserId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseUserMsgConstructor#constructUserDeleteMsg(UserId)}
+   *
+   * <p>Method under test: {@link BaseUserMsgConstructor#constructUserDeleteMsg(UserId)}
    */
   @Test
-  @DisplayName("Test constructUserDeleteMsg(UserId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructUserDeleteMsg(UserId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserUpdateMsg BaseUserMsgConstructor.constructUserDeleteMsg(UserId)"})
   void testConstructUserDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
@@ -30,8 +32,9 @@ class BaseUserMsgConstructorDiffblueTest {
     UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
 
     // Act
-    UserUpdateMsg actualConstructUserDeleteMsgResult = userMsgConstructorV1
-        .constructUserDeleteMsg(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    UserUpdateMsg actualConstructUserDeleteMsgResult =
+        userMsgConstructorV1.constructUserDeleteMsg(
+            new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructUserDeleteMsgResult.getInitializationErrorString());
@@ -48,7 +51,8 @@ class BaseUserMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructUserDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructUserDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructUserDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructUserDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructUserDeleteMsgResult.getMsgType());
     assertFalse(actualConstructUserDeleteMsgResult.hasAdditionalInfo());
     assertFalse(actualConstructUserDeleteMsgResult.hasCustomerIdLSB());
     assertFalse(actualConstructUserDeleteMsgResult.hasCustomerIdMSB());

@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class BranchInfoDiffblueTest {
   /**
    * Test {@link BranchInfo#equals(Object)}, and {@link BranchInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BranchInfo#equals(Object)}
    *   <li>{@link BranchInfo#hashCode()}
@@ -39,12 +41,14 @@ class BranchInfoDiffblueTest {
 
   /**
    * Test {@link BranchInfo#equals(Object)}, and {@link BranchInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BranchInfo#equals(Object)}
    *   <li>{@link BranchInfo#hashCode()}
@@ -66,12 +70,13 @@ class BranchInfoDiffblueTest {
 
   /**
    * Test {@link BranchInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BranchInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link BranchInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -87,12 +92,13 @@ class BranchInfoDiffblueTest {
 
   /**
    * Test {@link BranchInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BranchInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link BranchInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -105,12 +111,13 @@ class BranchInfoDiffblueTest {
 
   /**
    * Test {@link BranchInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BranchInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link BranchInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -123,8 +130,9 @@ class BranchInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BranchInfo#BranchInfo(String, boolean)}
    *   <li>{@link BranchInfo#toString()}
@@ -135,8 +143,12 @@ class BranchInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BranchInfo.<init>(String, boolean)", "String BranchInfo.getName()",
-      "boolean BranchInfo.isDefault()", "String BranchInfo.toString()"})
+  @MethodsUnderTest({
+    "void BranchInfo.<init>(String, boolean)",
+    "String BranchInfo.getName()",
+    "boolean BranchInfo.isDefault()",
+    "String BranchInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     BranchInfo actualBranchInfo = new BranchInfo("Name", true);

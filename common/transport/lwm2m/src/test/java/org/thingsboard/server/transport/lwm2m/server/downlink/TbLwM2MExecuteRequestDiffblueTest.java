@@ -15,13 +15,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MExecuteRequ
 @ContextConfiguration(classes = {TbLwM2MExecuteRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MExecuteRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MExecuteRequestBuilder tbLwM2MExecuteRequestBuilder;
+  @Autowired private TbLwM2MExecuteRequestBuilder tbLwM2MExecuteRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MExecuteRequest#getParams()}
    *   <li>{@link TbLwM2MExecuteRequest#getType()}
@@ -30,14 +30,14 @@ class TbLwM2MExecuteRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbLwM2MExecuteRequest.getParams()", "LwM2MOperationType TbLwM2MExecuteRequest.getType()"})
+  @MethodsUnderTest({
+    "Object TbLwM2MExecuteRequest.getParams()",
+    "LwM2MOperationType TbLwM2MExecuteRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    TbLwM2MExecuteRequest buildResult = TbLwM2MExecuteRequest.builder()
-        .params("Params")
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MExecuteRequest buildResult =
+        TbLwM2MExecuteRequest.builder().params("Params").timeout(10L).versionedId("42").build();
 
     // Act
     Object actualParams = buildResult.getParams();
@@ -49,8 +49,9 @@ class TbLwM2MExecuteRequestDiffblueTest {
 
   /**
    * Test TbLwM2MExecuteRequestBuilder {@link TbLwM2MExecuteRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MExecuteRequestBuilder#build()}
    *   <li>{@link TbLwM2MExecuteRequestBuilder#params(Object)}
@@ -61,19 +62,18 @@ class TbLwM2MExecuteRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MExecuteRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MExecuteRequestBuilder.<init>()",
-      "TbLwM2MExecuteRequest TbLwM2MExecuteRequestBuilder.build()",
-      "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.params(Object)",
-      "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.timeout(long)",
-      "String TbLwM2MExecuteRequestBuilder.toString()",
-      "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MExecuteRequestBuilder.<init>()",
+    "TbLwM2MExecuteRequest TbLwM2MExecuteRequestBuilder.build()",
+    "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.params(Object)",
+    "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.timeout(long)",
+    "String TbLwM2MExecuteRequestBuilder.toString()",
+    "TbLwM2MExecuteRequestBuilder TbLwM2MExecuteRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MExecuteRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MExecuteRequest actualBuildResult = TbLwM2MExecuteRequest.builder()
-        .params("Params")
-        .timeout(10L)
-        .versionedId("42")
-        .build();
+    TbLwM2MExecuteRequest actualBuildResult =
+        TbLwM2MExecuteRequest.builder().params("Params").timeout(10L).versionedId("42").build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

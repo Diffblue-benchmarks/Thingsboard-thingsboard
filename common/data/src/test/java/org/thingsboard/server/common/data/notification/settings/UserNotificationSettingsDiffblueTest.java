@@ -17,13 +17,16 @@ import org.thingsboard.server.common.data.notification.settings.UserNotification
 
 class UserNotificationSettingsDiffblueTest {
   /**
-   * Test {@link UserNotificationSettings#equals(Object)}, and {@link UserNotificationSettings#hashCode()}.
+   * Test {@link UserNotificationSettings#equals(Object)}, and {@link
+   * UserNotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserNotificationSettings#equals(Object)}
    *   <li>{@link UserNotificationSettings#hashCode()}
@@ -32,7 +35,10 @@ class UserNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserNotificationSettings userNotificationSettings = UserNotificationSettings.DEFAULT;
@@ -45,13 +51,16 @@ class UserNotificationSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link UserNotificationSettings#equals(Object)}, and {@link UserNotificationSettings#hashCode()}.
+   * Test {@link UserNotificationSettings#equals(Object)}, and {@link
+   * UserNotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserNotificationSettings#equals(Object)}
    *   <li>{@link UserNotificationSettings#hashCode()}
@@ -60,10 +69,14 @@ class UserNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    UserNotificationSettings userNotificationSettings = new UserNotificationSettings(new HashMap<>());
+    UserNotificationSettings userNotificationSettings =
+        new UserNotificationSettings(new HashMap<>());
     UserNotificationSettings userNotificationSettings2 = UserNotificationSettings.DEFAULT;
 
     // Act and Assert
@@ -73,13 +86,16 @@ class UserNotificationSettingsDiffblueTest {
   }
 
   /**
-   * Test {@link UserNotificationSettings#equals(Object)}, and {@link UserNotificationSettings#hashCode()}.
+   * Test {@link UserNotificationSettings#equals(Object)}, and {@link
+   * UserNotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserNotificationSettings#equals(Object)}
    *   <li>{@link UserNotificationSettings#hashCode()}
@@ -88,7 +104,10 @@ class UserNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserNotificationSettings userNotificationSettings = UserNotificationSettings.DEFAULT;
@@ -101,17 +120,21 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link UserNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserNotificationSettings.DEFAULT, 1);
@@ -119,17 +142,21 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link UserNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationPref notificationPref = new NotificationPref();
@@ -145,17 +172,21 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link UserNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserNotificationSettings.DEFAULT, null);
@@ -163,17 +194,21 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link UserNotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.equals(Object)", "int UserNotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.equals(Object)",
+    "int UserNotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(UserNotificationSettings.DEFAULT, "Different type to UserNotificationSettings");
@@ -181,8 +216,9 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserNotificationSettings#UserNotificationSettings(Map)}
    *   <li>{@link UserNotificationSettings#toString()}
@@ -192,8 +228,11 @@ class UserNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserNotificationSettings.<init>(Map)", "Map UserNotificationSettings.getPrefs()",
-      "String UserNotificationSettings.toString()"})
+  @MethodsUnderTest({
+    "void UserNotificationSettings.<init>(Map)",
+    "Map UserNotificationSettings.getPrefs()",
+    "String UserNotificationSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HashMap<NotificationType, NotificationPref> prefs = new HashMap<>();
@@ -211,35 +250,47 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}.
+   *
    * <ul>
-   *   <li>Given {@link UserNotificationSettings#DEFAULT}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link UserNotificationSettings#DEFAULT}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#isEnabled(NotificationType,
+   * NotificationDeliveryMethod)}
    */
   @Test
-  @DisplayName("Test isEnabled(NotificationType, NotificationDeliveryMethod); given DEFAULT; then return 'true'")
+  @DisplayName(
+      "Test isEnabled(NotificationType, NotificationDeliveryMethod); given DEFAULT; then return 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"
+  })
   void testIsEnabled_givenDefault_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue(UserNotificationSettings.DEFAULT.isEnabled(NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
+    assertTrue(
+        UserNotificationSettings.DEFAULT.isEnabled(
+            NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
   }
 
   /**
    * Test {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}.
+   *
    * <ul>
-   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code false}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code false}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#isEnabled(NotificationType,
+   * NotificationDeliveryMethod)}
    */
   @Test
-  @DisplayName("Test isEnabled(NotificationType, NotificationDeliveryMethod); given NotificationPref (default constructor) Enabled is 'false'; then return 'false'")
+  @DisplayName(
+      "Test isEnabled(NotificationType, NotificationDeliveryMethod); given NotificationPref (default constructor) Enabled is 'false'; then return 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"
+  })
   void testIsEnabled_givenNotificationPrefEnabledIsFalse_thenReturnFalse() {
     // Arrange
     NotificationPref notificationPref = new NotificationPref();
@@ -251,22 +302,28 @@ class UserNotificationSettingsDiffblueTest {
 
     // Act and Assert
     assertFalse(
-        (new UserNotificationSettings(prefs)).isEnabled(NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
+        new UserNotificationSettings(prefs)
+            .isEnabled(NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
   }
 
   /**
    * Test {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}.
+   *
    * <ul>
-   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserNotificationSettings#isEnabled(NotificationType, NotificationDeliveryMethod)}
+   *
+   * <p>Method under test: {@link UserNotificationSettings#isEnabled(NotificationType,
+   * NotificationDeliveryMethod)}
    */
   @Test
-  @DisplayName("Test isEnabled(NotificationType, NotificationDeliveryMethod); given NotificationPref (default constructor) Enabled is 'true'; then return 'true'")
+  @DisplayName(
+      "Test isEnabled(NotificationType, NotificationDeliveryMethod); given NotificationPref (default constructor) Enabled is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"})
+  @MethodsUnderTest({
+    "boolean UserNotificationSettings.isEnabled(NotificationType, NotificationDeliveryMethod)"
+  })
   void testIsEnabled_givenNotificationPrefEnabledIsTrue_thenReturnTrue() {
     // Arrange
     NotificationPref notificationPref = new NotificationPref();
@@ -278,13 +335,14 @@ class UserNotificationSettingsDiffblueTest {
 
     // Act and Assert
     assertTrue(
-        (new UserNotificationSettings(prefs)).isEnabled(NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
+        new UserNotificationSettings(prefs)
+            .isEnabled(NotificationType.GENERAL, NotificationDeliveryMethod.WEB));
   }
 
   /**
    * Test NotificationPref {@link NotificationPref#createDefault()}.
-   * <p>
-   * Method under test: {@link NotificationPref#createDefault()}
+   *
+   * <p>Method under test: {@link NotificationPref#createDefault()}
    */
   @Test
   @DisplayName("Test NotificationPref createDefault()")
@@ -295,8 +353,8 @@ class UserNotificationSettingsDiffblueTest {
     NotificationPref actualCreateDefaultResult = NotificationPref.createDefault();
 
     // Assert
-    Map<NotificationDeliveryMethod, Boolean> enabledDeliveryMethods = actualCreateDefaultResult
-        .getEnabledDeliveryMethods();
+    Map<NotificationDeliveryMethod, Boolean> enabledDeliveryMethods =
+        actualCreateDefaultResult.getEnabledDeliveryMethods();
     assertEquals(4, enabledDeliveryMethods.size());
     assertTrue(enabledDeliveryMethods.get(NotificationDeliveryMethod.EMAIL));
     assertTrue(enabledDeliveryMethods.get(NotificationDeliveryMethod.MOBILE_APP));
@@ -306,20 +364,24 @@ class UserNotificationSettingsDiffblueTest {
   }
 
   /**
-   * Test NotificationPref {@link NotificationPref#equals(Object)}, and {@link NotificationPref#hashCode()}.
+   * Test NotificationPref {@link NotificationPref#equals(Object)}, and {@link
+   * NotificationPref#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationPref#equals(Object)}
    *   <li>{@link NotificationPref#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test NotificationPref equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test NotificationPref equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.equals(Object)", "int NotificationPref.hashCode()"})
   void testNotificationPrefEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -339,20 +401,24 @@ class UserNotificationSettingsDiffblueTest {
   }
 
   /**
-   * Test NotificationPref {@link NotificationPref#equals(Object)}, and {@link NotificationPref#hashCode()}.
+   * Test NotificationPref {@link NotificationPref#equals(Object)}, and {@link
+   * NotificationPref#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationPref#equals(Object)}
    *   <li>{@link NotificationPref#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test NotificationPref equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test NotificationPref equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.equals(Object)", "int NotificationPref.hashCode()"})
   void testNotificationPrefEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -369,15 +435,17 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationPref#equals(Object)}
    */
   @Test
-  @DisplayName("Test NotificationPref equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test NotificationPref equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.equals(Object)", "int NotificationPref.hashCode()"})
   void testNotificationPrefEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -396,15 +464,17 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationPref#equals(Object)}
    */
   @Test
-  @DisplayName("Test NotificationPref equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test NotificationPref equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.equals(Object)", "int NotificationPref.hashCode()"})
   void testNotificationPrefEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
@@ -426,12 +496,13 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationPref#equals(Object)}
    */
   @Test
   @DisplayName("Test NotificationPref equals(Object); when other is 'null'; then return not equal")
@@ -449,15 +520,17 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationPref#equals(Object)}
    */
   @Test
-  @DisplayName("Test NotificationPref equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test NotificationPref equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.equals(Object)", "int NotificationPref.hashCode()"})
   void testNotificationPrefEquals_whenOtherIsWrongType_thenReturnNotEqual() {
@@ -472,8 +545,9 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationPref}
    *   <li>{@link NotificationPref#setEnabled(boolean)}
@@ -486,9 +560,14 @@ class UserNotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test NotificationPref getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationPref.<init>()", "Map NotificationPref.getEnabledDeliveryMethods()",
-      "boolean NotificationPref.isEnabled()", "void NotificationPref.setEnabled(boolean)",
-      "void NotificationPref.setEnabledDeliveryMethods(Map)", "String NotificationPref.toString()"})
+  @MethodsUnderTest({
+    "void NotificationPref.<init>()",
+    "Map NotificationPref.getEnabledDeliveryMethods()",
+    "boolean NotificationPref.isEnabled()",
+    "void NotificationPref.setEnabled(boolean)",
+    "void NotificationPref.setEnabledDeliveryMethods(Map)",
+    "String NotificationPref.toString()"
+  })
   void testNotificationPrefGettersAndSetters() {
     // Arrange and Act
     NotificationPref actualNotificationPref = new NotificationPref();
@@ -496,12 +575,13 @@ class UserNotificationSettingsDiffblueTest {
     HashMap<NotificationDeliveryMethod, Boolean> enabledDeliveryMethods = new HashMap<>();
     actualNotificationPref.setEnabledDeliveryMethods(enabledDeliveryMethods);
     String actualToStringResult = actualNotificationPref.toString();
-    Map<NotificationDeliveryMethod, Boolean> actualEnabledDeliveryMethods = actualNotificationPref
-        .getEnabledDeliveryMethods();
+    Map<NotificationDeliveryMethod, Boolean> actualEnabledDeliveryMethods =
+        actualNotificationPref.getEnabledDeliveryMethods();
     boolean actualIsEnabledResult = actualNotificationPref.isEnabled();
 
     // Assert
-    assertEquals("UserNotificationSettings.NotificationPref(enabled=true, enabledDeliveryMethods={})",
+    assertEquals(
+        "UserNotificationSettings.NotificationPref(enabled=true, enabledDeliveryMethods={})",
         actualToStringResult);
     assertTrue(actualEnabledDeliveryMethods.isEmpty());
     assertTrue(actualIsEnabledResult);
@@ -510,12 +590,13 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#isValid()}.
+   *
    * <ul>
-   *   <li>Given createDefault.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given createDefault.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#isValid()}
+   *
+   * <p>Method under test: {@link NotificationPref#isValid()}
    */
   @Test
   @DisplayName("Test NotificationPref isValid(); given createDefault; then return 'true'")
@@ -528,15 +609,17 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()} {@code SLACK} is {@code true}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link HashMap#HashMap()} {@code SLACK} is {@code true}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#isValid()}
+   *
+   * <p>Method under test: {@link NotificationPref#isValid()}
    */
   @Test
-  @DisplayName("Test NotificationPref isValid(); given HashMap() 'SLACK' is 'true'; then return 'false'")
+  @DisplayName(
+      "Test NotificationPref isValid(); given HashMap() 'SLACK' is 'true'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.isValid()"})
   void testNotificationPrefIsValid_givenHashMapSlackIsTrue_thenReturnFalse() {
@@ -554,15 +637,17 @@ class UserNotificationSettingsDiffblueTest {
 
   /**
    * Test NotificationPref {@link NotificationPref#isValid()}.
+   *
    * <ul>
-   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link NotificationPref} (default constructor) Enabled is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationPref#isValid()}
+   *
+   * <p>Method under test: {@link NotificationPref#isValid()}
    */
   @Test
-  @DisplayName("Test NotificationPref isValid(); given NotificationPref (default constructor) Enabled is 'true'; then return 'true'")
+  @DisplayName(
+      "Test NotificationPref isValid(); given NotificationPref (default constructor) Enabled is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean NotificationPref.isValid()"})
   void testNotificationPrefIsValid_givenNotificationPrefEnabledIsTrue_thenReturnTrue() {

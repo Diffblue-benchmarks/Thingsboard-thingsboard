@@ -15,15 +15,18 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 
 class TbNotificationNodeDiffblueTest {
   /**
-   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>When {@link POJONode#POJONode(Object)} with v is {@code null}.</li>
+   *   <li>When {@link POJONode#POJONode(Object)} with v is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when POJONode(Object) with v is 'null'")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when POJONode(Object) with v is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbNotificationNode.init(TbContext, TbNodeConfiguration)"})
   void testInitWithCtxConfiguration_whenPOJONodeWithVIsNull() throws TbNodeException {
@@ -40,43 +43,53 @@ class TbNotificationNodeDiffblueTest {
   }
 
   /**
-   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>When {@link POJONode#POJONode(Object)} with v is {@link TbNotificationNodeConfiguration} (default constructor).</li>
+   *   <li>When {@link POJONode#POJONode(Object)} with v is {@link TbNotificationNodeConfiguration}
+   *       (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when POJONode(Object) with v is TbNotificationNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when POJONode(Object) with v is TbNotificationNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbNotificationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInitWithCtxConfiguration_whenPOJONodeWithVIsTbNotificationNodeConfiguration() throws TbNodeException {
+  void testInitWithCtxConfiguration_whenPOJONodeWithVIsTbNotificationNodeConfiguration()
+      throws TbNodeException {
     // Arrange
     TbNotificationNode tbNotificationNode = new TbNotificationNode();
     TbContext ctx = mock(TbContext.class);
     when(ctx.isExternalNodeForceAck()).thenReturn(true);
 
     // Act
-    tbNotificationNode.init(ctx, new TbNodeConfiguration(new POJONode(new TbNotificationNodeConfiguration())));
+    tbNotificationNode.init(
+        ctx, new TbNodeConfiguration(new POJONode(new TbNotificationNodeConfiguration())));
 
     // Assert
     verify(ctx).isExternalNodeForceAck();
   }
 
   /**
-   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>When {@link TbNodeConfiguration#TbNodeConfiguration(JsonNode)} with data is Instance.</li>
+   *   <li>When {@link TbNodeConfiguration#TbNodeConfiguration(JsonNode)} with data is Instance.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when TbNodeConfiguration(JsonNode) with data is Instance")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when TbNodeConfiguration(JsonNode) with data is Instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbNotificationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInitWithCtxConfiguration_whenTbNodeConfigurationWithDataIsInstance() throws TbNodeException {
+  void testInitWithCtxConfiguration_whenTbNodeConfigurationWithDataIsInstance()
+      throws TbNodeException {
     // Arrange
     TbNotificationNode tbNotificationNode = new TbNotificationNode();
     TbContext ctx = mock(TbContext.class);
@@ -90,15 +103,18 @@ class TbNotificationNodeDiffblueTest {
   }
 
   /**
-   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>When {@link TbNodeConfiguration#TbNodeConfiguration(JsonNode)} with data is {@code null}.</li>
+   *   <li>When {@link TbNodeConfiguration#TbNodeConfiguration(JsonNode)} with data is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbNotificationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when TbNodeConfiguration(JsonNode) with data is 'null'")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; when TbNodeConfiguration(JsonNode) with data is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbNotificationNode.init(TbContext, TbNodeConfiguration)"})
   void testInitWithCtxConfiguration_whenTbNodeConfigurationWithDataIsNull() throws TbNodeException {

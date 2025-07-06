@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Test;
 class TbRateLimitsDiffblueTest {
   /**
    * Test {@link TbRateLimits#TbRateLimits(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42:42}.</li>
-   *   <li>Then return Configuration is {@code 42:42}.</li>
+   *   <li>When {@code 42:42}.
+   *   <li>Then return Configuration is {@code 42:42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#TbRateLimits(String)}
+   *
+   * <p>Method under test: {@link TbRateLimits#TbRateLimits(String)}
    */
   @Test
   @DisplayName("Test new TbRateLimits(String); when '42:42'; then return Configuration is '42:42'")
@@ -25,17 +26,18 @@ class TbRateLimitsDiffblueTest {
   @MethodsUnderTest({"void TbRateLimits.<init>(String)"})
   void testNewTbRateLimits_when4242_thenReturnConfigurationIs4242() {
     // Arrange, Act and Assert
-    assertEquals("42:42", (new TbRateLimits("42:42")).getConfiguration());
+    assertEquals("42:42", new TbRateLimits("42:42").getConfiguration());
   }
 
   /**
    * Test {@link TbRateLimits#TbRateLimits(String)}.
+   *
    * <ul>
-   *   <li>When {@code ,}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ,}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#TbRateLimits(String)}
+   *
+   * <p>Method under test: {@link TbRateLimits#TbRateLimits(String)}
    */
   @Test
   @DisplayName("Test new TbRateLimits(String); when ','; then throw IllegalArgumentException")
@@ -48,31 +50,33 @@ class TbRateLimitsDiffblueTest {
 
   /**
    * Test {@link TbRateLimits#TbRateLimits(String, boolean)}.
+   *
    * <ul>
-   *   <li>When {@code ,}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ,}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#TbRateLimits(String, boolean)}
+   *
+   * <p>Method under test: {@link TbRateLimits#TbRateLimits(String, boolean)}
    */
   @Test
-  @DisplayName("Test new TbRateLimits(String, boolean); when ','; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test new TbRateLimits(String, boolean); when ','; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbRateLimits.<init>(String, boolean)"})
   void testNewTbRateLimits_whenComma_thenThrowIllegalArgumentException2() {
     // Arrange, Act and Assert
     assertThrows(IllegalArgumentException.class, () -> new TbRateLimits(",", true));
-
   }
 
   /**
    * Test {@link TbRateLimits#tryConsume(long)} with {@code long}.
+   *
    * <ul>
-   *   <li>When {@link Long#MAX_VALUE}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link Long#MAX_VALUE}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#tryConsume(long)}
+   *
+   * <p>Method under test: {@link TbRateLimits#tryConsume(long)}
    */
   @Test
   @DisplayName("Test tryConsume(long) with 'long'; when MAX_VALUE; then return 'false'")
@@ -80,17 +84,18 @@ class TbRateLimitsDiffblueTest {
   @MethodsUnderTest({"boolean TbRateLimits.tryConsume(long)"})
   void testTryConsumeWithLong_whenMax_value_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TbRateLimits("42:42")).tryConsume(Long.MAX_VALUE));
+    assertFalse(new TbRateLimits("42:42").tryConsume(Long.MAX_VALUE));
   }
 
   /**
    * Test {@link TbRateLimits#tryConsume(long)} with {@code long}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#tryConsume(long)}
+   *
+   * <p>Method under test: {@link TbRateLimits#tryConsume(long)}
    */
   @Test
   @DisplayName("Test tryConsume(long) with 'long'; when one; then return 'true'")
@@ -98,24 +103,27 @@ class TbRateLimitsDiffblueTest {
   @MethodsUnderTest({"boolean TbRateLimits.tryConsume(long)"})
   void testTryConsumeWithLong_whenOne_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new TbRateLimits("42:42")).tryConsume(1L));
+    assertTrue(new TbRateLimits("42:42").tryConsume(1L));
   }
 
   /**
    * Test {@link TbRateLimits#tryConsume()}.
+   *
    * <ul>
-   *   <li>Given {@link TbRateLimits#TbRateLimits(String)} with limitsConfiguration is {@code 42:42}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TbRateLimits#TbRateLimits(String)} with limitsConfiguration is {@code
+   *       42:42}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRateLimits#tryConsume()}
+   *
+   * <p>Method under test: {@link TbRateLimits#tryConsume()}
    */
   @Test
-  @DisplayName("Test tryConsume(); given TbRateLimits(String) with limitsConfiguration is '42:42'; then return 'true'")
+  @DisplayName(
+      "Test tryConsume(); given TbRateLimits(String) with limitsConfiguration is '42:42'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbRateLimits.tryConsume()"})
   void testTryConsume_givenTbRateLimitsWithLimitsConfigurationIs4242_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new TbRateLimits("42:42")).tryConsume());
+    assertTrue(new TbRateLimits("42:42").tryConsume());
   }
 }

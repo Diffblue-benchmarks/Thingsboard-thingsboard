@@ -10,12 +10,14 @@ import org.thingsboard.server.common.data.sync.ie.EntityExportData;
 class EntityDataDiffDiffblueTest {
   /**
    * Test {@link EntityDataDiff#equals(Object)}, and {@link EntityDataDiff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataDiff#equals(Object)}
    *   <li>{@link EntityDataDiff#hashCode()}
@@ -38,12 +40,14 @@ class EntityDataDiffDiffblueTest {
 
   /**
    * Test {@link EntityDataDiff#equals(Object)}, and {@link EntityDataDiff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityDataDiff#equals(Object)}
    *   <li>{@link EntityDataDiff#hashCode()}

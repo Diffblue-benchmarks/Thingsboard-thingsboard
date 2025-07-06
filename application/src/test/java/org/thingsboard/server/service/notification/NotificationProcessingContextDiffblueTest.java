@@ -45,53 +45,55 @@ import org.thingsboard.server.common.data.notification.template.TemplatableValue
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class NotificationProcessingContextDiffblueTest {
-  @MockBean
-  private NotificationDeliveryMethod notificationDeliveryMethod;
+  @MockBean private NotificationDeliveryMethod notificationDeliveryMethod;
 
-  @MockBean
-  private NotificationRequest notificationRequest;
+  @MockBean private NotificationRequest notificationRequest;
 
-  @MockBean
-  private NotificationTemplate notificationTemplate;
+  @MockBean private NotificationSettings notificationSettings;
 
-  @Autowired
-  private Set<NotificationDeliveryMethod> set;
+  @MockBean private NotificationTemplate notificationTemplate;
 
-  @MockBean
-  private UUID uUID;
+  @Autowired private Set<NotificationDeliveryMethod> set;
+
+  @MockBean private UUID uUID;
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext() {
     // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        new EmailDeliveryMethodNotificationTemplate());
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationTemplate).getConfiguration();
@@ -99,7 +101,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -110,39 +113,44 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext2() {
     // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.EMAIL,
-        new EmailDeliveryMethodNotificationTemplate());
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        new EmailDeliveryMethodNotificationTemplate());
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.EMAIL, new EmailDeliveryMethodNotificationTemplate());
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationTemplate).getConfiguration();
@@ -150,7 +158,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -161,15 +170,20 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext3() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -177,31 +191,32 @@ class NotificationProcessingContextDiffblueTest {
     NotificationInfo notificationInfo = mock(NotificationInfo.class);
     when(notificationInfo.getTemplateData()).thenReturn(stringStringMap);
     when(notificationRequest.getInfo()).thenReturn(notificationInfo);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.copy()).thenReturn(new EmailDeliveryMethodNotificationTemplate());
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.copy())
+        .thenReturn(new EmailDeliveryMethodNotificationTemplate());
     when(emailDeliveryMethodNotificationTemplate.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationRequest, atLeast(1)).getInfo();
@@ -213,7 +228,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -224,19 +240,25 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@code EMAIL}.</li>
-   *   <li>When {@link HashSet#HashSet()} add {@code EMAIL}.</li>
+   *   <li>Given {@code EMAIL}.
+   *   <li>When {@link HashSet#HashSet()} add {@code EMAIL}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given 'EMAIL'; when HashSet() add 'EMAIL'")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given 'EMAIL'; when HashSet() add 'EMAIL'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenEmail_whenHashSetAddEmail() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
@@ -249,15 +271,15 @@ class NotificationProcessingContextDiffblueTest {
     deliveryMethods.add(NotificationDeliveryMethod.EMAIL);
     deliveryMethods.add(NotificationDeliveryMethod.WEB);
 
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
-
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            deliveryMethods,
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationTemplate).getConfiguration();
@@ -265,7 +287,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -276,18 +299,24 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@link NotificationRequest}.</li>
+   *   <li>Given {@link NotificationRequest}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given NotificationRequest")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given NotificationRequest")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenNotificationRequest() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
@@ -295,17 +324,16 @@ class NotificationProcessingContextDiffblueTest {
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationTemplate).getConfiguration();
@@ -313,7 +341,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -324,18 +353,24 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@link Supplier} {@link Supplier#get()} return empty string.</li>
+   *   <li>Given {@link Supplier} {@link Supplier#get()} return empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return empty string")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenSupplierGetReturnEmptyString() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -349,34 +384,36 @@ class NotificationProcessingContextDiffblueTest {
 
     ArrayList<TemplatableValue> templatableValueList = new ArrayList<>();
     templatableValueList.add(templatableValue);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues()).thenReturn(templatableValueList);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate2.copy()).thenReturn(emailDeliveryMethodNotificationTemplate);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues())
+        .thenReturn(templatableValueList);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate2.copy())
+        .thenReturn(emailDeliveryMethodNotificationTemplate);
     when(emailDeliveryMethodNotificationTemplate2.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate2);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate2);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(getter).get();
@@ -390,7 +427,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -401,19 +439,25 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@link Supplier} {@link Supplier#get()} return {@code Get}.</li>
-   *   <li>Then calls {@link Consumer#accept(Object)}.</li>
+   *   <li>Given {@link Supplier} {@link Supplier#get()} return {@code Get}.
+   *   <li>Then calls {@link Consumer#accept(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return 'Get'; then calls accept(Object)")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return 'Get'; then calls accept(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenSupplierGetReturnGet_thenCallsAccept() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -429,34 +473,36 @@ class NotificationProcessingContextDiffblueTest {
 
     ArrayList<TemplatableValue> templatableValueList = new ArrayList<>();
     templatableValueList.add(templatableValue);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues()).thenReturn(templatableValueList);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate2.copy()).thenReturn(emailDeliveryMethodNotificationTemplate);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues())
+        .thenReturn(templatableValueList);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate2.copy())
+        .thenReturn(emailDeliveryMethodNotificationTemplate);
     when(emailDeliveryMethodNotificationTemplate2.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate2);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate2);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(setter).accept(eq("Get"));
@@ -471,7 +517,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -482,19 +529,25 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@link Supplier} {@link Supplier#get()} return {@code ${UUU:U}}.</li>
-   *   <li>Then calls {@link Consumer#accept(Object)}.</li>
+   *   <li>Given {@link Supplier} {@link Supplier#get()} return {@code ${UUU:U}}.
+   *   <li>Then calls {@link Consumer#accept(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return '${UUU:U}'; then calls accept(Object)")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given Supplier get() return '${UUU:U}'; then calls accept(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenSupplierGetReturnUuuU_thenCallsAccept() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -510,34 +563,36 @@ class NotificationProcessingContextDiffblueTest {
 
     ArrayList<TemplatableValue> templatableValueList = new ArrayList<>();
     templatableValueList.add(templatableValue);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues()).thenReturn(templatableValueList);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate2.copy()).thenReturn(emailDeliveryMethodNotificationTemplate);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues())
+        .thenReturn(templatableValueList);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate2.copy())
+        .thenReturn(emailDeliveryMethodNotificationTemplate);
     when(emailDeliveryMethodNotificationTemplate2.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate2);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate2);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(setter).accept(eq("${UUU:U}"));
@@ -552,7 +607,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -563,19 +619,25 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Given {@code WEB}.</li>
-   *   <li>Then return DeliveryMethods is {@link HashSet#HashSet()}.</li>
+   *   <li>Given {@code WEB}.
+   *   <li>Then return DeliveryMethods is {@link HashSet#HashSet()}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given 'WEB'; then return DeliveryMethods is HashSet()")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); given 'WEB'; then return DeliveryMethods is HashSet()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_givenWeb_thenReturnDeliveryMethodsIsHashSet() {
     // Arrange
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
@@ -587,15 +649,15 @@ class NotificationProcessingContextDiffblueTest {
     HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
     deliveryMethods.add(NotificationDeliveryMethod.WEB);
 
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
-
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            deliveryMethods,
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationTemplate).getConfiguration();
@@ -603,7 +665,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -614,18 +677,24 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Then calls {@link TemplatableValue#get()}.</li>
+   *   <li>Then calls {@link TemplatableValue#get()}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls get()")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls get()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_thenCallsGet() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -639,34 +708,36 @@ class NotificationProcessingContextDiffblueTest {
 
     ArrayList<TemplatableValue> templatableValueList = new ArrayList<>();
     templatableValueList.add(templatableValue);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues()).thenReturn(templatableValueList);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate2.copy()).thenReturn(emailDeliveryMethodNotificationTemplate);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues())
+        .thenReturn(templatableValueList);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate2.copy())
+        .thenReturn(emailDeliveryMethodNotificationTemplate);
     when(emailDeliveryMethodNotificationTemplate2.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate2);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate2);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationRequest, atLeast(1)).getInfo();
@@ -681,7 +752,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(templatableValue).set(eq("Get"));
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -692,47 +764,53 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Then calls {@link NotificationRequest#getInfo()}.</li>
+   *   <li>Then calls {@link NotificationRequest#getInfo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls getInfo()")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls getInfo()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_thenCallsGetInfo() {
     // Arrange
     NotificationInfo notificationInfo = mock(NotificationInfo.class);
     when(notificationInfo.getTemplateData()).thenReturn(new HashMap<>());
     when(notificationRequest.getInfo()).thenReturn(notificationInfo);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
     when(emailDeliveryMethodNotificationTemplate.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationRequest, atLeast(1)).getInfo();
@@ -743,7 +821,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -754,18 +833,24 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Then calls {@link EmailDeliveryMethodNotificationTemplate#getTemplatableValues()}.</li>
+   *   <li>Then calls {@link EmailDeliveryMethodNotificationTemplate#getTemplatableValues()}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls getTemplatableValues()")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then calls getTemplatableValues()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_thenCallsGetTemplatableValues() {
     // Arrange
     HashMap<String, String> stringStringMap = new HashMap<>();
@@ -773,34 +858,36 @@ class NotificationProcessingContextDiffblueTest {
     NotificationInfo notificationInfo = mock(NotificationInfo.class);
     when(notificationInfo.getTemplateData()).thenReturn(stringStringMap);
     when(notificationRequest.getInfo()).thenReturn(notificationInfo);
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues()).thenReturn(new ArrayList<>());
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
-    when(emailDeliveryMethodNotificationTemplate2.copy()).thenReturn(emailDeliveryMethodNotificationTemplate);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate.getTemplatableValues())
+        .thenReturn(new ArrayList<>());
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate2 =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
+    when(emailDeliveryMethodNotificationTemplate2.copy())
+        .thenReturn(emailDeliveryMethodNotificationTemplate);
     when(emailDeliveryMethodNotificationTemplate2.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate2);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate2);
     NotificationTemplateConfig notificationTemplateConfig = mock(NotificationTemplateConfig.class);
     when(notificationTemplateConfig.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
     when(notificationTemplate.getNotificationType()).thenReturn(NotificationType.GENERAL);
     when(notificationTemplate.getConfiguration()).thenReturn(notificationTemplateConfig);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-
-    NotificationSettings settings = new NotificationSettings();
-    settings.setDeliveryMethodsConfigs(new HashMap<>());
-
-    NotificationSettings systemSettings = new NotificationSettings();
-    systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        notificationRequest, deliveryMethods, notificationTemplate, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId,
+            notificationRequest,
+            new HashSet<>(),
+            notificationTemplate,
+            notificationSettings,
+            notificationSettings);
 
     // Assert
     verify(notificationRequest, atLeast(1)).getInfo();
@@ -813,7 +900,8 @@ class NotificationProcessingContextDiffblueTest {
     verify(notificationTemplateConfig).getDeliveryMethodsTemplates();
     NotificationRequestStats stats = actualNotificationProcessingContext.getStats();
     assertNull(stats.getError());
-    assertEquals(NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
+    assertEquals(
+        NotificationType.GENERAL, actualNotificationProcessingContext.getNotificationType());
     assertTrue(stats.getErrors().isEmpty());
     assertTrue(stats.getProcessedRecipients().isEmpty());
     assertTrue(stats.getSent().isEmpty());
@@ -824,30 +912,37 @@ class NotificationProcessingContextDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   * Test {@link NotificationProcessingContext#NotificationProcessingContext(TenantId,
+   * NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}.
+   *
    * <ul>
-   *   <li>Then return NotificationType is {@code null}.</li>
+   *   <li>Then return NotificationType is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)}
+   *
+   * <p>Method under test: {@link
+   * NotificationProcessingContext#NotificationProcessingContext(TenantId, NotificationRequest, Set,
+   * NotificationTemplate, NotificationSettings, NotificationSettings)}
    */
   @Test
-  @DisplayName("Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then return NotificationType is 'null'")
+  @DisplayName(
+      "Test new NotificationProcessingContext(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings); then return NotificationType is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"})
+    "void NotificationProcessingContext.<init>(TenantId, NotificationRequest, Set, NotificationTemplate, NotificationSettings, NotificationSettings)"
+  })
   void testNewNotificationProcessingContext_thenReturnNotificationTypeIsNull() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     NotificationRequest request = new NotificationRequest();
     HashSet<NotificationDeliveryMethod> deliveryMethods = new HashSet<>();
-    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate = mock(
-        EmailDeliveryMethodNotificationTemplate.class);
+    EmailDeliveryMethodNotificationTemplate emailDeliveryMethodNotificationTemplate =
+        mock(EmailDeliveryMethodNotificationTemplate.class);
     when(emailDeliveryMethodNotificationTemplate.isEnabled()).thenReturn(true);
 
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
-    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(NotificationDeliveryMethod.WEB,
-        emailDeliveryMethodNotificationTemplate);
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate>
+        notificationDeliveryMethodDeliveryMethodNotificationTemplateMap = new HashMap<>();
+    notificationDeliveryMethodDeliveryMethodNotificationTemplateMap.put(
+        NotificationDeliveryMethod.WEB, emailDeliveryMethodNotificationTemplate);
     NotificationTemplateConfig configuration = mock(NotificationTemplateConfig.class);
     when(configuration.getDeliveryMethodsTemplates())
         .thenReturn(notificationDeliveryMethodDeliveryMethodNotificationTemplateMap);
@@ -862,8 +957,9 @@ class NotificationProcessingContextDiffblueTest {
     systemSettings.setDeliveryMethodsConfigs(new HashMap<>());
 
     // Act
-    NotificationProcessingContext actualNotificationProcessingContext = new NotificationProcessingContext(tenantId,
-        request, deliveryMethods, template, settings, systemSettings);
+    NotificationProcessingContext actualNotificationProcessingContext =
+        new NotificationProcessingContext(
+            tenantId, request, deliveryMethods, template, settings, systemSettings);
 
     // Assert
     verify(emailDeliveryMethodNotificationTemplate).isEnabled();

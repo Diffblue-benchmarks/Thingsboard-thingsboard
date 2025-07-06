@@ -26,34 +26,38 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class RpcV2ControllerDiffblueTest {
-  @InjectMocks
-  private RpcV2Controller rpcV2Controller;
+  @InjectMocks private RpcV2Controller rpcV2Controller;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
+   *   <li>Given {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleOneWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
+  @DisplayName(
+      "Test handleOneWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"
+  })
   void testHandleOneWayDeviceRPCRequest_givenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -65,26 +69,32 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleOneWayDeviceRPCRequest(String, String); then status four hundred fifteen")
+  @DisplayName(
+      "Test handleOneWayDeviceRPCRequest(String, String); then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"
+  })
   void testHandleOneWayDeviceRPCRequest_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
-    doThrow(new ResponseStatusException(HttpStatus.OK)).when(thingsboardErrorResponseHandler)
+    doThrow(new ResponseStatusException(HttpStatus.OK))
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -96,26 +106,30 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleOneWayDeviceRPCRequest(String, String)}
    */
   @Test
   @DisplayName("Test handleOneWayDeviceRPCRequest(String, String); when '42'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleOneWayDeviceRPCRequest(String, String)"
+  })
   void testHandleOneWayDeviceRPCRequest_when42_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/rpc/oneway/{deviceId}", "42")
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -127,26 +141,32 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
+   *   <li>Given {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleTwoWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
+  @DisplayName(
+      "Test handleTwoWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"
+  })
   void testHandleTwoWayDeviceRPCRequest_givenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -158,26 +178,32 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleTwoWayDeviceRPCRequest(String, String); then status four hundred fifteen")
+  @DisplayName(
+      "Test handleTwoWayDeviceRPCRequest(String, String); then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"
+  })
   void testHandleTwoWayDeviceRPCRequest_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
-    doThrow(new ResponseStatusException(HttpStatus.OK)).when(thingsboardErrorResponseHandler)
+    doThrow(new ResponseStatusException(HttpStatus.OK))
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -189,26 +215,30 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#handleTwoWayDeviceRPCRequest(String, String)}
    */
   @Test
   @DisplayName("Test handleTwoWayDeviceRPCRequest(String, String); when '42'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.handleTwoWayDeviceRPCRequest(String, String)"
+  })
   void testHandleTwoWayDeviceRPCRequest_when42_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/rpc/twoway/{deviceId}", "42")
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -220,22 +250,27 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#getPersistedRpc(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpc(String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpc(String)}
    */
   @Test
   @DisplayName("Test getPersistedRpc(String); when '42'; then status isOk()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.rpc.Rpc RpcV2Controller.getPersistedRpc(String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.rpc.Rpc RpcV2Controller.getPersistedRpc(String)"
+  })
   void testGetPersistedRpc_when42_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/rpc/persistent/{rpcId}", "42");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/{rpcId}", "42");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -246,24 +281,31 @@ class RpcV2ControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}.
+   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>Given array of {@link Object} with {@code 42}.</li>
-   *   <li>When empty string.</li>
+   *   <li>Given array of {@link Object} with {@code 42}.
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int,
+   * RpcStatus, String, String, String)}
    */
   @Test
-  @DisplayName("Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); given array of Object with '42'; when empty string")
+  @DisplayName(
+      "Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); given array of Object with '42'; when empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"
+  })
   void testGetPersistedRpcByDevice_givenArrayOfObjectWith42_whenEmptyString() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -276,25 +318,31 @@ class RpcV2ControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}.
+   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>Then status four hundred.</li>
+   *   <li>Then status four hundred.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int,
+   * RpcStatus, String, String, String)}
    */
   @Test
-  @DisplayName("Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); then status four hundred")
+  @DisplayName(
+      "Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); then status four hundred")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"
+  })
   void testGetPersistedRpcByDevice_thenStatusFourHundred() throws Exception {
     // Arrange
-    doThrow(new ResponseStatusException(HttpStatus.OK)).when(thingsboardErrorResponseHandler)
+    doThrow(new ResponseStatusException(HttpStatus.OK))
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
-        .get("/api/rpc/persistent/device/{deviceId}", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -306,26 +354,32 @@ class RpcV2ControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}.
+   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@code https://example.org/example}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int,
+   * RpcStatus, String, String, String)}
    */
   @Test
-  @DisplayName("Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when 'https://example.org/example'; then status isOk()")
+  @DisplayName(
+      "Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when 'https://example.org/example'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"
+  })
   void testGetPersistedRpcByDevice_whenHttpsExampleOrgExample_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
-        .get("/api/rpc/persistent/device/{deviceId}", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -337,24 +391,32 @@ class RpcV2ControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}.
+   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is valueOf one.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is
+   *       valueOf one.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int,
+   * RpcStatus, String, String, String)}
    */
   @Test
-  @DisplayName("Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when param(String, String[]) 'page' is valueOf one; then status isOk()")
+  @DisplayName(
+      "Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when param(String, String[]) 'page' is valueOf one; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"
+  })
   void testGetPersistedRpcByDevice_whenParamPageIsValueOfOne_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -367,27 +429,35 @@ class RpcV2ControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}.
+   * Test {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String,
+   * String, String)}.
+   *
    * <ul>
-   *   <li>When valueOf {@code QUEUED}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When valueOf {@code QUEUED}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#getPersistedRpcByDevice(String, int, int,
+   * RpcStatus, String, String, String)}
    */
   @Test
-  @DisplayName("Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when valueOf 'QUEUED'; then status isOk()")
+  @DisplayName(
+      "Test getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String); when valueOf 'QUEUED'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV2Controller.getPersistedRpcByDevice(String, int, int, RpcStatus, String, String, String)"
+  })
   void testGetPersistedRpcByDevice_whenValueOfQueued_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/rpc/persistent/device/{deviceId}", "42");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder paramResult2 = paramResult.param("pageSize", String.valueOf(1));
-    MockHttpServletRequestBuilder requestBuilder = paramResult2.param("rpcStatus", String.valueOf(RpcStatus.QUEUED));
+    MockHttpServletRequestBuilder requestBuilder =
+        paramResult2.param("rpcStatus", String.valueOf(RpcStatus.QUEUED));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)
@@ -399,12 +469,13 @@ class RpcV2ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV2Controller#deleteRpc(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV2Controller#deleteRpc(String)}
+   *
+   * <p>Method under test: {@link RpcV2Controller#deleteRpc(String)}
    */
   @Test
   @DisplayName("Test deleteRpc(String); when '42'; then status isOk()")
@@ -412,9 +483,11 @@ class RpcV2ControllerDiffblueTest {
   @MethodsUnderTest({"void RpcV2Controller.deleteRpc(String)"})
   void testDeleteRpc_when42_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/api/rpc/persistent/{rpcId}", "42");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete("/api/rpc/persistent/{rpcId}", "42");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV2Controller)

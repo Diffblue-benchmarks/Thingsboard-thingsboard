@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 class ResourceUtilsDiffblueTest {
   /**
    * Test {@link ResourceUtils#getResource(String, Class)}.
+   *
    * <ul>
-   *   <li>When {@code Path}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Path}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceUtils#getResource(String, Class)}
+   *
+   * <p>Method under test: {@link ResourceUtils#getResource(String, Class)}
    */
   @Test
   @DisplayName("Test getResource(String, Class); when 'Path'; then throw IllegalArgumentException")
@@ -30,12 +31,13 @@ class ResourceUtilsDiffblueTest {
 
   /**
    * Test {@link ResourceUtils#getResourceAsStream(String)}.
+   *
    * <ul>
-   *   <li>When {@code Path}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Path}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceUtils#getResourceAsStream(String)}
+   *
+   * <p>Method under test: {@link ResourceUtils#getResourceAsStream(String)}
    */
   @Test
   @DisplayName("Test getResourceAsStream(String); when 'Path'; then throw IllegalArgumentException")

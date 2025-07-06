@@ -3,13 +3,15 @@ package org.thingsboard.server.dao.audit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.HasName;
 import org.thingsboard.server.common.data.audit.ActionType;
 import org.thingsboard.server.common.data.audit.AuditLog;
-import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -21,20 +23,24 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class DummyAuditLogServiceImplDiffblueTest {
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code ADDED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.</li>
+   *   <li>Given {@code ADDED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndCustomerId_givenAdded_whenArrayListAddAdded() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -42,31 +48,38 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndCustomerId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndCustomerIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndCustomerIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code DELETED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.</li>
+   *   <li>Given {@code DELETED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndCustomerId_givenDeleted_whenArrayListAddDeleted() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -75,88 +88,74 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndCustomerId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndCustomerIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndCustomerIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndCustomerId_whenArrayList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndCustomerId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndCustomerIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndCustomerIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link TimePageLink}.</li>
+   *   <li>Given {@code ADDED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}
    */
   @Test
-  public void testFindAuditLogsByTenantIdAndCustomerId_whenTimePageLink() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
-
-    // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndCustomerIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndCustomerId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            new ArrayList<>(), mock(TimePageLink.class));
-
-    // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndCustomerIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndCustomerIdResult);
-  }
-
-  /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}.
-   * <ul>
-   *   <li>Given {@code ADDED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndUserId_givenAdded_whenArrayListAddAdded() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -164,30 +163,35 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndUserId(ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(
+            ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndUserIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndUserIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code DELETED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.</li>
+   *   <li>Given {@code DELETED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndUserId_givenDeleted_whenArrayListAddDeleted() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -196,86 +200,68 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndUserId(ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(
+            ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndUserIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndUserIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndUserId_whenArrayList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndUserId(ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(
+            ModelConstants.SYSTEM_TENANT, null, actionTypes, new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndUserIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndUserIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link TimePageLink}.</li>
+   *   <li>Given {@code ADDED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List,
+   * TimePageLink)}
    */
   @Test
-  public void testFindAuditLogsByTenantIdAndUserId_whenTimePageLink() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
-
-    // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndUserIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndUserId(ModelConstants.SYSTEM_TENANT, null, new ArrayList<>(),
-            mock(TimePageLink.class));
-
-    // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndUserIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndUserIdResult);
-  }
-
-  /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}.
-   * <ul>
-   *   <li>Given {@code ADDED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndEntityId_givenAdded_whenArrayListAddAdded() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -283,31 +269,38 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndEntityId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndEntityIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndEntityIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code DELETED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.</li>
+   *   <li>Given {@code DELETED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndEntityId_givenDeleted_whenArrayListAddDeleted() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -316,89 +309,72 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndEntityId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndEntityIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndEntityIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId,
+   * List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link AlarmId}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link
+   * DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List,
+   * TimePageLink)}
    */
   @Test
-  public void testFindAuditLogsByTenantIdAndEntityId_whenAlarmId() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
-    AlarmId entityId = mock(AlarmId.class);
-    ArrayList<ActionType> actionTypes = new ArrayList<>();
-
-    // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndEntityId(ModelConstants.SYSTEM_TENANT, entityId, actionTypes, new TimePageLink(3));
-
-    // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndEntityIdResult);
-  }
-
-  /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantIdAndEntityId_whenArrayList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantIdAndEntityId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID,
-            actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdAndEntityIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            actionTypes,
+            new TimePageLink(3));
 
     // Assert
-    PageData pageData = actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA;
-    assertEquals(pageData, dummyAuditLogServiceImpl.findAuditLogsByTenantId(null, null, null));
-    assertEquals(pageData, actualFindAuditLogsByTenantIdAndEntityIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdAndEntityIdResult.EMPTY_PAGE_DATA,
+        actualFindAuditLogsByTenantIdAndEntityIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code ADDED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.</li>
+   *   <li>Given {@code ADDED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code ADDED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantId_givenAdded_whenArrayListAddAdded() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -406,28 +382,32 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantId(ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantId(
+            ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
 
     // Assert
-    assertEquals(actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>Given {@code DELETED}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.</li>
+   *   <li>Given {@code DELETED}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code DELETED}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantId_givenDeleted_whenArrayListAddDeleted() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -436,86 +416,78 @@ public class DummyAuditLogServiceImplDiffblueTest {
     actionTypes.add(ActionType.ADDED);
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantId(ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantId(
+            ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
 
     // Assert
-    assertEquals(actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List,
+   * TimePageLink)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
+  })
   public void testFindAuditLogsByTenantId_whenArrayList() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
 
     // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantId(ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
+    PageData<AuditLog> actualFindAuditLogsByTenantIdResult =
+        dummyAuditLogServiceImpl.findAuditLogsByTenantId(
+            ModelConstants.SYSTEM_TENANT, actionTypes, new TimePageLink(3));
 
     // Assert
-    assertEquals(actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
+    assertEquals(
+        actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
   }
 
   /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}.
+   * Test {@link DummyAuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String,
+   * EntityId, HasName, ActionType, Exception, Object[])}.
+   *
    * <ul>
-   *   <li>When {@link TimePageLink}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#findAuditLogsByTenantId(TenantId, List, TimePageLink)}
+   *
+   * <p>Method under test: {@link DummyAuditLogServiceImpl#logEntityAction(TenantId, CustomerId,
+   * UserId, String, EntityId, HasName, ActionType, Exception, Object[])}
    */
   @Test
-  public void testFindAuditLogsByTenantId_whenTimePageLink() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
-    // Arrange
-    DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
-
-    // Act
-    PageData<AuditLog> actualFindAuditLogsByTenantIdResult = dummyAuditLogServiceImpl
-        .findAuditLogsByTenantId(ModelConstants.SYSTEM_TENANT, new ArrayList<>(), mock(TimePageLink.class));
-
-    // Assert
-    assertEquals(actualFindAuditLogsByTenantIdResult.EMPTY_PAGE_DATA, actualFindAuditLogsByTenantIdResult);
-  }
-
-  /**
-   * Test
-   * {@link DummyAuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link DummyAuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "com.google.common.util.concurrent.ListenableFuture DummyAuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
+  })
   public void testLogEntityAction_whenNull_thenReturnNull() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     HasName hasName = mock(HasName.class);
 
     // Act and Assert
-    assertNull(dummyAuditLogServiceImpl.logEntityAction(ModelConstants.SYSTEM_TENANT,
-        BaseEntityService.NULL_CUSTOMER_ID, null, "janedoe", BaseEntityService.NULL_CUSTOMER_ID, hasName,
-        ActionType.ADDED, new Exception("foo"), "Additional Info"));
+    assertNull(
+        dummyAuditLogServiceImpl.logEntityAction(
+            ModelConstants.SYSTEM_TENANT,
+            BaseEntityService.NULL_CUSTOMER_ID,
+            null,
+            "janedoe",
+            BaseEntityService.NULL_CUSTOMER_ID,
+            hasName,
+            ActionType.ADDED,
+            new Exception("foo"),
+            "Additional Info"));
   }
 }

@@ -180,6 +180,7 @@
         <module>msa</module>
         <module>rest-client</module>
         <module>monitoring</module>
+        <!--use when using pi test to combine module pitest reports-->
 		<!--<module>mutation-aggregation-module</module>-->
     </modules>
 
@@ -680,7 +681,11 @@
                     <version>${surefire.version}</version>
                     <configuration>
                         <argLine>
-                            @{argLine} -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=20
+<!-- use this in argline when using pitest-->
+<!-- -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=20-->
+<!-- [-]-add-opens java.base/java.lang.reflect=ALL-UNNAMED-->
+
+                            @{argLine} -XX:+UseStringDeduplication
                             --add-opens java.base/java.lang.reflect=ALL-UNNAMED
                         </argLine>
                         <testFailureIgnore>false</testFailureIgnore>
@@ -880,6 +885,7 @@
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
             </plugin>-->
+            <!-- comment out if using pitest-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -900,6 +906,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--comment out if using jacoco-->
             <!--<plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
@@ -907,7 +914,7 @@
                 <configuration>
                     <failWhenNoMutations>false</failWhenNoMutations>
 					<exportLineCoverage>true</exportLineCoverage>
-					<targetTests>
+                    <targetTests>
                         <param>**DiffblueTest*</param>
                     </targetTests>
 					<outputFormats>

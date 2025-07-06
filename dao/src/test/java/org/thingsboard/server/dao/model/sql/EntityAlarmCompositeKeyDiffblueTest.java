@@ -11,13 +11,16 @@ import org.junit.experimental.categories.Category;
 
 public class EntityAlarmCompositeKeyDiffblueTest {
   /**
-   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link EntityAlarmCompositeKey#hashCode()}.
+   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link
+   * EntityAlarmCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarmCompositeKey#equals(Object)}
    *   <li>{@link EntityAlarmCompositeKey#hashCode()}
@@ -25,7 +28,10 @@ public class EntityAlarmCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey();
@@ -38,13 +44,16 @@ public class EntityAlarmCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link EntityAlarmCompositeKey#hashCode()}.
+   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link
+   * EntityAlarmCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarmCompositeKey#equals(Object)}
    *   <li>{@link EntityAlarmCompositeKey#hashCode()}
@@ -52,15 +61,20 @@ public class EntityAlarmCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey(entityId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityAlarmCompositeKey entityAlarmCompositeKey =
+        new EntityAlarmCompositeKey(
+            entityId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID entityId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    EntityAlarmCompositeKey entityAlarmCompositeKey2 = new EntityAlarmCompositeKey(entityId2,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityAlarmCompositeKey entityAlarmCompositeKey2 =
+        new EntityAlarmCompositeKey(
+            entityId2, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertEquals(entityAlarmCompositeKey, entityAlarmCompositeKey2);
@@ -69,13 +83,16 @@ public class EntityAlarmCompositeKeyDiffblueTest {
   }
 
   /**
-   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link EntityAlarmCompositeKey#hashCode()}.
+   * Test {@link EntityAlarmCompositeKey#equals(Object)}, and {@link
+   * EntityAlarmCompositeKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarmCompositeKey#equals(Object)}
    *   <li>{@link EntityAlarmCompositeKey#hashCode()}
@@ -83,7 +100,10 @@ public class EntityAlarmCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey();
@@ -96,21 +116,26 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey(entityId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityAlarmCompositeKey entityAlarmCompositeKey =
+        new EntityAlarmCompositeKey(
+            entityId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     assertNotEquals(entityAlarmCompositeKey, new EntityAlarmCompositeKey());
@@ -118,38 +143,48 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertNotEquals(entityAlarmCompositeKey,
-        new EntityAlarmCompositeKey(entityId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assertNotEquals(
+        entityAlarmCompositeKey,
+        new EntityAlarmCompositeKey(
+            entityId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
   }
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey();
@@ -161,16 +196,20 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityAlarmCompositeKey entityAlarmCompositeKey = new EntityAlarmCompositeKey();
@@ -184,16 +223,20 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityAlarmCompositeKey(), null);
@@ -201,16 +244,20 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test {@link EntityAlarmCompositeKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityAlarmCompositeKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean EntityAlarmCompositeKey.equals(Object)", "int EntityAlarmCompositeKey.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityAlarmCompositeKey.equals(Object)",
+    "int EntityAlarmCompositeKey.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityAlarmCompositeKey(), "Different type to EntityAlarmCompositeKey");
@@ -218,8 +265,9 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarmCompositeKey#EntityAlarmCompositeKey()}
    *   <li>{@link EntityAlarmCompositeKey#setAlarmId(UUID)}
@@ -231,10 +279,15 @@ public class EntityAlarmCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void EntityAlarmCompositeKey.<init>()", "void EntityAlarmCompositeKey.<init>(UUID, UUID)",
-      "UUID EntityAlarmCompositeKey.getAlarmId()", "UUID EntityAlarmCompositeKey.getEntityId()",
-      "void EntityAlarmCompositeKey.setAlarmId(UUID)", "void EntityAlarmCompositeKey.setEntityId(UUID)",
-      "String EntityAlarmCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void EntityAlarmCompositeKey.<init>()",
+    "void EntityAlarmCompositeKey.<init>(UUID, UUID)",
+    "UUID EntityAlarmCompositeKey.getAlarmId()",
+    "UUID EntityAlarmCompositeKey.getEntityId()",
+    "void EntityAlarmCompositeKey.setAlarmId(UUID)",
+    "void EntityAlarmCompositeKey.setEntityId(UUID)",
+    "String EntityAlarmCompositeKey.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     EntityAlarmCompositeKey actualEntityAlarmCompositeKey = new EntityAlarmCompositeKey();
@@ -259,11 +312,13 @@ public class EntityAlarmCompositeKeyDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityAlarmCompositeKey#EntityAlarmCompositeKey(UUID, UUID)}
    *   <li>{@link EntityAlarmCompositeKey#setAlarmId(UUID)}
@@ -275,17 +330,23 @@ public class EntityAlarmCompositeKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void EntityAlarmCompositeKey.<init>()", "void EntityAlarmCompositeKey.<init>(UUID, UUID)",
-      "UUID EntityAlarmCompositeKey.getAlarmId()", "UUID EntityAlarmCompositeKey.getEntityId()",
-      "void EntityAlarmCompositeKey.setAlarmId(UUID)", "void EntityAlarmCompositeKey.setEntityId(UUID)",
-      "String EntityAlarmCompositeKey.toString()"})
+  @MethodsUnderTest({
+    "void EntityAlarmCompositeKey.<init>()",
+    "void EntityAlarmCompositeKey.<init>(UUID, UUID)",
+    "UUID EntityAlarmCompositeKey.getAlarmId()",
+    "UUID EntityAlarmCompositeKey.getEntityId()",
+    "void EntityAlarmCompositeKey.setAlarmId(UUID)",
+    "void EntityAlarmCompositeKey.setEntityId(UUID)",
+    "String EntityAlarmCompositeKey.toString()"
+  })
   public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act
-    EntityAlarmCompositeKey actualEntityAlarmCompositeKey = new EntityAlarmCompositeKey(entityId,
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EntityAlarmCompositeKey actualEntityAlarmCompositeKey =
+        new EntityAlarmCompositeKey(
+            entityId, UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     UUID alarmId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     actualEntityAlarmCompositeKey.setAlarmId(alarmId);
     UUID entityId2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

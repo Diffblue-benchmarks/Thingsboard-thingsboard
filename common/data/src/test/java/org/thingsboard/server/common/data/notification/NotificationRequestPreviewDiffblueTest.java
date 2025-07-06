@@ -18,13 +18,16 @@ import org.thingsboard.server.common.data.notification.template.EmailDeliveryMet
 
 class NotificationRequestPreviewDiffblueTest {
   /**
-   * Test {@link NotificationRequestPreview#equals(Object)}, and {@link NotificationRequestPreview#hashCode()}.
+   * Test {@link NotificationRequestPreview#equals(Object)}, and {@link
+   * NotificationRequestPreview#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestPreview#equals(Object)}
    *   <li>{@link NotificationRequestPreview#hashCode()}
@@ -33,7 +36,10 @@ class NotificationRequestPreviewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
@@ -55,13 +61,16 @@ class NotificationRequestPreviewDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationRequestPreview#equals(Object)}, and {@link NotificationRequestPreview#hashCode()}.
+   * Test {@link NotificationRequestPreview#equals(Object)}, and {@link
+   * NotificationRequestPreview#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRequestPreview#equals(Object)}
    *   <li>{@link NotificationRequestPreview#hashCode()}
@@ -70,7 +79,10 @@ class NotificationRequestPreviewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
@@ -87,21 +99,27 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> processedTemplates = new HashMap<>();
-    processedTemplates.put(NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> processedTemplates =
+        new HashMap<>();
+    processedTemplates.put(
+        NotificationDeliveryMethod.WEB, new EmailDeliveryMethodNotificationTemplate());
 
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
     notificationRequestPreview.setProcessedTemplates(processedTemplates);
@@ -121,17 +139,21 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     HashMap<String, Integer> recipientsCountByTarget = new HashMap<>();
@@ -155,17 +177,21 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ArrayList<String> recipientsPreview = new ArrayList<>();
@@ -189,17 +215,21 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
@@ -220,17 +250,21 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
@@ -245,17 +279,21 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test {@link NotificationRequestPreview#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRequestPreview#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRequestPreview#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationRequestPreview.equals(Object)", "int NotificationRequestPreview.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationRequestPreview.equals(Object)",
+    "int NotificationRequestPreview.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NotificationRequestPreview notificationRequestPreview = new NotificationRequestPreview();
@@ -270,8 +308,9 @@ class NotificationRequestPreviewDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationRequestPreview}
    *   <li>{@link NotificationRequestPreview#setProcessedTemplates(Map)}
@@ -288,19 +327,23 @@ class NotificationRequestPreviewDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationRequestPreview.<init>()",
-      "Map NotificationRequestPreview.getProcessedTemplates()",
-      "Map NotificationRequestPreview.getRecipientsCountByTarget()",
-      "Collection NotificationRequestPreview.getRecipientsPreview()",
-      "int NotificationRequestPreview.getTotalRecipientsCount()",
-      "void NotificationRequestPreview.setProcessedTemplates(Map)",
-      "void NotificationRequestPreview.setRecipientsCountByTarget(Map)",
-      "void NotificationRequestPreview.setRecipientsPreview(Collection)",
-      "void NotificationRequestPreview.setTotalRecipientsCount(int)", "String NotificationRequestPreview.toString()"})
+  @MethodsUnderTest({
+    "void NotificationRequestPreview.<init>()",
+    "Map NotificationRequestPreview.getProcessedTemplates()",
+    "Map NotificationRequestPreview.getRecipientsCountByTarget()",
+    "Collection NotificationRequestPreview.getRecipientsPreview()",
+    "int NotificationRequestPreview.getTotalRecipientsCount()",
+    "void NotificationRequestPreview.setProcessedTemplates(Map)",
+    "void NotificationRequestPreview.setRecipientsCountByTarget(Map)",
+    "void NotificationRequestPreview.setRecipientsPreview(Collection)",
+    "void NotificationRequestPreview.setTotalRecipientsCount(int)",
+    "String NotificationRequestPreview.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationRequestPreview actualNotificationRequestPreview = new NotificationRequestPreview();
-    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> processedTemplates = new HashMap<>();
+    HashMap<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> processedTemplates =
+        new HashMap<>();
     actualNotificationRequestPreview.setProcessedTemplates(processedTemplates);
     HashMap<String, Integer> recipientsCountByTarget = new HashMap<>();
     actualNotificationRequestPreview.setRecipientsCountByTarget(recipientsCountByTarget);
@@ -308,15 +351,19 @@ class NotificationRequestPreviewDiffblueTest {
     actualNotificationRequestPreview.setRecipientsPreview(recipientsPreview);
     actualNotificationRequestPreview.setTotalRecipientsCount(3);
     String actualToStringResult = actualNotificationRequestPreview.toString();
-    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> actualProcessedTemplates = actualNotificationRequestPreview
-        .getProcessedTemplates();
-    Map<String, Integer> actualRecipientsCountByTarget = actualNotificationRequestPreview.getRecipientsCountByTarget();
-    Collection<String> actualRecipientsPreview = actualNotificationRequestPreview.getRecipientsPreview();
+    Map<NotificationDeliveryMethod, DeliveryMethodNotificationTemplate> actualProcessedTemplates =
+        actualNotificationRequestPreview.getProcessedTemplates();
+    Map<String, Integer> actualRecipientsCountByTarget =
+        actualNotificationRequestPreview.getRecipientsCountByTarget();
+    Collection<String> actualRecipientsPreview =
+        actualNotificationRequestPreview.getRecipientsPreview();
 
     // Assert
     assertTrue(actualRecipientsPreview instanceof List);
-    assertEquals("NotificationRequestPreview(processedTemplates={}, totalRecipientsCount=3, recipientsCountByTarget={},"
-        + " recipientsPreview=[])", actualToStringResult);
+    assertEquals(
+        "NotificationRequestPreview(processedTemplates={}, totalRecipientsCount=3, recipientsCountByTarget={},"
+            + " recipientsPreview=[])",
+        actualToStringResult);
     assertEquals(3, actualNotificationRequestPreview.getTotalRecipientsCount());
     assertTrue(actualProcessedTemplates.isEmpty());
     assertTrue(actualRecipientsCountByTarget.isEmpty());

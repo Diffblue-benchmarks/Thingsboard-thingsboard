@@ -19,19 +19,16 @@ import org.thingsboard.server.dao.Dao;
 @DisabledInAotMode
 @RunWith(SpringJUnit4ClassRunner.class)
 public class EntityDaoRegistryDiffblueTest {
-  @MockBean
-  private Dao<Object> dao;
+  @MockBean private Dao<Object> dao;
 
-  @Autowired
-  private EntityDaoRegistry entityDaoRegistry;
+  @Autowired private EntityDaoRegistry entityDaoRegistry;
 
-  @Autowired
-  private List<Dao<Object>> list;
+  @Autowired private List<Dao<Object>> list;
 
   /**
    * Test {@link EntityDaoRegistry#getDao(EntityType)}.
-   * <p>
-   * Method under test: {@link EntityDaoRegistry#getDao(EntityType)}
+   *
+   * <p>Method under test: {@link EntityDaoRegistry#getDao(EntityType)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

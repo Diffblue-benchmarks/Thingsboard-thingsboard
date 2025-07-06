@@ -16,26 +16,26 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class QueueStatsControllerDiffblueTest {
-  @InjectMocks
-  private QueueStatsController queueStatsController;
+  @InjectMocks private QueueStatsController queueStatsController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link QueueStatsController#getTenantQueueStats(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link QueueStatsController#getTenantQueueStats(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link QueueStatsController#getTenantQueueStats(int, int, String, String,
+   * String)}
    */
   @Test
   @DisplayName("Test getTenantQueueStats(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData QueueStatsController.getTenantQueueStats(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData QueueStatsController.getTenantQueueStats(int, int, String, String, String)"
+  })
   void testGetTenantQueueStats() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/queueStats")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/queueStats").param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert

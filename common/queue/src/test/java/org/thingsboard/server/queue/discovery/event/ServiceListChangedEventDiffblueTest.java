@@ -15,14 +15,17 @@ import org.thingsboard.server.gen.transport.TransportProtos.ServiceInfo;
 class ServiceListChangedEventDiffblueTest {
   /**
    * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   *
    * <ul>
-   *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
+   *
+   * <p>Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List,
+   * ServiceInfo)}
    */
   @Test
-  @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
+  @DisplayName(
+      "Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
   void testNewServiceListChangedEvent_thenReturnOtherServicesIsArrayList() {
@@ -31,20 +34,25 @@ class ServiceListChangedEventDiffblueTest {
     otherServices.add(ServiceInfo.getDefaultInstance());
 
     // Act and Assert
-    assertSame(otherServices,
-        (new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())).getOtherServices());
+    assertSame(
+        otherServices,
+        new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())
+            .getOtherServices());
   }
 
   /**
    * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   *
    * <ul>
-   *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return OtherServices is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
+   *
+   * <p>Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List,
+   * ServiceInfo)}
    */
   @Test
-  @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
+  @DisplayName(
+      "Test new ServiceListChangedEvent(List, ServiceInfo); then return OtherServices is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
   void testNewServiceListChangedEvent_thenReturnOtherServicesIsArrayList2() {
@@ -54,21 +62,26 @@ class ServiceListChangedEventDiffblueTest {
     otherServices.add(ServiceInfo.getDefaultInstance());
 
     // Act and Assert
-    assertSame(otherServices,
-        (new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())).getOtherServices());
+    assertSame(
+        otherServices,
+        new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance())
+            .getOtherServices());
   }
 
   /**
    * Test {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return OtherServices Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return OtherServices Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List, ServiceInfo)}
+   *
+   * <p>Method under test: {@link ServiceListChangedEvent#ServiceListChangedEvent(List,
+   * ServiceInfo)}
    */
   @Test
-  @DisplayName("Test new ServiceListChangedEvent(List, ServiceInfo); when ArrayList(); then return OtherServices Empty")
+  @DisplayName(
+      "Test new ServiceListChangedEvent(List, ServiceInfo); when ArrayList(); then return OtherServices Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ServiceListChangedEvent.<init>(List, ServiceInfo)"})
   void testNewServiceListChangedEvent_whenArrayList_thenReturnOtherServicesEmpty() {
@@ -76,11 +89,13 @@ class ServiceListChangedEventDiffblueTest {
     ArrayList<ServiceInfo> otherServices = new ArrayList<>();
 
     // Act
-    ServiceListChangedEvent actualServiceListChangedEvent = new ServiceListChangedEvent(otherServices,
-        ServiceInfo.getDefaultInstance());
+    ServiceListChangedEvent actualServiceListChangedEvent =
+        new ServiceListChangedEvent(otherServices, ServiceInfo.getDefaultInstance());
 
     // Assert
     assertTrue(actualServiceListChangedEvent.getOtherServices().isEmpty());
-    assertEquals(otherServices, actualServiceListChangedEvent.getCurrentService().getAssignedTenantProfilesList());
+    assertEquals(
+        otherServices,
+        actualServiceListChangedEvent.getCurrentService().getAssignedTenantProfilesList());
   }
 }

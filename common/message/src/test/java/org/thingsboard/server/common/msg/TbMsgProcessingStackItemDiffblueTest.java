@@ -19,11 +19,12 @@ import org.thingsboard.server.common.msg.gen.MsgProtos.TbMsgProcessingStackItemP
 class TbMsgProcessingStackItemDiffblueTest {
   /**
    * Test {@link TbMsgProcessingStackItem#toProto()}.
+   *
    * <ul>
-   *   <li>Then return RuleChainIdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Then return RuleChainIdLSB is {@code -7476899250389416711}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgProcessingStackItem#toProto()}
+   *
+   * <p>Method under test: {@link TbMsgProcessingStackItem#toProto()}
    */
   @Test
   @DisplayName("Test toProto(); then return RuleChainIdLSB is '-7476899250389416711'")
@@ -31,11 +32,15 @@ class TbMsgProcessingStackItemDiffblueTest {
   @MethodsUnderTest({"MsgProtos.TbMsgProcessingStackItemProto TbMsgProcessingStackItem.toProto()"})
   void testToProto_thenReturnRuleChainIdLSBIs7476899250389416711() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsgProcessingStackItemProto actualToProtoResult = (new TbMsgProcessingStackItem(ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).toProto();
+    TbMsgProcessingStackItemProto actualToProtoResult =
+        new TbMsgProcessingStackItem(
+                ruleChainId,
+                new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .toProto();
 
     // Assert
     assertEquals(-7476899250389416711L, actualToProtoResult.getRuleChainIdLSB());
@@ -51,21 +56,25 @@ class TbMsgProcessingStackItemDiffblueTest {
 
   /**
    * Test {@link TbMsgProcessingStackItem#fromProto(TbMsgProcessingStackItemProto)}.
+   *
    * <ul>
-   *   <li>Then return RuleChainId Id toString is {@code 00000000-0000-0000-0000-000000000000}.</li>
+   *   <li>Then return RuleChainId Id toString is {@code 00000000-0000-0000-0000-000000000000}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgProcessingStackItem#fromProto(MsgProtos.TbMsgProcessingStackItemProto)}
+   *
+   * <p>Method under test: {@link
+   * TbMsgProcessingStackItem#fromProto(MsgProtos.TbMsgProcessingStackItemProto)}
    */
   @Test
-  @DisplayName("Test fromProto(TbMsgProcessingStackItemProto); then return RuleChainId Id toString is '00000000-0000-0000-0000-000000000000'")
+  @DisplayName(
+      "Test fromProto(TbMsgProcessingStackItemProto); then return RuleChainId Id toString is '00000000-0000-0000-0000-000000000000'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbMsgProcessingStackItem TbMsgProcessingStackItem.fromProto(MsgProtos.TbMsgProcessingStackItemProto)"})
+    "TbMsgProcessingStackItem TbMsgProcessingStackItem.fromProto(MsgProtos.TbMsgProcessingStackItemProto)"
+  })
   void testFromProto_thenReturnRuleChainIdIdToStringIs00000000000000000000000000000000() {
     // Arrange and Act
-    TbMsgProcessingStackItem actualFromProtoResult = TbMsgProcessingStackItem
-        .fromProto(TbMsgProcessingStackItemProto.getDefaultInstance());
+    TbMsgProcessingStackItem actualFromProtoResult =
+        TbMsgProcessingStackItem.fromProto(TbMsgProcessingStackItemProto.getDefaultInstance());
 
     // Assert
     RuleChainId ruleChainId = actualFromProtoResult.getRuleChainId();
@@ -80,30 +89,38 @@ class TbMsgProcessingStackItemDiffblueTest {
 
   /**
    * Test {@link TbMsgProcessingStackItem#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgProcessingStackItem#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgProcessingStackItem#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgProcessingStackItem.equals(Object)", "int TbMsgProcessingStackItem.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgProcessingStackItem.equals(Object)",
+    "int TbMsgProcessingStackItem.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
-    assertNotEquals(new TbMsgProcessingStackItem(ruleChainId,
-        new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))), "42");
+    assertNotEquals(
+        new TbMsgProcessingStackItem(
+            ruleChainId, new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))),
+        "42");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgProcessingStackItem#TbMsgProcessingStackItem(RuleChainId, RuleNodeId)}
    *   <li>{@link TbMsgProcessingStackItem#toString()}
@@ -114,22 +131,29 @@ class TbMsgProcessingStackItemDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgProcessingStackItem.<init>(RuleChainId, RuleNodeId)",
-      "RuleChainId TbMsgProcessingStackItem.getRuleChainId()", "RuleNodeId TbMsgProcessingStackItem.getRuleNodeId()",
-      "String TbMsgProcessingStackItem.toString()"})
+  @MethodsUnderTest({
+    "void TbMsgProcessingStackItem.<init>(RuleChainId, RuleNodeId)",
+    "RuleChainId TbMsgProcessingStackItem.getRuleChainId()",
+    "RuleNodeId TbMsgProcessingStackItem.getRuleNodeId()",
+    "String TbMsgProcessingStackItem.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     RuleNodeId ruleNodeId = new RuleNodeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    TbMsgProcessingStackItem actualTbMsgProcessingStackItem = new TbMsgProcessingStackItem(ruleChainId, ruleNodeId);
+    TbMsgProcessingStackItem actualTbMsgProcessingStackItem =
+        new TbMsgProcessingStackItem(ruleChainId, ruleNodeId);
     String actualToStringResult = actualTbMsgProcessingStackItem.toString();
     RuleChainId actualRuleChainId = actualTbMsgProcessingStackItem.getRuleChainId();
 
     // Assert
-    assertEquals("TbMsgProcessingStackItem(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9, ruleNodeId=784f394c-42b6"
-        + "-435a-983c-b7beff2784f9)", actualToStringResult);
+    assertEquals(
+        "TbMsgProcessingStackItem(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9, ruleNodeId=784f394c-42b6"
+            + "-435a-983c-b7beff2784f9)",
+        actualToStringResult);
     assertSame(ruleChainId, actualRuleChainId);
     assertSame(ruleNodeId, actualTbMsgProcessingStackItem.getRuleNodeId());
   }

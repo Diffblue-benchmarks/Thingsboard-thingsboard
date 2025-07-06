@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 
 class BackupCodeTwoFaProviderConfigDiffblueTest {
   /**
-   * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}, and {@link BackupCodeTwoFaProviderConfig#hashCode()}.
+   * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}, and {@link
+   * BackupCodeTwoFaProviderConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BackupCodeTwoFaProviderConfig#equals(Object)}
    *   <li>{@link BackupCodeTwoFaProviderConfig#hashCode()}
@@ -24,14 +27,18 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BackupCodeTwoFaProviderConfig.equals(Object)",
-      "int BackupCodeTwoFaProviderConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BackupCodeTwoFaProviderConfig.equals(Object)",
+    "int BackupCodeTwoFaProviderConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig.setCodesQuantity(1);
 
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig2 = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig2 =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig2.setCodesQuantity(1);
 
     // Act and Assert
@@ -41,13 +48,16 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
   }
 
   /**
-   * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}, and {@link BackupCodeTwoFaProviderConfig#hashCode()}.
+   * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}, and {@link
+   * BackupCodeTwoFaProviderConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BackupCodeTwoFaProviderConfig#equals(Object)}
    *   <li>{@link BackupCodeTwoFaProviderConfig#hashCode()}
@@ -56,11 +66,14 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BackupCodeTwoFaProviderConfig.equals(Object)",
-      "int BackupCodeTwoFaProviderConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BackupCodeTwoFaProviderConfig.equals(Object)",
+    "int BackupCodeTwoFaProviderConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig.setCodesQuantity(1);
 
     // Act and Assert
@@ -71,24 +84,29 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
 
   /**
    * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BackupCodeTwoFaProviderConfig.equals(Object)",
-      "int BackupCodeTwoFaProviderConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BackupCodeTwoFaProviderConfig.equals(Object)",
+    "int BackupCodeTwoFaProviderConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig.setCodesQuantity(3);
 
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig2 = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig2 =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig2.setCodesQuantity(1);
 
     // Act and Assert
@@ -97,21 +115,25 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
 
   /**
    * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BackupCodeTwoFaProviderConfig.equals(Object)",
-      "int BackupCodeTwoFaProviderConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BackupCodeTwoFaProviderConfig.equals(Object)",
+    "int BackupCodeTwoFaProviderConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig.setCodesQuantity(1);
 
     // Act and Assert
@@ -120,31 +142,37 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
 
   /**
    * Test {@link BackupCodeTwoFaProviderConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link BackupCodeTwoFaProviderConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BackupCodeTwoFaProviderConfig.equals(Object)",
-      "int BackupCodeTwoFaProviderConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BackupCodeTwoFaProviderConfig.equals(Object)",
+    "int BackupCodeTwoFaProviderConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig backupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     backupCodeTwoFaProviderConfig.setCodesQuantity(1);
 
     // Act and Assert
-    assertNotEquals(backupCodeTwoFaProviderConfig, "Different type to BackupCodeTwoFaProviderConfig");
+    assertNotEquals(
+        backupCodeTwoFaProviderConfig, "Different type to BackupCodeTwoFaProviderConfig");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link BackupCodeTwoFaProviderConfig}
    *   <li>{@link BackupCodeTwoFaProviderConfig#setCodesQuantity(int)}
@@ -156,13 +184,17 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BackupCodeTwoFaProviderConfig.<init>()",
-      "int BackupCodeTwoFaProviderConfig.getCodesQuantity()",
-      "TwoFaProviderType BackupCodeTwoFaProviderConfig.getProviderType()",
-      "void BackupCodeTwoFaProviderConfig.setCodesQuantity(int)", "String BackupCodeTwoFaProviderConfig.toString()"})
+  @MethodsUnderTest({
+    "void BackupCodeTwoFaProviderConfig.<init>()",
+    "int BackupCodeTwoFaProviderConfig.getCodesQuantity()",
+    "TwoFaProviderType BackupCodeTwoFaProviderConfig.getProviderType()",
+    "void BackupCodeTwoFaProviderConfig.setCodesQuantity(int)",
+    "String BackupCodeTwoFaProviderConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    BackupCodeTwoFaProviderConfig actualBackupCodeTwoFaProviderConfig = new BackupCodeTwoFaProviderConfig();
+    BackupCodeTwoFaProviderConfig actualBackupCodeTwoFaProviderConfig =
+        new BackupCodeTwoFaProviderConfig();
     actualBackupCodeTwoFaProviderConfig.setCodesQuantity(1);
     String actualToStringResult = actualBackupCodeTwoFaProviderConfig.toString();
     int actualCodesQuantity = actualBackupCodeTwoFaProviderConfig.getCodesQuantity();
@@ -170,6 +202,7 @@ class BackupCodeTwoFaProviderConfigDiffblueTest {
     // Assert
     assertEquals("BackupCodeTwoFaProviderConfig(codesQuantity=1)", actualToStringResult);
     assertEquals(1, actualCodesQuantity);
-    assertEquals(TwoFaProviderType.BACKUP_CODE, actualBackupCodeTwoFaProviderConfig.getProviderType());
+    assertEquals(
+        TwoFaProviderType.BACKUP_CODE, actualBackupCodeTwoFaProviderConfig.getProviderType());
   }
 }

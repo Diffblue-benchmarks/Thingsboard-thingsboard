@@ -11,13 +11,16 @@ import org.junit.jupiter.api.Test;
 
 class RpcReadCompositeRequestDiffblueTest {
   /**
-   * Test {@link RpcReadCompositeRequest#equals(Object)}, and {@link RpcReadCompositeRequest#hashCode()}.
+   * Test {@link RpcReadCompositeRequest#equals(Object)}, and {@link
+   * RpcReadCompositeRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcReadCompositeRequest#equals(Object)}
    *   <li>{@link RpcReadCompositeRequest#hashCode()}
@@ -26,16 +29,19 @@ class RpcReadCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest.setKeys(new String[] {"Keys"});
 
     RpcReadCompositeRequest rpcReadCompositeRequest2 = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest2.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest2.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest2.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest2.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertEquals(rpcReadCompositeRequest, rpcReadCompositeRequest2);
@@ -44,13 +50,16 @@ class RpcReadCompositeRequestDiffblueTest {
   }
 
   /**
-   * Test {@link RpcReadCompositeRequest#equals(Object)}, and {@link RpcReadCompositeRequest#hashCode()}.
+   * Test {@link RpcReadCompositeRequest#equals(Object)}, and {@link
+   * RpcReadCompositeRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcReadCompositeRequest#equals(Object)}
    *   <li>{@link RpcReadCompositeRequest#hashCode()}
@@ -59,12 +68,15 @@ class RpcReadCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertEquals(rpcReadCompositeRequest, rpcReadCompositeRequest);
@@ -74,27 +86,33 @@ class RpcReadCompositeRequestDiffblueTest {
 
   /**
    * Test {@link RpcReadCompositeRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcReadCompositeRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcReadCompositeRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest
-        .setIds(new String[]{"org.thingsboard.server.transport.lwm2m.server.rpc.composite.RpcReadCompositeRequest"});
-    rpcReadCompositeRequest.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest.setIds(
+        new String[] {
+          "org.thingsboard.server.transport.lwm2m.server.rpc.composite.RpcReadCompositeRequest"
+        });
+    rpcReadCompositeRequest.setKeys(new String[] {"Keys"});
 
     RpcReadCompositeRequest rpcReadCompositeRequest2 = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest2.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest2.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest2.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest2.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertNotEquals(rpcReadCompositeRequest, rpcReadCompositeRequest2);
@@ -102,27 +120,33 @@ class RpcReadCompositeRequestDiffblueTest {
 
   /**
    * Test {@link RpcReadCompositeRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcReadCompositeRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcReadCompositeRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest
-        .setKeys(new String[]{"org.thingsboard.server.transport.lwm2m.server.rpc.composite.RpcReadCompositeRequest"});
+    rpcReadCompositeRequest.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest.setKeys(
+        new String[] {
+          "org.thingsboard.server.transport.lwm2m.server.rpc.composite.RpcReadCompositeRequest"
+        });
 
     RpcReadCompositeRequest rpcReadCompositeRequest2 = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest2.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest2.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest2.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest2.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertNotEquals(rpcReadCompositeRequest, rpcReadCompositeRequest2);
@@ -130,22 +154,26 @@ class RpcReadCompositeRequestDiffblueTest {
 
   /**
    * Test {@link RpcReadCompositeRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcReadCompositeRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcReadCompositeRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertNotEquals(rpcReadCompositeRequest, null);
@@ -153,22 +181,26 @@ class RpcReadCompositeRequestDiffblueTest {
 
   /**
    * Test {@link RpcReadCompositeRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcReadCompositeRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcReadCompositeRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcReadCompositeRequest.equals(Object)", "int RpcReadCompositeRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcReadCompositeRequest.equals(Object)",
+    "int RpcReadCompositeRequest.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RpcReadCompositeRequest rpcReadCompositeRequest = new RpcReadCompositeRequest();
-    rpcReadCompositeRequest.setIds(new String[]{"Ids"});
-    rpcReadCompositeRequest.setKeys(new String[]{"Keys"});
+    rpcReadCompositeRequest.setIds(new String[] {"Ids"});
+    rpcReadCompositeRequest.setKeys(new String[] {"Keys"});
 
     // Act and Assert
     assertNotEquals(rpcReadCompositeRequest, "Different type to RpcReadCompositeRequest");
@@ -176,8 +208,9 @@ class RpcReadCompositeRequestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RpcReadCompositeRequest}
    *   <li>{@link RpcReadCompositeRequest#setIds(String[])}
@@ -190,15 +223,20 @@ class RpcReadCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RpcReadCompositeRequest.<init>()", "String[] RpcReadCompositeRequest.getIds()",
-      "String[] RpcReadCompositeRequest.getKeys()", "void RpcReadCompositeRequest.setIds(String[])",
-      "void RpcReadCompositeRequest.setKeys(String[])", "String RpcReadCompositeRequest.toString()"})
+  @MethodsUnderTest({
+    "void RpcReadCompositeRequest.<init>()",
+    "String[] RpcReadCompositeRequest.getIds()",
+    "String[] RpcReadCompositeRequest.getKeys()",
+    "void RpcReadCompositeRequest.setIds(String[])",
+    "void RpcReadCompositeRequest.setKeys(String[])",
+    "String RpcReadCompositeRequest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RpcReadCompositeRequest actualRpcReadCompositeRequest = new RpcReadCompositeRequest();
-    String[] ids = new String[]{"Ids"};
+    String[] ids = new String[] {"Ids"};
     actualRpcReadCompositeRequest.setIds(ids);
-    String[] keys = new String[]{"Keys"};
+    String[] keys = new String[] {"Keys"};
     actualRpcReadCompositeRequest.setKeys(keys);
     String actualToStringResult = actualRpcReadCompositeRequest.toString();
     String[] actualIds = actualRpcReadCompositeRequest.getIds();
@@ -208,7 +246,7 @@ class RpcReadCompositeRequestDiffblueTest {
     assertEquals("RpcReadCompositeRequest(keys=[Keys], ids=[Ids])", actualToStringResult);
     assertSame(ids, actualIds);
     assertSame(keys, actualKeys);
-    assertArrayEquals(new String[]{"Ids"}, actualIds);
-    assertArrayEquals(new String[]{"Keys"}, actualKeys);
+    assertArrayEquals(new String[] {"Ids"}, actualIds);
+    assertArrayEquals(new String[] {"Keys"}, actualKeys);
   }
 }

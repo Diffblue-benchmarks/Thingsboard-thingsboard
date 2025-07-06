@@ -10,13 +10,16 @@ import org.thingsboard.server.common.data.DeviceProfileType;
 
 class DefaultDeviceProfileConfigurationDiffblueTest {
   /**
-   * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}, and {@link DefaultDeviceProfileConfiguration#hashCode()}.
+   * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}, and {@link
+   * DefaultDeviceProfileConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DefaultDeviceProfileConfiguration#equals(Object)}
    *   <li>{@link DefaultDeviceProfileConfiguration#hashCode()}
@@ -25,12 +28,16 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultDeviceProfileConfiguration.equals(Object)",
-      "int DefaultDeviceProfileConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultDeviceProfileConfiguration.equals(Object)",
+    "int DefaultDeviceProfileConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration = new DefaultDeviceProfileConfiguration();
-    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration2 = new DefaultDeviceProfileConfiguration();
+    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration =
+        new DefaultDeviceProfileConfiguration();
+    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration2 =
+        new DefaultDeviceProfileConfiguration();
 
     // Act and Assert
     assertEquals(defaultDeviceProfileConfiguration, defaultDeviceProfileConfiguration2);
@@ -39,13 +46,16 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}, and {@link DefaultDeviceProfileConfiguration#hashCode()}.
+   * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}, and {@link
+   * DefaultDeviceProfileConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DefaultDeviceProfileConfiguration#equals(Object)}
    *   <li>{@link DefaultDeviceProfileConfiguration#hashCode()}
@@ -54,11 +64,14 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultDeviceProfileConfiguration.equals(Object)",
-      "int DefaultDeviceProfileConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultDeviceProfileConfiguration.equals(Object)",
+    "int DefaultDeviceProfileConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration = new DefaultDeviceProfileConfiguration();
+    DefaultDeviceProfileConfiguration defaultDeviceProfileConfiguration =
+        new DefaultDeviceProfileConfiguration();
 
     // Act and Assert
     assertEquals(defaultDeviceProfileConfiguration, defaultDeviceProfileConfiguration);
@@ -68,18 +81,21 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultDeviceProfileConfiguration.equals(Object)",
-      "int DefaultDeviceProfileConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultDeviceProfileConfiguration.equals(Object)",
+    "int DefaultDeviceProfileConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DefaultDeviceProfileConfiguration(), 1);
@@ -87,18 +103,21 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultDeviceProfileConfiguration.equals(Object)",
-      "int DefaultDeviceProfileConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultDeviceProfileConfiguration.equals(Object)",
+    "int DefaultDeviceProfileConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DefaultDeviceProfileConfiguration(), null);
@@ -106,27 +125,33 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
 
   /**
    * Test {@link DefaultDeviceProfileConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link DefaultDeviceProfileConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultDeviceProfileConfiguration.equals(Object)",
-      "int DefaultDeviceProfileConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DefaultDeviceProfileConfiguration.equals(Object)",
+    "int DefaultDeviceProfileConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new DefaultDeviceProfileConfiguration(), "Different type to DefaultDeviceProfileConfiguration");
+    assertNotEquals(
+        new DefaultDeviceProfileConfiguration(),
+        "Different type to DefaultDeviceProfileConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DefaultDeviceProfileConfiguration}
    *   <li>{@link DefaultDeviceProfileConfiguration#toString()}
@@ -136,12 +161,15 @@ class DefaultDeviceProfileConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultDeviceProfileConfiguration.<init>()",
-      "DeviceProfileType DefaultDeviceProfileConfiguration.getType()",
-      "String DefaultDeviceProfileConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void DefaultDeviceProfileConfiguration.<init>()",
+    "DeviceProfileType DefaultDeviceProfileConfiguration.getType()",
+    "String DefaultDeviceProfileConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    DefaultDeviceProfileConfiguration actualDefaultDeviceProfileConfiguration = new DefaultDeviceProfileConfiguration();
+    DefaultDeviceProfileConfiguration actualDefaultDeviceProfileConfiguration =
+        new DefaultDeviceProfileConfiguration();
     String actualToStringResult = actualDefaultDeviceProfileConfiguration.toString();
 
     // Assert

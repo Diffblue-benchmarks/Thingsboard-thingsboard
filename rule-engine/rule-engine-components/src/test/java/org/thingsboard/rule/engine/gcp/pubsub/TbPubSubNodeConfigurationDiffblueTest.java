@@ -15,8 +15,8 @@ import org.junit.jupiter.api.Test;
 class TbPubSubNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbPubSubNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -24,8 +24,8 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbPubSubNodeConfiguration TbPubSubNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbPubSubNodeConfiguration actualDefaultConfigurationResult = (new TbPubSubNodeConfiguration())
-        .defaultConfiguration();
+    TbPubSubNodeConfiguration actualDefaultConfigurationResult =
+        new TbPubSubNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("my-google-cloud-project-id", actualDefaultConfigurationResult.getProjectId());
@@ -36,13 +36,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -51,7 +54,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -64,13 +70,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -79,7 +88,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -95,13 +107,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -110,7 +125,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -126,13 +144,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -141,7 +162,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -157,13 +181,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -172,7 +199,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -188,13 +218,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -203,7 +236,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -219,13 +255,16 @@ class TbPubSubNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link TbPubSubNodeConfiguration#hashCode()}.
+   * Test {@link TbPubSubNodeConfiguration#equals(Object)}, and {@link
+   * TbPubSubNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbPubSubNodeConfiguration#equals(Object)}
    *   <li>{@link TbPubSubNodeConfiguration#hashCode()}
@@ -234,7 +273,10 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -247,17 +289,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbPubSubNodeConfiguration(), 1);
@@ -265,17 +311,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -287,17 +337,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -309,17 +363,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -331,17 +389,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -353,17 +415,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -375,17 +441,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -399,17 +469,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -423,17 +497,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -447,17 +525,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -471,17 +553,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbPubSubNodeConfiguration tbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -495,17 +581,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbPubSubNodeConfiguration(), null);
@@ -513,17 +603,21 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbPubSubNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbPubSubNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbPubSubNodeConfiguration.equals(Object)", "int TbPubSubNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbPubSubNodeConfiguration.equals(Object)",
+    "int TbPubSubNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbPubSubNodeConfiguration(), "Different type to TbPubSubNodeConfiguration");
@@ -531,8 +625,9 @@ class TbPubSubNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbPubSubNodeConfiguration}
    *   <li>{@link TbPubSubNodeConfiguration#setMessageAttributes(Map)}
@@ -551,14 +646,20 @@ class TbPubSubNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbPubSubNodeConfiguration.<init>()", "Map TbPubSubNodeConfiguration.getMessageAttributes()",
-      "String TbPubSubNodeConfiguration.getProjectId()", "String TbPubSubNodeConfiguration.getServiceAccountKey()",
-      "String TbPubSubNodeConfiguration.getServiceAccountKeyFileName()",
-      "String TbPubSubNodeConfiguration.getTopicName()", "void TbPubSubNodeConfiguration.setMessageAttributes(Map)",
-      "void TbPubSubNodeConfiguration.setProjectId(String)",
-      "void TbPubSubNodeConfiguration.setServiceAccountKey(String)",
-      "void TbPubSubNodeConfiguration.setServiceAccountKeyFileName(String)",
-      "void TbPubSubNodeConfiguration.setTopicName(String)", "String TbPubSubNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbPubSubNodeConfiguration.<init>()",
+    "Map TbPubSubNodeConfiguration.getMessageAttributes()",
+    "String TbPubSubNodeConfiguration.getProjectId()",
+    "String TbPubSubNodeConfiguration.getServiceAccountKey()",
+    "String TbPubSubNodeConfiguration.getServiceAccountKeyFileName()",
+    "String TbPubSubNodeConfiguration.getTopicName()",
+    "void TbPubSubNodeConfiguration.setMessageAttributes(Map)",
+    "void TbPubSubNodeConfiguration.setProjectId(String)",
+    "void TbPubSubNodeConfiguration.setServiceAccountKey(String)",
+    "void TbPubSubNodeConfiguration.setServiceAccountKeyFileName(String)",
+    "void TbPubSubNodeConfiguration.setTopicName(String)",
+    "String TbPubSubNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbPubSubNodeConfiguration actualTbPubSubNodeConfiguration = new TbPubSubNodeConfiguration();
@@ -569,10 +670,12 @@ class TbPubSubNodeConfigurationDiffblueTest {
     actualTbPubSubNodeConfiguration.setServiceAccountKeyFileName("Dr Jane Doe");
     actualTbPubSubNodeConfiguration.setTopicName("Topic Name");
     String actualToStringResult = actualTbPubSubNodeConfiguration.toString();
-    Map<String, String> actualMessageAttributes = actualTbPubSubNodeConfiguration.getMessageAttributes();
+    Map<String, String> actualMessageAttributes =
+        actualTbPubSubNodeConfiguration.getMessageAttributes();
     String actualProjectId = actualTbPubSubNodeConfiguration.getProjectId();
     String actualServiceAccountKey = actualTbPubSubNodeConfiguration.getServiceAccountKey();
-    String actualServiceAccountKeyFileName = actualTbPubSubNodeConfiguration.getServiceAccountKeyFileName();
+    String actualServiceAccountKeyFileName =
+        actualTbPubSubNodeConfiguration.getServiceAccountKeyFileName();
 
     // Assert
     assertEquals("3", actualServiceAccountKey);

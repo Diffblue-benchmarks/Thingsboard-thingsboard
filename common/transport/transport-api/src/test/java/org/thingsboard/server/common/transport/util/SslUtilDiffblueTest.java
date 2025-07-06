@@ -20,11 +20,12 @@ import org.junit.jupiter.api.Test;
 class SslUtilDiffblueTest {
   /**
    * Test {@link SslUtil#getCertificateString(Certificate)}.
+   *
    * <ul>
-   *   <li>Then return {@code QVhBWEFYQVg=}.</li>
+   *   <li>Then return {@code QVhBWEFYQVg=}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#getCertificateString(Certificate)}
+   *
+   * <p>Method under test: {@link SslUtil#getCertificateString(Certificate)}
    */
   @Test
   @DisplayName("Test getCertificateString(Certificate); then return 'QVhBWEFYQVg='")
@@ -33,28 +34,33 @@ class SslUtilDiffblueTest {
   void testGetCertificateString_thenReturnQVhBWEFYQVg()
       throws UnsupportedEncodingException, CertificateEncodingException {
     // Arrange, Act and Assert
-    assertEquals("QVhBWEFYQVg=", SslUtil.getCertificateString(new LazyX509Certificate("AXAXAXAX".getBytes("UTF-8"))));
+    assertEquals(
+        "QVhBWEFYQVg=",
+        SslUtil.getCertificateString(new LazyX509Certificate("AXAXAXAX".getBytes("UTF-8"))));
   }
 
   /**
    * Test {@link SslUtil#getCertificateChainString(Certificate[])}.
-   * <p>
-   * Method under test: {@link SslUtil#getCertificateChainString(Certificate[])}
+   *
+   * <p>Method under test: {@link SslUtil#getCertificateChainString(Certificate[])}
    */
   @Test
   @DisplayName("Test getCertificateChainString(Certificate[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String SslUtil.getCertificateChainString(Certificate[])"})
-  void testGetCertificateChainString() throws UnsupportedEncodingException, CertificateEncodingException {
+  void testGetCertificateChainString()
+      throws UnsupportedEncodingException, CertificateEncodingException {
     // Arrange, Act and Assert
-    assertEquals("-----BEGIN CERTIFICATE-----QVhBWEFYQVg=-----END CERTIFICATE-----\n",
-        SslUtil.getCertificateChainString(new Certificate[]{new LazyX509Certificate("AXAXAXAX".getBytes("UTF-8"))}));
+    assertEquals(
+        "-----BEGIN CERTIFICATE-----QVhBWEFYQVg=-----END CERTIFICATE-----\n",
+        SslUtil.getCertificateChainString(
+            new Certificate[] {new LazyX509Certificate("AXAXAXAX".getBytes("UTF-8"))}));
   }
 
   /**
    * Test {@link SslUtil#getCertificateChainString(Certificate[])}.
-   * <p>
-   * Method under test: {@link SslUtil#getCertificateChainString(Certificate[])}
+   *
+   * <p>Method under test: {@link SslUtil#getCertificateChainString(Certificate[])}
    */
   @Test
   @DisplayName("Test getCertificateChainString(Certificate[])")
@@ -62,15 +68,18 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"String SslUtil.getCertificateChainString(Certificate[])"})
   void testGetCertificateChainString2() throws CertificateEncodingException {
     // Arrange, Act and Assert
-    assertEquals("-----BEGIN CERTIFICATE-----AVhBWEFYQVg=-----END CERTIFICATE-----\n",
+    assertEquals(
+        "-----BEGIN CERTIFICATE-----AVhBWEFYQVg=-----END CERTIFICATE-----\n",
         SslUtil.getCertificateChainString(
-            new Certificate[]{new LazyX509Certificate(new byte[]{1, 'X', 'A', 'X', 'A', 'X', 'A', 'X'})}));
+            new Certificate[] {
+              new LazyX509Certificate(new byte[] {1, 'X', 'A', 'X', 'A', 'X', 'A', 'X'})
+            }));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -78,13 +87,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -92,13 +103,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile2() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -107,13 +120,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile3() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostNot all who wander are lostNot all who wander are lost"));
+        SslUtil.readCertFile(
+            "Not all who wander are lostNot all who wander are lostNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -121,14 +135,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile4() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("Not all who wander are lostFile Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostFile Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -137,13 +152,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile5() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostX.509org.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "Not all who wander are lostX.509org.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -152,13 +168,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile6() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lost42org.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "Not all who wander are lost42org.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -166,14 +183,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile7() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -182,13 +200,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile8() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilX.509"));
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilX.509"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -197,13 +216,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile9() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil42"));
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil42"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -211,14 +231,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile10() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("File ContentNot all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File ContentNot all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -226,13 +247,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile11() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File ContentFile Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File ContentFile Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -240,13 +263,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile12() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File ContentX.509org.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File ContentX.509org.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -254,14 +279,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile13() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File Contentorg.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -269,13 +295,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile14() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File Contentorg.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -283,13 +311,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile15() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtilX.509"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File Contentorg.thingsboard.server.common.transport.util.SslUtilX.509"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -298,13 +328,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile16() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("X.509Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "X.509Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -312,13 +343,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile17() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("X.509File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "X.509File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -327,13 +360,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile18() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("X.509org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
+        SslUtil.readCertFile(
+            "X.509org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -341,13 +375,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile19() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("X.509org.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "X.509org.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -356,13 +392,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile20() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lost org.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "Not all who wander are lost org.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -371,13 +408,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile21() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("42Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "42Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -386,13 +424,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile22() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("42org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
+        SslUtil.readCertFile(
+            "42org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -401,13 +440,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile23() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lost\\sorg.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            "Not all who wander are lost\\sorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -415,14 +455,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile24() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostFile Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -431,13 +472,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile25() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostX.509"));
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostX.509"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -446,13 +488,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile26() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost42"));
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost42"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -460,14 +503,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile27() {
     // Arrange, Act and Assert
-    assertNull(SslUtil
-        .readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile ContentNot all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilFile ContentNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -475,13 +519,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile28() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile ContentFile Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilFile ContentFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -489,13 +535,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile29() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile ContentX.509"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilFile ContentX.509"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -504,13 +552,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile30() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilX.509Not all who wander are lost"));
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilX.509Not all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -518,13 +567,15 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile31() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilX.509File Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilX.509File Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -533,13 +584,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile32() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtil42Not all who wander are lost"));
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtil42Not all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -548,13 +600,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile33() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil "));
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil "));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -563,13 +616,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile34() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile("Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil\\s"));
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil\\s"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -578,13 +632,14 @@ class SslUtilDiffblueTest {
   void testReadCertFile35() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile(" Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
+        SslUtil.readCertFile(
+            " Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String)")
@@ -593,16 +648,18 @@ class SslUtilDiffblueTest {
   void testReadCertFile36() {
     // Arrange, Act and Assert
     assertNull(
-        SslUtil.readCertFile(" org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
+        SslUtil.readCertFile(
+            " org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42'")
@@ -615,11 +672,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File Content}.</li>
+   *   <li>When {@code 42File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File Content'")
@@ -632,11 +690,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File Content}.</li>
+   *   <li>When {@code 42File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File Content'")
@@ -649,11 +708,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File Content42}.</li>
+   *   <li>When {@code 42File Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File Content42'")
@@ -666,11 +726,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File ContentFile Content}.</li>
+   *   <li>When {@code 42File ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File ContentFile Content'")
@@ -683,11 +744,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File ContentNot all who wander are lost}.</li>
+   *   <li>When {@code 42File ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File ContentNot all who wander are lost'")
@@ -700,11 +762,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File ContentX.509}.</li>
+   *   <li>When {@code 42File ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42File ContentX.509'")
@@ -717,28 +780,32 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42File ContentSslUtil}.</li>
+   *   <li>When {@code 42File ContentSslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when '42File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when '42File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_when42FileContentorgThingsboardServerCommonTransportUtilSslUtil() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("42File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile("42File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lost}.</li>
+   *   <li>When {@code 42Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42Not all who wander are lost'")
@@ -751,11 +818,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lost}.</li>
+   *   <li>When {@code 42Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42Not all who wander are lost'")
@@ -768,11 +836,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lost42}.</li>
+   *   <li>When {@code 42Not all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42Not all who wander are lost42'")
@@ -785,11 +854,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lostFile Content}.</li>
+   *   <li>When {@code 42Not all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42Not all who wander are lostFile Content'")
@@ -802,14 +872,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code 42Not all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when '42Not all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when '42Not all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_when42NotAllWhoWanderAreLostNotAllWhoWanderAreLost() {
@@ -819,11 +891,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42Not all who wander are lostX.509}.</li>
+   *   <li>When {@code 42Not all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42Not all who wander are lostX.509'")
@@ -836,11 +909,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42\s}.</li>
+   *   <li>When {@code 42\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42\\s'")
@@ -853,14 +927,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42SslUtil}.</li>
+   *   <li>When {@code 42SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when '42org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when '42org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_when42orgThingsboardServerCommonTransportUtilSslUtil() {
@@ -870,28 +946,32 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42SslUtilFile Content}.</li>
+   *   <li>When {@code 42SslUtilFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when '42org.thingsboard.server.common.transport.util.SslUtilFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when '42org.thingsboard.server.common.transport.util.SslUtilFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_when42orgThingsboardServerCommonTransportUtilSslUtilFileContent() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("42org.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile("42org.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42X.509}.</li>
+   *   <li>When {@code 42X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42X.509'")
@@ -904,11 +984,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42X.509File Content}.</li>
+   *   <li>When {@code 42X.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42X.509File Content'")
@@ -921,11 +1002,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42X.509Not all who wander are lost}.</li>
+   *   <li>When {@code 42X.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42X.509Not all who wander are lost'")
@@ -938,11 +1020,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42'")
@@ -955,11 +1038,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42'")
@@ -972,11 +1056,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '42'")
@@ -989,11 +1074,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 4242}.</li>
+   *   <li>When {@code 4242}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '4242'")
@@ -1006,11 +1092,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 4242File Content}.</li>
+   *   <li>When {@code 4242File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '4242File Content'")
@@ -1023,11 +1110,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code 4242Not all who wander are lost}.</li>
+   *   <li>When {@code 4242Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '4242Not all who wander are lost'")
@@ -1040,11 +1128,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1052,18 +1141,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "Not all who wander are lostNot all who wander are lostorg.thingsboard.server.common.transport.util"
-            + ".SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostNot all who wander are lostorg.thingsboard.server.common.transport.util"
+                + ".SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1071,18 +1162,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString2() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilNot all who wander"
-            + " are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilNot all who wander"
+                + " are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1090,18 +1183,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString3() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server"
-            + ".common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "Not all who wander are lostorg.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server"
+                + ".common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1109,18 +1204,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString4() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "File Contentorg.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport"
-            + ".util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "File Contentorg.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport"
+                + ".util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1128,18 +1225,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString5() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostNot all who wander"
-            + " are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostNot all who wander"
+                + " are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1147,18 +1246,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString6() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostorg.thingsboard.server"
-            + ".common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilNot all who wander are lostorg.thingsboard.server"
+                + ".common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1166,18 +1267,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString7() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "org.thingsboard.server.common.transport.util.SslUtilFile Contentorg.thingsboard.server.common.transport"
-            + ".util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilFile Contentorg.thingsboard.server.common.transport"
+                + ".util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1185,18 +1288,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString8() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util.SslUtilNot"
-            + " all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util.SslUtilNot"
+                + " all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1204,18 +1309,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString9() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        "org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util.SslUtilFile"
-            + " Content"));
+    assertNull(
+        SslUtil.readCertFile(
+            "org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util.SslUtilFile"
+                + " Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When a string.</li>
+   *   <li>When a string.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when a string")
@@ -1223,18 +1330,20 @@ class SslUtilDiffblueTest {
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenAString10() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(
-        " org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util"
-            + ".SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(
+            " org.thingsboard.server.common.transport.util.SslUtilorg.thingsboard.server.common.transport.util"
+                + ".SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code -----BEGIN CERTIFICATE-----}.</li>
+   *   <li>When {@code -----BEGIN CERTIFICATE-----}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '-----BEGIN CERTIFICATE-----'")
@@ -1247,11 +1356,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code -----BEGIN CERTIFICATE-----}.</li>
+   *   <li>When {@code -----BEGIN CERTIFICATE-----}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '-----BEGIN CERTIFICATE-----'")
@@ -1264,11 +1374,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code -----BEGIN CERTIFICATE-----}.</li>
+   *   <li>When {@code -----BEGIN CERTIFICATE-----}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '-----BEGIN CERTIFICATE-----'")
@@ -1281,11 +1392,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content}.</li>
+   *   <li>When {@code File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content'")
@@ -1298,11 +1410,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content}.</li>
+   *   <li>When {@code File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content'")
@@ -1315,11 +1428,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content}.</li>
+   *   <li>When {@code File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content'")
@@ -1332,11 +1446,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content}.</li>
+   *   <li>When {@code File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content'")
@@ -1349,11 +1464,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content}.</li>
+   *   <li>When {@code File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content'")
@@ -1366,11 +1482,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42}.</li>
+   *   <li>When {@code File Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content42'")
@@ -1383,11 +1500,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42File Content}.</li>
+   *   <li>When {@code File Content42File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content42File Content'")
@@ -1400,11 +1518,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42Not all who wander are lost}.</li>
+   *   <li>When {@code File Content42Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content42Not all who wander are lost'")
@@ -1417,11 +1536,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42X.509}.</li>
+   *   <li>When {@code File Content42X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content42X.509'")
@@ -1434,28 +1554,32 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42SslUtil}.</li>
+   *   <li>When {@code File Content42SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File Content42org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File Content42org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContent42orgThingsboardServerCommonTransportUtilSslUtil() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File Content42org.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile("File Content42org.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content42}.</li>
+   *   <li>When {@code File Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content42'")
@@ -1468,11 +1592,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content4242}.</li>
+   *   <li>When {@code File Content4242}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content4242'")
@@ -1485,11 +1610,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile Content}.</li>
+   *   <li>When {@code File ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentFile Content'")
@@ -1502,11 +1628,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile Content}.</li>
+   *   <li>When {@code File ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentFile Content'")
@@ -1519,11 +1646,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile Content42}.</li>
+   *   <li>When {@code File ContentFile Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentFile Content42'")
@@ -1536,11 +1664,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile ContentFile Content}.</li>
+   *   <li>When {@code File ContentFile ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentFile ContentFile Content'")
@@ -1553,14 +1682,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile ContentNot all who wander are lost}.</li>
+   *   <li>When {@code File ContentFile ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File ContentFile ContentNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File ContentFile ContentNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentFileContentNotAllWhoWanderAreLost() {
@@ -1570,11 +1701,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentFile ContentX.509}.</li>
+   *   <li>When {@code File ContentFile ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentFile ContentX.509'")
@@ -1587,11 +1719,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lost}.</li>
+   *   <li>When {@code File ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lost'")
@@ -1604,11 +1737,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lost}.</li>
+   *   <li>When {@code File ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lost'")
@@ -1621,11 +1755,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lost42}.</li>
+   *   <li>When {@code File ContentNot all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lost42'")
@@ -1638,14 +1773,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lostFile Content}.</li>
+   *   <li>When {@code File ContentNot all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lostFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File ContentNot all who wander are lostFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentNotAllWhoWanderAreLostFileContent() {
@@ -1655,28 +1792,32 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code File ContentNot all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File ContentNot all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentNotAllWhoWanderAreLostNotAllWhoWanderAreLost() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File ContentNot all who wander are lostNot all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile("File ContentNot all who wander are lostNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentNot all who wander are lostX.509}.</li>
+   *   <li>When {@code File ContentNot all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentNot all who wander are lostX.509'")
@@ -1689,11 +1830,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content\s}.</li>
+   *   <li>When {@code File Content\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content\\s'")
@@ -1706,11 +1848,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File Content\s}.</li>
+   *   <li>When {@code File Content\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File Content\\s'")
@@ -1723,11 +1866,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.509}.</li>
+   *   <li>When {@code File ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.509'")
@@ -1740,11 +1884,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.509File Content}.</li>
+   *   <li>When {@code File ContentX.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.509File Content'")
@@ -1757,11 +1902,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.509Not all who wander are lost}.</li>
+   *   <li>When {@code File ContentX.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.509Not all who wander are lost'")
@@ -1774,11 +1920,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.509X.509}.</li>
+   *   <li>When {@code File ContentX.509X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.509X.509'")
@@ -1791,11 +1938,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.509}.</li>
+   *   <li>When {@code File ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.509'")
@@ -1808,11 +1956,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentX.50942}.</li>
+   *   <li>When {@code File ContentX.50942}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'File ContentX.50942'")
@@ -1825,62 +1974,72 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentSslUtil}.</li>
+   *   <li>When {@code File ContentSslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentorgThingsboardServerCommonTransportUtilSslUtil() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentSslUtil}.</li>
+   *   <li>When {@code File ContentSslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentorgThingsboardServerCommonTransportUtilSslUtil2() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(" File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
+    assertNull(
+        SslUtil.readCertFile(" File Contentorg.thingsboard.server.common.transport.util.SslUtil"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code File ContentSslUtil42}.</li>
+   *   <li>When {@code File ContentSslUtil42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil42'")
+  @DisplayName(
+      "Test readCertFile(String); when 'File Contentorg.thingsboard.server.common.transport.util.SslUtil42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenFileContentorgThingsboardServerCommonTransportUtilSslUtil42() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtil42"));
+    assertNull(
+        SslUtil.readCertFile("File Contentorg.thingsboard.server.common.transport.util.SslUtil42"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1893,11 +2052,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1910,11 +2070,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1927,11 +2088,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1944,11 +2106,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1961,11 +2124,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost'")
@@ -1978,11 +2142,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42}.</li>
+   *   <li>When {@code Not all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42'")
@@ -1995,11 +2160,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42File Content}.</li>
+   *   <li>When {@code Not all who wander are lost42File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42File Content'")
@@ -2012,14 +2178,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost42Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42Not all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lost42Not all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLost42NotAllWhoWanderAreLost() {
@@ -2029,11 +2197,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42\s}.</li>
+   *   <li>When {@code Not all who wander are lost42\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42\\s'")
@@ -2046,11 +2215,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42X.509}.</li>
+   *   <li>When {@code Not all who wander are lost42X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42X.509'")
@@ -2063,11 +2233,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost 42}.</li>
+   *   <li>When {@code Not all who wander are lost 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost 42'")
@@ -2080,11 +2251,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42}.</li>
+   *   <li>When {@code Not all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42'")
@@ -2097,11 +2269,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost42}.</li>
+   *   <li>When {@code Not all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost42'")
@@ -2114,11 +2287,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost4242}.</li>
+   *   <li>When {@code Not all who wander are lost4242}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost4242'")
@@ -2131,11 +2305,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile Content}.</li>
+   *   <li>When {@code Not all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile Content'")
@@ -2148,11 +2323,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost File Content}.</li>
+   *   <li>When {@code Not all who wander are lost File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost File Content'")
@@ -2165,11 +2341,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile Content}.</li>
+   *   <li>When {@code Not all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile Content'")
@@ -2182,11 +2359,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile Content}.</li>
+   *   <li>When {@code Not all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile Content'")
@@ -2199,11 +2377,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile Content42}.</li>
+   *   <li>When {@code Not all who wander are lostFile Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile Content42'")
@@ -2216,14 +2395,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile ContentFile Content}.</li>
+   *   <li>When {@code Not all who wander are lostFile ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile ContentFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostFile ContentFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostFileContentFileContent() {
@@ -2233,28 +2414,32 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile ContentNot all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lostFile ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile ContentNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostFile ContentNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostFileContentNotAllWhoWanderAreLost() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("Not all who wander are lostFile ContentNot all who wander are lost"));
+    assertNull(
+        SslUtil.readCertFile("Not all who wander are lostFile ContentNot all who wander are lost"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile Content\s}.</li>
+   *   <li>When {@code Not all who wander are lostFile Content\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile Content\\s'")
@@ -2267,11 +2452,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostFile ContentX.509}.</li>
+   *   <li>When {@code Not all who wander are lostFile ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostFile ContentX.509'")
@@ -2284,14 +2470,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLost() {
@@ -2301,14 +2489,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLost2() {
@@ -2318,14 +2508,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lost Not all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lost Not all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLost3() {
@@ -2335,14 +2527,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLost4() {
@@ -2352,14 +2546,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lost42}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost42'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLost42() {
@@ -2369,31 +2565,36 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lostFile Content}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lostFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lostFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLostFileContent() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("Not all who wander are lostNot all who wander are lostFile Content"));
+    assertNull(
+        SslUtil.readCertFile("Not all who wander are lostNot all who wander are lostFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lost\s}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lost\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost\\s'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lost\\s'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLostS() {
@@ -2403,14 +2604,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostNot all who wander are lostX.509}.</li>
+   *   <li>When {@code Not all who wander are lostNot all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lostX.509'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostNot all who wander are lostX.509'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostNotAllWhoWanderAreLostX509() {
@@ -2420,11 +2623,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\s}.</li>
+   *   <li>When {@code Not all who wander are lost\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\s'")
@@ -2437,11 +2641,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost \s}.</li>
+   *   <li>When {@code Not all who wander are lost \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost \\s'")
@@ -2454,11 +2659,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\s}.</li>
+   *   <li>When {@code Not all who wander are lost\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\s'")
@@ -2471,11 +2677,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\s}.</li>
+   *   <li>When {@code Not all who wander are lost\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\s'")
@@ -2488,11 +2695,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\s42}.</li>
+   *   <li>When {@code Not all who wander are lost\s42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\s42'")
@@ -2505,11 +2713,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\sFile Content}.</li>
+   *   <li>When {@code Not all who wander are lost\sFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\sFile Content'")
@@ -2522,14 +2731,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\sNot all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lost\sNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\sNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lost\\sNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostSNotAllWhoWanderAreLost() {
@@ -2539,11 +2750,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\s\s}.</li>
+   *   <li>When {@code Not all who wander are lost\s\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\s\\s'")
@@ -2556,11 +2768,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost\sX.509}.</li>
+   *   <li>When {@code Not all who wander are lost\sX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost\\sX.509'")
@@ -2573,11 +2786,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509}.</li>
+   *   <li>When {@code Not all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509'")
@@ -2590,11 +2804,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509File Content}.</li>
+   *   <li>When {@code Not all who wander are lostX.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509File Content'")
@@ -2607,14 +2822,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509Not all who wander are lost}.</li>
+   *   <li>When {@code Not all who wander are lostX.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509Not all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'Not all who wander are lostX.509Not all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenNotAllWhoWanderAreLostX509NotAllWhoWanderAreLost() {
@@ -2624,11 +2841,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509\s}.</li>
+   *   <li>When {@code Not all who wander are lostX.509\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509\\s'")
@@ -2641,11 +2859,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509X.509}.</li>
+   *   <li>When {@code Not all who wander are lostX.509X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509X.509'")
@@ -2658,11 +2877,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lost X.509}.</li>
+   *   <li>When {@code Not all who wander are lost X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lost X.509'")
@@ -2675,11 +2895,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509}.</li>
+   *   <li>When {@code Not all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509'")
@@ -2692,11 +2913,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.509}.</li>
+   *   <li>When {@code Not all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.509'")
@@ -2709,11 +2931,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code Not all who wander are lostX.50942}.</li>
+   *   <li>When {@code Not all who wander are lostX.50942}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'Not all who wander are lostX.50942'")
@@ -2726,11 +2949,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'null'")
@@ -2743,14 +2967,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil}.</li>
+   *   <li>When {@code SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil() {
@@ -2760,14 +2986,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil}.</li>
+   *   <li>When {@code SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil2() {
@@ -2777,14 +3005,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil}.</li>
+   *   <li>When {@code SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil3() {
@@ -2794,14 +3024,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil}.</li>
+   *   <li>When {@code SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil4() {
@@ -2811,14 +3043,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil42}.</li>
+   *   <li>When {@code SslUtil42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil42'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil42() {
@@ -2828,82 +3062,96 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil42File Content}.</li>
+   *   <li>When {@code SslUtil42File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil42File Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil42File Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtil42FileContent() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtil42File Content"));
+    assertNull(
+        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtil42File Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtilFile Content}.</li>
+   *   <li>When {@code SslUtilFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtilFileContent() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtilFile Content}.</li>
+   *   <li>When {@code SslUtilFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtilFileContent2() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile(" org.thingsboard.server.common.transport.util.SslUtilFile Content"));
+    assertNull(
+        SslUtil.readCertFile(" org.thingsboard.server.common.transport.util.SslUtilFile Content"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtilFile Content42}.</li>
+   *   <li>When {@code SslUtilFile Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content42'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilFile Content42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtilFileContent42() {
     // Arrange, Act and Assert
-    assertNull(SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile Content42"));
+    assertNull(
+        SslUtil.readCertFile("org.thingsboard.server.common.transport.util.SslUtilFile Content42"));
   }
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtil\s}.</li>
+   *   <li>When {@code SslUtil\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil\\s'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtil\\s'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtilS() {
@@ -2913,14 +3161,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code SslUtilX.509}.</li>
+   *   <li>When {@code SslUtilX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilX.509'")
+  @DisplayName(
+      "Test readCertFile(String); when 'org.thingsboard.server.common.transport.util.SslUtilX.509'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenOrgThingsboardServerCommonTransportUtilSslUtilX509() {
@@ -2930,11 +3180,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s}.</li>
+   *   <li>When {@code \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s'")
@@ -2947,11 +3198,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s}.</li>
+   *   <li>When {@code \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s'")
@@ -2964,11 +3216,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s}.</li>
+   *   <li>When {@code \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s'")
@@ -2981,11 +3234,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s}.</li>
+   *   <li>When {@code \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s'")
@@ -2998,11 +3252,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s}.</li>
+   *   <li>When {@code \s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s'")
@@ -3015,11 +3270,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s42}.</li>
+   *   <li>When {@code \s42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s42'")
@@ -3032,11 +3288,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sFile Content}.</li>
+   *   <li>When {@code \sFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\sFile Content'")
@@ -3049,11 +3306,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sFile Content}.</li>
+   *   <li>When {@code \sFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\sFile Content'")
@@ -3066,11 +3324,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sNot all who wander are lost}.</li>
+   *   <li>When {@code \sNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\sNot all who wander are lost'")
@@ -3083,11 +3342,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sNot all who wander are lost}.</li>
+   *   <li>When {@code \sNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\sNot all who wander are lost'")
@@ -3100,11 +3360,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \s\s}.</li>
+   *   <li>When {@code \s\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\s\\s'")
@@ -3117,11 +3378,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sX.509}.</li>
+   *   <li>When {@code \sX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when '\\sX.509'")
@@ -3134,14 +3396,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code \sSslUtil}.</li>
+   *   <li>When {@code \sSslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when '\\sorg.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when '\\sorg.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenSorgThingsboardServerCommonTransportUtilSslUtil() {
@@ -3151,11 +3415,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When space.</li>
+   *   <li>When space.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when space")
@@ -3168,11 +3433,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509}.</li>
+   *   <li>When {@code X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509'")
@@ -3185,11 +3451,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File Content}.</li>
+   *   <li>When {@code X.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File Content'")
@@ -3202,11 +3469,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File Content}.</li>
+   *   <li>When {@code X.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File Content'")
@@ -3219,11 +3487,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File Content42}.</li>
+   *   <li>When {@code X.509File Content42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File Content42'")
@@ -3236,11 +3505,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File ContentFile Content}.</li>
+   *   <li>When {@code X.509File ContentFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File ContentFile Content'")
@@ -3253,11 +3523,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File ContentNot all who wander are lost}.</li>
+   *   <li>When {@code X.509File ContentNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File ContentNot all who wander are lost'")
@@ -3270,11 +3541,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509File ContentX.509}.</li>
+   *   <li>When {@code X.509File ContentX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509File ContentX.509'")
@@ -3287,11 +3559,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lost}.</li>
+   *   <li>When {@code X.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lost'")
@@ -3304,11 +3577,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lost}.</li>
+   *   <li>When {@code X.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lost'")
@@ -3321,11 +3595,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lost42}.</li>
+   *   <li>When {@code X.509Not all who wander are lost42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lost42'")
@@ -3338,11 +3613,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lostFile Content}.</li>
+   *   <li>When {@code X.509Not all who wander are lostFile Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lostFile Content'")
@@ -3355,14 +3631,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lostNot all who wander are lost}.</li>
+   *   <li>When {@code X.509Not all who wander are lostNot all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lostNot all who wander are lost'")
+  @DisplayName(
+      "Test readCertFile(String); when 'X.509Not all who wander are lostNot all who wander are lost'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenX509NotAllWhoWanderAreLostNotAllWhoWanderAreLost() {
@@ -3372,11 +3650,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509Not all who wander are lostX.509}.</li>
+   *   <li>When {@code X.509Not all who wander are lostX.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509Not all who wander are lostX.509'")
@@ -3389,11 +3668,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509\s}.</li>
+   *   <li>When {@code X.509\s}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509\\s'")
@@ -3406,14 +3686,16 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509SslUtil}.</li>
+   *   <li>When {@code X.509SslUtil}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
-  @DisplayName("Test readCertFile(String); when 'X.509org.thingsboard.server.common.transport.util.SslUtil'")
+  @DisplayName(
+      "Test readCertFile(String); when 'X.509org.thingsboard.server.common.transport.util.SslUtil'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"X509Certificate SslUtil.readCertFile(String)"})
   void testReadCertFile_whenX509orgThingsboardServerCommonTransportUtilSslUtil() {
@@ -3423,11 +3705,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509X.509}.</li>
+   *   <li>When {@code X.509X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509X.509'")
@@ -3440,11 +3723,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509X.509File Content}.</li>
+   *   <li>When {@code X.509X.509File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509X.509File Content'")
@@ -3457,11 +3741,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509X.509Not all who wander are lost}.</li>
+   *   <li>When {@code X.509X.509Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509X.509Not all who wander are lost'")
@@ -3474,11 +3759,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509}.</li>
+   *   <li>When {@code X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509'")
@@ -3491,11 +3777,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509}.</li>
+   *   <li>When {@code X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509'")
@@ -3508,11 +3795,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.509}.</li>
+   *   <li>When {@code X.509}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.509'")
@@ -3525,11 +3813,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.50942}.</li>
+   *   <li>When {@code X.50942}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.50942'")
@@ -3542,11 +3831,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.50942File Content}.</li>
+   *   <li>When {@code X.50942File Content}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.50942File Content'")
@@ -3559,11 +3849,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#readCertFile(String)}.
+   *
    * <ul>
-   *   <li>When {@code X.50942Not all who wander are lost}.</li>
+   *   <li>When {@code X.50942Not all who wander are lost}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#readCertFile(String)}
+   *
+   * <p>Method under test: {@link SslUtil#readCertFile(String)}
    */
   @Test
   @DisplayName("Test readCertFile(String); when 'X.50942Not all who wander are lost'")
@@ -3576,11 +3867,12 @@ class SslUtilDiffblueTest {
 
   /**
    * Test {@link SslUtil#parseCommonName(X509Certificate)}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SslUtil#parseCommonName(X509Certificate)}
+   *
+   * <p>Method under test: {@link SslUtil#parseCommonName(X509Certificate)}
    */
   @Test
   @DisplayName("Test parseCommonName(X509Certificate); then throw RuntimeException")

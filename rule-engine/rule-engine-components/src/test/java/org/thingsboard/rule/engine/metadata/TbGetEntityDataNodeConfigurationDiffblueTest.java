@@ -23,20 +23,24 @@ import org.thingsboard.server.common.data.relation.RelationEntityTypeFilter;
 class TbGetEntityDataNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}.
+   *
    * <ul>
-   *   <li>Then return DataMapping {@code alarmThreshold} is {@code threshold}.</li>
+   *   <li>Then return DataMapping {@code alarmThreshold} is {@code threshold}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}
    */
   @Test
-  @DisplayName("Test defaultConfiguration(); then return DataMapping 'alarmThreshold' is 'threshold'")
+  @DisplayName(
+      "Test defaultConfiguration(); then return DataMapping 'alarmThreshold' is 'threshold'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbGetEntityDataNodeConfiguration TbGetEntityDataNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbGetEntityDataNodeConfiguration TbGetEntityDataNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration_thenReturnDataMappingAlarmThresholdIsThreshold() {
     // Arrange and Act
-    TbGetEntityDataNodeConfiguration actualDefaultConfigurationResult = (new TbGetEntityDataNodeConfiguration())
-        .defaultConfiguration();
+    TbGetEntityDataNodeConfiguration actualDefaultConfigurationResult =
+        new TbGetEntityDataNodeConfiguration().defaultConfiguration();
 
     // Assert
     Map<String, String> dataMapping = actualDefaultConfigurationResult.getDataMapping();
@@ -48,25 +52,28 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}.
+   *
    * <ul>
-   *   <li>Then return {@link TbGetRelatedDataNodeConfiguration}.</li>
+   *   <li>Then return {@link TbGetRelatedDataNodeConfiguration}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration(); then return TbGetRelatedDataNodeConfiguration")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbGetEntityDataNodeConfiguration TbGetEntityDataNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbGetEntityDataNodeConfiguration TbGetEntityDataNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration_thenReturnTbGetRelatedDataNodeConfiguration() {
     // Arrange and Act
-    TbGetRelatedDataNodeConfiguration actualDefaultConfigurationResult = (new TbGetRelatedDataNodeConfiguration())
-        .defaultConfiguration();
+    TbGetRelatedDataNodeConfiguration actualDefaultConfigurationResult =
+        new TbGetRelatedDataNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertTrue(actualDefaultConfigurationResult instanceof TbGetRelatedDataNodeConfiguration);
-    RelationsQuery relationsQuery = ((TbGetRelatedDataNodeConfiguration) actualDefaultConfigurationResult)
-        .getRelationsQuery();
+    RelationsQuery relationsQuery =
+        ((TbGetRelatedDataNodeConfiguration) actualDefaultConfigurationResult).getRelationsQuery();
     List<RelationEntityTypeFilter> filters = relationsQuery.getFilters();
     assertEquals(1, filters.size());
     RelationEntityTypeFilter getResult = filters.get(0);
@@ -82,13 +89,16 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link TbGetEntityDataNodeConfiguration#hashCode()}.
+   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link
+   * TbGetEntityDataNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetEntityDataNodeConfiguration#equals(Object)}
    *   <li>{@link TbGetEntityDataNodeConfiguration#hashCode()}
@@ -97,12 +107,16 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration2 = new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration2 =
+        new TbGetEntityDataNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGetEntityDataNodeConfiguration, tbGetEntityDataNodeConfiguration2);
@@ -111,13 +125,16 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link TbGetEntityDataNodeConfiguration#hashCode()}.
+   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link
+   * TbGetEntityDataNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetEntityDataNodeConfiguration#equals(Object)}
    *   <li>{@link TbGetEntityDataNodeConfiguration#hashCode()}
@@ -126,18 +143,19 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
-    tbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.ATTRIBUTES);
-    tbGetEntityDataNodeConfiguration.setFetchTo(TbMsgSource.DATA);
-    tbGetEntityDataNodeConfiguration.setDataMapping(new HashMap<>());
-    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration = mock(TbGetRelatedDataNodeConfiguration.class);
-    when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(DataToFetch.ATTRIBUTES);
-    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(new HashMap<>());
-    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(TbMsgSource.DATA);
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        mock(TbGetRelatedDataNodeConfiguration.class);
+    when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(null);
     when(tbGetRelatedDataNodeConfiguration.canEqual(Mockito.<Object>any())).thenReturn(true);
 
     // Act and Assert
@@ -147,13 +165,57 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link TbGetEntityDataNodeConfiguration#hashCode()}.
+   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link
+   * TbGetEntityDataNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *   <li>{@link TbGetEntityDataNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    tbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.ATTRIBUTES);
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        mock(TbGetRelatedDataNodeConfiguration.class);
+    when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(DataToFetch.ATTRIBUTES);
+    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertEquals(tbGetEntityDataNodeConfiguration, tbGetRelatedDataNodeConfiguration);
+    int notExpectedHashCodeResult = tbGetEntityDataNodeConfiguration.hashCode();
+    assertNotEquals(notExpectedHashCodeResult, tbGetRelatedDataNodeConfiguration.hashCode());
+  }
+
+  /**
+   * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}, and {@link
+   * TbGetEntityDataNodeConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetEntityDataNodeConfiguration#equals(Object)}
    *   <li>{@link TbGetEntityDataNodeConfiguration#hashCode()}
@@ -162,11 +224,14 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGetEntityDataNodeConfiguration, tbGetEntityDataNodeConfiguration);
@@ -176,21 +241,25 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration = new TbGetRelatedDataNodeConfiguration();
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        new TbGetRelatedDataNodeConfiguration();
 
     // Act and Assert
     assertNotEquals(tbGetRelatedDataNodeConfiguration, new TbGetEntityDataNodeConfiguration());
@@ -198,21 +267,25 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
 
     // Act and Assert
     assertNotEquals(tbGetEntityDataNodeConfiguration, new TbGetRelatedDataNodeConfiguration());
@@ -220,22 +293,27 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
-    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration = mock(TbGetRelatedDataNodeConfiguration.class);
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        mock(TbGetRelatedDataNodeConfiguration.class);
     when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(new HashMap<>());
     when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(TbMsgSource.DATA);
     when(tbGetRelatedDataNodeConfiguration.canEqual(Mockito.<Object>any())).thenReturn(true);
@@ -246,27 +324,30 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
-    tbGetEntityDataNodeConfiguration.setFetchTo(TbMsgSource.DATA);
-    tbGetEntityDataNodeConfiguration.setDataMapping(new HashMap<>());
-    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration = mock(TbGetRelatedDataNodeConfiguration.class);
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        mock(TbGetRelatedDataNodeConfiguration.class);
     when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(DataToFetch.ATTRIBUTES);
-    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(new HashMap<>());
-    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(TbMsgSource.DATA);
+    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(null);
     when(tbGetRelatedDataNodeConfiguration.canEqual(Mockito.<Object>any())).thenReturn(true);
 
     // Act and Assert
@@ -275,28 +356,31 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
-    tbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.LATEST_TELEMETRY);
-    tbGetEntityDataNodeConfiguration.setFetchTo(TbMsgSource.DATA);
-    tbGetEntityDataNodeConfiguration.setDataMapping(new HashMap<>());
-    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration = mock(TbGetRelatedDataNodeConfiguration.class);
-    when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(DataToFetch.ATTRIBUTES);
-    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(new HashMap<>());
-    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(TbMsgSource.DATA);
+    TbGetEntityDataNodeConfiguration tbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
+    tbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.ATTRIBUTES);
+    TbGetRelatedDataNodeConfiguration tbGetRelatedDataNodeConfiguration =
+        mock(TbGetRelatedDataNodeConfiguration.class);
+    when(tbGetRelatedDataNodeConfiguration.getDataToFetch()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getDataMapping()).thenReturn(null);
+    when(tbGetRelatedDataNodeConfiguration.getFetchTo()).thenReturn(null);
     when(tbGetRelatedDataNodeConfiguration.canEqual(Mockito.<Object>any())).thenReturn(true);
 
     // Act and Assert
@@ -305,18 +389,21 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetEntityDataNodeConfiguration(), null);
@@ -324,27 +411,33 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetEntityDataNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetEntityDataNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetEntityDataNodeConfiguration.equals(Object)",
-      "int TbGetEntityDataNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetEntityDataNodeConfiguration.equals(Object)",
+    "int TbGetEntityDataNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbGetEntityDataNodeConfiguration(), "Different type to TbGetEntityDataNodeConfiguration");
+    assertNotEquals(
+        new TbGetEntityDataNodeConfiguration(),
+        "Different type to TbGetEntityDataNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGetEntityDataNodeConfiguration}
    *   <li>{@link TbGetEntityDataNodeConfiguration#setDataToFetch(DataToFetch)}
@@ -355,13 +448,16 @@ class TbGetEntityDataNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGetEntityDataNodeConfiguration.<init>()",
-      "DataToFetch TbGetEntityDataNodeConfiguration.getDataToFetch()",
-      "void TbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch)",
-      "String TbGetEntityDataNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbGetEntityDataNodeConfiguration.<init>()",
+    "DataToFetch TbGetEntityDataNodeConfiguration.getDataToFetch()",
+    "void TbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch)",
+    "String TbGetEntityDataNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbGetEntityDataNodeConfiguration actualTbGetEntityDataNodeConfiguration = new TbGetEntityDataNodeConfiguration();
+    TbGetEntityDataNodeConfiguration actualTbGetEntityDataNodeConfiguration =
+        new TbGetEntityDataNodeConfiguration();
     actualTbGetEntityDataNodeConfiguration.setDataToFetch(DataToFetch.ATTRIBUTES);
     String actualToStringResult = actualTbGetEntityDataNodeConfiguration.toString();
     DataToFetch actualDataToFetch = actualTbGetEntityDataNodeConfiguration.getDataToFetch();

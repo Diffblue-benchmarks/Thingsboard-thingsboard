@@ -14,17 +14,21 @@ import org.junit.jupiter.api.Test;
 class LwM2MConfigurationCheckerDiffblueTest {
   /**
    * Test {@link LwM2MConfigurationChecker#validateOneSecurityByServer(BootstrapConfig)}.
+   *
    * <ul>
-   *   <li>Then throw {@link InvalidConfigurationException}.</li>
+   *   <li>Then throw {@link InvalidConfigurationException}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MConfigurationChecker#validateOneSecurityByServer(BootstrapConfig)}
+   *
+   * <p>Method under test: {@link
+   * LwM2MConfigurationChecker#validateOneSecurityByServer(BootstrapConfig)}
    */
   @Test
-  @DisplayName("Test validateOneSecurityByServer(BootstrapConfig); then throw InvalidConfigurationException")
+  @DisplayName(
+      "Test validateOneSecurityByServer(BootstrapConfig); then throw InvalidConfigurationException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LwM2MConfigurationChecker.validateOneSecurityByServer(BootstrapConfig)"})
-  void testValidateOneSecurityByServer_thenThrowInvalidConfigurationException() throws InvalidConfigurationException {
+  void testValidateOneSecurityByServer_thenThrowInvalidConfigurationException()
+      throws InvalidConfigurationException {
     // Arrange
     LwM2MConfigurationChecker lwM2MConfigurationChecker = new LwM2MConfigurationChecker();
 
@@ -34,23 +38,28 @@ class LwM2MConfigurationCheckerDiffblueTest {
     config.servers = integerServerConfigMap;
 
     // Act and Assert
-    assertThrows(InvalidConfigurationException.class,
+    assertThrows(
+        InvalidConfigurationException.class,
         () -> lwM2MConfigurationChecker.validateOneSecurityByServer(config));
   }
 
   /**
    * Test {@link LwM2MConfigurationChecker#getSecurityEntry(BootstrapConfig, int)}.
+   *
    * <ul>
-   *   <li>When {@link BootstrapConfig} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link BootstrapConfig} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MConfigurationChecker#getSecurityEntry(BootstrapConfig, int)}
+   *
+   * <p>Method under test: {@link LwM2MConfigurationChecker#getSecurityEntry(BootstrapConfig, int)}
    */
   @Test
-  @DisplayName("Test getSecurityEntry(BootstrapConfig, int); when BootstrapConfig (default constructor); then return 'null'")
+  @DisplayName(
+      "Test getSecurityEntry(BootstrapConfig, int); when BootstrapConfig (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"BootstrapConfig.ServerSecurity LwM2MConfigurationChecker.getSecurityEntry(BootstrapConfig, int)"})
+  @MethodsUnderTest({
+    "BootstrapConfig.ServerSecurity LwM2MConfigurationChecker.getSecurityEntry(BootstrapConfig, int)"
+  })
   void testGetSecurityEntry_whenBootstrapConfig_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(LwM2MConfigurationChecker.getSecurityEntry(new BootstrapConfig(), 1));

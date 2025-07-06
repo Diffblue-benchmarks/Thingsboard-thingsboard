@@ -15,12 +15,13 @@ import org.thingsboard.server.common.data.kv.DataType;
 class TypeCastUtilDiffblueTest {
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code .42}.</li>
-   *   <li>Then return Right doubleValue is {@code 0.42}.</li>
+   *   <li>When {@code .42}.
+   *   <li>Then return Right doubleValue is {@code 0.42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '.42'; then return Right doubleValue is '0.42'")
@@ -40,12 +41,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42.}.</li>
-   *   <li>Then return Right doubleValue is forty-two.</li>
+   *   <li>When {@code 42.}.
+   *   <li>Then return Right doubleValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '42.'; then return Right doubleValue is forty-two")
@@ -65,12 +67,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code ..42}.</li>
-   *   <li>Then return Right is {@code ..42}.</li>
+   *   <li>When {@code ..42}.
+   *   <li>Then return Right is {@code ..42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '..42'; then return Right is '..42'")
@@ -90,12 +93,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return Right longValue is forty-two.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return Right longValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '42'; then return Right longValue is forty-two")
@@ -115,12 +119,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42E42}.</li>
-   *   <li>Then return Right is {@code 42E42}.</li>
+   *   <li>When {@code 42E42}.
+   *   <li>Then return Right is {@code 42E42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '42E42'; then return Right is '42E42'")
@@ -140,12 +145,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42E.}.</li>
-   *   <li>Then return Right is {@code 42E.}.</li>
+   *   <li>When {@code 42E.}.
+   *   <li>Then return Right is {@code 42E.}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '42E.'; then return Right is '42E.'")
@@ -165,12 +171,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code ..}.</li>
-   *   <li>Then return Right is {@code ..}.</li>
+   *   <li>When {@code ..}.
+   *   <li>Then return Right is {@code ..}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '..'; then return Right is '..'")
@@ -190,12 +197,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
-   *   <li>Then return Right is {@code .}.</li>
+   *   <li>When {@code .}.
+   *   <li>Then return Right is {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when '.'; then return Right is '.'")
@@ -215,12 +223,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code E42}.</li>
-   *   <li>Then return Right is {@code E42}.</li>
+   *   <li>When {@code E42}.
+   *   <li>Then return Right is {@code E42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when 'E42'; then return Right is 'E42'")
@@ -240,12 +249,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code e42}.</li>
-   *   <li>Then return Right is {@code e42}.</li>
+   *   <li>When {@code e42}.
+   *   <li>Then return Right is {@code e42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when 'e42'; then return Right is 'e42'")
@@ -265,12 +275,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
-   *   <li>Then return Right is {@code E}.</li>
+   *   <li>When {@code E}.
+   *   <li>Then return Right is {@code E}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when 'E'; then return Right is 'E'")
@@ -290,12 +301,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@code e}.</li>
-   *   <li>Then return Right is {@code e}.</li>
+   *   <li>When {@code e}.
+   *   <li>Then return Right is {@code e}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when 'e'; then return Right is 'e'")
@@ -315,12 +327,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return Right is empty string.</li>
+   *   <li>When empty string.
+   *   <li>Then return Right is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when empty string; then return Right is empty string")
@@ -340,12 +353,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#FALSE} toString.</li>
-   *   <li>Then return not Right.</li>
+   *   <li>When {@link Boolean#FALSE} toString.
+   *   <li>Then return not Right.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when FALSE toString; then return not Right")
@@ -365,12 +379,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castValue(String)}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#TRUE} toString.</li>
-   *   <li>Then return Right.</li>
+   *   <li>When {@link Boolean#TRUE} toString.
+   *   <li>Then return Right.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castValue(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castValue(String)}
    */
   @Test
   @DisplayName("Test castValue(String); when TRUE toString; then return Right")
@@ -390,12 +405,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code .42}.</li>
-   *   <li>Then return Right doubleValue is {@code 0.42}.</li>
+   *   <li>When {@code .42}.
+   *   <li>Then return Right doubleValue is {@code 0.42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '.42'; then return Right doubleValue is '0.42'")
@@ -415,12 +431,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42.}.</li>
-   *   <li>Then return Right doubleValue is forty-two.</li>
+   *   <li>When {@code 42.}.
+   *   <li>Then return Right doubleValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '42.'; then return Right doubleValue is forty-two")
@@ -440,12 +457,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return Right longValue is forty-two.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return Right longValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '42'; then return Right longValue is forty-two")
@@ -465,12 +483,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code ..42}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ..42}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '..42'; then throw IllegalArgumentException")
@@ -483,12 +502,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42E.}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code 42E.}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '42E.'; then throw IllegalArgumentException")
@@ -501,12 +521,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code 4242}.</li>
-   *   <li>Then return Right longValue is {@code 4242}.</li>
+   *   <li>When {@code 4242}.
+   *   <li>Then return Right longValue is {@code 4242}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '4242'; then return Right longValue is '4242'")
@@ -526,12 +547,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code ..}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ..}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '..'; then throw IllegalArgumentException")
@@ -544,12 +566,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code .}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when '.'; then throw IllegalArgumentException")
@@ -562,12 +585,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code E42}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code E42}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'E42'; then throw IllegalArgumentException")
@@ -580,12 +604,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code e42}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code e42}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'e42'; then throw IllegalArgumentException")
@@ -598,12 +623,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code E}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'E'; then throw IllegalArgumentException")
@@ -616,12 +642,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code e}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code e}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'e'; then throw IllegalArgumentException")
@@ -634,12 +661,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When empty string.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when empty string; then throw IllegalArgumentException")
@@ -652,12 +680,13 @@ class TypeCastUtilDiffblueTest {
 
   /**
    * Test {@link TypeCastUtil#castToNumber(String)}.
+   *
    * <ul>
-   *   <li>When {@code Value}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Value}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TypeCastUtil#castToNumber(String)}
+   *
+   * <p>Method under test: {@link TypeCastUtil#castToNumber(String)}
    */
   @Test
   @DisplayName("Test castToNumber(String); when 'Value'; then throw IllegalArgumentException")

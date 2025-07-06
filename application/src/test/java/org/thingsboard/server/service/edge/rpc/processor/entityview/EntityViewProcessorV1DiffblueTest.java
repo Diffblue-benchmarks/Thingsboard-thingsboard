@@ -16,18 +16,21 @@ import org.thingsboard.server.gen.edge.v1.EntityViewUpdateMsg;
 
 @ExtendWith(MockitoExtension.class)
 class EntityViewProcessorV1DiffblueTest {
-  @InjectMocks
-  private EntityViewProcessorV1 entityViewProcessorV1;
+  @InjectMocks private EntityViewProcessorV1 entityViewProcessorV1;
 
   /**
-   * Test {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}.
-   * <p>
-   * Method under test: {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)}
+   * Test {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId, EntityView,
+   * EntityViewUpdateMsg)}.
+   *
+   * <p>Method under test: {@link EntityViewProcessorV1#setCustomerId(TenantId, CustomerId,
+   * EntityView, EntityViewUpdateMsg)}
    */
   @Test
   @DisplayName("Test setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityViewProcessorV1.setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)"})
+  @MethodsUnderTest({
+    "void EntityViewProcessorV1.setCustomerId(TenantId, CustomerId, EntityView, EntityViewUpdateMsg)"
+  })
   void testSetCustomerId() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -35,7 +38,8 @@ class EntityViewProcessorV1DiffblueTest {
     EntityView entityView = new EntityView();
 
     // Act
-    entityViewProcessorV1.setCustomerId(tenantId, customerId, entityView, EntityViewUpdateMsg.getDefaultInstance());
+    entityViewProcessorV1.setCustomerId(
+        tenantId, customerId, entityView, EntityViewUpdateMsg.getDefaultInstance());
 
     // Assert
     assertSame(customerId, entityView.getCustomerId());

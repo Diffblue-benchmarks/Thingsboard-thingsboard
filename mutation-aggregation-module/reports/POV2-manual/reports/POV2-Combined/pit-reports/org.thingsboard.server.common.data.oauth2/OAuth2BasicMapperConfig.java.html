@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>OAuth2BasicMapperConfig.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.common.data.oauth2;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import io.swagger.v3.oas.annotations.media.Schema;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Builder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.Data;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.EqualsAndHashCode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import lombok.ToString;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.validation.Length;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_25'>12</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::toString &rarr; NO_COVERAGE<br/>
+
+2. toBuilder : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::toBuilder &rarr; SURVIVED<br/>
+
+3. tenantNameStrategy : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::tenantNameStrategy &rarr; KILLED<br/>
+
+4. defaultDashboardName : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::defaultDashboardName &rarr; KILLED<br/>
+
+5. firstNameAttributeKey : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::firstNameAttributeKey &rarr; KILLED<br/>
+
+6. customerNamePattern : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::customerNamePattern &rarr; KILLED<br/>
+
+7. build : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::build &rarr; KILLED<br/>
+
+8. alwaysFullScreen : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::alwaysFullScreen &rarr; KILLED<br/>
+
+9. tenantNamePattern : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::tenantNamePattern &rarr; KILLED<br/>
+
+10. builder : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::builder &rarr; KILLED<br/>
+
+11. lastNameAttributeKey : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::lastNameAttributeKey &rarr; KILLED<br/>
+
+12. emailAttributeKey : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::emailAttributeKey &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@Builder(toBuilder = true)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_26'>64</a>
+<span>
+
+1. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+3. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+4. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+5. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+6. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+7. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+8. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+9. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+10. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+11. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+12. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+13. canEqual : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::canEqual &rarr; SURVIVED<br/>
+
+14. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+15. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+16. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+17. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+18. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+19. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+20. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+21. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+22. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+23. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+24. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+25. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+26. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+27. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+28. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+29. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+30. hashCode : replaced int return with 0 for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::hashCode &rarr; SURVIVED<br/>
+
+31. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+32. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+33. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+34. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+35. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+36. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE<br/>
+
+37. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+38. hashCode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+39. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+40. hashCode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+41. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+42. equals : negated conditional &rarr; KILLED<br/>
+
+43. equals : negated conditional &rarr; KILLED<br/>
+
+44. equals : negated conditional &rarr; KILLED<br/>
+
+45. equals : negated conditional &rarr; KILLED<br/>
+
+46. equals : negated conditional &rarr; KILLED<br/>
+
+47. equals : negated conditional &rarr; KILLED<br/>
+
+48. equals : negated conditional &rarr; KILLED<br/>
+
+49. equals : negated conditional &rarr; KILLED<br/>
+
+50. equals : negated conditional &rarr; KILLED<br/>
+
+51. equals : negated conditional &rarr; KILLED<br/>
+
+52. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED<br/>
+
+53. equals : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED<br/>
+
+54. equals : negated conditional &rarr; KILLED<br/>
+
+55. equals : negated conditional &rarr; KILLED<br/>
+
+56. equals : replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED<br/>
+
+57. equals : negated conditional &rarr; KILLED<br/>
+
+58. equals : negated conditional &rarr; KILLED<br/>
+
+59. canEqual : replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::canEqual &rarr; KILLED<br/>
+
+60. equals : negated conditional &rarr; KILLED<br/>
+
+61. equals : negated conditional &rarr; KILLED<br/>
+
+62. equals : replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED<br/>
+
+63. equals : negated conditional &rarr; KILLED<br/>
+
+64. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>@EqualsAndHashCode</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_28'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>@ToString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Schema</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class OAuth2BasicMapperConfig {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;emailAttributeKey&#34;, max = 31)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Email attribute key of OAuth2 principal attributes. &#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;Must be specified for BASIC mapper type and cannot be specified for GITHUB type&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_34'>1</a>
+<span>
+
+1. getEmailAttributeKey : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getEmailAttributeKey &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String emailAttributeKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;firstNameAttributeKey&#34;, max = 31)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;First name attribute key&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_37'>1</a>
+<span>
+
+1. getFirstNameAttributeKey : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getFirstNameAttributeKey &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String firstNameAttributeKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;lastNameAttributeKey&#34;, max = 31)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Last name attribute key&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_40'>1</a>
+<span>
+
+1. getLastNameAttributeKey : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getLastNameAttributeKey &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String lastNameAttributeKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Tenant naming strategy. For DOMAIN type, domain for tenant name will be taken from the email (substring before &#39;@&#39;)&#34;, requiredMode = Schema.RequiredMode.REQUIRED)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_42'>1</a>
+<span>
+
+1. getTenantNameStrategy : replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getTenantNameStrategy &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final TenantNameStrategyType tenantNameStrategy;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;tenantNamePattern&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Tenant name pattern for CUSTOM naming strategy. &#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;OAuth2 attributes in the pattern can be used by enclosing attribute key in &#39;%{&#39; and &#39;}&#39;&#34;, example = &#34;%{email}&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_46'>1</a>
+<span>
+
+1. getTenantNamePattern : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getTenantNamePattern &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String tenantNamePattern;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;customerNamePattern&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Customer name pattern. When creating a user on the first OAuth2 log in, if specified, &#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            &#34;customer name will be used to create or find existing customer in the platform and assign customerId to the user&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_50'>1</a>
+<span>
+
+1. getCustomerNamePattern : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getCustomerNamePattern &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String customerNamePattern;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Length(fieldName = &#34;defaultDashboardName&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Name of the tenant&#39;s dashboard to set as default dashboard for newly created user&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_53'>1</a>
+<span>
+
+1. getDefaultDashboardName : replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getDefaultDashboardName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final String defaultDashboardName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Schema(description = &#34;Whether default dashboard should be open in full screen&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_55'>2</a>
+<span>
+
+1. isAlwaysFullScreen : replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::isAlwaysFullScreen &rarr; KILLED<br/>
+
+2. isAlwaysFullScreen : replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::isAlwaysFullScreen &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private final boolean alwaysFullScreen;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@666c5da3_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tenantNameStrategy<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::tenantNameStrategy &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>defaultDashboardName<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::defaultDashboardName &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>firstNameAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::firstNameAttributeKey &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toString<br/><b>Killed by : </b></span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::toString &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toBuilder<br/><b>Killed by : </b></span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::toBuilder &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=toBuilder,-methodDesc=()Lorg/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=toBuilder,-methodDesc=()Lorg/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=toBuilder,-methodDesc=()Lorg/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>customerNamePattern<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::customerNamePattern &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>build<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::build &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>alwaysFullScreen<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::alwaysFullScreen &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>tenantNamePattern<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::tenantNamePattern &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>builder<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::builder &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>lastNameAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::lastNameAttributeKey &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>emailAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig$OAuth2BasicMapperConfigBuilder::emailAttributeKey &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[79],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[79],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[79],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[87],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[89],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[89],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[89],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[136],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[136],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[136],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[117],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[117],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[117],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::canEqual &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=canEqual,-methodDesc=(Ljava/lang/Object;)Z],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[14],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[125],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[125],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[125],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[146],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[146],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[146],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[155],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[155],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[155],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsNull_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[108],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[108],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[108],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='NO_COVERAGE'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> replaced int return with 0 for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::hashCode &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[158],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[158],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[158],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[32],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[127],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[127],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[127],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[144],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[144],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[144],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>equals<br/><b>Killed by : </b></span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='SURVIVED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[98],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>canEqual<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::canEqual &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>57.<span><b>57</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>58.<span><b>58</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>59.<span><b>59</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::equals &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>60.<span><b>60</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>61.<span><b>61</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>62.<span><b>62</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[106],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[106],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[106],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>63.<span><b>63</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[70],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[70],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig,-method=hashCode,-methodDesc=()I],-indexes=[70],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>64.<span><b>64</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testGettersAndSetters()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::toString &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEmailAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getEmailAttributeKey &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFirstNameAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getFirstNameAttributeKey &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLastNameAttributeKey<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getLastNameAttributeKey &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTenantNameStrategy<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with null for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getTenantNameStrategy &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTenantNamePattern<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getTenantNamePattern &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCustomerNamePattern<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getCustomerNamePattern &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDefaultDashboardName<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced return value with &#34;&#34; for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::getDefaultDashboardName &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@666c5da3_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@666c5da3_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAlwaysFullScreen<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testOAuth2BasicMapperConfigBuilderBuild()]</span></span> replaced boolean return with false for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::isAlwaysFullScreen &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAlwaysFullScreen<br/><b>Killed by : </b>org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfigDiffblueTest]/[method:testEquals_whenOtherIsDifferent_thenReturnNotEqual()]</span></span> replaced boolean return with true for org/thingsboard/server/common/data/oauth2/OAuth2BasicMapperConfig::isAlwaysFullScreen &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

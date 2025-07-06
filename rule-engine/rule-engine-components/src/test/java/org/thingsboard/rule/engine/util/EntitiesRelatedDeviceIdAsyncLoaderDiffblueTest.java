@@ -29,27 +29,37 @@ import org.thingsboard.server.dao.device.DeviceServiceImpl;
 
 class EntitiesRelatedDeviceIdAsyncLoaderDiffblueTest {
   /**
-   * Test {@link EntitiesRelatedDeviceIdAsyncLoader#findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery)}.
+   * Test {@link EntitiesRelatedDeviceIdAsyncLoader#findDeviceAsync(TbContext, EntityId,
+   * DeviceRelationsQuery)}.
+   *
    * <ul>
-   *   <li>Then calls {@link TbContext#getDbCallbackExecutor()}.</li>
+   *   <li>Given {@link TestDbCallbackExecutor} (default constructor).
+   *   <li>Then calls {@link TbContext#getDbCallbackExecutor()}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesRelatedDeviceIdAsyncLoader#findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery)}
+   *
+   * <p>Method under test: {@link EntitiesRelatedDeviceIdAsyncLoader#findDeviceAsync(TbContext,
+   * EntityId, DeviceRelationsQuery)}
    */
   @Test
-  @DisplayName("Test findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery); then calls getDbCallbackExecutor()")
+  @DisplayName(
+      "Test findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery); given TestDbCallbackExecutor (default constructor); then calls getDbCallbackExecutor()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture EntitiesRelatedDeviceIdAsyncLoader.findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery)"})
-  void testFindDeviceAsync_thenCallsGetDbCallbackExecutor() {
+    "com.google.common.util.concurrent.ListenableFuture EntitiesRelatedDeviceIdAsyncLoader.findDeviceAsync(TbContext, EntityId, DeviceRelationsQuery)"
+  })
+  void testFindDeviceAsync_givenTestDbCallbackExecutor_thenCallsGetDbCallbackExecutor() {
     // Arrange
     DeviceServiceImpl deviceServiceImpl = mock(DeviceServiceImpl.class);
     SettableFuture<List<Device>> delegate = SettableFuture.create();
-    when(deviceServiceImpl.findDevicesByQuery(Mockito.<TenantId>any(), Mockito.<DeviceSearchQuery>any())).thenReturn(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+    when(deviceServiceImpl.findDevicesByQuery(
+            Mockito.<TenantId>any(), Mockito.<DeviceSearchQuery>any()))
+        .thenReturn(
+            new ApiFutureToListenableFuture<>(
+                new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
     TbContext ctx = mock(TbContext.class);
     when(ctx.getDbCallbackExecutor()).thenReturn(new TestDbCallbackExecutor());
-    when(ctx.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(ctx.getTenantId())
+        .thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(ctx.getDeviceService()).thenReturn(deviceServiceImpl);
     AlarmId originator = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 

@@ -20,12 +20,14 @@ import org.thingsboard.server.common.data.id.TenantProfileId;
 class TenantDiffblueTest {
   /**
    * Test {@link Tenant#equals(Object)}, and {@link Tenant#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Tenant#equals(Object)}
    *   <li>{@link Tenant#hashCode()}
@@ -48,12 +50,14 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}, and {@link Tenant#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Tenant#equals(Object)}
    *   <li>{@link Tenant#hashCode()}
@@ -75,12 +79,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
+   *
+   * <p>Method under test: {@link Tenant#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -96,12 +101,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
+   *
+   * <p>Method under test: {@link Tenant#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -117,12 +123,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
+   *
+   * <p>Method under test: {@link Tenant#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -140,12 +147,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
+   *
+   * <p>Method under test: {@link Tenant#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -158,12 +166,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#equals(Object)}
+   *
+   * <p>Method under test: {@link Tenant#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -176,11 +185,13 @@ class TenantDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Tenant#Tenant()}
    *   <li>{@link Tenant#setRegion(String)}
@@ -197,10 +208,20 @@ class TenantDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Tenant.<init>()", "void Tenant.<init>(TenantId)", "String Tenant.getName()",
-      "String Tenant.getRegion()", "TenantProfileId Tenant.getTenantProfileId()", "String Tenant.getTitle()",
-      "Long Tenant.getVersion()", "void Tenant.setRegion(String)", "void Tenant.setTenantProfileId(TenantProfileId)",
-      "void Tenant.setTitle(String)", "void Tenant.setVersion(Long)", "String Tenant.toString()"})
+  @MethodsUnderTest({
+    "void Tenant.<init>()",
+    "void Tenant.<init>(TenantId)",
+    "String Tenant.getName()",
+    "String Tenant.getRegion()",
+    "TenantProfileId Tenant.getTenantProfileId()",
+    "String Tenant.getTitle()",
+    "Long Tenant.getVersion()",
+    "void Tenant.setRegion(String)",
+    "void Tenant.setTenantProfileId(TenantProfileId)",
+    "void Tenant.setTitle(String)",
+    "void Tenant.setVersion(Long)",
+    "String Tenant.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     Tenant actualTenant = new Tenant();
@@ -217,9 +238,11 @@ class TenantDiffblueTest {
     // Assert
     assertEquals("Dr", actualName);
     assertEquals("Dr", actualTitle);
-    assertEquals("Tenant [title=Dr, region=us-east-2, tenantProfileId=null, additionalInfo=null, country=null,"
-        + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
-        + " id=null]", actualToStringResult);
+    assertEquals(
+        "Tenant [title=Dr, region=us-east-2, tenantProfileId=null, additionalInfo=null, country=null,"
+            + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
+            + " id=null]",
+        actualToStringResult);
     assertEquals("us-east-2", actualRegion);
     assertNull(actualTenant.getAddress());
     assertNull(actualTenant.getAddress2());
@@ -237,12 +260,14 @@ class TenantDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID} {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>When {@link TenantId#SYS_TENANT_ID}.
+   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID} {@link TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Tenant#Tenant(TenantId)}
    *   <li>{@link Tenant#setRegion(String)}
@@ -257,12 +282,23 @@ class TenantDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when SYS_TENANT_ID; then return Id is SYS_TENANT_ID SYS_TENANT_ID")
+  @DisplayName(
+      "Test getters and setters; when SYS_TENANT_ID; then return Id is SYS_TENANT_ID SYS_TENANT_ID")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Tenant.<init>()", "void Tenant.<init>(TenantId)", "String Tenant.getName()",
-      "String Tenant.getRegion()", "TenantProfileId Tenant.getTenantProfileId()", "String Tenant.getTitle()",
-      "Long Tenant.getVersion()", "void Tenant.setRegion(String)", "void Tenant.setTenantProfileId(TenantProfileId)",
-      "void Tenant.setTitle(String)", "void Tenant.setVersion(Long)", "String Tenant.toString()"})
+  @MethodsUnderTest({
+    "void Tenant.<init>()",
+    "void Tenant.<init>(TenantId)",
+    "String Tenant.getName()",
+    "String Tenant.getRegion()",
+    "TenantProfileId Tenant.getTenantProfileId()",
+    "String Tenant.getTitle()",
+    "Long Tenant.getVersion()",
+    "void Tenant.setRegion(String)",
+    "void Tenant.setTenantProfileId(TenantProfileId)",
+    "void Tenant.setTitle(String)",
+    "void Tenant.setVersion(Long)",
+    "String Tenant.toString()"
+  })
   void testGettersAndSetters_whenSys_tenant_id_thenReturnIdIsSys_tenant_idSys_tenant_id() {
     // Arrange
     TenantId id = TenantId.SYS_TENANT_ID;
@@ -305,11 +341,12 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#Tenant(Tenant)}.
+   *
    * <ul>
-   *   <li>When {@link Tenant#Tenant()}.</li>
+   *   <li>When {@link Tenant#Tenant()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#Tenant(Tenant)}
+   *
+   * <p>Method under test: {@link Tenant#Tenant(Tenant)}
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant()")
@@ -342,11 +379,12 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#Tenant(Tenant)}.
+   *
    * <ul>
-   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.</li>
+   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#Tenant(Tenant)}
+   *
+   * <p>Method under test: {@link Tenant#Tenant(Tenant)}
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant(Tenant) with tenant is Tenant()")
@@ -379,11 +417,12 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#Tenant(Tenant)}.
+   *
    * <ul>
-   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.</li>
+   *   <li>When {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#Tenant(Tenant)}
+   *
+   * <p>Method under test: {@link Tenant#Tenant(Tenant)}
    */
   @Test
   @DisplayName("Test new Tenant(Tenant); when Tenant(Tenant) with tenant is Tenant(Tenant)")
@@ -416,8 +455,8 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#getTenantId()}.
-   * <p>
-   * Method under test: {@link Tenant#getTenantId()}
+   *
+   * <p>Method under test: {@link Tenant#getTenantId()}
    */
   @Test
   @DisplayName("Test getTenantId()")
@@ -425,13 +464,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"TenantId Tenant.getTenantId()"})
   void testGetTenantId() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getTenantId());
+    assertNull(new Tenant().getTenantId());
   }
 
   /**
    * Test {@link Tenant#getId()}.
-   * <p>
-   * Method under test: {@link Tenant#getId()}
+   *
+   * <p>Method under test: {@link Tenant#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -439,13 +478,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"TenantId Tenant.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getId());
+    assertNull(new Tenant().getId());
   }
 
   /**
    * Test {@link Tenant#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link Tenant#getCreatedTime()}
+   *
+   * <p>Method under test: {@link Tenant#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -453,13 +492,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"long Tenant.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new Tenant()).getCreatedTime());
+    assertEquals(0L, new Tenant().getCreatedTime());
   }
 
   /**
    * Test {@link Tenant#getCountry()}.
-   * <p>
-   * Method under test: {@link Tenant#getCountry()}
+   *
+   * <p>Method under test: {@link Tenant#getCountry()}
    */
   @Test
   @DisplayName("Test getCountry()")
@@ -467,13 +506,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getCountry()"})
   void testGetCountry() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getCountry());
+    assertNull(new Tenant().getCountry());
   }
 
   /**
    * Test {@link Tenant#getState()}.
-   * <p>
-   * Method under test: {@link Tenant#getState()}
+   *
+   * <p>Method under test: {@link Tenant#getState()}
    */
   @Test
   @DisplayName("Test getState()")
@@ -481,13 +520,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getState()"})
   void testGetState() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getState());
+    assertNull(new Tenant().getState());
   }
 
   /**
    * Test {@link Tenant#getCity()}.
-   * <p>
-   * Method under test: {@link Tenant#getCity()}
+   *
+   * <p>Method under test: {@link Tenant#getCity()}
    */
   @Test
   @DisplayName("Test getCity()")
@@ -495,13 +534,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getCity()"})
   void testGetCity() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getCity());
+    assertNull(new Tenant().getCity());
   }
 
   /**
    * Test {@link Tenant#getAddress()}.
-   * <p>
-   * Method under test: {@link Tenant#getAddress()}
+   *
+   * <p>Method under test: {@link Tenant#getAddress()}
    */
   @Test
   @DisplayName("Test getAddress()")
@@ -509,13 +548,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getAddress()"})
   void testGetAddress() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getAddress());
+    assertNull(new Tenant().getAddress());
   }
 
   /**
    * Test {@link Tenant#getAddress2()}.
-   * <p>
-   * Method under test: {@link Tenant#getAddress2()}
+   *
+   * <p>Method under test: {@link Tenant#getAddress2()}
    */
   @Test
   @DisplayName("Test getAddress2()")
@@ -523,13 +562,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getAddress2()"})
   void testGetAddress2() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getAddress2());
+    assertNull(new Tenant().getAddress2());
   }
 
   /**
    * Test {@link Tenant#getZip()}.
-   * <p>
-   * Method under test: {@link Tenant#getZip()}
+   *
+   * <p>Method under test: {@link Tenant#getZip()}
    */
   @Test
   @DisplayName("Test getZip()")
@@ -537,13 +576,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getZip()"})
   void testGetZip() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getZip());
+    assertNull(new Tenant().getZip());
   }
 
   /**
    * Test {@link Tenant#getPhone()}.
-   * <p>
-   * Method under test: {@link Tenant#getPhone()}
+   *
+   * <p>Method under test: {@link Tenant#getPhone()}
    */
   @Test
   @DisplayName("Test getPhone()")
@@ -551,13 +590,13 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getPhone()"})
   void testGetPhone() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getPhone());
+    assertNull(new Tenant().getPhone());
   }
 
   /**
    * Test {@link Tenant#getEmail()}.
-   * <p>
-   * Method under test: {@link Tenant#getEmail()}
+   *
+   * <p>Method under test: {@link Tenant#getEmail()}
    */
   @Test
   @DisplayName("Test getEmail()")
@@ -565,25 +604,27 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"String Tenant.getEmail()"})
   void testGetEmail() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getEmail());
+    assertNull(new Tenant().getEmail());
   }
 
   /**
    * Test {@link Tenant#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant()}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Tenant#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenantWithTenantIsTenant_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Tenant(new Tenant())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Tenant(new Tenant()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -591,20 +632,22 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Tenant#Tenant(Tenant)} with tenant is {@link Tenant#Tenant(Tenant)}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Tenant#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(Tenant); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Tenant(Tenant) with tenant is Tenant(Tenant); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenantWithTenantIsTenant_thenReturnInstance2() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Tenant(new Tenant(new Tenant()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Tenant(new Tenant(new Tenant())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -612,12 +655,13 @@ class TenantDiffblueTest {
 
   /**
    * Test {@link Tenant#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Tenant#Tenant()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Tenant#Tenant()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Tenant#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Tenant#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Tenant(); then return 'null'")
@@ -625,6 +669,6 @@ class TenantDiffblueTest {
   @MethodsUnderTest({"JsonNode Tenant.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenTenant_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new Tenant()).getAdditionalInfo());
+    assertNull(new Tenant().getAdditionalInfo());
   }
 }

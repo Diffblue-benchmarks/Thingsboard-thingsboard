@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class ApiFeatureDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiFeature#getApiStateKey()}
    *   <li>{@link ApiFeature#getLabel()}

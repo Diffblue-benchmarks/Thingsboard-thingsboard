@@ -40,13 +40,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(SpringExtension.class)
 class MappingJackson2XmlHttpMessageConverterDiffblueTest {
-  @Autowired
-  private MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter;
+  @Autowired private MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter;
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter()}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter()}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter()}
    */
   @Test
   @DisplayName("Test new MappingJackson2XmlHttpMessageConverter()")
@@ -54,7 +54,8 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   @MethodsUnderTest({"void MappingJackson2XmlHttpMessageConverter.<init>()"})
   void testNewMappingJackson2XmlHttpMessageConverter() {
     // Arrange and Act
-    MappingJackson2XmlHttpMessageConverter actualMappingJackson2XmlHttpMessageConverter = new MappingJackson2XmlHttpMessageConverter();
+    MappingJackson2XmlHttpMessageConverter actualMappingJackson2XmlHttpMessageConverter =
+        new MappingJackson2XmlHttpMessageConverter();
 
     // Assert
     ObjectMapper objectMapper = actualMappingJackson2XmlHttpMessageConverter.getObjectMapper();
@@ -70,21 +71,26 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
     assertNull(objectMapper.getInjectableValues());
     assertNull(objectMapper.getPropertyNamingStrategy());
     assertNull(actualMappingJackson2XmlHttpMessageConverter.getDefaultCharset());
-    assertEquals(1, actualMappingJackson2XmlHttpMessageConverter.getMediaTypesForProblemDetail().size());
+    assertEquals(
+        1, actualMappingJackson2XmlHttpMessageConverter.getMediaTypesForProblemDetail().size());
     assertEquals(3, actualMappingJackson2XmlHttpMessageConverter.getSupportedMediaTypes().size());
     assertEquals(4, objectMapper.getRegisteredModuleIds().size());
   }
 
   /**
-   * Test {@link MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter(ObjectMapper)}.
+   * Test {@link
+   * MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter(ObjectMapper)}.
+   *
    * <ul>
-   *   <li>Then return DefaultCharset is {@code null}.</li>
+   *   <li>Then return DefaultCharset is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter(ObjectMapper)}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#MappingJackson2XmlHttpMessageConverter(ObjectMapper)}
    */
   @Test
-  @DisplayName("Test new MappingJackson2XmlHttpMessageConverter(ObjectMapper); then return DefaultCharset is 'null'")
+  @DisplayName(
+      "Test new MappingJackson2XmlHttpMessageConverter(ObjectMapper); then return DefaultCharset is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MappingJackson2XmlHttpMessageConverter.<init>(ObjectMapper)"})
   void testNewMappingJackson2XmlHttpMessageConverter_thenReturnDefaultCharsetIsNull() {
@@ -92,20 +98,22 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
     XmlMapper objectMapper = new XmlMapper();
 
     // Act
-    MappingJackson2XmlHttpMessageConverter actualMappingJackson2XmlHttpMessageConverter = new MappingJackson2XmlHttpMessageConverter(
-        objectMapper);
+    MappingJackson2XmlHttpMessageConverter actualMappingJackson2XmlHttpMessageConverter =
+        new MappingJackson2XmlHttpMessageConverter(objectMapper);
 
     // Assert
     assertNull(actualMappingJackson2XmlHttpMessageConverter.getDefaultCharset());
-    assertEquals(1, actualMappingJackson2XmlHttpMessageConverter.getMediaTypesForProblemDetail().size());
+    assertEquals(
+        1, actualMappingJackson2XmlHttpMessageConverter.getMediaTypesForProblemDetail().size());
     assertEquals(3, actualMappingJackson2XmlHttpMessageConverter.getSupportedMediaTypes().size());
     assertSame(objectMapper, actualMappingJackson2XmlHttpMessageConverter.getObjectMapper());
   }
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
    */
   @Test
   @DisplayName("Test setObjectMapper(ObjectMapper)")
@@ -124,8 +132,9 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
    */
   @Test
   @DisplayName("Test setObjectMapper(ObjectMapper)")
@@ -134,7 +143,7 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   void testSetObjectMapper2() {
     // Arrange
     XmlMapper objectMapper = mock(XmlMapper.class);
-    when(objectMapper.addMixIn(Mockito.<Class<Object>>any(), Mockito.<Class<Object>>any()))
+    when(objectMapper.addMixIn(Mockito.<Class<?>>any(), Mockito.<Class<?>>any()))
         .thenReturn(JsonMapper.builder().findAndAddModules().build());
     Class<Object> target = Object.class;
     Class<Object> mixinSource = Object.class;
@@ -150,8 +159,9 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
    */
   @Test
   @DisplayName("Test setObjectMapper(ObjectMapper)")
@@ -159,7 +169,8 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   @MethodsUnderTest({"void MappingJackson2XmlHttpMessageConverter.setObjectMapper(ObjectMapper)"})
   void testSetObjectMapper3() {
     // Arrange
-    MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter = new MappingJackson2XmlHttpMessageConverter();
+    MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter =
+        new MappingJackson2XmlHttpMessageConverter();
     mappingJackson2XmlHttpMessageConverter.setPrettyPrint(true);
     XmlMapper objectMapper = new XmlMapper();
 
@@ -173,8 +184,9 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#setObjectMapper(ObjectMapper)}
    */
   @Test
   @DisplayName("Test setObjectMapper(ObjectMapper)")
@@ -182,7 +194,8 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   @MethodsUnderTest({"void MappingJackson2XmlHttpMessageConverter.setObjectMapper(ObjectMapper)"})
   void testSetObjectMapper4() {
     // Arrange
-    MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter = new MappingJackson2XmlHttpMessageConverter();
+    MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter =
+        new MappingJackson2XmlHttpMessageConverter();
     mappingJackson2XmlHttpMessageConverter.setPrettyPrint(false);
     XmlMapper objectMapper = new XmlMapper();
 
@@ -196,8 +209,9 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
 
   /**
    * Test {@link MappingJackson2XmlHttpMessageConverter#getMediaTypesForProblemDetail()}.
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#getMediaTypesForProblemDetail()}
+   *
+   * <p>Method under test: {@link
+   * MappingJackson2XmlHttpMessageConverter#getMediaTypesForProblemDetail()}
    */
   @Test
   @DisplayName("Test getMediaTypesForProblemDetail()")
@@ -205,8 +219,8 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   @MethodsUnderTest({"List MappingJackson2XmlHttpMessageConverter.getMediaTypesForProblemDetail()"})
   void testGetMediaTypesForProblemDetail() {
     // Arrange and Act
-    List<MediaType> actualMediaTypesForProblemDetail = (new MappingJackson2XmlHttpMessageConverter())
-        .getMediaTypesForProblemDetail();
+    List<MediaType> actualMediaTypesForProblemDetail =
+        new MappingJackson2XmlHttpMessageConverter().getMediaTypesForProblemDetail();
 
     // Assert
     assertEquals(1, actualMediaTypesForProblemDetail.size());
@@ -222,38 +236,48 @@ class MappingJackson2XmlHttpMessageConverterDiffblueTest {
   }
 
   /**
-   * Test {@link MappingJackson2XmlHttpMessageConverter#canRead(Type, Class, MediaType)} with {@code type}, {@code contextClass}, {@code mediaType}.
+   * Test {@link MappingJackson2XmlHttpMessageConverter#canRead(Type, Class, MediaType)} with {@code
+   * type}, {@code contextClass}, {@code mediaType}.
+   *
    * <ul>
-   *   <li>When {@link MediaType}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link MediaType}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#canRead(Type, Class, MediaType)}
+   *
+   * <p>Method under test: {@link MappingJackson2XmlHttpMessageConverter#canRead(Type, Class,
+   * MediaType)}
    */
   @Test
-  @DisplayName("Test canRead(Type, Class, MediaType) with 'type', 'contextClass', 'mediaType'; when MediaType; then return 'false'")
+  @DisplayName(
+      "Test canRead(Type, Class, MediaType) with 'type', 'contextClass', 'mediaType'; when MediaType; then return 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean MappingJackson2XmlHttpMessageConverter.canRead(Type, Class, MediaType)"})
+  @MethodsUnderTest({
+    "boolean MappingJackson2XmlHttpMessageConverter.canRead(Type, Class, MediaType)"
+  })
   void testCanReadWithTypeContextClassMediaType_whenMediaType_thenReturnFalse() {
     // Arrange
     TypePlaceHolder type = new TypePlaceHolder(1);
     Class<Object> contextClass = Object.class;
 
     // Act and Assert
-    assertFalse(mappingJackson2XmlHttpMessageConverter.canRead(type, contextClass, mock(MediaType.class)));
+    assertFalse(
+        mappingJackson2XmlHttpMessageConverter.canRead(type, contextClass, mock(MediaType.class)));
   }
 
   /**
-   * Test {@link MappingJackson2XmlHttpMessageConverter#canWrite(Class, MediaType)} with {@code clazz}, {@code mediaType}.
+   * Test {@link MappingJackson2XmlHttpMessageConverter#canWrite(Class, MediaType)} with {@code
+   * clazz}, {@code mediaType}.
+   *
    * <ul>
-   *   <li>When {@link MediaType}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link MediaType}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link MappingJackson2XmlHttpMessageConverter#canWrite(Class, MediaType)}
+   *
+   * <p>Method under test: {@link MappingJackson2XmlHttpMessageConverter#canWrite(Class, MediaType)}
    */
   @Test
-  @DisplayName("Test canWrite(Class, MediaType) with 'clazz', 'mediaType'; when MediaType; then return 'false'")
+  @DisplayName(
+      "Test canWrite(Class, MediaType) with 'clazz', 'mediaType'; when MediaType; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean MappingJackson2XmlHttpMessageConverter.canWrite(Class, MediaType)"})
   void testCanWriteWithClazzMediaType_whenMediaType_thenReturnFalse() {

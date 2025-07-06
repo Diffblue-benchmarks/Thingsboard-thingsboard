@@ -21,20 +21,26 @@ import org.thingsboard.server.transport.mqtt.util.sparkplug.SparkplugMetricUtil.
 class SparkplugMetricUtilDiffblueTest {
   /**
    * Test {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code A}.</li>
-   *   <li>Then return Datatype is one.</li>
+   *   <li>When {@code A}.
+   *   <li>Then return Datatype is one.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String,
+   * MetricDataType)}
    */
   @Test
-  @DisplayName("Test createMetric(Object, long, String, MetricDataType); when 'A'; then return Datatype is one")
+  @DisplayName(
+      "Test createMetric(Object, long, String, MetricDataType); when 'A'; then return Datatype is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"
+  })
   void testCreateMetric_whenA_thenReturnDatatypeIsOne() throws ThingsboardException {
     // Arrange and Act
-    Metric actualCreateMetricResult = SparkplugMetricUtil.createMetric((byte) 'A', 1L, "Key", MetricDataType.Int8);
+    Metric actualCreateMetricResult =
+        SparkplugMetricUtil.createMetric((byte) 'A', 1L, "Key", MetricDataType.Int8);
 
     // Assert
     assertEquals(1, actualCreateMetricResult.getDatatype());
@@ -43,20 +49,26 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return Datatype is three.</li>
+   *   <li>When forty-two.
+   *   <li>Then return Datatype is three.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String,
+   * MetricDataType)}
    */
   @Test
-  @DisplayName("Test createMetric(Object, long, String, MetricDataType); when forty-two; then return Datatype is three")
+  @DisplayName(
+      "Test createMetric(Object, long, String, MetricDataType); when forty-two; then return Datatype is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"
+  })
   void testCreateMetric_whenFortyTwo_thenReturnDatatypeIsThree() throws ThingsboardException {
     // Arrange and Act
-    Metric actualCreateMetricResult = SparkplugMetricUtil.createMetric(42, 1L, "Key", MetricDataType.Int32);
+    Metric actualCreateMetricResult =
+        SparkplugMetricUtil.createMetric(42, 1L, "Key", MetricDataType.Int32);
 
     // Assert
     assertEquals(3, actualCreateMetricResult.getDatatype());
@@ -65,27 +77,34 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code Unknown}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code Unknown}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#createMetric(Object, long, String,
+   * MetricDataType)}
    */
   @Test
-  @DisplayName("Test createMetric(Object, long, String, MetricDataType); when 'Unknown'; then throw ThingsboardException")
+  @DisplayName(
+      "Test createMetric(Object, long, String, MetricDataType); when 'Unknown'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Metric SparkplugMetricUtil.createMetric(Object, long, String, MetricDataType)"
+  })
   void testCreateMetric_whenUnknown_thenThrowThingsboardException() throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> SparkplugMetricUtil.createMetric(null, 1L, "Key", MetricDataType.Unknown));
   }
 
   /**
    * Test File getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link File#File(SparkplugMetricUtil)}
    *   <li>{@link File#setBytes(byte[])}
@@ -98,11 +117,17 @@ class SparkplugMetricUtilDiffblueTest {
   @Test
   @DisplayName("Test File getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void File.<init>(SparkplugMetricUtil)", "byte[] File.getBytes()", "String File.getFileName()",
-      "void File.setBytes(byte[])", "void File.setFileName(String)", "String File.toString()"})
+  @MethodsUnderTest({
+    "void File.<init>(SparkplugMetricUtil)",
+    "byte[] File.getBytes()",
+    "String File.getFileName()",
+    "void File.setBytes(byte[])",
+    "void File.setFileName(String)",
+    "String File.toString()"
+  })
   void testFileGettersAndSetters() throws UnsupportedEncodingException {
     // Arrange and Act
-    File actualFile = (new SparkplugMetricUtil()).new File();
+    File actualFile = new SparkplugMetricUtil().new File();
     byte[] bytes = "AXAXAXAX".getBytes("UTF-8");
     actualFile.setBytes(bytes);
     actualFile.setFileName("foo.txt");
@@ -110,7 +135,8 @@ class SparkplugMetricUtilDiffblueTest {
     byte[] actualBytes = actualFile.getBytes();
 
     // Assert
-    assertEquals("File [fileName=foo.txt, bytes=[65, 88, 65, 88, 65, 88, 65, 88]]", actualToStringResult);
+    assertEquals(
+        "File [fileName=foo.txt, bytes=[65, 88, 65, 88, 65, 88, 65, 88]]", actualToStringResult);
     assertEquals("foo.txt", actualFile.getFileName());
     assertSame(bytes, actualBytes);
     assertArrayEquals("AXAXAXAX".getBytes("UTF-8"), actualBytes);
@@ -118,20 +144,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test File {@link File#File(SparkplugMetricUtil, String, byte[])}.
+   *
    * <ul>
-   *   <li>When {@code A}.</li>
-   *   <li>Then return FileName is {@code null}.</li>
+   *   <li>When {@code A}.
+   *   <li>Then return FileName is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link File#File(SparkplugMetricUtil, String, byte[])}
+   *
+   * <p>Method under test: {@link File#File(SparkplugMetricUtil, String, byte[])}
    */
   @Test
-  @DisplayName("Test File new File(SparkplugMetricUtil, String, byte[]); when 'A'; then return FileName is 'null'")
+  @DisplayName(
+      "Test File new File(SparkplugMetricUtil, String, byte[]); when 'A'; then return FileName is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void File.<init>(SparkplugMetricUtil, String, byte[])"})
   void testFileNewFile_whenA_thenReturnFileNameIsNull() throws UnsupportedEncodingException {
     // Arrange and Act
-    File actualFile = (new SparkplugMetricUtil()).new File(null, new byte[]{'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    File actualFile =
+        new SparkplugMetricUtil()
+        .new File(null, new byte[] {'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Assert
     assertNull(actualFile.getFileName());
@@ -141,18 +171,21 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test File {@link File#File(SparkplugMetricUtil, String, byte[])}.
+   *
    * <ul>
-   *   <li>When {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
-   *   <li>Then return FileName is {@code foo.txt}.</li>
+   *   <li>When {@code AXAXAXAX} Bytes is {@code UTF-8}.
+   *   <li>Then return FileName is {@code foo.txt}.
    * </ul>
-   * <p>
-   * Method under test: {@link File#File(SparkplugMetricUtil, String, byte[])}
+   *
+   * <p>Method under test: {@link File#File(SparkplugMetricUtil, String, byte[])}
    */
   @Test
-  @DisplayName("Test File new File(SparkplugMetricUtil, String, byte[]); when 'AXAXAXAX' Bytes is 'UTF-8'; then return FileName is 'foo.txt'")
+  @DisplayName(
+      "Test File new File(SparkplugMetricUtil, String, byte[]); when 'AXAXAXAX' Bytes is 'UTF-8'; then return FileName is 'foo.txt'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void File.<init>(SparkplugMetricUtil, String, byte[])"})
-  void testFileNewFile_whenAxaxaxaxBytesIsUtf8_thenReturnFileNameIsFooTxt() throws UnsupportedEncodingException {
+  void testFileNewFile_whenAxaxaxaxBytesIsUtf8_thenReturnFileNameIsFooTxt()
+      throws UnsupportedEncodingException {
     // Arrange
     SparkplugMetricUtil sparkplugMetricUtil = new SparkplugMetricUtil();
 
@@ -167,20 +200,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code 0}.</li>
+   *   <li>When {@code 0}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when '0'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_when0() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil
-        .validatedValueJsonByTypeMetric("0", MetricDataType.Bytes);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric("0", MetricDataType.Bytes);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());
@@ -188,20 +225,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when '42'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_when42() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil
-        .validatedValueJsonByTypeMetric("42", MetricDataType.Bytes);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric("42", MetricDataType.Bytes);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());
@@ -209,20 +250,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code Array Node Str}.</li>
+   *   <li>When {@code Array Node Str}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when 'Array Node Str'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_whenArrayNodeStr() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil
-        .validatedValueJsonByTypeMetric("Array Node Str", MetricDataType.Bytes);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric("Array Node Str", MetricDataType.Bytes);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());
@@ -230,20 +275,25 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code DataSet}.</li>
+   *   <li>When {@code DataSet}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when 'DataSet'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_whenDataSet() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil
-        .validatedValueJsonByTypeMetric("Array Node Str", MetricDataType.DataSet);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric(
+            "Array Node Str", MetricDataType.DataSet);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());
@@ -251,20 +301,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_whenEmptyString() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil.validatedValueJsonByTypeMetric("",
-        MetricDataType.Bytes);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric("", MetricDataType.Bytes);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());
@@ -272,20 +326,24 @@ class SparkplugMetricUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}.
+   *
    * <ul>
-   *   <li>When {@code Int8}.</li>
+   *   <li>When {@code Int8}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String, MetricDataType)}
+   *
+   * <p>Method under test: {@link SparkplugMetricUtil#validatedValueJsonByTypeMetric(String,
+   * MetricDataType)}
    */
   @Test
   @DisplayName("Test validatedValueJsonByTypeMetric(String, MetricDataType); when 'Int8'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"})
+  @MethodsUnderTest({
+    "Optional SparkplugMetricUtil.validatedValueJsonByTypeMetric(String, MetricDataType)"
+  })
   void testValidatedValueJsonByTypeMetric_whenInt8() {
     // Arrange and Act
-    Optional<Object> actualValidatedValueJsonByTypeMetricResult = SparkplugMetricUtil
-        .validatedValueJsonByTypeMetric("Array Node Str", MetricDataType.Int8);
+    Optional<Object> actualValidatedValueJsonByTypeMetricResult =
+        SparkplugMetricUtil.validatedValueJsonByTypeMetric("Array Node Str", MetricDataType.Int8);
 
     // Assert
     assertFalse(actualValidatedValueJsonByTypeMetricResult.isPresent());

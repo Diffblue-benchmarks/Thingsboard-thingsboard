@@ -2,7 +2,6 @@ package org.thingsboard.server.cache;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.UnsupportedEncodingException;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.redis.serializer.SerializationException;
 import org.thingsboard.server.common.data.AdminSettings;
+import org.thingsboard.server.common.data.ApiUsageState;
 import org.thingsboard.server.common.data.Dashboard;
 import org.thingsboard.server.common.data.TenantProfile;
 import org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfiguration;
@@ -17,11 +17,12 @@ import org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfigu
 class TbJsonRedisSerializerDiffblueTest {
   /**
    * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Then return array length is one hundred five.</li>
+   *   <li>Then return array length is one hundred five.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); then return array length is one hundred five")
@@ -30,10 +31,12 @@ class TbJsonRedisSerializerDiffblueTest {
   void testSerialize_thenReturnArrayLengthIsOneHundredFive() throws SerializationException {
     // Arrange
     Class<Object> clazz = Object.class;
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
 
     // Act
-    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new CoapDeviceTransportConfiguration());
+    byte[] actualSerializeResult =
+        tbJsonRedisSerializer.serialize(new CoapDeviceTransportConfiguration());
 
     // Assert
     assertEquals(105, actualSerializeResult.length);
@@ -89,21 +92,24 @@ class TbJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return {@code "42"} Bytes is {@code UTF-8}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return {@code "42"} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); when '42'; then return '\"42\"' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_when42_thenReturn42BytesIsUtf8() throws UnsupportedEncodingException, SerializationException {
+  void testSerialize_when42_thenReturn42BytesIsUtf8()
+      throws UnsupportedEncodingException, SerializationException {
     // Arrange
     Class<Object> clazz = Object.class;
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
 
     // Act
     byte[] actualSerializeResult = tbJsonRedisSerializer.serialize("42");
@@ -114,21 +120,25 @@ class TbJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>When {@link AdminSettings#AdminSettings()}.</li>
-   *   <li>Then return array length is seventy-one.</li>
+   *   <li>When {@link AdminSettings#AdminSettings()}.
+   *   <li>Then return array length is seventy-one.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
    */
   @Test
-  @DisplayName("Test serialize(Object); when AdminSettings(); then return array length is seventy-one")
+  @DisplayName(
+      "Test serialize(Object); when AdminSettings(); then return array length is seventy-one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_whenAdminSettings_thenReturnArrayLengthIsSeventyOne() throws SerializationException {
+  void testSerialize_whenAdminSettings_thenReturnArrayLengthIsSeventyOne()
+      throws SerializationException {
     // Arrange
     Class<Object> clazz = Object.class;
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
 
     // Act
     byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new AdminSettings());
@@ -164,21 +174,79 @@ class TbJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>When {@link Dashboard#Dashboard()}.</li>
-   *   <li>Then return array length is one hundred ninety-eight.</li>
+   *   <li>When {@link ApiUsageState#ApiUsageState()}.
+   *   <li>Then return array length is four hundred thirteen.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
    */
   @Test
-  @DisplayName("Test serialize(Object); when Dashboard(); then return array length is one hundred ninety-eight")
+  @DisplayName(
+      "Test serialize(Object); when ApiUsageState(); then return array length is four hundred thirteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_whenDashboard_thenReturnArrayLengthIsOneHundredNinetyEight() throws SerializationException {
+  void testSerialize_whenApiUsageState_thenReturnArrayLengthIsFourHundredThirteen()
+      throws SerializationException {
     // Arrange
     Class<Object> clazz = Object.class;
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new ApiUsageState());
+
+    // Assert
+    assertEquals(413, actualSerializeResult.length);
+    assertEquals(',', actualSerializeResult[388]);
+    assertEquals(':', actualSerializeResult[407]);
+    assertEquals('E', actualSerializeResult[399]);
+    assertEquals('"', actualSerializeResult[389]);
+    assertEquals('"', actualSerializeResult[406]);
+    assertEquals('a', actualSerializeResult[392]);
+    assertEquals('a', actualSerializeResult[401]);
+    assertEquals('b', actualSerializeResult[402]);
+    assertEquals('d', actualSerializeResult[405]);
+    assertEquals('e', actualSerializeResult[404]);
+    assertEquals('e', actualSerializeResult[411]);
+    assertEquals('l', actualSerializeResult[403]);
+    assertEquals('n', actualSerializeResult[393]);
+    assertEquals('n', actualSerializeResult[400]);
+    assertEquals('o', actualSerializeResult[396]);
+    assertEquals('p', actualSerializeResult[395]);
+    assertEquals('r', actualSerializeResult[391]);
+    assertEquals('r', actualSerializeResult[397]);
+    assertEquals('r', actualSerializeResult[409]);
+    assertEquals('s', actualSerializeResult[394]);
+    assertEquals('t', actualSerializeResult[390]);
+    assertEquals('t', actualSerializeResult[398]);
+    assertEquals('t', actualSerializeResult[408]);
+    assertEquals('u', actualSerializeResult[410]);
+    assertEquals('}', actualSerializeResult[412]);
+  }
+
+  /**
+   * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
+   * <ul>
+   *   <li>When {@link Dashboard#Dashboard()}.
+   *   <li>Then return array length is one hundred ninety-eight.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  @DisplayName(
+      "Test serialize(Object); when Dashboard(); then return array length is one hundred ninety-eight")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] TbJsonRedisSerializer.serialize(Object)"})
+  void testSerialize_whenDashboard_thenReturnArrayLengthIsOneHundredNinetyEight()
+      throws SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
 
     // Act
     byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new Dashboard());
@@ -214,12 +282,41 @@ class TbJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>When {@link TenantProfile#TenantProfile()}.</li>
-   *   <li>Then return array length is {@code 2023}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  @DisplayName("Test serialize(Object); when 'null'; then return 'null' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"byte[] TbJsonRedisSerializer.serialize(Object)"})
+  void testSerialize_whenNull_thenReturnNullBytesIsUtf8()
+      throws UnsupportedEncodingException, SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(null);
+
+    // Assert
+    assertArrayEquals("null".getBytes("UTF-8"), actualSerializeResult);
+  }
+
+  /**
+   * Test {@link TbJsonRedisSerializer#serialize(Object)}.
+   *
+   * <ul>
+   *   <li>When {@link TenantProfile#TenantProfile()}.
+   *   <li>Then return array length is {@code 2023}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); when TenantProfile(); then return array length is '2023'")
@@ -228,7 +325,8 @@ class TbJsonRedisSerializerDiffblueTest {
   void testSerialize_whenTenantProfile_thenReturnArrayLengthIs2023() throws SerializationException {
     // Arrange
     Class<Object> clazz = Object.class;
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer =
+        new TbJsonRedisSerializer<>(clazz);
 
     // Act
     byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new TenantProfile());
@@ -260,26 +358,5 @@ class TbJsonRedisSerializerDiffblueTest {
     assertEquals('u', actualSerializeResult[2012]);
     assertEquals('}', actualSerializeResult[2005]);
     assertEquals('}', actualSerializeResult[2022]);
-  }
-
-  /**
-   * Test {@link TbJsonRedisSerializer#deserialize(Object, byte[])}.
-   * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbJsonRedisSerializer#deserialize(Object, byte[])}
-   */
-  @Test
-  @DisplayName("Test deserialize(Object, byte[]); when 'null'; then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object TbJsonRedisSerializer.deserialize(Object, byte[])"})
-  void testDeserialize_whenNull_thenReturnNull() throws SerializationException {
-    // Arrange
-    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(null);
-
-    // Act and Assert
-    assertNull(tbJsonRedisSerializer.deserialize("Key", null));
   }
 }

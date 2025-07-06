@@ -11,13 +11,16 @@ import org.thingsboard.server.common.data.query.NumericFilterPredicate.NumericOp
 
 class NumericFilterPredicateDiffblueTest {
   /**
-   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link NumericFilterPredicate#hashCode()}.
+   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link
+   * NumericFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NumericFilterPredicate#equals(Object)}
    *   <li>{@link NumericFilterPredicate#hashCode()}
@@ -26,7 +29,10 @@ class NumericFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -46,13 +52,16 @@ class NumericFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link NumericFilterPredicate#hashCode()}.
+   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link
+   * NumericFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NumericFilterPredicate#equals(Object)}
    *   <li>{@link NumericFilterPredicate#hashCode()}
@@ -61,7 +70,10 @@ class NumericFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -81,13 +93,16 @@ class NumericFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link NumericFilterPredicate#hashCode()}.
+   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link
+   * NumericFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NumericFilterPredicate#equals(Object)}
    *   <li>{@link NumericFilterPredicate#hashCode()}
@@ -96,7 +111,10 @@ class NumericFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -114,13 +132,16 @@ class NumericFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link NumericFilterPredicate#hashCode()}.
+   * Test {@link NumericFilterPredicate#equals(Object)}, and {@link
+   * NumericFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NumericFilterPredicate#equals(Object)}
    *   <li>{@link NumericFilterPredicate#hashCode()}
@@ -129,7 +150,10 @@ class NumericFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -145,17 +169,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -174,17 +202,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -203,17 +235,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -232,17 +268,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -260,17 +300,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -284,17 +328,21 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test {@link NumericFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NumericFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link NumericFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NumericFilterPredicate.equals(Object)", "int NumericFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NumericFilterPredicate.equals(Object)",
+    "int NumericFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NumericFilterPredicate numericFilterPredicate = new NumericFilterPredicate();
@@ -308,8 +356,9 @@ class NumericFilterPredicateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NumericFilterPredicate}
    *   <li>{@link NumericFilterPredicate#setOperation(NumericOperation)}
@@ -323,10 +372,15 @@ class NumericFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NumericFilterPredicate.<init>()", "NumericOperation NumericFilterPredicate.getOperation()",
-      "FilterPredicateType NumericFilterPredicate.getType()", "FilterPredicateValue NumericFilterPredicate.getValue()",
-      "void NumericFilterPredicate.setOperation(NumericOperation)",
-      "void NumericFilterPredicate.setValue(FilterPredicateValue)", "String NumericFilterPredicate.toString()"})
+  @MethodsUnderTest({
+    "void NumericFilterPredicate.<init>()",
+    "NumericOperation NumericFilterPredicate.getOperation()",
+    "FilterPredicateType NumericFilterPredicate.getType()",
+    "FilterPredicateValue NumericFilterPredicate.getValue()",
+    "void NumericFilterPredicate.setOperation(NumericOperation)",
+    "void NumericFilterPredicate.setValue(FilterPredicateValue)",
+    "String NumericFilterPredicate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NumericFilterPredicate actualNumericFilterPredicate = new NumericFilterPredicate();
@@ -338,8 +392,10 @@ class NumericFilterPredicateDiffblueTest {
     FilterPredicateType actualType = actualNumericFilterPredicate.getType();
 
     // Assert
-    assertEquals("NumericFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=10.0, userValue=null,"
-        + " dynamicValue=null))", actualToStringResult);
+    assertEquals(
+        "NumericFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=10.0, userValue=null,"
+            + " dynamicValue=null))",
+        actualToStringResult);
     assertEquals(FilterPredicateType.NUMERIC, actualType);
     assertEquals(NumericOperation.EQUAL, actualOperation);
     assertSame(value, actualNumericFilterPredicate.getValue());

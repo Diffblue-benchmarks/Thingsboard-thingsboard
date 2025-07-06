@@ -20,12 +20,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class WidgetsBundleEntityDiffblueTest {
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}, and {@link WidgetsBundleEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleEntity#equals(Object)}
    *   <li>{@link WidgetsBundleEntity#hashCode()}
@@ -33,7 +35,10 @@ public class WidgetsBundleEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -72,12 +77,14 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}, and {@link WidgetsBundleEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleEntity#equals(Object)}
    *   <li>{@link WidgetsBundleEntity#hashCode()}
@@ -85,7 +92,67 @@ public class WidgetsBundleEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
+    widgetsBundleEntity.setAlias(null);
+    widgetsBundleEntity.setCreatedTime(1L);
+    widgetsBundleEntity.setDescription("The characteristics of someone or something");
+    widgetsBundleEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity.setImage("Image");
+    widgetsBundleEntity.setOrder(1);
+    widgetsBundleEntity.setScada(true);
+    widgetsBundleEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity.setTitle("Dr");
+    widgetsBundleEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity.setVersion(1L);
+
+    WidgetsBundleEntity widgetsBundleEntity2 = new WidgetsBundleEntity();
+    widgetsBundleEntity2.setAlias(null);
+    widgetsBundleEntity2.setCreatedTime(1L);
+    widgetsBundleEntity2.setDescription("The characteristics of someone or something");
+    widgetsBundleEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity2.setImage("Image");
+    widgetsBundleEntity2.setOrder(1);
+    widgetsBundleEntity2.setScada(true);
+    widgetsBundleEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity2.setTitle("Dr");
+    widgetsBundleEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    widgetsBundleEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(widgetsBundleEntity, widgetsBundleEntity2);
+    int expectedHashCodeResult = widgetsBundleEntity.hashCode();
+    assertEquals(expectedHashCodeResult, widgetsBundleEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link WidgetsBundleEntity#equals(Object)}, and {@link WidgetsBundleEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link WidgetsBundleEntity#equals(Object)}
+   *   <li>{@link WidgetsBundleEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -110,16 +177,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -156,16 +227,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -202,16 +277,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -248,16 +327,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -294,16 +377,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -340,16 +427,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -386,16 +477,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -432,16 +527,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -478,16 +577,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -524,16 +627,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -570,16 +677,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -616,16 +727,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -662,16 +777,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -708,16 +827,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -754,16 +877,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -800,16 +927,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -846,16 +977,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -878,16 +1013,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean WidgetsBundleEntity.equals(Object)", "int WidgetsBundleEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WidgetsBundleEntity.equals(Object)",
+    "int WidgetsBundleEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     WidgetsBundleEntity widgetsBundleEntity = new WidgetsBundleEntity();
@@ -910,8 +1049,9 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetsBundleEntity#WidgetsBundleEntity()}
    *   <li>{@link WidgetsBundleEntity#setAlias(String)}
@@ -935,15 +1075,26 @@ public class WidgetsBundleEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void WidgetsBundleEntity.<init>()", "String WidgetsBundleEntity.getAlias()",
-      "String WidgetsBundleEntity.getDescription()", "UUID WidgetsBundleEntity.getExternalId()",
-      "String WidgetsBundleEntity.getImage()", "Integer WidgetsBundleEntity.getOrder()",
-      "UUID WidgetsBundleEntity.getTenantId()", "String WidgetsBundleEntity.getTitle()",
-      "boolean WidgetsBundleEntity.isScada()", "void WidgetsBundleEntity.setAlias(String)",
-      "void WidgetsBundleEntity.setDescription(String)", "void WidgetsBundleEntity.setExternalId(UUID)",
-      "void WidgetsBundleEntity.setImage(String)", "void WidgetsBundleEntity.setOrder(Integer)",
-      "void WidgetsBundleEntity.setScada(boolean)", "void WidgetsBundleEntity.setTenantId(UUID)",
-      "void WidgetsBundleEntity.setTitle(String)", "String WidgetsBundleEntity.toString()"})
+  @MethodsUnderTest({
+    "void WidgetsBundleEntity.<init>()",
+    "String WidgetsBundleEntity.getAlias()",
+    "String WidgetsBundleEntity.getDescription()",
+    "UUID WidgetsBundleEntity.getExternalId()",
+    "String WidgetsBundleEntity.getImage()",
+    "Integer WidgetsBundleEntity.getOrder()",
+    "UUID WidgetsBundleEntity.getTenantId()",
+    "String WidgetsBundleEntity.getTitle()",
+    "boolean WidgetsBundleEntity.isScada()",
+    "void WidgetsBundleEntity.setAlias(String)",
+    "void WidgetsBundleEntity.setDescription(String)",
+    "void WidgetsBundleEntity.setExternalId(UUID)",
+    "void WidgetsBundleEntity.setImage(String)",
+    "void WidgetsBundleEntity.setOrder(Integer)",
+    "void WidgetsBundleEntity.setScada(boolean)",
+    "void WidgetsBundleEntity.setTenantId(UUID)",
+    "void WidgetsBundleEntity.setTitle(String)",
+    "String WidgetsBundleEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     WidgetsBundleEntity actualWidgetsBundleEntity = new WidgetsBundleEntity();
@@ -991,48 +1142,48 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}.
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void WidgetsBundleEntity.<init>(WidgetsBundle)"})
   public void testNewWidgetsBundleEntity() {
     // Arrange
-    WidgetsBundle widgetsBundle = new WidgetsBundle();
-    widgetsBundle.setTenantId(null);
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    widgetsBundle.setExternalId(new WidgetsBundleId(id));
+
+    WidgetsBundle widgetsBundle = new WidgetsBundle(new WidgetsBundleId(id));
+    widgetsBundle.setTenantId(null);
+    UUID id2 = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    widgetsBundle.setExternalId(new WidgetsBundleId(id2));
 
     // Act
     WidgetsBundleEntity actualWidgetsBundleEntity = new WidgetsBundleEntity(widgetsBundle);
 
     // Assert
-    assertNull(actualWidgetsBundleEntity.getOrder());
-    assertNull(actualWidgetsBundleEntity.getVersion());
-    assertNull(actualWidgetsBundleEntity.getAlias());
-    assertNull(actualWidgetsBundleEntity.getDescription());
-    assertNull(actualWidgetsBundleEntity.getImage());
-    assertNull(actualWidgetsBundleEntity.getTitle());
-    assertNull(actualWidgetsBundleEntity.getId());
-    assertNull(actualWidgetsBundleEntity.getUuid());
+    UUID id3 = actualWidgetsBundleEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id3.toString());
+    UUID externalId = actualWidgetsBundleEntity.getExternalId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", externalId.toString());
     assertNull(actualWidgetsBundleEntity.getTenantId());
-    assertEquals(0L, actualWidgetsBundleEntity.getCreatedTime());
-    assertFalse(actualWidgetsBundleEntity.isScada());
-    assertSame(id, actualWidgetsBundleEntity.getExternalId());
+    assertSame(id, id3);
+    assertSame(id, actualWidgetsBundleEntity.getUuid());
+    assertSame(id2, externalId);
   }
 
   /**
    * Test {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}.
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void WidgetsBundleEntity.<init>(WidgetsBundle)"})
   public void testNewWidgetsBundleEntity2() {
     // Arrange
-    WidgetsBundle widgetsBundle = new WidgetsBundle();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+
+    WidgetsBundle widgetsBundle = new WidgetsBundle(new WidgetsBundleId(id));
     widgetsBundle.setTenantId(ModelConstants.SYSTEM_TENANT);
     widgetsBundle.setExternalId(null);
 
@@ -1040,59 +1191,48 @@ public class WidgetsBundleEntityDiffblueTest {
     WidgetsBundleEntity actualWidgetsBundleEntity = new WidgetsBundleEntity(widgetsBundle);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualWidgetsBundleEntity.getTenantId().toString());
-    assertNull(actualWidgetsBundleEntity.getOrder());
-    assertNull(actualWidgetsBundleEntity.getVersion());
-    assertNull(actualWidgetsBundleEntity.getAlias());
-    assertNull(actualWidgetsBundleEntity.getDescription());
-    assertNull(actualWidgetsBundleEntity.getImage());
-    assertNull(actualWidgetsBundleEntity.getTitle());
-    assertNull(actualWidgetsBundleEntity.getId());
-    assertNull(actualWidgetsBundleEntity.getUuid());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualWidgetsBundleEntity.getTenantId().toString());
+    UUID id2 = actualWidgetsBundleEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertNull(actualWidgetsBundleEntity.getExternalId());
-    assertEquals(0L, actualWidgetsBundleEntity.getCreatedTime());
-    assertFalse(actualWidgetsBundleEntity.isScada());
+    assertSame(id, id2);
+    assertSame(id, actualWidgetsBundleEntity.getUuid());
   }
 
   /**
    * Test {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}.
+   *
    * <ul>
-   *   <li>When {@link WidgetsBundle#WidgetsBundle()}.</li>
-   *   <li>Then return ExternalId is {@code null}.</li>
+   *   <li>When {@link WidgetsBundle#WidgetsBundle()}.
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#WidgetsBundleEntity(WidgetsBundle)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void WidgetsBundleEntity.<init>(WidgetsBundle)"})
-  public void testNewWidgetsBundleEntity_whenWidgetsBundle_thenReturnExternalIdIsNull() {
+  public void testNewWidgetsBundleEntity_whenWidgetsBundle_thenReturnIdIsNull() {
     // Arrange and Act
     WidgetsBundleEntity actualWidgetsBundleEntity = new WidgetsBundleEntity(new WidgetsBundle());
 
     // Assert
-    assertNull(actualWidgetsBundleEntity.getOrder());
-    assertNull(actualWidgetsBundleEntity.getVersion());
-    assertNull(actualWidgetsBundleEntity.getAlias());
-    assertNull(actualWidgetsBundleEntity.getDescription());
-    assertNull(actualWidgetsBundleEntity.getImage());
-    assertNull(actualWidgetsBundleEntity.getTitle());
     assertNull(actualWidgetsBundleEntity.getId());
     assertNull(actualWidgetsBundleEntity.getUuid());
     assertNull(actualWidgetsBundleEntity.getExternalId());
     assertNull(actualWidgetsBundleEntity.getTenantId());
-    assertEquals(0L, actualWidgetsBundleEntity.getCreatedTime());
-    assertFalse(actualWidgetsBundleEntity.isScada());
   }
 
   /**
    * Test {@link WidgetsBundleEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()} ExternalId is {@code null}.</li>
-   *   <li>Then return ExternalId is {@code null}.</li>
+   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()} ExternalId is {@code null}.
+   *   <li>Then return ExternalId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1127,12 +1267,13 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()} TenantId is {@code null}.</li>
-   *   <li>Then return TenantId is {@code null}.</li>
+   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()} TenantId is {@code null}.
+   *   <li>Then return TenantId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -1170,19 +1311,20 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()}.</li>
-   *   <li>Then return Order is {@code null}.</li>
+   *   <li>Given {@link WidgetsBundleEntity#WidgetsBundleEntity()}.
+   *   <li>Then return Order is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"WidgetsBundle WidgetsBundleEntity.toData()"})
   public void testToData_givenWidgetsBundleEntity_thenReturnOrderIsNull() {
     // Arrange and Act
-    WidgetsBundle actualToDataResult = (new WidgetsBundleEntity()).toData();
+    WidgetsBundle actualToDataResult = new WidgetsBundleEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getOrder());
@@ -1200,11 +1342,12 @@ public class WidgetsBundleEntityDiffblueTest {
 
   /**
    * Test {@link WidgetsBundleEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return ExternalId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return ExternalId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetsBundleEntity#toData()}
+   *
+   * <p>Method under test: {@link WidgetsBundleEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

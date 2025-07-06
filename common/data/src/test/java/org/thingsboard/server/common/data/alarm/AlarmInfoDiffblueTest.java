@@ -17,12 +17,14 @@ import org.thingsboard.server.common.data.query.AlarmData;
 class AlarmInfoDiffblueTest {
   /**
    * Test {@link AlarmInfo#equals(Object)}, and {@link AlarmInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmInfo#equals(Object)}
    *   <li>{@link AlarmInfo#hashCode()}
@@ -45,12 +47,14 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}, and {@link AlarmInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmInfo#equals(Object)}
    *   <li>{@link AlarmInfo#hashCode()}
@@ -76,12 +80,14 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}, and {@link AlarmInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmInfo#equals(Object)}
    *   <li>{@link AlarmInfo#hashCode()}
@@ -107,12 +113,14 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}, and {@link AlarmInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmInfo#equals(Object)}
    *   <li>{@link AlarmInfo#hashCode()}
@@ -134,12 +142,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -152,12 +161,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -170,12 +180,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -192,12 +203,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -214,12 +226,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -236,12 +249,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -260,12 +274,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -284,12 +299,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -302,12 +318,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link AlarmInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -320,8 +337,9 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmInfo#AlarmInfo()}
    *   <li>{@link AlarmInfo#setOriginatorLabel(String)}
@@ -335,10 +353,16 @@ class AlarmInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmInfo.<init>()", "AlarmAssignee AlarmInfo.getAssignee()",
-      "String AlarmInfo.getOriginatorLabel()", "String AlarmInfo.getOriginatorName()",
-      "void AlarmInfo.setAssignee(AlarmAssignee)", "void AlarmInfo.setOriginatorLabel(String)",
-      "void AlarmInfo.setOriginatorName(String)", "String AlarmInfo.toString()"})
+  @MethodsUnderTest({
+    "void AlarmInfo.<init>()",
+    "AlarmAssignee AlarmInfo.getAssignee()",
+    "String AlarmInfo.getOriginatorLabel()",
+    "String AlarmInfo.getOriginatorName()",
+    "void AlarmInfo.setAssignee(AlarmAssignee)",
+    "void AlarmInfo.setOriginatorLabel(String)",
+    "void AlarmInfo.setOriginatorName(String)",
+    "String AlarmInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AlarmInfo actualAlarmInfo = new AlarmInfo();
@@ -383,12 +407,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(Alarm)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Status is {@code ACTIVE_ACK}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Status is {@code ACTIVE_ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(Alarm)}
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm); given 'true'; then return Status is 'ACTIVE_ACK'")
@@ -434,15 +459,17 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Status is {@code ACTIVE_ACK}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Status is {@code ACTIVE_ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
    */
   @Test
-  @DisplayName("Test new AlarmInfo(Alarm, String, String, AlarmAssignee); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @DisplayName(
+      "Test new AlarmInfo(Alarm, String, String, AlarmAssignee); given 'true'; then return Status is 'ACTIVE_ACK'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmInfo.<init>(Alarm, String, String, AlarmAssignee)"})
   void testNewAlarmInfo_givenTrue_thenReturnStatusIsActiveAck2() {
@@ -452,7 +479,8 @@ class AlarmInfoDiffblueTest {
     AlarmAssignee assignee = new AlarmAssignee(null, "Jane", "Doe", "jane.doe@example.org");
 
     // Act
-    AlarmInfo actualAlarmInfo = new AlarmInfo(alarm, "Originator Name", "Originator Label", assignee);
+    AlarmInfo actualAlarmInfo =
+        new AlarmInfo(alarm, "Originator Name", "Originator Label", assignee);
 
     // Assert
     assertEquals("Originator Label", actualAlarmInfo.getOriginatorLabel());
@@ -486,15 +514,17 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(AlarmInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link AlarmInfo#AlarmInfo()} Acknowledged is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link AlarmInfo#AlarmInfo()} Acknowledged is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(AlarmInfo)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(AlarmInfo)}
    */
   @Test
-  @DisplayName("Test new AlarmInfo(AlarmInfo); given 'true'; when AlarmInfo() Acknowledged is 'true'")
+  @DisplayName(
+      "Test new AlarmInfo(AlarmInfo); given 'true'; when AlarmInfo() Acknowledged is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmInfo.<init>(AlarmInfo)"})
   void testNewAlarmInfo_givenTrue_whenAlarmInfoAcknowledgedIsTrue() {
@@ -508,11 +538,12 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(AlarmInfo)}.
+   *
    * <ul>
-   *   <li>When {@link AlarmInfo#AlarmInfo()}.</li>
+   *   <li>When {@link AlarmInfo#AlarmInfo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(AlarmInfo)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(AlarmInfo)}
    */
   @Test
   @DisplayName("Test new AlarmInfo(AlarmInfo); when AlarmInfo()")
@@ -528,12 +559,13 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(Alarm)}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Status is {@code ACTIVE_UNACK}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Status is {@code ACTIVE_UNACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(Alarm)}
    */
   @Test
   @DisplayName("Test new AlarmInfo(Alarm); when Alarm(); then return Status is 'ACTIVE_UNACK'")
@@ -575,15 +607,17 @@ class AlarmInfoDiffblueTest {
 
   /**
    * Test {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Status is {@code ACTIVE_UNACK}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Status is {@code ACTIVE_UNACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
+   *
+   * <p>Method under test: {@link AlarmInfo#AlarmInfo(Alarm, String, String, AlarmAssignee)}
    */
   @Test
-  @DisplayName("Test new AlarmInfo(Alarm, String, String, AlarmAssignee); when Alarm(); then return Status is 'ACTIVE_UNACK'")
+  @DisplayName(
+      "Test new AlarmInfo(Alarm, String, String, AlarmAssignee); when Alarm(); then return Status is 'ACTIVE_UNACK'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmInfo.<init>(Alarm, String, String, AlarmAssignee)"})
   void testNewAlarmInfo_whenAlarm_thenReturnStatusIsActiveUnack2() {
@@ -592,7 +626,8 @@ class AlarmInfoDiffblueTest {
     AlarmAssignee assignee = new AlarmAssignee(null, "Jane", "Doe", "jane.doe@example.org");
 
     // Act
-    AlarmInfo actualAlarmInfo = new AlarmInfo(alarm, "Originator Name", "Originator Label", assignee);
+    AlarmInfo actualAlarmInfo =
+        new AlarmInfo(alarm, "Originator Name", "Originator Label", assignee);
 
     // Assert
     assertEquals("Originator Label", actualAlarmInfo.getOriginatorLabel());

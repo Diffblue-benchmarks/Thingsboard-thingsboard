@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,8 +15,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AuditLogDiffblueTest {
   /**
    * Test {@link AuditLog#AuditLog(AuditLog)}.
-   * <p>
-   * Method under test: {@link AuditLog#AuditLog(AuditLog)}
+   *
+   * <p>Method under test: {@link AuditLog#AuditLog(AuditLog)}
    */
   @Test
   @DisplayName("Test new AuditLog(AuditLog)")
@@ -32,8 +32,8 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link AuditLog#getCreatedTime()}
+   *
+   * <p>Method under test: {@link AuditLog#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -41,16 +41,17 @@ class AuditLogDiffblueTest {
   @MethodsUnderTest({"long AuditLog.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new AuditLog()).getCreatedTime());
+    assertEquals(0L, new AuditLog().getCreatedTime());
   }
 
   /**
    * Test {@link AuditLog#getId()}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#getId()}
+   *
+   * <p>Method under test: {@link AuditLog#getId()}
    */
   @Test
   @DisplayName("Test getId(); then return 'null'")
@@ -58,17 +59,19 @@ class AuditLogDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.AuditLogId AuditLog.getId()"})
   void testGetId_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new AuditLog()).getId());
+    assertNull(new AuditLog().getId());
   }
 
   /**
    * Test {@link AuditLog#equals(Object)}, and {@link AuditLog#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AuditLog#equals(Object)}
    *   <li>{@link AuditLog#hashCode()}
@@ -91,12 +94,14 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}, and {@link AuditLog#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AuditLog#equals(Object)}
    *   <li>{@link AuditLog#hashCode()}
@@ -118,12 +123,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -136,12 +142,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -158,12 +165,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -180,12 +188,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -202,12 +211,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -224,12 +234,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -246,12 +257,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -268,12 +280,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -282,7 +295,7 @@ class AuditLogDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AuditLog auditLog = new AuditLog();
-    auditLog.setActionData(MissingNode.getInstance());
+    auditLog.setActionData(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(auditLog, new AuditLog());
@@ -290,12 +303,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -312,12 +326,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -334,12 +349,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -356,12 +372,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -380,12 +397,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -396,7 +414,8 @@ class AuditLogDiffblueTest {
     AuditLog auditLog = new AuditLog();
 
     AuditLog auditLog2 = new AuditLog();
-    auditLog2.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    auditLog2.setCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(auditLog, auditLog2);
@@ -404,12 +423,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -428,12 +448,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -452,12 +473,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -476,12 +498,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -500,12 +523,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -516,7 +540,7 @@ class AuditLogDiffblueTest {
     AuditLog auditLog = new AuditLog();
 
     AuditLog auditLog2 = new AuditLog();
-    auditLog2.setActionData(MissingNode.getInstance());
+    auditLog2.setActionData(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(auditLog, auditLog2);
@@ -524,12 +548,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -548,12 +573,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -572,12 +598,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -590,12 +617,13 @@ class AuditLogDiffblueTest {
 
   /**
    * Test {@link AuditLog#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLog#equals(Object)}
+   *
+   * <p>Method under test: {@link AuditLog#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

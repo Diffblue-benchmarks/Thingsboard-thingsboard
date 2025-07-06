@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EntityRelationInfoDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityRelationInfo#EntityRelationInfo()}
    *   <li>{@link EntityRelationInfo#setFromName(String)}
@@ -25,9 +26,13 @@ class EntityRelationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityRelationInfo.<init>()", "String EntityRelationInfo.getFromName()",
-      "String EntityRelationInfo.getToName()", "void EntityRelationInfo.setFromName(String)",
-      "void EntityRelationInfo.setToName(String)"})
+  @MethodsUnderTest({
+    "void EntityRelationInfo.<init>()",
+    "String EntityRelationInfo.getFromName()",
+    "String EntityRelationInfo.getToName()",
+    "void EntityRelationInfo.setFromName(String)",
+    "void EntityRelationInfo.setToName(String)"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityRelationInfo actualEntityRelationInfo = new EntityRelationInfo();
@@ -47,15 +52,17 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#EntityRelationInfo(EntityRelation)}.
+   *
    * <ul>
-   *   <li>When {@link EntityRelation#EntityRelation()}.</li>
-   *   <li>Then return AdditionalInfo is {@code null}.</li>
+   *   <li>When {@link EntityRelation#EntityRelation()}.
+   *   <li>Then return AdditionalInfo is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#EntityRelationInfo(EntityRelation)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#EntityRelationInfo(EntityRelation)}
    */
   @Test
-  @DisplayName("Test new EntityRelationInfo(EntityRelation); when EntityRelation(); then return AdditionalInfo is 'null'")
+  @DisplayName(
+      "Test new EntityRelationInfo(EntityRelation); when EntityRelation(); then return AdditionalInfo is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityRelationInfo.<init>(EntityRelation)"})
   void testNewEntityRelationInfo_whenEntityRelation_thenReturnAdditionalInfoIsNull() {
@@ -75,12 +82,14 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}, and {@link EntityRelationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityRelationInfo#equals(Object)}
    *   <li>{@link EntityRelationInfo#hashCode()}
@@ -89,7 +98,10 @@ class EntityRelationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityRelationInfo entityRelationInfo = new EntityRelationInfo();
@@ -103,12 +115,14 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}, and {@link EntityRelationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityRelationInfo#equals(Object)}
    *   <li>{@link EntityRelationInfo#hashCode()}
@@ -117,7 +131,10 @@ class EntityRelationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityRelationInfo entityRelationInfo = new EntityRelationInfo();
@@ -130,17 +147,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityRelationInfo(), 1);
@@ -148,17 +169,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityRelationInfo entityRelationInfo = new EntityRelationInfo();
@@ -170,17 +195,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityRelationInfo entityRelationInfo = new EntityRelationInfo();
@@ -192,17 +221,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityRelationInfo entityRelationInfo = new EntityRelationInfo();
@@ -216,17 +249,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityRelationInfo(), null);
@@ -234,17 +271,21 @@ class EntityRelationInfoDiffblueTest {
 
   /**
    * Test {@link EntityRelationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityRelationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityRelationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean EntityRelationInfo.equals(Object)", "int EntityRelationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean EntityRelationInfo.equals(Object)",
+    "int EntityRelationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityRelationInfo(), "Different type to EntityRelationInfo");

@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class ProvisionFailedExceptionDiffblueTest {
   /**
    * Test {@link ProvisionFailedException#ProvisionFailedException(String)}.
-   * <p>
-   * Method under test: {@link ProvisionFailedException#ProvisionFailedException(String)}
+   *
+   * <p>Method under test: {@link ProvisionFailedException#ProvisionFailedException(String)}
    */
   @Test
   @DisplayName("Test new ProvisionFailedException(String)")
@@ -19,7 +19,8 @@ class ProvisionFailedExceptionDiffblueTest {
   @MethodsUnderTest({"void ProvisionFailedException.<init>(String)"})
   void testNewProvisionFailedException() {
     // Arrange and Act
-    ProvisionFailedException actualProvisionFailedException = new ProvisionFailedException("An error occurred");
+    ProvisionFailedException actualProvisionFailedException =
+        new ProvisionFailedException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualProvisionFailedException.getMessage());

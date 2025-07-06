@@ -12,46 +12,58 @@ import org.thingsboard.server.common.data.notification.NotificationDeliveryMetho
 class NotificationTargetTypeDiffblueTest {
   /**
    * Test {@link NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}.
+   *
    * <ul>
-   *   <li>When {@code SLACK}.</li>
-   *   <li>Then return {@code SLACK}.</li>
+   *   <li>When {@code SLACK}.
+   *   <li>Then return {@code SLACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}
+   *
+   * <p>Method under test: {@link
+   * NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}
    */
   @Test
-  @DisplayName("Test forDeliveryMethod(NotificationDeliveryMethod); when 'SLACK'; then return 'SLACK'")
+  @DisplayName(
+      "Test forDeliveryMethod(NotificationDeliveryMethod); when 'SLACK'; then return 'SLACK'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"NotificationTargetType NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod)"})
+  @MethodsUnderTest({
+    "NotificationTargetType NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod)"
+  })
   void testForDeliveryMethod_whenSlack_thenReturnSlack() {
     // Arrange, Act and Assert
-    assertEquals(NotificationTargetType.SLACK,
+    assertEquals(
+        NotificationTargetType.SLACK,
         NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod.SLACK));
   }
 
   /**
    * Test {@link NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}.
+   *
    * <ul>
-   *   <li>When {@code WEB}.</li>
-   *   <li>Then return {@code PLATFORM_USERS}.</li>
+   *   <li>When {@code WEB}.
+   *   <li>Then return {@code PLATFORM_USERS}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}
+   *
+   * <p>Method under test: {@link
+   * NotificationTargetType#forDeliveryMethod(NotificationDeliveryMethod)}
    */
   @Test
-  @DisplayName("Test forDeliveryMethod(NotificationDeliveryMethod); when 'WEB'; then return 'PLATFORM_USERS'")
+  @DisplayName(
+      "Test forDeliveryMethod(NotificationDeliveryMethod); when 'WEB'; then return 'PLATFORM_USERS'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"NotificationTargetType NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod)"})
+  @MethodsUnderTest({
+    "NotificationTargetType NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod)"
+  })
   void testForDeliveryMethod_whenWeb_thenReturnPlatformUsers() {
     // Arrange, Act and Assert
-    assertEquals(NotificationTargetType.PLATFORM_USERS,
+    assertEquals(
+        NotificationTargetType.PLATFORM_USERS,
         NotificationTargetType.forDeliveryMethod(NotificationDeliveryMethod.WEB));
   }
 
   /**
    * Test {@link NotificationTargetType#getSupportedDeliveryMethods()}.
-   * <p>
-   * Method under test: {@link NotificationTargetType#getSupportedDeliveryMethods()}
+   *
+   * <p>Method under test: {@link NotificationTargetType#getSupportedDeliveryMethods()}
    */
   @Test
   @DisplayName("Test getSupportedDeliveryMethods()")
@@ -59,8 +71,8 @@ class NotificationTargetTypeDiffblueTest {
   @MethodsUnderTest({"Set NotificationTargetType.getSupportedDeliveryMethods()"})
   void testGetSupportedDeliveryMethods() {
     // Arrange and Act
-    Set<NotificationDeliveryMethod> actualSupportedDeliveryMethods = NotificationTargetType.valueOf("PLATFORM_USERS")
-        .getSupportedDeliveryMethods();
+    Set<NotificationDeliveryMethod> actualSupportedDeliveryMethods =
+        NotificationTargetType.valueOf("PLATFORM_USERS").getSupportedDeliveryMethods();
 
     // Assert
     assertEquals(4, actualSupportedDeliveryMethods.size());

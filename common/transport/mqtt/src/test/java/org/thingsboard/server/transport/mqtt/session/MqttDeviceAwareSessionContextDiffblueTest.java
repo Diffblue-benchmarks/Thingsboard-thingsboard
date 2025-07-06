@@ -16,8 +16,8 @@ import org.thingsboard.server.transport.mqtt.MqttTransportContext;
 class MqttDeviceAwareSessionContextDiffblueTest {
   /**
    * Test {@link MqttDeviceAwareSessionContext#getMqttQoSMap()}.
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getMqttQoSMap()}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getMqttQoSMap()}
    */
   @Test
   @DisplayName("Test getMqttQoSMap()")
@@ -29,8 +29,8 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     ConcurrentHashMap<MqttTopicMatcher, Integer> mqttQoSMap = new ConcurrentHashMap<>();
 
     // Act
-    ConcurrentMap<MqttTopicMatcher, Integer> actualMqttQoSMap = (new DeviceSessionCtx(sessionId, mqttQoSMap,
-        new MqttTransportContext())).getMqttQoSMap();
+    ConcurrentMap<MqttTopicMatcher, Integer> actualMqttQoSMap =
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext()).getMqttQoSMap();
 
     // Assert
     assertTrue(actualMqttQoSMap.isEmpty());
@@ -39,8 +39,8 @@ class MqttDeviceAwareSessionContextDiffblueTest {
 
   /**
    * Test {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}.
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
    */
   @Test
   @DisplayName("Test getQoSForTopic(String)")
@@ -54,20 +54,25 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertEquals(MqttQoS.AT_LEAST_ONCE,
-        (new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())).getQoSForTopic("Topic"));
+    assertEquals(
+        MqttQoS.AT_LEAST_ONCE,
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())
+            .getQoSForTopic("Topic"));
   }
 
   /**
    * Test {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}.
+   *
    * <ul>
-   *   <li>Given {@link ConcurrentHashMap#ConcurrentHashMap()} {@link MqttTopicMatcher#MqttTopicMatcher(String)} with topic is {@code 42} is one.</li>
+   *   <li>Given {@link ConcurrentHashMap#ConcurrentHashMap()} {@link
+   *       MqttTopicMatcher#MqttTopicMatcher(String)} with topic is {@code 42} is one.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
    */
   @Test
-  @DisplayName("Test getQoSForTopic(String); given ConcurrentHashMap() MqttTopicMatcher(String) with topic is '42' is one")
+  @DisplayName(
+      "Test getQoSForTopic(String); given ConcurrentHashMap() MqttTopicMatcher(String) with topic is '42' is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MqttQoS MqttDeviceAwareSessionContext.getQoSForTopic(String)"})
   void testGetQoSForTopic_givenConcurrentHashMapMqttTopicMatcherWithTopicIs42IsOne() {
@@ -77,20 +82,25 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertEquals(MqttQoS.AT_LEAST_ONCE,
-        (new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())).getQoSForTopic("Topic"));
+    assertEquals(
+        MqttQoS.AT_LEAST_ONCE,
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())
+            .getQoSForTopic("Topic"));
   }
 
   /**
    * Test {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}.
+   *
    * <ul>
-   *   <li>Given {@link ConcurrentHashMap#ConcurrentHashMap()} {@link MqttTopicMatcher#MqttTopicMatcher(String)} with {@code Topic} is one.</li>
+   *   <li>Given {@link ConcurrentHashMap#ConcurrentHashMap()} {@link
+   *       MqttTopicMatcher#MqttTopicMatcher(String)} with {@code Topic} is one.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
    */
   @Test
-  @DisplayName("Test getQoSForTopic(String); given ConcurrentHashMap() MqttTopicMatcher(String) with 'Topic' is one")
+  @DisplayName(
+      "Test getQoSForTopic(String); given ConcurrentHashMap() MqttTopicMatcher(String) with 'Topic' is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MqttQoS MqttDeviceAwareSessionContext.getQoSForTopic(String)"})
   void testGetQoSForTopic_givenConcurrentHashMapMqttTopicMatcherWithTopicIsOne() {
@@ -100,17 +110,20 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertEquals(MqttQoS.AT_LEAST_ONCE,
-        (new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())).getQoSForTopic("Topic"));
+    assertEquals(
+        MqttQoS.AT_LEAST_ONCE,
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())
+            .getQoSForTopic("Topic"));
   }
 
   /**
    * Test {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code AT_LEAST_ONCE}.</li>
+   *   <li>Then return {@code AT_LEAST_ONCE}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
    */
   @Test
   @DisplayName("Test getQoSForTopic(String); then return 'AT_LEAST_ONCE'")
@@ -122,17 +135,20 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     ConcurrentHashMap<MqttTopicMatcher, Integer> mqttQoSMap = new ConcurrentHashMap<>();
 
     // Act and Assert
-    assertEquals(MqttQoS.AT_LEAST_ONCE,
-        (new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())).getQoSForTopic("Topic"));
+    assertEquals(
+        MqttQoS.AT_LEAST_ONCE,
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())
+            .getQoSForTopic("Topic"));
   }
 
   /**
    * Test {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code AT_MOST_ONCE}.</li>
+   *   <li>Then return {@code AT_MOST_ONCE}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
+   *
+   * <p>Method under test: {@link MqttDeviceAwareSessionContext#getQoSForTopic(String)}
    */
   @Test
   @DisplayName("Test getQoSForTopic(String); then return 'AT_MOST_ONCE'")
@@ -145,7 +161,9 @@ class MqttDeviceAwareSessionContextDiffblueTest {
     UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    assertEquals(MqttQoS.AT_MOST_ONCE,
-        (new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())).getQoSForTopic("Topic"));
+    assertEquals(
+        MqttQoS.AT_MOST_ONCE,
+        new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext())
+            .getQoSForTopic("Topic"));
   }
 }

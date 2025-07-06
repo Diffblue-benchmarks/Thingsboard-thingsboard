@@ -19,35 +19,45 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {ComponentDescriptorDataValidator.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ComponentDescriptorDataValidatorDiffblueTest {
-  @Autowired
-  private ComponentDescriptorDataValidator componentDescriptorDataValidator;
+  @Autowired private ComponentDescriptorDataValidator componentDescriptorDataValidator;
 
   /**
-   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)} with {@code TenantId}, {@code ComponentDescriptor}.
-   * <p>
-   * Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   * with {@code TenantId}, {@code ComponentDescriptor}.
+   *
+   * <p>Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId,
+   * ComponentDescriptor)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"})
+  @MethodsUnderTest({
+    "void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"
+  })
   public void testValidateDataImplWithTenantIdComponentDescriptor() {
     // Arrange
     ComponentDescriptor plugin = new ComponentDescriptor();
     plugin.setName("Component name");
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> componentDescriptorDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, plugin));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            componentDescriptorDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, plugin));
   }
 
   /**
-   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)} with {@code TenantId}, {@code ComponentDescriptor}.
-   * <p>
-   * Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   * with {@code TenantId}, {@code ComponentDescriptor}.
+   *
+   * <p>Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId,
+   * ComponentDescriptor)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"})
+  @MethodsUnderTest({
+    "void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"
+  })
   public void testValidateDataImplWithTenantIdComponentDescriptor2() {
     // Arrange
     ComponentDescriptor plugin = new ComponentDescriptor();
@@ -55,21 +65,29 @@ public class ComponentDescriptorDataValidatorDiffblueTest {
     plugin.setName("Component name");
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> componentDescriptorDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, plugin));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            componentDescriptorDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, plugin));
   }
 
   /**
-   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)} with {@code TenantId}, {@code ComponentDescriptor}.
+   * Test {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   * with {@code TenantId}, {@code ComponentDescriptor}.
+   *
    * <ul>
-   *   <li>Given {@code SYSTEM}.</li>
+   *   <li>Given {@code SYSTEM}.
    * </ul>
-   * <p>
-   * Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId, ComponentDescriptor)}
+   *
+   * <p>Method under test: {@link ComponentDescriptorDataValidator#validateDataImpl(TenantId,
+   * ComponentDescriptor)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"})
+  @MethodsUnderTest({
+    "void ComponentDescriptorDataValidator.validateDataImpl(TenantId, ComponentDescriptor)"
+  })
   public void testValidateDataImplWithTenantIdComponentDescriptor_givenSystem() {
     // Arrange
     ComponentDescriptor plugin = new ComponentDescriptor();
@@ -78,7 +96,10 @@ public class ComponentDescriptorDataValidatorDiffblueTest {
     plugin.setName("Component name");
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> componentDescriptorDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, plugin));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            componentDescriptorDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, plugin));
   }
 }

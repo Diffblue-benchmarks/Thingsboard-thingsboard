@@ -27,13 +27,12 @@ import org.thingsboard.server.common.data.sync.vc.VersionLoadResult.VersionLoadR
 @ContextConfiguration(classes = {VersionLoadResultBuilder.class})
 @ExtendWith(SpringExtension.class)
 class VersionLoadResultDiffblueTest {
-  @Autowired
-  private VersionLoadResultBuilder versionLoadResultBuilder;
+  @Autowired private VersionLoadResultBuilder versionLoadResultBuilder;
 
   /**
    * Test {@link VersionLoadResult#empty()}.
-   * <p>
-   * Method under test: {@link VersionLoadResult#empty()}
+   *
+   * <p>Method under test: {@link VersionLoadResult#empty()}
    */
   @Test
   @DisplayName("Test empty()")
@@ -51,14 +50,16 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#success(EntityTypeLoadResult)} with {@code EntityTypeLoadResult}.
+   *
    * <ul>
-   *   <li>Then return Error is {@code null}.</li>
+   *   <li>Then return Error is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#success(EntityTypeLoadResult)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#success(EntityTypeLoadResult)}
    */
   @Test
-  @DisplayName("Test success(EntityTypeLoadResult) with 'EntityTypeLoadResult'; then return Error is 'null'")
+  @DisplayName(
+      "Test success(EntityTypeLoadResult) with 'EntityTypeLoadResult'; then return Error is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"VersionLoadResult VersionLoadResult.success(EntityTypeLoadResult)"})
   void testSuccessWithEntityTypeLoadResult_thenReturnErrorIsNull() {
@@ -78,11 +79,12 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#success(List)} with {@code List}.
+   *
    * <ul>
-   *   <li>Then return Result is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return Result is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#success(List)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#success(List)}
    */
   @Test
   @DisplayName("Test success(List) with 'List'; then return Result is ArrayList()")
@@ -91,12 +93,13 @@ class VersionLoadResultDiffblueTest {
   void testSuccessWithList_thenReturnResultIsArrayList() {
     // Arrange
     ArrayList<EntityTypeLoadResult> result = new ArrayList<>();
-    EntityTypeLoadResult buildResult = EntityTypeLoadResult.builder()
-        .created(1)
-        .deleted(1)
-        .entityType(EntityType.TENANT)
-        .updated(1)
-        .build();
+    EntityTypeLoadResult buildResult =
+        EntityTypeLoadResult.builder()
+            .created(1)
+            .deleted(1)
+            .entityType(EntityType.TENANT)
+            .updated(1)
+            .build();
     result.add(buildResult);
 
     // Act and Assert
@@ -105,11 +108,12 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#success(List)} with {@code List}.
+   *
    * <ul>
-   *   <li>Then return Result is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return Result is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#success(List)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#success(List)}
    */
   @Test
   @DisplayName("Test success(List) with 'List'; then return Result is ArrayList()")
@@ -118,19 +122,21 @@ class VersionLoadResultDiffblueTest {
   void testSuccessWithList_thenReturnResultIsArrayList2() {
     // Arrange
     ArrayList<EntityTypeLoadResult> result = new ArrayList<>();
-    EntityTypeLoadResult buildResult = EntityTypeLoadResult.builder()
-        .created(1)
-        .deleted(1)
-        .entityType(EntityType.TENANT)
-        .updated(1)
-        .build();
+    EntityTypeLoadResult buildResult =
+        EntityTypeLoadResult.builder()
+            .created(1)
+            .deleted(1)
+            .entityType(EntityType.TENANT)
+            .updated(1)
+            .build();
     result.add(buildResult);
-    EntityTypeLoadResult buildResult2 = EntityTypeLoadResult.builder()
-        .created(1)
-        .deleted(1)
-        .entityType(EntityType.TENANT)
-        .updated(1)
-        .build();
+    EntityTypeLoadResult buildResult2 =
+        EntityTypeLoadResult.builder()
+            .created(1)
+            .deleted(1)
+            .entityType(EntityType.TENANT)
+            .updated(1)
+            .build();
     result.add(buildResult2);
 
     // Act and Assert
@@ -139,12 +145,13 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#success(List)} with {@code List}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Error is {@code null}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Error is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#success(List)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#success(List)}
    */
   @Test
   @DisplayName("Test success(List) with 'List'; when ArrayList(); then return Error is 'null'")
@@ -162,8 +169,8 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#error(EntityLoadError)}.
-   * <p>
-   * Method under test: {@link VersionLoadResult#error(EntityLoadError)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#error(EntityLoadError)}
    */
   @Test
   @DisplayName("Test error(EntityLoadError)")
@@ -171,8 +178,9 @@ class VersionLoadResultDiffblueTest {
   @MethodsUnderTest({"VersionLoadResult VersionLoadResult.error(EntityLoadError)"})
   void testError() {
     // Arrange
-    EntityLoadError error = new EntityLoadError("Type", TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID,
-        "Not all who wander are lost");
+    EntityLoadError error =
+        new EntityLoadError(
+            "Type", TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID, "Not all who wander are lost");
 
     // Act
     VersionLoadResult actualErrorResult = VersionLoadResult.error(error);
@@ -185,12 +193,14 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#equals(Object)}, and {@link VersionLoadResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionLoadResult#equals(Object)}
    *   <li>{@link VersionLoadResult#hashCode()}
@@ -199,25 +209,30 @@ class VersionLoadResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionLoadResult.equals(Object)", "int VersionLoadResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionLoadResult.equals(Object)",
+    "int VersionLoadResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult buildResult = errorResult.result(new ArrayList<>()).build();
     VersionLoadResultBuilder doneResult2 = VersionLoadResult.builder().done(true);
-    EntityLoadError error2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult2 = doneResult2.error(error2);
     VersionLoadResult buildResult2 = errorResult2.result(new ArrayList<>()).build();
 
@@ -229,12 +244,14 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#equals(Object)}, and {@link VersionLoadResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionLoadResult#equals(Object)}
    *   <li>{@link VersionLoadResult#hashCode()}
@@ -243,16 +260,20 @@ class VersionLoadResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionLoadResult.equals(Object)", "int VersionLoadResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionLoadResult.equals(Object)",
+    "int VersionLoadResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult buildResult = errorResult.result(new ArrayList<>()).build();
 
@@ -264,37 +285,43 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionLoadResult.equals(Object)", "int VersionLoadResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionLoadResult.equals(Object)",
+    "int VersionLoadResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     VersionLoadResultBuilder versionLoadResultBuilder = mock(VersionLoadResultBuilder.class);
     when(versionLoadResultBuilder.done(anyBoolean())).thenReturn(VersionLoadResult.builder());
     VersionLoadResultBuilder doneResult = versionLoadResultBuilder.done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult buildResult = errorResult.result(new ArrayList<>()).build();
     VersionLoadResultBuilder doneResult2 = VersionLoadResult.builder().done(true);
-    EntityLoadError error2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult2 = doneResult2.error(error2);
     VersionLoadResult buildResult2 = errorResult2.result(new ArrayList<>()).build();
 
@@ -304,26 +331,31 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionLoadResult.equals(Object)", "int VersionLoadResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionLoadResult.equals(Object)",
+    "int VersionLoadResult.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult buildResult = errorResult.result(new ArrayList<>()).build();
 
@@ -333,26 +365,31 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test {@link VersionLoadResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionLoadResult#equals(Object)}
+   *
+   * <p>Method under test: {@link VersionLoadResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionLoadResult.equals(Object)", "int VersionLoadResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean VersionLoadResult.equals(Object)",
+    "int VersionLoadResult.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     VersionLoadResult buildResult = errorResult.result(new ArrayList<>()).build();
 
@@ -362,8 +399,9 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionLoadResult#VersionLoadResult(List, EntityLoadError, boolean)}
    *   <li>{@link VersionLoadResult#setDone(boolean)}
@@ -378,30 +416,37 @@ class VersionLoadResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionLoadResult.<init>(List, EntityLoadError, boolean)",
-      "EntityLoadError VersionLoadResult.getError()", "List VersionLoadResult.getResult()",
-      "boolean VersionLoadResult.isDone()", "void VersionLoadResult.setDone(boolean)",
-      "void VersionLoadResult.setError(EntityLoadError)", "void VersionLoadResult.setResult(List)",
-      "String VersionLoadResult.toString()"})
+  @MethodsUnderTest({
+    "void VersionLoadResult.<init>(List, EntityLoadError, boolean)",
+    "EntityLoadError VersionLoadResult.getError()",
+    "List VersionLoadResult.getResult()",
+    "boolean VersionLoadResult.isDone()",
+    "void VersionLoadResult.setDone(boolean)",
+    "void VersionLoadResult.setError(EntityLoadError)",
+    "void VersionLoadResult.setResult(List)",
+    "String VersionLoadResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ArrayList<EntityTypeLoadResult> result = new ArrayList<>();
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act
     VersionLoadResult actualVersionLoadResult = new VersionLoadResult(result, error, true);
     actualVersionLoadResult.setDone(true);
-    EntityLoadError error2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     actualVersionLoadResult.setError(error2);
     ArrayList<EntityTypeLoadResult> result2 = new ArrayList<>();
     actualVersionLoadResult.setResult(result2);
@@ -411,9 +456,11 @@ class VersionLoadResultDiffblueTest {
     boolean actualIsDoneResult = actualVersionLoadResult.isDone();
 
     // Assert
-    assertEquals("VersionLoadResult(result=[], error=EntityLoadError(type=Type, source=13814000-1dd2-11b2-8080"
-        + "-808080808080, target=13814000-1dd2-11b2-8080-808080808080, message=Not all who wander are lost),"
-        + " done=true)", actualToStringResult);
+    assertEquals(
+        "VersionLoadResult(result=[], error=EntityLoadError(type=Type, source=13814000-1dd2-11b2-8080"
+            + "-808080808080, target=13814000-1dd2-11b2-8080-808080808080, message=Not all who wander are lost),"
+            + " done=true)",
+        actualToStringResult);
     assertTrue(actualResult.isEmpty());
     assertTrue(actualIsDoneResult);
     assertSame(result2, actualResult);
@@ -422,8 +469,9 @@ class VersionLoadResultDiffblueTest {
 
   /**
    * Test VersionLoadResultBuilder {@link VersionLoadResultBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link VersionLoadResultBuilder#build()}
    *   <li>{@link VersionLoadResultBuilder#done(boolean)}
@@ -434,19 +482,24 @@ class VersionLoadResultDiffblueTest {
   @Test
   @DisplayName("Test VersionLoadResultBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionLoadResultBuilder.<init>()", "VersionLoadResult VersionLoadResultBuilder.build()",
-      "VersionLoadResultBuilder VersionLoadResultBuilder.done(boolean)",
-      "VersionLoadResultBuilder VersionLoadResultBuilder.error(EntityLoadError)",
-      "VersionLoadResultBuilder VersionLoadResultBuilder.result(List)", "String VersionLoadResultBuilder.toString()"})
+  @MethodsUnderTest({
+    "void VersionLoadResultBuilder.<init>()",
+    "VersionLoadResult VersionLoadResultBuilder.build()",
+    "VersionLoadResultBuilder VersionLoadResultBuilder.done(boolean)",
+    "VersionLoadResultBuilder VersionLoadResultBuilder.error(EntityLoadError)",
+    "VersionLoadResultBuilder VersionLoadResultBuilder.result(List)",
+    "String VersionLoadResultBuilder.toString()"
+  })
   void testVersionLoadResultBuilderBuild() {
     // Arrange
     VersionLoadResultBuilder doneResult = VersionLoadResult.builder().done(true);
-    EntityLoadError error = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError error =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     VersionLoadResultBuilder errorResult = doneResult.error(error);
     ArrayList<EntityTypeLoadResult> result = new ArrayList<>();
 

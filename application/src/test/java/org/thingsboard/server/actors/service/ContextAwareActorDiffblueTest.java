@@ -23,26 +23,26 @@ import org.thingsboard.server.actors.stats.StatsActor;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class ContextAwareActorDiffblueTest {
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
-  @Autowired
-  private ContextAwareActor contextAwareActor;
+  @Autowired private ContextAwareActor contextAwareActor;
 
   /**
    * Test {@link ContextAwareActor#doProcessFailure(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Error#Error(String)} with {@code foo}.</li>
-   *   <li>Then return Stop.</li>
+   *   <li>When {@link Error#Error(String)} with {@code foo}.
+   *   <li>Then return Stop.
    * </ul>
-   * <p>
-   * Method under test: {@link ContextAwareActor#doProcessFailure(Throwable)}
+   *
+   * <p>Method under test: {@link ContextAwareActor#doProcessFailure(Throwable)}
    */
   @Test
   @DisplayName("Test doProcessFailure(Throwable); when Error(String) with 'foo'; then return Stop")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.actors.ProcessFailureStrategy ContextAwareActor.doProcessFailure(Throwable)"})
+    "org.thingsboard.server.actors.ProcessFailureStrategy ContextAwareActor.doProcessFailure(Throwable)"
+  })
   void testDoProcessFailure_whenErrorWithFoo_thenReturnStop() {
     // Arrange, Act and Assert
     assertTrue(contextAwareActor.doProcessFailure(new Error("foo")).isStop());
@@ -50,18 +50,20 @@ class ContextAwareActorDiffblueTest {
 
   /**
    * Test {@link ContextAwareActor#doProcessFailure(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return not Stop.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return not Stop.
    * </ul>
-   * <p>
-   * Method under test: {@link ContextAwareActor#doProcessFailure(Throwable)}
+   *
+   * <p>Method under test: {@link ContextAwareActor#doProcessFailure(Throwable)}
    */
   @Test
   @DisplayName("Test doProcessFailure(Throwable); when Throwable(); then return not Stop")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.actors.ProcessFailureStrategy ContextAwareActor.doProcessFailure(Throwable)"})
+    "org.thingsboard.server.actors.ProcessFailureStrategy ContextAwareActor.doProcessFailure(Throwable)"
+  })
   void testDoProcessFailure_whenThrowable_thenReturnNotStop() {
     // Arrange, Act and Assert
     assertFalse(contextAwareActor.doProcessFailure(new Throwable()).isStop());

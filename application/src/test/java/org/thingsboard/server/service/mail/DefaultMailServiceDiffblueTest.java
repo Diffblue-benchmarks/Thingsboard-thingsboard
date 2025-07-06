@@ -34,7 +34,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 import org.thingsboard.server.common.data.ApiFeature;
@@ -48,19 +47,16 @@ import org.thingsboard.server.dao.exception.IncorrectParameterException;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultMailServiceDiffblueTest {
-  @Mock
-  private Configuration configuration;
+  @Mock private Configuration configuration;
 
-  @InjectMocks
-  private DefaultMailService defaultMailService;
+  @InjectMocks private DefaultMailService defaultMailService;
 
-  @Mock
-  private MessageSource messageSource;
+  @Mock private MessageSource messageSource;
 
   /**
    * Test {@link DefaultMailService#sendEmail(TenantId, String, String, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendEmail(TenantId, String, String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendEmail(TenantId, String, String, String)}
    */
   @Test
   @DisplayName("Test sendEmail(TenantId, String, String, String)")
@@ -68,15 +64,20 @@ class DefaultMailServiceDiffblueTest {
   @MethodsUnderTest({"void DefaultMailService.sendEmail(TenantId, String, String, String)"})
   void testSendEmail() throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendEmail(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
-            "jane.doe@example.org", "Hello from the Dreaming Spires", "Not all who wander are lost"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendEmail(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "jane.doe@example.org",
+                "Hello from the Dreaming Spires",
+                "Not all who wander are lost"));
   }
 
   /**
    * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
    */
   @Test
   @DisplayName("Test sendTestMail(JsonNode, String)")
@@ -84,16 +85,20 @@ class DefaultMailServiceDiffblueTest {
   @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
   void testSendTestMail() throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
     ArrayNode jsonConfig = mock(ArrayNode.class);
     when(jsonConfig.has(Mockito.<String>any())).thenReturn(true);
-    when(jsonConfig.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
     verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
     verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
     verify(configuration).getTemplate(eq("test.ftl"));
@@ -102,31 +107,38 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
+   *
    * <ul>
-   *   <li>Given {@link BigIntegerNode#BigIntegerNode(BigInteger)} with v is valueOf zero.</li>
+   *   <li>Given {@link BigIntegerNode#BigIntegerNode(BigInteger)} with v is valueOf zero.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
    */
   @Test
-  @DisplayName("Test sendTestMail(JsonNode, String); given BigIntegerNode(BigInteger) with v is valueOf zero")
+  @DisplayName(
+      "Test sendTestMail(JsonNode, String); given BigIntegerNode(BigInteger) with v is valueOf zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
   void testSendTestMail_givenBigIntegerNodeWithVIsValueOfZero()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ArrayNode jsonConfig = mock(ArrayNode.class);
     when(jsonConfig.has(Mockito.<String>any())).thenReturn(true);
-    when(jsonConfig.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(0L)));
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(0L)));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
     verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
     verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
     verify(configuration).getTemplate(eq("test.ftl"));
@@ -136,33 +148,40 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
-   *   <li>When {@link ArrayNode} {@link JsonNode#has(String)} return {@code false}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@code false}.
+   *   <li>When {@link ArrayNode} {@link ArrayNode#has(String)} return {@code false}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
    */
   @Test
-  @DisplayName("Test sendTestMail(JsonNode, String); given 'false'; when ArrayNode has(String) return 'false'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendTestMail(JsonNode, String); given 'false'; when ArrayNode has(String) return 'false'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
   void testSendTestMail_givenFalse_whenArrayNodeHasReturnFalse_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ArrayNode jsonConfig = mock(ArrayNode.class);
     when(jsonConfig.has(Mockito.<String>any())).thenReturn(false);
-    when(jsonConfig.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
     verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
     verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
     verify(configuration).getTemplate(eq("test.ftl"));
@@ -172,29 +191,36 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link MessageSource#getMessage(String, Object[], Locale)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
    */
   @Test
-  @DisplayName("Test sendTestMail(JsonNode, String); given StringReader(String) with 'foo'; then calls getMessage(String, Object[], Locale)")
+  @DisplayName(
+      "Test sendTestMail(JsonNode, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
-  void testSendTestMail_givenStringReaderWithFoo_thenCallsGetMessage()
+  void testSendTestMail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
     ArrayNode jsonConfig = mock(ArrayNode.class);
     when(jsonConfig.has(Mockito.<String>any())).thenReturn(true);
-    when(jsonConfig.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
     verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
     verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
     verify(configuration).getTemplate(eq("test.ftl"));
@@ -203,31 +229,37 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
    */
   @Test
-  @DisplayName("Test sendTestMail(JsonNode, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendTestMail(JsonNode, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
   void testSendTestMail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ArrayNode jsonConfig = mock(ArrayNode.class);
     when(jsonConfig.has(Mockito.<String>any())).thenReturn(true);
-    when(jsonConfig.get(Mockito.<String>any())).thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
     verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
     verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
     verify(configuration).getTemplate(eq("test.ftl"));
@@ -236,9 +268,42 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
+   * Test {@link DefaultMailService#sendTestMail(JsonNode, String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTestMail(JsonNode, String)}
+   */
+  @Test
+  @DisplayName("Test sendTestMail(JsonNode, String); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendTestMail(JsonNode, String)"})
+  void testSendTestMail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+    ArrayNode jsonConfig = mock(ArrayNode.class);
+    when(jsonConfig.has(Mockito.<String>any())).thenReturn(true);
+    when(jsonConfig.get(Mockito.<String>any()))
+        .thenReturn(new BigIntegerNode(BigInteger.valueOf(1L)));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () -> defaultMailService.sendTestMail(jsonConfig, "jane.doe@example.org"));
+    verify(jsonConfig, atLeast(1)).has(Mockito.<String>any());
+    verify(jsonConfig, atLeast(1)).get(Mockito.<String>any());
+    verify(messageSource).getMessage(eq("test.message.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendActivationEmail(String, long, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
    */
   @Test
   @DisplayName("Test sendActivationEmail(String, long, String)")
@@ -246,93 +311,139 @@ class DefaultMailServiceDiffblueTest {
   @MethodsUnderTest({"void DefaultMailService.sendActivationEmail(String, long, String)"})
   void testSendActivationEmail() throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("activation.ftl"));
     verify(messageSource).getMessage(eq("activation.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendActivationEmail(String, long, String)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
    */
   @Test
-  @DisplayName("Test sendActivationEmail(String, long, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendActivationEmail(String, long, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendActivationEmail(String, long, String)"})
   void testSendActivationEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("activation.ftl"));
     verify(messageSource).getMessage(eq("activation.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendActivationEmail(String, long, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
    */
   @Test
-  @DisplayName("Test sendActivationEmail(String, long, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendActivationEmail(String, long, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendActivationEmail(String, long, String)"})
   void testSendActivationEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("activation.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("activation.subject"), isNull(), isA(Locale.class));
   }
 
   /**
+   * Test {@link DefaultMailService#sendActivationEmail(String, long, String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendActivationEmail(String, long, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendActivationEmail(String, long, String); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendActivationEmail(String, long, String)"})
+  void testSendActivationEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendActivationEmail("Activation Link", 1L, "jane.doe@example.org"));
+    verify(messageSource).getMessage(eq("activation.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendAccountActivatedEmail(String, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
    */
   @Test
   @DisplayName("Test sendAccountActivatedEmail(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountActivatedEmail(String, String)"})
-  void testSendAccountActivatedEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+  void testSendAccountActivatedEmail()
+      throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendAccountActivatedEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("account.activated.ftl"));
     verify(messageSource).getMessage(eq("account.activated.subject"), isNull(), isA(Locale.class));
@@ -340,26 +451,31 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendAccountActivatedEmail(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
    */
   @Test
-  @DisplayName("Test sendAccountActivatedEmail(String, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendAccountActivatedEmail(String, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountActivatedEmail(String, String)"})
   void testSendAccountActivatedEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendAccountActivatedEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("account.activated.ftl"));
     verify(messageSource).getMessage(eq("account.activated.subject"), isNull(), isA(Locale.class));
@@ -367,28 +483,32 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendAccountActivatedEmail(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
    */
   @Test
-  @DisplayName("Test sendAccountActivatedEmail(String, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendAccountActivatedEmail(String, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountActivatedEmail(String, String)"})
   void testSendAccountActivatedEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendAccountActivatedEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("account.activated.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
@@ -396,103 +516,182 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
+   * Test {@link DefaultMailService#sendAccountActivatedEmail(String, String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountActivatedEmail(String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendAccountActivatedEmail(String, String); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendAccountActivatedEmail(String, String)"})
+  void testSendAccountActivatedEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () -> defaultMailService.sendAccountActivatedEmail("Login Link", "jane.doe@example.org"));
+    verify(messageSource).getMessage(eq("account.activated.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
    */
   @Test
   @DisplayName("Test sendResetPasswordEmail(String, long, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendResetPasswordEmail(String, long, String)"})
-  void testSendResetPasswordEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+  void testSendResetPasswordEmail()
+      throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendResetPasswordEmail("Password Reset Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendResetPasswordEmail(
+                "Password Reset Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("reset.password.ftl"));
     verify(messageSource).getMessage(eq("reset.password.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
    */
   @Test
-  @DisplayName("Test sendResetPasswordEmail(String, long, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendResetPasswordEmail(String, long, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendResetPasswordEmail(String, long, String)"})
   void testSendResetPasswordEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendResetPasswordEmail("Password Reset Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendResetPasswordEmail(
+                "Password Reset Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("reset.password.ftl"));
     verify(messageSource).getMessage(eq("reset.password.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
    */
   @Test
-  @DisplayName("Test sendResetPasswordEmail(String, long, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendResetPasswordEmail(String, long, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendResetPasswordEmail(String, long, String)"})
   void testSendResetPasswordEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendResetPasswordEmail("Password Reset Link", 1L, "jane.doe@example.org"));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendResetPasswordEmail(
+                "Password Reset Link", 1L, "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("reset.password.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("reset.password.subject"), isNull(), isA(Locale.class));
   }
 
   /**
+   * Test {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendResetPasswordEmail(String, long, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendResetPasswordEmail(String, long, String); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendResetPasswordEmail(String, long, String)"})
+  void testSendResetPasswordEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendResetPasswordEmail(
+                "Password Reset Link", 1L, "jane.doe@example.org"));
+    verify(messageSource).getMessage(eq("reset.password.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
    */
   @Test
   @DisplayName("Test sendPasswordWasResetEmail(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendPasswordWasResetEmail(String, String)"})
-  void testSendPasswordWasResetEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+  void testSendPasswordWasResetEmail()
+      throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendPasswordWasResetEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("password.was.reset.ftl"));
     verify(messageSource).getMessage(eq("password.was.reset.subject"), isNull(), isA(Locale.class));
@@ -500,26 +699,31 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
    */
   @Test
-  @DisplayName("Test sendPasswordWasResetEmail(String, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendPasswordWasResetEmail(String, String); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendPasswordWasResetEmail(String, String)"})
   void testSendPasswordWasResetEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendPasswordWasResetEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("password.was.reset.ftl"));
     verify(messageSource).getMessage(eq("password.was.reset.subject"), isNull(), isA(Locale.class));
@@ -527,28 +731,32 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
    */
   @Test
-  @DisplayName("Test sendPasswordWasResetEmail(String, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendPasswordWasResetEmail(String, String); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendPasswordWasResetEmail(String, String)"})
   void testSendPasswordWasResetEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
+    assertThrows(
+        ThingsboardException.class,
         () -> defaultMailService.sendPasswordWasResetEmail("Login Link", "jane.doe@example.org"));
     verify(configuration).getTemplate(eq("password.was.reset.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
@@ -556,267 +764,511 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
+   * Test {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendPasswordWasResetEmail(String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendPasswordWasResetEmail(String, String); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendPasswordWasResetEmail(String, String)"})
+  void testSendPasswordWasResetEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () -> defaultMailService.sendPasswordWasResetEmail("Login Link", "jane.doe@example.org"));
+    verify(messageSource).getMessage(eq("password.was.reset.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String,
+   * Integer)}
    */
   @Test
   @DisplayName("Test sendAccountLockoutEmail(String, String, Integer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountLockoutEmail(String, String, Integer)"})
-  void testSendAccountLockoutEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+  void testSendAccountLockoutEmail()
+      throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendAccountLockoutEmail("jane.doe@example.org", "jane.doe@example.org", 3));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendAccountLockoutEmail(
+                "jane.doe@example.org", "jane.doe@example.org", 3));
     verify(configuration).getTemplate(eq("account.lockout.ftl"));
     verify(messageSource).getMessage(eq("account.lockout.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String,
+   * Integer)}
    */
   @Test
-  @DisplayName("Test sendAccountLockoutEmail(String, String, Integer); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendAccountLockoutEmail(String, String, Integer); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountLockoutEmail(String, String, Integer)"})
   void testSendAccountLockoutEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendAccountLockoutEmail("jane.doe@example.org", "jane.doe@example.org", 3));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendAccountLockoutEmail(
+                "jane.doe@example.org", "jane.doe@example.org", 3));
     verify(configuration).getTemplate(eq("account.lockout.ftl"));
     verify(messageSource).getMessage(eq("account.lockout.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String,
+   * Integer)}
    */
   @Test
-  @DisplayName("Test sendAccountLockoutEmail(String, String, Integer); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendAccountLockoutEmail(String, String, Integer); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendAccountLockoutEmail(String, String, Integer)"})
   void testSendAccountLockoutEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendAccountLockoutEmail("jane.doe@example.org", "jane.doe@example.org", 3));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendAccountLockoutEmail(
+                "jane.doe@example.org", "jane.doe@example.org", 3));
     verify(configuration).getTemplate(eq("account.lockout.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("account.lockout.subject"), isNull(), isA(Locale.class));
   }
 
   /**
+   * Test {@link DefaultMailService#sendAccountLockoutEmail(String, String, Integer)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendAccountLockoutEmail(String, String,
+   * Integer)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendAccountLockoutEmail(String, String, Integer); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendAccountLockoutEmail(String, String, Integer)"})
+  void testSendAccountLockoutEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendAccountLockoutEmail(
+                "jane.doe@example.org", "jane.doe@example.org", 3));
+    verify(messageSource).getMessage(eq("account.lockout.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
    * Test {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String,
+   * int)}
    */
   @Test
   @DisplayName("Test sendTwoFaVerificationEmail(String, String, int)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTwoFaVerificationEmail(String, String, int)"})
-  void testSendTwoFaVerificationEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+  void testSendTwoFaVerificationEmail()
+      throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendTwoFaVerificationEmail("jane.doe@example.org", "Verification Code", 1));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendTwoFaVerificationEmail(
+                "jane.doe@example.org", "Verification Code", 1));
     verify(configuration).getTemplate(eq("2fa.verification.code.ftl"));
-    verify(messageSource).getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
+    verify(messageSource)
+        .getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>Then calls {@link Configuration#getTemplate(String)}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>Then calls {@link Configuration#getTemplate(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String,
+   * int)}
    */
   @Test
-  @DisplayName("Test sendTwoFaVerificationEmail(String, String, int); given StringReader(String) with 'foo'; then calls getTemplate(String)")
+  @DisplayName(
+      "Test sendTwoFaVerificationEmail(String, String, int); given StringReader(String) with 'foo'; then calls getTemplate(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTwoFaVerificationEmail(String, String, int)"})
   void testSendTwoFaVerificationEmail_givenStringReaderWithFoo_thenCallsGetTemplate()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendTwoFaVerificationEmail("jane.doe@example.org", "Verification Code", 1));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendTwoFaVerificationEmail(
+                "jane.doe@example.org", "Verification Code", 1));
     verify(configuration).getTemplate(eq("2fa.verification.code.ftl"));
-    verify(messageSource).getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
+    verify(messageSource)
+        .getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
   }
 
   /**
    * Test {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String,
+   * int)}
    */
   @Test
-  @DisplayName("Test sendTwoFaVerificationEmail(String, String, int); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendTwoFaVerificationEmail(String, String, int); given Template process(Object, Writer) does nothing; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultMailService.sendTwoFaVerificationEmail(String, String, int)"})
   void testSendTwoFaVerificationEmail_givenTemplateProcessDoesNothing_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendTwoFaVerificationEmail("jane.doe@example.org", "Verification Code", 1));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendTwoFaVerificationEmail(
+                "jane.doe@example.org", "Verification Code", 1));
     verify(configuration).getTemplate(eq("2fa.verification.code.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
-    verify(messageSource).getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
+    verify(messageSource)
+        .getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   * Test {@link DefaultMailService#sendTwoFaVerificationEmail(String, String, int)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link IncorrectParameterException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendTwoFaVerificationEmail(String, String,
+   * int)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
+  @DisplayName(
+      "Test sendTwoFaVerificationEmail(String, String, int); then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultMailService.sendTwoFaVerificationEmail(String, String, int)"})
+  void testSendTwoFaVerificationEmail_thenThrowIncorrectParameterException()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendTwoFaVerificationEmail(
+                "jane.doe@example.org", "Verification Code", 1));
+    verify(messageSource)
+        .getMessage(eq("2fa.verification.code.subject"), isNull(), isA(Locale.class));
+  }
+
+  /**
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail() throws IOException, NoSuchMessageException, ThingsboardException {
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail() throws NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
+  }
+
+  /**
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail2()
+      throws IOException, NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     when(configuration.getTemplate(Mockito.<String>any()))
         .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail2()
-      throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
-    // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
-        .thenReturn("Not all who wander are lost");
-    Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
-        .process(Mockito.<Object>any(), Mockito.<Writer>any());
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_DP_COUNT, 1L, 42L)));
-    verify(configuration).getTemplate(eq("state.warning.ftl"));
-    verify(template).process(isA(Object.class), isA(Writer.class));
-    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
-  }
-
-  /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
-   */
-  @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail3()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.RE_EXEC_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_DP_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <ul>
-   *   <li>Given {@code CREATED_ALARMS_COUNT}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'CREATED_ALARMS_COUNT'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail_givenCreatedAlarmsCount() throws NoSuchMessageException, ThingsboardException {
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail4()
+      throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenReturn("Not all who wander are lost");
+    Template template = mock(Template.class);
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
+        .process(Mockito.<Object>any(), Mockito.<Writer>any());
+    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
+
+    // Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.RE_EXEC_COUNT, 1L, 42L)));
+    verify(configuration).getTemplate(eq("state.warning.ftl"));
+    verify(template).process(isA(Object.class), isA(Writer.class));
+    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
+  }
+
+  /**
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail5() throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenReturn("Not all who wander are lost");
+    ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
+    when(recordState.getKey()).thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.DISABLED,
+                "jane.doe@example.org",
+                recordState));
+    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
+    verify(recordState).getKey();
+  }
+
+  /**
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <ul>
+   *   <li>Given {@code CREATED_ALARMS_COUNT}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'CREATED_ALARMS_COUNT'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail_givenCreatedAlarmsCount()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
     when(recordState.getThresholdAsString()).thenReturn("Threshold As String");
@@ -824,8 +1276,14 @@ class DefaultMailServiceDiffblueTest {
     when(recordState.getKey()).thenReturn(ApiUsageRecordKey.CREATED_ALARMS_COUNT);
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                recordState));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
     verify(recordState).getKey();
     verify(recordState).getThresholdAsString();
@@ -833,25 +1291,32 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@code EMAIL_EXEC_COUNT}.</li>
+   *   <li>Given {@code EMAIL_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'EMAIL_EXEC_COUNT'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'EMAIL_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenEmailExecCount()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
@@ -860,8 +1325,14 @@ class DefaultMailServiceDiffblueTest {
     when(recordState.getKey()).thenReturn(ApiUsageRecordKey.EMAIL_EXEC_COUNT);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                recordState));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
@@ -871,25 +1342,32 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@code JS_EXEC_COUNT}.</li>
+   *   <li>Given {@code JS_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'JS_EXEC_COUNT'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'JS_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenJsExecCount()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
@@ -898,8 +1376,14 @@ class DefaultMailServiceDiffblueTest {
     when(recordState.getKey()).thenReturn(ApiUsageRecordKey.JS_EXEC_COUNT);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                recordState));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
@@ -909,25 +1393,32 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@code SMS_EXEC_COUNT}.</li>
+   *   <li>Given {@code SMS_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'SMS_EXEC_COUNT'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'SMS_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenSmsExecCount()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
@@ -936,8 +1427,14 @@ class DefaultMailServiceDiffblueTest {
     when(recordState.getKey()).thenReturn(ApiUsageRecordKey.SMS_EXEC_COUNT);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                recordState));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
@@ -947,55 +1444,74 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.</li>
-   *   <li>When {@code ENABLED}.</li>
+   *   <li>Given {@link StringReader#StringReader(String)} with {@code foo}.
+   *   <li>When {@code ENABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given StringReader(String) with 'foo'; when 'ENABLED'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given StringReader(String) with 'foo'; when 'ENABLED'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenStringReaderWithFoo_whenEnabled()
       throws IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(new Template("Name", new StringReader("foo")));
+    when(configuration.getTemplate(Mockito.<String>any()))
+        .thenReturn(new Template("Name", new StringReader("foo")));
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@code TBEL_EXEC_COUNT}.</li>
+   *   <li>Given {@code TBEL_EXEC_COUNT}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'TBEL_EXEC_COUNT'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'TBEL_EXEC_COUNT'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenTbelExecCount()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
@@ -1004,8 +1520,14 @@ class DefaultMailServiceDiffblueTest {
     when(recordState.getKey()).thenReturn(ApiUsageRecordKey.TBEL_EXEC_COUNT);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                recordState));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
@@ -1015,534 +1537,657 @@ class DefaultMailServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.</li>
-   *   <li>When {@code ENABLED}.</li>
+   *   <li>Given {@link Template} {@link Template#process(Object, Writer)} does nothing.
+   *   <li>When {@code ENABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given Template process(Object, Writer) does nothing; when 'ENABLED'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given Template process(Object, Writer) does nothing; when 'ENABLED'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_givenTemplateProcessDoesNothing_whenEnabled()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
     doNothing().when(template).process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>Given {@code TRANSPORT_MSG_COUNT}.</li>
-   *   <li>When {@code ALARM}.</li>
+   *   <li>When {@code ALARM}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'TRANSPORT_MSG_COUNT'; when 'ALARM'")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'ALARM'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail_givenTransportMsgCount_whenAlarm()
-      throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
-    // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
-        .thenReturn("Not all who wander are lost");
-    Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
-        .process(Mockito.<Object>any(), Mockito.<Writer>any());
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
-    ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
-    when(recordState.getThresholdAsString()).thenReturn("Threshold As String");
-    when(recordState.getValueAsString()).thenReturn("42");
-    when(recordState.getKey()).thenReturn(ApiUsageRecordKey.TRANSPORT_MSG_COUNT);
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.ALARM,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
-    verify(configuration).getTemplate(eq("state.warning.ftl"));
-    verify(template).process(isA(Object.class), isA(Writer.class));
-    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
-    verify(recordState).getKey();
-    verify(recordState).getThresholdAsString();
-    verify(recordState).getValueAsString();
-  }
-
-  /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <ul>
-   *   <li>Given {@code TRANSPORT_MSG_COUNT}.</li>
-   *   <li>When {@code EMAIL}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
-   */
-  @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); given 'TRANSPORT_MSG_COUNT'; when 'EMAIL'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail_givenTransportMsgCount_whenEmail()
-      throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
-    // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
-        .thenReturn("Not all who wander are lost");
-    Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
-        .process(Mockito.<Object>any(), Mockito.<Writer>any());
-    when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
-    ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
-    when(recordState.getThresholdAsString()).thenReturn("Threshold As String");
-    when(recordState.getValueAsString()).thenReturn("42");
-    when(recordState.getKey()).thenReturn(ApiUsageRecordKey.TRANSPORT_MSG_COUNT);
-
-    // Act and Assert
-    assertThrows(ThingsboardException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.EMAIL,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
-    verify(configuration).getTemplate(eq("state.warning.ftl"));
-    verify(template).process(isA(Object.class), isA(Writer.class));
-    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
-    verify(recordState).getKey();
-    verify(recordState).getThresholdAsString();
-    verify(recordState).getValueAsString();
-  }
-
-  /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
-   * <ul>
-   *   <li>Then throw {@link FactoryBeanNotInitializedException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
-   */
-  @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); then throw FactoryBeanNotInitializedException")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
-  void testSendApiFeatureStateEmail_thenThrowFactoryBeanNotInitializedException()
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail_whenAlarm()
       throws NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
-    when(recordState.getKey()).thenThrow(new FactoryBeanNotInitializedException("api.usage.state"));
+    when(recordState.getValueAsString())
+        .thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
-    assertThrows(FactoryBeanNotInitializedException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.DISABLED,
-            "jane.doe@example.org", recordState));
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.ALARM, ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
-    verify(recordState).getKey();
+    verify(recordState).getValueAsString();
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code ALARM}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code ALARM}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'ALARM'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'ALARM'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenAlarm_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.ALARM, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.ALARM,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@link ApiUsageRecordState}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>When {@link ApiUsageRecordState}.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when ApiUsageRecordState; then throw RuntimeException")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when ApiUsageRecordState; then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenApiUsageRecordState_thenThrowRuntimeException()
       throws NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TBEL,
-        ApiUsageStateValue.WARNING, "jane.doe@example.org", mock(ApiUsageRecordState.class)));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TBEL,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                mock(ApiUsageRecordState.class)));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code DB}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code DB}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DB'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DB'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenDb_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.DB, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.DB,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code DB}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code DB}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DB'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DB'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenDb_thenCallsProcess2()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.DB, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.DB,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code DISABLED}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code DISABLED}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DISABLED'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'DISABLED'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenDisabled_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.DISABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.DISABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.disabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code EMAIL}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code EMAIL}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'EMAIL'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'EMAIL'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
+  void testSendApiFeatureStateEmail_whenEmail()
+      throws NoSuchMessageException, ThingsboardException {
+    // Arrange
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+        .thenReturn("Not all who wander are lost");
+    ApiUsageRecordState recordState = mock(ApiUsageRecordState.class);
+    when(recordState.getValueAsString())
+        .thenThrow(new IncorrectParameterException("An error occurred"));
+
+    // Act and Assert
+    assertThrows(
+        IncorrectParameterException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.EMAIL, ApiUsageStateValue.WARNING, "jane.doe@example.org", recordState));
+    verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
+    verify(recordState).getValueAsString();
+  }
+
+  /**
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
+   * <ul>
+   *   <li>When {@code EMAIL}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'EMAIL'; then calls process(Object, Writer)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenEmail_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.EMAIL, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.EMAIL,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code JS}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code JS}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'JS'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'JS'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenJs_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.JS, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.JS,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code JS}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code JS}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'JS'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'JS'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenJs_thenCallsProcess2()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.JS, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.JS,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code RE}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code RE}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'RE'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'RE'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenRe_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.RE, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.RE,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.enabled.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code RE}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code RE}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'RE'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'RE'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenRe_thenCallsProcess2()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.RE, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.RE,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code TBEL}.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>When {@code TBEL}.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'TBEL'; then throw RuntimeException")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'TBEL'; then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenTbel_thenThrowRuntimeException()
       throws NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TBEL, ApiUsageStateValue.ENABLED,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TBEL,
+                ApiUsageStateValue.ENABLED,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
   }
 
   /**
-   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}.
+   * Test {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String,
+   * ApiUsageRecordState)}.
+   *
    * <ul>
-   *   <li>When {@code WARNING}.</li>
-   *   <li>Then calls {@link Template#process(Object, Writer)}.</li>
+   *   <li>When {@code WARNING}.
+   *   <li>Then calls {@link Template#process(Object, Writer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)}
+   *
+   * <p>Method under test: {@link DefaultMailService#sendApiFeatureStateEmail(ApiFeature,
+   * ApiUsageStateValue, String, ApiUsageRecordState)}
    */
   @Test
-  @DisplayName("Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'WARNING'; then calls process(Object, Writer)")
+  @DisplayName(
+      "Test sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState); when 'WARNING'; then calls process(Object, Writer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"})
+    "void DefaultMailService.sendApiFeatureStateEmail(ApiFeature, ApiUsageStateValue, String, ApiUsageRecordState)"
+  })
   void testSendApiFeatureStateEmail_whenWarning_thenCallsProcess()
       throws TemplateException, IOException, NoSuchMessageException, ThingsboardException {
     // Arrange
-    when(messageSource.getMessage(Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
+    when(messageSource.getMessage(
+            Mockito.<String>any(), Mockito.<Object[]>any(), Mockito.<Locale>any()))
         .thenReturn("Not all who wander are lost");
     Template template = mock(Template.class);
-    doThrow(new IncorrectParameterException("An error occurred")).when(template)
+    doThrow(new IncorrectParameterException("An error occurred"))
+        .when(template)
         .process(Mockito.<Object>any(), Mockito.<Writer>any());
     when(configuration.getTemplate(Mockito.<String>any())).thenReturn(template);
 
     // Act and Assert
-    assertThrows(ThingsboardException.class,
-        () -> defaultMailService.sendApiFeatureStateEmail(ApiFeature.TRANSPORT, ApiUsageStateValue.WARNING,
-            "jane.doe@example.org",
-            new ApiUsageRecordState(ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
+    assertThrows(
+        ThingsboardException.class,
+        () ->
+            defaultMailService.sendApiFeatureStateEmail(
+                ApiFeature.TRANSPORT,
+                ApiUsageStateValue.WARNING,
+                "jane.doe@example.org",
+                new ApiUsageRecordState(
+                    ApiFeature.TRANSPORT, ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 1L, 42L)));
     verify(configuration).getTemplate(eq("state.warning.ftl"));
     verify(template).process(isA(Object.class), isA(Writer.class));
     verify(messageSource).getMessage(eq("api.usage.state"), isNull(), isA(Locale.class));
@@ -1550,8 +2195,8 @@ class DefaultMailServiceDiffblueTest {
 
   /**
    * Test {@link DefaultMailService#isConfigured(TenantId)}.
-   * <p>
-   * Method under test: {@link DefaultMailService#isConfigured(TenantId)}
+   *
+   * <p>Method under test: {@link DefaultMailService#isConfigured(TenantId)}
    */
   @Test
   @DisplayName("Test isConfigured(TenantId)")
@@ -1559,24 +2204,29 @@ class DefaultMailServiceDiffblueTest {
   @MethodsUnderTest({"boolean DefaultMailService.isConfigured(TenantId)"})
   void testIsConfigured() {
     // Arrange, Act and Assert
-    assertFalse(defaultMailService.isConfigured(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    assertFalse(
+        defaultMailService.isConfigured(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
    * Test {@link DefaultMailService#handleException(Throwable)}.
+   *
    * <ul>
-   *   <li>Then return LocalizedMessage is {@code Unable to send mail: null}.</li>
+   *   <li>Then return LocalizedMessage is {@code Unable to send mail: null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultMailService#handleException(Throwable)}
+   *
+   * <p>Method under test: {@link DefaultMailService#handleException(Throwable)}
    */
   @Test
-  @DisplayName("Test handleException(Throwable); then return LocalizedMessage is 'Unable to send mail: null'")
+  @DisplayName(
+      "Test handleException(Throwable); then return LocalizedMessage is 'Unable to send mail: null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ThingsboardException DefaultMailService.handleException(Throwable)"})
   void testHandleException_thenReturnLocalizedMessageIsUnableToSendMailNull() {
     // Arrange and Act
-    ThingsboardException actualHandleExceptionResult = defaultMailService.handleException(new Throwable());
+    ThingsboardException actualHandleExceptionResult =
+        defaultMailService.handleException(new Throwable());
 
     // Assert
     assertEquals("Unable to send mail: null", actualHandleExceptionResult.getLocalizedMessage());

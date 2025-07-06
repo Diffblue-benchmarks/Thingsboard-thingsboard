@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.id.AlarmId;
 class TbEntityActorIdDiffblueTest {
   /**
    * Test {@link TbEntityActorId#equals(Object)}, and {@link TbEntityActorId#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEntityActorId#equals(Object)}
    *   <li>{@link TbEntityActorId#hashCode()}
@@ -30,10 +32,10 @@ class TbEntityActorIdDiffblueTest {
   @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbEntityActorId tbEntityActorId = new TbEntityActorId(
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    TbEntityActorId tbEntityActorId2 = new TbEntityActorId(
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbEntityActorId tbEntityActorId =
+        new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbEntityActorId tbEntityActorId2 =
+        new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(tbEntityActorId, tbEntityActorId2);
@@ -43,12 +45,13 @@ class TbEntityActorIdDiffblueTest {
 
   /**
    * Test {@link TbEntityActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEntityActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -61,12 +64,13 @@ class TbEntityActorIdDiffblueTest {
 
   /**
    * Test {@link TbEntityActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEntityActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -79,12 +83,13 @@ class TbEntityActorIdDiffblueTest {
 
   /**
    * Test {@link TbEntityActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEntityActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -92,8 +97,8 @@ class TbEntityActorIdDiffblueTest {
   @MethodsUnderTest({"boolean TbEntityActorId.equals(Object)", "int TbEntityActorId.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbEntityActorId tbEntityActorId = new TbEntityActorId(
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbEntityActorId tbEntityActorId =
+        new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbEntityActorId, new TbEntityActorId(null));
@@ -101,11 +106,12 @@ class TbEntityActorIdDiffblueTest {
 
   /**
    * Test {@link TbEntityActorId#getEntityType()}.
+   *
    * <ul>
-   *   <li>Then return {@code ALARM}.</li>
+   *   <li>Then return {@code ALARM}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEntityActorId#getEntityType()}
+   *
+   * <p>Method under test: {@link TbEntityActorId#getEntityType()}
    */
   @Test
   @DisplayName("Test getEntityType(); then return 'ALARM'")
@@ -113,7 +119,9 @@ class TbEntityActorIdDiffblueTest {
   @MethodsUnderTest({"EntityType TbEntityActorId.getEntityType()"})
   void testGetEntityType_thenReturnAlarm() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.ALARM,
-        (new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).getEntityType());
+    assertEquals(
+        EntityType.ALARM,
+        new TbEntityActorId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .getEntityType());
   }
 }

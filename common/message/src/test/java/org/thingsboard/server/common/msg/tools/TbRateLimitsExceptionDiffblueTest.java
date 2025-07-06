@@ -11,8 +11,9 @@ import org.thingsboard.server.common.data.EntityType;
 class TbRateLimitsExceptionDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbRateLimitsException#TbRateLimitsException(String)}
    *   <li>{@link TbRateLimitsException#getEntityType()}
@@ -21,10 +22,14 @@ class TbRateLimitsExceptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbRateLimitsException.<init>(String)", "EntityType TbRateLimitsException.getEntityType()"})
+  @MethodsUnderTest({
+    "void TbRateLimitsException.<init>(String)",
+    "EntityType TbRateLimitsException.getEntityType()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbRateLimitsException actualTbRateLimitsException = new TbRateLimitsException("An error occurred");
+    TbRateLimitsException actualTbRateLimitsException =
+        new TbRateLimitsException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualTbRateLimitsException.getMessage());
@@ -35,8 +40,8 @@ class TbRateLimitsExceptionDiffblueTest {
 
   /**
    * Test {@link TbRateLimitsException#TbRateLimitsException(EntityType)}.
-   * <p>
-   * Method under test: {@link TbRateLimitsException#TbRateLimitsException(EntityType)}
+   *
+   * <p>Method under test: {@link TbRateLimitsException#TbRateLimitsException(EntityType)}
    */
   @Test
   @DisplayName("Test new TbRateLimitsException(EntityType)")
@@ -44,7 +49,8 @@ class TbRateLimitsExceptionDiffblueTest {
   @MethodsUnderTest({"void TbRateLimitsException.<init>(EntityType)"})
   void testNewTbRateLimitsException() {
     // Arrange and Act
-    TbRateLimitsException actualTbRateLimitsException = new TbRateLimitsException(EntityType.TENANT);
+    TbRateLimitsException actualTbRateLimitsException =
+        new TbRateLimitsException(EntityType.TENANT);
 
     // Assert
     assertEquals("TENANT rate limits reached!", actualTbRateLimitsException.getLocalizedMessage());

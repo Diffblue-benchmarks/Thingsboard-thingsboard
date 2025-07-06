@@ -19,16 +19,17 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {EdgeEventDataValidator.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class EdgeEventDataValidatorDiffblueTest {
-  @Autowired
-  private EdgeEventDataValidator edgeEventDataValidator;
+  @Autowired private EdgeEventDataValidator edgeEventDataValidator;
 
   /**
-   * Test {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)} with {@code TenantId}, {@code EdgeEvent}.
+   * Test {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)} with {@code
+   * TenantId}, {@code EdgeEvent}.
+   *
    * <ul>
-   *   <li>Then throw {@link DataValidationException}.</li>
+   *   <li>Then throw {@link DataValidationException}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)}
+   *
+   * <p>Method under test: {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -39,24 +40,29 @@ public class EdgeEventDataValidatorDiffblueTest {
     edgeEvent.setEdgeId(new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
-    assertThrows(DataValidationException.class,
+    assertThrows(
+        DataValidationException.class,
         () -> edgeEventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, edgeEvent));
   }
 
   /**
-   * Test {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)} with {@code TenantId}, {@code EdgeEvent}.
+   * Test {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)} with {@code
+   * TenantId}, {@code EdgeEvent}.
+   *
    * <ul>
-   *   <li>When {@link EdgeEvent#EdgeEvent()}.</li>
+   *   <li>When {@link EdgeEvent#EdgeEvent()}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)}
+   *
+   * <p>Method under test: {@link EdgeEventDataValidator#validateDataImpl(TenantId, EdgeEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void EdgeEventDataValidator.validateDataImpl(TenantId, EdgeEvent)"})
   public void testValidateDataImplWithTenantIdEdgeEvent_whenEdgeEvent() {
     // Arrange, Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> edgeEventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, new EdgeEvent()));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            edgeEventDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, new EdgeEvent()));
   }
 }

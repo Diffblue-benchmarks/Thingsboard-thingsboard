@@ -22,17 +22,21 @@ import org.thingsboard.server.gen.edge.v1.UserUpdateMsg;
 class UserMsgConstructorV1DiffblueTest {
   /**
    * Test {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}.
+   *
    * <ul>
-   *   <li>Given {@code Doe}.</li>
-   *   <li>Then return LastName is {@code Doe}.</li>
+   *   <li>Given {@code Doe}.
+   *   <li>Then return LastName is {@code Doe}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
+   *
+   * <p>Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
    */
   @Test
-  @DisplayName("Test constructUserUpdatedMsg(UpdateMsgType, User); given 'Doe'; then return LastName is 'Doe'")
+  @DisplayName(
+      "Test constructUserUpdatedMsg(UpdateMsgType, User); given 'Doe'; then return LastName is 'Doe'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"})
+  @MethodsUnderTest({
+    "UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"
+  })
   void testConstructUserUpdatedMsg_givenDoe_thenReturnLastNameIsDoe() {
     // Arrange
     UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
@@ -44,8 +48,9 @@ class UserMsgConstructorV1DiffblueTest {
     user.setId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    UserUpdateMsg actualConstructUserUpdatedMsgResult = userMsgConstructorV1
-        .constructUserUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
+    UserUpdateMsg actualConstructUserUpdatedMsgResult =
+        userMsgConstructorV1.constructUserUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
 
     // Assert
     assertEquals("Doe", actualConstructUserUpdatedMsgResult.getLastName());
@@ -66,17 +71,21 @@ class UserMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}.
+   *
    * <ul>
-   *   <li>Given {@code Jane}.</li>
-   *   <li>Then return FirstNameBytes toStringUtf8 is {@code Jane}.</li>
+   *   <li>Given {@code Jane}.
+   *   <li>Then return FirstNameBytes toStringUtf8 is {@code Jane}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
+   *
+   * <p>Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
    */
   @Test
-  @DisplayName("Test constructUserUpdatedMsg(UpdateMsgType, User); given 'Jane'; then return FirstNameBytes toStringUtf8 is 'Jane'")
+  @DisplayName(
+      "Test constructUserUpdatedMsg(UpdateMsgType, User); given 'Jane'; then return FirstNameBytes toStringUtf8 is 'Jane'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"})
+  @MethodsUnderTest({
+    "UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"
+  })
   void testConstructUserUpdatedMsg_givenJane_thenReturnFirstNameBytesToStringUtf8IsJane() {
     // Arrange
     UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
@@ -88,8 +97,9 @@ class UserMsgConstructorV1DiffblueTest {
     user.setId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    UserUpdateMsg actualConstructUserUpdatedMsgResult = userMsgConstructorV1
-        .constructUserUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
+    UserUpdateMsg actualConstructUserUpdatedMsgResult =
+        userMsgConstructorV1.constructUserUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
 
     // Assert
     ByteString firstNameBytes = actualConstructUserUpdatedMsgResult.getFirstNameBytes();
@@ -107,52 +117,22 @@ class UserMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}.
+   *
    * <ul>
-   *   <li>Then return CustomerIdLSB is {@code -7476899250389416711}.</li>
+   *   <li>Given {@code SYS_ADMIN}.
+   *   <li>Then return FirstName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
+   *
+   * <p>Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
    */
   @Test
-  @DisplayName("Test constructUserUpdatedMsg(UpdateMsgType, User); then return CustomerIdLSB is '-7476899250389416711'")
+  @DisplayName(
+      "Test constructUserUpdatedMsg(UpdateMsgType, User); given 'SYS_ADMIN'; then return FirstName is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"})
-  void testConstructUserUpdatedMsg_thenReturnCustomerIdLSBIs7476899250389416711() {
-    // Arrange
-    UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
-
-    User user = new User();
-    user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    user.setAuthority(Authority.SYS_ADMIN);
-    user.setEmail("john.smith@example.org");
-    user.setId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
-    // Act
-    UserUpdateMsg actualConstructUserUpdatedMsgResult = userMsgConstructorV1
-        .constructUserUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
-
-    // Assert
-    assertEquals(-7476899250389416711L, actualConstructUserUpdatedMsgResult.getCustomerIdLSB());
-    assertEquals(6, actualConstructUserUpdatedMsgResult.getAllFields().size());
-    assertEquals(77, actualConstructUserUpdatedMsgResult.getSerializedSize());
-    assertEquals(8669210807411032922L, actualConstructUserUpdatedMsgResult.getCustomerIdMSB());
-    assertTrue(actualConstructUserUpdatedMsgResult.hasCustomerIdLSB());
-    assertTrue(actualConstructUserUpdatedMsgResult.hasCustomerIdMSB());
-  }
-
-  /**
-   * Test {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}.
-   * <ul>
-   *   <li>Then return FirstName is empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
-   */
-  @Test
-  @DisplayName("Test constructUserUpdatedMsg(UpdateMsgType, User); then return FirstName is empty string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"})
-  void testConstructUserUpdatedMsg_thenReturnFirstNameIsEmptyString() {
+  @MethodsUnderTest({
+    "UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"
+  })
+  void testConstructUserUpdatedMsg_givenSysAdmin_thenReturnFirstNameIsEmptyString() {
     // Arrange
     UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
 
@@ -162,8 +142,9 @@ class UserMsgConstructorV1DiffblueTest {
     user.setId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    UserUpdateMsg actualConstructUserUpdatedMsgResult = userMsgConstructorV1
-        .constructUserUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
+    UserUpdateMsg actualConstructUserUpdatedMsgResult =
+        userMsgConstructorV1.constructUserUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
 
     // Assert
     assertEquals("", actualConstructUserUpdatedMsgResult.getFirstName());
@@ -179,15 +160,57 @@ class UserMsgConstructorV1DiffblueTest {
   }
 
   /**
+   * Test {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}.
+   *
+   * <ul>
+   *   <li>Then return CustomerIdLSB is {@code -7476899250389416711}.
+   * </ul>
+   *
+   * <p>Method under test: {@link UserMsgConstructorV1#constructUserUpdatedMsg(UpdateMsgType, User)}
+   */
+  @Test
+  @DisplayName(
+      "Test constructUserUpdatedMsg(UpdateMsgType, User); then return CustomerIdLSB is '-7476899250389416711'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "UserUpdateMsg UserMsgConstructorV1.constructUserUpdatedMsg(UpdateMsgType, User)"
+  })
+  void testConstructUserUpdatedMsg_thenReturnCustomerIdLSBIs7476899250389416711() {
+    // Arrange
+    UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
+
+    User user = new User();
+    user.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    user.setAuthority(Authority.SYS_ADMIN);
+    user.setEmail("john.smith@example.org");
+    user.setId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act
+    UserUpdateMsg actualConstructUserUpdatedMsgResult =
+        userMsgConstructorV1.constructUserUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, user);
+
+    // Assert
+    assertEquals(-7476899250389416711L, actualConstructUserUpdatedMsgResult.getCustomerIdLSB());
+    assertEquals(6, actualConstructUserUpdatedMsgResult.getAllFields().size());
+    assertEquals(77, actualConstructUserUpdatedMsgResult.getSerializedSize());
+    assertEquals(8669210807411032922L, actualConstructUserUpdatedMsgResult.getCustomerIdMSB());
+    assertTrue(actualConstructUserUpdatedMsgResult.hasCustomerIdLSB());
+    assertTrue(actualConstructUserUpdatedMsgResult.hasCustomerIdMSB());
+  }
+
+  /**
    * Test {@link UserMsgConstructorV1#constructUserCredentialsUpdatedMsg(UserCredentials)}.
-   * <p>
-   * Method under test: {@link UserMsgConstructorV1#constructUserCredentialsUpdatedMsg(UserCredentials)}
+   *
+   * <p>Method under test: {@link
+   * UserMsgConstructorV1#constructUserCredentialsUpdatedMsg(UserCredentials)}
    */
   @Test
   @DisplayName("Test constructUserCredentialsUpdatedMsg(UserCredentials)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "UserCredentialsUpdateMsg UserMsgConstructorV1.constructUserCredentialsUpdatedMsg(UserCredentials)"})
+    "UserCredentialsUpdateMsg UserMsgConstructorV1.constructUserCredentialsUpdatedMsg(UserCredentials)"
+  })
   void testConstructUserCredentialsUpdatedMsg() {
     // Arrange
     UserMsgConstructorV1 userMsgConstructorV1 = new UserMsgConstructorV1();
@@ -197,17 +220,19 @@ class UserMsgConstructorV1DiffblueTest {
     userCredentials.setUserId(new UserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    UserCredentialsUpdateMsg actualConstructUserCredentialsUpdatedMsgResult = userMsgConstructorV1
-        .constructUserCredentialsUpdatedMsg(userCredentials);
+    UserCredentialsUpdateMsg actualConstructUserCredentialsUpdatedMsgResult =
+        userMsgConstructorV1.constructUserCredentialsUpdatedMsg(userCredentials);
 
     // Assert
     assertEquals("", actualConstructUserCredentialsUpdatedMsgResult.getInitializationErrorString());
     assertEquals("", actualConstructUserCredentialsUpdatedMsgResult.getEntity());
     assertEquals("iloveyou", actualConstructUserCredentialsUpdatedMsgResult.getPassword());
-    assertEquals(-7476899250389416711L, actualConstructUserCredentialsUpdatedMsgResult.getUserIdLSB());
+    assertEquals(
+        -7476899250389416711L, actualConstructUserCredentialsUpdatedMsgResult.getUserIdLSB());
     assertEquals(3, actualConstructUserCredentialsUpdatedMsgResult.getAllFields().size());
     assertEquals(31, actualConstructUserCredentialsUpdatedMsgResult.getSerializedSize());
-    assertEquals(8669210807411032922L, actualConstructUserCredentialsUpdatedMsgResult.getUserIdMSB());
+    assertEquals(
+        8669210807411032922L, actualConstructUserCredentialsUpdatedMsgResult.getUserIdMSB());
     assertFalse(actualConstructUserCredentialsUpdatedMsgResult.getEnabled());
     assertTrue(actualConstructUserCredentialsUpdatedMsgResult.findInitializationErrors().isEmpty());
     assertTrue(actualConstructUserCredentialsUpdatedMsgResult.isInitialized());

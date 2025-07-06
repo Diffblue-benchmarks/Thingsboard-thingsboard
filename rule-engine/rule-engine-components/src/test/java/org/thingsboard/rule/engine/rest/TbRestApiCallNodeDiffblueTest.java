@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class TbRestApiCallNodeDiffblueTest {
   /**
    * Test new {@link TbRestApiCallNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbRestApiCallNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbRestApiCallNode}
    */
   @Test
   @DisplayName("Test new TbRestApiCallNode (default constructor)")
@@ -18,6 +18,6 @@ class TbRestApiCallNodeDiffblueTest {
   @MethodsUnderTest({"void TbRestApiCallNode.<init>()"})
   void testNewTbRestApiCallNode() {
     // Arrange, Act and Assert
-    assertNull((new TbRestApiCallNode()).httpClient);
+    assertNull(new TbRestApiCallNode().httpClient);
   }
 }

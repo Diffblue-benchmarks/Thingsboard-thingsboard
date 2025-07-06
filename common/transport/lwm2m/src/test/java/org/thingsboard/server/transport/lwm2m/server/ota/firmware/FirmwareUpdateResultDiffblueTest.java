@@ -11,12 +11,13 @@ import org.junit.jupiter.api.Test;
 class FirmwareUpdateResultDiffblueTest {
   /**
    * Test {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Initial value}.</li>
-   *   <li>Then return {@code INITIAL}.</li>
+   *   <li>When {@code Initial value}.
+   *   <li>Then return {@code INITIAL}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}
+   *
+   * <p>Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}
    */
   @Test
   @DisplayName("Test fromUpdateResultFwByType(String); when 'Initial value'; then return 'INITIAL'")
@@ -24,35 +25,42 @@ class FirmwareUpdateResultDiffblueTest {
   @MethodsUnderTest({"FirmwareUpdateResult FirmwareUpdateResult.fromUpdateResultFwByType(String)"})
   void testFromUpdateResultFwByType_whenInitialValue_thenReturnInitial() {
     // Arrange, Act and Assert
-    assertEquals(FirmwareUpdateResult.INITIAL, FirmwareUpdateResult.fromUpdateResultFwByType("Initial value"));
+    assertEquals(
+        FirmwareUpdateResult.INITIAL,
+        FirmwareUpdateResult.fromUpdateResultFwByType("Initial value"));
   }
 
   /**
    * Test {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Type}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}
+   *
+   * <p>Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByType(String)}
    */
   @Test
-  @DisplayName("Test fromUpdateResultFwByType(String); when 'Type'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test fromUpdateResultFwByType(String); when 'Type'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"FirmwareUpdateResult FirmwareUpdateResult.fromUpdateResultFwByType(String)"})
   void testFromUpdateResultFwByType_whenType_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> FirmwareUpdateResult.fromUpdateResultFwByType("Type"));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> FirmwareUpdateResult.fromUpdateResultFwByType("Type"));
   }
 
   /**
    * Test {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code UPDATE_SUCCESSFULLY}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code UPDATE_SUCCESSFULLY}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}
+   *
+   * <p>Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}
    */
   @Test
   @DisplayName("Test fromUpdateResultFwByCode(int); when one; then return 'UPDATE_SUCCESSFULLY'")
@@ -60,17 +68,19 @@ class FirmwareUpdateResultDiffblueTest {
   @MethodsUnderTest({"FirmwareUpdateResult FirmwareUpdateResult.fromUpdateResultFwByCode(int)"})
   void testFromUpdateResultFwByCode_whenOne_thenReturnUpdateSuccessfully() {
     // Arrange, Act and Assert
-    assertEquals(FirmwareUpdateResult.UPDATE_SUCCESSFULLY, FirmwareUpdateResult.fromUpdateResultFwByCode(1));
+    assertEquals(
+        FirmwareUpdateResult.UPDATE_SUCCESSFULLY, FirmwareUpdateResult.fromUpdateResultFwByCode(1));
   }
 
   /**
    * Test {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}.
+   *
    * <ul>
-   *   <li>When ten.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When ten.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}
+   *
+   * <p>Method under test: {@link FirmwareUpdateResult#fromUpdateResultFwByCode(int)}
    */
   @Test
   @DisplayName("Test fromUpdateResultFwByCode(int); when ten; then throw IllegalArgumentException")
@@ -78,13 +88,15 @@ class FirmwareUpdateResultDiffblueTest {
   @MethodsUnderTest({"FirmwareUpdateResult FirmwareUpdateResult.fromUpdateResultFwByCode(int)"})
   void testFromUpdateResultFwByCode_whenTen_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> FirmwareUpdateResult.fromUpdateResultFwByCode(10));
+    assertThrows(
+        IllegalArgumentException.class, () -> FirmwareUpdateResult.fromUpdateResultFwByCode(10));
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FirmwareUpdateResult#getCode()}
    *   <li>{@link FirmwareUpdateResult#getType()}
@@ -94,8 +106,11 @@ class FirmwareUpdateResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int FirmwareUpdateResult.getCode()", "String FirmwareUpdateResult.getType()",
-      "boolean FirmwareUpdateResult.isAgain()"})
+  @MethodsUnderTest({
+    "int FirmwareUpdateResult.getCode()",
+    "String FirmwareUpdateResult.getType()",
+    "boolean FirmwareUpdateResult.isAgain()"
+  })
   void testGettersAndSetters() {
     // Arrange
     FirmwareUpdateResult valueOfResult = FirmwareUpdateResult.valueOf("INITIAL");

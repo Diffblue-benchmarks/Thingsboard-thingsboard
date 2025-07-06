@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class MailSenderInternalExecutorServiceDiffblueTest {
   /**
    * Test {@link MailSenderInternalExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link MailSenderInternalExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link MailSenderInternalExecutorService#getThreadPollSize()}
    */
   @Test
   @DisplayName("Test getThreadPollSize()")
@@ -18,6 +18,6 @@ class MailSenderInternalExecutorServiceDiffblueTest {
   @MethodsUnderTest({"int MailSenderInternalExecutorService.getThreadPollSize()"})
   void testGetThreadPollSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new MailSenderInternalExecutorService()).getThreadPollSize());
+    assertEquals(0, new MailSenderInternalExecutorService().getThreadPollSize());
   }
 }

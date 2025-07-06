@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class TelemetryEntityViewDiffblueTest {
   /**
    * Test {@link TelemetryEntityView#equals(Object)}, and {@link TelemetryEntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TelemetryEntityView#equals(Object)}
    *   <li>{@link TelemetryEntityView#hashCode()}
@@ -28,7 +30,10 @@ class TelemetryEntityViewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TelemetryEntityView telemetryEntityView = new TelemetryEntityView();
@@ -42,12 +47,14 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}, and {@link TelemetryEntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TelemetryEntityView#equals(Object)}
    *   <li>{@link TelemetryEntityView#hashCode()}
@@ -56,13 +63,18 @@ class TelemetryEntityViewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ArrayList<String> timeseries = new ArrayList<>();
-    TelemetryEntityView telemetryEntityView = new TelemetryEntityView(timeseries, new AttributesEntityView());
+    TelemetryEntityView telemetryEntityView =
+        new TelemetryEntityView(timeseries, new AttributesEntityView());
     ArrayList<String> timeseries2 = new ArrayList<>();
-    TelemetryEntityView telemetryEntityView2 = new TelemetryEntityView(timeseries2, new AttributesEntityView());
+    TelemetryEntityView telemetryEntityView2 =
+        new TelemetryEntityView(timeseries2, new AttributesEntityView());
 
     // Act and Assert
     assertEquals(telemetryEntityView, telemetryEntityView2);
@@ -72,12 +84,14 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}, and {@link TelemetryEntityView#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TelemetryEntityView#equals(Object)}
    *   <li>{@link TelemetryEntityView#hashCode()}
@@ -86,7 +100,10 @@ class TelemetryEntityViewDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TelemetryEntityView telemetryEntityView = new TelemetryEntityView();
@@ -99,21 +116,26 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<String> timeseries = new ArrayList<>();
-    TelemetryEntityView telemetryEntityView = new TelemetryEntityView(timeseries, new AttributesEntityView());
+    TelemetryEntityView telemetryEntityView =
+        new TelemetryEntityView(timeseries, new AttributesEntityView());
 
     // Act and Assert
     assertNotEquals(telemetryEntityView, new TelemetryEntityView());
@@ -121,39 +143,48 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TelemetryEntityView telemetryEntityView = new TelemetryEntityView();
     ArrayList<String> timeseries = new ArrayList<>();
 
     // Act and Assert
-    assertNotEquals(telemetryEntityView, new TelemetryEntityView(timeseries, new AttributesEntityView()));
+    assertNotEquals(
+        telemetryEntityView, new TelemetryEntityView(timeseries, new AttributesEntityView()));
   }
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TelemetryEntityView telemetryEntityView = new TelemetryEntityView();
@@ -165,17 +196,21 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TelemetryEntityView telemetryEntityView = new TelemetryEntityView();
@@ -189,17 +224,21 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryEntityView(), null);
@@ -207,17 +246,21 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#equals(Object)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TelemetryEntityView.equals(Object)", "int TelemetryEntityView.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TelemetryEntityView.equals(Object)",
+    "int TelemetryEntityView.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TelemetryEntityView(), "Different type to TelemetryEntityView");
@@ -225,8 +268,9 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TelemetryEntityView#TelemetryEntityView()}
    *   <li>{@link TelemetryEntityView#setAttributes(AttributesEntityView)}
@@ -239,9 +283,14 @@ class TelemetryEntityViewDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TelemetryEntityView.<init>()", "AttributesEntityView TelemetryEntityView.getAttributes()",
-      "List TelemetryEntityView.getTimeseries()", "void TelemetryEntityView.setAttributes(AttributesEntityView)",
-      "void TelemetryEntityView.setTimeseries(List)", "String TelemetryEntityView.toString()"})
+  @MethodsUnderTest({
+    "void TelemetryEntityView.<init>()",
+    "AttributesEntityView TelemetryEntityView.getAttributes()",
+    "List TelemetryEntityView.getTimeseries()",
+    "void TelemetryEntityView.setAttributes(AttributesEntityView)",
+    "void TelemetryEntityView.setTimeseries(List)",
+    "String TelemetryEntityView.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TelemetryEntityView actualTelemetryEntityView = new TelemetryEntityView();
@@ -254,7 +303,8 @@ class TelemetryEntityViewDiffblueTest {
     List<String> actualTimeseries = actualTelemetryEntityView.getTimeseries();
 
     // Assert
-    assertEquals("TelemetryEntityView(timeseries=[], attributes=AttributesEntityView(cs=[], ss=[], sh=[]))",
+    assertEquals(
+        "TelemetryEntityView(timeseries=[], attributes=AttributesEntityView(cs=[], ss=[], sh=[]))",
         actualToStringResult);
     assertTrue(actualTimeseries.isEmpty());
     assertSame(timeseries, actualTimeseries);
@@ -263,8 +313,8 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#TelemetryEntityView(TelemetryEntityView)}.
-   * <p>
-   * Method under test: {@link TelemetryEntityView#TelemetryEntityView(TelemetryEntityView)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#TelemetryEntityView(TelemetryEntityView)}
    */
   @Test
   @DisplayName("Test new TelemetryEntityView(TelemetryEntityView)")
@@ -281,15 +331,18 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#TelemetryEntityView(List,
+   * AttributesEntityView)}
    */
   @Test
-  @DisplayName("Test new TelemetryEntityView(List, AttributesEntityView); given '42'; when ArrayList() add '42'")
+  @DisplayName(
+      "Test new TelemetryEntityView(List, AttributesEntityView); given '42'; when ArrayList() add '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TelemetryEntityView.<init>(List, AttributesEntityView)"})
   void testNewTelemetryEntityView_given42_whenArrayListAdd42() {
@@ -309,15 +362,18 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}.
+   *
    * <ul>
-   *   <li>Given {@code foo}.</li>
-   *   <li>Then return Timeseries is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>Then return Timeseries is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#TelemetryEntityView(List,
+   * AttributesEntityView)}
    */
   @Test
-  @DisplayName("Test new TelemetryEntityView(List, AttributesEntityView); given 'foo'; then return Timeseries is ArrayList()")
+  @DisplayName(
+      "Test new TelemetryEntityView(List, AttributesEntityView); given 'foo'; then return Timeseries is ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TelemetryEntityView.<init>(List, AttributesEntityView)"})
   void testNewTelemetryEntityView_givenFoo_thenReturnTimeseriesIsArrayList() {
@@ -336,15 +392,18 @@ class TelemetryEntityViewDiffblueTest {
 
   /**
    * Test {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Timeseries Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return Timeseries Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link TelemetryEntityView#TelemetryEntityView(List, AttributesEntityView)}
+   *
+   * <p>Method under test: {@link TelemetryEntityView#TelemetryEntityView(List,
+   * AttributesEntityView)}
    */
   @Test
-  @DisplayName("Test new TelemetryEntityView(List, AttributesEntityView); when ArrayList(); then return Timeseries Empty")
+  @DisplayName(
+      "Test new TelemetryEntityView(List, AttributesEntityView); when ArrayList(); then return Timeseries Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TelemetryEntityView.<init>(List, AttributesEntityView)"})
   void testNewTelemetryEntityView_whenArrayList_thenReturnTimeseriesEmpty() {

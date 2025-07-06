@@ -11,13 +11,16 @@ import org.junit.jupiter.api.Test;
 
 class DateTimeFormatOptionsDiffblueTest {
   /**
-   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link DateTimeFormatOptions#hashCode()}.
+   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link
+   * DateTimeFormatOptions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#equals(Object)}
    *   <li>{@link DateTimeFormatOptions#hashCode()}
@@ -26,7 +29,10 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -39,13 +45,16 @@ class DateTimeFormatOptionsDiffblueTest {
   }
 
   /**
-   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link DateTimeFormatOptions#hashCode()}.
+   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link
+   * DateTimeFormatOptions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#equals(Object)}
    *   <li>{@link DateTimeFormatOptions#hashCode()}
@@ -54,7 +63,10 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -68,13 +80,16 @@ class DateTimeFormatOptionsDiffblueTest {
   }
 
   /**
-   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link DateTimeFormatOptions#hashCode()}.
+   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link
+   * DateTimeFormatOptions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#equals(Object)}
    *   <li>{@link DateTimeFormatOptions#hashCode()}
@@ -83,7 +98,10 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -99,13 +117,16 @@ class DateTimeFormatOptionsDiffblueTest {
   }
 
   /**
-   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link DateTimeFormatOptions#hashCode()}.
+   * Test {@link DateTimeFormatOptions#equals(Object)}, and {@link
+   * DateTimeFormatOptions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#equals(Object)}
    *   <li>{@link DateTimeFormatOptions#hashCode()}
@@ -114,7 +135,10 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -127,20 +151,25 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions(System.getProperty("user.timezone"));
+    DateTimeFormatOptions dateTimeFormatOptions =
+        new DateTimeFormatOptions(System.getProperty("user.timezone"));
 
     // Act and Assert
     assertNotEquals(dateTimeFormatOptions, new DateTimeFormatOptions("UTC"));
@@ -148,17 +177,21 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions(null);
@@ -169,17 +202,21 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -191,17 +228,21 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DateTimeFormatOptions dateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -215,17 +256,21 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DateTimeFormatOptions("UTC"), null);
@@ -233,17 +278,21 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#equals(Object)}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DateTimeFormatOptions.equals(Object)", "int DateTimeFormatOptions.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DateTimeFormatOptions.equals(Object)",
+    "int DateTimeFormatOptions.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DateTimeFormatOptions("UTC"), "Different type to DateTimeFormatOptions");
@@ -251,8 +300,9 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#DateTimeFormatOptions()}
    *   <li>{@link DateTimeFormatOptions#setDateStyle(String)}
@@ -266,10 +316,16 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DateTimeFormatOptions.<init>()", "void DateTimeFormatOptions.<init>(String)",
-      "String DateTimeFormatOptions.getPattern()", "void DateTimeFormatOptions.setDateStyle(String)",
-      "void DateTimeFormatOptions.setPattern(String)", "void DateTimeFormatOptions.setTimeStyle(String)",
-      "void DateTimeFormatOptions.setTimeZone(String)", "String DateTimeFormatOptions.toString()"})
+  @MethodsUnderTest({
+    "void DateTimeFormatOptions.<init>()",
+    "void DateTimeFormatOptions.<init>(String)",
+    "String DateTimeFormatOptions.getPattern()",
+    "void DateTimeFormatOptions.setDateStyle(String)",
+    "void DateTimeFormatOptions.setPattern(String)",
+    "void DateTimeFormatOptions.setTimeStyle(String)",
+    "void DateTimeFormatOptions.setTimeZone(String)",
+    "String DateTimeFormatOptions.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DateTimeFormatOptions actualDateTimeFormatOptions = new DateTimeFormatOptions();
@@ -289,11 +345,13 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code UTC}.</li>
+   *   <li>When {@code UTC}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DateTimeFormatOptions#DateTimeFormatOptions(String)}
    *   <li>{@link DateTimeFormatOptions#setDateStyle(String)}
@@ -307,10 +365,16 @@ class DateTimeFormatOptionsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'UTC'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DateTimeFormatOptions.<init>()", "void DateTimeFormatOptions.<init>(String)",
-      "String DateTimeFormatOptions.getPattern()", "void DateTimeFormatOptions.setDateStyle(String)",
-      "void DateTimeFormatOptions.setPattern(String)", "void DateTimeFormatOptions.setTimeStyle(String)",
-      "void DateTimeFormatOptions.setTimeZone(String)", "String DateTimeFormatOptions.toString()"})
+  @MethodsUnderTest({
+    "void DateTimeFormatOptions.<init>()",
+    "void DateTimeFormatOptions.<init>(String)",
+    "String DateTimeFormatOptions.getPattern()",
+    "void DateTimeFormatOptions.setDateStyle(String)",
+    "void DateTimeFormatOptions.setPattern(String)",
+    "void DateTimeFormatOptions.setTimeStyle(String)",
+    "void DateTimeFormatOptions.setTimeZone(String)",
+    "String DateTimeFormatOptions.toString()"
+  })
   void testGettersAndSetters_whenUtc() {
     // Arrange and Act
     DateTimeFormatOptions actualDateTimeFormatOptions = new DateTimeFormatOptions("UTC");
@@ -330,11 +394,12 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#getTimeZone()}.
+   *
    * <ul>
-   *   <li>Then return DisplayName is {@code Coordinated Universal Time}.</li>
+   *   <li>Then return DisplayName is {@code Coordinated Universal Time}.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getTimeZone()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getTimeZone()}
    */
   @Test
   @DisplayName("Test getTimeZone(); then return DisplayName is 'Coordinated Universal Time'")
@@ -342,7 +407,7 @@ class DateTimeFormatOptionsDiffblueTest {
   @MethodsUnderTest({"TimeZone DateTimeFormatOptions.getTimeZone()"})
   void testGetTimeZone_thenReturnDisplayNameIsCoordinatedUniversalTime() {
     // Arrange and Act
-    TimeZone actualTimeZone = (new DateTimeFormatOptions("UTC")).getTimeZone();
+    TimeZone actualTimeZone = new DateTimeFormatOptions("UTC").getTimeZone();
 
     // Assert
     assertEquals("Coordinated Universal Time", actualTimeZone.getDisplayName());
@@ -352,8 +417,8 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#getDateStyle()}.
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getDateStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getDateStyle()}
    */
   @Test
   @DisplayName("Test getDateStyle()")
@@ -370,11 +435,13 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#getDateStyle()}.
+   *
    * <ul>
-   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code UTC}.</li>
+   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code
+   *       UTC}.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getDateStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getDateStyle()}
    */
   @Test
   @DisplayName("Test getDateStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC'")
@@ -382,19 +449,22 @@ class DateTimeFormatOptionsDiffblueTest {
   @MethodsUnderTest({"FormatStyle DateTimeFormatOptions.getDateStyle()"})
   void testGetDateStyle_givenDateTimeFormatOptionsWithTimeZoneIsUtc() {
     // Arrange, Act and Assert
-    assertEquals(FormatStyle.SHORT, (new DateTimeFormatOptions("UTC")).getDateStyle());
+    assertEquals(FormatStyle.SHORT, new DateTimeFormatOptions("UTC").getDateStyle());
   }
 
   /**
    * Test {@link DateTimeFormatOptions#getDateStyle()}.
+   *
    * <ul>
-   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code UTC} DateStyle is {@code not empty}.</li>
+   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code
+   *       UTC} DateStyle is {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getDateStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getDateStyle()}
    */
   @Test
-  @DisplayName("Test getDateStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC' DateStyle is 'not empty'")
+  @DisplayName(
+      "Test getDateStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC' DateStyle is 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"FormatStyle DateTimeFormatOptions.getDateStyle()"})
   void testGetDateStyle_givenDateTimeFormatOptionsWithTimeZoneIsUtcDateStyleIsNotEmpty() {
@@ -408,8 +478,8 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#getTimeStyle()}.
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
    */
   @Test
   @DisplayName("Test getTimeStyle()")
@@ -426,11 +496,13 @@ class DateTimeFormatOptionsDiffblueTest {
 
   /**
    * Test {@link DateTimeFormatOptions#getTimeStyle()}.
+   *
    * <ul>
-   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code UTC}.</li>
+   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code
+   *       UTC}.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
    */
   @Test
   @DisplayName("Test getTimeStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC'")
@@ -438,19 +510,22 @@ class DateTimeFormatOptionsDiffblueTest {
   @MethodsUnderTest({"FormatStyle DateTimeFormatOptions.getTimeStyle()"})
   void testGetTimeStyle_givenDateTimeFormatOptionsWithTimeZoneIsUtc() {
     // Arrange, Act and Assert
-    assertEquals(FormatStyle.MEDIUM, (new DateTimeFormatOptions("UTC")).getTimeStyle());
+    assertEquals(FormatStyle.MEDIUM, new DateTimeFormatOptions("UTC").getTimeStyle());
   }
 
   /**
    * Test {@link DateTimeFormatOptions#getTimeStyle()}.
+   *
    * <ul>
-   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code UTC} TimeStyle is {@code not empty}.</li>
+   *   <li>Given {@link DateTimeFormatOptions#DateTimeFormatOptions(String)} with timeZone is {@code
+   *       UTC} TimeStyle is {@code not empty}.
    * </ul>
-   * <p>
-   * Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
+   *
+   * <p>Method under test: {@link DateTimeFormatOptions#getTimeStyle()}
    */
   @Test
-  @DisplayName("Test getTimeStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC' TimeStyle is 'not empty'")
+  @DisplayName(
+      "Test getTimeStyle(); given DateTimeFormatOptions(String) with timeZone is 'UTC' TimeStyle is 'not empty'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"FormatStyle DateTimeFormatOptions.getTimeStyle()"})
   void testGetTimeStyle_givenDateTimeFormatOptionsWithTimeZoneIsUtcTimeStyleIsNotEmpty() {

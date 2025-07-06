@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class LastEventActivityStrategyDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Method under test: {@link LastEventActivityStrategy#getInstance()}
+   *
+   * <p>Method under test: {@link LastEventActivityStrategy#getInstance()}
    */
   @Test
   @DisplayName("Test getters and setters")
@@ -28,8 +28,8 @@ class LastEventActivityStrategyDiffblueTest {
 
   /**
    * Test {@link LastEventActivityStrategy#onActivity()}.
-   * <p>
-   * Method under test: {@link LastEventActivityStrategy#onActivity()}
+   *
+   * <p>Method under test: {@link LastEventActivityStrategy#onActivity()}
    */
   @Test
   @DisplayName("Test onActivity()")
@@ -42,8 +42,8 @@ class LastEventActivityStrategyDiffblueTest {
 
   /**
    * Test {@link LastEventActivityStrategy#onReportingPeriodEnd()}.
-   * <p>
-   * Method under test: {@link LastEventActivityStrategy#onReportingPeriodEnd()}
+   *
+   * <p>Method under test: {@link LastEventActivityStrategy#onReportingPeriodEnd()}
    */
   @Test
   @DisplayName("Test onReportingPeriodEnd()")

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class ReadTsKvQueryDiffblueTest {
   /**
    * Test {@link ReadTsKvQuery#getInterval()}.
-   * <p>
-   * Method under test: {@link ReadTsKvQuery#getInterval()}
+   *
+   * <p>Method under test: {@link ReadTsKvQuery#getInterval()}
    */
   @Test
   @DisplayName("Test getInterval()")
@@ -18,13 +18,13 @@ class ReadTsKvQueryDiffblueTest {
   @MethodsUnderTest({"long ReadTsKvQuery.getInterval()"})
   void testGetInterval() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new BaseReadTsKvQuery("Key", 1L, 1L)).getInterval());
+    assertEquals(0L, new BaseReadTsKvQuery("Key", 1L, 1L).getInterval());
   }
 
   /**
    * Test {@link ReadTsKvQuery#getAggregation()}.
-   * <p>
-   * Method under test: {@link ReadTsKvQuery#getAggregation()}
+   *
+   * <p>Method under test: {@link ReadTsKvQuery#getAggregation()}
    */
   @Test
   @DisplayName("Test getAggregation()")
@@ -32,6 +32,6 @@ class ReadTsKvQueryDiffblueTest {
   @MethodsUnderTest({"Aggregation ReadTsKvQuery.getAggregation()"})
   void testGetAggregation() {
     // Arrange, Act and Assert
-    assertEquals(Aggregation.AVG, (new BaseReadTsKvQuery("Key", 1L, 1L)).getAggregation());
+    assertEquals(Aggregation.AVG, new BaseReadTsKvQuery("Key", 1L, 1L).getAggregation());
   }
 }

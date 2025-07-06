@@ -11,13 +11,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class SnmpTransportContextDiffblueTest {
-  @InjectMocks
-  private SnmpTransportContext snmpTransportContext;
+  @InjectMocks private SnmpTransportContext snmpTransportContext;
 
   /**
    * Test {@link SnmpTransportContext#getSessions()}.
-   * <p>
-   * Method under test: {@link SnmpTransportContext#getSessions()}
+   *
+   * <p>Method under test: {@link SnmpTransportContext#getSessions()}
    */
   @Test
   @DisplayName("Test getSessions()")

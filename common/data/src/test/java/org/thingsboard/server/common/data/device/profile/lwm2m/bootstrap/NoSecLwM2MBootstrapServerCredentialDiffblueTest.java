@@ -13,8 +13,9 @@ import org.thingsboard.server.common.data.device.credentials.lwm2m.LwM2MSecurity
 class NoSecLwM2MBootstrapServerCredentialDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NoSecLwM2MBootstrapServerCredential}
    *   <li>{@link NoSecLwM2MBootstrapServerCredential#getSecurityMode()}
@@ -23,12 +24,16 @@ class NoSecLwM2MBootstrapServerCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NoSecLwM2MBootstrapServerCredential.<init>()",
-      "LwM2MSecurityMode NoSecLwM2MBootstrapServerCredential.getSecurityMode()"})
+  @MethodsUnderTest({
+    "void NoSecLwM2MBootstrapServerCredential.<init>()",
+    "LwM2MSecurityMode NoSecLwM2MBootstrapServerCredential.getSecurityMode()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    NoSecLwM2MBootstrapServerCredential actualNoSecLwM2MBootstrapServerCredential = new NoSecLwM2MBootstrapServerCredential();
-    LwM2MSecurityMode actualSecurityMode = actualNoSecLwM2MBootstrapServerCredential.getSecurityMode();
+    NoSecLwM2MBootstrapServerCredential actualNoSecLwM2MBootstrapServerCredential =
+        new NoSecLwM2MBootstrapServerCredential();
+    LwM2MSecurityMode actualSecurityMode =
+        actualNoSecLwM2MBootstrapServerCredential.getSecurityMode();
 
     // Assert
     assertEquals("U", actualNoSecLwM2MBootstrapServerCredential.getBinding());
@@ -36,7 +41,8 @@ class NoSecLwM2MBootstrapServerCredentialDiffblueTest {
     assertNull(actualNoSecLwM2MBootstrapServerCredential.getHost());
     assertNull(actualNoSecLwM2MBootstrapServerCredential.getServerCertificate());
     assertNull(actualNoSecLwM2MBootstrapServerCredential.getServerPublicKey());
-    assertEquals(0, actualNoSecLwM2MBootstrapServerCredential.getBootstrapServerAccountTimeout().intValue());
+    assertEquals(
+        0, actualNoSecLwM2MBootstrapServerCredential.getBootstrapServerAccountTimeout().intValue());
     assertEquals(1, actualNoSecLwM2MBootstrapServerCredential.getClientHoldOffTime().intValue());
     assertEquals(1, actualNoSecLwM2MBootstrapServerCredential.getDefaultMinPeriod().intValue());
     assertEquals(123, actualNoSecLwM2MBootstrapServerCredential.getShortServerId().intValue());

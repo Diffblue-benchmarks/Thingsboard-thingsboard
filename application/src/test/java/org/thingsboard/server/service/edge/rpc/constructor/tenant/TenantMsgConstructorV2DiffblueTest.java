@@ -17,49 +17,61 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class TenantMsgConstructorV2DiffblueTest {
   /**
    * Test {@link TenantMsgConstructorV2#constructTenantUpdateMsg(UpdateMsgType, Tenant)}.
+   *
    * <ul>
-   *   <li>Then return MsgTypeValue is one.</li>
+   *   <li>Then return MsgTypeValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantMsgConstructorV2#constructTenantUpdateMsg(UpdateMsgType, Tenant)}
+   *
+   * <p>Method under test: {@link TenantMsgConstructorV2#constructTenantUpdateMsg(UpdateMsgType,
+   * Tenant)}
    */
   @Test
-  @DisplayName("Test constructTenantUpdateMsg(UpdateMsgType, Tenant); then return MsgTypeValue is one")
+  @DisplayName(
+      "Test constructTenantUpdateMsg(UpdateMsgType, Tenant); then return MsgTypeValue is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TenantUpdateMsg TenantMsgConstructorV2.constructTenantUpdateMsg(UpdateMsgType, Tenant)"})
+  @MethodsUnderTest({
+    "TenantUpdateMsg TenantMsgConstructorV2.constructTenantUpdateMsg(UpdateMsgType, Tenant)"
+  })
   void testConstructTenantUpdateMsg_thenReturnMsgTypeValueIsOne() {
     // Arrange
     TenantMsgConstructorV2 tenantMsgConstructorV2 = new TenantMsgConstructorV2();
 
     // Act
-    TenantUpdateMsg actualConstructTenantUpdateMsgResult = tenantMsgConstructorV2
-        .constructTenantUpdateMsg(UpdateMsgType.ENTITY_UPDATED_RPC_MESSAGE, new Tenant());
+    TenantUpdateMsg actualConstructTenantUpdateMsgResult =
+        tenantMsgConstructorV2.constructTenantUpdateMsg(
+            UpdateMsgType.ENTITY_UPDATED_RPC_MESSAGE, new Tenant());
 
     // Assert
     assertEquals(1, actualConstructTenantUpdateMsgResult.getMsgTypeValue());
     assertEquals(2, actualConstructTenantUpdateMsgResult.getAllFields().size());
     assertEquals(240, actualConstructTenantUpdateMsgResult.getSerializedSize());
-    assertEquals(UpdateMsgType.ENTITY_UPDATED_RPC_MESSAGE, actualConstructTenantUpdateMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_UPDATED_RPC_MESSAGE,
+        actualConstructTenantUpdateMsgResult.getMsgType());
   }
 
   /**
-   * Test {@link TenantMsgConstructorV2#constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile, EdgeVersion)}.
-   * <p>
-   * Method under test: {@link TenantMsgConstructorV2#constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile, EdgeVersion)}
+   * Test {@link TenantMsgConstructorV2#constructTenantProfileUpdateMsg(UpdateMsgType,
+   * TenantProfile, EdgeVersion)}.
+   *
+   * <p>Method under test: {@link
+   * TenantMsgConstructorV2#constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile,
+   * EdgeVersion)}
    */
   @Test
   @DisplayName("Test constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile, EdgeVersion)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TenantProfileUpdateMsg TenantMsgConstructorV2.constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile, EdgeVersion)"})
+    "TenantProfileUpdateMsg TenantMsgConstructorV2.constructTenantProfileUpdateMsg(UpdateMsgType, TenantProfile, EdgeVersion)"
+  })
   void testConstructTenantProfileUpdateMsg() {
     // Arrange
     TenantMsgConstructorV2 tenantMsgConstructorV2 = new TenantMsgConstructorV2();
 
     // Act
-    TenantProfileUpdateMsg actualConstructTenantProfileUpdateMsgResult = tenantMsgConstructorV2
-        .constructTenantProfileUpdateMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, new TenantProfile(),
-            EdgeVersion.V_3_3_0);
+    TenantProfileUpdateMsg actualConstructTenantProfileUpdateMsgResult =
+        tenantMsgConstructorV2.constructTenantProfileUpdateMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, new TenantProfile(), EdgeVersion.V_3_3_0);
 
     // Assert
     assertEquals("", actualConstructTenantProfileUpdateMsgResult.getInitializationErrorString());
@@ -93,7 +105,9 @@ class TenantMsgConstructorV2DiffblueTest {
     assertEquals(0L, actualConstructTenantProfileUpdateMsgResult.getIdMSB());
     assertEquals(1, actualConstructTenantProfileUpdateMsgResult.getAllFields().size());
     assertEquals(2026, actualConstructTenantProfileUpdateMsgResult.getSerializedSize());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructTenantProfileUpdateMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructTenantProfileUpdateMsgResult.getMsgType());
     assertFalse(actualConstructTenantProfileUpdateMsgResult.getDefault());
     assertFalse(actualConstructTenantProfileUpdateMsgResult.getIsolatedRuleChain());
     assertFalse(actualConstructTenantProfileUpdateMsgResult.hasDescription());

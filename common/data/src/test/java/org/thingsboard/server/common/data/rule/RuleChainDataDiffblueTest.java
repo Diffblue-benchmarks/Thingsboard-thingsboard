@@ -14,12 +14,14 @@ import org.junit.jupiter.api.Test;
 class RuleChainDataDiffblueTest {
   /**
    * Test {@link RuleChainData#equals(Object)}, and {@link RuleChainData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainData#equals(Object)}
    *   <li>{@link RuleChainData#hashCode()}
@@ -47,12 +49,14 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test {@link RuleChainData#equals(Object)}, and {@link RuleChainData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainData#equals(Object)}
    *   <li>{@link RuleChainData#hashCode()}
@@ -76,12 +80,13 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test {@link RuleChainData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -106,12 +111,13 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test {@link RuleChainData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -136,12 +142,13 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test {@link RuleChainData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -159,12 +166,13 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test {@link RuleChainData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainData#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -182,8 +190,9 @@ class RuleChainDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RuleChainData}
    *   <li>{@link RuleChainData#setMetadata(List)}
@@ -196,9 +205,14 @@ class RuleChainDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleChainData.<init>()", "List RuleChainData.getMetadata()",
-      "List RuleChainData.getRuleChains()", "void RuleChainData.setMetadata(List)",
-      "void RuleChainData.setRuleChains(List)", "String RuleChainData.toString()"})
+  @MethodsUnderTest({
+    "void RuleChainData.<init>()",
+    "List RuleChainData.getMetadata()",
+    "List RuleChainData.getRuleChains()",
+    "void RuleChainData.setMetadata(List)",
+    "void RuleChainData.setRuleChains(List)",
+    "String RuleChainData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RuleChainData actualRuleChainData = new RuleChainData();

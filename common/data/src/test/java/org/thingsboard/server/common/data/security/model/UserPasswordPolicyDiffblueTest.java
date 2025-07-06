@@ -11,12 +11,14 @@ import org.junit.jupiter.api.Test;
 class UserPasswordPolicyDiffblueTest {
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}, and {@link UserPasswordPolicy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserPasswordPolicy#equals(Object)}
    *   <li>{@link UserPasswordPolicy#hashCode()}
@@ -25,7 +27,10 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -60,12 +65,14 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}, and {@link UserPasswordPolicy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserPasswordPolicy#equals(Object)}
    *   <li>{@link UserPasswordPolicy#hashCode()}
@@ -74,7 +81,10 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -109,12 +119,14 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}, and {@link UserPasswordPolicy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserPasswordPolicy#equals(Object)}
    *   <li>{@link UserPasswordPolicy#hashCode()}
@@ -123,7 +135,10 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -158,12 +173,14 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}, and {@link UserPasswordPolicy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserPasswordPolicy#equals(Object)}
    *   <li>{@link UserPasswordPolicy#hashCode()}
@@ -172,7 +189,10 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -207,12 +227,14 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}, and {@link UserPasswordPolicy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserPasswordPolicy#equals(Object)}
    *   <li>{@link UserPasswordPolicy#hashCode()}
@@ -221,7 +243,10 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -244,17 +269,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -287,17 +316,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -330,17 +363,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -373,17 +410,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -416,17 +457,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -459,17 +504,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -502,17 +551,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -545,17 +598,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -588,17 +645,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -631,17 +692,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -674,17 +739,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -717,17 +786,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -760,17 +833,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -803,17 +880,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -846,17 +927,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -889,17 +974,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -932,17 +1021,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -975,17 +1068,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -1018,17 +1115,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -1061,17 +1162,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -1104,17 +1209,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -1135,17 +1244,21 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test {@link UserPasswordPolicy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserPasswordPolicy#equals(Object)}
+   *
+   * <p>Method under test: {@link UserPasswordPolicy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean UserPasswordPolicy.equals(Object)", "int UserPasswordPolicy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean UserPasswordPolicy.equals(Object)",
+    "int UserPasswordPolicy.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserPasswordPolicy userPasswordPolicy = new UserPasswordPolicy();
@@ -1166,8 +1279,9 @@ class UserPasswordPolicyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link UserPasswordPolicy}
    *   <li>{@link UserPasswordPolicy#setAllowWhitespaces(Boolean)}
@@ -1196,23 +1310,30 @@ class UserPasswordPolicyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserPasswordPolicy.<init>()", "Boolean UserPasswordPolicy.getAllowWhitespaces()",
-      "Boolean UserPasswordPolicy.getForceUserToResetPasswordIfNotValid()",
-      "Integer UserPasswordPolicy.getMaximumLength()", "Integer UserPasswordPolicy.getMinimumDigits()",
-      "Integer UserPasswordPolicy.getMinimumLength()", "Integer UserPasswordPolicy.getMinimumLowercaseLetters()",
-      "Integer UserPasswordPolicy.getMinimumSpecialCharacters()",
-      "Integer UserPasswordPolicy.getMinimumUppercaseLetters()",
-      "Integer UserPasswordPolicy.getPasswordExpirationPeriodDays()",
-      "Integer UserPasswordPolicy.getPasswordReuseFrequencyDays()",
-      "void UserPasswordPolicy.setAllowWhitespaces(Boolean)",
-      "void UserPasswordPolicy.setForceUserToResetPasswordIfNotValid(Boolean)",
-      "void UserPasswordPolicy.setMaximumLength(Integer)", "void UserPasswordPolicy.setMinimumDigits(Integer)",
-      "void UserPasswordPolicy.setMinimumLength(Integer)",
-      "void UserPasswordPolicy.setMinimumLowercaseLetters(Integer)",
-      "void UserPasswordPolicy.setMinimumSpecialCharacters(Integer)",
-      "void UserPasswordPolicy.setMinimumUppercaseLetters(Integer)",
-      "void UserPasswordPolicy.setPasswordExpirationPeriodDays(Integer)",
-      "void UserPasswordPolicy.setPasswordReuseFrequencyDays(Integer)", "String UserPasswordPolicy.toString()"})
+  @MethodsUnderTest({
+    "void UserPasswordPolicy.<init>()",
+    "Boolean UserPasswordPolicy.getAllowWhitespaces()",
+    "Boolean UserPasswordPolicy.getForceUserToResetPasswordIfNotValid()",
+    "Integer UserPasswordPolicy.getMaximumLength()",
+    "Integer UserPasswordPolicy.getMinimumDigits()",
+    "Integer UserPasswordPolicy.getMinimumLength()",
+    "Integer UserPasswordPolicy.getMinimumLowercaseLetters()",
+    "Integer UserPasswordPolicy.getMinimumSpecialCharacters()",
+    "Integer UserPasswordPolicy.getMinimumUppercaseLetters()",
+    "Integer UserPasswordPolicy.getPasswordExpirationPeriodDays()",
+    "Integer UserPasswordPolicy.getPasswordReuseFrequencyDays()",
+    "void UserPasswordPolicy.setAllowWhitespaces(Boolean)",
+    "void UserPasswordPolicy.setForceUserToResetPasswordIfNotValid(Boolean)",
+    "void UserPasswordPolicy.setMaximumLength(Integer)",
+    "void UserPasswordPolicy.setMinimumDigits(Integer)",
+    "void UserPasswordPolicy.setMinimumLength(Integer)",
+    "void UserPasswordPolicy.setMinimumLowercaseLetters(Integer)",
+    "void UserPasswordPolicy.setMinimumSpecialCharacters(Integer)",
+    "void UserPasswordPolicy.setMinimumUppercaseLetters(Integer)",
+    "void UserPasswordPolicy.setPasswordExpirationPeriodDays(Integer)",
+    "void UserPasswordPolicy.setPasswordReuseFrequencyDays(Integer)",
+    "String UserPasswordPolicy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     UserPasswordPolicy actualUserPasswordPolicy = new UserPasswordPolicy();
@@ -1228,15 +1349,18 @@ class UserPasswordPolicyDiffblueTest {
     actualUserPasswordPolicy.setPasswordReuseFrequencyDays(1);
     String actualToStringResult = actualUserPasswordPolicy.toString();
     Boolean actualAllowWhitespaces = actualUserPasswordPolicy.getAllowWhitespaces();
-    Boolean actualForceUserToResetPasswordIfNotValid = actualUserPasswordPolicy.getForceUserToResetPasswordIfNotValid();
+    Boolean actualForceUserToResetPasswordIfNotValid =
+        actualUserPasswordPolicy.getForceUserToResetPasswordIfNotValid();
     Integer actualMaximumLength = actualUserPasswordPolicy.getMaximumLength();
     Integer actualMinimumDigits = actualUserPasswordPolicy.getMinimumDigits();
     Integer actualMinimumLength = actualUserPasswordPolicy.getMinimumLength();
     Integer actualMinimumLowercaseLetters = actualUserPasswordPolicy.getMinimumLowercaseLetters();
     Integer actualMinimumSpecialCharacters = actualUserPasswordPolicy.getMinimumSpecialCharacters();
     Integer actualMinimumUppercaseLetters = actualUserPasswordPolicy.getMinimumUppercaseLetters();
-    Integer actualPasswordExpirationPeriodDays = actualUserPasswordPolicy.getPasswordExpirationPeriodDays();
-    Integer actualPasswordReuseFrequencyDays = actualUserPasswordPolicy.getPasswordReuseFrequencyDays();
+    Integer actualPasswordExpirationPeriodDays =
+        actualUserPasswordPolicy.getPasswordExpirationPeriodDays();
+    Integer actualPasswordReuseFrequencyDays =
+        actualUserPasswordPolicy.getPasswordReuseFrequencyDays();
 
     // Assert
     assertEquals(

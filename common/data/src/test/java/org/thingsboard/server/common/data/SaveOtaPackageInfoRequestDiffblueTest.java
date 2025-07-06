@@ -13,13 +13,16 @@ import org.junit.jupiter.api.Test;
 
 class SaveOtaPackageInfoRequestDiffblueTest {
   /**
-   * Test {@link SaveOtaPackageInfoRequest#equals(Object)}, and {@link SaveOtaPackageInfoRequest#hashCode()}.
+   * Test {@link SaveOtaPackageInfoRequest#equals(Object)}, and {@link
+   * SaveOtaPackageInfoRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SaveOtaPackageInfoRequest#equals(Object)}
    *   <li>{@link SaveOtaPackageInfoRequest#hashCode()}
@@ -28,7 +31,10 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SaveOtaPackageInfoRequest saveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest();
@@ -41,13 +47,16 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   }
 
   /**
-   * Test {@link SaveOtaPackageInfoRequest#equals(Object)}, and {@link SaveOtaPackageInfoRequest#hashCode()}.
+   * Test {@link SaveOtaPackageInfoRequest#equals(Object)}, and {@link
+   * SaveOtaPackageInfoRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SaveOtaPackageInfoRequest#equals(Object)}
    *   <li>{@link SaveOtaPackageInfoRequest#hashCode()}
@@ -56,7 +65,10 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SaveOtaPackageInfoRequest saveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest();
@@ -69,20 +81,25 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    SaveOtaPackageInfoRequest saveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(new OtaPackageInfo(), true);
+    SaveOtaPackageInfoRequest saveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(new OtaPackageInfo(), true);
 
     // Act and Assert
     assertNotEquals(saveOtaPackageInfoRequest, new SaveOtaPackageInfoRequest());
@@ -90,17 +107,21 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SaveOtaPackageInfoRequest saveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest();
@@ -112,17 +133,21 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SaveOtaPackageInfoRequest(), null);
@@ -130,17 +155,21 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link SaveOtaPackageInfoRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SaveOtaPackageInfoRequest.equals(Object)", "int SaveOtaPackageInfoRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SaveOtaPackageInfoRequest.equals(Object)",
+    "int SaveOtaPackageInfoRequest.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SaveOtaPackageInfoRequest(), "Different type to SaveOtaPackageInfoRequest");
@@ -148,8 +177,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest()}
    *   <li>{@link SaveOtaPackageInfoRequest#setUsesUrl(boolean)}
@@ -160,8 +190,12 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>()", "boolean SaveOtaPackageInfoRequest.isUsesUrl()",
-      "void SaveOtaPackageInfoRequest.setUsesUrl(boolean)", "String SaveOtaPackageInfoRequest.toString()"})
+  @MethodsUnderTest({
+    "void SaveOtaPackageInfoRequest.<init>()",
+    "boolean SaveOtaPackageInfoRequest.isUsesUrl()",
+    "void SaveOtaPackageInfoRequest.setUsesUrl(boolean)",
+    "String SaveOtaPackageInfoRequest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest();
@@ -192,8 +226,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}.
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
    */
   @Test
   @DisplayName("Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)")
@@ -201,8 +236,8 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(OtaPackageInfo, boolean)"})
   void testNewSaveOtaPackageInfoRequest() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(
-        new OtaPackageInfo(new OtaPackageInfo()), true);
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(new OtaPackageInfo(new OtaPackageInfo()), true);
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -229,8 +264,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}.
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
    */
   @Test
   @DisplayName("Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)")
@@ -238,8 +274,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(OtaPackageInfo, boolean)"})
   void testNewSaveOtaPackageInfoRequest2() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(
-        new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())), true);
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(
+            new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())), true);
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -266,8 +303,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}.
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
    */
   @Test
   @DisplayName("Test new SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)")
@@ -275,8 +313,8 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(SaveOtaPackageInfoRequest)"})
   void testNewSaveOtaPackageInfoRequest3() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(
-        new SaveOtaPackageInfoRequest(new OtaPackageInfo(), true));
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(new SaveOtaPackageInfoRequest(new OtaPackageInfo(), true));
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -303,8 +341,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}.
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
    */
   @Test
   @DisplayName("Test new SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)")
@@ -312,8 +351,9 @@ class SaveOtaPackageInfoRequestDiffblueTest {
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(SaveOtaPackageInfoRequest)"})
   void testNewSaveOtaPackageInfoRequest4() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(
-        new SaveOtaPackageInfoRequest(new OtaPackageInfo(new OtaPackageInfo()), true));
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(
+            new SaveOtaPackageInfoRequest(new OtaPackageInfo(new OtaPackageInfo()), true));
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -340,15 +380,18 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return HasData.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
    */
   @Test
-  @DisplayName("Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean); given 'true'; then return HasData")
+  @DisplayName(
+      "Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean); given 'true'; then return HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(OtaPackageInfo, boolean)"})
   void testNewSaveOtaPackageInfoRequest_givenTrue_thenReturnHasData() {
@@ -357,7 +400,8 @@ class SaveOtaPackageInfoRequestDiffblueTest {
     otaPackageInfo.setHasData(true);
 
     // Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(otaPackageInfo, true);
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(otaPackageInfo, true);
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -384,20 +428,23 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}.
+   *
    * <ul>
-   *   <li>Then return not UsesUrl.</li>
+   *   <li>Then return not UsesUrl.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest)}
    */
   @Test
-  @DisplayName("Test new SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest); then return not UsesUrl")
+  @DisplayName(
+      "Test new SaveOtaPackageInfoRequest(SaveOtaPackageInfoRequest); then return not UsesUrl")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(SaveOtaPackageInfoRequest)"})
   void testNewSaveOtaPackageInfoRequest_thenReturnNotUsesUrl() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(
-        new SaveOtaPackageInfoRequest());
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(new SaveOtaPackageInfoRequest());
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);
@@ -424,21 +471,24 @@ class SaveOtaPackageInfoRequestDiffblueTest {
 
   /**
    * Test {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo()}.</li>
-   *   <li>Then return not HasData.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo()}.
+   *   <li>Then return not HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
+   *
+   * <p>Method under test: {@link
+   * SaveOtaPackageInfoRequest#SaveOtaPackageInfoRequest(OtaPackageInfo, boolean)}
    */
   @Test
-  @DisplayName("Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean); when OtaPackageInfo(); then return not HasData")
+  @DisplayName(
+      "Test new SaveOtaPackageInfoRequest(OtaPackageInfo, boolean); when OtaPackageInfo(); then return not HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SaveOtaPackageInfoRequest.<init>(OtaPackageInfo, boolean)"})
   void testNewSaveOtaPackageInfoRequest_whenOtaPackageInfo_thenReturnNotHasData() {
     // Arrange and Act
-    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest = new SaveOtaPackageInfoRequest(new OtaPackageInfo(),
-        true);
+    SaveOtaPackageInfoRequest actualSaveOtaPackageInfoRequest =
+        new SaveOtaPackageInfoRequest(new OtaPackageInfo(), true);
 
     // Assert
     assertTrue(actualSaveOtaPackageInfoRequest.getAdditionalInfo() instanceof NullNode);

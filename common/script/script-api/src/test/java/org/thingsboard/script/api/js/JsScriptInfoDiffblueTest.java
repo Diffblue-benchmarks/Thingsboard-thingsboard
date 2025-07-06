@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class JsScriptInfoDiffblueTest {
   /**
    * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptInfo#equals(Object)}
    *   <li>{@link JsScriptInfo#hashCode()}
@@ -38,12 +40,14 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptInfo#equals(Object)}
    *   <li>{@link JsScriptInfo#hashCode()}
@@ -66,12 +70,14 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptInfo#equals(Object)}
    *   <li>{@link JsScriptInfo#hashCode()}
@@ -94,12 +100,14 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}, and {@link JsScriptInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptInfo#equals(Object)}
    *   <li>{@link JsScriptInfo#hashCode()}
@@ -121,12 +129,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -142,12 +151,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -163,12 +173,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -184,12 +195,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -205,12 +217,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -223,12 +236,13 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test {@link JsScriptInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsScriptInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link JsScriptInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -241,8 +255,9 @@ class JsScriptInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsScriptInfo#JsScriptInfo(String, String)}
    *   <li>{@link JsScriptInfo#toString()}
@@ -253,8 +268,12 @@ class JsScriptInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JsScriptInfo.<init>(String, String)", "String JsScriptInfo.getFunctionName()",
-      "String JsScriptInfo.getHash()", "String JsScriptInfo.toString()"})
+  @MethodsUnderTest({
+    "void JsScriptInfo.<init>(String, String)",
+    "String JsScriptInfo.getFunctionName()",
+    "String JsScriptInfo.getHash()",
+    "String JsScriptInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     JsScriptInfo actualJsScriptInfo = new JsScriptInfo("Hash", "Function Name");

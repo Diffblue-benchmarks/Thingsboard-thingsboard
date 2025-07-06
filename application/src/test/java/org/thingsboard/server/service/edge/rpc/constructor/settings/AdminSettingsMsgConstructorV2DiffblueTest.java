@@ -15,52 +15,64 @@ import org.thingsboard.server.gen.edge.v1.AdminSettingsUpdateMsg;
 class AdminSettingsMsgConstructorV2DiffblueTest {
   /**
    * Test {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}.
-   * <p>
-   * Method under test: {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
+   *
+   * <p>Method under test: {@link
+   * AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
    */
   @Test
   @DisplayName("Test constructAdminSettingsUpdateMsg(AdminSettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"})
+    "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"
+  })
   void testConstructAdminSettingsUpdateMsg() {
     // Arrange
-    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 = new AdminSettingsMsgConstructorV2();
+    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 =
+        new AdminSettingsMsgConstructorV2();
 
     // Act
-    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult = adminSettingsMsgConstructorV2
-        .constructAdminSettingsUpdateMsg(new AdminSettings(new AdminSettings()));
+    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult =
+        adminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(
+            new AdminSettings(new AdminSettings()));
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructAdminSettingsUpdateMsgResult.getUnknownFields();
-    AdminSettingsUpdateMsg defaultInstanceForType = actualConstructAdminSettingsUpdateMsgResult
-        .getDefaultInstanceForType();
+    AdminSettingsUpdateMsg defaultInstanceForType =
+        actualConstructAdminSettingsUpdateMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}.
+   *
    * <ul>
-   *   <li>Then return EntityBytes toStringUtf8 is a string.</li>
+   *   <li>Then return EntityBytes toStringUtf8 is a string.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
+   *
+   * <p>Method under test: {@link
+   * AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
    */
   @Test
-  @DisplayName("Test constructAdminSettingsUpdateMsg(AdminSettings); then return EntityBytes toStringUtf8 is a string")
+  @DisplayName(
+      "Test constructAdminSettingsUpdateMsg(AdminSettings); then return EntityBytes toStringUtf8 is a string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"})
+    "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"
+  })
   void testConstructAdminSettingsUpdateMsg_thenReturnEntityBytesToStringUtf8IsAString() {
     // Arrange
-    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 = new AdminSettingsMsgConstructorV2();
+    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 =
+        new AdminSettingsMsgConstructorV2();
 
     // Act
-    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult = adminSettingsMsgConstructorV2
-        .constructAdminSettingsUpdateMsg(
-            new AdminSettings(new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
+    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult =
+        adminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(
+            new AdminSettings(
+                new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
 
     // Assert
     assertEquals(
@@ -73,40 +85,48 @@ class AdminSettingsMsgConstructorV2DiffblueTest {
         actualConstructAdminSettingsUpdateMsgResult.getEntity());
     assertEquals(114, actualConstructAdminSettingsUpdateMsgResult.getSerializedSize());
     UnknownFieldSet unknownFields = actualConstructAdminSettingsUpdateMsgResult.getUnknownFields();
-    AdminSettingsUpdateMsg defaultInstanceForType = actualConstructAdminSettingsUpdateMsgResult
-        .getDefaultInstanceForType();
+    AdminSettingsUpdateMsg defaultInstanceForType =
+        actualConstructAdminSettingsUpdateMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}.
+   *
    * <ul>
-   *   <li>When {@link AdminSettings#AdminSettings()}.</li>
+   *   <li>When {@link AdminSettings#AdminSettings()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
+   *
+   * <p>Method under test: {@link
+   * AdminSettingsMsgConstructorV2#constructAdminSettingsUpdateMsg(AdminSettings)}
    */
   @Test
   @DisplayName("Test constructAdminSettingsUpdateMsg(AdminSettings); when AdminSettings()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"})
+    "AdminSettingsUpdateMsg AdminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(AdminSettings)"
+  })
   void testConstructAdminSettingsUpdateMsg_whenAdminSettings() {
     // Arrange
-    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 = new AdminSettingsMsgConstructorV2();
+    AdminSettingsMsgConstructorV2 adminSettingsMsgConstructorV2 =
+        new AdminSettingsMsgConstructorV2();
 
     // Act
-    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult = adminSettingsMsgConstructorV2
-        .constructAdminSettingsUpdateMsg(new AdminSettings());
+    AdminSettingsUpdateMsg actualConstructAdminSettingsUpdateMsgResult =
+        adminSettingsMsgConstructorV2.constructAdminSettingsUpdateMsg(new AdminSettings());
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructAdminSettingsUpdateMsgResult.getUnknownFields();
-    AdminSettingsUpdateMsg defaultInstanceForType = actualConstructAdminSettingsUpdateMsgResult
-        .getDefaultInstanceForType();
+    AdminSettingsUpdateMsg defaultInstanceForType =
+        actualConstructAdminSettingsUpdateMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 }

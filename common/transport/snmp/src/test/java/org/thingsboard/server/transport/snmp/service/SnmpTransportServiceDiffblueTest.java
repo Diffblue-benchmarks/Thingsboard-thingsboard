@@ -21,60 +21,182 @@ import org.thingsboard.server.common.data.DeviceProfile;
 import org.thingsboard.server.common.data.device.data.SnmpDeviceTransportConfiguration;
 import org.thingsboard.server.common.data.device.profile.SnmpDeviceProfileTransportConfiguration;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.transport.snmp.config.SnmpCommunicationConfig;
+import org.thingsboard.server.common.data.transport.snmp.config.ToServerRpcRequestSnmpCommunicationConfig;
 import org.thingsboard.server.transport.snmp.SnmpTransportContext;
 import org.thingsboard.server.transport.snmp.session.DeviceSessionContext;
 
 @ExtendWith(MockitoExtension.class)
 class SnmpTransportServiceDiffblueTest {
-  @Mock
-  private SnmpTransportContext snmpTransportContext;
+  @Mock private SnmpTransportContext snmpTransportContext;
 
-  @InjectMocks
-  private SnmpTransportService snmpTransportService;
+  @InjectMocks private SnmpTransportService snmpTransportService;
 
   /**
    * Test {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then calls {@link SnmpTransportContext#getSnmpAuthService()}.</li>
+   *   <li>Given {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}
+   *
+   * <p>Method under test: {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}
    */
   @Test
-  @DisplayName("Test createQueryingTasks(DeviceSessionContext); given ArrayList(); then calls getSnmpAuthService()")
+  @DisplayName("Test createQueryingTasks(DeviceSessionContext); given ArrayList()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SnmpTransportService.createQueryingTasks(DeviceSessionContext)"})
-  void testCreateQueryingTasks_givenArrayList_thenCallsGetSnmpAuthService() throws Exception {
+  void testCreateQueryingTasks_givenArrayList() throws Exception {
     // Arrange
     SnmpAuthService snmpAuthService = mock(SnmpAuthService.class);
-    when(snmpAuthService.setUpSnmpTarget(Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
-        Mockito.<SnmpDeviceTransportConfiguration>any())).thenReturn(new CommunityTarget<>());
+    when(snmpAuthService.setUpSnmpTarget(
+            Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
+            Mockito.<SnmpDeviceTransportConfiguration>any()))
+        .thenReturn(new CommunityTarget<>());
     when(snmpTransportContext.getSnmpAuthService()).thenReturn(snmpAuthService);
 
-    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration = new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration =
+        new SnmpDeviceProfileTransportConfiguration();
     profileTransportConfiguration.setCommunicationConfigs(new ArrayList<>());
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Device device = new Device();
     DeviceProfile deviceProfile = new DeviceProfile();
 
     // Act
-    snmpTransportService.createQueryingTasks(new DeviceSessionContext(tenantId, device, deviceProfile, "ABC123",
-        profileTransportConfiguration, new SnmpDeviceTransportConfiguration(), snmpTransportContext));
+    snmpTransportService.createQueryingTasks(
+        new DeviceSessionContext(
+            tenantId,
+            device,
+            deviceProfile,
+            "ABC123",
+            profileTransportConfiguration,
+            new SnmpDeviceTransportConfiguration(),
+            snmpTransportContext));
 
     // Assert
     verify(snmpTransportContext).getSnmpAuthService();
-    verify(snmpAuthService).setUpSnmpTarget(isA(SnmpDeviceProfileTransportConfiguration.class),
-        isA(SnmpDeviceTransportConfiguration.class));
+    verify(snmpAuthService)
+        .setUpSnmpTarget(
+            isA(SnmpDeviceProfileTransportConfiguration.class),
+            isA(SnmpDeviceTransportConfiguration.class));
+  }
+
+  /**
+   * Test {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}.
+   *
+   * <ul>
+   *   <li>Given {@link ArrayList#ArrayList()} add {@code null}.
+   *   <li>Then calls {@link SnmpDeviceProfileTransportConfiguration#getCommunicationConfigs()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test createQueryingTasks(DeviceSessionContext); given ArrayList() add 'null'; then calls getCommunicationConfigs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpTransportService.createQueryingTasks(DeviceSessionContext)"})
+  void testCreateQueryingTasks_givenArrayListAddNull_thenCallsGetCommunicationConfigs()
+      throws Exception {
+    // Arrange
+    SnmpAuthService snmpAuthService = mock(SnmpAuthService.class);
+    when(snmpAuthService.setUpSnmpTarget(
+            Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
+            Mockito.<SnmpDeviceTransportConfiguration>any()))
+        .thenReturn(new CommunityTarget<>());
+    when(snmpTransportContext.getSnmpAuthService()).thenReturn(snmpAuthService);
+
+    ArrayList<SnmpCommunicationConfig> snmpCommunicationConfigList = new ArrayList<>();
+    snmpCommunicationConfigList.add(null);
+    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration =
+        mock(SnmpDeviceProfileTransportConfiguration.class);
+    when(profileTransportConfiguration.getCommunicationConfigs())
+        .thenReturn(snmpCommunicationConfigList);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    Device device = new Device();
+    DeviceProfile deviceProfile = new DeviceProfile();
+
+    // Act
+    snmpTransportService.createQueryingTasks(
+        new DeviceSessionContext(
+            tenantId,
+            device,
+            deviceProfile,
+            "ABC123",
+            profileTransportConfiguration,
+            new SnmpDeviceTransportConfiguration(),
+            snmpTransportContext));
+
+    // Assert
+    verify(profileTransportConfiguration).getCommunicationConfigs();
+    verify(snmpTransportContext).getSnmpAuthService();
+    verify(snmpAuthService)
+        .setUpSnmpTarget(
+            isA(SnmpDeviceProfileTransportConfiguration.class),
+            isA(SnmpDeviceTransportConfiguration.class));
+  }
+
+  /**
+   * Test {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link SnmpDeviceProfileTransportConfiguration#getCommunicationConfigs()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link SnmpTransportService#createQueryingTasks(DeviceSessionContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test createQueryingTasks(DeviceSessionContext); then calls getCommunicationConfigs()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void SnmpTransportService.createQueryingTasks(DeviceSessionContext)"})
+  void testCreateQueryingTasks_thenCallsGetCommunicationConfigs() throws Exception {
+    // Arrange
+    SnmpAuthService snmpAuthService = mock(SnmpAuthService.class);
+    when(snmpAuthService.setUpSnmpTarget(
+            Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
+            Mockito.<SnmpDeviceTransportConfiguration>any()))
+        .thenReturn(new CommunityTarget<>());
+    when(snmpTransportContext.getSnmpAuthService()).thenReturn(snmpAuthService);
+
+    ArrayList<SnmpCommunicationConfig> snmpCommunicationConfigList = new ArrayList<>();
+    snmpCommunicationConfigList.add(new ToServerRpcRequestSnmpCommunicationConfig());
+    snmpCommunicationConfigList.add(null);
+    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration =
+        mock(SnmpDeviceProfileTransportConfiguration.class);
+    when(profileTransportConfiguration.getCommunicationConfigs())
+        .thenReturn(snmpCommunicationConfigList);
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    Device device = new Device();
+    DeviceProfile deviceProfile = new DeviceProfile();
+
+    // Act
+    snmpTransportService.createQueryingTasks(
+        new DeviceSessionContext(
+            tenantId,
+            device,
+            deviceProfile,
+            "ABC123",
+            profileTransportConfiguration,
+            new SnmpDeviceTransportConfiguration(),
+            snmpTransportContext));
+
+    // Assert
+    verify(profileTransportConfiguration).getCommunicationConfigs();
+    verify(snmpTransportContext).getSnmpAuthService();
+    verify(snmpAuthService)
+        .setUpSnmpTarget(
+            isA(SnmpDeviceProfileTransportConfiguration.class),
+            isA(SnmpDeviceTransportConfiguration.class));
   }
 
   /**
    * Test {@link SnmpTransportService#cancelQueryingTasks(DeviceSessionContext)}.
+   *
    * <ul>
-   *   <li>Then calls {@link SnmpTransportContext#getSnmpAuthService()}.</li>
+   *   <li>Then calls {@link SnmpTransportContext#getSnmpAuthService()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SnmpTransportService#cancelQueryingTasks(DeviceSessionContext)}
+   *
+   * <p>Method under test: {@link SnmpTransportService#cancelQueryingTasks(DeviceSessionContext)}
    */
   @Test
   @DisplayName("Test cancelQueryingTasks(DeviceSessionContext); then calls getSnmpAuthService()")
@@ -83,21 +205,33 @@ class SnmpTransportServiceDiffblueTest {
   void testCancelQueryingTasks_thenCallsGetSnmpAuthService() throws Exception {
     // Arrange
     SnmpAuthService snmpAuthService = mock(SnmpAuthService.class);
-    when(snmpAuthService.setUpSnmpTarget(Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
-        Mockito.<SnmpDeviceTransportConfiguration>any())).thenReturn(new CommunityTarget<>());
+    when(snmpAuthService.setUpSnmpTarget(
+            Mockito.<SnmpDeviceProfileTransportConfiguration>any(),
+            Mockito.<SnmpDeviceTransportConfiguration>any()))
+        .thenReturn(new CommunityTarget<>());
     when(snmpTransportContext.getSnmpAuthService()).thenReturn(snmpAuthService);
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     Device device = new Device();
     DeviceProfile deviceProfile = new DeviceProfile();
-    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration = new SnmpDeviceProfileTransportConfiguration();
+    SnmpDeviceProfileTransportConfiguration profileTransportConfiguration =
+        new SnmpDeviceProfileTransportConfiguration();
 
     // Act
-    snmpTransportService.cancelQueryingTasks(new DeviceSessionContext(tenantId, device, deviceProfile, "ABC123",
-        profileTransportConfiguration, new SnmpDeviceTransportConfiguration(), snmpTransportContext));
+    snmpTransportService.cancelQueryingTasks(
+        new DeviceSessionContext(
+            tenantId,
+            device,
+            deviceProfile,
+            "ABC123",
+            profileTransportConfiguration,
+            new SnmpDeviceTransportConfiguration(),
+            snmpTransportContext));
 
     // Assert
     verify(snmpTransportContext).getSnmpAuthService();
-    verify(snmpAuthService).setUpSnmpTarget(isA(SnmpDeviceProfileTransportConfiguration.class),
-        isA(SnmpDeviceTransportConfiguration.class));
+    verify(snmpAuthService)
+        .setUpSnmpTarget(
+            isA(SnmpDeviceProfileTransportConfiguration.class),
+            isA(SnmpDeviceTransportConfiguration.class));
   }
 }

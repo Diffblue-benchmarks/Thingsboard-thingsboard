@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class PerimeterDiffblueTest {
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -51,12 +53,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -92,12 +96,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -133,12 +139,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -174,12 +182,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -215,12 +225,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -256,12 +268,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -297,12 +311,14 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}, and {@link Perimeter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Perimeter#equals(Object)}
    *   <li>{@link Perimeter#hashCode()}
@@ -330,12 +346,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -365,12 +382,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -400,12 +418,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -435,12 +454,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -470,12 +490,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -505,12 +526,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -540,12 +562,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -575,12 +598,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -610,12 +634,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -645,12 +670,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -680,12 +706,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -715,12 +742,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -750,12 +778,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -777,12 +806,13 @@ class PerimeterDiffblueTest {
 
   /**
    * Test {@link Perimeter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Perimeter#equals(Object)}
+   *
+   * <p>Method under test: {@link Perimeter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -804,8 +834,9 @@ class PerimeterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Perimeter}
    *   <li>{@link Perimeter#setCenterLatitude(Double)}
@@ -826,12 +857,22 @@ class PerimeterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Perimeter.<init>()", "Double Perimeter.getCenterLatitude()",
-      "Double Perimeter.getCenterLongitude()", "PerimeterType Perimeter.getPerimeterType()",
-      "String Perimeter.getPolygonsDefinition()", "Double Perimeter.getRange()", "RangeUnit Perimeter.getRangeUnit()",
-      "void Perimeter.setCenterLatitude(Double)", "void Perimeter.setCenterLongitude(Double)",
-      "void Perimeter.setPerimeterType(PerimeterType)", "void Perimeter.setPolygonsDefinition(String)",
-      "void Perimeter.setRange(Double)", "void Perimeter.setRangeUnit(RangeUnit)", "String Perimeter.toString()"})
+  @MethodsUnderTest({
+    "void Perimeter.<init>()",
+    "Double Perimeter.getCenterLatitude()",
+    "Double Perimeter.getCenterLongitude()",
+    "PerimeterType Perimeter.getPerimeterType()",
+    "String Perimeter.getPolygonsDefinition()",
+    "Double Perimeter.getRange()",
+    "RangeUnit Perimeter.getRangeUnit()",
+    "void Perimeter.setCenterLatitude(Double)",
+    "void Perimeter.setCenterLongitude(Double)",
+    "void Perimeter.setPerimeterType(PerimeterType)",
+    "void Perimeter.setPolygonsDefinition(String)",
+    "void Perimeter.setRange(Double)",
+    "void Perimeter.setRangeUnit(RangeUnit)",
+    "String Perimeter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     Perimeter actualPerimeter = new Perimeter();
@@ -850,8 +891,10 @@ class PerimeterDiffblueTest {
     RangeUnit actualRangeUnit = actualPerimeter.getRangeUnit();
 
     // Assert
-    assertEquals("Perimeter(perimeterType=CIRCLE, polygonsDefinition=Polygons Definition, centerLatitude=10.0,"
-        + " centerLongitude=10.0, range=10.0, rangeUnit=METER)", actualToStringResult);
+    assertEquals(
+        "Perimeter(perimeterType=CIRCLE, polygonsDefinition=Polygons Definition, centerLatitude=10.0,"
+            + " centerLongitude=10.0, range=10.0, rangeUnit=METER)",
+        actualToStringResult);
     assertEquals("Polygons Definition", actualPolygonsDefinition);
     assertEquals(10.0d, actualCenterLatitude.doubleValue());
     assertEquals(10.0d, actualCenterLongitude.doubleValue());

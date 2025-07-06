@@ -11,13 +11,16 @@ import org.thingsboard.rule.engine.credentials.CredentialsType;
 
 class AzureIotHubSasCredentialsDiffblueTest {
   /**
-   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link AzureIotHubSasCredentials#hashCode()}.
+   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link
+   * AzureIotHubSasCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AzureIotHubSasCredentials#equals(Object)}
    *   <li>{@link AzureIotHubSasCredentials#hashCode()}
@@ -26,7 +29,10 @@ class AzureIotHubSasCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -39,13 +45,16 @@ class AzureIotHubSasCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link AzureIotHubSasCredentials#hashCode()}.
+   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link
+   * AzureIotHubSasCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AzureIotHubSasCredentials#equals(Object)}
    *   <li>{@link AzureIotHubSasCredentials#hashCode()}
@@ -54,7 +63,10 @@ class AzureIotHubSasCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -70,13 +82,16 @@ class AzureIotHubSasCredentialsDiffblueTest {
   }
 
   /**
-   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link AzureIotHubSasCredentials#hashCode()}.
+   * Test {@link AzureIotHubSasCredentials#equals(Object)}, and {@link
+   * AzureIotHubSasCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AzureIotHubSasCredentials#equals(Object)}
    *   <li>{@link AzureIotHubSasCredentials#hashCode()}
@@ -85,7 +100,10 @@ class AzureIotHubSasCredentialsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -98,17 +116,21 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test {@link AzureIotHubSasCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AzureIotHubSasCredentials(), 1);
@@ -116,17 +138,21 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test {@link AzureIotHubSasCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -138,17 +164,21 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test {@link AzureIotHubSasCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AzureIotHubSasCredentials azureIotHubSasCredentials = new AzureIotHubSasCredentials();
@@ -162,17 +192,21 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test {@link AzureIotHubSasCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AzureIotHubSasCredentials(), null);
@@ -180,17 +214,21 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test {@link AzureIotHubSasCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link AzureIotHubSasCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AzureIotHubSasCredentials.equals(Object)", "int AzureIotHubSasCredentials.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AzureIotHubSasCredentials.equals(Object)",
+    "int AzureIotHubSasCredentials.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AzureIotHubSasCredentials(), "Different type to AzureIotHubSasCredentials");
@@ -198,8 +236,9 @@ class AzureIotHubSasCredentialsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AzureIotHubSasCredentials}
    *   <li>{@link AzureIotHubSasCredentials#setSasKey(String)}
@@ -211,9 +250,13 @@ class AzureIotHubSasCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AzureIotHubSasCredentials.<init>()", "String AzureIotHubSasCredentials.getSasKey()",
-      "CredentialsType AzureIotHubSasCredentials.getType()", "void AzureIotHubSasCredentials.setSasKey(String)",
-      "String AzureIotHubSasCredentials.toString()"})
+  @MethodsUnderTest({
+    "void AzureIotHubSasCredentials.<init>()",
+    "String AzureIotHubSasCredentials.getSasKey()",
+    "CredentialsType AzureIotHubSasCredentials.getType()",
+    "void AzureIotHubSasCredentials.setSasKey(String)",
+    "String AzureIotHubSasCredentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AzureIotHubSasCredentials actualAzureIotHubSasCredentials = new AzureIotHubSasCredentials();

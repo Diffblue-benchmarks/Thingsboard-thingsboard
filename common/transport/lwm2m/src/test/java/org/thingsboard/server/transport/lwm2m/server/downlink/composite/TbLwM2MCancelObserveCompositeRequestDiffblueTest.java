@@ -21,8 +21,8 @@ class TbLwM2MCancelObserveCompositeRequestDiffblueTest {
 
   /**
    * Test {@link TbLwM2MCancelObserveCompositeRequest#getType()}.
-   * <p>
-   * Method under test: {@link TbLwM2MCancelObserveCompositeRequest#getType()}
+   *
+   * <p>Method under test: {@link TbLwM2MCancelObserveCompositeRequest#getType()}
    */
   @Test
   @DisplayName("Test getType()")
@@ -30,19 +30,22 @@ class TbLwM2MCancelObserveCompositeRequestDiffblueTest {
   @MethodsUnderTest({"LwM2MOperationType TbLwM2MCancelObserveCompositeRequest.getType()"})
   void testGetType() {
     // Arrange
-    TbLwM2MCancelObserveCompositeRequest buildResult = TbLwM2MCancelObserveCompositeRequest.builder()
-        .timeout(10L)
-        .versionedIds(new String[]{"1.0.2"})
-        .build();
+    TbLwM2MCancelObserveCompositeRequest buildResult =
+        TbLwM2MCancelObserveCompositeRequest.builder()
+            .timeout(10L)
+            .versionedIds(new String[] {"1.0.2"})
+            .build();
 
     // Act and Assert
     assertEquals(LwM2MOperationType.OBSERVE_COMPOSITE_CANCEL, buildResult.getType());
   }
 
   /**
-   * Test TbLwM2MCancelObserveCompositeRequestBuilder {@link TbLwM2MCancelObserveCompositeRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test TbLwM2MCancelObserveCompositeRequestBuilder {@link
+   * TbLwM2MCancelObserveCompositeRequestBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MCancelObserveCompositeRequestBuilder#build()}
    *   <li>{@link TbLwM2MCancelObserveCompositeRequestBuilder#timeout(long)}
@@ -52,22 +55,25 @@ class TbLwM2MCancelObserveCompositeRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MCancelObserveCompositeRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MCancelObserveCompositeRequestBuilder.<init>()",
-      "TbLwM2MCancelObserveCompositeRequest TbLwM2MCancelObserveCompositeRequestBuilder.build()",
-      "TbLwM2MCancelObserveCompositeRequestBuilder TbLwM2MCancelObserveCompositeRequestBuilder.timeout(long)",
-      "String TbLwM2MCancelObserveCompositeRequestBuilder.toString()",
-      "TbLwM2MCancelObserveCompositeRequestBuilder TbLwM2MCancelObserveCompositeRequestBuilder.versionedIds(String[])"})
+  @MethodsUnderTest({
+    "void TbLwM2MCancelObserveCompositeRequestBuilder.<init>()",
+    "TbLwM2MCancelObserveCompositeRequest TbLwM2MCancelObserveCompositeRequestBuilder.build()",
+    "TbLwM2MCancelObserveCompositeRequestBuilder TbLwM2MCancelObserveCompositeRequestBuilder.timeout(long)",
+    "String TbLwM2MCancelObserveCompositeRequestBuilder.toString()",
+    "TbLwM2MCancelObserveCompositeRequestBuilder TbLwM2MCancelObserveCompositeRequestBuilder.versionedIds(String[])"
+  })
   void testTbLwM2MCancelObserveCompositeRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MCancelObserveCompositeRequest actualBuildResult = TbLwM2MCancelObserveCompositeRequest.builder()
-        .timeout(10L)
-        .versionedIds(new String[]{"1.0.2"})
-        .build();
+    TbLwM2MCancelObserveCompositeRequest actualBuildResult =
+        TbLwM2MCancelObserveCompositeRequest.builder()
+            .timeout(10L)
+            .versionedIds(new String[] {"1.0.2"})
+            .build();
 
     // Assert
     assertEquals(10L, actualBuildResult.getTimeout());
     assertEquals(LwM2MOperationType.OBSERVE_COMPOSITE_CANCEL, actualBuildResult.getType());
-    assertArrayEquals(new String[]{"1.0.2"}, actualBuildResult.getObjectIds());
-    assertArrayEquals(new String[]{"1.0.2"}, actualBuildResult.getVersionedIds());
+    assertArrayEquals(new String[] {"1.0.2"}, actualBuildResult.getObjectIds());
+    assertArrayEquals(new String[] {"1.0.2"}, actualBuildResult.getVersionedIds());
   }
 }

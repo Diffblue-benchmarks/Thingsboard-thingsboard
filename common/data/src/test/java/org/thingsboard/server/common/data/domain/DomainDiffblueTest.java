@@ -14,8 +14,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class DomainDiffblueTest {
   /**
    * Test {@link Domain#Domain(Domain)}.
-   * <p>
-   * Method under test: {@link Domain#Domain(Domain)}
+   *
+   * <p>Method under test: {@link Domain#Domain(Domain)}
    */
   @Test
   @DisplayName("Test new Domain(Domain)")
@@ -31,12 +31,14 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}, and {@link Domain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Domain#equals(Object)}
    *   <li>{@link Domain#hashCode()}
@@ -59,12 +61,14 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}, and {@link Domain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Domain#equals(Object)}
    *   <li>{@link Domain#hashCode()}
@@ -90,12 +94,14 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}, and {@link Domain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Domain#equals(Object)}
    *   <li>{@link Domain#hashCode()}
@@ -121,12 +127,14 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}, and {@link Domain#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Domain#equals(Object)}
    *   <li>{@link Domain#hashCode()}
@@ -148,12 +156,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -169,12 +178,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -190,12 +200,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -213,12 +224,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -235,12 +247,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -257,12 +270,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -279,12 +293,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -301,12 +316,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +341,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -349,12 +366,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -367,12 +385,13 @@ class DomainDiffblueTest {
 
   /**
    * Test {@link Domain#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Domain#equals(Object)}
+   *
+   * <p>Method under test: {@link Domain#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

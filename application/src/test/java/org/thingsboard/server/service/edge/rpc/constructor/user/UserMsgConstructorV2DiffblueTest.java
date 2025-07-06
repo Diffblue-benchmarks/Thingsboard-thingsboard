@@ -13,21 +13,23 @@ import org.thingsboard.server.gen.edge.v1.UserCredentialsUpdateMsg;
 class UserMsgConstructorV2DiffblueTest {
   /**
    * Test {@link UserMsgConstructorV2#constructUserCredentialsUpdatedMsg(UserCredentials)}.
-   * <p>
-   * Method under test: {@link UserMsgConstructorV2#constructUserCredentialsUpdatedMsg(UserCredentials)}
+   *
+   * <p>Method under test: {@link
+   * UserMsgConstructorV2#constructUserCredentialsUpdatedMsg(UserCredentials)}
    */
   @Test
   @DisplayName("Test constructUserCredentialsUpdatedMsg(UserCredentials)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "UserCredentialsUpdateMsg UserMsgConstructorV2.constructUserCredentialsUpdatedMsg(UserCredentials)"})
+    "UserCredentialsUpdateMsg UserMsgConstructorV2.constructUserCredentialsUpdatedMsg(UserCredentials)"
+  })
   void testConstructUserCredentialsUpdatedMsg() {
     // Arrange
     UserMsgConstructorV2 userMsgConstructorV2 = new UserMsgConstructorV2();
 
     // Act
-    UserCredentialsUpdateMsg actualConstructUserCredentialsUpdatedMsgResult = userMsgConstructorV2
-        .constructUserCredentialsUpdatedMsg(new UserCredentials());
+    UserCredentialsUpdateMsg actualConstructUserCredentialsUpdatedMsgResult =
+        userMsgConstructorV2.constructUserCredentialsUpdatedMsg(new UserCredentials());
 
     // Assert
     assertEquals("", actualConstructUserCredentialsUpdatedMsgResult.getInitializationErrorString());

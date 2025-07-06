@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class AbstractSslCredentialsDiffblueTest {
   /**
    * Test {@link AbstractSslCredentials#getKeyStore()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getKeyStore()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getKeyStore()}
    */
   @Test
   @DisplayName("Test getKeyStore()")
@@ -25,13 +25,13 @@ class AbstractSslCredentialsDiffblueTest {
   @MethodsUnderTest({"java.security.KeyStore AbstractSslCredentials.getKeyStore()"})
   void testGetKeyStore() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getKeyStore());
+    assertNull(new KeystoreSslCredentials().getKeyStore());
   }
 
   /**
    * Test {@link AbstractSslCredentials#getPrivateKey()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getPrivateKey()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getPrivateKey()}
    */
   @Test
   @DisplayName("Test getPrivateKey()")
@@ -39,13 +39,13 @@ class AbstractSslCredentialsDiffblueTest {
   @MethodsUnderTest({"java.security.PrivateKey AbstractSslCredentials.getPrivateKey()"})
   void testGetPrivateKey() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getPrivateKey());
+    assertNull(new KeystoreSslCredentials().getPrivateKey());
   }
 
   /**
    * Test {@link AbstractSslCredentials#getPublicKey()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getPublicKey()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getPublicKey()}
    */
   @Test
   @DisplayName("Test getPublicKey()")
@@ -53,41 +53,45 @@ class AbstractSslCredentialsDiffblueTest {
   @MethodsUnderTest({"java.security.PublicKey AbstractSslCredentials.getPublicKey()"})
   void testGetPublicKey() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getPublicKey());
+    assertNull(new KeystoreSslCredentials().getPublicKey());
   }
 
   /**
    * Test {@link AbstractSslCredentials#getCertificateChain()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getCertificateChain()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getCertificateChain()}
    */
   @Test
   @DisplayName("Test getCertificateChain()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.security.cert.X509Certificate[] AbstractSslCredentials.getCertificateChain()"})
+  @MethodsUnderTest({
+    "java.security.cert.X509Certificate[] AbstractSslCredentials.getCertificateChain()"
+  })
   void testGetCertificateChain() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getCertificateChain());
+    assertNull(new KeystoreSslCredentials().getCertificateChain());
   }
 
   /**
    * Test {@link AbstractSslCredentials#getTrustedCertificates()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getTrustedCertificates()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getTrustedCertificates()}
    */
   @Test
   @DisplayName("Test getTrustedCertificates()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.security.cert.X509Certificate[] AbstractSslCredentials.getTrustedCertificates()"})
+  @MethodsUnderTest({
+    "java.security.cert.X509Certificate[] AbstractSslCredentials.getTrustedCertificates()"
+  })
   void testGetTrustedCertificates() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getTrustedCertificates());
+    assertNull(new KeystoreSslCredentials().getTrustedCertificates());
   }
 
   /**
    * Test {@link AbstractSslCredentials#createTrustManagerFactory()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#createTrustManagerFactory()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#createTrustManagerFactory()}
    */
   @Test
   @DisplayName("Test createTrustManagerFactory()")
@@ -95,8 +99,8 @@ class AbstractSslCredentialsDiffblueTest {
   @MethodsUnderTest({"TrustManagerFactory AbstractSslCredentials.createTrustManagerFactory()"})
   void testCreateTrustManagerFactory() throws KeyStoreException, NoSuchAlgorithmException {
     // Arrange and Act
-    TrustManagerFactory actualCreateTrustManagerFactoryResult = (new KeystoreSslCredentials())
-        .createTrustManagerFactory();
+    TrustManagerFactory actualCreateTrustManagerFactoryResult =
+        new KeystoreSslCredentials().createTrustManagerFactory();
 
     // Assert
     Provider provider = actualCreateTrustManagerFactoryResult.getProvider();
@@ -106,23 +110,27 @@ class AbstractSslCredentialsDiffblueTest {
     assertEquals("PKIX", provider.get("Alg.Alias.TrustManagerFactory.X.509"));
     assertEquals("TLS", provider.get("Alg.Alias.SSLContext.SSL"));
     assertEquals("TLSv1", provider.get("Alg.Alias.SSLContext.SSLv3"));
-    assertEquals("sun.security.ssl.KeyManagerFactoryImpl$X509", provider.get("KeyManagerFactory.NewSunX509"));
+    assertEquals(
+        "sun.security.ssl.KeyManagerFactoryImpl$X509",
+        provider.get("KeyManagerFactory.NewSunX509"));
     assertEquals("sun.security.ssl.SSLContextImpl$DTLSContext", provider.get("SSLContext.DTLS"));
     assertEquals(1, actualCreateTrustManagerFactoryResult.getTrustManagers().length);
   }
 
   /**
    * Test {@link AbstractSslCredentials#createKeyManagerFactory()}.
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#createKeyManagerFactory()}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#createKeyManagerFactory()}
    */
   @Test
   @DisplayName("Test createKeyManagerFactory()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"KeyManagerFactory AbstractSslCredentials.createKeyManagerFactory()"})
-  void testCreateKeyManagerFactory() throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException {
+  void testCreateKeyManagerFactory()
+      throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException {
     // Arrange and Act
-    KeyManagerFactory actualCreateKeyManagerFactoryResult = (new KeystoreSslCredentials()).createKeyManagerFactory();
+    KeyManagerFactory actualCreateKeyManagerFactoryResult =
+        new KeystoreSslCredentials().createKeyManagerFactory();
 
     // Assert
     Provider provider = actualCreateKeyManagerFactoryResult.getProvider();
@@ -132,18 +140,22 @@ class AbstractSslCredentialsDiffblueTest {
     assertEquals("SunX509", actualCreateKeyManagerFactoryResult.getAlgorithm());
     assertEquals("TLS", provider.get("Alg.Alias.SSLContext.SSL"));
     assertEquals("TLSv1", provider.get("Alg.Alias.SSLContext.SSLv3"));
-    assertEquals("sun.security.ssl.KeyManagerFactoryImpl$X509", provider.get("KeyManagerFactory.NewSunX509"));
+    assertEquals(
+        "sun.security.ssl.KeyManagerFactoryImpl$X509",
+        provider.get("KeyManagerFactory.NewSunX509"));
     assertEquals("sun.security.ssl.SSLContextImpl$DTLSContext", provider.get("SSLContext.DTLS"));
     assertEquals(1, actualCreateKeyManagerFactoryResult.getKeyManagers().length);
   }
 
   /**
    * Test {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code ,}.</li>
+   *   <li>When {@code ,}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String, String)}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String,
+   * String)}
    */
   @Test
   @DisplayName("Test getValueFromSubjectNameByKey(String, String); when ','")
@@ -151,23 +163,28 @@ class AbstractSslCredentialsDiffblueTest {
   @MethodsUnderTest({"String AbstractSslCredentials.getValueFromSubjectNameByKey(String, String)"})
   void testGetValueFromSubjectNameByKey_whenComma() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getValueFromSubjectNameByKey(",", "Key"));
+    assertNull(new KeystoreSslCredentials().getValueFromSubjectNameByKey(",", "Key"));
   }
 
   /**
    * Test {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String, String)}.
+   *
    * <ul>
-   *   <li>When {@code Hello from the Dreaming Spires}.</li>
+   *   <li>When {@code Hello from the Dreaming Spires}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String, String)}
+   *
+   * <p>Method under test: {@link AbstractSslCredentials#getValueFromSubjectNameByKey(String,
+   * String)}
    */
   @Test
-  @DisplayName("Test getValueFromSubjectNameByKey(String, String); when 'Hello from the Dreaming Spires'")
+  @DisplayName(
+      "Test getValueFromSubjectNameByKey(String, String); when 'Hello from the Dreaming Spires'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractSslCredentials.getValueFromSubjectNameByKey(String, String)"})
   void testGetValueFromSubjectNameByKey_whenHelloFromTheDreamingSpires() {
     // Arrange, Act and Assert
-    assertNull((new KeystoreSslCredentials()).getValueFromSubjectNameByKey("Hello from the Dreaming Spires", "Key"));
+    assertNull(
+        new KeystoreSslCredentials()
+            .getValueFromSubjectNameByKey("Hello from the Dreaming Spires", "Key"));
   }
 }

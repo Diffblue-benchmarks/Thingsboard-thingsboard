@@ -10,14 +10,14 @@ import org.thingsboard.server.common.data.EntityType;
 public class BaseAssetServiceDiffblueTest {
   /**
    * Test {@link BaseAssetService#getEntityType()}.
-   * <p>
-   * Method under test: {@link BaseAssetService#getEntityType()}
+   *
+   * <p>Method under test: {@link BaseAssetService#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"EntityType BaseAssetService.getEntityType()"})
   public void testGetEntityType() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.ASSET, (new BaseAssetService()).getEntityType());
+    assertEquals(EntityType.ASSET, new BaseAssetService().getEntityType());
   }
 }

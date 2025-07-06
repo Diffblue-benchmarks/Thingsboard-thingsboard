@@ -10,12 +10,13 @@ import org.junit.jupiter.api.Test;
 class FirmwareDeliveryMethodDiffblueTest {
   /**
    * Test {@link FirmwareDeliveryMethod#fromStateFwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Pull only}.</li>
-   *   <li>Then return {@code PULL}.</li>
+   *   <li>When {@code Pull only}.
+   *   <li>Then return {@code PULL}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareDeliveryMethod#fromStateFwByType(String)}
+   *
+   * <p>Method under test: {@link FirmwareDeliveryMethod#fromStateFwByType(String)}
    */
   @Test
   @DisplayName("Test fromStateFwByType(String); when 'Pull only'; then return 'PULL'")
@@ -23,17 +24,19 @@ class FirmwareDeliveryMethodDiffblueTest {
   @MethodsUnderTest({"FirmwareDeliveryMethod FirmwareDeliveryMethod.fromStateFwByType(String)"})
   void testFromStateFwByType_whenPullOnly_thenReturnPull() {
     // Arrange, Act and Assert
-    assertEquals(FirmwareDeliveryMethod.PULL, FirmwareDeliveryMethod.fromStateFwByType("Pull only"));
+    assertEquals(
+        FirmwareDeliveryMethod.PULL, FirmwareDeliveryMethod.fromStateFwByType("Pull only"));
   }
 
   /**
    * Test {@link FirmwareDeliveryMethod#fromStateFwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Type}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareDeliveryMethod#fromStateFwByType(String)}
+   *
+   * <p>Method under test: {@link FirmwareDeliveryMethod#fromStateFwByType(String)}
    */
   @Test
   @DisplayName("Test fromStateFwByType(String); when 'Type'; then throw IllegalArgumentException")
@@ -41,17 +44,19 @@ class FirmwareDeliveryMethodDiffblueTest {
   @MethodsUnderTest({"FirmwareDeliveryMethod FirmwareDeliveryMethod.fromStateFwByType(String)"})
   void testFromStateFwByType_whenType_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> FirmwareDeliveryMethod.fromStateFwByType("Type"));
+    assertThrows(
+        IllegalArgumentException.class, () -> FirmwareDeliveryMethod.fromStateFwByType("Type"));
   }
 
   /**
    * Test {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code PUSH}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code PUSH}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}
+   *
+   * <p>Method under test: {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}
    */
   @Test
   @DisplayName("Test fromStateFwByCode(int); when one; then return 'PUSH'")
@@ -64,12 +69,13 @@ class FirmwareDeliveryMethodDiffblueTest {
 
   /**
    * Test {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When three.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}
+   *
+   * <p>Method under test: {@link FirmwareDeliveryMethod#fromStateFwByCode(int)}
    */
   @Test
   @DisplayName("Test fromStateFwByCode(int); when three; then throw IllegalArgumentException")

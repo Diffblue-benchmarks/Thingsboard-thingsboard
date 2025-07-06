@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class PasswordResetExecutorServiceDiffblueTest {
   /**
    * Test {@link PasswordResetExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link PasswordResetExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link PasswordResetExecutorService#getThreadPollSize()}
    */
   @Test
   @DisplayName("Test getThreadPollSize()")
@@ -18,6 +18,6 @@ class PasswordResetExecutorServiceDiffblueTest {
   @MethodsUnderTest({"int PasswordResetExecutorService.getThreadPollSize()"})
   void testGetThreadPollSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new PasswordResetExecutorService()).getThreadPollSize());
+    assertEquals(0, new PasswordResetExecutorService().getThreadPollSize());
   }
 }

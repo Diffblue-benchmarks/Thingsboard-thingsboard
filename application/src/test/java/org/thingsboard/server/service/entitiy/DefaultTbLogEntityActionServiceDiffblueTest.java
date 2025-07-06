@@ -32,345 +32,462 @@ import org.thingsboard.server.service.action.EntityActionService;
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class DefaultTbLogEntityActionServiceDiffblueTest {
-  @Autowired
-  private DefaultTbLogEntityActionService defaultTbLogEntityActionService;
+  @Autowired private DefaultTbLogEntityActionService defaultTbLogEntityActionService;
 
-  @MockBean
-  private EntityActionService entityActionService;
+  @MockBean private EntityActionService entityActionService;
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, ActionType,
+   * User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code actionType}, {@code
+   * user}, {@code e}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, ActionType, User, Exception, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'actionType', 'user', 'e', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'actionType', 'user', 'e', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdActionTypeUserEAdditionalInfo() {
     // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     User user = new User();
 
     // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, ActionType.ADDED, user, new Exception("foo"),
-        "Additional Info");
-
-    // Assert
-    verify(entityActionService).logEntityAction(isA(User.class), isNull(), isNull(), isNull(), eq(ActionType.ADDED),
-        isA(Exception.class), isA(Object[].class));
-  }
-
-  /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])}
-   */
-  @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'actionType', 'user', 'e', 'additionalInfo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, ActionType, User, Exception, Object[])"})
-  void testLogEntityActionWithTenantIdEntityIdActionTypeUserEAdditionalInfo2() {
-    // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
-
-    // Act
     defaultTbLogEntityActionService.logEntityAction(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, ActionType.ADDED, null, null,
-        "Additional Info");
+        tenantId, null, ActionType.ADDED, user, new Exception("foo"), "Additional Info");
 
     // Assert
-    verify(entityActionService).pushEntityActionToRuleEngine(isNull(), isNull(), isA(TenantId.class), isNull(),
-        eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isNull(),
+            isNull(),
+            eq(ActionType.ADDED),
+            isA(Exception.class),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code actionType}, {@code user}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code
+   * actionType}, {@code user}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, ActionType, User, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityActionTypeUserAdditionalInfo() {
     // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HasName hasName = mock(HasName.class);
 
     // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName, ActionType.ADDED, new User(),
-        "Additional Info");
+    defaultTbLogEntityActionService.logEntityAction(
+        tenantId, null, hasName, ActionType.ADDED, new User(), "Additional Info");
 
     // Assert
-    verify(entityActionService).logEntityAction(isA(User.class), isNull(), isA(HasName.class), isNull(),
-        eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isA(HasName.class),
+            isNull(),
+            eq(ActionType.ADDED),
+            isNull(),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code actionType}, {@code user}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code
+   * actionType}, {@code user}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, ActionType, User, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityActionTypeUserAdditionalInfo2() {
     // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .pushEntityActionToRuleEngine(
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<TenantId>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<User>any(),
+            isA(Object[].class));
 
     // Act
     defaultTbLogEntityActionService.logEntityAction(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(HasName.class),
-        ActionType.ADDED, null, "Additional Info");
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+        null,
+        mock(HasName.class),
+        ActionType.ADDED,
+        null,
+        "Additional Info");
 
     // Assert
-    verify(entityActionService).pushEntityActionToRuleEngine(isNull(), isA(HasName.class), isA(TenantId.class),
-        isNull(), eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .pushEntityActionToRuleEngine(
+            isNull(),
+            isA(HasName.class),
+            isA(TenantId.class),
+            isNull(),
+            eq(ActionType.ADDED),
+            isNull(),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code
+   * entity}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, ActionType, User, Exception, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'e', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'e', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityActionTypeUserEAdditionalInfo() {
     // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HasName hasName = mock(HasName.class);
     User user = new User();
-
-    // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName, ActionType.ADDED, user,
-        new Exception("foo"), "Additional Info");
-
-    // Assert
-    verify(entityActionService).logEntityAction(isA(User.class), isNull(), isA(HasName.class), isNull(),
-        eq(ActionType.ADDED), isA(Exception.class), isA(Object[].class));
-  }
-
-  /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])}
-   */
-  @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'e', 'additionalInfo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])"})
-  void testLogEntityActionWithTenantIdEntityIdEntityActionTypeUserEAdditionalInfo2() {
-    // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
 
     // Act
     defaultTbLogEntityActionService.logEntityAction(
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null, mock(HasName.class),
-        ActionType.ADDED, null, null, "Additional Info");
+        tenantId, null, hasName, ActionType.ADDED, user, new Exception("foo"), "Additional Info");
 
     // Assert
-    verify(entityActionService).pushEntityActionToRuleEngine(isNull(), isA(HasName.class), isA(TenantId.class),
-        isNull(), eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isA(HasName.class),
+            isNull(),
+            eq(ActionType.ADDED),
+            isA(Exception.class),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code customerId}, {@code actionType}, {@code user}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * CustomerId, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code
+   * entity}, {@code customerId}, {@code actionType}, {@code user}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, CustomerId, ActionType, User, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityCustomerIdActionTypeUserAdditionalInfo() {
     // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HasName hasName = mock(HasName.class);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName, customerId, ActionType.ADDED, new User(),
-        "Additional Info");
+    defaultTbLogEntityActionService.logEntityAction(
+        tenantId, null, hasName, customerId, ActionType.ADDED, new User(), "Additional Info");
 
     // Assert
-    verify(entityActionService).logEntityAction(isA(User.class), isNull(), isA(HasName.class), isA(CustomerId.class),
-        eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isA(HasName.class),
+            isA(CustomerId.class),
+            eq(ActionType.ADDED),
+            isNull(),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code customerId}, {@code actionType}, {@code user}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * CustomerId, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code
+   * entity}, {@code customerId}, {@code actionType}, {@code user}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, CustomerId, ActionType, User, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityCustomerIdActionTypeUserAdditionalInfo2() {
     // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .pushEntityActionToRuleEngine(
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<TenantId>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<User>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HasName hasName = mock(HasName.class);
 
     // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName,
-        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ActionType.ADDED, null,
+    defaultTbLogEntityActionService.logEntityAction(
+        tenantId,
+        null,
+        hasName,
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+        ActionType.ADDED,
+        null,
         "Additional Info");
 
     // Assert
-    verify(entityActionService).pushEntityActionToRuleEngine(isNull(), isA(HasName.class), isA(TenantId.class),
-        isA(CustomerId.class), eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .pushEntityActionToRuleEngine(
+            isNull(),
+            isA(HasName.class),
+            isA(TenantId.class),
+            isA(CustomerId.class),
+            eq(ActionType.ADDED),
+            isNull(),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code customerId}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])}
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * CustomerId, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId},
+   * {@code entity}, {@code customerId}, {@code actionType}, {@code user}, {@code e}, {@code
+   * additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'e', 'additionalInfo'")
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'e', 'additionalInfo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])"})
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])"
+  })
   void testLogEntityActionWithTenantIdEntityIdEntityCustomerIdActionTypeUserEAdditionalInfo() {
     // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HasName hasName = mock(HasName.class);
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     User user = new User();
 
     // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName, customerId, ActionType.ADDED, user,
-        new Exception("foo"), "Additional Info");
-
-    // Assert
-    verify(entityActionService).logEntityAction(isA(User.class), isNull(), isA(HasName.class), isA(CustomerId.class),
-        eq(ActionType.ADDED), isA(Exception.class), isA(Object[].class));
-  }
-
-  /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code entity}, {@code customerId}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])}
-   */
-  @Test
-  @DisplayName("Test logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'customerId', 'actionType', 'user', 'e', 'additionalInfo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, CustomerId, ActionType, User, Exception, Object[])"})
-  void testLogEntityActionWithTenantIdEntityIdEntityCustomerIdActionTypeUserEAdditionalInfo2() {
-    // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    HasName hasName = mock(HasName.class);
-
-    // Act
-    defaultTbLogEntityActionService.logEntityAction(tenantId, null, hasName,
-        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), ActionType.ADDED, null, null,
+    defaultTbLogEntityActionService.logEntityAction(
+        tenantId,
+        null,
+        hasName,
+        customerId,
+        ActionType.ADDED,
+        user,
+        new Exception("foo"),
         "Additional Info");
 
     // Assert
-    verify(entityActionService).pushEntityActionToRuleEngine(isNull(), isA(HasName.class), isA(TenantId.class),
-        isA(CustomerId.class), eq(ActionType.ADDED), isNull(), isA(Object[].class));
+    verify(entityActionService)
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isA(HasName.class),
+            isA(CustomerId.class),
+            eq(ActionType.ADDED),
+            isA(Exception.class),
+            isA(Object[].class));
   }
 
   /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])}.
+   * Test {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId,
+   * EntityRelation, User, ActionType, Exception, Object[])}.
+   *
    * <ul>
-   *   <li>Then calls {@link EntityActionService#pushEntityActionToRuleEngine(EntityId, HasName, TenantId, CustomerId, ActionType, User, Object[])}.</li>
+   *   <li>Then calls {@link EntityActionService#logEntityAction(User, EntityId, HasName,
+   *       CustomerId, ActionType, Exception, Object[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])}
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId,
+   * CustomerId, EntityRelation, User, ActionType, Exception, Object[])}
    */
   @Test
-  @DisplayName("Test logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[]); then calls pushEntityActionToRuleEngine(EntityId, HasName, TenantId, CustomerId, ActionType, User, Object[])")
+  @DisplayName(
+      "Test logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[]); then calls logEntityAction(User, EntityId, HasName, CustomerId, ActionType, Exception, Object[])")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])"})
-  void testLogEntityRelationAction_thenCallsPushEntityActionToRuleEngine() {
+    "void DefaultTbLogEntityActionService.logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])"
+  })
+  void testLogEntityRelationAction_thenCallsLogEntityAction() {
     // Arrange
-    doNothing().when(entityActionService)
-        .pushEntityActionToRuleEngine(Mockito.<EntityId>any(), Mockito.<HasName>any(), Mockito.<TenantId>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<User>any(), isA(Object[].class));
-    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-
-    // Act
-    defaultTbLogEntityActionService.logEntityRelationAction(tenantId, customerId, new EntityRelation(), null,
-        ActionType.ADDED, null, "Additional Info");
-
-    // Assert
-    verify(entityActionService, atLeast(1)).pushEntityActionToRuleEngine(isNull(), isNull(), isA(TenantId.class),
-        isA(CustomerId.class), eq(ActionType.ADDED), isNull(), isA(Object[].class));
-  }
-
-  /**
-   * Test {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])}.
-   * <ul>
-   *   <li>When {@link User#User()}.</li>
-   *   <li>Then calls {@link EntityActionService#logEntityAction(User, EntityId, HasName, CustomerId, ActionType, Exception, Object[])}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])}
-   */
-  @Test
-  @DisplayName("Test logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[]); when User(); then calls logEntityAction(User, EntityId, HasName, CustomerId, ActionType, Exception, Object[])")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "void DefaultTbLogEntityActionService.logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])"})
-  void testLogEntityRelationAction_whenUser_thenCallsLogEntityAction() {
-    // Arrange
-    doNothing().when(entityActionService)
-        .logEntityAction(Mockito.<User>any(), Mockito.<EntityId>any(), Mockito.<HasName>any(),
-            Mockito.<CustomerId>any(), Mockito.<ActionType>any(), Mockito.<Exception>any(), isA(Object[].class));
+    doNothing()
+        .when(entityActionService)
+        .logEntityAction(
+            Mockito.<User>any(),
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<Exception>any(),
+            isA(Object[].class));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     EntityRelation relation = new EntityRelation();
     User user = new User();
 
     // Act
-    defaultTbLogEntityActionService.logEntityRelationAction(tenantId, customerId, relation, user, ActionType.ADDED,
-        new Exception("foo"), "Additional Info");
+    defaultTbLogEntityActionService.logEntityRelationAction(
+        tenantId,
+        customerId,
+        relation,
+        user,
+        ActionType.ADDED,
+        new Exception("foo"),
+        "Additional Info");
 
     // Assert
-    verify(entityActionService, atLeast(1)).logEntityAction(isA(User.class), isNull(), isNull(), isA(CustomerId.class),
-        eq(ActionType.ADDED), isA(Exception.class), isA(Object[].class));
+    verify(entityActionService, atLeast(1))
+        .logEntityAction(
+            isA(User.class),
+            isNull(),
+            isNull(),
+            isA(CustomerId.class),
+            eq(ActionType.ADDED),
+            isA(Exception.class),
+            isA(Object[].class));
+  }
+
+  /**
+   * Test {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId, CustomerId,
+   * EntityRelation, User, ActionType, Exception, Object[])}.
+   *
+   * <ul>
+   *   <li>Then calls {@link EntityActionService#pushEntityActionToRuleEngine(EntityId, HasName,
+   *       TenantId, CustomerId, ActionType, User, Object[])}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityRelationAction(TenantId,
+   * CustomerId, EntityRelation, User, ActionType, Exception, Object[])}
+   */
+  @Test
+  @DisplayName(
+      "Test logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[]); then calls pushEntityActionToRuleEngine(EntityId, HasName, TenantId, CustomerId, ActionType, User, Object[])")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultTbLogEntityActionService.logEntityRelationAction(TenantId, CustomerId, EntityRelation, User, ActionType, Exception, Object[])"
+  })
+  void testLogEntityRelationAction_thenCallsPushEntityActionToRuleEngine() {
+    // Arrange
+    doNothing()
+        .when(entityActionService)
+        .pushEntityActionToRuleEngine(
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<TenantId>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<User>any(),
+            isA(Object[].class));
+
+    // Act
+    defaultTbLogEntityActionService.logEntityRelationAction(
+        null,
+        null,
+        new EntityRelation(),
+        null,
+        ActionType.ASSIGNED_TO_CUSTOMER,
+        null,
+        "Additional Info");
+
+    // Assert
+    verify(entityActionService, atLeast(1))
+        .pushEntityActionToRuleEngine(
+            isNull(),
+            isNull(),
+            isNull(),
+            isNull(),
+            eq(ActionType.ASSIGNED_TO_CUSTOMER),
+            isNull(),
+            isA(Object[].class));
   }
 }

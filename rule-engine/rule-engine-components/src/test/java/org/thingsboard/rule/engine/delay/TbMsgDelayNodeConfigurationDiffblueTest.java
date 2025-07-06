@@ -13,17 +13,19 @@ import org.junit.jupiter.api.Test;
 class TbMsgDelayNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgDelayNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsgDelayNodeConfiguration TbMsgDelayNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbMsgDelayNodeConfiguration TbMsgDelayNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbMsgDelayNodeConfiguration actualDefaultConfigurationResult = (new TbMsgDelayNodeConfiguration())
-        .defaultConfiguration();
+    TbMsgDelayNodeConfiguration actualDefaultConfigurationResult =
+        new TbMsgDelayNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertNull(actualDefaultConfigurationResult.getPeriodInSecondsPattern());
@@ -33,13 +35,16 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link TbMsgDelayNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgDelayNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgDelayNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgDelayNodeConfiguration#hashCode()}
@@ -48,8 +53,10 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -62,13 +69,16 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link TbMsgDelayNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgDelayNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgDelayNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgDelayNodeConfiguration#hashCode()}
@@ -77,8 +87,10 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -94,13 +106,16 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link TbMsgDelayNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgDelayNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgDelayNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgDelayNodeConfiguration#hashCode()}
@@ -109,8 +124,10 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -123,18 +140,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDelayNodeConfiguration(), 1);
@@ -142,18 +162,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -165,18 +188,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -188,18 +214,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -211,18 +240,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -234,18 +266,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMsgDelayNodeConfiguration tbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
@@ -259,18 +294,21 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgDelayNodeConfiguration(), null);
@@ -278,27 +316,32 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgDelayNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgDelayNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgDelayNodeConfiguration.equals(Object)",
-      "int TbMsgDelayNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgDelayNodeConfiguration.equals(Object)",
+    "int TbMsgDelayNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbMsgDelayNodeConfiguration(), "Different type to TbMsgDelayNodeConfiguration");
+    assertNotEquals(
+        new TbMsgDelayNodeConfiguration(), "Different type to TbMsgDelayNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbMsgDelayNodeConfiguration}
    *   <li>{@link TbMsgDelayNodeConfiguration#setMaxPendingMsgs(int)}
@@ -315,18 +358,22 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgDelayNodeConfiguration.<init>()", "int TbMsgDelayNodeConfiguration.getMaxPendingMsgs()",
-      "int TbMsgDelayNodeConfiguration.getPeriodInSeconds()",
-      "String TbMsgDelayNodeConfiguration.getPeriodInSecondsPattern()",
-      "boolean TbMsgDelayNodeConfiguration.isUseMetadataPeriodInSecondsPatterns()",
-      "void TbMsgDelayNodeConfiguration.setMaxPendingMsgs(int)",
-      "void TbMsgDelayNodeConfiguration.setPeriodInSeconds(int)",
-      "void TbMsgDelayNodeConfiguration.setPeriodInSecondsPattern(String)",
-      "void TbMsgDelayNodeConfiguration.setUseMetadataPeriodInSecondsPatterns(boolean)",
-      "String TbMsgDelayNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbMsgDelayNodeConfiguration.<init>()",
+    "int TbMsgDelayNodeConfiguration.getMaxPendingMsgs()",
+    "int TbMsgDelayNodeConfiguration.getPeriodInSeconds()",
+    "String TbMsgDelayNodeConfiguration.getPeriodInSecondsPattern()",
+    "boolean TbMsgDelayNodeConfiguration.isUseMetadataPeriodInSecondsPatterns()",
+    "void TbMsgDelayNodeConfiguration.setMaxPendingMsgs(int)",
+    "void TbMsgDelayNodeConfiguration.setPeriodInSeconds(int)",
+    "void TbMsgDelayNodeConfiguration.setPeriodInSecondsPattern(String)",
+    "void TbMsgDelayNodeConfiguration.setUseMetadataPeriodInSecondsPatterns(boolean)",
+    "String TbMsgDelayNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbMsgDelayNodeConfiguration actualTbMsgDelayNodeConfiguration = new TbMsgDelayNodeConfiguration();
+    TbMsgDelayNodeConfiguration actualTbMsgDelayNodeConfiguration =
+        new TbMsgDelayNodeConfiguration();
     actualTbMsgDelayNodeConfiguration.setMaxPendingMsgs(3);
     actualTbMsgDelayNodeConfiguration.setPeriodInSeconds(1);
     actualTbMsgDelayNodeConfiguration.setPeriodInSecondsPattern("Period In Seconds Pattern");
@@ -334,12 +381,15 @@ class TbMsgDelayNodeConfigurationDiffblueTest {
     String actualToStringResult = actualTbMsgDelayNodeConfiguration.toString();
     int actualMaxPendingMsgs = actualTbMsgDelayNodeConfiguration.getMaxPendingMsgs();
     int actualPeriodInSeconds = actualTbMsgDelayNodeConfiguration.getPeriodInSeconds();
-    String actualPeriodInSecondsPattern = actualTbMsgDelayNodeConfiguration.getPeriodInSecondsPattern();
+    String actualPeriodInSecondsPattern =
+        actualTbMsgDelayNodeConfiguration.getPeriodInSecondsPattern();
 
     // Assert
     assertEquals("Period In Seconds Pattern", actualPeriodInSecondsPattern);
-    assertEquals("TbMsgDelayNodeConfiguration(periodInSeconds=1, maxPendingMsgs=3, periodInSecondsPattern=Period In"
-        + " Seconds Pattern, useMetadataPeriodInSecondsPatterns=true)", actualToStringResult);
+    assertEquals(
+        "TbMsgDelayNodeConfiguration(periodInSeconds=1, maxPendingMsgs=3, periodInSecondsPattern=Period In"
+            + " Seconds Pattern, useMetadataPeriodInSecondsPatterns=true)",
+        actualToStringResult);
     assertEquals(1, actualPeriodInSeconds);
     assertEquals(3, actualMaxPendingMsgs);
     assertTrue(actualTbMsgDelayNodeConfiguration.isUseMetadataPeriodInSecondsPatterns());

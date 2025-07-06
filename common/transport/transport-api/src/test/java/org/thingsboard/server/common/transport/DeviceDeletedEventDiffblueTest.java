@@ -10,12 +10,13 @@ import org.thingsboard.server.common.data.id.DeviceId;
 class DeviceDeletedEventDiffblueTest {
   /**
    * Test {@link DeviceDeletedEvent#DeviceDeletedEvent(DeviceId)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return DeviceId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return DeviceId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceDeletedEvent#DeviceDeletedEvent(DeviceId)}
+   *
+   * <p>Method under test: {@link DeviceDeletedEvent#DeviceDeletedEvent(DeviceId)}
    */
   @Test
   @DisplayName("Test new DeviceDeletedEvent(DeviceId); when 'null'; then return DeviceId is 'null'")
@@ -23,6 +24,6 @@ class DeviceDeletedEventDiffblueTest {
   @MethodsUnderTest({"void DeviceDeletedEvent.<init>(DeviceId)"})
   void testNewDeviceDeletedEvent_whenNull_thenReturnDeviceIdIsNull() {
     // Arrange, Act and Assert
-    assertNull((new DeviceDeletedEvent(null)).getDeviceId());
+    assertNull(new DeviceDeletedEvent(null).getDeviceId());
   }
 }

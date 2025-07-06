@@ -10,13 +10,16 @@ import org.thingsboard.server.common.data.sms.config.SmppSmsProviderConfiguratio
 
 class SmppSmsProviderConfigurationDiffblueTest {
   /**
-   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link SmppSmsProviderConfiguration#hashCode()}.
+   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link
+   * SmppSmsProviderConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SmppSmsProviderConfiguration#equals(Object)}
    *   <li>{@link SmppSmsProviderConfiguration#hashCode()}
@@ -25,8 +28,10 @@ class SmppSmsProviderConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -70,13 +75,16 @@ class SmppSmsProviderConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link SmppSmsProviderConfiguration#hashCode()}.
+   * Test {@link SmppSmsProviderConfiguration#equals(Object)}, and {@link
+   * SmppSmsProviderConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SmppSmsProviderConfiguration#equals(Object)}
    *   <li>{@link SmppSmsProviderConfiguration#hashCode()}
@@ -85,8 +93,10 @@ class SmppSmsProviderConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -114,18 +124,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -168,18 +181,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -222,18 +238,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -276,18 +295,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -330,18 +352,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -384,18 +409,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -438,18 +466,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -492,18 +523,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -546,18 +580,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -600,18 +637,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -654,18 +694,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -708,18 +751,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -762,18 +808,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -816,18 +865,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -870,18 +922,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -924,18 +979,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -978,18 +1036,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1032,18 +1093,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1086,18 +1150,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1140,18 +1207,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1194,18 +1264,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1248,18 +1321,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1302,18 +1378,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1356,18 +1435,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1410,18 +1492,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1464,18 +1549,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1518,18 +1606,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1572,18 +1663,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1626,18 +1720,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1680,18 +1777,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1734,18 +1834,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1771,18 +1874,21 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test {@link SmppSmsProviderConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link SmppSmsProviderConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmppSmsProviderConfiguration.equals(Object)",
-      "int SmppSmsProviderConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmppSmsProviderConfiguration.equals(Object)",
+    "int SmppSmsProviderConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SmppSmsProviderConfiguration smppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
@@ -1808,8 +1914,9 @@ class SmppSmsProviderConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SmppSmsProviderConfiguration}
    *   <li>{@link SmppSmsProviderConfiguration#setAddressRange(String)}
@@ -1849,31 +1956,45 @@ class SmppSmsProviderConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmppSmsProviderConfiguration.<init>()",
-      "String SmppSmsProviderConfiguration.getAddressRange()",
-      "SmppBindType SmppSmsProviderConfiguration.getBindType()", "Byte SmppSmsProviderConfiguration.getCodingScheme()",
-      "Byte SmppSmsProviderConfiguration.getDestinationNpi()", "Byte SmppSmsProviderConfiguration.getDestinationTon()",
-      "String SmppSmsProviderConfiguration.getHost()", "String SmppSmsProviderConfiguration.getPassword()",
-      "Integer SmppSmsProviderConfiguration.getPort()", "String SmppSmsProviderConfiguration.getProtocolVersion()",
-      "String SmppSmsProviderConfiguration.getServiceType()", "String SmppSmsProviderConfiguration.getSourceAddress()",
-      "Byte SmppSmsProviderConfiguration.getSourceNpi()", "Byte SmppSmsProviderConfiguration.getSourceTon()",
-      "String SmppSmsProviderConfiguration.getSystemId()", "String SmppSmsProviderConfiguration.getSystemType()",
-      "SmsProviderType SmppSmsProviderConfiguration.getType()",
-      "void SmppSmsProviderConfiguration.setAddressRange(String)",
-      "void SmppSmsProviderConfiguration.setBindType(SmppBindType)",
-      "void SmppSmsProviderConfiguration.setCodingScheme(Byte)",
-      "void SmppSmsProviderConfiguration.setDestinationNpi(Byte)",
-      "void SmppSmsProviderConfiguration.setDestinationTon(Byte)", "void SmppSmsProviderConfiguration.setHost(String)",
-      "void SmppSmsProviderConfiguration.setPassword(String)", "void SmppSmsProviderConfiguration.setPort(Integer)",
-      "void SmppSmsProviderConfiguration.setProtocolVersion(String)",
-      "void SmppSmsProviderConfiguration.setServiceType(String)",
-      "void SmppSmsProviderConfiguration.setSourceAddress(String)",
-      "void SmppSmsProviderConfiguration.setSourceNpi(Byte)", "void SmppSmsProviderConfiguration.setSourceTon(Byte)",
-      "void SmppSmsProviderConfiguration.setSystemId(String)",
-      "void SmppSmsProviderConfiguration.setSystemType(String)", "String SmppSmsProviderConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void SmppSmsProviderConfiguration.<init>()",
+    "String SmppSmsProviderConfiguration.getAddressRange()",
+    "SmppBindType SmppSmsProviderConfiguration.getBindType()",
+    "Byte SmppSmsProviderConfiguration.getCodingScheme()",
+    "Byte SmppSmsProviderConfiguration.getDestinationNpi()",
+    "Byte SmppSmsProviderConfiguration.getDestinationTon()",
+    "String SmppSmsProviderConfiguration.getHost()",
+    "String SmppSmsProviderConfiguration.getPassword()",
+    "Integer SmppSmsProviderConfiguration.getPort()",
+    "String SmppSmsProviderConfiguration.getProtocolVersion()",
+    "String SmppSmsProviderConfiguration.getServiceType()",
+    "String SmppSmsProviderConfiguration.getSourceAddress()",
+    "Byte SmppSmsProviderConfiguration.getSourceNpi()",
+    "Byte SmppSmsProviderConfiguration.getSourceTon()",
+    "String SmppSmsProviderConfiguration.getSystemId()",
+    "String SmppSmsProviderConfiguration.getSystemType()",
+    "SmsProviderType SmppSmsProviderConfiguration.getType()",
+    "void SmppSmsProviderConfiguration.setAddressRange(String)",
+    "void SmppSmsProviderConfiguration.setBindType(SmppBindType)",
+    "void SmppSmsProviderConfiguration.setCodingScheme(Byte)",
+    "void SmppSmsProviderConfiguration.setDestinationNpi(Byte)",
+    "void SmppSmsProviderConfiguration.setDestinationTon(Byte)",
+    "void SmppSmsProviderConfiguration.setHost(String)",
+    "void SmppSmsProviderConfiguration.setPassword(String)",
+    "void SmppSmsProviderConfiguration.setPort(Integer)",
+    "void SmppSmsProviderConfiguration.setProtocolVersion(String)",
+    "void SmppSmsProviderConfiguration.setServiceType(String)",
+    "void SmppSmsProviderConfiguration.setSourceAddress(String)",
+    "void SmppSmsProviderConfiguration.setSourceNpi(Byte)",
+    "void SmppSmsProviderConfiguration.setSourceTon(Byte)",
+    "void SmppSmsProviderConfiguration.setSystemId(String)",
+    "void SmppSmsProviderConfiguration.setSystemType(String)",
+    "String SmppSmsProviderConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    SmppSmsProviderConfiguration actualSmppSmsProviderConfiguration = new SmppSmsProviderConfiguration();
+    SmppSmsProviderConfiguration actualSmppSmsProviderConfiguration =
+        new SmppSmsProviderConfiguration();
     actualSmppSmsProviderConfiguration.setAddressRange("42 Main St");
     actualSmppSmsProviderConfiguration.setBindType(SmppBindType.TX);
     actualSmppSmsProviderConfiguration.setCodingScheme((byte) 'A');
@@ -1913,10 +2034,12 @@ class SmppSmsProviderConfigurationDiffblueTest {
     assertEquals("42 Main St", actualSourceAddress);
     assertEquals("42", actualSystemId);
     assertEquals("Service Type", actualServiceType);
-    assertEquals("SmppSmsProviderConfiguration(protocolVersion=1.0.2, host=localhost, port=8080, systemId=42,"
-        + " password=iloveyou, systemType=System Type, bindType=TX, serviceType=Service Type, sourceAddress=42"
-        + " Main St, sourceTon=65, sourceNpi=65, destinationTon=65, destinationNpi=65, addressRange=42 Main St,"
-        + " codingScheme=65)", actualToStringResult);
+    assertEquals(
+        "SmppSmsProviderConfiguration(protocolVersion=1.0.2, host=localhost, port=8080, systemId=42,"
+            + " password=iloveyou, systemType=System Type, bindType=TX, serviceType=Service Type, sourceAddress=42"
+            + " Main St, sourceTon=65, sourceNpi=65, destinationTon=65, destinationNpi=65, addressRange=42 Main St,"
+            + " codingScheme=65)",
+        actualToStringResult);
     assertEquals("System Type", actualSystemType);
     assertEquals("iloveyou", actualPassword);
     assertEquals("localhost", actualHost);

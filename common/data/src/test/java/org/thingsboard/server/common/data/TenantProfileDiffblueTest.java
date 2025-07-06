@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
@@ -25,11 +25,12 @@ import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfi
 class TenantProfileDiffblueTest {
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and three.</li>
+   *   <li>Given array of {@code byte} with {@code A} and three.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with 'A' and three")
@@ -38,7 +39,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenArrayOfByteWithAAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -56,11 +57,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code A} and zero.</li>
+   *   <li>Given array of {@code byte} with {@code A} and zero.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with 'A' and zero")
@@ -69,7 +71,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenArrayOfByteWithAAndZero() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 0, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 0, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -87,11 +89,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with {@code ;} and three.</li>
+   *   <li>Given array of {@code byte} with {@code ;} and three.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with ';' and three")
@@ -100,7 +103,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenArrayOfByteWithSemicolonAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{';', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {';', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -118,11 +121,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with three and three.</li>
+   *   <li>Given array of {@code byte} with three and three.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with three and three")
@@ -131,7 +135,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenArrayOfByteWithThreeAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{3, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {3, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -149,11 +153,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given array of {@code byte} with zero and three.</li>
+   *   <li>Given array of {@code byte} with zero and three.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given array of byte with zero and three")
@@ -162,7 +167,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenArrayOfByteWithZeroAndThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -180,11 +185,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
   @DisplayName("Test new TenantProfile(TenantProfile); given empty array of byte")
@@ -193,7 +199,7 @@ class TenantProfileDiffblueTest {
   void testNewTenantProfile_givenEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{});
+    tenantProfile.setProfileDataBytes(new byte[] {});
 
     // Act
     TenantProfile actualTenantProfile = new TenantProfile(tenantProfile);
@@ -211,16 +217,18 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link TenantProfile#TenantProfile()} Default is {@code true}.</li>
-   *   <li>Then return Default.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link TenantProfile#TenantProfile()} Default is {@code true}.
+   *   <li>Then return Default.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
-  @DisplayName("Test new TenantProfile(TenantProfile); given 'true'; when TenantProfile() Default is 'true'; then return Default")
+  @DisplayName(
+      "Test new TenantProfile(TenantProfile); given 'true'; when TenantProfile() Default is 'true'; then return Default")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_givenTrue_whenTenantProfileDefaultIsTrue_thenReturnDefault() {
@@ -244,14 +252,17 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>Then return {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Then return {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is
+   *       {@link TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
-  @DisplayName("Test new TenantProfile(TenantProfile); then return TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @DisplayName(
+      "Test new TenantProfile(TenantProfile); then return TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_thenReturnTenantProfileWithTenantProfileIsTenantProfile() {
@@ -264,15 +275,17 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#TenantProfile(TenantProfile)}.
+   *
    * <ul>
-   *   <li>When {@link TenantProfile#TenantProfile()}.</li>
-   *   <li>Then return not Default.</li>
+   *   <li>When {@link TenantProfile#TenantProfile()}.
+   *   <li>Then return not Default.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
+   *
+   * <p>Method under test: {@link TenantProfile#TenantProfile(TenantProfile)}
    */
   @Test
-  @DisplayName("Test new TenantProfile(TenantProfile); when TenantProfile(); then return not Default")
+  @DisplayName(
+      "Test new TenantProfile(TenantProfile); when TenantProfile(); then return not Default")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.<init>(TenantProfile)"})
   void testNewTenantProfile_whenTenantProfile_thenReturnNotDefault() {
@@ -292,8 +305,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getId()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getId()}
+   *
+   * <p>Method under test: {@link TenantProfile#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -301,13 +314,13 @@ class TenantProfileDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.TenantProfileId TenantProfile.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new TenantProfile()).getId());
+    assertNull(new TenantProfile().getId());
   }
 
   /**
    * Test {@link TenantProfile#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getCreatedTime()}
+   *
+   * <p>Method under test: {@link TenantProfile#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -315,13 +328,13 @@ class TenantProfileDiffblueTest {
   @MethodsUnderTest({"long TenantProfile.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new TenantProfile()).getCreatedTime());
+    assertEquals(0L, new TenantProfile().getCreatedTime());
   }
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -330,7 +343,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileData() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', -1, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
@@ -342,8 +355,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -352,7 +365,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileData2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 0, 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
@@ -364,8 +377,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData()")
@@ -374,7 +387,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileData3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 0, 'A', 0, 'A', 'X', 'A', 'X'});
 
     // Act
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
@@ -386,11 +399,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
   @DisplayName("Test getProfileData(); given TenantProfile()")
@@ -398,7 +412,7 @@ class TenantProfileDiffblueTest {
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfile() {
     // Arrange and Act
-    TenantProfileData actualProfileData = (new TenantProfile()).getProfileData();
+    TenantProfileData actualProfileData = new TenantProfile().getProfileData();
 
     // Assert
     assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
@@ -407,20 +421,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is array of {@code byte} with zero and {@code X}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is array of {@code byte}
+   *       with zero and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is array of byte with zero and 'X'")
+  @DisplayName(
+      "Test getProfileData(); given TenantProfile() ProfileDataBytes is array of byte with zero and 'X'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsArrayOfByteWithZeroAndX() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 'X', 'A', 'X', 'A', 'X', 'A', 'X'});
 
     // Act
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
@@ -432,14 +449,17 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code AXAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getProfileData(); given TenantProfile() ProfileDataBytes is 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsAxaxaxaxBytesIsUtf8()
@@ -458,20 +478,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code byte}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code
+   *       byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is empty array of byte")
+  @DisplayName(
+      "Test getProfileData(); given TenantProfile() ProfileDataBytes is empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileProfileDataBytesIsEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{});
+    tenantProfile.setProfileDataBytes(new byte[] {});
 
     // Act
     TenantProfileData actualProfileData = tenantProfile.getProfileData();
@@ -483,17 +506,21 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code ;XAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code ;XAXAXAX} Bytes is
+   *       {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given TenantProfile() ProfileDataBytes is ';XAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test getProfileData(); given TenantProfile() ProfileDataBytes is ';XAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
-  void testGetProfileData_givenTenantProfileProfileDataBytesIsXaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
+  void testGetProfileData_givenTenantProfileProfileDataBytesIsXaxaxaxBytesIsUtf8()
+      throws UnsupportedEncodingException {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(";XAXAXAX".getBytes("UTF-8"));
@@ -508,19 +535,22 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileData()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link
+   *       TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileData()}
    */
   @Test
-  @DisplayName("Test getProfileData(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @DisplayName(
+      "Test getProfileData(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfileData TenantProfile.getProfileData()"})
   void testGetProfileData_givenTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange and Act
-    TenantProfileData actualProfileData = (new TenantProfile(new TenantProfile())).getProfileData();
+    TenantProfileData actualProfileData = new TenantProfile(new TenantProfile()).getProfileData();
 
     // Assert
     assertTrue(actualProfileData.getConfiguration() instanceof DefaultTenantProfileConfiguration);
@@ -529,8 +559,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
@@ -539,7 +569,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileConfiguration() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -547,8 +577,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
@@ -557,7 +587,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileConfiguration2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{3, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {3, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -565,8 +595,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
@@ -575,7 +605,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileConfiguration3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -583,8 +613,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
@@ -593,7 +623,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileConfiguration4() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{';', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {';', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -601,8 +631,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration()")
@@ -611,7 +641,7 @@ class TenantProfileDiffblueTest {
   void testGetProfileConfiguration5() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 0, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 0, 'A', 3, 'A', 3, 'A', 3});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -619,11 +649,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getProfileConfiguration(); given TenantProfile()")
@@ -631,25 +662,28 @@ class TenantProfileDiffblueTest {
   @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfile() {
     // Arrange, Act and Assert
-    assertTrue((new TenantProfile()).getProfileConfiguration().isPresent());
+    assertTrue(new TenantProfile().getProfileConfiguration().isPresent());
   }
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code byte}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()} ProfileDataBytes is empty array of {@code
+   *       byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
-  @DisplayName("Test getProfileConfiguration(); given TenantProfile() ProfileDataBytes is empty array of byte")
+  @DisplayName(
+      "Test getProfileConfiguration(); given TenantProfile() ProfileDataBytes is empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfileProfileDataBytesIsEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{});
+    tenantProfile.setProfileDataBytes(new byte[] {});
 
     // Act and Assert
     assertTrue(tenantProfile.getProfileConfiguration().isPresent());
@@ -657,34 +691,39 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getProfileConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile(TenantProfile)} with tenantProfile is {@link
+   *       TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getProfileConfiguration()}
    */
   @Test
-  @DisplayName("Test getProfileConfiguration(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @DisplayName(
+      "Test getProfileConfiguration(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.util.Optional TenantProfile.getProfileConfiguration()"})
   void testGetProfileConfiguration_givenTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange, Act and Assert
-    assertTrue((new TenantProfile(new TenantProfile())).getProfileConfiguration().isPresent());
+    assertTrue(new TenantProfile(new TenantProfile()).getProfileConfiguration().isPresent());
   }
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration() {
     // Arrange and Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = (new TenantProfile(new TenantProfile()))
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        new TenantProfile(new TenantProfile()).getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -703,7 +742,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -752,21 +792,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration2() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -785,7 +827,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -834,21 +877,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration3() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{3, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {3, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -867,7 +912,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -916,21 +962,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration4() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{0, 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {0, 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -949,7 +997,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -998,21 +1047,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration5() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{';', 3, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {';', 3, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -1031,7 +1082,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -1080,21 +1132,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration6() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{'A', 0, 'A', 3, 'A', 3, 'A', 3});
+    tenantProfile.setProfileDataBytes(new byte[] {'A', 0, 'A', 3, 'A', 3, 'A', 3});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -1113,7 +1167,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -1162,21 +1217,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration7() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
-    tenantProfile.setProfileDataBytes(new byte[]{});
+    tenantProfile.setProfileDataBytes(new byte[] {});
 
     // Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = tenantProfile
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        tenantProfile.getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -1195,7 +1252,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -1244,20 +1302,23 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#getDefaultProfileConfiguration()}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#TenantProfile()}.</li>
+   *   <li>Given {@link TenantProfile#TenantProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
+   *
+   * <p>Method under test: {@link TenantProfile#getDefaultProfileConfiguration()}
    */
   @Test
   @DisplayName("Test getDefaultProfileConfiguration(); given TenantProfile()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"})
+  @MethodsUnderTest({
+    "DefaultTenantProfileConfiguration TenantProfile.getDefaultProfileConfiguration()"
+  })
   void testGetDefaultProfileConfiguration_givenTenantProfile() {
     // Arrange and Act
-    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration = (new TenantProfile())
-        .getDefaultProfileConfiguration();
+    DefaultTenantProfileConfiguration actualDefaultProfileConfiguration =
+        new TenantProfile().getDefaultProfileConfiguration();
 
     // Assert
     assertNull(actualDefaultProfileConfiguration.getSmsEnabled());
@@ -1276,7 +1337,8 @@ class TenantProfileDiffblueTest {
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceMsgRateLimit());
-    assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
+    assertNull(
+        actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryDataPointsRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayDeviceTelemetryMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayMsgRateLimit());
     assertNull(actualDefaultProfileConfiguration.getTransportGatewayTelemetryDataPointsRateLimit());
@@ -1325,8 +1387,8 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#createDefaultTenantProfileData()}.
-   * <p>
-   * Method under test: {@link TenantProfile#createDefaultTenantProfileData()}
+   *
+   * <p>Method under test: {@link TenantProfile#createDefaultTenantProfileData()}
    */
   @Test
   @DisplayName("Test createDefaultTenantProfileData()")
@@ -1334,26 +1396,29 @@ class TenantProfileDiffblueTest {
   @MethodsUnderTest({"TenantProfileData TenantProfile.createDefaultTenantProfileData()"})
   void testCreateDefaultTenantProfileData() {
     // Arrange and Act
-    TenantProfileData actualCreateDefaultTenantProfileDataResult = (new TenantProfile())
-        .createDefaultTenantProfileData();
+    TenantProfileData actualCreateDefaultTenantProfileDataResult =
+        new TenantProfile().createDefaultTenantProfileData();
 
     // Assert
     assertTrue(
-        actualCreateDefaultTenantProfileDataResult.getConfiguration() instanceof DefaultTenantProfileConfiguration);
+        actualCreateDefaultTenantProfileDataResult.getConfiguration()
+            instanceof DefaultTenantProfileConfiguration);
     assertNull(actualCreateDefaultTenantProfileDataResult.getQueueConfiguration());
   }
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.</li>
-   *   <li>Then {@code 1900} element is {@code :}.</li>
+   *   <li>Given {@link DefaultTenantProfileConfiguration#DefaultTenantProfileConfiguration()}.
+   *   <li>Then {@code 1900} element is {@code :}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(TenantProfileData); given DefaultTenantProfileConfiguration(); then '1900' element is ':'")
+  @DisplayName(
+      "Test setProfileData(TenantProfileData); given DefaultTenantProfileConfiguration(); then '1900' element is ':'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_givenDefaultTenantProfileConfiguration_then1900ElementIsColon() {
@@ -1394,15 +1459,17 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then {@link TenantProfile#TenantProfile()} DefaultProfileConfiguration is {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>Then {@link TenantProfile#TenantProfile()} DefaultProfileConfiguration is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(TenantProfileData); given 'null'; then TenantProfile() DefaultProfileConfiguration is 'null'")
+  @DisplayName(
+      "Test setProfileData(TenantProfileData); given 'null'; then TenantProfile() DefaultProfileConfiguration is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_givenNull_thenTenantProfileDefaultProfileConfigurationIsNull()
@@ -1421,17 +1488,19 @@ class TenantProfileDiffblueTest {
     assertNull(tenantProfile.getDefaultProfileConfiguration());
     assertFalse(tenantProfile.getProfileConfiguration().isPresent());
     assertSame(data, tenantProfile.getProfileData());
-    byte[] expectedProfileDataBytes = "{\"configuration\":null,\"queueConfiguration\":[]}".getBytes("UTF-8");
+    byte[] expectedProfileDataBytes =
+        "{\"configuration\":null,\"queueConfiguration\":[]}".getBytes("UTF-8");
     assertArrayEquals(expectedProfileDataBytes, tenantProfile.getProfileDataBytes());
   }
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>Then {@code 1879} element is {@code ,}.</li>
+   *   <li>Then {@code 1879} element is {@code ,}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then '1879' element is ','")
@@ -1460,11 +1529,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is {@code 2229}.</li>
+   *   <li>Then array length is {@code 2229}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then array length is '2229'")
@@ -1485,8 +1555,9 @@ class TenantProfileDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -1512,11 +1583,12 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>Then array length is {@code 2780}.</li>
+   *   <li>Then array length is {@code 2780}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
   @DisplayName("Test setProfileData(TenantProfileData); then array length is '2780'")
@@ -1527,67 +1599,75 @@ class TenantProfileDiffblueTest {
     TenantProfile tenantProfile = new TenantProfile();
 
     TenantProfileData data = new TenantProfileData();
-    DefaultTenantProfileConfiguration configuration = DefaultTenantProfileConfiguration.builder()
-        .alarmsTtlDays(1)
-        .cassandraQueryTenantRateLimitsConfiguration("Cassandra Query Tenant Rate Limits Configuration")
-        .customerServerRestLimitsConfiguration("Customer Server Rest Limits Configuration")
-        .defaultStorageTtlDays(1)
-        .edgeEventRateLimits("Edge Event Rate Limits")
-        .edgeEventRateLimitsPerEdge("Edge Event Rate Limits Per Edge")
-        .edgeUplinkMessagesRateLimits("Edge Uplink Messages Rate Limits")
-        .edgeUplinkMessagesRateLimitsPerEdge("Edge Uplink Messages Rate Limits Per Edge")
-        .maxAssets(1L)
-        .maxCreatedAlarms(1L)
-        .maxCustomers(1L)
-        .maxDPStorageDays(1L)
-        .maxDashboards(1L)
-        .maxDevices(1L)
-        .maxEmails(1L)
-        .maxJSExecutions(1L)
-        .maxOtaPackagesInBytes(1L)
-        .maxREExecutions(1L)
-        .maxResourceSize(3L)
-        .maxResourcesInBytes(1L)
-        .maxRuleChains(1L)
-        .maxRuleNodeExecutionsPerMessage(3)
-        .maxSms(1L)
-        .maxTbelExecutions(1L)
-        .maxTransportDataPoints(1L)
-        .maxTransportMessages(1L)
-        .maxUsers(1L)
-        .maxWsSessionsPerCustomer(3)
-        .maxWsSessionsPerPublicUser(3)
-        .maxWsSessionsPerRegularUser(3)
-        .maxWsSessionsPerTenant(3)
-        .maxWsSubscriptionsPerCustomer(1L)
-        .maxWsSubscriptionsPerPublicUser(1L)
-        .maxWsSubscriptionsPerRegularUser(1L)
-        .maxWsSubscriptionsPerTenant(1L)
-        .queueStatsTtlDays(1)
-        .rpcTtlDays(1)
-        .ruleEngineExceptionsTtlDays(1)
-        .smsEnabled(true)
-        .tenantEntityExportRateLimit("Tenant Entity Export Rate Limit")
-        .tenantEntityImportRateLimit("Tenant Entity Import Rate Limit")
-        .tenantNotificationRequestsPerRuleRateLimit("Tenant Notification Requests Per Rule Rate Limit")
-        .tenantNotificationRequestsRateLimit("Tenant Notification Requests Rate Limit")
-        .tenantServerRestLimitsConfiguration("Tenant Server Rest Limits Configuration")
-        .transportDeviceMsgRateLimit("Transport Device Msg Rate Limit")
-        .transportDeviceTelemetryDataPointsRateLimit("Transport Device Telemetry Data Points Rate Limit")
-        .transportDeviceTelemetryMsgRateLimit("Transport Device Telemetry Msg Rate Limit")
-        .transportGatewayDeviceMsgRateLimit("Transport Gateway Device Msg Rate Limit")
-        .transportGatewayDeviceTelemetryDataPointsRateLimit("Transport Gateway Device Telemetry Data Points Rate Limit")
-        .transportGatewayDeviceTelemetryMsgRateLimit("Transport Gateway Device Telemetry Msg Rate Limit")
-        .transportGatewayMsgRateLimit("Transport Gateway Msg Rate Limit")
-        .transportGatewayTelemetryDataPointsRateLimit("Transport Gateway Telemetry Data Points Rate Limit")
-        .transportGatewayTelemetryMsgRateLimit("Transport Gateway Telemetry Msg Rate Limit")
-        .transportTenantMsgRateLimit("Transport Tenant Msg Rate Limit")
-        .transportTenantTelemetryDataPointsRateLimit("Transport Tenant Telemetry Data Points Rate Limit")
-        .transportTenantTelemetryMsgRateLimit("Transport Tenant Telemetry Msg Rate Limit")
-        .warnThreshold(10.0d)
-        .wsMsgQueueLimitPerSession(1)
-        .wsUpdatesPerSessionRateLimit("2020-03-01")
-        .build();
+    DefaultTenantProfileConfiguration configuration =
+        DefaultTenantProfileConfiguration.builder()
+            .alarmsTtlDays(1)
+            .cassandraQueryTenantRateLimitsConfiguration(
+                "Cassandra Query Tenant Rate Limits Configuration")
+            .customerServerRestLimitsConfiguration("Customer Server Rest Limits Configuration")
+            .defaultStorageTtlDays(1)
+            .edgeEventRateLimits("Edge Event Rate Limits")
+            .edgeEventRateLimitsPerEdge("Edge Event Rate Limits Per Edge")
+            .edgeUplinkMessagesRateLimits("Edge Uplink Messages Rate Limits")
+            .edgeUplinkMessagesRateLimitsPerEdge("Edge Uplink Messages Rate Limits Per Edge")
+            .maxAssets(1L)
+            .maxCreatedAlarms(1L)
+            .maxCustomers(1L)
+            .maxDPStorageDays(1L)
+            .maxDashboards(1L)
+            .maxDevices(1L)
+            .maxEmails(1L)
+            .maxJSExecutions(1L)
+            .maxOtaPackagesInBytes(1L)
+            .maxREExecutions(1L)
+            .maxResourceSize(3L)
+            .maxResourcesInBytes(1L)
+            .maxRuleChains(1L)
+            .maxRuleNodeExecutionsPerMessage(3)
+            .maxSms(1L)
+            .maxTbelExecutions(1L)
+            .maxTransportDataPoints(1L)
+            .maxTransportMessages(1L)
+            .maxUsers(1L)
+            .maxWsSessionsPerCustomer(3)
+            .maxWsSessionsPerPublicUser(3)
+            .maxWsSessionsPerRegularUser(3)
+            .maxWsSessionsPerTenant(3)
+            .maxWsSubscriptionsPerCustomer(1L)
+            .maxWsSubscriptionsPerPublicUser(1L)
+            .maxWsSubscriptionsPerRegularUser(1L)
+            .maxWsSubscriptionsPerTenant(1L)
+            .queueStatsTtlDays(1)
+            .rpcTtlDays(1)
+            .ruleEngineExceptionsTtlDays(1)
+            .smsEnabled(true)
+            .tenantEntityExportRateLimit("Tenant Entity Export Rate Limit")
+            .tenantEntityImportRateLimit("Tenant Entity Import Rate Limit")
+            .tenantNotificationRequestsPerRuleRateLimit(
+                "Tenant Notification Requests Per Rule Rate Limit")
+            .tenantNotificationRequestsRateLimit("Tenant Notification Requests Rate Limit")
+            .tenantServerRestLimitsConfiguration("Tenant Server Rest Limits Configuration")
+            .transportDeviceMsgRateLimit("Transport Device Msg Rate Limit")
+            .transportDeviceTelemetryDataPointsRateLimit(
+                "Transport Device Telemetry Data Points Rate Limit")
+            .transportDeviceTelemetryMsgRateLimit("Transport Device Telemetry Msg Rate Limit")
+            .transportGatewayDeviceMsgRateLimit("Transport Gateway Device Msg Rate Limit")
+            .transportGatewayDeviceTelemetryDataPointsRateLimit(
+                "Transport Gateway Device Telemetry Data Points Rate Limit")
+            .transportGatewayDeviceTelemetryMsgRateLimit(
+                "Transport Gateway Device Telemetry Msg Rate Limit")
+            .transportGatewayMsgRateLimit("Transport Gateway Msg Rate Limit")
+            .transportGatewayTelemetryDataPointsRateLimit(
+                "Transport Gateway Telemetry Data Points Rate Limit")
+            .transportGatewayTelemetryMsgRateLimit("Transport Gateway Telemetry Msg Rate Limit")
+            .transportTenantMsgRateLimit("Transport Tenant Msg Rate Limit")
+            .transportTenantTelemetryDataPointsRateLimit(
+                "Transport Tenant Telemetry Data Points Rate Limit")
+            .transportTenantTelemetryMsgRateLimit("Transport Tenant Telemetry Msg Rate Limit")
+            .warnThreshold(10.0d)
+            .wsMsgQueueLimitPerSession(1)
+            .wsUpdatesPerSessionRateLimit("2020-03-01")
+            .build();
     data.setConfiguration(configuration);
     data.setQueueConfiguration(new ArrayList<>());
 
@@ -1600,15 +1680,17 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#setProfileData(TenantProfileData)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then {@link TenantProfile#TenantProfile()} ProfileDataBytes is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
+   *
+   * <p>Method under test: {@link TenantProfile#setProfileData(TenantProfileData)}
    */
   @Test
-  @DisplayName("Test setProfileData(TenantProfileData); when 'null'; then TenantProfile() ProfileDataBytes is 'null'")
+  @DisplayName(
+      "Test setProfileData(TenantProfileData); when 'null'; then TenantProfile() ProfileDataBytes is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfile.setProfileData(TenantProfileData)"})
   void testSetProfileData_whenNull_thenTenantProfileProfileDataBytesIsNull() {
@@ -1624,12 +1706,14 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfile#equals(Object)}
    *   <li>{@link TenantProfile#hashCode()}
@@ -1652,12 +1736,14 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfile#equals(Object)}
    *   <li>{@link TenantProfile#hashCode()}
@@ -1683,12 +1769,14 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfile#equals(Object)}
    *   <li>{@link TenantProfile#hashCode()}
@@ -1714,12 +1802,14 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}, and {@link TenantProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfile#equals(Object)}
    *   <li>{@link TenantProfile#hashCode()}
@@ -1741,12 +1831,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1762,12 +1853,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1784,12 +1876,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1806,12 +1899,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1828,12 +1922,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1850,12 +1945,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1872,12 +1968,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1896,12 +1993,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1920,12 +2018,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -1938,12 +2037,13 @@ class TenantProfileDiffblueTest {
 
   /**
    * Test {@link TenantProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

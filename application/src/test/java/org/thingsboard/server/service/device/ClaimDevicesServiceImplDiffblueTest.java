@@ -21,32 +21,34 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 @ExtendWith(MockitoExtension.class)
 class ClaimDevicesServiceImplDiffblueTest {
-  @Mock
-  private CacheManager cacheManager;
+  @Mock private CacheManager cacheManager;
 
-  @InjectMocks
-  private ClaimDevicesServiceImpl claimDevicesServiceImpl;
+  @InjectMocks private ClaimDevicesServiceImpl claimDevicesServiceImpl;
 
   /**
    * Test {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}.
-   * <p>
-   * Method under test: {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}
+   *
+   * <p>Method under test: {@link ClaimDevicesServiceImpl#reClaimDevice(TenantId, Device)}
    */
   @Test
   @DisplayName("Test reClaimDevice(TenantId, Device)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "com.google.common.util.concurrent.ListenableFuture ClaimDevicesServiceImpl.reClaimDevice(TenantId, Device)"})
+    "com.google.common.util.concurrent.ListenableFuture ClaimDevicesServiceImpl.reClaimDevice(TenantId, Device)"
+  })
   void testReClaimDevice() {
     // Arrange
-    when(cacheManager.getCache(Mockito.<String>any())).thenThrow(new IllegalArgumentException("claimDevices"));
+    when(cacheManager.getCache(Mockito.<String>any()))
+        .thenThrow(new IllegalArgumentException("claimDevices"));
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     Device device = new Device();
     device.setCustomerId(new CustomerId(UUID.randomUUID()));
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> claimDevicesServiceImpl.reClaimDevice(tenantId, device));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> claimDevicesServiceImpl.reClaimDevice(tenantId, device));
     verify(cacheManager).getCache(eq("claimDevices"));
   }
 }

@@ -12,15 +12,17 @@ import org.junit.jupiter.api.Test;
 class ErrorEventFilterDiffblueTest {
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) ErrorStr is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) ErrorStr is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given ErrorEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterErrorStrIsFoo_thenReturnTrue() {
@@ -36,15 +38,17 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Method is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Method is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Method is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given ErrorEventFilter (default constructor) Method is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterMethodIsFoo_thenReturnTrue() {
@@ -60,15 +64,17 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is empty string.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is empty string.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is empty string; then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is empty string; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterServerIsEmptyString_thenReturnFalse() {
@@ -84,15 +90,17 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor) Server is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given ErrorEventFilter (default constructor) Server is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilterServerIsFoo_thenReturnTrue() {
@@ -108,30 +116,34 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventFilter} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link ErrorEventFilter} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given ErrorEventFilter (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given ErrorEventFilter (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ErrorEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenErrorEventFilter_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new ErrorEventFilter()).isNotEmpty());
+    assertFalse(new ErrorEventFilter().isNotEmpty());
   }
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventFilter#equals(Object)}
    *   <li>{@link ErrorEventFilter#hashCode()}
@@ -161,12 +173,14 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventFilter#equals(Object)}
    *   <li>{@link ErrorEventFilter#hashCode()}
@@ -196,12 +210,14 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventFilter#equals(Object)}
    *   <li>{@link ErrorEventFilter#hashCode()}
@@ -231,12 +247,14 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventFilter#equals(Object)}
    *   <li>{@link ErrorEventFilter#hashCode()}
@@ -266,12 +284,14 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}, and {@link ErrorEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventFilter#equals(Object)}
    *   <li>{@link ErrorEventFilter#hashCode()}
@@ -296,12 +316,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +346,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -354,12 +376,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -383,12 +406,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -412,12 +436,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -441,12 +466,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -470,12 +496,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -494,12 +521,13 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test {@link ErrorEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -518,8 +546,9 @@ class ErrorEventFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ErrorEventFilter}
    *   <li>{@link ErrorEventFilter#setErrorStr(String)}
@@ -535,11 +564,17 @@ class ErrorEventFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ErrorEventFilter.<init>()", "String ErrorEventFilter.getErrorStr()",
-      "EventType ErrorEventFilter.getEventType()", "String ErrorEventFilter.getMethod()",
-      "String ErrorEventFilter.getServer()", "void ErrorEventFilter.setErrorStr(String)",
-      "void ErrorEventFilter.setMethod(String)", "void ErrorEventFilter.setServer(String)",
-      "String ErrorEventFilter.toString()"})
+  @MethodsUnderTest({
+    "void ErrorEventFilter.<init>()",
+    "String ErrorEventFilter.getErrorStr()",
+    "EventType ErrorEventFilter.getEventType()",
+    "String ErrorEventFilter.getMethod()",
+    "String ErrorEventFilter.getServer()",
+    "void ErrorEventFilter.setErrorStr(String)",
+    "void ErrorEventFilter.setMethod(String)",
+    "void ErrorEventFilter.setServer(String)",
+    "String ErrorEventFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ErrorEventFilter actualErrorEventFilter = new ErrorEventFilter();
@@ -553,7 +588,9 @@ class ErrorEventFilterDiffblueTest {
 
     // Assert
     assertEquals("An error occurred", actualErrorStr);
-    assertEquals("ErrorEventFilter(server=Server, method=Method, errorStr=An error occurred)", actualToStringResult);
+    assertEquals(
+        "ErrorEventFilter(server=Server, method=Method, errorStr=An error occurred)",
+        actualToStringResult);
     assertEquals("Method", actualMethod);
     assertEquals("Server", actualErrorEventFilter.getServer());
     assertEquals(EventType.ERROR, actualEventType);

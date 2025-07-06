@@ -13,13 +13,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {JsExecutorService.class})
 @ExtendWith(SpringExtension.class)
 class JsExecutorServiceDiffblueTest {
-  @Autowired
-  private JsExecutorService jsExecutorService;
+  @Autowired private JsExecutorService jsExecutorService;
 
   /**
    * Test {@link JsExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link JsExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link JsExecutorService#getThreadPollSize()}
    */
   @Test
   @DisplayName("Test getThreadPollSize()")

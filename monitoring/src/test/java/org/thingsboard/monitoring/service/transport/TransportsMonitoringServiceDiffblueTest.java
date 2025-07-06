@@ -43,43 +43,47 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
 class TransportsMonitoringServiceDiffblueTest {
-  @Mock
-  private ApplicationContext applicationContext;
+  @Mock private ApplicationContext applicationContext;
 
-  @Autowired
-  private List<TransportMonitoringConfig> list;
+  @Autowired private ApplicationContext applicationContext2;
 
-  @MockBean
-  private MonitoringReporter monitoringReporter;
+  @Autowired private List<TransportMonitoringConfig> list;
 
-  @MockBean
-  private TbClient tbClient;
+  @MockBean private MonitoringReporter monitoringReporter;
 
-  @MockBean
-  private TbStopWatch tbStopWatch;
+  @MockBean private TbClient tbClient;
 
-  @MockBean
-  private TransportMonitoringConfig transportMonitoringConfig;
+  @MockBean private TbStopWatch tbStopWatch;
 
-  @InjectMocks
-  private TransportsMonitoringService transportsMonitoringService;
+  @MockBean private TransportMonitoringConfig transportMonitoringConfig;
 
-  @MockBean
-  private WsClientFactory wsClientFactory;
+  @InjectMocks private TransportsMonitoringService transportsMonitoringService;
+
+  @Autowired private TransportsMonitoringService transportsMonitoringService2;
+
+  @MockBean private WsClientFactory wsClientFactory;
 
   /**
-   * Test {@link TransportsMonitoringService#createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget)} with {@code TransportMonitoringConfig}, {@code TransportMonitoringTarget}.
-   * <p>
-   * Method under test: {@link TransportsMonitoringService#createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget)}
+   * Test {@link TransportsMonitoringService#createHealthChecker(TransportMonitoringConfig,
+   * TransportMonitoringTarget)} with {@code TransportMonitoringConfig}, {@code
+   * TransportMonitoringTarget}.
+   *
+   * <p>Method under test: {@link
+   * TransportsMonitoringService#createHealthChecker(TransportMonitoringConfig,
+   * TransportMonitoringTarget)}
    */
   @Test
-  @DisplayName("Test createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget) with 'TransportMonitoringConfig', 'TransportMonitoringTarget'")
+  @DisplayName(
+      "Test createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget) with 'TransportMonitoringConfig', 'TransportMonitoringTarget'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "BaseHealthChecker TransportsMonitoringService.createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget)"})
-  void testCreateHealthCheckerWithTransportMonitoringConfigTransportMonitoringTarget() throws BeansException {
+    "BaseHealthChecker TransportsMonitoringService.createHealthChecker(TransportMonitoringConfig, TransportMonitoringTarget)"
+  })
+  void testCreateHealthCheckerWithTransportMonitoringConfigTransportMonitoringTarget()
+      throws BeansException {
     // Arrange
-    when(applicationContext.getBean(Mockito.<Class<CoapTransportHealthChecker>>any(), isA(Object[].class)))
+    when(applicationContext.getBean(
+            Mockito.<Class<CoapTransportHealthChecker>>any(), isA(Object[].class)))
         .thenReturn(null);
     CoapTransportMonitoringConfig config = new CoapTransportMonitoringConfig();
     DeviceConfig device = mock(DeviceConfig.class);
@@ -97,8 +101,8 @@ class TransportsMonitoringServiceDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    BaseHealthChecker<?, ?> actualCreateHealthCheckerResult = transportsMonitoringService.createHealthChecker(config,
-        target);
+    BaseHealthChecker<?, ?> actualCreateHealthCheckerResult =
+        transportsMonitoringService.createHealthChecker(config, target);
 
     // Assert
     verify(applicationContext).getBean(isA(Class.class), isA(Object[].class));
@@ -110,8 +114,8 @@ class TransportsMonitoringServiceDiffblueTest {
 
   /**
    * Test {@link TransportsMonitoringService#createTarget(String)}.
-   * <p>
-   * Method under test: {@link TransportsMonitoringService#createTarget(String)}
+   *
+   * <p>Method under test: {@link TransportsMonitoringService#createTarget(String)}
    */
   @Test
   @DisplayName("Test createTarget(String)")
@@ -119,8 +123,8 @@ class TransportsMonitoringServiceDiffblueTest {
   @MethodsUnderTest({"TransportMonitoringTarget TransportsMonitoringService.createTarget(String)"})
   void testCreateTarget() {
     // Arrange and Act
-    TransportMonitoringTarget actualCreateTargetResult = transportsMonitoringService
-        .createTarget("https://example.org/example");
+    TransportMonitoringTarget actualCreateTargetResult =
+        transportsMonitoringService2.createTarget("https://example.org/example");
 
     // Assert
     assertEquals("Main", actualCreateTargetResult.getQueue());
@@ -131,8 +135,8 @@ class TransportsMonitoringServiceDiffblueTest {
 
   /**
    * Test {@link TransportsMonitoringService#getName()}.
-   * <p>
-   * Method under test: {@link TransportsMonitoringService#getName()}
+   *
+   * <p>Method under test: {@link TransportsMonitoringService#getName()}
    */
   @Test
   @DisplayName("Test getName()")
@@ -140,6 +144,6 @@ class TransportsMonitoringServiceDiffblueTest {
   @MethodsUnderTest({"String TransportsMonitoringService.getName()"})
   void testGetName() {
     // Arrange, Act and Assert
-    assertEquals("transports check", (new TransportsMonitoringService()).getName());
+    assertEquals("transports check", new TransportsMonitoringService().getName());
   }
 }

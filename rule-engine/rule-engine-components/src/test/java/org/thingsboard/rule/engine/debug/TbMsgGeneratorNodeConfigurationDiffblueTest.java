@@ -13,17 +13,19 @@ import org.thingsboard.server.common.data.script.ScriptLanguage;
 class TbMsgGeneratorNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbMsgGeneratorNodeConfiguration TbMsgGeneratorNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbMsgGeneratorNodeConfiguration TbMsgGeneratorNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbMsgGeneratorNodeConfiguration actualDefaultConfigurationResult = (new TbMsgGeneratorNodeConfiguration())
-        .defaultConfiguration();
+    TbMsgGeneratorNodeConfiguration actualDefaultConfigurationResult =
+        new TbMsgGeneratorNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertNull(actualDefaultConfigurationResult.getOriginatorId());
@@ -31,18 +33,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
     assertEquals(1, actualDefaultConfigurationResult.getPeriodInSeconds());
     assertEquals(EntityType.RULE_NODE, actualDefaultConfigurationResult.getOriginatorType());
     assertEquals(ScriptLanguage.TBEL, actualDefaultConfigurationResult.getScriptLang());
-    assertEquals(TbMsgGeneratorNodeConfiguration.DEFAULT_SCRIPT, actualDefaultConfigurationResult.getJsScript());
-    assertEquals(TbMsgGeneratorNodeConfiguration.DEFAULT_SCRIPT, actualDefaultConfigurationResult.getTbelScript());
+    assertEquals(
+        TbMsgGeneratorNodeConfiguration.DEFAULT_SCRIPT,
+        actualDefaultConfigurationResult.getJsScript());
+    assertEquals(
+        TbMsgGeneratorNodeConfiguration.DEFAULT_SCRIPT,
+        actualDefaultConfigurationResult.getTbelScript());
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -51,12 +60,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbMsgGeneratorNodeConfiguration, tbMsgGeneratorNodeConfiguration2);
@@ -65,13 +78,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -80,14 +96,18 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setOriginatorId("42");
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setOriginatorId("42");
 
     // Act and Assert
@@ -97,13 +117,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -112,14 +135,18 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setOriginatorType(EntityType.TENANT);
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setOriginatorType(EntityType.TENANT);
 
     // Act and Assert
@@ -129,13 +156,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -144,14 +174,18 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setScriptLang(ScriptLanguage.JS);
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setScriptLang(ScriptLanguage.JS);
 
     // Act and Assert
@@ -161,13 +195,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -176,14 +213,18 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setJsScript("Js Script");
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setJsScript("Js Script");
 
     // Act and Assert
@@ -193,13 +234,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -208,14 +252,18 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setTbelScript("Tbel Script");
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setTbelScript("Tbel Script");
 
     // Act and Assert
@@ -225,13 +273,16 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link TbMsgGeneratorNodeConfiguration#hashCode()}.
+   * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}, and {@link
+   * TbMsgGeneratorNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#hashCode()}
@@ -240,11 +291,14 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbMsgGeneratorNodeConfiguration, tbMsgGeneratorNodeConfiguration);
@@ -254,18 +308,21 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgGeneratorNodeConfiguration(), 1);
@@ -273,21 +330,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setMsgCount(3);
 
     // Act and Assert
@@ -296,21 +357,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setPeriodInSeconds(1);
 
     // Act and Assert
@@ -319,21 +384,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setOriginatorId("42");
 
     // Act and Assert
@@ -342,21 +411,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setOriginatorType(EntityType.TENANT);
 
     // Act and Assert
@@ -365,21 +438,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setScriptLang(ScriptLanguage.JS);
 
     // Act and Assert
@@ -388,21 +465,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setJsScript("Js Script");
 
     // Act and Assert
@@ -411,21 +492,25 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration.setTbelScript("Tbel Script");
 
     // Act and Assert
@@ -434,23 +519,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setOriginatorId("42");
 
     // Act and Assert
@@ -459,23 +549,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setOriginatorType(EntityType.TENANT);
 
     // Act and Assert
@@ -484,23 +579,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setScriptLang(ScriptLanguage.JS);
 
     // Act and Assert
@@ -509,23 +609,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setJsScript("Js Script");
 
     // Act and Assert
@@ -534,23 +639,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
 
-    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration tbMsgGeneratorNodeConfiguration2 =
+        new TbMsgGeneratorNodeConfiguration();
     tbMsgGeneratorNodeConfiguration2.setTbelScript("Tbel Script");
 
     // Act and Assert
@@ -559,18 +669,21 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMsgGeneratorNodeConfiguration(), null);
@@ -578,27 +691,32 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMsgGeneratorNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMsgGeneratorNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
-      "int TbMsgGeneratorNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMsgGeneratorNodeConfiguration.equals(Object)",
+    "int TbMsgGeneratorNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbMsgGeneratorNodeConfiguration(), "Different type to TbMsgGeneratorNodeConfiguration");
+    assertNotEquals(
+        new TbMsgGeneratorNodeConfiguration(), "Different type to TbMsgGeneratorNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbMsgGeneratorNodeConfiguration}
    *   <li>{@link TbMsgGeneratorNodeConfiguration#setJsScript(String)}
@@ -621,24 +739,28 @@ class TbMsgGeneratorNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgGeneratorNodeConfiguration.<init>()",
-      "String TbMsgGeneratorNodeConfiguration.getJsScript()", "int TbMsgGeneratorNodeConfiguration.getMsgCount()",
-      "String TbMsgGeneratorNodeConfiguration.getOriginatorId()",
-      "EntityType TbMsgGeneratorNodeConfiguration.getOriginatorType()",
-      "int TbMsgGeneratorNodeConfiguration.getPeriodInSeconds()",
-      "ScriptLanguage TbMsgGeneratorNodeConfiguration.getScriptLang()",
-      "String TbMsgGeneratorNodeConfiguration.getTbelScript()",
-      "void TbMsgGeneratorNodeConfiguration.setJsScript(String)",
-      "void TbMsgGeneratorNodeConfiguration.setMsgCount(int)",
-      "void TbMsgGeneratorNodeConfiguration.setOriginatorId(String)",
-      "void TbMsgGeneratorNodeConfiguration.setOriginatorType(EntityType)",
-      "void TbMsgGeneratorNodeConfiguration.setPeriodInSeconds(int)",
-      "void TbMsgGeneratorNodeConfiguration.setScriptLang(ScriptLanguage)",
-      "void TbMsgGeneratorNodeConfiguration.setTbelScript(String)",
-      "String TbMsgGeneratorNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbMsgGeneratorNodeConfiguration.<init>()",
+    "String TbMsgGeneratorNodeConfiguration.getJsScript()",
+    "int TbMsgGeneratorNodeConfiguration.getMsgCount()",
+    "String TbMsgGeneratorNodeConfiguration.getOriginatorId()",
+    "EntityType TbMsgGeneratorNodeConfiguration.getOriginatorType()",
+    "int TbMsgGeneratorNodeConfiguration.getPeriodInSeconds()",
+    "ScriptLanguage TbMsgGeneratorNodeConfiguration.getScriptLang()",
+    "String TbMsgGeneratorNodeConfiguration.getTbelScript()",
+    "void TbMsgGeneratorNodeConfiguration.setJsScript(String)",
+    "void TbMsgGeneratorNodeConfiguration.setMsgCount(int)",
+    "void TbMsgGeneratorNodeConfiguration.setOriginatorId(String)",
+    "void TbMsgGeneratorNodeConfiguration.setOriginatorType(EntityType)",
+    "void TbMsgGeneratorNodeConfiguration.setPeriodInSeconds(int)",
+    "void TbMsgGeneratorNodeConfiguration.setScriptLang(ScriptLanguage)",
+    "void TbMsgGeneratorNodeConfiguration.setTbelScript(String)",
+    "String TbMsgGeneratorNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbMsgGeneratorNodeConfiguration actualTbMsgGeneratorNodeConfiguration = new TbMsgGeneratorNodeConfiguration();
+    TbMsgGeneratorNodeConfiguration actualTbMsgGeneratorNodeConfiguration =
+        new TbMsgGeneratorNodeConfiguration();
     actualTbMsgGeneratorNodeConfiguration.setJsScript("Js Script");
     actualTbMsgGeneratorNodeConfiguration.setMsgCount(3);
     actualTbMsgGeneratorNodeConfiguration.setOriginatorId("42");

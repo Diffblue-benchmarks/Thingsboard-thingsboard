@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class DeviceApiControllerDiffblueTest {
   /**
    * Test {@link DeviceApiController#getName()}.
-   * <p>
-   * Method under test: {@link DeviceApiController#getName()}
+   *
+   * <p>Method under test: {@link DeviceApiController#getName()}
    */
   @Test
   @DisplayName("Test getName()")
@@ -18,6 +18,6 @@ class DeviceApiControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.String DeviceApiController.getName()"})
   void testGetName() {
     // Arrange, Act and Assert
-    assertEquals("HTTP", (new DeviceApiController()).getName());
+    assertEquals("HTTP", new DeviceApiController().getName());
   }
 }

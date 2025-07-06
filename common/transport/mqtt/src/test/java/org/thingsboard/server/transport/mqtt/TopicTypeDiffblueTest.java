@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class TopicTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TopicType#getAttributesResponseTopicBase()}
    *   <li>{@link TopicType#getAttributesSubTopic()}
@@ -21,8 +22,12 @@ class TopicTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String TopicType.getAttributesResponseTopicBase()", "String TopicType.getAttributesSubTopic()",
-      "String TopicType.getRpcRequestTopicBase()", "String TopicType.getRpcResponseTopicBase()"})
+  @MethodsUnderTest({
+    "String TopicType.getAttributesResponseTopicBase()",
+    "String TopicType.getAttributesSubTopic()",
+    "String TopicType.getRpcRequestTopicBase()",
+    "String TopicType.getRpcResponseTopicBase()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TopicType valueOfResult = TopicType.valueOf("V1");

@@ -16,7 +16,6 @@ import com.google.api.core.ListenableFutureToApiFuture;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListenableFutureTask;
 import com.google.common.util.concurrent.SettableFuture;
-import java.util.concurrent.FutureTask;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -24,15 +23,18 @@ import org.junit.jupiter.api.Test;
 class ScheduledTaskDiffblueTest {
   /**
    * Test {@link ScheduledTask#cancel()}.
+   *
    * <ul>
-   *   <li>Given {@link ListenableFutureTask} {@link FutureTask#cancel(boolean)} return {@code true}.</li>
-   *   <li>Then calls {@link FutureTask#cancel(boolean)}.</li>
+   *   <li>Given {@link ListenableFutureTask} {@link ListenableFutureTask#cancel(boolean)} return
+   *       {@code true}.
+   *   <li>Then calls {@link ListenableFutureTask#cancel(boolean)}.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#cancel()}
+   *
+   * <p>Method under test: {@link ScheduledTask#cancel()}
    */
   @Test
-  @DisplayName("Test cancel(); given ListenableFutureTask cancel(boolean) return 'true'; then calls cancel(boolean)")
+  @DisplayName(
+      "Test cancel(); given ListenableFutureTask cancel(boolean) return 'true'; then calls cancel(boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ScheduledTask.cancel()"})
   void testCancel_givenListenableFutureTaskCancelReturnTrue_thenCallsCancel() {
@@ -53,15 +55,17 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#cancel()}.
+   *
    * <ul>
-   *   <li>Given {@link ScheduledTask} (default constructor).</li>
-   *   <li>Then {@link ScheduledTask} (default constructor) Stopped.</li>
+   *   <li>Given {@link ScheduledTask} (default constructor).
+   *   <li>Then {@link ScheduledTask} (default constructor) Stopped.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#cancel()}
+   *
+   * <p>Method under test: {@link ScheduledTask#cancel()}
    */
   @Test
-  @DisplayName("Test cancel(); given ScheduledTask (default constructor); then ScheduledTask (default constructor) Stopped")
+  @DisplayName(
+      "Test cancel(); given ScheduledTask (default constructor); then ScheduledTask (default constructor) Stopped")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ScheduledTask.cancel()"})
   void testCancel_givenScheduledTask_thenScheduledTaskStopped() {
@@ -77,12 +81,14 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}, and {@link ScheduledTask#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ScheduledTask#equals(Object)}
    *   <li>{@link ScheduledTask#hashCode()}
@@ -105,12 +111,14 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}, and {@link ScheduledTask#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ScheduledTask#equals(Object)}
    *   <li>{@link ScheduledTask#hashCode()}
@@ -132,12 +140,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -150,12 +159,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -172,12 +182,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -188,7 +199,8 @@ class ScheduledTaskDiffblueTest {
     ScheduledTask scheduledTask = new ScheduledTask();
     SettableFuture<?> delegate = SettableFuture.create();
     scheduledTask.setScheduledFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+        new ApiFutureToListenableFuture<>(
+            new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
 
     // Act and Assert
     assertNotEquals(scheduledTask, new ScheduledTask());
@@ -196,12 +208,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -214,7 +227,8 @@ class ScheduledTaskDiffblueTest {
     ScheduledTask scheduledTask2 = new ScheduledTask();
     SettableFuture<?> delegate = SettableFuture.create();
     scheduledTask2.setScheduledFuture(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+        new ApiFutureToListenableFuture<>(
+            new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
 
     // Act and Assert
     assertNotEquals(scheduledTask, scheduledTask2);
@@ -222,12 +236,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -240,12 +255,13 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test {@link ScheduledTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ScheduledTask#equals(Object)}
+   *
+   * <p>Method under test: {@link ScheduledTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -258,8 +274,9 @@ class ScheduledTaskDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ScheduledTask}
    *   <li>{@link ScheduledTask#setStopped(boolean)}
@@ -271,9 +288,14 @@ class ScheduledTaskDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ScheduledTask.<init>()", "ListenableFuture ScheduledTask.getScheduledFuture()",
-      "boolean ScheduledTask.isStopped()", "void ScheduledTask.setScheduledFuture(ListenableFuture)",
-      "void ScheduledTask.setStopped(boolean)", "String ScheduledTask.toString()"})
+  @MethodsUnderTest({
+    "void ScheduledTask.<init>()",
+    "ListenableFuture ScheduledTask.getScheduledFuture()",
+    "boolean ScheduledTask.isStopped()",
+    "void ScheduledTask.setScheduledFuture(ListenableFuture)",
+    "void ScheduledTask.setStopped(boolean)",
+    "String ScheduledTask.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ScheduledTask actualScheduledTask = new ScheduledTask();

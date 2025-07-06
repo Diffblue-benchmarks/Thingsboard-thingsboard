@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class MsgTypeDiffblueTest {
   /**
    * Test {@link MsgType#isIgnoreOnStart()}.
-   * <p>
-   * Method under test: {@link MsgType#isIgnoreOnStart()}
+   *
+   * <p>Method under test: {@link MsgType#isIgnoreOnStart()}
    */
   @Test
   @DisplayName("Test isIgnoreOnStart()")

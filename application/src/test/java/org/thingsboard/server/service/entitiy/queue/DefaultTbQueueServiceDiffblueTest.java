@@ -4,7 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,18 +26,20 @@ import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfi
 
 @ExtendWith(MockitoExtension.class)
 class DefaultTbQueueServiceDiffblueTest {
-  @InjectMocks
-  private DefaultTbQueueService defaultTbQueueService;
+  @InjectMocks private DefaultTbQueueService defaultTbQueueService;
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
   @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -60,13 +62,16 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
   @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants2() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -82,8 +87,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(3L);
@@ -104,8 +110,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy2.setBatchSize(1);
     submitStrategy2.setType(SubmitStrategyType.BATCH);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(false);
     tenantProfileQueueConfiguration2.setName("42");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(1L);
@@ -136,17 +143,88 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
   @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_givenFalse() {
+    // Arrange
+    ArrayList<TenantId> tenantIds = new ArrayList<>();
+    TenantProfile newTenantProfile = mock(TenantProfile.class);
+    when(newTenantProfile.isIsolatedTbRuleEngine()).thenReturn(false);
+
+    // Act
+    defaultTbQueueService.updateQueuesByTenants(tenantIds, newTenantProfile, new TenantProfile());
+
+    // Assert
+    verify(newTenantProfile).isIsolatedTbRuleEngine();
+  }
+
+  /**
+   * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
+   * <ul>
+   *   <li>Given {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
+   */
+  @Test
+  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
+  void testUpdateQueuesByTenants_givenFalse2() {
+    // Arrange
+    ArrayList<TenantId> tenantIds = new ArrayList<>();
+
+    TenantProfileData tenantProfileData = new TenantProfileData();
+    tenantProfileData.setConfiguration(new DefaultTenantProfileConfiguration());
+    tenantProfileData.setQueueConfiguration(new ArrayList<>());
+    TenantProfile newTenantProfile = mock(TenantProfile.class);
+    when(newTenantProfile.getProfileData()).thenReturn(tenantProfileData);
+    when(newTenantProfile.isIsolatedTbRuleEngine()).thenReturn(true);
+    TenantProfile oldTenantProfile = mock(TenantProfile.class);
+    when(oldTenantProfile.isIsolatedTbRuleEngine()).thenReturn(false);
+
+    // Act
+    defaultTbQueueService.updateQueuesByTenants(tenantIds, newTenantProfile, oldTenantProfile);
+
+    // Assert
+    verify(newTenantProfile).getProfileData();
+    verify(newTenantProfile).isIsolatedTbRuleEngine();
+    verify(oldTenantProfile).isIsolatedTbRuleEngine();
+  }
+
+  /**
+   * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
+   * <ul>
+   *   <li>Given {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
+   */
+  @Test
+  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
+  void testUpdateQueuesByTenants_givenFalse3() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
     TenantProfile newTenantProfile = mock(TenantProfile.class);
@@ -170,16 +248,21 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is four.</li>
+   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is four.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is four")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is four")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_givenProcessingStrategyMaxPauseBetweenRetriesIsFour() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -202,8 +285,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -224,8 +308,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy2.setBatchSize(1);
     submitStrategy2.setType(SubmitStrategyType.BATCH);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration2 =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration2.setConsumerPerPartition(false);
     tenantProfileQueueConfiguration2.setName("42");
     tenantProfileQueueConfiguration2.setPackProcessingTimeout(4L);
@@ -258,16 +343,21 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is one.</li>
+   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is one.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is one")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_givenProcessingStrategyMaxPauseBetweenRetriesIsOne() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -290,8 +380,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(1L);
@@ -323,16 +414,21 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is three.</li>
+   *   <li>Given {@link ProcessingStrategy} (default constructor) MaxPauseBetweenRetries is three.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is three")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); given ProcessingStrategy (default constructor) MaxPauseBetweenRetries is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_givenProcessingStrategyMaxPauseBetweenRetriesIsThree() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -348,8 +444,9 @@ class DefaultTbQueueServiceDiffblueTest {
     submitStrategy.setBatchSize(3);
     submitStrategy.setType(SubmitStrategyType.BURST);
 
-    TenantProfileQueueConfiguration tenantProfileQueueConfiguration = new TenantProfileQueueConfiguration();
-    tenantProfileQueueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    TenantProfileQueueConfiguration tenantProfileQueueConfiguration =
+        new TenantProfileQueueConfiguration();
+    tenantProfileQueueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     tenantProfileQueueConfiguration.setConsumerPerPartition(true);
     tenantProfileQueueConfiguration.setName("Name");
     tenantProfileQueueConfiguration.setPackProcessingTimeout(3L);
@@ -379,17 +476,22 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when ArrayList(); then calls getProfileData()")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when ArrayList(); then calls getProfileData()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_whenArrayList_thenCallsGetProfileData() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -420,17 +522,22 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when 'null'; then calls getProfileData()")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when 'null'; then calls getProfileData()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_whenNull_thenCallsGetProfileData() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();
@@ -452,17 +559,22 @@ class DefaultTbQueueServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}.
+   *
    * <ul>
-   *   <li>When {@link TenantProfile#TenantProfile()}.</li>
-   *   <li>Then calls {@link TenantProfile#getProfileData()}.</li>
+   *   <li>When {@link TenantProfile#TenantProfile()}.
+   *   <li>Then calls {@link TenantProfile#getProfileData()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile, TenantProfile)}
+   *
+   * <p>Method under test: {@link DefaultTbQueueService#updateQueuesByTenants(List, TenantProfile,
+   * TenantProfile)}
    */
   @Test
-  @DisplayName("Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when TenantProfile(); then calls getProfileData()")
+  @DisplayName(
+      "Test updateQueuesByTenants(List, TenantProfile, TenantProfile); when TenantProfile(); then calls getProfileData()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"})
+  @MethodsUnderTest({
+    "void DefaultTbQueueService.updateQueuesByTenants(List, TenantProfile, TenantProfile)"
+  })
   void testUpdateQueuesByTenants_whenTenantProfile_thenCallsGetProfileData() {
     // Arrange
     ArrayList<TenantId> tenantIds = new ArrayList<>();

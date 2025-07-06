@@ -13,8 +13,9 @@ import org.thingsboard.server.gen.transport.TransportProtos.ServiceInfo;
 class DefaultTbServiceInfoProviderDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DefaultTbServiceInfoProvider#getAssignedTenantProfiles()}
    *   <li>{@link DefaultTbServiceInfoProvider#getServiceId()}
@@ -25,15 +26,19 @@ class DefaultTbServiceInfoProviderDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Set DefaultTbServiceInfoProvider.getAssignedTenantProfiles()",
-      "String DefaultTbServiceInfoProvider.getServiceId()", "ServiceInfo DefaultTbServiceInfoProvider.getServiceInfo()",
-      "String DefaultTbServiceInfoProvider.getServiceType()"})
+  @MethodsUnderTest({
+    "Set DefaultTbServiceInfoProvider.getAssignedTenantProfiles()",
+    "String DefaultTbServiceInfoProvider.getServiceId()",
+    "ServiceInfo DefaultTbServiceInfoProvider.getServiceInfo()",
+    "String DefaultTbServiceInfoProvider.getServiceType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     DefaultTbServiceInfoProvider defaultTbServiceInfoProvider = new DefaultTbServiceInfoProvider();
 
     // Act
-    Set<UUID> actualAssignedTenantProfiles = defaultTbServiceInfoProvider.getAssignedTenantProfiles();
+    Set<UUID> actualAssignedTenantProfiles =
+        defaultTbServiceInfoProvider.getAssignedTenantProfiles();
     String actualServiceId = defaultTbServiceInfoProvider.getServiceId();
     ServiceInfo actualServiceInfo = defaultTbServiceInfoProvider.getServiceInfo();
 

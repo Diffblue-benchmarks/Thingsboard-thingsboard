@@ -11,21 +11,26 @@ import org.junit.jupiter.api.Test;
 class EdgeConnectionExceptionDiffblueTest {
   /**
    * Test {@link EdgeConnectionException#EdgeConnectionException(String)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
-   *   <li>Then return Cause is {@code null}.</li>
+   *   <li>When {@code An error occurred}.
+   *   <li>Then return Cause is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeConnectionException#EdgeConnectionException(String)}
+   *
+   * <p>Method under test: {@link EdgeConnectionException#EdgeConnectionException(String)}
    */
   @Test
-  @DisplayName("Test new EdgeConnectionException(String); when 'An error occurred'; then return Cause is 'null'")
+  @DisplayName(
+      "Test new EdgeConnectionException(String); when 'An error occurred'; then return Cause is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeConnectionException.<init>(String)",
-      "void EdgeConnectionException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void EdgeConnectionException.<init>(String)",
+    "void EdgeConnectionException.<init>(String, Throwable)"
+  })
   void testNewEdgeConnectionException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
-    EdgeConnectionException actualEdgeConnectionException = new EdgeConnectionException("An error occurred");
+    EdgeConnectionException actualEdgeConnectionException =
+        new EdgeConnectionException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualEdgeConnectionException.getMessage());
@@ -35,24 +40,30 @@ class EdgeConnectionExceptionDiffblueTest {
 
   /**
    * Test {@link EdgeConnectionException#EdgeConnectionException(String, Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Cause is {@link Throwable#Throwable()}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeConnectionException#EdgeConnectionException(String, Throwable)}
+   *
+   * <p>Method under test: {@link EdgeConnectionException#EdgeConnectionException(String,
+   * Throwable)}
    */
   @Test
-  @DisplayName("Test new EdgeConnectionException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @DisplayName(
+      "Test new EdgeConnectionException(String, Throwable); when Throwable(); then return Cause is Throwable()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeConnectionException.<init>(String)",
-      "void EdgeConnectionException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void EdgeConnectionException.<init>(String)",
+    "void EdgeConnectionException.<init>(String, Throwable)"
+  })
   void testNewEdgeConnectionException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();
 
     // Act
-    EdgeConnectionException actualEdgeConnectionException = new EdgeConnectionException("An error occurred", cause);
+    EdgeConnectionException actualEdgeConnectionException =
+        new EdgeConnectionException("An error occurred", cause);
 
     // Assert
     assertEquals("An error occurred", actualEdgeConnectionException.getMessage());

@@ -12,8 +12,9 @@ import org.thingsboard.script.api.TbScriptException.ErrorCode;
 class TbScriptExceptionDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbScriptException#TbScriptException(UUID, ErrorCode, String, Exception)}
    *   <li>{@link TbScriptException#getBody()}
@@ -24,17 +25,21 @@ class TbScriptExceptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbScriptException.<init>(UUID, ErrorCode, String, Exception)",
-      "String TbScriptException.getBody()", "ErrorCode TbScriptException.getErrorCode()",
-      "UUID TbScriptException.getScriptId()"})
+  @MethodsUnderTest({
+    "void TbScriptException.<init>(UUID, ErrorCode, String, Exception)",
+    "String TbScriptException.getBody()",
+    "ErrorCode TbScriptException.getErrorCode()",
+    "UUID TbScriptException.getScriptId()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID scriptId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     Exception cause = new Exception("foo");
 
     // Act
-    TbScriptException actualTbScriptException = new TbScriptException(scriptId, ErrorCode.COMPILATION,
-        "Not all who wander are lost", cause);
+    TbScriptException actualTbScriptException =
+        new TbScriptException(
+            scriptId, ErrorCode.COMPILATION, "Not all who wander are lost", cause);
     String actualBody = actualTbScriptException.getBody();
     ErrorCode actualErrorCode = actualTbScriptException.getErrorCode();
     UUID actualScriptId = actualTbScriptException.getScriptId();

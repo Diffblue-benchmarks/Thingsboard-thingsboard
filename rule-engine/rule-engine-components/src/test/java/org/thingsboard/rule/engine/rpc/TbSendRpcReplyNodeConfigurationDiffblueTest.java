@@ -10,25 +10,29 @@ import org.junit.jupiter.api.Test;
 class TbSendRpcReplyNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbSendRpcReplyNodeConfiguration TbSendRpcReplyNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbSendRpcReplyNodeConfiguration TbSendRpcReplyNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbSendRpcReplyNodeConfiguration, tbSendRpcReplyNodeConfiguration.defaultConfiguration());
+    assertEquals(
+        tbSendRpcReplyNodeConfiguration, tbSendRpcReplyNodeConfiguration.defaultConfiguration());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getServiceIdMetaDataAttribute()")
@@ -36,39 +40,45 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
   void testGetServiceIdMetaDataAttribute() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute("");
 
     // Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.SERVICE_ID,
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.SERVICE_ID,
         tbSendRpcReplyNodeConfiguration.getServiceIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).</li>
+   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
-  @DisplayName("Test getServiceIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test getServiceIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
   void testGetServiceIdMetaDataAttribute_givenTbSendRpcReplyNodeConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.SERVICE_ID,
-        (new TbSendRpcReplyNodeConfiguration()).getServiceIdMetaDataAttribute());
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.SERVICE_ID,
+        new TbSendRpcReplyNodeConfiguration().getServiceIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getServiceIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getServiceIdMetaDataAttribute(); then return 'foo'")
@@ -76,7 +86,8 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getServiceIdMetaDataAttribute()"})
   void testGetServiceIdMetaDataAttribute_thenReturnFoo() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute("foo");
 
     // Act and Assert
@@ -85,8 +96,8 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}.
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getSessionIdMetaDataAttribute()")
@@ -94,39 +105,45 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getSessionIdMetaDataAttribute()"})
   void testGetSessionIdMetaDataAttribute() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute("");
 
     // Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.SESSION_ID,
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.SESSION_ID,
         tbSendRpcReplyNodeConfiguration.getSessionIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).</li>
+   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
    */
   @Test
-  @DisplayName("Test getSessionIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test getSessionIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getSessionIdMetaDataAttribute()"})
   void testGetSessionIdMetaDataAttribute_givenTbSendRpcReplyNodeConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.SESSION_ID,
-        (new TbSendRpcReplyNodeConfiguration()).getSessionIdMetaDataAttribute());
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.SESSION_ID,
+        new TbSendRpcReplyNodeConfiguration().getSessionIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getSessionIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getSessionIdMetaDataAttribute(); then return 'foo'")
@@ -134,7 +151,8 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getSessionIdMetaDataAttribute()"})
   void testGetSessionIdMetaDataAttribute_thenReturnFoo() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute("foo");
 
     // Act and Assert
@@ -143,8 +161,8 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getRequestIdMetaDataAttribute()")
@@ -152,39 +170,45 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
   void testGetRequestIdMetaDataAttribute() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute("");
 
     // Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.REQUEST_ID,
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.REQUEST_ID,
         tbSendRpcReplyNodeConfiguration.getRequestIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).</li>
+   *   <li>Given {@link TbSendRpcReplyNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
-  @DisplayName("Test getRequestIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test getRequestIdMetaDataAttribute(); given TbSendRpcReplyNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
   void testGetRequestIdMetaDataAttribute_givenTbSendRpcReplyNodeConfiguration() {
     // Arrange, Act and Assert
-    assertEquals(TbSendRpcReplyNodeConfiguration.REQUEST_ID,
-        (new TbSendRpcReplyNodeConfiguration()).getRequestIdMetaDataAttribute());
+    assertEquals(
+        TbSendRpcReplyNodeConfiguration.REQUEST_ID,
+        new TbSendRpcReplyNodeConfiguration().getRequestIdMetaDataAttribute());
   }
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}.
+   *
    * <ul>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#getRequestIdMetaDataAttribute()}
    */
   @Test
   @DisplayName("Test getRequestIdMetaDataAttribute(); then return 'foo'")
@@ -192,7 +216,8 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"String TbSendRpcReplyNodeConfiguration.getRequestIdMetaDataAttribute()"})
   void testGetRequestIdMetaDataAttribute_thenReturnFoo() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
     tbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute("foo");
 
     // Act and Assert
@@ -200,13 +225,16 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link TbSendRpcReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRpcReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRpcReplyNodeConfiguration#hashCode()}
@@ -215,12 +243,16 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration2 = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration2 =
+        new TbSendRpcReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRpcReplyNodeConfiguration, tbSendRpcReplyNodeConfiguration2);
@@ -229,13 +261,16 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link TbSendRpcReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRpcReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRpcReplyNodeConfiguration#hashCode()}
@@ -244,13 +279,18 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(TbSendRpcReplyNodeConfiguration.SERVICE_ID);
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration2 = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        TbSendRpcReplyNodeConfiguration.SERVICE_ID);
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration2 =
+        new TbSendRpcReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRpcReplyNodeConfiguration, tbSendRpcReplyNodeConfiguration2);
@@ -259,13 +299,16 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link TbSendRpcReplyNodeConfiguration#hashCode()}.
+   * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}, and {@link
+   * TbSendRpcReplyNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    *   <li>{@link TbSendRpcReplyNodeConfiguration#hashCode()}
@@ -274,11 +317,14 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbSendRpcReplyNodeConfiguration, tbSendRpcReplyNodeConfiguration);
@@ -288,18 +334,21 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRpcReplyNodeConfiguration(), 1);
@@ -307,22 +356,27 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    tbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute(TbSendRpcReplyNodeConfiguration.SERVICE_ID);
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    tbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute(
+        TbSendRpcReplyNodeConfiguration.SERVICE_ID);
 
     // Act and Assert
     assertNotEquals(tbSendRpcReplyNodeConfiguration, new TbSendRpcReplyNodeConfiguration());
@@ -330,22 +384,27 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    tbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute(TbSendRpcReplyNodeConfiguration.SERVICE_ID);
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    tbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute(
+        TbSendRpcReplyNodeConfiguration.SERVICE_ID);
 
     // Act and Assert
     assertNotEquals(tbSendRpcReplyNodeConfiguration, new TbSendRpcReplyNodeConfiguration());
@@ -353,22 +412,27 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(TbSendRpcReplyNodeConfiguration.SESSION_ID);
+    TbSendRpcReplyNodeConfiguration tbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    tbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        TbSendRpcReplyNodeConfiguration.SESSION_ID);
 
     // Act and Assert
     assertNotEquals(tbSendRpcReplyNodeConfiguration, new TbSendRpcReplyNodeConfiguration());
@@ -376,18 +440,21 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSendRpcReplyNodeConfiguration(), null);
@@ -395,27 +462,32 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSendRpcReplyNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSendRpcReplyNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
-      "int TbSendRpcReplyNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSendRpcReplyNodeConfiguration.equals(Object)",
+    "int TbSendRpcReplyNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbSendRpcReplyNodeConfiguration(), "Different type to TbSendRpcReplyNodeConfiguration");
+    assertNotEquals(
+        new TbSendRpcReplyNodeConfiguration(), "Different type to TbSendRpcReplyNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbSendRpcReplyNodeConfiguration}
    *   <li>{@link TbSendRpcReplyNodeConfiguration#setRequestIdMetaDataAttribute(String)}
@@ -427,21 +499,29 @@ class TbSendRpcReplyNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbSendRpcReplyNodeConfiguration.<init>()",
-      "void TbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute(String)",
-      "void TbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(String)",
-      "void TbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute(String)",
-      "String TbSendRpcReplyNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbSendRpcReplyNodeConfiguration.<init>()",
+    "void TbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute(String)",
+    "void TbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(String)",
+    "void TbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute(String)",
+    "String TbSendRpcReplyNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbSendRpcReplyNodeConfiguration actualTbSendRpcReplyNodeConfiguration = new TbSendRpcReplyNodeConfiguration();
-    actualTbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute("Request Id Meta Data Attribute");
-    actualTbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute("Service Id Meta Data Attribute");
-    actualTbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute("Session Id Meta Data Attribute");
+    TbSendRpcReplyNodeConfiguration actualTbSendRpcReplyNodeConfiguration =
+        new TbSendRpcReplyNodeConfiguration();
+    actualTbSendRpcReplyNodeConfiguration.setRequestIdMetaDataAttribute(
+        "Request Id Meta Data Attribute");
+    actualTbSendRpcReplyNodeConfiguration.setServiceIdMetaDataAttribute(
+        "Service Id Meta Data Attribute");
+    actualTbSendRpcReplyNodeConfiguration.setSessionIdMetaDataAttribute(
+        "Session Id Meta Data Attribute");
 
     // Assert
-    assertEquals("TbSendRpcReplyNodeConfiguration(serviceIdMetaDataAttribute=Service Id Meta Data Attribute,"
-        + " sessionIdMetaDataAttribute=Session Id Meta Data Attribute, requestIdMetaDataAttribute=Request Id"
-        + " Meta Data Attribute)", actualTbSendRpcReplyNodeConfiguration.toString());
+    assertEquals(
+        "TbSendRpcReplyNodeConfiguration(serviceIdMetaDataAttribute=Service Id Meta Data Attribute,"
+            + " sessionIdMetaDataAttribute=Session Id Meta Data Attribute, requestIdMetaDataAttribute=Request Id"
+            + " Meta Data Attribute)",
+        actualTbSendRpcReplyNodeConfiguration.toString());
   }
 }

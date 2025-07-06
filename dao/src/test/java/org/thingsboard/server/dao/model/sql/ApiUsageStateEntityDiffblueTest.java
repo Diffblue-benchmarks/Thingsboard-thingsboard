@@ -1,9 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
@@ -11,13 +13,20 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.ApiUsageState;
 import org.thingsboard.server.common.data.ApiUsageStateValue;
+import org.thingsboard.server.common.data.EntityType;
+import org.thingsboard.server.common.data.id.AlarmId;
+import org.thingsboard.server.common.data.id.ApiUsageStateId;
+import org.thingsboard.server.common.data.id.CustomerId;
+import org.thingsboard.server.common.data.id.EntityId;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 public class ApiUsageStateEntityDiffblueTest {
   /**
    * Test {@link ApiUsageStateEntity#ApiUsageStateEntity()}.
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity()}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -45,12 +54,154 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ApiUsageStateEntity.<init>(ApiUsageState)"})
+  public void testNewApiUsageStateEntity2() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(ModelConstants.SYSTEM_TENANT);
+    ur.setEntityId(null);
+
+    // Act
+    ApiUsageStateEntity actualApiUsageStateEntity = new ApiUsageStateEntity(ur);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualApiUsageStateEntity.getTenantId().toString());
+    assertNull(actualApiUsageStateEntity.getEntityType());
+    assertNull(actualApiUsageStateEntity.getEntityId());
+    assertEquals(0L, actualApiUsageStateEntity.getCreatedTime());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ApiUsageStateEntity.<init>(ApiUsageState)"})
+  public void testNewApiUsageStateEntity3() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    ur.setId(new ApiUsageStateId(id));
+    ur.setTenantId(null);
+    ur.setEntityId(BaseEntityService.NULL_CUSTOMER_ID);
+
+    // Act
+    ApiUsageStateEntity actualApiUsageStateEntity = new ApiUsageStateEntity(ur);
+
+    // Assert
+    UUID id2 = actualApiUsageStateEntity.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
+    assertSame(id, id2);
+    assertSame(id, actualApiUsageStateEntity.getUuid());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
    * <ul>
-   *   <li>When {@link ApiUsageState#ApiUsageState()}.</li>
-   *   <li>Then return EntityType is {@code null}.</li>
+   *   <li>Given {@link BaseEntityService#NULL_CUSTOMER_ID}.
+   *   <li>Then return EntityType is {@code CUSTOMER}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ApiUsageStateEntity.<init>(ApiUsageState)"})
+  public void testNewApiUsageStateEntity_givenNull_customer_id_thenReturnEntityTypeIsCustomer() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(null);
+    ur.setEntityId(BaseEntityService.NULL_CUSTOMER_ID);
+
+    // Act
+    ApiUsageStateEntity actualApiUsageStateEntity = new ApiUsageStateEntity(ur);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualApiUsageStateEntity.getEntityId().toString());
+    assertEquals("CUSTOMER", actualApiUsageStateEntity.getEntityType());
+    assertNull(actualApiUsageStateEntity.getTenantId());
+    assertEquals(0L, actualApiUsageStateEntity.getCreatedTime());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
+   * <ul>
+   *   <li>Given one.
+   *   <li>Then return CreatedTime is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ApiUsageStateEntity.<init>(ApiUsageState)"})
+  public void testNewApiUsageStateEntity_givenOne_thenReturnCreatedTimeIsOne() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState();
+    ur.setCreatedTime(1L);
+
+    // Act
+    ApiUsageStateEntity actualApiUsageStateEntity = new ApiUsageStateEntity(ur);
+
+    // Assert
+    assertNull(actualApiUsageStateEntity.getEntityType());
+    assertNull(actualApiUsageStateEntity.getEntityId());
+    assertNull(actualApiUsageStateEntity.getTenantId());
+    assertEquals(1L, actualApiUsageStateEntity.getCreatedTime());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
+   * <ul>
+   *   <li>Then return EntityType is {@code TENANT}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void ApiUsageStateEntity.<init>(ApiUsageState)"})
+  public void testNewApiUsageStateEntity_thenReturnEntityTypeIsTenant() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(null);
+    ur.setEntityId(ModelConstants.SYSTEM_TENANT);
+
+    // Act
+    ApiUsageStateEntity actualApiUsageStateEntity = new ApiUsageStateEntity(ur);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualApiUsageStateEntity.getEntityId().toString());
+    assertEquals("TENANT", actualApiUsageStateEntity.getEntityType());
+    assertNull(actualApiUsageStateEntity.getTenantId());
+    assertEquals(0L, actualApiUsageStateEntity.getCreatedTime());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}.
+   *
+   * <ul>
+   *   <li>When {@link ApiUsageState#ApiUsageState()}.
+   *   <li>Then return EntityType is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#ApiUsageStateEntity(ApiUsageState)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -67,13 +218,220 @@ public class ApiUsageStateEntityDiffblueTest {
   }
 
   /**
-   * Test {@link ApiUsageStateEntity#equals(Object)}, and {@link ApiUsageStateEntity#hashCode()}.
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>Given {@link ApiUsageStateEntity#ApiUsageStateEntity()}.
+   *   <li>Then return EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_givenApiUsageStateEntity_thenReturnEntityIdIsNull() {
+    // Arrange and Act
+    ApiUsageState actualToDataResult = new ApiUsageStateEntity().toData();
+
+    // Assert
+    assertNull(actualToDataResult.getEntityId());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getAlarmExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getDbStorageState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getEmailExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getJsExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getReExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getSmsExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getTbelExecState());
+    assertEquals(ApiUsageStateValue.ENABLED, actualToDataResult.getTransportState());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then EntityId return {@link AlarmId}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_thenEntityIdReturnAlarmId() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(null);
+    AlarmId entityId = new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    ur.setEntityId(entityId);
+
+    // Act and Assert
+    EntityId entityId2 = new ApiUsageStateEntity(ur).toData().getEntityId();
+    assertTrue(entityId2 instanceof AlarmId);
+    assertEquals(entityId, entityId2);
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then EntityId return {@link CustomerId}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_thenEntityIdReturnCustomerId() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(null);
+    ur.setEntityId(BaseEntityService.NULL_CUSTOMER_ID);
+
+    // Act and Assert
+    EntityId entityId = new ApiUsageStateEntity(ur).toData().getEntityId();
+    assertTrue(entityId instanceof CustomerId);
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.getId().toString());
+    assertEquals(EntityType.CUSTOMER, entityId.getEntityType());
+    assertTrue(entityId.isNullUid());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then EntityId return {@link TenantId}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_thenEntityIdReturnTenantId() {
+    // Arrange
+    ApiUsageState ur = new ApiUsageState(new ApiUsageState());
+    ur.setId(null);
+    ur.setTenantId(null);
+    ur.setEntityId(ModelConstants.SYSTEM_TENANT);
+
+    // Act and Assert
+    EntityId entityId = new ApiUsageStateEntity(ur).toData().getEntityId();
+    assertTrue(entityId instanceof TenantId);
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", entityId.getId().toString());
+    assertEquals(EntityType.TENANT, entityId.getEntityType());
+    assertTrue(entityId.isNullUid());
+    assertTrue(((TenantId) entityId).isSysTenantId());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id is randomUUID.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+    // Arrange
+    ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
+    apiUsageStateEntity.setAlarmExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setCreatedTime(1L);
+    apiUsageStateEntity.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setEmailExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setEntityType("Entity Type");
+    apiUsageStateEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    apiUsageStateEntity.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setReExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setSmsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setTbelExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setTransportState(ApiUsageStateValue.ENABLED);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    apiUsageStateEntity.setUuid(id);
+    UUID tenantId = UUID.randomUUID();
+    apiUsageStateEntity.setTenantId(tenantId);
+    apiUsageStateEntity.setEntityId(null);
+
+    // Act
+    ApiUsageState actualToDataResult = apiUsageStateEntity.toData();
+
+    // Assert
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    assertEquals(1L, actualToDataResult.getCreatedTime());
+    TenantId tenantId2 = actualToDataResult.getTenantId();
+    assertEquals(EntityType.TENANT, tenantId2.getEntityType());
+    assertFalse(tenantId2.isNullUid());
+    assertFalse(tenantId2.isSysTenantId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
+    assertSame(tenantId, tenantId2.getId());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"ApiUsageState ApiUsageStateEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
+    apiUsageStateEntity.setAlarmExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setCreatedTime(1L);
+    apiUsageStateEntity.setDbStorageState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setEmailExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setEntityType("Entity Type");
+    apiUsageStateEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    apiUsageStateEntity.setJsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setReExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setSmsExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setTbelExecState(ApiUsageStateValue.ENABLED);
+    apiUsageStateEntity.setTransportState(ApiUsageStateValue.ENABLED);
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    apiUsageStateEntity.setUuid(id);
+    apiUsageStateEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    apiUsageStateEntity.setEntityId(null);
+
+    // Act
+    ApiUsageState actualToDataResult = apiUsageStateEntity.toData();
+
+    // Assert
+    UUID uuidId = actualToDataResult.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    TenantId tenantId = actualToDataResult.getTenantId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", tenantId.getId().toString());
+    assertEquals(1L, actualToDataResult.getCreatedTime());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertFalse(tenantId.isNullUid());
+    assertFalse(tenantId.isSysTenantId());
+    assertSame(id, uuidId);
+    assertSame(id, actualToDataResult.getId().getId());
+  }
+
+  /**
+   * Test {@link ApiUsageStateEntity#equals(Object)}, and {@link ApiUsageStateEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageStateEntity#equals(Object)}
    *   <li>{@link ApiUsageStateEntity#hashCode()}
@@ -81,7 +439,10 @@ public class ApiUsageStateEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -124,12 +485,14 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}, and {@link ApiUsageStateEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageStateEntity#equals(Object)}
    *   <li>{@link ApiUsageStateEntity#hashCode()}
@@ -137,7 +500,10 @@ public class ApiUsageStateEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -180,12 +546,14 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}, and {@link ApiUsageStateEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageStateEntity#equals(Object)}
    *   <li>{@link ApiUsageStateEntity#hashCode()}
@@ -193,7 +561,10 @@ public class ApiUsageStateEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -220,16 +591,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -270,16 +645,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -320,16 +699,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -370,16 +753,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -420,16 +807,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -470,16 +861,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -520,16 +915,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -570,16 +969,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -620,16 +1023,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -670,16 +1077,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -720,16 +1131,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -770,16 +1185,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -820,16 +1239,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -870,16 +1293,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -920,16 +1347,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -970,16 +1401,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1020,16 +1455,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1070,16 +1509,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1120,16 +1563,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1170,16 +1617,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1220,16 +1671,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1270,16 +1725,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1320,16 +1779,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1370,16 +1833,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1404,16 +1871,20 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test {@link ApiUsageStateEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageStateEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ApiUsageStateEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean ApiUsageStateEntity.equals(Object)", "int ApiUsageStateEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ApiUsageStateEntity.equals(Object)",
+    "int ApiUsageStateEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1438,8 +1909,9 @@ public class ApiUsageStateEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageStateEntity#setAlarmExecState(ApiUsageStateValue)}
    *   <li>{@link ApiUsageStateEntity#setDbStorageState(ApiUsageStateValue)}
@@ -1468,22 +1940,31 @@ public class ApiUsageStateEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"ApiUsageStateValue ApiUsageStateEntity.getAlarmExecState()",
-      "ApiUsageStateValue ApiUsageStateEntity.getDbStorageState()",
-      "ApiUsageStateValue ApiUsageStateEntity.getEmailExecState()", "UUID ApiUsageStateEntity.getEntityId()",
-      "String ApiUsageStateEntity.getEntityType()", "ApiUsageStateValue ApiUsageStateEntity.getJsExecState()",
-      "ApiUsageStateValue ApiUsageStateEntity.getReExecState()",
-      "ApiUsageStateValue ApiUsageStateEntity.getSmsExecState()",
-      "ApiUsageStateValue ApiUsageStateEntity.getTbelExecState()", "UUID ApiUsageStateEntity.getTenantId()",
-      "ApiUsageStateValue ApiUsageStateEntity.getTransportState()",
-      "void ApiUsageStateEntity.setAlarmExecState(ApiUsageStateValue)",
-      "void ApiUsageStateEntity.setDbStorageState(ApiUsageStateValue)",
-      "void ApiUsageStateEntity.setEmailExecState(ApiUsageStateValue)", "void ApiUsageStateEntity.setEntityId(UUID)",
-      "void ApiUsageStateEntity.setEntityType(String)", "void ApiUsageStateEntity.setJsExecState(ApiUsageStateValue)",
-      "void ApiUsageStateEntity.setReExecState(ApiUsageStateValue)",
-      "void ApiUsageStateEntity.setSmsExecState(ApiUsageStateValue)",
-      "void ApiUsageStateEntity.setTbelExecState(ApiUsageStateValue)", "void ApiUsageStateEntity.setTenantId(UUID)",
-      "void ApiUsageStateEntity.setTransportState(ApiUsageStateValue)", "String ApiUsageStateEntity.toString()"})
+  @MethodsUnderTest({
+    "ApiUsageStateValue ApiUsageStateEntity.getAlarmExecState()",
+    "ApiUsageStateValue ApiUsageStateEntity.getDbStorageState()",
+    "ApiUsageStateValue ApiUsageStateEntity.getEmailExecState()",
+    "UUID ApiUsageStateEntity.getEntityId()",
+    "String ApiUsageStateEntity.getEntityType()",
+    "ApiUsageStateValue ApiUsageStateEntity.getJsExecState()",
+    "ApiUsageStateValue ApiUsageStateEntity.getReExecState()",
+    "ApiUsageStateValue ApiUsageStateEntity.getSmsExecState()",
+    "ApiUsageStateValue ApiUsageStateEntity.getTbelExecState()",
+    "UUID ApiUsageStateEntity.getTenantId()",
+    "ApiUsageStateValue ApiUsageStateEntity.getTransportState()",
+    "void ApiUsageStateEntity.setAlarmExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setDbStorageState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setEmailExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setEntityId(UUID)",
+    "void ApiUsageStateEntity.setEntityType(String)",
+    "void ApiUsageStateEntity.setJsExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setReExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setSmsExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setTbelExecState(ApiUsageStateValue)",
+    "void ApiUsageStateEntity.setTenantId(UUID)",
+    "void ApiUsageStateEntity.setTransportState(ApiUsageStateValue)",
+    "String ApiUsageStateEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     ApiUsageStateEntity apiUsageStateEntity = new ApiUsageStateEntity();
@@ -1518,10 +1999,12 @@ public class ApiUsageStateEntityDiffblueTest {
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualEntityId.toString());
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualTenantId.toString());
-    assertEquals("ApiUsageStateEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, entityType=Entity Type, entityId"
-        + "=784f394c-42b6-435a-983c-b7beff2784f9, transportState=ENABLED, dbStorageState=ENABLED, reExecState=ENABLED,"
-        + " jsExecState=ENABLED, tbelExecState=ENABLED, emailExecState=ENABLED, smsExecState=ENABLED, alarmExecState"
-        + "=ENABLED)", actualToStringResult);
+    assertEquals(
+        "ApiUsageStateEntity(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, entityType=Entity Type, entityId"
+            + "=784f394c-42b6-435a-983c-b7beff2784f9, transportState=ENABLED, dbStorageState=ENABLED, reExecState=ENABLED,"
+            + " jsExecState=ENABLED, tbelExecState=ENABLED, emailExecState=ENABLED, smsExecState=ENABLED, alarmExecState"
+            + "=ENABLED)",
+        actualToStringResult);
     assertEquals("Entity Type", actualEntityType);
     assertEquals(ApiUsageStateValue.ENABLED, actualAlarmExecState);
     assertEquals(ApiUsageStateValue.ENABLED, actualDbStorageState);

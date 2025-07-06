@@ -16,29 +16,36 @@ import org.thingsboard.server.common.data.id.NotificationTemplateId;
 class TbNotificationNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbNotificationNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbNotificationNodeConfiguration TbNotificationNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbNotificationNodeConfiguration TbNotificationNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbNotificationNodeConfiguration, tbNotificationNodeConfiguration.defaultConfiguration());
+    assertEquals(
+        tbNotificationNodeConfiguration, tbNotificationNodeConfiguration.defaultConfiguration());
   }
 
   /**
-   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link TbNotificationNodeConfiguration#hashCode()}.
+   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link
+   * TbNotificationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbNotificationNodeConfiguration#equals(Object)}
    *   <li>{@link TbNotificationNodeConfiguration#hashCode()}
@@ -47,12 +54,16 @@ class TbNotificationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 =
+        new TbNotificationNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbNotificationNodeConfiguration, tbNotificationNodeConfiguration2);
@@ -61,13 +72,16 @@ class TbNotificationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link TbNotificationNodeConfiguration#hashCode()}.
+   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link
+   * TbNotificationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbNotificationNodeConfiguration#equals(Object)}
    *   <li>{@link TbNotificationNodeConfiguration#hashCode()}
@@ -76,14 +90,18 @@ class TbNotificationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
     tbNotificationNodeConfiguration.setTargets(new ArrayList<>());
 
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 =
+        new TbNotificationNodeConfiguration();
     tbNotificationNodeConfiguration2.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -93,13 +111,16 @@ class TbNotificationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link TbNotificationNodeConfiguration#hashCode()}.
+   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link
+   * TbNotificationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbNotificationNodeConfiguration#equals(Object)}
    *   <li>{@link TbNotificationNodeConfiguration#hashCode()}
@@ -108,17 +129,21 @@ class TbNotificationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
-    tbNotificationNodeConfiguration
-        .setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
+    tbNotificationNodeConfiguration.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 = new TbNotificationNodeConfiguration();
-    tbNotificationNodeConfiguration2
-        .setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 =
+        new TbNotificationNodeConfiguration();
+    tbNotificationNodeConfiguration2.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(tbNotificationNodeConfiguration, tbNotificationNodeConfiguration2);
@@ -127,13 +152,16 @@ class TbNotificationNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link TbNotificationNodeConfiguration#hashCode()}.
+   * Test {@link TbNotificationNodeConfiguration#equals(Object)}, and {@link
+   * TbNotificationNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbNotificationNodeConfiguration#equals(Object)}
    *   <li>{@link TbNotificationNodeConfiguration#hashCode()}
@@ -142,11 +170,14 @@ class TbNotificationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbNotificationNodeConfiguration, tbNotificationNodeConfiguration);
@@ -156,18 +187,21 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbNotificationNodeConfiguration(), 1);
@@ -175,21 +209,25 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
     tbNotificationNodeConfiguration.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -198,23 +236,27 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
-    tbNotificationNodeConfiguration
-        .setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
+    tbNotificationNodeConfiguration.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbNotificationNodeConfiguration, new TbNotificationNodeConfiguration());
@@ -222,23 +264,28 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
 
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 =
+        new TbNotificationNodeConfiguration();
     tbNotificationNodeConfiguration2.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -247,25 +294,30 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
 
-    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 = new TbNotificationNodeConfiguration();
-    tbNotificationNodeConfiguration2
-        .setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    TbNotificationNodeConfiguration tbNotificationNodeConfiguration2 =
+        new TbNotificationNodeConfiguration();
+    tbNotificationNodeConfiguration2.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(tbNotificationNodeConfiguration, tbNotificationNodeConfiguration2);
@@ -273,18 +325,21 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbNotificationNodeConfiguration(), null);
@@ -292,27 +347,32 @@ class TbNotificationNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbNotificationNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbNotificationNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbNotificationNodeConfiguration.equals(Object)",
-      "int TbNotificationNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbNotificationNodeConfiguration.equals(Object)",
+    "int TbNotificationNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbNotificationNodeConfiguration(), "Different type to TbNotificationNodeConfiguration");
+    assertNotEquals(
+        new TbNotificationNodeConfiguration(), "Different type to TbNotificationNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbNotificationNodeConfiguration}
    *   <li>{@link TbNotificationNodeConfiguration#setTargets(List)}
@@ -325,26 +385,30 @@ class TbNotificationNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbNotificationNodeConfiguration.<init>()",
-      "List TbNotificationNodeConfiguration.getTargets()",
-      "NotificationTemplateId TbNotificationNodeConfiguration.getTemplateId()",
-      "void TbNotificationNodeConfiguration.setTargets(List)",
-      "void TbNotificationNodeConfiguration.setTemplateId(NotificationTemplateId)",
-      "String TbNotificationNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbNotificationNodeConfiguration.<init>()",
+    "List TbNotificationNodeConfiguration.getTargets()",
+    "NotificationTemplateId TbNotificationNodeConfiguration.getTemplateId()",
+    "void TbNotificationNodeConfiguration.setTargets(List)",
+    "void TbNotificationNodeConfiguration.setTemplateId(NotificationTemplateId)",
+    "String TbNotificationNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbNotificationNodeConfiguration actualTbNotificationNodeConfiguration = new TbNotificationNodeConfiguration();
+    TbNotificationNodeConfiguration actualTbNotificationNodeConfiguration =
+        new TbNotificationNodeConfiguration();
     ArrayList<UUID> targets = new ArrayList<>();
     actualTbNotificationNodeConfiguration.setTargets(targets);
-    NotificationTemplateId templateId = new NotificationTemplateId(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    NotificationTemplateId templateId =
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualTbNotificationNodeConfiguration.setTemplateId(templateId);
     String actualToStringResult = actualTbNotificationNodeConfiguration.toString();
     List<UUID> actualTargets = actualTbNotificationNodeConfiguration.getTargets();
     NotificationTemplateId actualTemplateId = actualTbNotificationNodeConfiguration.getTemplateId();
 
     // Assert
-    assertEquals("TbNotificationNodeConfiguration(targets=[], templateId=784f394c-42b6-435a-983c-b7beff2784f9)",
+    assertEquals(
+        "TbNotificationNodeConfiguration(targets=[], templateId=784f394c-42b6-435a-983c-b7beff2784f9)",
         actualToStringResult);
     assertTrue(actualTargets.isEmpty());
     assertSame(targets, actualTargets);

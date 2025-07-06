@@ -19,12 +19,13 @@ import org.thingsboard.server.common.data.ota.OtaPackageType;
 class OtaPackageInfoDiffblueTest {
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return HasData.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
   @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); given 'true'; then return HasData")
@@ -62,19 +63,23 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo()}.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link
+   *       OtaPackageInfo#OtaPackageInfo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
-  @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo()")
+  @DisplayName(
+      "Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
   void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo() {
     // Arrange and Act
-    OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo()));
+    OtaPackageInfo actualOtaPackageInfo =
+        new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo()));
 
     // Assert
     assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
@@ -100,20 +105,23 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link
+   *       OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
-  @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
+  @DisplayName(
+      "Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
   void testNewOtaPackageInfo_whenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo2() {
     // Arrange and Act
-    OtaPackageInfo actualOtaPackageInfo = new OtaPackageInfo(
-        new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())));
+    OtaPackageInfo actualOtaPackageInfo =
+        new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())));
 
     // Assert
     assertTrue(actualOtaPackageInfo.getAdditionalInfo() instanceof NullNode);
@@ -139,15 +147,17 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
+   *
    * <ul>
-   *   <li>When {@link OtaPackageInfo#OtaPackageInfo()}.</li>
-   *   <li>Then return not HasData.</li>
+   *   <li>When {@link OtaPackageInfo#OtaPackageInfo()}.
+   *   <li>Then return not HasData.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}
    */
   @Test
-  @DisplayName("Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(); then return not HasData")
+  @DisplayName(
+      "Test new OtaPackageInfo(OtaPackageInfo); when OtaPackageInfo(); then return not HasData")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfo.<init>(OtaPackageInfo)"})
   void testNewOtaPackageInfo_whenOtaPackageInfo_thenReturnNotHasData() {
@@ -178,8 +188,8 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#getId()}.
-   * <p>
-   * Method under test: {@link OtaPackageInfo#getId()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -187,13 +197,13 @@ class OtaPackageInfoDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.OtaPackageId OtaPackageInfo.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new OtaPackageInfo()).getId());
+    assertNull(new OtaPackageInfo().getId());
   }
 
   /**
    * Test {@link OtaPackageInfo#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link OtaPackageInfo#getCreatedTime()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -201,25 +211,21 @@ class OtaPackageInfoDiffblueTest {
   @MethodsUnderTest({"long OtaPackageInfo.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new OtaPackageInfo()).getCreatedTime());
+    assertEquals(0L, new OtaPackageInfo().getCreatedTime());
   }
 
   /**
    * Test {@link OtaPackageInfo#hasUrl()}.
-   * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#hasUrl()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#hasUrl()}
    */
   @Test
-  @DisplayName("Test hasUrl(); given OtaPackageInfo() Url is DEFAULT_SECRET_KEY; then return 'false'")
+  @DisplayName("Test hasUrl()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
-  void testHasUrl_givenOtaPackageInfoUrlIsDefault_secret_key_thenReturnFalse() {
+  void testHasUrl() {
     // Arrange
-    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
     otaPackageInfo.setUrl(DataConstants.DEFAULT_SECRET_KEY);
 
     // Act and Assert
@@ -228,34 +234,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#hasUrl()}.
+   *
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()} Url is {@code not empty}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#hasUrl()}
-   */
-  @Test
-  @DisplayName("Test hasUrl(); given OtaPackageInfo() Url is 'not empty'; then return 'true'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
-  void testHasUrl_givenOtaPackageInfoUrlIsNotEmpty_thenReturnTrue() {
-    // Arrange
-    OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
-    otaPackageInfo.setUrl("not empty");
-
-    // Act and Assert
-    assertTrue(otaPackageInfo.hasUrl());
-  }
-
-  /**
-   * Test {@link OtaPackageInfo#hasUrl()}.
-   * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()}.</li>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#hasUrl()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#hasUrl()}
    */
   @Test
   @DisplayName("Test hasUrl(); given OtaPackageInfo(); then return 'false'")
@@ -263,24 +248,50 @@ class OtaPackageInfoDiffblueTest {
   @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
   void testHasUrl_givenOtaPackageInfo_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new OtaPackageInfo()).hasUrl());
+    assertFalse(new OtaPackageInfo().hasUrl());
+  }
+
+  /**
+   * Test {@link OtaPackageInfo#hasUrl()}.
+   *
+   * <ul>
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link OtaPackageInfo#hasUrl()}
+   */
+  @Test
+  @DisplayName("Test hasUrl(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean OtaPackageInfo.hasUrl()"})
+  void testHasUrl_thenReturnTrue() {
+    // Arrange
+    OtaPackageInfo otaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
+    otaPackageInfo.setUrl("not empty");
+
+    // Act and Assert
+    assertTrue(otaPackageInfo.hasUrl());
   }
 
   /**
    * Test {@link OtaPackageInfo#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)} with otaPackageInfo is {@link
+   *       OtaPackageInfo#OtaPackageInfo(OtaPackageInfo)}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
+  @DisplayName(
+      "Test getAdditionalInfo(); given OtaPackageInfo(OtaPackageInfo) with otaPackageInfo is OtaPackageInfo(OtaPackageInfo)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenOtaPackageInfoWithOtaPackageInfoIsOtaPackageInfo() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo =
+        new OtaPackageInfo(new OtaPackageInfo(new OtaPackageInfo())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -288,12 +299,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link OtaPackageInfo#OtaPackageInfo()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given OtaPackageInfo(); then return 'null'")
@@ -301,16 +313,17 @@ class OtaPackageInfoDiffblueTest {
   @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenOtaPackageInfo_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new OtaPackageInfo()).getAdditionalInfo());
+    assertNull(new OtaPackageInfo().getAdditionalInfo());
   }
 
   /**
    * Test {@link OtaPackageInfo#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); then return instance")
@@ -318,7 +331,7 @@ class OtaPackageInfoDiffblueTest {
   @MethodsUnderTest({"JsonNode OtaPackageInfo.getAdditionalInfo()"})
   void testGetAdditionalInfo_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new OtaPackageInfo(new OtaPackageInfo())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new OtaPackageInfo(new OtaPackageInfo()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -326,12 +339,14 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}, and {@link OtaPackageInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageInfo#equals(Object)}
    *   <li>{@link OtaPackageInfo#hashCode()}
@@ -354,12 +369,14 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}, and {@link OtaPackageInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OtaPackageInfo#equals(Object)}
    *   <li>{@link OtaPackageInfo#hashCode()}
@@ -381,12 +398,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -402,12 +420,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -423,12 +442,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -444,12 +464,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -466,12 +487,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -488,12 +510,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -510,12 +533,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -532,12 +556,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -554,12 +579,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -576,12 +602,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -598,12 +625,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -620,12 +648,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -642,12 +671,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -664,12 +694,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -686,12 +717,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -708,12 +740,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -732,12 +765,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -756,12 +790,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -780,12 +815,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -804,12 +840,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -828,12 +865,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -852,12 +890,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -876,12 +915,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -900,12 +940,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -924,12 +965,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -948,12 +990,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -972,12 +1015,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -990,12 +1034,13 @@ class OtaPackageInfoDiffblueTest {
 
   /**
    * Test {@link OtaPackageInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OtaPackageInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link OtaPackageInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

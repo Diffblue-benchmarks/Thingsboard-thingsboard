@@ -6,8 +6,11 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
@@ -15,10 +18,12 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class DeviceProfileCacheKeyDiffblueTest {
   /**
    * Test {@link DeviceProfileCacheKey#forName(TenantId, String)}.
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#forName(TenantId, String)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#forName(TenantId, String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forName(TenantId, String)"})
   public void testForName() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
@@ -38,14 +43,17 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#forId(DeviceProfileId)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Name is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Name is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#forId(DeviceProfileId)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#forId(DeviceProfileId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forId(DeviceProfileId)"})
   public void testForId_whenNull_thenReturnNameIsNull() {
     // Arrange and Act
     DeviceProfileCacheKey actualForIdResult = DeviceProfileCacheKey.forId(null);
@@ -61,16 +69,19 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#forDefaultProfile(TenantId)}.
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#forDefaultProfile(TenantId)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#forDefaultProfile(TenantId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forDefaultProfile(TenantId)"})
   public void testForDefaultProfile() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
     // Act
-    DeviceProfileCacheKey actualForDefaultProfileResult = DeviceProfileCacheKey.forDefaultProfile(tenantId);
+    DeviceProfileCacheKey actualForDefaultProfileResult =
+        DeviceProfileCacheKey.forDefaultProfile(tenantId);
 
     // Assert
     assertNull(actualForDefaultProfileResult.getName());
@@ -84,13 +95,16 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#forProvisionKey(String)}.
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#forProvisionKey(String)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#forProvisionKey(String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forProvisionKey(String)"})
   public void testForProvisionKey() {
     // Arrange and Act
-    DeviceProfileCacheKey actualForProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
+    DeviceProfileCacheKey actualForProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
 
     // Assert
     assertEquals("Provision Device Key", actualForProvisionKeyResult.getProvisionDeviceKey());
@@ -103,45 +117,17 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given forDefaultProfile {@link ModelConstants#SYSTEM_TENANT}.</li>
+   *   <li>Given forProvisionKey empty string.
+   *   <li>Then return {@code null_null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  public void testToString_givenForDefaultProfileSystem_tenant() {
-    // Arrange, Act and Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080",
-        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT).toString());
-  }
-
-  /**
-   * Test {@link DeviceProfileCacheKey#toString()}.
-   * <ul>
-   *   <li>Given forId {@link DeviceProfileId#DeviceProfileId(UUID)} with id is
-   * {@link ModelConstants#NULL_UUID}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#toString()}
-   */
-  @Test
-  public void testToString_givenForIdDeviceProfileIdWithIdIsNull_uuid() {
-    // Arrange, Act and Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080",
-        DeviceProfileCacheKey.forId(new DeviceProfileId(ModelConstants.NULL_UUID)).toString());
-  }
-
-  /**
-   * Test {@link DeviceProfileCacheKey#toString()}.
-   * <ul>
-   *   <li>Given forProvisionKey empty string.</li>
-   *   <li>Then return {@code null_null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#toString()}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
   public void testToString_givenForProvisionKeyEmptyString_thenReturnNullNull() {
     // Arrange, Act and Assert
     assertEquals("null_null", DeviceProfileCacheKey.forProvisionKey("").toString());
@@ -149,14 +135,17 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given forProvisionKey {@code null}.</li>
-   *   <li>Then return {@code null_null}.</li>
+   *   <li>Given forProvisionKey {@code null}.
+   *   <li>Then return {@code null_null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
   public void testToString_givenForProvisionKeyNull_thenReturnNullNull() {
     // Arrange, Act and Assert
     assertEquals("null_null", DeviceProfileCacheKey.forProvisionKey(null).toString());
@@ -164,69 +153,130 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given forProvisionKey {@code Provision Device Key}.</li>
-   *   <li>Then return {@code Provision Device Key}.</li>
+   *   <li>Given forProvisionKey {@code Provision Device Key}.
+   *   <li>Then return {@code Provision Device Key}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#toString()}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
   public void testToString_givenForProvisionKeyProvisionDeviceKey_thenReturnProvisionDeviceKey() {
     // Arrange, Act and Assert
-    assertEquals("Provision Device Key", DeviceProfileCacheKey.forProvisionKey("Provision Device Key").toString());
+    assertEquals(
+        "Provision Device Key",
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key").toString());
   }
 
   /**
-   * Test {@link DeviceProfileCacheKey#isVersioned()}.
+   * Test {@link DeviceProfileCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given forId {@link DeviceProfileId#DeviceProfileId(UUID)} with id is
-   * {@link ModelConstants#NULL_UUID}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#isVersioned()}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  public void testIsVersioned_givenForIdDeviceProfileIdWithIdIsNull_uuid_thenReturnTrue() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
+  public void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
-    assertTrue(DeviceProfileCacheKey.forId(new DeviceProfileId(ModelConstants.NULL_UUID)).isVersioned());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        DeviceProfileCacheKey.forId(
+                new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .toString());
+  }
+
+  /**
+   * Test {@link DeviceProfileCacheKey#toString()}.
+   *
+   * <ul>
+   *   <li>Then return {@code 13814000-1dd2-11b2-8080-808080808080}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
+  public void testToString_thenReturn138140001dd211b28080808080808080() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080",
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT).toString());
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#isVersioned()}.
+   *
    * <ul>
-   *   <li>Given forProvisionKey {@code Provision Device Key}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given forProvisionKey {@code Provision Device Key}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#isVersioned()}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#isVersioned()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceProfileCacheKey.isVersioned()"})
   public void testIsVersioned_givenForProvisionKeyProvisionDeviceKey_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(DeviceProfileCacheKey.forProvisionKey("Provision Device Key").isVersioned());
   }
 
   /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}, and
-   * {@link DeviceProfileCacheKey#hashCode()}.
+   * Test {@link DeviceProfileCacheKey#isVersioned()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#isVersioned()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean DeviceProfileCacheKey.isVersioned()"})
+  public void testIsVersioned_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(
+        DeviceProfileCacheKey.forId(
+                new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .isVersioned());
+  }
+
+  /**
+   * Test {@link DeviceProfileCacheKey#equals(Object)}, and {@link
+   * DeviceProfileCacheKey#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileCacheKey#equals(Object)}
    *   <li>{@link DeviceProfileCacheKey#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
-    DeviceProfileCacheKey forProvisionKeyResult2 = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
+    DeviceProfileCacheKey forProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
+    DeviceProfileCacheKey forProvisionKeyResult2 =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
 
     // Act and Assert
     assertEquals(forProvisionKeyResult, forProvisionKeyResult2);
@@ -235,20 +285,27 @@ public class DeviceProfileCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}, and
-   * {@link DeviceProfileCacheKey#hashCode()}.
+   * Test {@link DeviceProfileCacheKey#equals(Object)}, and {@link
+   * DeviceProfileCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileCacheKey#equals(Object)}
    *   <li>{@link DeviceProfileCacheKey#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey(null);
@@ -261,26 +318,33 @@ public class DeviceProfileCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}, and
-   * {@link DeviceProfileCacheKey#hashCode()}.
+   * Test {@link DeviceProfileCacheKey#equals(Object)}, and {@link
+   * DeviceProfileCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileCacheKey#equals(Object)}
    *   <li>{@link DeviceProfileCacheKey#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    DeviceProfileCacheKey forDefaultProfileResult = DeviceProfileCacheKey
-        .forDefaultProfile(ModelConstants.SYSTEM_TENANT);
-    DeviceProfileCacheKey forDefaultProfileResult2 = DeviceProfileCacheKey
-        .forDefaultProfile(ModelConstants.SYSTEM_TENANT);
+    DeviceProfileCacheKey forDefaultProfileResult =
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
+    DeviceProfileCacheKey forDefaultProfileResult2 =
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
     assertEquals(forDefaultProfileResult, forDefaultProfileResult2);
@@ -289,23 +353,31 @@ public class DeviceProfileCacheKeyDiffblueTest {
   }
 
   /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}, and
-   * {@link DeviceProfileCacheKey#hashCode()}.
+   * Test {@link DeviceProfileCacheKey#equals(Object)}, and {@link
+   * DeviceProfileCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileCacheKey#equals(Object)}
    *   <li>{@link DeviceProfileCacheKey#hashCode()}
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
+    DeviceProfileCacheKey forProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
 
     // Act and Assert
     assertEquals(forProvisionKeyResult, forProvisionKeyResult);
@@ -315,110 +387,157 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey(null);
 
     // Act and Assert
-    assertNotEquals(forProvisionKeyResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
+    assertNotEquals(
+        forProvisionKeyResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey
-        .forProvisionKey("org.thingsboard.server.dao.device.DeviceProfileCacheKey");
+    DeviceProfileCacheKey forProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey(
+            "org.thingsboard.server.dao.device.DeviceProfileCacheKey");
 
     // Act and Assert
-    assertNotEquals(forProvisionKeyResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
+    assertNotEquals(
+        forProvisionKeyResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    DeviceProfileCacheKey forDefaultProfileResult = DeviceProfileCacheKey
-        .forDefaultProfile(ModelConstants.SYSTEM_TENANT);
+    DeviceProfileCacheKey forDefaultProfileResult =
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
 
     // Act and Assert
-    assertNotEquals(forDefaultProfileResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
+    assertNotEquals(
+        forDefaultProfileResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    DeviceProfileCacheKey forDefaultProfileResult =
+        DeviceProfileCacheKey.forDefaultProfile(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    // Act and Assert
+    assertNotEquals(
+        forDefaultProfileResult,
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT));
+  }
+
+  /**
+   * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceProfileCacheKey forDefaultProfileResult = DeviceProfileCacheKey.forDefaultProfile(null);
 
     // Act and Assert
-    assertNotEquals(forDefaultProfileResult, DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT));
+    assertNotEquals(
+        forDefaultProfileResult,
+        DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT));
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
-    // Arrange
-    DeviceProfileCacheKey forDefaultProfileResult = DeviceProfileCacheKey
-        .forDefaultProfile(ModelConstants.SYSTEM_TENANT);
-
-    // Act and Assert
-    assertNotEquals(forDefaultProfileResult, DeviceProfileCacheKey.forDefaultProfile(null));
-  }
-
-  /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    DeviceProfileCacheKey forIdResult = DeviceProfileCacheKey.forId(new DeviceProfileId(ModelConstants.NULL_UUID));
+    DeviceProfileCacheKey forIdResult =
+        DeviceProfileCacheKey.forId(
+            new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(forIdResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
@@ -426,50 +545,48 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    DeviceProfileCacheKey forIdResult = DeviceProfileCacheKey.forId(mock(DeviceProfileId.class));
+    DeviceProfileCacheKey forProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
 
     // Act and Assert
-    assertNotEquals(forIdResult, DeviceProfileCacheKey.forProvisionKey("Provision Device Key"));
+    assertNotEquals(
+        forProvisionKeyResult,
+        DeviceProfileCacheKey.forId(
+            new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
   }
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
-    // Arrange
-    DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
-
-    // Act and Assert
-    assertNotEquals(forProvisionKeyResult, DeviceProfileCacheKey.forId(new DeviceProfileId(ModelConstants.NULL_UUID)));
-  }
-
-  /**
-   * Test {@link DeviceProfileCacheKey#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(DeviceProfileCacheKey.forProvisionKey("Provision Device Key"), null);
@@ -477,24 +594,32 @@ public class DeviceProfileCacheKeyDiffblueTest {
 
   /**
    * Test {@link DeviceProfileCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileCacheKey.equals(Object)",
+    "int DeviceProfileCacheKey.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(DeviceProfileCacheKey.forProvisionKey("Provision Device Key"),
+    assertNotEquals(
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key"),
         "Different type to DeviceProfileCacheKey");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileCacheKey#getDeviceProfileId()}
    *   <li>{@link DeviceProfileCacheKey#getName()}
@@ -504,9 +629,18 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "DeviceProfileId DeviceProfileCacheKey.getDeviceProfileId()",
+    "String DeviceProfileCacheKey.getName()",
+    "String DeviceProfileCacheKey.getProvisionDeviceKey()",
+    "TenantId DeviceProfileCacheKey.getTenantId()",
+    "boolean DeviceProfileCacheKey.isDefaultProfile()"
+  })
   public void testGettersAndSetters() {
     // Arrange
-    DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
+    DeviceProfileCacheKey forProvisionKeyResult =
+        DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
 
     // Act
     DeviceProfileId actualDeviceProfileId = forProvisionKeyResult.getDeviceProfileId();

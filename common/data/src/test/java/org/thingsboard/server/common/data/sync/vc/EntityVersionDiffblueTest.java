@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class EntityVersionDiffblueTest {
   /**
    * Test {@link EntityVersion#equals(Object)}, and {@link EntityVersion#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#equals(Object)}
    *   <li>{@link EntityVersion#hashCode()}
@@ -38,12 +40,14 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}, and {@link EntityVersion#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#equals(Object)}
    *   <li>{@link EntityVersion#hashCode()}
@@ -66,12 +70,14 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}, and {@link EntityVersion#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#equals(Object)}
    *   <li>{@link EntityVersion#hashCode()}
@@ -94,12 +100,14 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}, and {@link EntityVersion#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#equals(Object)}
    *   <li>{@link EntityVersion#hashCode()}
@@ -122,12 +130,14 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}, and {@link EntityVersion#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#equals(Object)}
    *   <li>{@link EntityVersion#hashCode()}
@@ -149,12 +159,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -170,12 +181,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -191,12 +203,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -212,12 +225,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -233,12 +247,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -254,12 +269,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -275,12 +291,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -296,12 +313,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -314,12 +332,13 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityVersion#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -327,13 +346,15 @@ class EntityVersionDiffblueTest {
   @MethodsUnderTest({"boolean EntityVersion.equals(Object)", "int EntityVersion.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new EntityVersion(10L, "42", "Name", "JaneDoe"), "Different type to EntityVersion");
+    assertNotEquals(
+        new EntityVersion(10L, "42", "Name", "JaneDoe"), "Different type to EntityVersion");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityVersion#EntityVersion()}
    *   <li>{@link EntityVersion#setAuthor(String)}
@@ -350,10 +371,18 @@ class EntityVersionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityVersion.<init>()", "String EntityVersion.getAuthor()", "String EntityVersion.getId()",
-      "String EntityVersion.getName()", "long EntityVersion.getTimestamp()", "void EntityVersion.setAuthor(String)",
-      "void EntityVersion.setId(String)", "void EntityVersion.setName(String)", "void EntityVersion.setTimestamp(long)",
-      "String EntityVersion.toString()"})
+  @MethodsUnderTest({
+    "void EntityVersion.<init>()",
+    "String EntityVersion.getAuthor()",
+    "String EntityVersion.getId()",
+    "String EntityVersion.getName()",
+    "long EntityVersion.getTimestamp()",
+    "void EntityVersion.setAuthor(String)",
+    "void EntityVersion.setId(String)",
+    "void EntityVersion.setName(String)",
+    "void EntityVersion.setTimestamp(long)",
+    "String EntityVersion.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EntityVersion actualEntityVersion = new EntityVersion();
@@ -368,7 +397,8 @@ class EntityVersionDiffblueTest {
 
     // Assert
     assertEquals("42", actualId);
-    assertEquals("EntityVersion(timestamp=10, id=42, name=Name, author=JaneDoe)", actualToStringResult);
+    assertEquals(
+        "EntityVersion(timestamp=10, id=42, name=Name, author=JaneDoe)", actualToStringResult);
     assertEquals("JaneDoe", actualAuthor);
     assertEquals("Name", actualName);
     assertEquals(10L, actualEntityVersion.getTimestamp());
@@ -376,8 +406,8 @@ class EntityVersionDiffblueTest {
 
   /**
    * Test {@link EntityVersion#EntityVersion(long, String, String, String)}.
-   * <p>
-   * Method under test: {@link EntityVersion#EntityVersion(long, String, String, String)}
+   *
+   * <p>Method under test: {@link EntityVersion#EntityVersion(long, String, String, String)}
    */
   @Test
   @DisplayName("Test new EntityVersion(long, String, String, String)")

@@ -5,7 +5,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.util.UUID;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.EntityViewId;
@@ -16,10 +20,12 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class EntityViewCacheKeyDiffblueTest {
   /**
    * Test {@link EntityViewCacheKey#byName(TenantId, String)}.
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#byName(TenantId, String)}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#byName(TenantId, String)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityViewCacheKey EntityViewCacheKey.byName(TenantId, String)"})
   public void testByName() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
@@ -38,10 +44,12 @@ public class EntityViewCacheKeyDiffblueTest {
 
   /**
    * Test {@link EntityViewCacheKey#byEntityId(TenantId, EntityId)}.
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#byEntityId(TenantId, EntityId)}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#byEntityId(TenantId, EntityId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityViewCacheKey EntityViewCacheKey.byEntityId(TenantId, EntityId)"})
   public void testByEntityId() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
@@ -61,14 +69,17 @@ public class EntityViewCacheKeyDiffblueTest {
 
   /**
    * Test {@link EntityViewCacheKey#byId(EntityViewId)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Name is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Name is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#byId(EntityViewId)}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#byId(EntityViewId)}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"EntityViewCacheKey EntityViewCacheKey.byId(EntityViewId)"})
   public void testById_whenNull_thenReturnNameIsNull() {
     // Arrange and Act
     EntityViewCacheKey actualByIdResult = EntityViewCacheKey.byId(null);
@@ -83,26 +94,34 @@ public class EntityViewCacheKeyDiffblueTest {
 
   /**
    * Test {@link EntityViewCacheKey#toString()}.
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#toString()}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#toString()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String EntityViewCacheKey.toString()"})
   public void testToString() {
     // Arrange, Act and Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080_13814000-1dd2-11b2-8080-808080808080",
-        EntityViewCacheKey.byEntityId(ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID).toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080_13814000-1dd2-11b2-8080-808080808080",
+        EntityViewCacheKey.byEntityId(
+                ModelConstants.SYSTEM_TENANT, BaseEntityService.NULL_CUSTOMER_ID)
+            .toString());
   }
 
   /**
    * Test {@link EntityViewCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Given byId {@code null}.</li>
-   *   <li>Then return {@code null_n_null}.</li>
+   *   <li>Given byId {@code null}.
+   *   <li>Then return {@code null_n_null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#toString()}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#toString()}
    */
   @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String EntityViewCacheKey.toString()"})
   public void testToString_givenByIdNull_thenReturnNullNNull() {
     // Arrange, Act and Assert
     assertEquals("null_n_null", EntityViewCacheKey.byId(null).toString());
@@ -110,47 +129,60 @@ public class EntityViewCacheKeyDiffblueTest {
 
   /**
    * Test {@link EntityViewCacheKey#toString()}.
+   *
    * <ul>
-   *   <li>Then return {@code 13814000-1dd2-11b2-8080-808080808080}.</li>
+   *   <li>Then return {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#toString()}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#toString()}
    */
   @Test
-  public void testToString_thenReturn138140001dd211b28080808080808080() {
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"String EntityViewCacheKey.toString()"})
+  public void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080",
-        EntityViewCacheKey.byId(new EntityViewId(ModelConstants.NULL_UUID)).toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        EntityViewCacheKey.byId(
+                new EntityViewId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .toString());
   }
 
   /**
    * Test {@link EntityViewCacheKey#isVersioned()}.
+   *
    * <ul>
-   *   <li>Given byId {@link EntityViewId#EntityViewId(UUID)} with id is
-   * {@link ModelConstants#NULL_UUID}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given byId {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#isVersioned()}
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#isVersioned()}
    */
   @Test
-  public void testIsVersioned_givenByIdEntityViewIdWithIdIsNull_uuid_thenReturnTrue() {
-    // Arrange, Act and Assert
-    assertTrue(EntityViewCacheKey.byId(new EntityViewId(ModelConstants.NULL_UUID)).isVersioned());
-  }
-
-  /**
-   * Test {@link EntityViewCacheKey#isVersioned()}.
-   * <ul>
-   *   <li>Given byId {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityViewCacheKey#isVersioned()}
-   */
-  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityViewCacheKey.isVersioned()"})
   public void testIsVersioned_givenByIdNull_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(EntityViewCacheKey.byId(null).isVersioned());
+  }
+
+  /**
+   * Test {@link EntityViewCacheKey#isVersioned()}.
+   *
+   * <ul>
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityViewCacheKey#isVersioned()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"boolean EntityViewCacheKey.isVersioned()"})
+  public void testIsVersioned_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(
+        EntityViewCacheKey.byId(
+                new EntityViewId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .isVersioned());
   }
 }

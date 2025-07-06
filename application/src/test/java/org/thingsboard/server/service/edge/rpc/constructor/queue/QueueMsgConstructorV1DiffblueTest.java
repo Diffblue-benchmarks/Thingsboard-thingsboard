@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -23,16 +23,21 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class QueueMsgConstructorV1DiffblueTest {
   /**
    * Test {@link QueueMsgConstructorV1#constructQueueUpdatedMsg(UpdateMsgType, Queue)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueMsgConstructorV1#constructQueueUpdatedMsg(UpdateMsgType, Queue)}
+   *
+   * <p>Method under test: {@link QueueMsgConstructorV1#constructQueueUpdatedMsg(UpdateMsgType,
+   * Queue)}
    */
   @Test
-  @DisplayName("Test constructQueueUpdatedMsg(UpdateMsgType, Queue); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructQueueUpdatedMsg(UpdateMsgType, Queue); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"QueueUpdateMsg QueueMsgConstructorV1.constructQueueUpdatedMsg(UpdateMsgType, Queue)"})
+  @MethodsUnderTest({
+    "QueueUpdateMsg QueueMsgConstructorV1.constructQueueUpdatedMsg(UpdateMsgType, Queue)"
+  })
   void testConstructQueueUpdatedMsg_thenReturnInitializationErrorStringIsEmptyString() {
     // Arrange
     QueueMsgConstructorV1 queueMsgConstructorV1 = new QueueMsgConstructorV1();
@@ -49,7 +54,7 @@ class QueueMsgConstructorV1DiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(2L);
@@ -59,13 +64,17 @@ class QueueMsgConstructorV1DiffblueTest {
     queueConfiguration.setSubmitStrategy(submitStrategy);
     queueConfiguration.setTopic("Topic");
 
-    Queue queue = new Queue(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), queueConfiguration);
+    Queue queue =
+        new Queue(
+            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+            queueConfiguration);
     queue.setTenantId(new TenantId(UUID.randomUUID()));
     queue.setId(new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    QueueUpdateMsg actualConstructQueueUpdatedMsgResult = queueMsgConstructorV1
-        .constructQueueUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, queue);
+    QueueUpdateMsg actualConstructQueueUpdatedMsgResult =
+        queueMsgConstructorV1.constructQueueUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, queue);
 
     // Assert
     assertEquals("", actualConstructQueueUpdatedMsgResult.getInitializationErrorString());
@@ -79,7 +88,9 @@ class QueueMsgConstructorV1DiffblueTest {
     assertEquals(2L, actualConstructQueueUpdatedMsgResult.getPackProcessingTimeout());
     assertEquals(42, actualConstructQueueUpdatedMsgResult.getPollInterval());
     assertEquals(8669210807411032922L, actualConstructQueueUpdatedMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructQueueUpdatedMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructQueueUpdatedMsgResult.getMsgType());
     assertTrue(actualConstructQueueUpdatedMsgResult.findInitializationErrors().isEmpty());
     assertTrue(actualConstructQueueUpdatedMsgResult.getConsumerPerPartition());
     assertTrue(actualConstructQueueUpdatedMsgResult.hasProcessingStrategy());
@@ -89,14 +100,16 @@ class QueueMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link QueueMsgConstructorV1#constructQueueDeleteMsg(QueueId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueMsgConstructorV1#constructQueueDeleteMsg(QueueId)}
+   *
+   * <p>Method under test: {@link QueueMsgConstructorV1#constructQueueDeleteMsg(QueueId)}
    */
   @Test
-  @DisplayName("Test constructQueueDeleteMsg(QueueId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructQueueDeleteMsg(QueueId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"QueueUpdateMsg QueueMsgConstructorV1.constructQueueDeleteMsg(QueueId)"})
   void testConstructQueueDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
@@ -104,8 +117,9 @@ class QueueMsgConstructorV1DiffblueTest {
     QueueMsgConstructorV1 queueMsgConstructorV1 = new QueueMsgConstructorV1();
 
     // Act
-    QueueUpdateMsg actualConstructQueueDeleteMsgResult = queueMsgConstructorV1
-        .constructQueueDeleteMsg(new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    QueueUpdateMsg actualConstructQueueDeleteMsgResult =
+        queueMsgConstructorV1.constructQueueDeleteMsg(
+            new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructQueueDeleteMsgResult.getInitializationErrorString());
@@ -122,7 +136,8 @@ class QueueMsgConstructorV1DiffblueTest {
     assertEquals(23, actualConstructQueueDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructQueueDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructQueueDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructQueueDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructQueueDeleteMsgResult.getMsgType());
     assertFalse(actualConstructQueueDeleteMsgResult.getConsumerPerPartition());
     assertFalse(actualConstructQueueDeleteMsgResult.hasProcessingStrategy());
     assertFalse(actualConstructQueueDeleteMsgResult.hasSubmitStrategy());

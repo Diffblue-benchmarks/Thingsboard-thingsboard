@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class EdgeUpgradeInfoDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeUpgradeInfo#EdgeUpgradeInfo(boolean, String)}
    *   <li>{@link EdgeUpgradeInfo#getNextEdgeVersion()}
@@ -21,8 +22,11 @@ class EdgeUpgradeInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeUpgradeInfo.<init>(boolean, String)", "String EdgeUpgradeInfo.getNextEdgeVersion()",
-      "boolean EdgeUpgradeInfo.isRequiresUpdateDb()"})
+  @MethodsUnderTest({
+    "void EdgeUpgradeInfo.<init>(boolean, String)",
+    "String EdgeUpgradeInfo.getNextEdgeVersion()",
+    "boolean EdgeUpgradeInfo.isRequiresUpdateDb()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeUpgradeInfo actualEdgeUpgradeInfo = new EdgeUpgradeInfo(true, "1.0.2");

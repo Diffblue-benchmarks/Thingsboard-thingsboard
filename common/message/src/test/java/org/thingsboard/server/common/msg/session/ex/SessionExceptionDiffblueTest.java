@@ -11,17 +11,22 @@ import org.junit.jupiter.api.Test;
 class SessionExceptionDiffblueTest {
   /**
    * Test {@link SessionException#SessionException(Exception)}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code Exception: foo}.</li>
+   *   <li>Then return Message is {@code Exception: foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link SessionException#SessionException(Exception)}
+   *
+   * <p>Method under test: {@link SessionException#SessionException(Exception)}
    */
   @Test
-  @DisplayName("Test new SessionException(Exception); then return Message is 'java.lang.Exception: foo'")
+  @DisplayName(
+      "Test new SessionException(Exception); then return Message is 'java.lang.Exception: foo'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
-      "void SessionException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void SessionException.<init>(Exception)",
+    "void SessionException.<init>(String)",
+    "void SessionException.<init>(String, Exception)"
+  })
   void testNewSessionException_thenReturnMessageIsJavaLangExceptionFoo() {
     // Arrange
     Exception cause = new Exception("foo");
@@ -37,18 +42,22 @@ class SessionExceptionDiffblueTest {
 
   /**
    * Test {@link SessionException#SessionException(String)}.
+   *
    * <ul>
-   *   <li>When {@code Msg}.</li>
-   *   <li>Then return Cause is {@code null}.</li>
+   *   <li>When {@code Msg}.
+   *   <li>Then return Cause is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SessionException#SessionException(String)}
+   *
+   * <p>Method under test: {@link SessionException#SessionException(String)}
    */
   @Test
   @DisplayName("Test new SessionException(String); when 'Msg'; then return Cause is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
-      "void SessionException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void SessionException.<init>(Exception)",
+    "void SessionException.<init>(String)",
+    "void SessionException.<init>(String, Exception)"
+  })
   void testNewSessionException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SessionException actualSessionException = new SessionException("Msg");
@@ -61,18 +70,23 @@ class SessionExceptionDiffblueTest {
 
   /**
    * Test {@link SessionException#SessionException(String, Exception)}.
+   *
    * <ul>
-   *   <li>When {@code Msg}.</li>
-   *   <li>Then return Message is {@code Msg}.</li>
+   *   <li>When {@code Msg}.
+   *   <li>Then return Message is {@code Msg}.
    * </ul>
-   * <p>
-   * Method under test: {@link SessionException#SessionException(String, Exception)}
+   *
+   * <p>Method under test: {@link SessionException#SessionException(String, Exception)}
    */
   @Test
-  @DisplayName("Test new SessionException(String, Exception); when 'Msg'; then return Message is 'Msg'")
+  @DisplayName(
+      "Test new SessionException(String, Exception); when 'Msg'; then return Message is 'Msg'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SessionException.<init>(Exception)", "void SessionException.<init>(String)",
-      "void SessionException.<init>(String, Exception)"})
+  @MethodsUnderTest({
+    "void SessionException.<init>(Exception)",
+    "void SessionException.<init>(String)",
+    "void SessionException.<init>(String, Exception)"
+  })
   void testNewSessionException_whenMsg_thenReturnMessageIsMsg() {
     // Arrange
     Exception cause = new Exception("foo");

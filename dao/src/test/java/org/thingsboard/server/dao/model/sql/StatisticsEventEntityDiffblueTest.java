@@ -12,7 +12,6 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.thingsboard.server.common.data.BaseData;
 import org.thingsboard.server.common.data.event.StatisticsEvent;
 import org.thingsboard.server.common.data.event.StatisticsEvent.StatisticsEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
@@ -20,13 +19,16 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 public class StatisticsEventEntityDiffblueTest {
   /**
-   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link StatisticsEventEntity#hashCode()}.
+   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link
+   * StatisticsEventEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatisticsEventEntity#equals(Object)}
    *   <li>{@link StatisticsEventEntity#hashCode()}
@@ -34,7 +36,10 @@ public class StatisticsEventEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -66,13 +71,16 @@ public class StatisticsEventEntityDiffblueTest {
   }
 
   /**
-   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link StatisticsEventEntity#hashCode()}.
+   * Test {@link StatisticsEventEntity#equals(Object)}, and {@link
+   * StatisticsEventEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatisticsEventEntity#equals(Object)}
    *   <li>{@link StatisticsEventEntity#hashCode()}
@@ -80,7 +88,10 @@ public class StatisticsEventEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -102,16 +113,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -142,16 +157,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -182,16 +201,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -222,16 +245,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -251,16 +278,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean StatisticsEventEntity.equals(Object)", "int StatisticsEventEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatisticsEventEntity.equals(Object)",
+    "int StatisticsEventEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StatisticsEventEntity statisticsEventEntity = new StatisticsEventEntity();
@@ -280,8 +311,9 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatisticsEventEntity#StatisticsEventEntity()}
    *   <li>{@link StatisticsEventEntity#setErrorsOccurred(long)}
@@ -293,9 +325,14 @@ public class StatisticsEventEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void StatisticsEventEntity.<init>()", "long StatisticsEventEntity.getErrorsOccurred()",
-      "long StatisticsEventEntity.getMessagesProcessed()", "void StatisticsEventEntity.setErrorsOccurred(long)",
-      "void StatisticsEventEntity.setMessagesProcessed(long)", "String StatisticsEventEntity.toString()"})
+  @MethodsUnderTest({
+    "void StatisticsEventEntity.<init>()",
+    "long StatisticsEventEntity.getErrorsOccurred()",
+    "long StatisticsEventEntity.getMessagesProcessed()",
+    "void StatisticsEventEntity.setErrorsOccurred(long)",
+    "void StatisticsEventEntity.setMessagesProcessed(long)",
+    "String StatisticsEventEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     StatisticsEventEntity actualStatisticsEventEntity = new StatisticsEventEntity();
@@ -306,7 +343,8 @@ public class StatisticsEventEntityDiffblueTest {
     long actualMessagesProcessed = actualStatisticsEventEntity.getMessagesProcessed();
 
     // Assert
-    assertEquals("StatisticsEventEntity(messagesProcessed=1, errorsOccurred=-1)", actualToStringResult);
+    assertEquals(
+        "StatisticsEventEntity(messagesProcessed=1, errorsOccurred=-1)", actualToStringResult);
     assertNull(actualStatisticsEventEntity.getServiceId());
     assertNull(actualStatisticsEventEntity.getEntityId());
     assertNull(actualStatisticsEventEntity.getId());
@@ -320,8 +358,8 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}.
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -330,20 +368,25 @@ public class StatisticsEventEntityDiffblueTest {
     // Arrange
     StatisticsEventBuilder builderResult = StatisticsEvent.builder();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    StatisticsEventBuilder errorsOccurredResult = builderResult.entityId(entityId).errorsOccurred(-1L);
+    StatisticsEventBuilder errorsOccurredResult =
+        builderResult.entityId(entityId).errorsOccurred(-1L);
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    StatisticsEvent event = errorsOccurredResult.id(id)
-        .messagesProcessed(1L)
-        .serviceId("42")
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .ts(1L)
-        .build();
+    StatisticsEvent event =
+        errorsOccurredResult
+            .id(id)
+            .messagesProcessed(1L)
+            .serviceId("42")
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .ts(1L)
+            .build();
 
     // Act
     StatisticsEventEntity actualStatisticsEventEntity = new StatisticsEventEntity(event);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualStatisticsEventEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080",
+        actualStatisticsEventEntity.getTenantId().toString());
     assertEquals("42", actualStatisticsEventEntity.getServiceId());
     UUID entityId2 = actualStatisticsEventEntity.getEntityId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
@@ -360,12 +403,13 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}.
+   *
    * <ul>
-   *   <li>Given {@link ModelConstants#SYSTEM_TENANT}.</li>
-   *   <li>Then calls {@link BaseData#getCreatedTime()}.</li>
+   *   <li>Given {@link ModelConstants#SYSTEM_TENANT}.
+   *   <li>Then calls {@link StatisticsEvent#getCreatedTime()}.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#StatisticsEventEntity(StatisticsEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -394,7 +438,9 @@ public class StatisticsEventEntityDiffblueTest {
     verify(event).getErrorsOccurred();
     verify(event).getMessagesProcessed();
     verify(event).getId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualStatisticsEventEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080",
+        actualStatisticsEventEntity.getTenantId().toString());
     assertEquals("42", actualStatisticsEventEntity.getServiceId());
     UUID entityId = actualStatisticsEventEntity.getEntityId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId.toString());
@@ -411,19 +457,20 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link StatisticsEventEntity#StatisticsEventEntity()}.</li>
-   *   <li>Then return ServiceId is {@code null}.</li>
+   *   <li>Given {@link StatisticsEventEntity#StatisticsEventEntity()}.
+   *   <li>Then return ServiceId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#toData()}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"StatisticsEvent StatisticsEventEntity.toData()"})
   public void testToData_givenStatisticsEventEntity_thenReturnServiceIdIsNull() {
     // Arrange and Act
-    StatisticsEvent actualToDataResult = (new StatisticsEventEntity()).toData();
+    StatisticsEvent actualToDataResult = new StatisticsEventEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getServiceId());
@@ -438,11 +485,12 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#toData()}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -483,11 +531,12 @@ public class StatisticsEventEntityDiffblueTest {
 
   /**
    * Test {@link StatisticsEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link StatisticsEventEntity#toData()}
+   *
+   * <p>Method under test: {@link StatisticsEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -516,7 +565,9 @@ public class StatisticsEventEntityDiffblueTest {
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
     UUID uuidId = actualToDataResult.getUuidId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualToDataResult.getTenantId().getId().toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        actualToDataResult.getTenantId().getId().toString());
     assertEquals(-1L, actualToDataResult.getErrorsOccurred());
     assertEquals(1L, actualToDataResult.getCreatedTime());
     assertEquals(1L, actualToDataResult.getMessagesProcessed());

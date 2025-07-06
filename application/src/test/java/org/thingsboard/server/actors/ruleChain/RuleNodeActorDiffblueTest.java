@@ -27,34 +27,29 @@ import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.RuleNodeId;
 import org.thingsboard.server.common.data.id.TenantId;
 
-@ContextConfiguration(classes = {ActorCreator.class, TenantId.class, String.class, RuleNodeActor.class})
+@ContextConfiguration(
+    classes = {ActorCreator.class, TenantId.class, String.class, RuleNodeActor.class})
 @DisabledInAotMode
 @EnableConfigurationProperties
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class RuleNodeActorDiffblueTest {
-  @Autowired
-  private ActorCreator actorCreator;
+  @Autowired private ActorCreator actorCreator;
 
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
-  @MockBean
-  private RuleChainId ruleChainId;
+  @MockBean private RuleChainId ruleChainId;
 
-  @Autowired
-  private RuleNodeActor ruleNodeActor;
+  @Autowired private RuleNodeActor ruleNodeActor;
 
-  @MockBean
-  private RuleNodeId ruleNodeId;
+  @MockBean private RuleNodeId ruleNodeId;
 
-  @MockBean
-  private UUID uUID;
+  @MockBean private UUID uUID;
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
   @DisplayName("Test ActorCreator createActor()")
@@ -74,8 +69,8 @@ class RuleNodeActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test ActorCreator createActorId()")
@@ -92,8 +87,8 @@ class RuleNodeActorDiffblueTest {
 
   /**
    * Test {@link RuleNodeActor#getErrorPersistFrequency()}.
-   * <p>
-   * Method under test: {@link RuleNodeActor#getErrorPersistFrequency()}
+   *
+   * <p>Method under test: {@link RuleNodeActor#getErrorPersistFrequency()}
    */
   @Test
   @DisplayName("Test getErrorPersistFrequency()")

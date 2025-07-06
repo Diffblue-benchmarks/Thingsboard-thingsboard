@@ -11,13 +11,16 @@ import org.thingsboard.server.common.data.query.BooleanFilterPredicate.BooleanOp
 
 class BooleanFilterPredicateDiffblueTest {
   /**
-   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link BooleanFilterPredicate#hashCode()}.
+   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link
+   * BooleanFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BooleanFilterPredicate#equals(Object)}
    *   <li>{@link BooleanFilterPredicate#hashCode()}
@@ -26,7 +29,10 @@ class BooleanFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -46,13 +52,16 @@ class BooleanFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link BooleanFilterPredicate#hashCode()}.
+   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link
+   * BooleanFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BooleanFilterPredicate#equals(Object)}
    *   <li>{@link BooleanFilterPredicate#hashCode()}
@@ -61,7 +70,10 @@ class BooleanFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -81,13 +93,16 @@ class BooleanFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link BooleanFilterPredicate#hashCode()}.
+   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link
+   * BooleanFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BooleanFilterPredicate#equals(Object)}
    *   <li>{@link BooleanFilterPredicate#hashCode()}
@@ -96,7 +111,10 @@ class BooleanFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -114,13 +132,16 @@ class BooleanFilterPredicateDiffblueTest {
   }
 
   /**
-   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link BooleanFilterPredicate#hashCode()}.
+   * Test {@link BooleanFilterPredicate#equals(Object)}, and {@link
+   * BooleanFilterPredicate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BooleanFilterPredicate#equals(Object)}
    *   <li>{@link BooleanFilterPredicate#hashCode()}
@@ -129,7 +150,10 @@ class BooleanFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -145,17 +169,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -174,17 +202,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -203,17 +235,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -232,17 +268,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -260,17 +300,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -284,17 +328,21 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test {@link BooleanFilterPredicate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BooleanFilterPredicate#equals(Object)}
+   *
+   * <p>Method under test: {@link BooleanFilterPredicate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean BooleanFilterPredicate.equals(Object)", "int BooleanFilterPredicate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean BooleanFilterPredicate.equals(Object)",
+    "int BooleanFilterPredicate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     BooleanFilterPredicate booleanFilterPredicate = new BooleanFilterPredicate();
@@ -308,8 +356,9 @@ class BooleanFilterPredicateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link BooleanFilterPredicate}
    *   <li>{@link BooleanFilterPredicate#setOperation(BooleanOperation)}
@@ -323,10 +372,15 @@ class BooleanFilterPredicateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void BooleanFilterPredicate.<init>()", "BooleanOperation BooleanFilterPredicate.getOperation()",
-      "FilterPredicateType BooleanFilterPredicate.getType()", "FilterPredicateValue BooleanFilterPredicate.getValue()",
-      "void BooleanFilterPredicate.setOperation(BooleanOperation)",
-      "void BooleanFilterPredicate.setValue(FilterPredicateValue)", "String BooleanFilterPredicate.toString()"})
+  @MethodsUnderTest({
+    "void BooleanFilterPredicate.<init>()",
+    "BooleanOperation BooleanFilterPredicate.getOperation()",
+    "FilterPredicateType BooleanFilterPredicate.getType()",
+    "FilterPredicateValue BooleanFilterPredicate.getValue()",
+    "void BooleanFilterPredicate.setOperation(BooleanOperation)",
+    "void BooleanFilterPredicate.setValue(FilterPredicateValue)",
+    "String BooleanFilterPredicate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     BooleanFilterPredicate actualBooleanFilterPredicate = new BooleanFilterPredicate();
@@ -338,8 +392,10 @@ class BooleanFilterPredicateDiffblueTest {
     FilterPredicateType actualType = actualBooleanFilterPredicate.getType();
 
     // Assert
-    assertEquals("BooleanFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=true, userValue=null,"
-        + " dynamicValue=null))", actualToStringResult);
+    assertEquals(
+        "BooleanFilterPredicate(operation=EQUAL, value=FilterPredicateValue(defaultValue=true, userValue=null,"
+            + " dynamicValue=null))",
+        actualToStringResult);
     assertEquals(BooleanOperation.EQUAL, actualOperation);
     assertEquals(FilterPredicateType.BOOLEAN, actualType);
     assertSame(value, actualBooleanFilterPredicate.getValue());

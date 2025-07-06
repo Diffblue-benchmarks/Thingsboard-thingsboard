@@ -11,8 +11,8 @@ import org.thingsboard.server.common.data.script.ScriptLanguage;
 class TbLogNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbLogNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -20,24 +20,32 @@ class TbLogNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbLogNodeConfiguration TbLogNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbLogNodeConfiguration actualDefaultConfigurationResult = (new TbLogNodeConfiguration()).defaultConfiguration();
+    TbLogNodeConfiguration actualDefaultConfigurationResult =
+        new TbLogNodeConfiguration().defaultConfiguration();
 
     // Assert
-    assertEquals("return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify"
-        + "(metadata);", actualDefaultConfigurationResult.getJsScript());
-    assertEquals("return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify"
-        + "(metadata);", actualDefaultConfigurationResult.getTbelScript());
+    assertEquals(
+        "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify"
+            + "(metadata);",
+        actualDefaultConfigurationResult.getJsScript());
+    assertEquals(
+        "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify"
+            + "(metadata);",
+        actualDefaultConfigurationResult.getTbelScript());
     assertEquals(ScriptLanguage.TBEL, actualDefaultConfigurationResult.getScriptLang());
   }
 
   /**
-   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link TbLogNodeConfiguration#hashCode()}.
+   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link
+   * TbLogNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLogNodeConfiguration#equals(Object)}
    *   <li>{@link TbLogNodeConfiguration#hashCode()}
@@ -46,7 +54,10 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -59,13 +70,16 @@ class TbLogNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link TbLogNodeConfiguration#hashCode()}.
+   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link
+   * TbLogNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLogNodeConfiguration#equals(Object)}
    *   <li>{@link TbLogNodeConfiguration#hashCode()}
@@ -74,7 +88,10 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -90,13 +107,16 @@ class TbLogNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link TbLogNodeConfiguration#hashCode()}.
+   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link
+   * TbLogNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLogNodeConfiguration#equals(Object)}
    *   <li>{@link TbLogNodeConfiguration#hashCode()}
@@ -105,7 +125,10 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -121,13 +144,16 @@ class TbLogNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link TbLogNodeConfiguration#hashCode()}.
+   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link
+   * TbLogNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLogNodeConfiguration#equals(Object)}
    *   <li>{@link TbLogNodeConfiguration#hashCode()}
@@ -136,7 +162,10 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -152,13 +181,16 @@ class TbLogNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link TbLogNodeConfiguration#hashCode()}.
+   * Test {@link TbLogNodeConfiguration#equals(Object)}, and {@link
+   * TbLogNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLogNodeConfiguration#equals(Object)}
    *   <li>{@link TbLogNodeConfiguration#hashCode()}
@@ -167,7 +199,10 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -180,17 +215,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbLogNodeConfiguration(), 1);
@@ -198,17 +237,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -220,17 +263,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -242,17 +289,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -264,17 +315,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -288,17 +343,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -312,17 +371,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbLogNodeConfiguration tbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -336,17 +399,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbLogNodeConfiguration(), null);
@@ -354,17 +421,21 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbLogNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbLogNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbLogNodeConfiguration.equals(Object)", "int TbLogNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbLogNodeConfiguration.equals(Object)",
+    "int TbLogNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbLogNodeConfiguration(), "Different type to TbLogNodeConfiguration");
@@ -372,8 +443,9 @@ class TbLogNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbLogNodeConfiguration}
    *   <li>{@link TbLogNodeConfiguration#setJsScript(String)}
@@ -388,10 +460,16 @@ class TbLogNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLogNodeConfiguration.<init>()", "String TbLogNodeConfiguration.getJsScript()",
-      "ScriptLanguage TbLogNodeConfiguration.getScriptLang()", "String TbLogNodeConfiguration.getTbelScript()",
-      "void TbLogNodeConfiguration.setJsScript(String)", "void TbLogNodeConfiguration.setScriptLang(ScriptLanguage)",
-      "void TbLogNodeConfiguration.setTbelScript(String)", "String TbLogNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbLogNodeConfiguration.<init>()",
+    "String TbLogNodeConfiguration.getJsScript()",
+    "ScriptLanguage TbLogNodeConfiguration.getScriptLang()",
+    "String TbLogNodeConfiguration.getTbelScript()",
+    "void TbLogNodeConfiguration.setJsScript(String)",
+    "void TbLogNodeConfiguration.setScriptLang(ScriptLanguage)",
+    "void TbLogNodeConfiguration.setTbelScript(String)",
+    "String TbLogNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbLogNodeConfiguration actualTbLogNodeConfiguration = new TbLogNodeConfiguration();
@@ -404,7 +482,8 @@ class TbLogNodeConfigurationDiffblueTest {
 
     // Assert
     assertEquals("Js Script", actualJsScript);
-    assertEquals("TbLogNodeConfiguration(scriptLang=JS, jsScript=Js Script, tbelScript=Tbel Script)",
+    assertEquals(
+        "TbLogNodeConfiguration(scriptLang=JS, jsScript=Js Script, tbelScript=Tbel Script)",
         actualToStringResult);
     assertEquals("Tbel Script", actualTbLogNodeConfiguration.getTbelScript());
     assertEquals(ScriptLanguage.JS, actualScriptLang);

@@ -21,23 +21,23 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class DomainControllerDiffblueTest {
-  @InjectMocks
-  private DomainController domainController;
+  @InjectMocks private DomainController domainController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link DomainController#saveDomain(Domain, UUID[])}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Given {@code https://example.org/example}.
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link DomainController#saveDomain(Domain, UUID[])}
+   *
+   * <p>Method under test: {@link DomainController#saveDomain(Domain, UUID[])}
    */
   @Test
-  @DisplayName("Test saveDomain(Domain, UUID[]); given 'https://example.org/example'; then status four hundred fifteen")
+  @DisplayName(
+      "Test saveDomain(Domain, UUID[]); given 'https://example.org/example'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainController.saveDomain(Domain, UUID[])"})
   void testSaveDomain_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen() throws Exception {
@@ -52,8 +52,9 @@ class DomainControllerDiffblueTest {
     domain.setOauth2Enabled(true);
     domain.setPropagateToEdge(true);
     domain.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    String content = (new ObjectMapper()).writeValueAsString(domain);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(domain);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(domainController)
@@ -65,8 +66,8 @@ class DomainControllerDiffblueTest {
 
   /**
    * Test {@link DomainController#updateOauth2Clients(UUID, UUID[])}.
-   * <p>
-   * Method under test: {@link DomainController#updateOauth2Clients(UUID, UUID[])}
+   *
+   * <p>Method under test: {@link DomainController#updateOauth2Clients(UUID, UUID[])}
    */
   @Test
   @DisplayName("Test updateOauth2Clients(UUID, UUID[])")
@@ -75,13 +76,16 @@ class DomainControllerDiffblueTest {
   void testUpdateOauth2Clients() throws Exception {
     // Arrange
     UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .put("/api/domain/{id}/oauth2Clients", "Uri Variables", "Uri Variables")
-        .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.put(
+                "/api/domain/{id}/oauth2Clients", "Uri Variables", "Uri Variables")
+            .contentType(MediaType.APPLICATION_JSON);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content(objectMapper.writeValueAsString(new UUID[]{UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")}));
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(
+            objectMapper.writeValueAsString(
+                new UUID[] {UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")}));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(domainController)
@@ -93,19 +97,68 @@ class DomainControllerDiffblueTest {
 
   /**
    * Test {@link DomainController#getTenantDomainInfos(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link DomainController#getTenantDomainInfos(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link DomainController#getTenantDomainInfos(int, int, String, String,
+   * String)}
    */
   @Test
   @DisplayName("Test getTenantDomainInfos(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData DomainController.getTenantDomainInfos(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData DomainController.getTenantDomainInfos(int, int, String, String, String)"
+  })
   void testGetTenantDomainInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/domain/infos")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/domain/infos")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(domainController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DomainController#getDomainInfoById(UUID)}.
+   *
+   * <p>Method under test: {@link DomainController#getDomainInfoById(UUID)}
+   */
+  @Test
+  @DisplayName("Test getDomainInfoById(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"DomainInfo DomainController.getDomainInfoById(UUID)"})
+  void testGetDomainInfoById() throws Exception {
+    // Arrange
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/domain/info/{id}", "Uri Variables", "Uri Variables");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(domainController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link DomainController#deleteDomain(UUID)}.
+   *
+   * <p>Method under test: {@link DomainController#deleteDomain(UUID)}
+   */
+  @Test
+  @DisplayName("Test deleteDomain(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DomainController.deleteDomain(UUID)"})
+  void testDeleteDomain() throws Exception {
+    // Arrange
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete("/api/domain/{id}", "Uri Variables", "Uri Variables");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(domainController)

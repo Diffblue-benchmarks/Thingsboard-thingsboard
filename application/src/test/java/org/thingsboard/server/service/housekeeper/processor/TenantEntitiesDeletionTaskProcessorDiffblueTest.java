@@ -10,8 +10,8 @@ import org.thingsboard.server.common.data.housekeeper.HousekeeperTaskType;
 class TenantEntitiesDeletionTaskProcessorDiffblueTest {
   /**
    * Test {@link TenantEntitiesDeletionTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -19,7 +19,8 @@ class TenantEntitiesDeletionTaskProcessorDiffblueTest {
   @MethodsUnderTest({"HousekeeperTaskType TenantEntitiesDeletionTaskProcessor.getTaskType()"})
   void testGetTaskType() {
     // Arrange, Act and Assert
-    assertEquals(HousekeeperTaskType.DELETE_TENANT_ENTITIES,
-        (new TenantEntitiesDeletionTaskProcessor(null)).getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_TENANT_ENTITIES,
+        new TenantEntitiesDeletionTaskProcessor(null).getTaskType());
   }
 }

@@ -18,21 +18,24 @@ import org.thingsboard.server.common.data.id.EntityId;
 class EntitiesCustomerIdAsyncLoaderDiffblueTest {
   /**
    * Test {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
-   * <p>
-   * Method under test: {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext,
+   * EntityId)}
    */
   @Test
   @DisplayName("Test findEntityIdAsync(TbContext, EntityId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ListenableFuture EntitiesCustomerIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"})
+  @MethodsUnderTest({
+    "ListenableFuture EntitiesCustomerIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"
+  })
   void testFindEntityIdAsync() throws InterruptedException, ExecutionException {
     // Arrange
     TbContext ctx = mock(TbContext.class);
     CustomerId originator = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    ListenableFuture<CustomerId> actualFindEntityIdAsyncResult = EntitiesCustomerIdAsyncLoader.findEntityIdAsync(ctx,
-        originator);
+    ListenableFuture<CustomerId> actualFindEntityIdAsyncResult =
+        EntitiesCustomerIdAsyncLoader.findEntityIdAsync(ctx, originator);
 
     // Assert
     assertSame(originator, actualFindEntityIdAsyncResult.get());
@@ -40,23 +43,28 @@ class EntitiesCustomerIdAsyncLoaderDiffblueTest {
 
   /**
    * Test {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}.
+   *
    * <ul>
-   *   <li>Then return Done.</li>
+   *   <li>Then return Done.
    * </ul>
-   * <p>
-   * Method under test: {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext, EntityId)}
+   *
+   * <p>Method under test: {@link EntitiesCustomerIdAsyncLoader#findEntityIdAsync(TbContext,
+   * EntityId)}
    */
   @Test
   @DisplayName("Test findEntityIdAsync(TbContext, EntityId); then return Done")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ListenableFuture EntitiesCustomerIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"})
+  @MethodsUnderTest({
+    "ListenableFuture EntitiesCustomerIdAsyncLoader.findEntityIdAsync(TbContext, EntityId)"
+  })
   void testFindEntityIdAsync_thenReturnDone() {
     // Arrange
     TbContext ctx = mock(TbContext.class);
 
     // Act
-    ListenableFuture<CustomerId> actualFindEntityIdAsyncResult = EntitiesCustomerIdAsyncLoader.findEntityIdAsync(ctx,
-        new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    ListenableFuture<CustomerId> actualFindEntityIdAsyncResult =
+        EntitiesCustomerIdAsyncLoader.findEntityIdAsync(
+            ctx, new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertTrue(actualFindEntityIdAsyncResult.isDone());

@@ -1,51 +1,63 @@
 package org.thingsboard.rule.engine.metadata;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.rule.engine.api.TbNodeException;
 
 class TbAbstractGetMappedDataNodeDiffblueTest {
   /**
-   * Test
-   * {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}.
+   * Test {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}.
+   *
    * <ul>
-   *   <li>When {@link HashMap#HashMap()}.</li>
-   *   <li>Then throw {@link TbNodeException}.</li>
+   *   <li>When {@link HashMap#HashMap()}.
+   *   <li>Then throw {@link TbNodeException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}
+   *
+   * <p>Method under test: {@link
+   * TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}
    */
   @Test
-  @DisplayName("Test checkIfMappingIsNotEmptyOrElseThrow(Map); when HashMap(); then throw TbNodeException")
-  void testCheckIfMappingIsNotEmptyOrElseThrow_whenHashMap_thenThrowTbNodeException() throws TbNodeException {
+  @DisplayName(
+      "Test checkIfMappingIsNotEmptyOrElseThrow(Map); when HashMap(); then throw TbNodeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractGetMappedDataNode.checkIfMappingIsNotEmptyOrElseThrow(Map)"})
+  void testCheckIfMappingIsNotEmptyOrElseThrow_whenHashMap_thenThrowTbNodeException()
+      throws TbNodeException {
     // Arrange
     TbGetCustomerAttributeNode tbGetCustomerAttributeNode = new TbGetCustomerAttributeNode();
 
     // Act and Assert
-    assertThrows(TbNodeException.class,
+    assertThrows(
+        TbNodeException.class,
         () -> tbGetCustomerAttributeNode.checkIfMappingIsNotEmptyOrElseThrow(new HashMap<>()));
   }
 
   /**
-   * Test
-   * {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}.
+   * Test {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link TbNodeException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link TbNodeException}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}
+   *
+   * <p>Method under test: {@link
+   * TbAbstractGetMappedDataNode#checkIfMappingIsNotEmptyOrElseThrow(Map)}
    */
   @Test
-  @DisplayName("Test checkIfMappingIsNotEmptyOrElseThrow(Map); when 'null'; then throw TbNodeException")
-  void testCheckIfMappingIsNotEmptyOrElseThrow_whenNull_thenThrowTbNodeException() throws TbNodeException {
+  @DisplayName(
+      "Test checkIfMappingIsNotEmptyOrElseThrow(Map); when 'null'; then throw TbNodeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbAbstractGetMappedDataNode.checkIfMappingIsNotEmptyOrElseThrow(Map)"})
+  void testCheckIfMappingIsNotEmptyOrElseThrow_whenNull_thenThrowTbNodeException()
+      throws TbNodeException {
     // Arrange, Act and Assert
-    assertThrows(TbNodeException.class,
-        () -> (new TbGetCustomerAttributeNode()).checkIfMappingIsNotEmptyOrElseThrow(null));
+    assertThrows(
+        TbNodeException.class,
+        () -> new TbGetCustomerAttributeNode().checkIfMappingIsNotEmptyOrElseThrow(null));
   }
 }

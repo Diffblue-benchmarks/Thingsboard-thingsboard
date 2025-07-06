@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class SessionAuthExceptionDiffblueTest {
   /**
    * Test {@link SessionAuthException#SessionAuthException(String)}.
-   * <p>
-   * Method under test: {@link SessionAuthException#SessionAuthException(String)}
+   *
+   * <p>Method under test: {@link SessionAuthException#SessionAuthException(String)}
    */
   @Test
   @DisplayName("Test new SessionAuthException(String)")

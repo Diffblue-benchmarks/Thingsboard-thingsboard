@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class AdminSettingsIdDiffblueTest {
   /**
    * Test {@link AdminSettingsId#AdminSettingsId(UUID)}.
-   * <p>
-   * Method under test: {@link AdminSettingsId#AdminSettingsId(UUID)}
+   *
+   * <p>Method under test: {@link AdminSettingsId#AdminSettingsId(UUID)}
    */
   @Test
   @DisplayName("Test new AdminSettingsId(UUID)")
@@ -23,7 +23,7 @@ class AdminSettingsIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new AdminSettingsId(id)).getId();
+    UUID id2 = new AdminSettingsId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

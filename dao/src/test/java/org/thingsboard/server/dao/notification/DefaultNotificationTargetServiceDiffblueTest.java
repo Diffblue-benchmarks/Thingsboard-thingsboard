@@ -31,37 +31,53 @@ import org.thingsboard.server.dao.user.UserSettingsServiceImpl;
 public class DefaultNotificationTargetServiceDiffblueTest {
   /**
    * Test {@link DefaultNotificationTargetService#getEntityType()}.
-   * <p>
-   * Method under test: {@link DefaultNotificationTargetService#getEntityType()}
+   *
+   * <p>Method under test: {@link DefaultNotificationTargetService#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"EntityType DefaultNotificationTargetService.getEntityType()"})
   public void testGetEntityType() {
     // Arrange
-    JpaNotificationTargetDao notificationTargetDao = new JpaNotificationTargetDao(
-        mock(NotificationTargetRepository.class));
-    JpaNotificationRequestDao notificationRequestDao = new JpaNotificationRequestDao(
-        mock(NotificationRequestRepository.class));
-    JpaNotificationRuleDao notificationRuleDao = new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
+    JpaNotificationTargetDao notificationTargetDao =
+        new JpaNotificationTargetDao(mock(NotificationTargetRepository.class));
+    JpaNotificationRequestDao notificationRequestDao =
+        new JpaNotificationRequestDao(mock(NotificationRequestRepository.class));
+    JpaNotificationRuleDao notificationRuleDao =
+        new JpaNotificationRuleDao(mock(NotificationRuleRepository.class));
     JpaUserDao userDao = new JpaUserDao();
     JpaUserCredentialsDao userCredentialsDao = new JpaUserCredentialsDao();
-    JpaUserAuthSettingsDao userAuthSettingsDao = new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
-    UserSettingsServiceImpl userSettingsService = new UserSettingsServiceImpl(new JpaUserSettingsDao());
+    JpaUserAuthSettingsDao userAuthSettingsDao =
+        new JpaUserAuthSettingsDao(mock(UserAuthSettingsRepository.class));
+    UserSettingsServiceImpl userSettingsService =
+        new UserSettingsServiceImpl(new JpaUserSettingsDao());
     JpaUserSettingsDao userSettingsDao = new JpaUserSettingsDao();
-    DefaultSecuritySettingsService securitySettingsService = new DefaultSecuritySettingsService(
-        new AdminSettingsServiceImpl());
+    DefaultSecuritySettingsService securitySettingsService =
+        new DefaultSecuritySettingsService(new AdminSettingsServiceImpl());
     UserDataValidator userValidator = new UserDataValidator();
     UserCredentialsDataValidator userCredentialsValidator = new UserCredentialsDataValidator();
     ApplicationEventPublisher eventPublisher = mock(ApplicationEventPublisher.class);
     BaseEntityCountService countService = new BaseEntityCountService();
 
     // Act and Assert
-    assertEquals(EntityType.NOTIFICATION_TARGET,
-        (new DefaultNotificationTargetService(notificationTargetDao, notificationRequestDao, notificationRuleDao,
-            new UserServiceImpl(userDao, userCredentialsDao, userAuthSettingsDao, userSettingsService, userSettingsDao,
-                securitySettingsService, userValidator, userCredentialsValidator, eventPublisher, countService,
-                new JpaExecutorService())))
+    assertEquals(
+        EntityType.NOTIFICATION_TARGET,
+        new DefaultNotificationTargetService(
+                notificationTargetDao,
+                notificationRequestDao,
+                notificationRuleDao,
+                new UserServiceImpl(
+                    userDao,
+                    userCredentialsDao,
+                    userAuthSettingsDao,
+                    userSettingsService,
+                    userSettingsDao,
+                    securitySettingsService,
+                    userValidator,
+                    userCredentialsValidator,
+                    eventPublisher,
+                    countService,
+                    new JpaExecutorService()))
             .getEntityType());
   }
 }

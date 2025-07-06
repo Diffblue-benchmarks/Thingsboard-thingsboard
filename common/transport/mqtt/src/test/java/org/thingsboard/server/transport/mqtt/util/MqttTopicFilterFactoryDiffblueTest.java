@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class MqttTopicFilterFactoryDiffblueTest {
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String)")
@@ -31,12 +31,13 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code #}.</li>
-   *   <li>Then return {@link AlwaysTrueTopicFilter}.</li>
+   *   <li>When {@code #}.
+   *   <li>Then return {@link AlwaysTrueTopicFilter}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String); when '#'; then return AlwaysTrueTopicFilter")
@@ -56,12 +57,13 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code +}.</li>
-   *   <li>Then return not filter empty string.</li>
+   *   <li>When {@code +}.
+   *   <li>Then return not filter empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String); when '+'; then return not filter empty string")
@@ -80,12 +82,13 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic Filter}.</li>
-   *   <li>Then return Filter is {@code Topic Filter}.</li>
+   *   <li>When {@code Topic Filter}.
+   *   <li>Then return Filter is {@code Topic Filter}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String); when 'Topic Filter'; then return Filter is 'Topic Filter'")
@@ -102,12 +105,13 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic Filter}.</li>
-   *   <li>Then return not filter {@code Topic}.</li>
+   *   <li>When {@code Topic Filter}.
+   *   <li>Then return not filter {@code Topic}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String); when 'Topic Filter'; then return not filter 'Topic'")
@@ -126,15 +130,17 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic Filter#}.</li>
-   *   <li>Then return Regex pattern is {@code Topic Filter#}.</li>
+   *   <li>When {@code Topic Filter#}.
+   *   <li>Then return Regex pattern is {@code Topic Filter#}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
-  @DisplayName("Test toFilter(String); when 'Topic Filter#'; then return Regex pattern is 'Topic Filter#'")
+  @DisplayName(
+      "Test toFilter(String); when 'Topic Filter#'; then return Regex pattern is 'Topic Filter#'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MqttTopicFilter MqttTopicFilterFactory.toFilter(String)"})
   void testToFilter_whenTopicFilter_thenReturnRegexPatternIsTopicFilter() {
@@ -148,12 +154,13 @@ class MqttTopicFilterFactoryDiffblueTest {
 
   /**
    * Test {@link MqttTopicFilterFactory#toFilter(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic}.</li>
-   *   <li>Then return Filter is {@code Topic}.</li>
+   *   <li>When {@code Topic}.
+   *   <li>Then return Filter is {@code Topic}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
+   *
+   * <p>Method under test: {@link MqttTopicFilterFactory#toFilter(String)}
    */
   @Test
   @DisplayName("Test toFilter(String); when 'Topic'; then return Filter is 'Topic'")

@@ -9,16 +9,17 @@ import org.junit.jupiter.api.Test;
 class SnmpCommunicationConfigDiffblueTest {
   /**
    * Test {@link SnmpCommunicationConfig#getMethod()}.
-   * <p>
-   * Method under test: {@link SnmpCommunicationConfig#getMethod()}
+   *
+   * <p>Method under test: {@link SnmpCommunicationConfig#getMethod()}
    */
   @Test
   @DisplayName("Test getMethod()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.transport.snmp.SnmpMethod SnmpCommunicationConfig.getMethod()"})
+    "org.thingsboard.server.common.data.transport.snmp.SnmpMethod SnmpCommunicationConfig.getMethod()"
+  })
   void testGetMethod() {
     // Arrange, Act and Assert
-    assertNull((new ToServerRpcRequestSnmpCommunicationConfig()).getMethod());
+    assertNull(new ToServerRpcRequestSnmpCommunicationConfig().getMethod());
   }
 }

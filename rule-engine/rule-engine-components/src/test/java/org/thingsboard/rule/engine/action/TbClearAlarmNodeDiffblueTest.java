@@ -12,17 +12,21 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbClearAlarmNodeDiffblueTest {
   /**
    * Test {@link TbClearAlarmNode#loadAlarmNodeConfig(TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>When {@link POJONode#POJONode(Object)} with v is {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link POJONode#POJONode(Object)} with v is {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbClearAlarmNode#loadAlarmNodeConfig(TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbClearAlarmNode#loadAlarmNodeConfig(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadAlarmNodeConfig(TbNodeConfiguration); when POJONode(Object) with v is 'null'; then return 'null'")
+  @DisplayName(
+      "Test loadAlarmNodeConfig(TbNodeConfiguration); when POJONode(Object) with v is 'null'; then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbClearAlarmNodeConfiguration TbClearAlarmNode.loadAlarmNodeConfig(TbNodeConfiguration)"})
+  @MethodsUnderTest({
+    "TbClearAlarmNodeConfiguration TbClearAlarmNode.loadAlarmNodeConfig(TbNodeConfiguration)"
+  })
   void testLoadAlarmNodeConfig_whenPOJONodeWithVIsNull_thenReturnNull() throws TbNodeException {
     // Arrange
     TbClearAlarmNode tbClearAlarmNode = new TbClearAlarmNode();
@@ -33,8 +37,8 @@ class TbClearAlarmNodeDiffblueTest {
 
   /**
    * Test new {@link TbClearAlarmNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbClearAlarmNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbClearAlarmNode}
    */
   @Test
   @DisplayName("Test new TbClearAlarmNode (default constructor)")
@@ -42,6 +46,6 @@ class TbClearAlarmNodeDiffblueTest {
   @MethodsUnderTest({"void TbClearAlarmNode.<init>()"})
   void testNewTbClearAlarmNode() {
     // Arrange, Act and Assert
-    assertNull((new TbClearAlarmNode()).config);
+    assertNull(new TbClearAlarmNode().config);
   }
 }

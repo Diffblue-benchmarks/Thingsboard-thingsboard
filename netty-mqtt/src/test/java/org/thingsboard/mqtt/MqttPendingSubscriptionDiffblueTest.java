@@ -31,10 +31,12 @@ import org.thingsboard.mqtt.MqttPendingSubscription.MqttPendingHandler;
 class MqttPendingSubscriptionDiffblueTest {
   /**
    * Test MqttPendingHandler getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link MqttPendingHandler#MqttPendingHandler(MqttPendingSubscription, MqttHandler, boolean)}
+   *   <li>{@link MqttPendingHandler#MqttPendingHandler(MqttPendingSubscription, MqttHandler,
+   *       boolean)}
    *   <li>{@link MqttPendingHandler#getHandler()}
    *   <li>{@link MqttPendingHandler#isOnce()}
    * </ul>
@@ -42,22 +44,32 @@ class MqttPendingSubscriptionDiffblueTest {
   @Test
   @DisplayName("Test MqttPendingHandler getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttPendingHandler.<init>(MqttPendingSubscription, MqttHandler, boolean)",
-      "MqttHandler MqttPendingHandler.getHandler()", "boolean MqttPendingHandler.isOnce()"})
+  @MethodsUnderTest({
+    "void MqttPendingHandler.<init>(MqttPendingSubscription, MqttHandler, boolean)",
+    "MqttHandler MqttPendingHandler.getHandler()",
+    "boolean MqttPendingHandler.isOnce()"
+  })
   void testMqttPendingHandlerGettersAndSetters() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
     MqttHandler handler = mock(MqttHandler.class);
 
     // Act
-    MqttPendingHandler actualMqttPendingHandler = (new MqttPendingSubscription(future, "Topic",
-        new MqttSubscribeMessage(mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
-        mock(PendingOperation.class))).new MqttPendingHandler(handler, true);
+    MqttPendingHandler actualMqttPendingHandler =
+        new MqttPendingSubscription(
+            future,
+            "Topic",
+            new MqttSubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
+            mock(PendingOperation.class))
+        .new MqttPendingHandler(handler, true);
     MqttHandler actualHandler = actualMqttPendingHandler.getHandler();
 
     // Assert
@@ -66,28 +78,36 @@ class MqttPendingSubscriptionDiffblueTest {
   }
 
   /**
-   * Test {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}.
-   * <p>
-   * Method under test: {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)}
+   * Test {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String,
+   * MqttSubscribeMessage, PendingOperation)}.
+   *
+   * <p>Method under test: {@link MqttPendingSubscription#MqttPendingSubscription(Promise, String,
+   * MqttSubscribeMessage, PendingOperation)}
    */
   @Test
-  @DisplayName("Test new MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)")
+  @DisplayName(
+      "Test new MqttPendingSubscription(Promise, String, MqttSubscribeMessage, PendingOperation)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttPendingSubscription.<init>(Promise, String, MqttSubscribeMessage, PendingOperation)"})
+  @MethodsUnderTest({
+    "void MqttPendingSubscription.<init>(Promise, String, MqttSubscribeMessage, PendingOperation)"
+  })
   void testNewMqttPendingSubscription() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttSubscribeMessage message = new MqttSubscribeMessage(mqttFixedHeader, variableHeader,
-        new MqttSubscribePayload(new ArrayList<>()));
+    MqttSubscribeMessage message =
+        new MqttSubscribeMessage(
+            mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>()));
 
     // Act
-    MqttPendingSubscription actualMqttPendingSubscription = new MqttPendingSubscription(future, "Topic", message,
-        mock(PendingOperation.class));
+    MqttPendingSubscription actualMqttPendingSubscription =
+        new MqttPendingSubscription(future, "Topic", message, mock(PendingOperation.class));
 
     // Assert
     Promise<Void> future2 = actualMqttPendingSubscription.getFuture();
@@ -101,8 +121,9 @@ class MqttPendingSubscriptionDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MqttPendingSubscription#setSent(boolean)}
    *   <li>{@link MqttPendingSubscription#getFuture()}
@@ -115,22 +136,30 @@ class MqttPendingSubscriptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Promise MqttPendingSubscription.getFuture()", "Set MqttPendingSubscription.getHandlers()",
-      "MqttSubscribeMessage MqttPendingSubscription.getSubscribeMessage()", "String MqttPendingSubscription.getTopic()",
-      "boolean MqttPendingSubscription.isSent()", "void MqttPendingSubscription.setSent(boolean)"})
+  @MethodsUnderTest({
+    "Promise MqttPendingSubscription.getFuture()",
+    "Set MqttPendingSubscription.getHandlers()",
+    "MqttSubscribeMessage MqttPendingSubscription.getSubscribeMessage()",
+    "String MqttPendingSubscription.getTopic()",
+    "boolean MqttPendingSubscription.isSent()",
+    "void MqttPendingSubscription.setSent(boolean)"
+  })
   void testGettersAndSetters() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttSubscribeMessage message = new MqttSubscribeMessage(mqttFixedHeader, variableHeader,
-        new MqttSubscribePayload(new ArrayList<>()));
+    MqttSubscribeMessage message =
+        new MqttSubscribeMessage(
+            mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>()));
 
-    MqttPendingSubscription mqttPendingSubscription = new MqttPendingSubscription(future, "Topic", message,
-        mock(PendingOperation.class));
+    MqttPendingSubscription mqttPendingSubscription =
+        new MqttPendingSubscription(future, "Topic", message, mock(PendingOperation.class));
 
     // Act
     mqttPendingSubscription.setSent(true);
@@ -151,8 +180,8 @@ class MqttPendingSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}.
-   * <p>
-   * Method under test: {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}
+   *
+   * <p>Method under test: {@link MqttPendingSubscription#addHandler(MqttHandler, boolean)}
    */
   @Test
   @DisplayName("Test addHandler(MqttHandler, boolean)")
@@ -160,15 +189,21 @@ class MqttPendingSubscriptionDiffblueTest {
   @MethodsUnderTest({"void MqttPendingSubscription.addHandler(MqttHandler, boolean)"})
   void testAddHandler() {
     // Arrange
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingSubscription mqttPendingSubscription = new MqttPendingSubscription(future, "Topic",
-        new MqttSubscribeMessage(mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
-        mock(PendingOperation.class));
+    MqttPendingSubscription mqttPendingSubscription =
+        new MqttPendingSubscription(
+            future,
+            "Topic",
+            new MqttSubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
+            mock(PendingOperation.class));
 
     // Act
     mqttPendingSubscription.addHandler(mock(MqttHandler.class), true);
@@ -179,11 +214,12 @@ class MqttPendingSubscriptionDiffblueTest {
 
   /**
    * Test {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
+   *
    * <ul>
-   *   <li>Then calls {@link PendingOperation#isCanceled()}.</li>
+   *   <li>Then calls {@link PendingOperation#isCanceled()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
+   *
+   * <p>Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
    */
   @Test
   @DisplayName("Test startRetransmitTimer(EventLoop, Consumer); then calls isCanceled()")
@@ -193,49 +229,63 @@ class MqttPendingSubscriptionDiffblueTest {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(true);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingSubscription mqttPendingSubscription = new MqttPendingSubscription(future, "Topic",
-        new MqttSubscribeMessage(mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
-        operation);
+    MqttPendingSubscription mqttPendingSubscription =
+        new MqttPendingSubscription(
+            future,
+            "Topic",
+            new MqttSubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
+            operation);
     mqttPendingSubscription.setSent(true);
 
     // Act
     mqttPendingSubscription.startRetransmitTimer(new DefaultEventLoop(), mock(Consumer.class));
 
-    // Assert
+    // Assert that nothing has changed
     verify(operation).isCanceled();
   }
 
   /**
    * Test {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}.
+   *
    * <ul>
-   *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.</li>
+   *   <li>Then not {@link DefaultEventLoop#DefaultEventLoop()} Terminated.
    * </ul>
-   * <p>
-   * Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
+   *
+   * <p>Method under test: {@link MqttPendingSubscription#startRetransmitTimer(EventLoop, Consumer)}
    */
   @Test
-  @DisplayName("Test startRetransmitTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
+  @DisplayName(
+      "Test startRetransmitTimer(EventLoop, Consumer); then not DefaultEventLoop() Terminated")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MqttPendingSubscription.startRetransmitTimer(EventLoop, Consumer)"})
   void testStartRetransmitTimer_thenNotDefaultEventLoopTerminated() {
     // Arrange
     PendingOperation operation = mock(PendingOperation.class);
     when(operation.isCanceled()).thenReturn(false);
-    DefaultChannelProgressivePromise future = new DefaultChannelProgressivePromise(new EmbeddedChannel());
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    DefaultChannelProgressivePromise future =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
-    MqttMessageIdAndPropertiesVariableHeader variableHeader = new MqttMessageIdAndPropertiesVariableHeader(1,
-        new MqttProperties());
+    MqttMessageIdAndPropertiesVariableHeader variableHeader =
+        new MqttMessageIdAndPropertiesVariableHeader(1, new MqttProperties());
 
-    MqttPendingSubscription mqttPendingSubscription = new MqttPendingSubscription(future, "Topic",
-        new MqttSubscribeMessage(mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
-        operation);
+    MqttPendingSubscription mqttPendingSubscription =
+        new MqttPendingSubscription(
+            future,
+            "Topic",
+            new MqttSubscribeMessage(
+                mqttFixedHeader, variableHeader, new MqttSubscribePayload(new ArrayList<>())),
+            operation);
     mqttPendingSubscription.setSent(true);
     DefaultEventLoop eventLoop = new DefaultEventLoop();
 

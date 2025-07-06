@@ -18,12 +18,14 @@ import org.thingsboard.server.common.data.device.profile.lwm2m.ObjectAttributes;
 class LwM2MModelConfigDiffblueTest {
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}, and {@link LwM2MModelConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MModelConfig#equals(Object)}
    *   <li>{@link LwM2MModelConfig#hashCode()}
@@ -35,8 +37,10 @@ class LwM2MModelConfigDiffblueTest {
   @MethodsUnderTest({"boolean LwM2MModelConfig.equals(Object)", "int LwM2MModelConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
-    LwM2MModelConfig lwM2MModelConfig2 = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig2 =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     // Act and Assert
     assertEquals(lwM2MModelConfig, lwM2MModelConfig2);
@@ -46,12 +50,14 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}, and {@link LwM2MModelConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MModelConfig#equals(Object)}
    *   <li>{@link LwM2MModelConfig#hashCode()}
@@ -74,12 +80,14 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}, and {@link LwM2MModelConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MModelConfig#equals(Object)}
    *   <li>{@link LwM2MModelConfig#hashCode()}
@@ -102,12 +110,14 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}, and {@link LwM2MModelConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MModelConfig#equals(Object)}
    *   <li>{@link LwM2MModelConfig#hashCode()}
@@ -119,7 +129,8 @@ class LwM2MModelConfigDiffblueTest {
   @MethodsUnderTest({"boolean LwM2MModelConfig.equals(Object)", "int LwM2MModelConfig.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     // Act and Assert
     assertEquals(lwM2MModelConfig, lwM2MModelConfig);
@@ -129,12 +140,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -145,17 +157,19 @@ class LwM2MModelConfigDiffblueTest {
     LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("Endpoint");
 
     // Act and Assert
-    assertNotEquals(lwM2MModelConfig, new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"));
+    assertNotEquals(
+        lwM2MModelConfig, new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -166,17 +180,19 @@ class LwM2MModelConfigDiffblueTest {
     LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig(null);
 
     // Act and Assert
-    assertNotEquals(lwM2MModelConfig, new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"));
+    assertNotEquals(
+        lwM2MModelConfig, new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -192,12 +208,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -213,12 +230,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,12 +255,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -259,12 +278,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -281,12 +301,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -303,12 +324,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +347,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -347,12 +370,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -371,12 +395,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -395,12 +420,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -419,12 +445,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -443,12 +470,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -461,12 +489,13 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -474,14 +503,16 @@ class LwM2MModelConfigDiffblueTest {
   @MethodsUnderTest({"boolean LwM2MModelConfig.equals(Object)", "int LwM2MModelConfig.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"),
+    assertNotEquals(
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"),
         "Different type to LwM2MModelConfig");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MModelConfig#LwM2MModelConfig()}
    *   <li>{@link LwM2MModelConfig#setAttributesToAdd(Map)}
@@ -504,14 +535,24 @@ class LwM2MModelConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MModelConfig.<init>()", "Map LwM2MModelConfig.getAttributesToAdd()",
-      "Set LwM2MModelConfig.getAttributesToRemove()", "String LwM2MModelConfig.getEndpoint()",
-      "Set LwM2MModelConfig.getToCancelObserve()", "Set LwM2MModelConfig.getToCancelRead()",
-      "Set LwM2MModelConfig.getToObserve()", "Set LwM2MModelConfig.getToRead()",
-      "void LwM2MModelConfig.setAttributesToAdd(Map)", "void LwM2MModelConfig.setAttributesToRemove(Set)",
-      "void LwM2MModelConfig.setEndpoint(String)", "void LwM2MModelConfig.setToCancelObserve(Set)",
-      "void LwM2MModelConfig.setToCancelRead(Set)", "void LwM2MModelConfig.setToObserve(Set)",
-      "void LwM2MModelConfig.setToRead(Set)", "String LwM2MModelConfig.toString()"})
+  @MethodsUnderTest({
+    "void LwM2MModelConfig.<init>()",
+    "Map LwM2MModelConfig.getAttributesToAdd()",
+    "Set LwM2MModelConfig.getAttributesToRemove()",
+    "String LwM2MModelConfig.getEndpoint()",
+    "Set LwM2MModelConfig.getToCancelObserve()",
+    "Set LwM2MModelConfig.getToCancelRead()",
+    "Set LwM2MModelConfig.getToObserve()",
+    "Set LwM2MModelConfig.getToRead()",
+    "void LwM2MModelConfig.setAttributesToAdd(Map)",
+    "void LwM2MModelConfig.setAttributesToRemove(Set)",
+    "void LwM2MModelConfig.setEndpoint(String)",
+    "void LwM2MModelConfig.setToCancelObserve(Set)",
+    "void LwM2MModelConfig.setToCancelRead(Set)",
+    "void LwM2MModelConfig.setToObserve(Set)",
+    "void LwM2MModelConfig.setToRead(Set)",
+    "String LwM2MModelConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MModelConfig actualLwM2MModelConfig = new LwM2MModelConfig();
@@ -529,7 +570,8 @@ class LwM2MModelConfigDiffblueTest {
     HashSet<String> toRead = new HashSet<>();
     actualLwM2MModelConfig.setToRead(toRead);
     String actualToStringResult = actualLwM2MModelConfig.toString();
-    Map<String, ObjectAttributes> actualAttributesToAdd = actualLwM2MModelConfig.getAttributesToAdd();
+    Map<String, ObjectAttributes> actualAttributesToAdd =
+        actualLwM2MModelConfig.getAttributesToAdd();
     Set<String> actualAttributesToRemove = actualLwM2MModelConfig.getAttributesToRemove();
     String actualEndpoint = actualLwM2MModelConfig.getEndpoint();
     Set<String> actualToCancelObserve = actualLwM2MModelConfig.getToCancelObserve();
@@ -559,8 +601,8 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#LwM2MModelConfig(String)}.
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#LwM2MModelConfig(String)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#LwM2MModelConfig(String)}
    */
   @Test
   @DisplayName("Test new LwM2MModelConfig(String)")
@@ -568,7 +610,8 @@ class LwM2MModelConfigDiffblueTest {
   @MethodsUnderTest({"void LwM2MModelConfig.<init>(String)"})
   void testNewLwM2MModelConfig() {
     // Arrange and Act
-    LwM2MModelConfig actualLwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig actualLwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     // Assert
     assertEquals("https://config.us-east-2.amazonaws.com", actualLwM2MModelConfig.getEndpoint());
@@ -583,19 +626,22 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#merge(LwM2MModelConfig)}.
+   *
    * <ul>
-   *   <li>Given {@link ObjectAttributes} (default constructor) Dim is zero.</li>
+   *   <li>Given {@link ObjectAttributes} (default constructor) Dim is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
    */
   @Test
-  @DisplayName("Test merge(LwM2MModelConfig); given ObjectAttributes (default constructor) Dim is zero")
+  @DisplayName(
+      "Test merge(LwM2MModelConfig); given ObjectAttributes (default constructor) Dim is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LwM2MModelConfig.merge(LwM2MModelConfig)"})
   void testMerge_givenObjectAttributesDimIsZero() {
     // Arrange
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     ObjectAttributes objectAttributes = new ObjectAttributes();
     objectAttributes.setDim(1L);
@@ -641,19 +687,23 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#merge(LwM2MModelConfig)}.
+   *
    * <ul>
-   *   <li>Then {@link LwM2MModelConfig#LwM2MModelConfig(String)} with endpoint is {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>Then {@link LwM2MModelConfig#LwM2MModelConfig(String)} with endpoint is {@code
+   *       https://config.us-east-2.amazonaws.com}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
    */
   @Test
-  @DisplayName("Test merge(LwM2MModelConfig); then LwM2MModelConfig(String) with endpoint is 'https://config.us-east-2.amazonaws.com'")
+  @DisplayName(
+      "Test merge(LwM2MModelConfig); then LwM2MModelConfig(String) with endpoint is 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LwM2MModelConfig.merge(LwM2MModelConfig)"})
   void testMerge_thenLwM2MModelConfigWithEndpointIsHttpsConfigUsEast2AmazonawsCom() {
     // Arrange
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     ObjectAttributes objectAttributes = new ObjectAttributes();
     objectAttributes.setDim(1L);
@@ -684,19 +734,23 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#merge(LwM2MModelConfig)}.
+   *
    * <ul>
-   *   <li>When {@link LwM2MModelConfig#LwM2MModelConfig(String)} with endpoint is {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>When {@link LwM2MModelConfig#LwM2MModelConfig(String)} with endpoint is {@code
+   *       https://config.us-east-2.amazonaws.com}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#merge(LwM2MModelConfig)}
    */
   @Test
-  @DisplayName("Test merge(LwM2MModelConfig); when LwM2MModelConfig(String) with endpoint is 'https://config.us-east-2.amazonaws.com'")
+  @DisplayName(
+      "Test merge(LwM2MModelConfig); when LwM2MModelConfig(String) with endpoint is 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LwM2MModelConfig.merge(LwM2MModelConfig)"})
   void testMerge_whenLwM2MModelConfigWithEndpointIsHttpsConfigUsEast2AmazonawsCom() {
     // Arrange
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
     LwM2MModelConfig modelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
 
     // Act
@@ -708,15 +762,17 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#isEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link ObjectAttributes} (default constructor) Dim is one.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link ObjectAttributes} (default constructor) Dim is one.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#isEmpty()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#isEmpty()}
    */
   @Test
-  @DisplayName("Test isEmpty(); given ObjectAttributes (default constructor) Dim is one; then return 'false'")
+  @DisplayName(
+      "Test isEmpty(); given ObjectAttributes (default constructor) Dim is one; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LwM2MModelConfig.isEmpty()"})
   void testIsEmpty_givenObjectAttributesDimIsOne_thenReturnFalse() {
@@ -747,11 +803,12 @@ class LwM2MModelConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MModelConfig#isEmpty()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfig#isEmpty()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfig#isEmpty()}
    */
   @Test
   @DisplayName("Test isEmpty(); then return 'true'")
@@ -759,6 +816,6 @@ class LwM2MModelConfigDiffblueTest {
   @MethodsUnderTest({"boolean LwM2MModelConfig.isEmpty()"})
   void testIsEmpty_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new LwM2MModelConfig("https://config.us-east-2.amazonaws.com")).isEmpty());
+    assertTrue(new LwM2MModelConfig("https://config.us-east-2.amazonaws.com").isEmpty());
   }
 }

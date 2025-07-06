@@ -16,19 +16,18 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class TbKafkaConsumerStatsServiceDiffblueTest {
-  @Mock
-  private TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
+  @Mock private TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig;
 
-  @InjectMocks
-  private TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
+  @InjectMocks private TbKafkaConsumerStatsService tbKafkaConsumerStatsService;
 
   /**
    * Test {@link TbKafkaConsumerStatsService#init()}.
+   *
    * <ul>
-   *   <li>Then calls {@link TbKafkaConsumerStatisticConfig#getEnabled()}.</li>
+   *   <li>Then calls {@link TbKafkaConsumerStatisticConfig#getEnabled()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#init()}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#init()}
    */
   @Test
   @DisplayName("Test init(); then calls getEnabled()")
@@ -47,14 +46,17 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
+   *
    * <ul>
-   *   <li>Given {@link TbKafkaConsumerStatisticConfig} {@link TbKafkaConsumerStatisticConfig#getEnabled()} return {@code false}.</li>
+   *   <li>Given {@link TbKafkaConsumerStatisticConfig} {@link
+   *       TbKafkaConsumerStatisticConfig#getEnabled()} return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
-  @DisplayName("Test registerClientGroup(String); given TbKafkaConsumerStatisticConfig getEnabled() return 'false'")
+  @DisplayName(
+      "Test registerClientGroup(String); given TbKafkaConsumerStatisticConfig getEnabled() return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbKafkaConsumerStatsService.registerClientGroup(String)"})
   void testRegisterClientGroup_givenTbKafkaConsumerStatisticConfigGetEnabledReturnFalse() {
@@ -70,11 +72,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
   @DisplayName("Test registerClientGroup(String); when '42'")
@@ -93,11 +96,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
   @DisplayName("Test registerClientGroup(String); when empty string")
@@ -116,11 +120,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#registerClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#registerClientGroup(String)}
    */
   @Test
   @DisplayName("Test registerClientGroup(String); when 'null'")
@@ -139,8 +144,8 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String)")
@@ -159,11 +164,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String); when '42'")
@@ -182,11 +188,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String); when empty string")
@@ -205,11 +212,12 @@ class TbKafkaConsumerStatsServiceDiffblueTest {
 
   /**
    * Test {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
+   *
+   * <p>Method under test: {@link TbKafkaConsumerStatsService#unregisterClientGroup(String)}
    */
   @Test
   @DisplayName("Test unregisterClientGroup(String); when 'null'")

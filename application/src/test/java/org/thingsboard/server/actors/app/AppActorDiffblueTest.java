@@ -33,16 +33,14 @@ import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class AppActorDiffblueTest {
-  @Autowired
-  private ActorCreator actorCreator;
+  @Autowired private ActorCreator actorCreator;
 
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
   /**
    * Test ActorCreator {@link ActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test ActorCreator createActorId()")
@@ -67,19 +65,22 @@ class AppActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
+   *
    * <ul>
-   *   <li>Given {@link ActorCreator#ActorCreator(ActorSystemContext)} with context is {@link ActorSystemContext} (default constructor).</li>
+   *   <li>Given {@link ActorCreator#ActorCreator(ActorSystemContext)} with context is {@link
+   *       ActorSystemContext} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
-  @DisplayName("Test ActorCreator createActor(); given ActorCreator(ActorSystemContext) with context is ActorSystemContext (default constructor)")
+  @DisplayName(
+      "Test ActorCreator createActor(); given ActorCreator(ActorSystemContext) with context is ActorSystemContext (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbActor ActorCreator.createActor()"})
   void testActorCreatorCreateActor_givenActorCreatorWithContextIsActorSystemContext() {
     // Arrange and Act
-    TbActor actualCreateActorResult = (new ActorCreator(new ActorSystemContext())).createActor();
+    TbActor actualCreateActorResult = new ActorCreator(new ActorSystemContext()).createActor();
 
     // Assert
     assertTrue(actualCreateActorResult instanceof AppActor);
@@ -89,11 +90,12 @@ class AppActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
+   *
    * <ul>
-   *   <li>Then calls {@link ActorSystemContext#getTenantService()}.</li>
+   *   <li>Then calls {@link ActorSystemContext#getTenantService()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
   @DisplayName("Test ActorCreator createActor(); then calls getTenantService()")

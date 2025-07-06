@@ -30,6 +30,7 @@ import org.thingsboard.server.actors.TbActorCtx;
 import org.thingsboard.server.actors.TbActorException;
 import org.thingsboard.server.actors.TbActorId;
 import org.thingsboard.server.actors.TbActorMailbox;
+import org.thingsboard.server.actors.TbActorNotRegisteredException;
 import org.thingsboard.server.actors.TbActorSystemSettings;
 import org.thingsboard.server.actors.TbEntityActorId;
 import org.thingsboard.server.actors.stats.StatsActor;
@@ -37,6 +38,7 @@ import org.thingsboard.server.actors.tenant.TenantActor.ActorCreator;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.dao.rule.BaseRuleChainService;
 import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 
 @ContextConfiguration(classes = {ActorCreator.class, TenantId.class, TenantActor.class})
@@ -46,22 +48,18 @@ import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class TenantActorDiffblueTest {
-  @Autowired
-  private ActorCreator actorCreator;
+  @Autowired private ActorCreator actorCreator;
 
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
-  @Autowired
-  private TenantActor tenantActor;
+  @Autowired private TenantActor tenantActor;
 
-  @MockBean
-  private UUID uUID;
+  @MockBean private UUID uUID;
 
   /**
    * Test ActorCreator {@link ActorCreator#createActor()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActor()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
   @DisplayName("Test ActorCreator createActor()")
@@ -72,8 +70,10 @@ class TenantActorDiffblueTest {
     ActorSystemContext context = new ActorSystemContext();
 
     // Act
-    TbActor actualCreateActorResult = (new ActorCreator(context,
-        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))).createActor();
+    TbActor actualCreateActorResult =
+        new ActorCreator(
+                context, new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .createActor();
 
     // Assert
     assertTrue(actualCreateActorResult instanceof TenantActor);
@@ -86,8 +86,8 @@ class TenantActorDiffblueTest {
 
   /**
    * Test ActorCreator {@link ActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link ActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link ActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test ActorCreator createActorId()")
@@ -110,25 +110,92 @@ class TenantActorDiffblueTest {
   }
 
   /**
-   * Test {@link TenantActor#init(TbActorCtx)}.
+   * Test ActorCreator {@link ActorCreator#createActor()}.
+   *
    * <ul>
-   *   <li>Given {@link ActorSystemContext} {@link ActorSystemContext#getTenantService()} return {@link TenantServiceImpl} (default constructor).</li>
+   *   <li>Then calls {@link ActorSystemContext#getRuleChainService()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantActor#init(TbActorCtx)}
+   *
+   * <p>Method under test: {@link ActorCreator#createActor()}
    */
   @Test
-  @DisplayName("Test init(TbActorCtx); given ActorSystemContext getTenantService() return TenantServiceImpl (default constructor)")
+  @DisplayName("Test ActorCreator createActor(); then calls getRuleChainService()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbActor ActorCreator.createActor()"})
+  void testActorCreatorCreateActor_thenCallsGetRuleChainService() {
+    // Arrange
+    when(actorSystemContext.getRuleChainService()).thenReturn(new BaseRuleChainService());
+
+    // Act
+    TbActor actualCreateActorResult = actorCreator.createActor();
+
+    // Assert
+    verify(actorSystemContext).getRuleChainService();
+    assertTrue(actualCreateActorResult instanceof TenantActor);
+    assertNull(((TenantActor) actualCreateActorResult).getCtx());
+    assertNull(actualCreateActorResult.getActorRef());
+    assertNull(((TenantActor) actualCreateActorResult).getRootChainActor());
+    assertNull(((TenantActor) actualCreateActorResult).getRootChain());
+    assertFalse(((TenantActor) actualCreateActorResult).cantFindTenant);
+  }
+
+  /**
+   * Test {@link TenantActor#init(TbActorCtx)}.
+   *
+   * <p>Method under test: {@link TenantActor#init(TbActorCtx)}
+   */
+  @Test
+  @DisplayName("Test init(TbActorCtx)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantActor.init(TbActorCtx)"})
-  void testInit_givenActorSystemContextGetTenantServiceReturnTenantServiceImpl() throws TbActorException {
+  void testInit() throws TbActorException {
+    // Arrange
+    when(actorSystemContext.getTenantService())
+        .thenThrow(new TbActorNotRegisteredException(mock(TbActorId.class), "An error occurred"));
+    DefaultTbActorSystem system = new DefaultTbActorSystem(new TbActorSystemSettings(1, 3, 3));
+    TbActorSystemSettings settings = new TbActorSystemSettings(1, 3, 3);
+
+    TbActorId selfId = mock(TbActorId.class);
+    TbActorMailbox ctx =
+        new TbActorMailbox(
+            system, settings, selfId, null, new StatsActor(actorSystemContext), null);
+
+    // Act
+    tenantActor.init(ctx);
+
+    // Assert
+    verify(actorSystemContext).getTenantService();
+    assertFalse(tenantActor.cantFindTenant);
+    assertSame(ctx, tenantActor.getActorRef());
+    assertSame(ctx, tenantActor.getCtx());
+  }
+
+  /**
+   * Test {@link TenantActor#init(TbActorCtx)}.
+   *
+   * <ul>
+   *   <li>Given {@link ActorSystemContext} {@link ActorSystemContext#getTenantService()} return
+   *       {@link TenantServiceImpl} (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link TenantActor#init(TbActorCtx)}
+   */
+  @Test
+  @DisplayName(
+      "Test init(TbActorCtx); given ActorSystemContext getTenantService() return TenantServiceImpl (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TenantActor.init(TbActorCtx)"})
+  void testInit_givenActorSystemContextGetTenantServiceReturnTenantServiceImpl()
+      throws TbActorException {
     // Arrange
     when(actorSystemContext.getTenantService()).thenReturn(new TenantServiceImpl());
     DefaultTbActorSystem system = new DefaultTbActorSystem(new TbActorSystemSettings(1, 3, 3));
     TbActorSystemSettings settings = new TbActorSystemSettings(1, 3, 3);
 
     TbActorId selfId = mock(TbActorId.class);
-    TbActorMailbox ctx = new TbActorMailbox(system, settings, selfId, null, new StatsActor(actorSystemContext), null);
+    TbActorMailbox ctx =
+        new TbActorMailbox(
+            system, settings, selfId, null, new StatsActor(actorSystemContext), null);
 
     // Act
     tenantActor.init(ctx);

@@ -26,6 +26,7 @@ import com.google.protobuf.Descriptors.FileDescriptor;
 import com.google.protobuf.UnknownFieldSet;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -61,67 +62,82 @@ import org.thingsboard.server.gen.transport.TransportProtos.TsKvListProto;
 class JsonConverterDiffblueTest {
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement() throws JsonSyntaxException {
     // Arrange and Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter
-        .convertToTelemetryProto(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToTelemetryProtoResult.getUnknownFields();
-    PostTelemetryMsg defaultInstanceForType = actualConvertToTelemetryProtoResult.getDefaultInstanceForType();
+    PostTelemetryMsg defaultInstanceForType =
+        actualConvertToTelemetryProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement2() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive('\u0001')));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive('\u0001')));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement3() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement4() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -129,25 +145,29 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement5() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", new JsonArray(3));
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -158,20 +178,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement6() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "42");
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -184,20 +207,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement7() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", true);
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -210,20 +236,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement8() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("values", new JsonArray(3));
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -234,20 +263,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement9() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", ".");
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -258,20 +290,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement10() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "");
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -283,13 +318,15 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement11() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -297,18 +334,21 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement12() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
@@ -319,18 +359,21 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement13() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
@@ -342,25 +385,29 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement14() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", new JsonObject());
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -371,20 +418,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement15() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", JsonConverter.toGatewayDeviceDisconnectJson("ts", 1));
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     List<KeyValueProto> kvList = tsKvListList.get(0).getKvList();
     assertEquals(1, kvList.size());
@@ -394,70 +444,88 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs() throws JsonSyntaxException {
     // Arrange and Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter
-        .convertToTelemetryProto(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
 
     // Assert
     assertEquals(43, actualConvertToTelemetryProtoResult.getSerializedSize());
     UnknownFieldSet unknownFields = actualConvertToTelemetryProtoResult.getUnknownFields();
-    PostTelemetryMsg defaultInstanceForType = actualConvertToTelemetryProtoResult.getDefaultInstanceForType();
+    PostTelemetryMsg defaultInstanceForType =
+        actualConvertToTelemetryProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs2() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive('\u0001'), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs3() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs4() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -465,25 +533,30 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs5() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", new JsonArray(3));
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -499,21 +572,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs6() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "42");
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -531,21 +608,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs7() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", true);
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -563,21 +644,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs8() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("values", new JsonArray(3));
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -593,21 +678,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs9() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", ".");
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -623,21 +712,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs10() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "");
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -654,14 +747,17 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs11() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -669,18 +765,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs12() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
@@ -691,18 +791,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs13() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
@@ -714,25 +818,30 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs14() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", new JsonObject());
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -748,21 +857,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs15() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", JsonConverter.toGatewayDeviceDisconnectJson("ts", 1));
 
     // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -778,17 +891,22 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given 'A'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given 'A'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenA() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -796,21 +914,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given 'false'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenFalse() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -818,43 +942,56 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given fromIntBits one")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given fromIntBits one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
-  void testConvertToTelemetryProtoWithJsonElementTs_givenFromIntBitsOne() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
+  void testConvertToTelemetryProtoWithJsonElementTs_givenFromIntBitsOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(UnsignedInteger.fromIntBits(1));
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given NaN")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given NaN")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenNaN() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -862,53 +999,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given 'null'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
-  void testConvertToTelemetryProtoWithJsonElementTs_givenNull() throws JsonSyntaxException {
-    // Arrange
-    JsonObject jsonElement = new JsonObject();
-    jsonElement.addProperty("ts", (String) null);
-
-    // Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(jsonElement, 1L);
-
-    // Assert
-    List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
-    assertEquals(1, tsKvListList.size());
-    TsKvListProto getResult = tsKvListList.get(0);
-    assertEquals(0, getResult.getKvCount());
-    assertEquals(1, actualConvertToTelemetryProtoResult.getDescriptorForType().getFields().size());
-    assertEquals(1, getResult.getAllFields().size());
-    assertEquals(2, getResult.getSerializedSize());
-    assertEquals(4, actualConvertToTelemetryProtoResult.getSerializedSize());
-    assertTrue(getResult.getKvList().isEmpty());
-  }
-
-  /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
-   * <ul>
-   *   <li>Given one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
-   */
-  @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -916,21 +1027,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given one")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenOne2() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -938,21 +1055,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given ten")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenTen() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -960,21 +1083,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given ten")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenTen2() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -982,21 +1111,27 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given valueOf one")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; given valueOf one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_givenValueOfOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1004,24 +1139,32 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is zero.</li>
+   *   <li>Then return SerializedSize is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; then return SerializedSize is zero")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; then return SerializedSize is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
-  void testConvertToTelemetryProtoWithJsonElementTs_thenReturnSerializedSizeIsZero() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
+  void testConvertToTelemetryProtoWithJsonElementTs_thenReturnSerializedSizeIsZero()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(new JsonArray(3), 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(new JsonArray(3), 1L);
 
     // Assert
     assertEquals(0, actualConvertToTelemetryProtoResult.getSerializedSize());
@@ -1029,44 +1172,58 @@ class JsonConverterDiffblueTest {
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
     assertTrue(tsKvListList.isEmpty());
     assertTrue(actualConvertToTelemetryProtoResult.getAllFields().isEmpty());
-    assertEquals(actualConvertToTelemetryProtoResult, actualConvertToTelemetryProtoResult.getDefaultInstanceForType());
+    assertEquals(
+        actualConvertToTelemetryProtoResult,
+        actualConvertToTelemetryProtoResult.getDefaultInstanceForType());
     UnknownFieldSet unknownFields = actualConvertToTelemetryProtoResult.getUnknownFields();
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
     assertSame(tsKvListList, actualConvertToTelemetryProtoResult.getTsKvListOrBuilderList());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
+   *   <li>When {@link JsonNull} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonNull (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonNull (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_whenJsonNull() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonNull(), 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonNull(), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
+   *   <li>When {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonObject (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
   void testConvertToTelemetryProtoWithJsonElementTs_whenJsonObject() throws JsonSyntaxException {
     // Arrange and Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(new JsonObject(), 1L);
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(new JsonObject(), 1L);
 
     // Assert
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
@@ -1081,52 +1238,109 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
-  void testConvertToTelemetryProtoWithJsonElementTs_whenJsonPrimitiveWithBoolIsTrue() throws JsonSyntaxException {
-    // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive(true), 1L));
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
+  void testConvertToTelemetryProtoWithJsonElementTs_whenJsonObjectAddPropertyTsAndNull()
+      throws JsonSyntaxException {
+    // Arrange
+    JsonObject jsonElement = new JsonObject();
+    jsonElement.addProperty("ts", (String) null);
+
+    // Act
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(jsonElement, 1L);
+
+    // Assert
+    List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
+    assertEquals(1, tsKvListList.size());
+    TsKvListProto getResult = tsKvListList.get(0);
+    assertEquals(0, getResult.getKvCount());
+    assertEquals(1, actualConvertToTelemetryProtoResult.getDescriptorForType().getFields().size());
+    assertEquals(1, getResult.getAllFields().size());
+    assertEquals(2, getResult.getSerializedSize());
+    assertEquals(4, actualConvertToTelemetryProtoResult.getSerializedSize());
+    assertTrue(getResult.getKvList().isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement}, {@code ts}.
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"})
-  void testConvertToTelemetryProtoWithJsonElementTs_whenJsonPrimitiveWithString() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
+  void testConvertToTelemetryProtoWithJsonElementTs_whenJsonPrimitiveWithBoolIsTrue()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive(true), 1L));
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToTelemetryProto(JsonElement, long)} with {@code jsonElement},
+   * {@code ts}.
+   *
+   * <ul>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement, long)}
+   */
+  @Test
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement, long) with 'jsonElement', 'ts'; when JsonPrimitive(String) with 'String'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement, long)"
+  })
+  void testConvertToTelemetryProtoWithJsonElementTs_whenJsonPrimitiveWithString()
+      throws JsonSyntaxException {
+    // Arrange, Act and Assert
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive("String"), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given 'A'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenA() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1134,21 +1348,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenFalse() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1156,21 +1374,26 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given fromIntBits one")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given fromIntBits one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenFromIntBitsOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1178,21 +1401,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given NaN")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenNaN() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1200,21 +1427,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1222,21 +1453,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenOne2() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1244,21 +1479,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenTen() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1266,21 +1505,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenTen2() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1288,21 +1531,25 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; given valueOf one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_givenValueOfOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -1310,24 +1557,31 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(jsonElement));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is zero.</li>
+   *   <li>Then return SerializedSize is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; then return SerializedSize is zero")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; then return SerializedSize is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
-  void testConvertToTelemetryProtoWithJsonElement_thenReturnSerializedSizeIsZero() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
+  void testConvertToTelemetryProtoWithJsonElement_thenReturnSerializedSizeIsZero()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostTelemetryMsg actualConvertToTelemetryProtoResult = JsonConverter.convertToTelemetryProto(new JsonArray(3));
+    PostTelemetryMsg actualConvertToTelemetryProtoResult =
+        JsonConverter.convertToTelemetryProto(new JsonArray(3));
 
     // Assert
     assertEquals(0, actualConvertToTelemetryProtoResult.getSerializedSize());
@@ -1335,7 +1589,9 @@ class JsonConverterDiffblueTest {
     List<TsKvListProto> tsKvListList = actualConvertToTelemetryProtoResult.getTsKvListList();
     assertTrue(tsKvListList.isEmpty());
     assertTrue(actualConvertToTelemetryProtoResult.getAllFields().isEmpty());
-    assertEquals(actualConvertToTelemetryProtoResult, actualConvertToTelemetryProtoResult.getDefaultInstanceForType());
+    assertEquals(
+        actualConvertToTelemetryProtoResult,
+        actualConvertToTelemetryProtoResult.getDefaultInstanceForType());
     UnknownFieldSet unknownFields = actualConvertToTelemetryProtoResult.getUnknownFields();
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
     assertSame(tsKvListList, actualConvertToTelemetryProtoResult.getTsKvListOrBuilderList());
@@ -1343,36 +1599,46 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
+   *   <li>When {@link JsonNull} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonNull (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonNull (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_whenJsonNull() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonNull()));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonNull()));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
+   *   <li>When {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonObject (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
   void testConvertToTelemetryProtoWithJsonElement_whenJsonObject() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(new JsonObject()).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(new JsonObject()).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     TsKvListProto getResult = tsKvListList.get(0);
     assertEquals(0, getResult.getKvCount());
@@ -1381,23 +1647,29 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.</li>
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
-  void testConvertToTelemetryProtoWithJsonElement_whenJsonObjectAddPropertyTsAndNull() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
+  void testConvertToTelemetryProtoWithJsonElement_whenJsonObjectAddPropertyTsAndNull()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", (String) null);
 
     // Act and Assert
-    List<TsKvListProto> tsKvListList = JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
+    List<TsKvListProto> tsKvListList =
+        JsonConverter.convertToTelemetryProto(jsonElement).getTsKvListList();
     assertEquals(1, tsKvListList.size());
     TsKvListProto getResult = tsKvListList.get(0);
     assertEquals(0, getResult.getKvCount());
@@ -1406,42 +1678,56 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
-  void testConvertToTelemetryProtoWithJsonElement_whenJsonPrimitiveWithBoolIsTrue() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
+  void testConvertToTelemetryProtoWithJsonElement_whenJsonPrimitiveWithBoolIsTrue()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive(true)));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive(true)));
   }
 
   /**
    * Test {@link JsonConverter#convertToTelemetryProto(JsonElement)} with {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetryProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToTelemetryProto(JsonElement) with 'jsonElement'; when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"})
-  void testConvertToTelemetryProtoWithJsonElement_whenJsonPrimitiveWithString() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg JsonConverter.convertToTelemetryProto(JsonElement)"
+  })
+  void testConvertToTelemetryProtoWithJsonElement_whenJsonPrimitiveWithString()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive("String")));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetryProto(new JsonPrimitive("String")));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1449,14 +1735,17 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter
-        .convertToGatewayTelemetry(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", -1), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () ->
+            JsonConverter.convertToGatewayTelemetry(
+                JsonConverter.toGatewayDeviceDisconnectJson("Device Name", -1), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1472,13 +1761,14 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1494,13 +1784,14 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1517,13 +1808,14 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1540,13 +1832,14 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
@@ -1564,16 +1857,43 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   */
+  @Test
+  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
+  void testConvertToGatewayTelemetry7() {
+    // Arrange
+    JsonObject element = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
+    element.add("42", new JsonArray(3));
+    element.add("metadata", new JsonArray(3));
+    element.addProperty("ts", true);
+
+    JsonArray jsonElement = new JsonArray(3);
+    jsonElement.add(element);
+    jsonElement.add(true);
+
+    // Act and Assert
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
+   *   <li>Given empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given empty string")
@@ -1587,16 +1907,18 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given 'false'")
@@ -1609,19 +1931,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonArrayWithCapacityIsThree() {
@@ -1631,19 +1956,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'false'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonArrayWithCapacityIsThreeAddFalse() {
@@ -1657,19 +1985,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonArrayWithCapacityIsThreeAddTrue() {
@@ -1682,19 +2013,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor).</li>
+   *   <li>Given {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor)")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonObject() {
@@ -1704,19 +2038,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code 42}.</li>
+   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and '42'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonObjectAddPropertyTsAnd42() {
@@ -1729,19 +2066,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and empty string.</li>
+   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and empty string")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonObjectAddPropertyTsAndEmptyString() {
@@ -1754,19 +2094,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.</li>
+   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and 'null'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonObjectAddPropertyTsAndNull() {
@@ -1779,19 +2122,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code true}.</li>
+   *   <li>Given {@link JsonObject} (default constructor) addProperty {@code ts} and {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and 'true'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given JsonObject (default constructor) addProperty 'ts' and 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenJsonObjectAddPropertyTsAndTrue() {
@@ -1804,16 +2150,18 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given start of heading.</li>
+   *   <li>Given start of heading.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given start of heading")
@@ -1827,19 +2175,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given toGatewayDeviceDisconnectJson {@code Device Name} and one.</li>
+   *   <li>Given toGatewayDeviceDisconnectJson {@code Device Name} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given toGatewayDeviceDisconnectJson 'Device Name' and one")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given toGatewayDeviceDisconnectJson 'Device Name' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenToGatewayDeviceDisconnectJsonDeviceNameAndOne() {
@@ -1849,20 +2200,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); given 'true'; when JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); given 'true'; when JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_givenTrue_whenJsonArrayWithCapacityIsThreeAddTrue() {
@@ -1871,25 +2225,28 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is one.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); when JsonArray(int) with capacity is one")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); when JsonArray(int) with capacity is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_whenJsonArrayWithCapacityIsOne() {
     // Arrange and Act
-    TbPair<PostTelemetryMsg, List<GatewayMetadata>> actualConvertToGatewayTelemetryResult = JsonConverter
-        .convertToGatewayTelemetry(new JsonArray(1), 1L);
+    TbPair<PostTelemetryMsg, List<GatewayMetadata>> actualConvertToGatewayTelemetryResult =
+        JsonConverter.convertToGatewayTelemetry(new JsonArray(1), 1L);
 
     // Assert
     PostTelemetryMsg first = actualConvertToGatewayTelemetryResult.getFirst();
@@ -1901,20 +2258,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); when JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); when JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_whenJsonArrayWithCapacityIsThree() {
     // Arrange and Act
-    TbPair<PostTelemetryMsg, List<GatewayMetadata>> actualConvertToGatewayTelemetryResult = JsonConverter
-        .convertToGatewayTelemetry(new JsonArray(3), 1L);
+    TbPair<PostTelemetryMsg, List<GatewayMetadata>> actualConvertToGatewayTelemetryResult =
+        JsonConverter.convertToGatewayTelemetry(new JsonArray(3), 1L);
 
     // Assert
     PostTelemetryMsg first = actualConvertToGatewayTelemetryResult.getFirst();
@@ -1926,61 +2285,74 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>When {@link JsonNull} (default constructor).
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); when JsonNull (default constructor); then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); when JsonNull (default constructor); then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_whenJsonNull_thenThrowJsonSyntaxException() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(new JsonNull(), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToGatewayTelemetry(new JsonNull(), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); when JsonObject (default constructor); then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); when JsonObject (default constructor); then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_whenJsonObject_thenThrowJsonSyntaxException() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(new JsonObject(), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToGatewayTelemetry(new JsonObject(), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToGatewayTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToGatewayTelemetry(JsonElement, long); when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToGatewayTelemetry(JsonElement, long); when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair JsonConverter.convertToGatewayTelemetry(JsonElement, long)"})
   void testConvertToGatewayTelemetry_whenJsonPrimitiveWithBoolIsTrue() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToGatewayTelemetry(new JsonPrimitive(true), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToGatewayTelemetry(new JsonPrimitive(true), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -1988,13 +2360,16 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonPrimitive('\u0001'), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetry(new JsonPrimitive('\u0001'), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2006,13 +2381,15 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2025,13 +2402,15 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2043,7 +2422,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2060,9 +2440,10 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2074,7 +2455,8 @@ class JsonConverterDiffblueTest {
     jsonElement.addProperty("ts", "");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2091,9 +2473,10 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2106,13 +2489,15 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2128,13 +2513,15 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2151,13 +2538,15 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2169,7 +2558,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", new JsonObject());
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2186,9 +2576,10 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'")
@@ -2200,7 +2591,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", JsonConverter.toGatewayDeviceDisconnectJson("ts", 1));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2217,59 +2609,70 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted() throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(new JsonArray(3), 1L,
-        true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(new JsonArray(3), 1L, true);
 
     // Assert
     assertTrue(actualConvertToTelemetryResult.isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted2() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonPrimitive(true), 1L, true));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetry(new JsonPrimitive(true), 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted3() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToTelemetry(new JsonPrimitive('\u0001'), 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted4() throws JsonSyntaxException {
@@ -2278,16 +2681,19 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted5() throws JsonSyntaxException {
@@ -2297,16 +2703,19 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted6() throws JsonSyntaxException {
@@ -2315,7 +2724,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2332,12 +2742,14 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted7() throws JsonSyntaxException {
@@ -2346,7 +2758,8 @@ class JsonConverterDiffblueTest {
     jsonElement.addProperty("ts", "42");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2363,12 +2776,14 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted8() throws JsonSyntaxException {
@@ -2377,7 +2792,8 @@ class JsonConverterDiffblueTest {
     jsonElement.addProperty("ts", true);
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2400,12 +2816,14 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted9() throws JsonSyntaxException {
@@ -2414,7 +2832,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("values", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2429,12 +2848,14 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted10() throws JsonSyntaxException {
@@ -2443,7 +2864,8 @@ class JsonConverterDiffblueTest {
     jsonElement.addProperty("ts", ".");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2460,21 +2882,45 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted11() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
+    jsonElement.addProperty("ts", (String) null);
+
+    // Act and Assert
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   */
+  @Test
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
+  void testConvertToTelemetryWithJsonElementSystemTsSorted12() throws JsonSyntaxException {
+    // Arrange
+    JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2491,34 +2937,39 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted12() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted13() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(new JsonObject());
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted13() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted14() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
     element.add(true);
@@ -2528,19 +2979,22 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted14() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted15() throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
     element.add(false);
@@ -2551,25 +3005,29 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted15() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted16() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", new JsonObject());
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2586,21 +3044,24 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted16() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted17() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", JsonConverter.toGatewayDeviceDisconnectJson("ts", 1));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2617,15 +3078,18 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given 'A'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given 'A'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenA() throws JsonSyntaxException {
@@ -2635,19 +3099,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given 'false'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenFalse() throws JsonSyntaxException {
@@ -2657,41 +3125,50 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given fromIntBits one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given fromIntBits one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_givenFromIntBitsOne() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_givenFromIntBitsOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(UnsignedInteger.fromIntBits(1));
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given NaN")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given NaN")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenNaN() throws JsonSyntaxException {
@@ -2701,40 +3178,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_givenNull() throws JsonSyntaxException {
-    // Arrange
-    JsonObject jsonElement = new JsonObject();
-    jsonElement.addProperty("ts", (String) null);
-
-    // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
-  }
-
-  /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
-   * <ul>
-   *   <li>Given one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
-   */
-  @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenOne() throws JsonSyntaxException {
@@ -2744,19 +3204,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenOne2() throws JsonSyntaxException {
@@ -2766,19 +3230,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given ten")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenTen() throws JsonSyntaxException {
@@ -2788,19 +3256,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given ten")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
   void testConvertToTelemetryWithJsonElementSystemTsSorted_givenTen2() throws JsonSyntaxException {
@@ -2810,47 +3282,58 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given valueOf one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; given valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_givenValueOfOne() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_givenValueOfOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(Integer.valueOf(1));
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>Then return one size is two.</li>
+   *   <li>Then return one size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; then return one size is two")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; then return one size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_thenReturnOneSizeIsTwo() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_thenReturnOneSizeIsTwo()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter
-        .convertToTelemetry(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L, true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L, true);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -2870,93 +3353,115 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>When {@code false}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code false}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when 'false'; then return Empty")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when 'false'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenFalse_thenReturnEmpty() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenFalse_thenReturnEmpty()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(new JsonArray(3), 1L,
-        false);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(new JsonArray(3), 1L, false);
 
     // Assert
     assertTrue(actualConvertToTelemetryResult.isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
+   *   <li>When {@link JsonNull} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonNull (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonNull (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonNull() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonNull()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonNull(), 1L, true));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetry(new JsonNull(), 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
+   *   <li>When {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonObject (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonObject() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonObject()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(new JsonObject(), 1L,
-        true);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(new JsonObject(), 1L, true);
 
     // Assert
     assertTrue(actualConvertToTelemetryResult.isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code jsonElement}, {@code systemTs}, {@code sorted}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)} with {@code
+   * jsonElement}, {@code systemTs}, {@code sorted}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long, boolean)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long, boolean) with 'jsonElement', 'systemTs', 'sorted'; when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long, boolean)"})
-  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonPrimitiveWithString() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTsSorted_whenJsonPrimitiveWithString()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToTelemetry(new JsonPrimitive("String"), 1L, true));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given 'A'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given 'A'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenA() throws JsonSyntaxException {
@@ -2966,19 +3471,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given 'false'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenFalse() throws JsonSyntaxException {
@@ -2988,41 +3497,50 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given fromIntBits one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given fromIntBits one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_givenFromIntBitsOne() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_givenFromIntBitsOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(UnsignedInteger.fromIntBits(1));
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given NaN")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given NaN")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenNaN() throws JsonSyntaxException {
@@ -3032,40 +3550,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_givenNull() throws JsonSyntaxException {
-    // Arrange
-    JsonObject jsonElement = new JsonObject();
-    jsonElement.addProperty("ts", (String) null);
-
-    // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
-  }
-
-  /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
-   * <ul>
-   *   <li>Given one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
-   */
-  @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenOne() throws JsonSyntaxException {
@@ -3075,19 +3576,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenOne2() throws JsonSyntaxException {
@@ -3097,19 +3602,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given ten")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenTen() throws JsonSyntaxException {
@@ -3119,19 +3628,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given ten")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenTen2() throws JsonSyntaxException {
@@ -3141,19 +3654,23 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given valueOf one")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; given valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_givenValueOfOne() throws JsonSyntaxException {
@@ -3163,28 +3680,34 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Then one first return {@link BooleanDataEntry}.</li>
+   *   <li>Then one first return {@link BooleanDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then one first return BooleanDataEntry")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then one first return BooleanDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_thenOneFirstReturnBooleanDataEntry() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_thenOneFirstReturnBooleanDataEntry()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", true);
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -3207,24 +3730,29 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Then one first return {@link LongDataEntry}.</li>
+   *   <li>Then one first return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then one first return LongDataEntry")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then one first return LongDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_thenOneFirstReturnLongDataEntry() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_thenOneFirstReturnLongDataEntry()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "42");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -3241,24 +3769,29 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Then return one first Key is {@code values}.</li>
+   *   <li>Then return one first Key is {@code values}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one first Key is 'values'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one first Key is 'values'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneFirstKeyIsValues() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneFirstKeyIsValues()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("values", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -3273,24 +3806,29 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Then return one first StrValue is {@code .}.</li>
+   *   <li>Then return one first StrValue is {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one first StrValue is '.'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one first StrValue is '.'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneFirstStrValueIsDot() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneFirstStrValueIsDot()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", ".");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(jsonElement, 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -3307,21 +3845,26 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>Then return one size is two.</li>
+   *   <li>Then return one size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one size is two")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; then return one size is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneSizeIsTwo() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_thenReturnOneSizeIsTwo()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter
-        .convertToTelemetry(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
 
     // Assert
     assertEquals(1, actualConvertToTelemetryResult.size());
@@ -3341,108 +3884,162 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonArrayWithCapacityIsThree() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonArrayWithCapacityIsThree()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(new JsonArray(3), 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(new JsonArray(3), 1L);
 
     // Assert
     assertTrue(actualConvertToTelemetryResult.isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
+   *   <li>When {@link JsonNull} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonNull (default constructor)")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonNull (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
   void testConvertToTelemetryWithJsonElementSystemTs_whenJsonNull() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonNull(), 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonNull(), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonObject (default constructor); then return Empty")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonObject_thenReturnEmpty() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonObjectAddPropertyTsAndNull()
+      throws JsonSyntaxException {
+    // Arrange
+    JsonObject jsonElement = new JsonObject();
+    jsonElement.addProperty("ts", (String) null);
+
+    // Act and Assert
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(jsonElement, 1L));
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
+   * <ul>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return Empty.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   */
+  @Test
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonObject (default constructor); then return Empty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
+  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonObject_thenReturnEmpty()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToTelemetryResult = JsonConverter.convertToTelemetry(new JsonObject(), 1L);
+    Map<Long, List<KvEntry>> actualConvertToTelemetryResult =
+        JsonConverter.convertToTelemetry(new JsonObject(), 1L);
 
     // Assert
     assertTrue(actualConvertToTelemetryResult.isEmpty());
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonPrimitiveWithBoolIsTrue() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonPrimitiveWithBoolIsTrue()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonPrimitive(true), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetry(new JsonPrimitive(true), 1L));
   }
 
   /**
-   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement}, {@code systemTs}.
+   * Test {@link JsonConverter#convertToTelemetry(JsonElement, long)} with {@code jsonElement},
+   * {@code systemTs}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToTelemetry(JsonElement, long) with 'jsonElement', 'systemTs'; when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToTelemetry(JsonElement, long)"})
-  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonPrimitiveWithString() throws JsonSyntaxException {
+  void testConvertToTelemetryWithJsonElementSystemTs_whenJsonPrimitiveWithString()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToTelemetry(new JsonPrimitive("String"), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToTelemetry(new JsonPrimitive("String"), 1L));
   }
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code client}.</li>
-   *   <li>Then return {@code client}.</li>
+   *   <li>When {@code client}.
+   *   <li>Then return {@code client}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'client'; then return 'client'")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'client'; then return 'client'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenClient_thenReturnClient() {
@@ -3455,15 +4052,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code JsonElement}.</li>
-   *   <li>Then return {@link JsonPrimitive}.</li>
+   *   <li>When {@code JsonElement}.
+   *   <li>Then return {@link JsonPrimitive}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'com.google.gson.JsonElement'; then return JsonPrimitive")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'com.google.gson.JsonElement'; then return JsonPrimitive")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenComGoogleGsonJsonElement_thenReturnJsonPrimitive() {
@@ -3491,12 +4090,33 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
-   *   <li>Then return {@code .}.</li>
+   *   <li>When {@code .}.
+   *   <li>Then return charValue is {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when '.'; then return charValue is '.'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenDot_thenReturnCharValueIsDot() {
+    // Arrange, Act and Assert
+    assertEquals('.', ((Character) JsonConverter.parse(".", Character.TYPE)).charValue());
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@code .}.
+   *   <li>Then return {@code .}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when '.'; then return '.'")
@@ -3512,12 +4132,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
-   *   <li>Then return {@code E}.</li>
+   *   <li>When {@code E}.
+   *   <li>Then return {@code E}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'E'; then return 'E'")
@@ -3533,15 +4154,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code Boolean}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Boolean}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Boolean'; then return 'false'")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Boolean'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenJavaLangBoolean_thenReturnFalse() {
@@ -3554,18 +4177,43 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code Number}.</li>
-   *   <li>Then return {@link LazilyParsedNumber}.</li>
+   *   <li>When {@code Number}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Number'; then return LazilyParsedNumber")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Number'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
-  void testParseWithJsonClazz_whenJavaLangNumber_thenReturnLazilyParsedNumber() {
+  void testParseWithJsonClazz_whenJavaLangNumber_thenReturnNull() {
+    // Arrange
+    Class<Number> clazz = Number.class;
+
+    // Act and Assert
+    assertNull(JsonConverter.parse("", clazz));
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@code Number}.
+   *   <li>Then return toString is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Number'; then return toString is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenJavaLangNumber_thenReturnToStringIs42() {
     // Arrange
     Class<Number> clazz = Number.class;
 
@@ -3579,15 +4227,44 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code Object}.</li>
-   *   <li>Then return doubleValue is forty-two.</li>
+   *   <li>When {@code Number}.
+   *   <li>Then return toString is {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return doubleValue is forty-two")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Number'; then return toString is 'Json'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenJavaLangNumber_thenReturnToStringIsJson() {
+    // Arrange
+    Class<Number> clazz = Number.class;
+
+    // Act
+    Object actualParseResult = JsonConverter.parse("Json", clazz);
+
+    // Assert
+    assertTrue(actualParseResult instanceof LazilyParsedNumber);
+    assertEquals("Json", actualParseResult.toString());
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@code Object}.
+   *   <li>Then return doubleValue is forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return doubleValue is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenJavaLangObject_thenReturnDoubleValueIsFortyTwo() {
@@ -3600,15 +4277,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code Object}.</li>
-   *   <li>Then return {@code Json}.</li>
+   *   <li>When {@code Object}.
+   *   <li>Then return {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return 'Json'")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return 'Json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenJavaLangObject_thenReturnJson() {
@@ -3621,15 +4300,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code Object}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code Object}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return 'null'")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.Object'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenJavaLangObject_thenReturnNull() {
@@ -3642,15 +4323,106 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Double#TYPE}.</li>
-   *   <li>Then return doubleValue is forty-two.</li>
+   *   <li>When {@code String}.
+   *   <li>Then return {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return doubleValue is forty-two")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.String'; then return 'Json'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenJavaLangString_thenReturnJson() {
+    // Arrange
+    Class<String> clazz = String.class;
+
+    // Act and Assert
+    assertEquals("Json", JsonConverter.parse("Json", clazz));
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@code String}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.lang.String'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenJavaLangString_thenReturnNull() {
+    // Arrange
+    Class<String> clazz = String.class;
+
+    // Act and Assert
+    assertNull(JsonConverter.parse("", clazz));
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@code Collection}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when 'java.util.Collection'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenJavaUtilCollection_thenReturnNull() {
+    // Arrange
+    Class<Collection> clazz = Collection.class;
+
+    // Act and Assert
+    assertNull(JsonConverter.parse("", clazz));
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@link Byte#TYPE}.
+   *   <li>Then return byteValue is {@code *}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return byteValue is '*'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenType_thenReturnByteValueIsAsterisk() {
+    // Arrange, Act and Assert
+    assertEquals('*', ((Byte) JsonConverter.parse("42", Byte.TYPE)).byteValue());
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@link Double#TYPE}.
+   *   <li>Then return doubleValue is forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return doubleValue is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenType_thenReturnDoubleValueIsFortyTwo() {
@@ -3660,12 +4432,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#TYPE}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link Boolean#TYPE}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'false'")
@@ -3678,15 +4451,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Float#TYPE}.</li>
-   *   <li>Then return floatValue is forty-two.</li>
+   *   <li>When {@link Float#TYPE}.
+   *   <li>Then return floatValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return floatValue is forty-two")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return floatValue is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenType_thenReturnFloatValueIsFortyTwo() {
@@ -3696,15 +4471,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Integer#TYPE}.</li>
-   *   <li>Then return intValue is forty-two.</li>
+   *   <li>When {@link Integer#TYPE}.
+   *   <li>Then return intValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return intValue is forty-two")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return intValue is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenType_thenReturnIntValueIsFortyTwo() {
@@ -3714,15 +4491,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Long#TYPE}.</li>
-   *   <li>Then return longValue is forty-two.</li>
+   *   <li>When {@link Long#TYPE}.
+   *   <li>Then return longValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
-  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return longValue is forty-two")
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return longValue is forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenType_thenReturnLongValueIsFortyTwo() {
@@ -3732,12 +4511,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Integer#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Integer#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3750,12 +4530,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Float#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Float#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3768,12 +4549,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Byte#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Byte#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3786,12 +4568,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Double#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Double#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3804,12 +4587,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Long#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Long#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3822,12 +4606,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Character#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Character#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3840,12 +4625,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@link Short#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Boolean#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
    */
   @Test
   @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
@@ -3853,17 +4639,57 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
   void testParseWithJsonClazz_whenType_thenReturnNull7() {
     // Arrange, Act and Assert
+    assertNull(JsonConverter.parse("", Boolean.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
+   * <ul>
+   *   <li>When {@link Short#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName("Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenType_thenReturnNull8() {
+    // Arrange, Act and Assert
     assertNull(JsonConverter.parse("", Short.TYPE));
   }
 
   /**
-   * Test {@link JsonConverter#parse(String)} with {@code json}.
+   * Test {@link JsonConverter#parse(String, Class)} with {@code json}, {@code clazz}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return AsString is {@code 42}.</li>
+   *   <li>When {@link Short#TYPE}.
+   *   <li>Then return shortValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test parse(String, Class) with 'json', 'clazz'; when TYPE; then return shortValue is forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.parse(String, Class)"})
+  void testParseWithJsonClazz_whenType_thenReturnShortValueIsFortyTwo() {
+    // Arrange, Act and Assert
+    assertEquals((short) 42, ((Short) JsonConverter.parse("42", Short.TYPE)).shortValue());
+  }
+
+  /**
+   * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
+   * <ul>
+   *   <li>When {@code 42}.
+   *   <li>Then return AsString is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when '42'; then return AsString is '42'")
@@ -3887,12 +4713,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42.}.</li>
-   *   <li>Then return AsString is {@code 42.}.</li>
+   *   <li>When {@code 42.}.
+   *   <li>Then return AsString is {@code 42.}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when '42.'; then return AsString is '42.'")
@@ -3917,12 +4744,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42E}.</li>
-   *   <li>Then return AsString is {@code 42E}.</li>
+   *   <li>When {@code 42E}.
+   *   <li>Then return AsString is {@code 42E}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when '42E'; then return AsString is '42E'")
@@ -3944,12 +4772,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code client}.</li>
-   *   <li>Then return AsString is {@code client}.</li>
+   *   <li>When {@code client}.
+   *   <li>Then return AsString is {@code client}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when 'client'; then return AsString is 'client'")
@@ -3971,12 +4800,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
-   *   <li>Then return AsString is {@code .}.</li>
+   *   <li>When {@code .}.
+   *   <li>Then return AsString is {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when '.'; then return AsString is '.'")
@@ -3998,12 +4828,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
-   *   <li>Then return AsString is {@code E}.</li>
+   *   <li>When {@code E}.
+   *   <li>Then return AsString is {@code E}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when 'E'; then return AsString is 'E'")
@@ -4025,12 +4856,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@link JsonNull}.</li>
+   *   <li>When empty string.
+   *   <li>Then return {@link JsonNull}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when empty string; then return JsonNull")
@@ -4050,12 +4882,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#parse(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code Json}.</li>
-   *   <li>Then return AsString is {@code Json}.</li>
+   *   <li>When {@code Json}.
+   *   <li>Then return AsString is {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#parse(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#parse(String)}
    */
   @Test
   @DisplayName("Test parse(String) with 'json'; when 'Json'; then return AsString is 'Json'")
@@ -4077,15 +4910,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor).</li>
-   *   <li>Then first return {@link Map}.</li>
+   *   <li>Given {@link JsonObject} (default constructor).
+   *   <li>Then first return {@link Map}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); given JsonObject (default constructor); then first return Map")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); given JsonObject (default constructor); then first return Map")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_givenJsonObject_thenFirstReturnMap() {
@@ -4109,12 +4944,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); given 'true'; then return size is one")
@@ -4137,11 +4973,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then empty string return {@link List}.</li>
+   *   <li>Then empty string return {@link List}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then empty string return List")
@@ -4172,11 +5009,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then empty string return {@link List}.</li>
+   *   <li>Then empty string return {@link List}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then empty string return List")
@@ -4209,11 +5047,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then first return {@link List}.</li>
+   *   <li>Then first return {@link List}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then first return List")
@@ -4240,11 +5079,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then {@code Property} return {@link List}.</li>
+   *   <li>Then {@code Property} return {@link List}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then 'Property' return List")
@@ -4265,17 +5105,19 @@ class JsonConverterDiffblueTest {
     assertTrue(getResult instanceof List);
     assertTrue(actualFromJsonResult instanceof Map);
     assertEquals("Device Name", ((Map<String, Object>) actualFromJsonResult).get("device"));
-    assertEquals(1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
+    assertEquals(
+        1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
     assertTrue(((List<Object>) getResult).isEmpty());
   }
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then return empty string is {@code Property}.</li>
+   *   <li>Then return empty string is {@code Property}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then return empty string is 'Property'")
@@ -4307,11 +5149,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then return {@code Property} is {@code null}.</li>
+   *   <li>Then return {@code Property} is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then return 'Property' is 'null'")
@@ -4331,16 +5174,18 @@ class JsonConverterDiffblueTest {
     assertEquals(3, ((Map<String, Object>) actualFromJsonResult).size());
     assertEquals("Device Name", ((Map<String, Object>) actualFromJsonResult).get("device"));
     assertNull(((Map<String, Object>) actualFromJsonResult).get("Property"));
-    assertEquals(1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
+    assertEquals(
+        1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
   }
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>Then return size is four.</li>
+   *   <li>Then return size is four.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); then return size is four")
@@ -4369,15 +5214,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is one.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is one.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is one; then return Empty")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is one; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonArrayWithCapacityIsOne_thenReturnEmpty() {
@@ -4395,15 +5242,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code null}.</li>
-   *   <li>Then return first is {@code null}.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code null}.
+   *   <li>Then return first is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is three add 'null'; then return first is 'null'")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is three add 'null'; then return first is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonArrayWithCapacityIsThreeAddNull_thenReturnFirstIsNull() {
@@ -4425,15 +5274,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is three; then return Empty")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonArray(int) with capacity is three; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonArrayWithCapacityIsThree_thenReturnEmpty() {
@@ -4451,15 +5302,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link JsonNull} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonNull (default constructor); then return 'null'")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonNull (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonNull_thenReturnNull() {
@@ -4473,50 +5326,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link JsonObject} (default constructor) add empty string and {@link
+   *       JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonNull (default constructor); then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
-  void testFromJson_whenJsonNull_thenReturnNull2() {
-    // Arrange, Act and Assert
-    assertNull(JsonConverter.fromJson(new JsonNull(), Float.TYPE));
-  }
-
-  /**
-   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
-   * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
-   */
-  @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonNull (default constructor); then return 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
-  void testFromJson_whenJsonNull_thenReturnNull3() {
-    // Arrange, Act and Assert
-    assertNull(JsonConverter.fromJson(new JsonNull(), Double.TYPE));
-  }
-
-  /**
-   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
-   * <ul>
-   *   <li>When {@link JsonObject} (default constructor) add empty string and {@link JsonArray#JsonArray(int)} with capacity is three.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
-   */
-  @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonObject (default constructor) add empty string and JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonObject (default constructor) add empty string and JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonObjectAddEmptyStringAndJsonArrayWithCapacityIsThree() {
@@ -4541,15 +5361,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonObject (default constructor); then return Empty")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonObject (default constructor); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonObject_thenReturnEmpty() {
@@ -4567,15 +5389,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonPrimitive(Boolean) with bool is 'true'; then return 'true'")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonPrimitive(Boolean) with bool is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonPrimitiveWithBoolIsTrue_thenReturnTrue() {
@@ -4589,15 +5413,59 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
-   *   <li>Then return {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when JsonPrimitive(String) with 'String'; then return 'String'")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonPrimitive(Boolean) with bool is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenJsonPrimitiveWithBoolIsTrue_thenReturnTrue2() {
+    // Arrange, Act and Assert
+    assertTrue((Boolean) JsonConverter.fromJson(new JsonPrimitive(true), Boolean.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Character)} with c is {@code A}.
+   *   <li>Then return charValue is {@code A}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonPrimitive(Character) with c is 'A'; then return charValue is 'A'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenJsonPrimitiveWithCIsA_thenReturnCharValueIsA() {
+    // Arrange, Act and Assert
+    assertEquals(
+        'A',
+        ((Character) JsonConverter.fromJson(new JsonPrimitive('A'), Character.TYPE)).charValue());
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
+   *   <li>Then return {@code String}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when JsonPrimitive(String) with 'String'; then return 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenJsonPrimitiveWithString_thenReturnString() {
@@ -4611,14 +5479,16 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
-  @DisplayName("Test fromJson(JsonElement, Class); when toGatewayDeviceDisconnectJson 'Device Name' and one")
+  @DisplayName(
+      "Test fromJson(JsonElement, Class); when toGatewayDeviceDisconnectJson 'Device Name' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
   void testFromJson_whenToGatewayDeviceDisconnectJsonDeviceNameAndOne() {
@@ -4633,17 +5503,19 @@ class JsonConverterDiffblueTest {
     assertTrue(actualFromJsonResult instanceof Map);
     assertEquals(2, ((Map<String, Object>) actualFromJsonResult).size());
     assertEquals("Device Name", ((Map<String, Object>) actualFromJsonResult).get("device"));
-    assertEquals(1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
+    assertEquals(
+        1.0d, ((Double) ((Map<String, Object>) actualFromJsonResult).get("reason")).doubleValue());
   }
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#TYPE}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link Boolean#TYPE}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'false'")
@@ -4656,12 +5528,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Integer#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Integer#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4674,12 +5547,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Float#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Float#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4692,12 +5566,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Byte#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Byte#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4710,12 +5585,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Double#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Double#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4728,12 +5604,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Long#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Long#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4746,12 +5623,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Character#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Character#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4764,12 +5642,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Boolean#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Boolean#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4782,12 +5661,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Short#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Short#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4800,12 +5680,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
    * <ul>
-   *   <li>When {@link Void#TYPE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link Void#TYPE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
    */
   @Test
   @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
@@ -4817,9 +5698,162 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Integer#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull10() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Integer.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Float#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull11() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Float.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Byte#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull12() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Byte.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Double#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull13() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Double.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Long#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull14() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Long.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Character#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull15() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Character.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Boolean#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull16() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Boolean.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#fromJson(JsonElement, Class)}.
+   *
+   * <ul>
+   *   <li>When {@link Short#TYPE}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#fromJson(JsonElement, Class)}
+   */
+  @Test
+  @DisplayName("Test fromJson(JsonElement, Class); when TYPE; then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Object JsonConverter.fromJson(JsonElement, Class)"})
+  void testFromJson_whenType_thenReturnNull17() {
+    // Arrange, Act and Assert
+    assertNull(JsonConverter.fromJson(new JsonNull(), Short.TYPE));
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'")
@@ -4827,14 +5861,18 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Json"));
+    assertThrows(
+        JsonSyntaxException.class,
+        () ->
+            JsonConverter.convertToClaimDeviceProto(
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Json"));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'")
@@ -4842,21 +5880,26 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson2() {
     // Arrange and Act
-    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = JsonConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "");
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult =
+        JsonConverter.convertToClaimDeviceProto(
+            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "");
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    ClaimDeviceMsg defaultInstanceForType =
+        actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'")
@@ -4864,262 +5907,350 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson3() {
     // Arrange and Act
-    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = JsonConverter.convertToClaimDeviceProto(
-        new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), (String) null);
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult =
+        JsonConverter.convertToClaimDeviceProto(
+            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), (String) null);
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    ClaimDeviceMsg defaultInstanceForType =
+        actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, new JsonArray(3)));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, new JsonArray(3)));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement2() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToClaimDeviceProto(null, new JsonPrimitive(true)));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement3() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(false);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement4() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(Integer.valueOf(1));
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given 'A'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given 'A'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenA() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add((byte) 'A');
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given fromIntBits one")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given fromIntBits one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenFromIntBitsOne() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(UnsignedInteger.fromIntBits(1));
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given NaN")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given NaN")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenNaN() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(Double.NaN);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given null.</li>
+   *   <li>Given null.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given null")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given null")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenNull() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add('\u0000');
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given one")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenOne() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(1L);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given one.</li>
+   *   <li>Given one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given one")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenOne2() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add((short) 1);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given ten")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenTen() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(10.0d);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given ten")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenTen2() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(10.0f);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
+   *   <li>Given {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given 'true'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; given 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_givenTrue() {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
@@ -5127,85 +6258,110 @@ class JsonConverterDiffblueTest {
     jsonElement.add(false);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, jsonElement));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
+   *   <li>When {@link JsonNull} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; when JsonNull (default constructor)")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; when JsonNull (default constructor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_whenJsonNull() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, new JsonNull()));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToClaimDeviceProto(null, new JsonNull()));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code deviceId}, {@code jsonElement}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)} with {@code
+   * deviceId}, {@code jsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, JsonElement) with 'deviceId', 'jsonElement'; when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"})
+  @MethodsUnderTest({
+    "ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, JsonElement)"
+  })
   void testConvertToClaimDeviceProtoWithDeviceIdJsonElement_whenJsonPrimitiveWithString() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToClaimDeviceProto(null, new JsonPrimitive("String")));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when '42'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson_when42() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "42"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "42"));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
    * <ul>
-   *   <li>When {@code client}.</li>
+   *   <li>When {@code client}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'client'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'client'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson_whenClient() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "client"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "client"));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
+   *   <li>When {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when '.'")
@@ -5213,53 +6369,64 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson_whenDot() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "."));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "."));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>When {@code E}.
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'E'; then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'E'; then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson_whenE_thenThrowJsonSyntaxException() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "E"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "E"));
   }
 
   /**
-   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId}, {@code json}.
+   * Test {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)} with {@code deviceId},
+   * {@code json}.
+   *
    * <ul>
-   *   <li>When {@code Json}.</li>
+   *   <li>When {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToClaimDeviceProto(DeviceId, String)}
    */
   @Test
-  @DisplayName("Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'Json'")
+  @DisplayName(
+      "Test convertToClaimDeviceProto(DeviceId, String) with 'deviceId', 'json'; when 'Json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ClaimDeviceMsg JsonConverter.convertToClaimDeviceProto(DeviceId, String)"})
   void testConvertToClaimDeviceProtoWithDeviceIdJson_whenJson() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "Json"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToClaimDeviceProto(null, "Json"));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributesProto(JsonElement)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonObject = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
@@ -5282,20 +6449,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributesProto(JsonElement)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto2() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonObject = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     jsonObject.add(".", new JsonObject());
 
     // Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter.convertToAttributesProto(jsonObject);
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(jsonObject);
 
     // Assert
     List<KeyValueProto> kvList = actualConvertToAttributesProtoResult.getKvList();
@@ -5316,62 +6486,77 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code A}.</li>
+   *   <li>Given {@code A}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given 'A'; when JsonArray(int) with capacity is three add 'A'")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given 'A'; when JsonArray(int) with capacity is three add 'A'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenA_whenJsonArrayWithCapacityIsThreeAddA() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenA_whenJsonArrayWithCapacityIsThreeAddA()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add((byte) 'A');
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.</li>
+   *   <li>Given {@code false}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given 'false'; when JsonArray(int) with capacity is three add 'false'")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given 'false'; when JsonArray(int) with capacity is three add 'false'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenFalse_whenJsonArrayWithCapacityIsThreeAddFalse() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenFalse_whenJsonArrayWithCapacityIsThreeAddFalse()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(false);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributesProto(JsonElement); given fromIntBits one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_givenFromIntBitsOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
@@ -5379,56 +6564,68 @@ class JsonConverterDiffblueTest {
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given NaN; when JsonArray(int) with capacity is three add NaN")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given NaN; when JsonArray(int) with capacity is three add NaN")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenNaN_whenJsonArrayWithCapacityIsThreeAddNaN() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenNaN_whenJsonArrayWithCapacityIsThreeAddNaN()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(Double.NaN);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
+   *   <li>Given {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributesProto(JsonElement); given 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_givenNull() throws JsonSyntaxException {
     // Arrange
     JsonObject jsonObject = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     jsonObject.add(".", null);
 
     // Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter.convertToAttributesProto(jsonObject);
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(jsonObject);
 
     // Assert
     assertEquals(39, actualConvertToAttributesProtoResult.getSerializedSize());
     Descriptor descriptorForType = actualConvertToAttributesProtoResult.getDescriptorForType();
-    assertSame(descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType(),
+    assertSame(
+        descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType(),
         descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType());
     MessageOptions options = descriptorForType.getOptions();
     assertSame(options, options.getFeatures().getDescriptorForType().getOptions());
@@ -5436,153 +6633,192 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given null.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add null.</li>
+   *   <li>Given null.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add null.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given null; when JsonArray(int) with capacity is three add null")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given null; when JsonArray(int) with capacity is three add null")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenNull_whenJsonArrayWithCapacityIsThreeAddNull() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenNull_whenJsonArrayWithCapacityIsThreeAddNull()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add('\u0000');
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.</li>
+   *   <li>Given one.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given one; when JsonArray(int) with capacity is three add one")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given one; when JsonArray(int) with capacity is three add one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenOne_whenJsonArrayWithCapacityIsThreeAddOne() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenOne_whenJsonArrayWithCapacityIsThreeAddOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(1L);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.</li>
+   *   <li>Given one.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given one; when JsonArray(int) with capacity is three add one")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given one; when JsonArray(int) with capacity is three add one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenOne_whenJsonArrayWithCapacityIsThreeAddOne2() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenOne_whenJsonArrayWithCapacityIsThreeAddOne2()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add((short) 1);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.</li>
+   *   <li>Given ten.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given ten; when JsonArray(int) with capacity is three add ten")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given ten; when JsonArray(int) with capacity is three add ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenTen_whenJsonArrayWithCapacityIsThreeAddTen() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenTen_whenJsonArrayWithCapacityIsThreeAddTen()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(10.0d);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.</li>
+   *   <li>Given ten.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given ten; when JsonArray(int) with capacity is three add ten")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given ten; when JsonArray(int) with capacity is three add ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenTen_whenJsonArrayWithCapacityIsThreeAddTen2() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenTen_whenJsonArrayWithCapacityIsThreeAddTen2()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(10.0f);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); given 'true'; when JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); given 'true'; when JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_givenTrue_whenJsonArrayWithCapacityIsThreeAddTrue() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_givenTrue_whenJsonArrayWithCapacityIsThreeAddTrue()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributesProto(JsonElement); given valueOf one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_givenValueOfOne() throws JsonSyntaxException {
     // Arrange
     JsonArray jsonObject = new JsonArray(3);
@@ -5590,28 +6826,35 @@ class JsonConverterDiffblueTest {
     jsonObject.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(jsonObject));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Then return KvList third JsonV is empty string.</li>
+   *   <li>Then return KvList third JsonV is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); then return KvList third JsonV is empty string")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); then return KvList third JsonV is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_thenReturnKvListThirdJsonVIsEmptyString() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_thenReturnKvListThirdJsonVIsEmptyString()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonObject = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     jsonObject.addProperty(".", true);
 
     // Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter.convertToAttributesProto(jsonObject);
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(jsonObject);
 
     // Assert
     List<KeyValueProto> kvList = actualConvertToAttributesProtoResult.getKvList();
@@ -5628,133 +6871,175 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is twenty-eight.</li>
+   *   <li>Then return SerializedSize is twenty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-eight")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-eight")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentyEight() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentyEight()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter
-        .convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson("42", 1));
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(
+            JsonConverter.toGatewayDeviceDisconnectJson("42", 1));
 
     // Assert
     assertEquals(28, actualConvertToAttributesProtoResult.getSerializedSize());
     UnknownFieldSet unknownFields = actualConvertToAttributesProtoResult.getUnknownFields();
-    PostAttributeMsg defaultInstanceForType = actualConvertToAttributesProtoResult.getDefaultInstanceForType();
+    PostAttributeMsg defaultInstanceForType =
+        actualConvertToAttributesProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is twenty-nine.</li>
+   *   <li>Then return SerializedSize is twenty-nine.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-nine")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-nine")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentyNine() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentyNine()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter
-        .convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson(".", 1));
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson(".", 1));
 
     // Assert
     assertEquals(29, actualConvertToAttributesProtoResult.getSerializedSize());
     UnknownFieldSet unknownFields = actualConvertToAttributesProtoResult.getUnknownFields();
-    PostAttributeMsg defaultInstanceForType = actualConvertToAttributesProtoResult.getDefaultInstanceForType();
+    PostAttributeMsg defaultInstanceForType =
+        actualConvertToAttributesProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>Then return SerializedSize is twenty-six.</li>
+   *   <li>Then return SerializedSize is twenty-six.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-six")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); then return SerializedSize is twenty-six")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentySix() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_thenReturnSerializedSizeIsTwentySix()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter
-        .convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson("", 1));
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson("", 1));
 
     // Assert
     assertEquals(26, actualConvertToAttributesProtoResult.getSerializedSize());
     UnknownFieldSet unknownFields = actualConvertToAttributesProtoResult.getUnknownFields();
-    PostAttributeMsg defaultInstanceForType = actualConvertToAttributesProtoResult.getDefaultInstanceForType();
+    PostAttributeMsg defaultInstanceForType =
+        actualConvertToAttributesProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_whenJsonArrayWithCapacityIsThree() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonArray(3)));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonArray(3)));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>When {@link JsonNull} (default constructor).
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when JsonNull (default constructor); then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when JsonNull (default constructor); then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_whenJsonNull_thenThrowJsonSyntaxException() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_whenJsonNull_thenThrowJsonSyntaxException()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonNull()));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonNull()));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return KvCount is zero.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return KvCount is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when JsonObject (default constructor); then return KvCount is zero")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when JsonObject (default constructor); then return KvCount is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_whenJsonObject_thenReturnKvCountIsZero() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_whenJsonObject_thenReturnKvCountIsZero()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter.convertToAttributesProto(new JsonObject());
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(new JsonObject());
 
     // Assert
     assertEquals(0, actualConvertToAttributesProtoResult.getKvCount());
@@ -5769,79 +7054,102 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_whenJsonPrimitiveWithBoolIsTrue() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonPrimitive(true)));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToAttributesProto(new JsonPrimitive(true)));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
   void testConvertToAttributesProto_whenJsonPrimitiveWithString() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToAttributesProto(new JsonPrimitive("String")));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToAttributesProto(new JsonPrimitive("String")));
   }
 
   /**
    * Test {@link JsonConverter#convertToAttributesProto(JsonElement)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributesProto(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributesProto(JsonElement); when toGatewayDeviceDisconnectJson 'Device Name' and one")
+  @DisplayName(
+      "Test convertToAttributesProto(JsonElement); when toGatewayDeviceDisconnectJson 'Device Name' and one")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"})
-  void testConvertToAttributesProto_whenToGatewayDeviceDisconnectJsonDeviceNameAndOne() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "TransportProtos.PostAttributeMsg JsonConverter.convertToAttributesProto(JsonElement)"
+  })
+  void testConvertToAttributesProto_whenToGatewayDeviceDisconnectJsonDeviceNameAndOne()
+      throws JsonSyntaxException {
     // Arrange and Act
-    PostAttributeMsg actualConvertToAttributesProtoResult = JsonConverter
-        .convertToAttributesProto(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
+    PostAttributeMsg actualConvertToAttributesProtoResult =
+        JsonConverter.convertToAttributesProto(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
 
     // Assert
     assertEquals(39, actualConvertToAttributesProtoResult.getSerializedSize());
     Descriptor descriptorForType = actualConvertToAttributesProtoResult.getDescriptorForType();
-    assertSame(descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType(),
+    assertSame(
+        descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType(),
         descriptorForType.toProto().getDescriptorForType().toProto().getDefaultInstanceForType());
     MessageOptions options = descriptorForType.getOptions();
     assertSame(options, options.getFeatures().getDescriptorForType().getOptions());
   }
 
   /**
-   * Test {@link JsonConverter#toJson(AttributeUpdateNotificationMsg)} with {@code AttributeUpdateNotificationMsg}.
+   * Test {@link JsonConverter#toJson(AttributeUpdateNotificationMsg)} with {@code
+   * AttributeUpdateNotificationMsg}.
+   *
    * <ul>
-   *   <li>Then return size is zero.</li>
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(AttributeUpdateNotificationMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(AttributeUpdateNotificationMsg)}
    */
   @Test
-  @DisplayName("Test toJson(AttributeUpdateNotificationMsg) with 'AttributeUpdateNotificationMsg'; then return size is zero")
+  @DisplayName(
+      "Test toJson(AttributeUpdateNotificationMsg) with 'AttributeUpdateNotificationMsg'; then return size is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJson(AttributeUpdateNotificationMsg)"})
   void testToJsonWithAttributeUpdateNotificationMsg_thenReturnSizeIsZero() {
     // Arrange and Act
-    JsonObject actualToJsonResult = JsonConverter.toJson(AttributeUpdateNotificationMsg.getDefaultInstance());
+    JsonObject actualToJsonResult =
+        JsonConverter.toJson(AttributeUpdateNotificationMsg.getDefaultInstance());
 
     // Assert
     assertEquals(0, actualToJsonResult.size());
@@ -5854,21 +7162,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toJson(GetAttributeResponseMsg)} with {@code GetAttributeResponseMsg}.
+   * Test {@link JsonConverter#toJson(GetAttributeResponseMsg)} with {@code
+   * GetAttributeResponseMsg}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return size is zero.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return size is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(GetAttributeResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(GetAttributeResponseMsg)}
    */
   @Test
-  @DisplayName("Test toJson(GetAttributeResponseMsg) with 'GetAttributeResponseMsg'; when DefaultInstance; then return size is zero")
+  @DisplayName(
+      "Test toJson(GetAttributeResponseMsg) with 'GetAttributeResponseMsg'; when DefaultInstance; then return size is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJson(GetAttributeResponseMsg)"})
   void testToJsonWithGetAttributeResponseMsg_whenDefaultInstance_thenReturnSizeIsZero() {
     // Arrange and Act
-    JsonObject actualToJsonResult = JsonConverter.toJson(GetAttributeResponseMsg.getDefaultInstance());
+    JsonObject actualToJsonResult =
+        JsonConverter.toJson(GetAttributeResponseMsg.getDefaultInstance());
 
     // Assert
     assertEquals(0, actualToJsonResult.size());
@@ -5882,15 +7194,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
-   *   <li>Then return {@code [false,true]}.</li>
+   *   <li>Given {@code false}.
+   *   <li>Then return {@code [false,true]}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
-  @DisplayName("Test toJson(JsonElement) with 'JsonElement'; given 'false'; then return '[false,true]'")
+  @DisplayName(
+      "Test toJson(JsonElement) with 'JsonElement'; given 'false'; then return '[false,true]'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String JsonConverter.toJson(JsonElement)"})
   void testToJsonWithJsonElement_givenFalse_thenReturnFalseTrue() {
@@ -5905,15 +7219,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Given null.</li>
-   *   <li>Then return {@code ["\u0000",true]}.</li>
+   *   <li>Given null.
+   *   <li>Then return {@code ["\u0000",true]}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
-  @DisplayName("Test toJson(JsonElement) with 'JsonElement'; given null; then return '[\"\\u0000\",true]'")
+  @DisplayName(
+      "Test toJson(JsonElement) with 'JsonElement'; given null; then return '[\"\\u0000\",true]'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String JsonConverter.toJson(JsonElement)"})
   void testToJsonWithJsonElement_givenNull_thenReturnU0000True() {
@@ -5928,12 +7244,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return {@code [true]}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return {@code [true]}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
   @DisplayName("Test toJson(JsonElement) with 'JsonElement'; given 'true'; then return '[true]'")
@@ -5950,29 +7267,33 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Then return {@code {"device":"Device Name","reason":1}}.</li>
+   *   <li>Then return {@code {"device":"Device Name","reason":1}}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
-  @DisplayName("Test toJson(JsonElement) with 'JsonElement'; then return '{\"device\":\"Device Name\",\"reason\":1}'")
+  @DisplayName(
+      "Test toJson(JsonElement) with 'JsonElement'; then return '{\"device\":\"Device Name\",\"reason\":1}'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String JsonConverter.toJson(JsonElement)"})
   void testToJsonWithJsonElement_thenReturnDeviceDeviceNameReason1() {
     // Arrange, Act and Assert
-    assertEquals("{\"device\":\"Device Name\",\"reason\":1}",
+    assertEquals(
+        "{\"device\":\"Device Name\",\"reason\":1}",
         JsonConverter.toJson(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1)));
   }
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Then return {@code {}}.</li>
+   *   <li>Then return {@code {}}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
   @DisplayName("Test toJson(JsonElement) with 'JsonElement'; then return '{}'")
@@ -5985,11 +7306,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>Then return {@code []}.</li>
+   *   <li>Then return {@code []}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
   @DisplayName("Test toJson(JsonElement) with 'JsonElement'; then return '[]'")
@@ -6002,15 +7324,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@link JsonNull} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
-  @DisplayName("Test toJson(JsonElement) with 'JsonElement'; when JsonNull (default constructor); then return 'null'")
+  @DisplayName(
+      "Test toJson(JsonElement) with 'JsonElement'; when JsonNull (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String JsonConverter.toJson(JsonElement)"})
   void testToJsonWithJsonElement_whenJsonNull_thenReturnNull() {
@@ -6020,15 +7344,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
-   *   <li>Then return {@link Boolean#TRUE} toString.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
+   *   <li>Then return {@link Boolean#TRUE} toString.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
-  @DisplayName("Test toJson(JsonElement) with 'JsonElement'; when JsonPrimitive(Boolean) with bool is 'true'; then return TRUE toString")
+  @DisplayName(
+      "Test toJson(JsonElement) with 'JsonElement'; when JsonPrimitive(Boolean) with bool is 'true'; then return TRUE toString")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String JsonConverter.toJson(JsonElement)"})
   void testToJsonWithJsonElement_whenJsonPrimitiveWithBoolIsTrue_thenReturnTrueToString() {
@@ -6041,12 +7367,13 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(JsonElement)} with {@code JsonElement}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(JsonElement)}
    */
   @Test
   @DisplayName("Test toJson(JsonElement) with 'JsonElement'; when 'null'; then return 'null'")
@@ -6058,20 +7385,24 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toJson(ProvisionDeviceResponseMsg, int)} with {@code ProvisionDeviceResponseMsg}, {@code int}.
+   * Test {@link JsonConverter#toJson(ProvisionDeviceResponseMsg, int)} with {@code
+   * ProvisionDeviceResponseMsg}, {@code int}.
+   *
    * <ul>
-   *   <li>Then return size is four.</li>
+   *   <li>Then return size is four.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(ProvisionDeviceResponseMsg, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(ProvisionDeviceResponseMsg, int)}
    */
   @Test
-  @DisplayName("Test toJson(ProvisionDeviceResponseMsg, int) with 'ProvisionDeviceResponseMsg', 'int'; then return size is four")
+  @DisplayName(
+      "Test toJson(ProvisionDeviceResponseMsg, int) with 'ProvisionDeviceResponseMsg', 'int'; then return size is four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJson(ProvisionDeviceResponseMsg, int)"})
   void testToJsonWithProvisionDeviceResponseMsgInt_thenReturnSizeIsFour() {
     // Arrange and Act
-    JsonObject actualToJsonResult = JsonConverter.toJson(ProvisionDeviceResponseMsg.getDefaultInstance(), 1);
+    JsonObject actualToJsonResult =
+        JsonConverter.toJson(ProvisionDeviceResponseMsg.getDefaultInstance(), 1);
 
     // Assert
     assertEquals(4, actualToJsonResult.size());
@@ -6084,20 +7415,24 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toJson(ProvisionDeviceResponseMsg)} with {@code ProvisionDeviceResponseMsg}.
+   * Test {@link JsonConverter#toJson(ProvisionDeviceResponseMsg)} with {@code
+   * ProvisionDeviceResponseMsg}.
+   *
    * <ul>
-   *   <li>Then return size is three.</li>
+   *   <li>Then return size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(ProvisionDeviceResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(ProvisionDeviceResponseMsg)}
    */
   @Test
-  @DisplayName("Test toJson(ProvisionDeviceResponseMsg) with 'ProvisionDeviceResponseMsg'; then return size is three")
+  @DisplayName(
+      "Test toJson(ProvisionDeviceResponseMsg) with 'ProvisionDeviceResponseMsg'; then return size is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJson(ProvisionDeviceResponseMsg)"})
   void testToJsonWithProvisionDeviceResponseMsg_thenReturnSizeIsThree() {
     // Arrange and Act
-    JsonObject actualToJsonResult = JsonConverter.toJson(ProvisionDeviceResponseMsg.getDefaultInstance());
+    JsonObject actualToJsonResult =
+        JsonConverter.toJson(ProvisionDeviceResponseMsg.getDefaultInstance());
 
     // Assert
     assertEquals(3, actualToJsonResult.size());
@@ -6110,20 +7445,27 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toJson(ToDeviceRpcRequestMsg, boolean)} with {@code ToDeviceRpcRequestMsg}, {@code boolean}.
+   * Test {@link JsonConverter#toJson(ToDeviceRpcRequestMsg, boolean)} with {@code
+   * ToDeviceRpcRequestMsg}, {@code boolean}.
+   *
    * <ul>
-   *   <li>Then return size is three.</li>
+   *   <li>Then return size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(TransportProtos.ToDeviceRpcRequestMsg,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test toJson(ToDeviceRpcRequestMsg, boolean) with 'ToDeviceRpcRequestMsg', 'boolean'; then return size is three")
+  @DisplayName(
+      "Test toJson(ToDeviceRpcRequestMsg, boolean) with 'ToDeviceRpcRequestMsg', 'boolean'; then return size is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonElement JsonConverter.toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)"})
+  @MethodsUnderTest({
+    "JsonElement JsonConverter.toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)"
+  })
   void testToJsonWithToDeviceRpcRequestMsgBoolean_thenReturnSizeIsThree() {
     // Arrange and Act
-    JsonElement actualToJsonResult = JsonConverter.toJson(ToDeviceRpcRequestMsg.getDefaultInstance(), true);
+    JsonElement actualToJsonResult =
+        JsonConverter.toJson(ToDeviceRpcRequestMsg.getDefaultInstance(), true);
 
     // Assert
     assertTrue(actualToJsonResult instanceof JsonObject);
@@ -6137,20 +7479,27 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toJson(ToDeviceRpcRequestMsg, boolean)} with {@code ToDeviceRpcRequestMsg}, {@code boolean}.
+   * Test {@link JsonConverter#toJson(ToDeviceRpcRequestMsg, boolean)} with {@code
+   * ToDeviceRpcRequestMsg}, {@code boolean}.
+   *
    * <ul>
-   *   <li>Then return size is two.</li>
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(TransportProtos.ToDeviceRpcRequestMsg,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test toJson(ToDeviceRpcRequestMsg, boolean) with 'ToDeviceRpcRequestMsg', 'boolean'; then return size is two")
+  @DisplayName(
+      "Test toJson(ToDeviceRpcRequestMsg, boolean) with 'ToDeviceRpcRequestMsg', 'boolean'; then return size is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonElement JsonConverter.toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)"})
+  @MethodsUnderTest({
+    "JsonElement JsonConverter.toJson(TransportProtos.ToDeviceRpcRequestMsg, boolean)"
+  })
   void testToJsonWithToDeviceRpcRequestMsgBoolean_thenReturnSizeIsTwo() {
     // Arrange and Act
-    JsonElement actualToJsonResult = JsonConverter.toJson(ToDeviceRpcRequestMsg.getDefaultInstance(), false);
+    JsonElement actualToJsonResult =
+        JsonConverter.toJson(ToDeviceRpcRequestMsg.getDefaultInstance(), false);
 
     // Assert
     assertTrue(actualToJsonResult instanceof JsonObject);
@@ -6165,20 +7514,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJson(ToServerRpcResponseMsg)} with {@code ToServerRpcResponseMsg}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return {@link JsonNull}.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return {@link JsonNull}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJson(TransportProtos.ToServerRpcResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJson(TransportProtos.ToServerRpcResponseMsg)}
    */
   @Test
-  @DisplayName("Test toJson(ToServerRpcResponseMsg) with 'ToServerRpcResponseMsg'; when DefaultInstance; then return JsonNull")
+  @DisplayName(
+      "Test toJson(ToServerRpcResponseMsg) with 'ToServerRpcResponseMsg'; when DefaultInstance; then return JsonNull")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonElement JsonConverter.toJson(TransportProtos.ToServerRpcResponseMsg)"})
   void testToJsonWithToServerRpcResponseMsg_whenDefaultInstance_thenReturnJsonNull() {
     // Arrange and Act
-    JsonElement actualToJsonResult = JsonConverter.toJson(ToServerRpcResponseMsg.getDefaultInstance());
+    JsonElement actualToJsonResult =
+        JsonConverter.toJson(ToServerRpcResponseMsg.getDefaultInstance());
 
     // Assert
     assertTrue(actualToJsonResult instanceof JsonNull);
@@ -6192,8 +7544,8 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
   @DisplayName("Test toJsonObject(Object)")
@@ -6201,20 +7553,24 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject() {
     // Arrange
-    JsonObject toGatewayDeviceDisconnectJsonResult = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
+    JsonObject toGatewayDeviceDisconnectJsonResult =
+        JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     toGatewayDeviceDisconnectJsonResult.add("Property", new JsonArray(3));
 
     // Act and Assert
-    assertEquals(toGatewayDeviceDisconnectJsonResult, JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
+    assertEquals(
+        toGatewayDeviceDisconnectJsonResult,
+        JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
   }
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
+   *   <li>Given {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
   @DisplayName("Test toJsonObject(Object); given '42'")
@@ -6222,25 +7578,31 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject_given42() {
     // Arrange
-    JsonObject toGatewayDeviceDisconnectJsonResult = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
+    JsonObject toGatewayDeviceDisconnectJsonResult =
+        JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     toGatewayDeviceDisconnectJsonResult.add("42", new JsonArray(3));
     toGatewayDeviceDisconnectJsonResult.add("Property", new JsonArray(3));
 
     // Act and Assert
-    assertEquals(toGatewayDeviceDisconnectJsonResult, JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
+    assertEquals(
+        toGatewayDeviceDisconnectJsonResult,
+        JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
   }
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link JsonObject} (default constructor) addProperty {@code Property} and {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code Property} and {@code
+   *       true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
-  @DisplayName("Test toJsonObject(Object); given 'true'; when JsonObject (default constructor) addProperty 'Property' and 'true'")
+  @DisplayName(
+      "Test toJsonObject(Object); given 'true'; when JsonObject (default constructor) addProperty 'Property' and 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject_givenTrue_whenJsonObjectAddPropertyPropertyAndTrue() {
@@ -6254,14 +7616,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor) add {@code Property} and {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>When {@link JsonObject} (default constructor) add {@code Property} and {@link
+   *       JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
-  @DisplayName("Test toJsonObject(Object); when JsonObject (default constructor) add 'Property' and JsonArray(int) with capacity is three")
+  @DisplayName(
+      "Test toJsonObject(Object); when JsonObject (default constructor) add 'Property' and JsonArray(int) with capacity is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject_whenJsonObjectAddPropertyAndJsonArrayWithCapacityIsThree() {
@@ -6275,15 +7640,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return {@link JsonObject} (default constructor).</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
-  @DisplayName("Test toJsonObject(Object); when JsonObject (default constructor); then return JsonObject (default constructor)")
+  @DisplayName(
+      "Test toJsonObject(Object); when JsonObject (default constructor); then return JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject_whenJsonObject_thenReturnJsonObject() {
@@ -6296,58 +7663,71 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toJsonObject(Object)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toJsonObject(Object)}
+   *
+   * <p>Method under test: {@link JsonConverter#toJsonObject(Object)}
    */
   @Test
-  @DisplayName("Test toJsonObject(Object); when toGatewayDeviceDisconnectJson 'Device Name' and one")
+  @DisplayName(
+      "Test toJsonObject(Object); when toGatewayDeviceDisconnectJson 'Device Name' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonObject JsonConverter.toJsonObject(Object)"})
   void testToJsonObject_whenToGatewayDeviceDisconnectJsonDeviceNameAndOne() {
     // Arrange
-    JsonObject toGatewayDeviceDisconnectJsonResult = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
+    JsonObject toGatewayDeviceDisconnectJsonResult =
+        JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
 
     // Act and Assert
-    assertEquals(toGatewayDeviceDisconnectJsonResult, JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
+    assertEquals(
+        toGatewayDeviceDisconnectJsonResult,
+        JsonConverter.toJsonObject(toGatewayDeviceDisconnectJsonResult));
   }
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
   @DisplayName("Test convertToServerRpcRequest(JsonElement, int)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
   void testConvertToServerRpcRequest() throws JsonSyntaxException {
     // Arrange
     JsonObject json = JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
     json.addProperty("method", "42");
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToServerRpcRequestResult.getUnknownFields();
-    ToServerRpcRequestMsg defaultInstanceForType = actualConvertToServerRpcRequestResult.getDefaultInstanceForType();
+    ToServerRpcRequestMsg defaultInstanceForType =
+        actualConvertToServerRpcRequestResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
   @DisplayName("Test convertToServerRpcRequest(JsonElement, int)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
   void testConvertToServerRpcRequest2() throws JsonSyntaxException {
     // Arrange
     JsonArray value = new JsonArray(3);
@@ -6357,7 +7737,8 @@ class JsonConverterDiffblueTest {
     json.addProperty("method", true);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     assertEquals("[]", actualConvertToServerRpcRequestResult.getParams());
@@ -6373,18 +7754,62 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Given valueOf minus one.</li>
-   *   <li>Then return MethodName is {@code -1}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(JsonElement, int); given valueOf minus one; then return MethodName is '-1'")
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); given JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
-  void testConvertToServerRpcRequest_givenValueOfMinusOne_thenReturnMethodNameIs1() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
+  void testConvertToServerRpcRequest_givenJsonArrayWithCapacityIsThreeAddTrue()
+      throws JsonSyntaxException {
+    // Arrange
+    JsonArray value = new JsonArray(3);
+    value.add(true);
+
+    JsonObject json = new JsonObject();
+    json.add("method", value);
+
+    // Act
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
+
+    // Assert
+    ByteString paramsBytes = actualConvertToServerRpcRequestResult.getParamsBytes();
+    assertEquals("null", paramsBytes.toStringUtf8());
+    assertEquals("null", actualConvertToServerRpcRequestResult.getParams());
+    ByteIterator iteratorResult = paramsBytes.iterator();
+    assertTrue(iteratorResult.hasNext());
+    assertEquals('n', iteratorResult.next().byteValue());
+    assertEquals('u', iteratorResult.next().byteValue());
+  }
+
+  /**
+   * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
+   * <ul>
+   *   <li>Given valueOf minus one.
+   *   <li>Then return MethodName is {@code -1}.
+   * </ul>
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   */
+  @Test
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); given valueOf minus one; then return MethodName is '-1'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
+  void testConvertToServerRpcRequest_givenValueOfMinusOne_thenReturnMethodNameIs1()
+      throws JsonSyntaxException {
     // Arrange
     Integer value = Integer.valueOf(-1);
 
@@ -6392,7 +7817,8 @@ class JsonConverterDiffblueTest {
     json.addProperty("method", value);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     assertEquals("-1", actualConvertToServerRpcRequestResult.getMethodName());
@@ -6408,17 +7834,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Then return DescriptorForType Fields size is three.</li>
+   *   <li>Then return DescriptorForType Fields size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(JsonElement, int); then return DescriptorForType Fields size is three")
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); then return DescriptorForType Fields size is three")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
-  void testConvertToServerRpcRequest_thenReturnDescriptorForTypeFieldsSizeIsThree() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
+  void testConvertToServerRpcRequest_thenReturnDescriptorForTypeFieldsSizeIsThree()
+      throws JsonSyntaxException {
     // Arrange
     Integer value = Integer.valueOf(1);
 
@@ -6427,7 +7858,8 @@ class JsonConverterDiffblueTest {
     json.addProperty("method", true);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     Descriptor descriptorForType = actualConvertToServerRpcRequestResult.getDescriptorForType();
@@ -6451,23 +7883,27 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Then return MethodName is {@code 42}.</li>
+   *   <li>Then return MethodName is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
   @DisplayName("Test convertToServerRpcRequest(JsonElement, int); then return MethodName is '42'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
   void testConvertToServerRpcRequest_thenReturnMethodNameIs42() throws JsonSyntaxException {
     // Arrange
     JsonObject json = new JsonObject();
     json.addProperty("method", "42");
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     assertEquals("42", actualConvertToServerRpcRequestResult.getMethodName());
@@ -6483,24 +7919,30 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Then return MethodName is {@link Boolean#TRUE} toString.</li>
+   *   <li>Then return MethodName is {@link Boolean#TRUE} toString.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(JsonElement, int); then return MethodName is TRUE toString")
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); then return MethodName is TRUE toString")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
-  void testConvertToServerRpcRequest_thenReturnMethodNameIsTrueToString() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
+  void testConvertToServerRpcRequest_thenReturnMethodNameIsTrueToString()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject json = new JsonObject();
     json.addProperty("params", true);
     json.addProperty("method", true);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     String expectedMethodName = Boolean.TRUE.toString();
@@ -6520,23 +7962,29 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Then return ParamsBytes toStringUtf8 is {@code null}.</li>
+   *   <li>Then return ParamsBytes toStringUtf8 is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(JsonElement, int); then return ParamsBytes toStringUtf8 is 'null'")
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); then return ParamsBytes toStringUtf8 is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
-  void testConvertToServerRpcRequest_thenReturnParamsBytesToStringUtf8IsNull() throws JsonSyntaxException {
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
+  void testConvertToServerRpcRequest_thenReturnParamsBytesToStringUtf8IsNull()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject json = new JsonObject();
     json.addProperty("method", true);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     ByteString paramsBytes = actualConvertToServerRpcRequestResult.getParamsBytes();
@@ -6550,16 +7998,20 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}.
+   *
    * <ul>
-   *   <li>Then return Params is {@link Boolean#FALSE} toString.</li>
+   *   <li>Then return Params is {@link Boolean#FALSE} toString.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToServerRpcRequest(JsonElement, int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(JsonElement, int); then return Params is FALSE toString")
+  @DisplayName(
+      "Test convertToServerRpcRequest(JsonElement, int); then return Params is FALSE toString")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"})
+  @MethodsUnderTest({
+    "ToServerRpcRequestMsg JsonConverter.convertToServerRpcRequest(JsonElement, int)"
+  })
   void testConvertToServerRpcRequest_thenReturnParamsIsFalseToString() throws JsonSyntaxException {
     // Arrange
     JsonObject json = new JsonObject();
@@ -6567,7 +8019,8 @@ class JsonConverterDiffblueTest {
     json.addProperty("method", true);
 
     // Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = JsonConverter.convertToServerRpcRequest(json, 1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        JsonConverter.convertToServerRpcRequest(json, 1);
 
     // Assert
     String expectedParams = Boolean.FALSE.toString();
@@ -6582,21 +8035,28 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#getJsonObjectForGateway(String, AttributeUpdateNotificationMsg)} with {@code deviceName}, {@code notificationMsg}.
+   * Test {@link JsonConverter#getJsonObjectForGateway(String, AttributeUpdateNotificationMsg)} with
+   * {@code deviceName}, {@code notificationMsg}.
+   *
    * <ul>
-   *   <li>Then return size is two.</li>
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#getJsonObjectForGateway(String, AttributeUpdateNotificationMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#getJsonObjectForGateway(String,
+   * AttributeUpdateNotificationMsg)}
    */
   @Test
-  @DisplayName("Test getJsonObjectForGateway(String, AttributeUpdateNotificationMsg) with 'deviceName', 'notificationMsg'; then return size is two")
+  @DisplayName(
+      "Test getJsonObjectForGateway(String, AttributeUpdateNotificationMsg) with 'deviceName', 'notificationMsg'; then return size is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonObject JsonConverter.getJsonObjectForGateway(String, AttributeUpdateNotificationMsg)"})
+  @MethodsUnderTest({
+    "JsonObject JsonConverter.getJsonObjectForGateway(String, AttributeUpdateNotificationMsg)"
+  })
   void testGetJsonObjectForGatewayWithDeviceNameNotificationMsg_thenReturnSizeIsTwo() {
     // Arrange and Act
-    JsonObject actualJsonObjectForGateway = JsonConverter.getJsonObjectForGateway("Device Name",
-        AttributeUpdateNotificationMsg.getDefaultInstance());
+    JsonObject actualJsonObjectForGateway =
+        JsonConverter.getJsonObjectForGateway(
+            "Device Name", AttributeUpdateNotificationMsg.getDefaultInstance());
 
     // Assert
     assertEquals(2, actualJsonObjectForGateway.size());
@@ -6609,21 +8069,28 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#getJsonObjectForGateway(String, GetAttributeResponseMsg)} with {@code deviceName}, {@code responseMsg}.
+   * Test {@link JsonConverter#getJsonObjectForGateway(String, GetAttributeResponseMsg)} with {@code
+   * deviceName}, {@code responseMsg}.
+   *
    * <ul>
-   *   <li>Then return size is two.</li>
+   *   <li>Then return size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#getJsonObjectForGateway(String, GetAttributeResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#getJsonObjectForGateway(String,
+   * GetAttributeResponseMsg)}
    */
   @Test
-  @DisplayName("Test getJsonObjectForGateway(String, GetAttributeResponseMsg) with 'deviceName', 'responseMsg'; then return size is two")
+  @DisplayName(
+      "Test getJsonObjectForGateway(String, GetAttributeResponseMsg) with 'deviceName', 'responseMsg'; then return size is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonObject JsonConverter.getJsonObjectForGateway(String, GetAttributeResponseMsg)"})
+  @MethodsUnderTest({
+    "JsonObject JsonConverter.getJsonObjectForGateway(String, GetAttributeResponseMsg)"
+  })
   void testGetJsonObjectForGatewayWithDeviceNameResponseMsg_thenReturnSizeIsTwo() {
     // Arrange and Act
-    JsonObject actualJsonObjectForGateway = JsonConverter.getJsonObjectForGateway("Device Name",
-        GetAttributeResponseMsg.getDefaultInstance());
+    JsonObject actualJsonObjectForGateway =
+        JsonConverter.getJsonObjectForGateway(
+            "Device Name", GetAttributeResponseMsg.getDefaultInstance());
 
     // Assert
     assertEquals(2, actualJsonObjectForGateway.size());
@@ -6637,11 +8104,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}.
+   *
    * <ul>
-   *   <li>When {@code Device Name}.</li>
+   *   <li>When {@code Device Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}
    */
   @Test
   @DisplayName("Test toGatewayDeviceDisconnectJson(String, int); when 'Device Name'")
@@ -6649,8 +8117,8 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"JsonObject JsonConverter.toGatewayDeviceDisconnectJson(String, int)"})
   void testToGatewayDeviceDisconnectJson_whenDeviceName() {
     // Arrange and Act
-    JsonObject actualToGatewayDeviceDisconnectJsonResult = JsonConverter.toGatewayDeviceDisconnectJson("Device Name",
-        1);
+    JsonObject actualToGatewayDeviceDisconnectJsonResult =
+        JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1);
 
     // Assert
     assertEquals(2, actualToGatewayDeviceDisconnectJsonResult.size());
@@ -6659,16 +8127,19 @@ class JsonConverterDiffblueTest {
     assertFalse(actualToGatewayDeviceDisconnectJsonResult.isJsonPrimitive());
     assertFalse(actualToGatewayDeviceDisconnectJsonResult.isEmpty());
     assertTrue(actualToGatewayDeviceDisconnectJsonResult.isJsonObject());
-    assertSame(actualToGatewayDeviceDisconnectJsonResult, actualToGatewayDeviceDisconnectJsonResult.getAsJsonObject());
+    assertSame(
+        actualToGatewayDeviceDisconnectJsonResult,
+        actualToGatewayDeviceDisconnectJsonResult.getAsJsonObject());
   }
 
   /**
    * Test {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}
+   *
+   * <p>Method under test: {@link JsonConverter#toGatewayDeviceDisconnectJson(String, int)}
    */
   @Test
   @DisplayName("Test toGatewayDeviceDisconnectJson(String, int); when 'null'")
@@ -6676,7 +8147,8 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"JsonObject JsonConverter.toGatewayDeviceDisconnectJson(String, int)"})
   void testToGatewayDeviceDisconnectJson_whenNull() {
     // Arrange and Act
-    JsonObject actualToGatewayDeviceDisconnectJsonResult = JsonConverter.toGatewayDeviceDisconnectJson(null, 1);
+    JsonObject actualToGatewayDeviceDisconnectJsonResult =
+        JsonConverter.toGatewayDeviceDisconnectJson(null, 1);
 
     // Assert
     assertEquals(2, actualToGatewayDeviceDisconnectJsonResult.size());
@@ -6685,16 +8157,19 @@ class JsonConverterDiffblueTest {
     assertFalse(actualToGatewayDeviceDisconnectJsonResult.isJsonPrimitive());
     assertFalse(actualToGatewayDeviceDisconnectJsonResult.isEmpty());
     assertTrue(actualToGatewayDeviceDisconnectJsonResult.isJsonObject());
-    assertSame(actualToGatewayDeviceDisconnectJsonResult, actualToGatewayDeviceDisconnectJsonResult.getAsJsonObject());
+    assertSame(
+        actualToGatewayDeviceDisconnectJsonResult,
+        actualToGatewayDeviceDisconnectJsonResult.getAsJsonObject());
   }
 
   /**
    * Test {@link JsonConverter#toErrorJson(String)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
+   *   <li>When {@code An error occurred}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toErrorJson(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#toErrorJson(String)}
    */
   @Test
   @DisplayName("Test toErrorJson(String); when 'An error occurred'")
@@ -6717,11 +8192,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#toErrorJson(String)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toErrorJson(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#toErrorJson(String)}
    */
   @Test
   @DisplayName("Test toErrorJson(String); when 'null'")
@@ -6743,21 +8219,24 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)} with {@code deviceName}, {@code responseRequest}.
+   * Test {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)} with {@code
+   * deviceName}, {@code responseRequest}.
+   *
    * <ul>
-   *   <li>Then return {@link JsonObject}.</li>
+   *   <li>Then return {@link JsonObject}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)}
    */
   @Test
-  @DisplayName("Test toGatewayJson(String, ProvisionDeviceResponseMsg) with 'deviceName', 'responseRequest'; then return JsonObject")
+  @DisplayName(
+      "Test toGatewayJson(String, ProvisionDeviceResponseMsg) with 'deviceName', 'responseRequest'; then return JsonObject")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonElement JsonConverter.toGatewayJson(String, ProvisionDeviceResponseMsg)"})
   void testToGatewayJsonWithDeviceNameResponseRequest_thenReturnJsonObject() {
     // Arrange and Act
-    JsonElement actualToGatewayJsonResult = JsonConverter.toGatewayJson("Device Name",
-        ProvisionDeviceResponseMsg.getDefaultInstance());
+    JsonElement actualToGatewayJsonResult =
+        JsonConverter.toGatewayJson("Device Name", ProvisionDeviceResponseMsg.getDefaultInstance());
 
     // Assert
     assertTrue(actualToGatewayJsonResult instanceof JsonObject);
@@ -6771,22 +8250,25 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)} with {@code deviceName}, {@code responseRequest}.
+   * Test {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)} with {@code
+   * deviceName}, {@code responseRequest}.
+   *
    * <ul>
-   *   <li>When {@code device}.</li>
-   *   <li>Then return {@link JsonObject}.</li>
+   *   <li>When {@code device}.
+   *   <li>Then return {@link JsonObject}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toGatewayJson(String, ProvisionDeviceResponseMsg)}
    */
   @Test
-  @DisplayName("Test toGatewayJson(String, ProvisionDeviceResponseMsg) with 'deviceName', 'responseRequest'; when 'device'; then return JsonObject")
+  @DisplayName(
+      "Test toGatewayJson(String, ProvisionDeviceResponseMsg) with 'deviceName', 'responseRequest'; when 'device'; then return JsonObject")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonElement JsonConverter.toGatewayJson(String, ProvisionDeviceResponseMsg)"})
   void testToGatewayJsonWithDeviceNameResponseRequest_whenDevice_thenReturnJsonObject() {
     // Arrange and Act
-    JsonElement actualToGatewayJsonResult = JsonConverter.toGatewayJson("device",
-        ProvisionDeviceResponseMsg.getDefaultInstance());
+    JsonElement actualToGatewayJsonResult =
+        JsonConverter.toGatewayJson("device", ProvisionDeviceResponseMsg.getDefaultInstance());
 
     // Assert
     assertTrue(actualToGatewayJsonResult instanceof JsonObject);
@@ -6800,21 +8282,27 @@ class JsonConverterDiffblueTest {
   }
 
   /**
-   * Test {@link JsonConverter#toGatewayJson(String, ToDeviceRpcRequestMsg)} with {@code deviceName}, {@code rpcRequest}.
+   * Test {@link JsonConverter#toGatewayJson(String, ToDeviceRpcRequestMsg)} with {@code
+   * deviceName}, {@code rpcRequest}.
+   *
    * <ul>
-   *   <li>Then return {@link JsonObject}.</li>
+   *   <li>Then return {@link JsonObject}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#toGatewayJson(String, TransportProtos.ToDeviceRpcRequestMsg)}
+   *
+   * <p>Method under test: {@link JsonConverter#toGatewayJson(String,
+   * TransportProtos.ToDeviceRpcRequestMsg)}
    */
   @Test
-  @DisplayName("Test toGatewayJson(String, ToDeviceRpcRequestMsg) with 'deviceName', 'rpcRequest'; then return JsonObject")
+  @DisplayName(
+      "Test toGatewayJson(String, ToDeviceRpcRequestMsg) with 'deviceName', 'rpcRequest'; then return JsonObject")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonElement JsonConverter.toGatewayJson(String, TransportProtos.ToDeviceRpcRequestMsg)"})
+  @MethodsUnderTest({
+    "JsonElement JsonConverter.toGatewayJson(String, TransportProtos.ToDeviceRpcRequestMsg)"
+  })
   void testToGatewayJsonWithDeviceNameRpcRequest_thenReturnJsonObject() {
     // Arrange and Act
-    JsonElement actualToGatewayJsonResult = JsonConverter.toGatewayJson("Device Name",
-        ToDeviceRpcRequestMsg.getDefaultInstance());
+    JsonElement actualToGatewayJsonResult =
+        JsonConverter.toGatewayJson("Device Name", ToDeviceRpcRequestMsg.getDefaultInstance());
 
     // Assert
     assertTrue(actualToGatewayJsonResult instanceof JsonObject);
@@ -6829,8 +8317,8 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributes(JsonElement)")
@@ -6842,7 +8330,8 @@ class JsonConverterDiffblueTest {
     element.addProperty(".", true);
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6850,11 +8339,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three")
@@ -6866,7 +8356,8 @@ class JsonConverterDiffblueTest {
     element.add(".", new JsonArray(3));
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6874,14 +8365,16 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add 'false'")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_givenJsonArrayWithCapacityIsThreeAddFalse() {
@@ -6893,7 +8386,8 @@ class JsonConverterDiffblueTest {
     element.add(".", value);
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6901,14 +8395,16 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add start of heading.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add start of heading.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add start of heading")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add start of heading")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_givenJsonArrayWithCapacityIsThreeAddStartOfHeading() {
@@ -6919,7 +8415,8 @@ class JsonConverterDiffblueTest {
     element.add(".", value);
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6927,14 +8424,16 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); given JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_givenJsonArrayWithCapacityIsThreeAddTrue() {
@@ -6945,7 +8444,8 @@ class JsonConverterDiffblueTest {
     element.add(".", value);
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6953,11 +8453,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonObject} (default constructor).</li>
+   *   <li>Given {@link JsonObject} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
   @DisplayName("Test convertToAttributes(JsonElement); given JsonObject (default constructor)")
@@ -6969,7 +8470,8 @@ class JsonConverterDiffblueTest {
     element.add(".", new JsonObject());
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -6977,15 +8479,17 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>Given {@code null}.
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); given 'null'; then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); given 'null'; then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_givenNull_thenThrowJsonSyntaxException() {
@@ -6999,14 +8503,16 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>Given toGatewayDeviceDisconnectJson {@code .} and one.</li>
+   *   <li>Given toGatewayDeviceDisconnectJson {@code .} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); given toGatewayDeviceDisconnectJson '.' and one")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); given toGatewayDeviceDisconnectJson '.' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_givenToGatewayDeviceDisconnectJsonDotAndOne() {
@@ -7015,7 +8521,8 @@ class JsonConverterDiffblueTest {
     element.add(".", JsonConverter.toGatewayDeviceDisconnectJson(".", 1));
 
     // Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(element);
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(element);
 
     // Assert
     assertEquals(3, actualConvertToAttributesResult.size());
@@ -7023,20 +8530,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); when JsonObject (default constructor); then return Empty")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); when JsonObject (default constructor); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_whenJsonObject_thenReturnEmpty() {
     // Arrange and Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter.convertToAttributes(new JsonObject());
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(new JsonObject());
 
     // Assert
     assertTrue(actualConvertToAttributesResult.isEmpty());
@@ -7044,20 +8554,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code 42} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code 42} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson '42' and one")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson '42' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_whenToGatewayDeviceDisconnectJson42AndOne() {
     // Arrange and Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter
-        .convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson("42", 1));
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson("42", 1));
 
     // Assert
     assertEquals(2, actualConvertToAttributesResult.size());
@@ -7065,20 +8577,23 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code Device Name} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson 'Device Name' and one")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson 'Device Name' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_whenToGatewayDeviceDisconnectJsonDeviceNameAndOne() {
     // Arrange and Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter
-        .convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1));
 
     // Assert
     assertEquals(2, actualConvertToAttributesResult.size());
@@ -7086,20 +8601,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson {@code .} and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson {@code .} and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson '.' and one")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson '.' and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_whenToGatewayDeviceDisconnectJsonDotAndOne() {
     // Arrange and Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter
-        .convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson(".", 1));
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson(".", 1));
 
     // Assert
     assertEquals(2, actualConvertToAttributesResult.size());
@@ -7107,20 +8624,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToAttributes(JsonElement)}.
+   *
    * <ul>
-   *   <li>When toGatewayDeviceDisconnectJson empty string and one.</li>
+   *   <li>When toGatewayDeviceDisconnectJson empty string and one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToAttributes(JsonElement)}
    */
   @Test
-  @DisplayName("Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson empty string and one")
+  @DisplayName(
+      "Test convertToAttributes(JsonElement); when toGatewayDeviceDisconnectJson empty string and one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Set JsonConverter.convertToAttributes(JsonElement)"})
   void testConvertToAttributes_whenToGatewayDeviceDisconnectJsonEmptyStringAndOne() {
     // Arrange and Act
-    Set<AttributeKvEntry> actualConvertToAttributesResult = JsonConverter
-        .convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson("", 1));
+    Set<AttributeKvEntry> actualConvertToAttributesResult =
+        JsonConverter.convertToAttributes(JsonConverter.toGatewayDeviceDisconnectJson("", 1));
 
     // Assert
     assertEquals(2, actualConvertToAttributesResult.size());
@@ -7128,8 +8647,8 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long)")
@@ -7142,13 +8661,14 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long)")
@@ -7160,8 +8680,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7179,8 +8699,8 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long)")
@@ -7192,8 +8712,8 @@ class JsonConverterDiffblueTest {
     jsonElement.add("ts", new JsonObject());
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7211,25 +8731,28 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code 42}.</li>
-   *   <li>Then one first return {@link LongDataEntry}.</li>
+   *   <li>Given {@code 42}.
+   *   <li>Then one first return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given '42'; then one first return LongDataEntry")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given '42'; then one first return LongDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_given42_thenOneFirstReturnLongDataEntry() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_given42_thenOneFirstReturnLongDataEntry()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "42");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7247,48 +8770,55 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code A}.</li>
+   *   <li>Given {@code A}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given 'A'; when JsonArray(int) with capacity is three add 'A'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given 'A'; when JsonArray(int) with capacity is three add 'A'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenA_whenJsonArrayWithCapacityIsThreeAddA() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenA_whenJsonArrayWithCapacityIsThreeAddA()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add((byte) 'A');
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code .}.</li>
-   *   <li>Then return one first StrValue is {@code .}.</li>
+   *   <li>Given {@code .}.
+   *   <li>Then return one first StrValue is {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given '.'; then return one first StrValue is '.'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given '.'; then return one first StrValue is '.'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenDot_thenReturnOneFirstStrValueIsDot() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenDot_thenReturnOneFirstStrValueIsDot()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", ".");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7306,34 +8836,39 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.</li>
+   *   <li>Given {@code false}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given 'false'; when JsonArray(int) with capacity is three add 'false'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given 'false'; when JsonArray(int) with capacity is three add 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenFalse_whenJsonArrayWithCapacityIsThreeAddFalse() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenFalse_whenJsonArrayWithCapacityIsThreeAddFalse()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(false);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given fromIntBits one.</li>
+   *   <li>Given fromIntBits one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given fromIntBits one")
@@ -7346,22 +8881,26 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'false'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenJsonArrayWithCapacityIsThreeAddFalse() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenJsonArrayWithCapacityIsThreeAddFalse()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
     element.add(false);
@@ -7372,22 +8911,26 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenJsonArrayWithCapacityIsThreeAddTrue() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenJsonArrayWithCapacityIsThreeAddTrue()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray element = new JsonArray(3);
     element.add(true);
@@ -7397,175 +8940,205 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given NaN; when JsonArray(int) with capacity is three add NaN")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given NaN; when JsonArray(int) with capacity is three add NaN")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenNaN_whenJsonArrayWithCapacityIsThreeAddNaN() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenNaN_whenJsonArrayWithCapacityIsThreeAddNaN()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(Double.NaN);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code null}.</li>
-   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.</li>
+   *   <li>Given {@code null}.
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code ts} and {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given 'null'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given 'null'; when JsonObject (default constructor) addProperty 'ts' and 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenNull_whenJsonObjectAddPropertyTsAndNull() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenNull_whenJsonObjectAddPropertyTsAndNull()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", (String) null);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.</li>
+   *   <li>Given one.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given one; when JsonArray(int) with capacity is three add one")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given one; when JsonArray(int) with capacity is three add one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenOne_whenJsonArrayWithCapacityIsThreeAddOne() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenOne_whenJsonArrayWithCapacityIsThreeAddOne()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(1L);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.</li>
+   *   <li>Given one.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given one; when JsonArray(int) with capacity is three add one")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given one; when JsonArray(int) with capacity is three add one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenOne_whenJsonArrayWithCapacityIsThreeAddOne2() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenOne_whenJsonArrayWithCapacityIsThreeAddOne2()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add((short) 1);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.</li>
+   *   <li>Given ten.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given ten; when JsonArray(int) with capacity is three add ten")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given ten; when JsonArray(int) with capacity is three add ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenTen_whenJsonArrayWithCapacityIsThreeAddTen() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenTen_whenJsonArrayWithCapacityIsThreeAddTen()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(10.0d);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.</li>
+   *   <li>Given ten.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given ten; when JsonArray(int) with capacity is three add ten")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given ten; when JsonArray(int) with capacity is three add ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenTen_whenJsonArrayWithCapacityIsThreeAddTen2() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenTen_whenJsonArrayWithCapacityIsThreeAddTen2()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(10.0f);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given 'true'; when JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given 'true'; when JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenTrue_whenJsonArrayWithCapacityIsThreeAddTrue() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenTrue_whenJsonArrayWithCapacityIsThreeAddTrue()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given valueOf one.</li>
+   *   <li>Given valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given valueOf one")
@@ -7578,30 +9151,34 @@ class JsonConverterDiffblueTest {
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Given {@code values}.</li>
-   *   <li>Then return one first Key is {@code values}.</li>
+   *   <li>Given {@code values}.
+   *   <li>Then return one first Key is {@code values}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); given 'values'; then return one first Key is 'values'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); given 'values'; then return one first Key is 'values'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_givenValues_thenReturnOneFirstKeyIsValues() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_givenValues_thenReturnOneFirstKeyIsValues()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("values", new JsonArray(3));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7617,24 +9194,27 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Then one first return {@link BooleanDataEntry}.</li>
+   *   <li>Then one first return {@link BooleanDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); then one first return BooleanDataEntry")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); then one first return BooleanDataEntry")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_thenOneFirstReturnBooleanDataEntry() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_thenOneFirstReturnBooleanDataEntry()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", true);
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7658,24 +9238,27 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Then return one first JsonValue is {@code {"device":"ts","reason":1}}.</li>
+   *   <li>Then return one first JsonValue is {@code {"device":"ts","reason":1}}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); then return one first JsonValue is '{\"device\":\"ts\",\"reason\":1}'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); then return one first JsonValue is '{\"device\":\"ts\",\"reason\":1}'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_thenReturnOneFirstJsonValueIsDeviceTsReason1() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_thenReturnOneFirstJsonValueIsDeviceTsReason1()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.add("ts", JsonConverter.toGatewayDeviceDisconnectJson("ts", 1));
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7693,24 +9276,27 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Then return one first StrValue is empty string.</li>
+   *   <li>Then return one first StrValue is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); then return one first StrValue is empty string")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); then return one first StrValue is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_thenReturnOneFirstStrValueIsEmptyString() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_thenReturnOneFirstStrValueIsEmptyString()
+      throws JsonSyntaxException {
     // Arrange
     JsonObject jsonElement = new JsonObject();
     jsonElement.addProperty("ts", "");
 
     // Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter.convertToSortedTelemetry(jsonElement,
-        1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(jsonElement, 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7728,11 +9314,12 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>Then return one size is two.</li>
+   *   <li>Then return one size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
   @DisplayName("Test convertToSortedTelemetry(JsonElement, long); then return one size is two")
@@ -7740,8 +9327,9 @@ class JsonConverterDiffblueTest {
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
   void testConvertToSortedTelemetry_thenReturnOneSizeIsTwo() throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter
-        .convertToSortedTelemetry(JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(
+            JsonConverter.toGatewayDeviceDisconnectJson("Device Name", 1), 1L);
 
     // Assert
     assertEquals(1, actualConvertToSortedTelemetryResult.size());
@@ -7762,43 +9350,51 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link JsonObject} (default constructor).</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three add {@link JsonObject}
+   *       (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonArray(int) with capacity is three add JsonObject (default constructor)")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonArray(int) with capacity is three add JsonObject (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_whenJsonArrayWithCapacityIsThreeAddJsonObject() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_whenJsonArrayWithCapacityIsThreeAddJsonObject()
+      throws JsonSyntaxException {
     // Arrange
     JsonArray jsonElement = new JsonArray(3);
     jsonElement.add(new JsonObject());
     jsonElement.add(true);
 
     // Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(jsonElement, 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonArray#JsonArray(int)} with capacity is three.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonArray(int) with capacity is three; then return Empty")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonArray(int) with capacity is three; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_whenJsonArrayWithCapacityIsThree_thenReturnEmpty() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_whenJsonArrayWithCapacityIsThree_thenReturnEmpty()
+      throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter
-        .convertToSortedTelemetry(new JsonArray(3), 1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(new JsonArray(3), 1L);
 
     // Assert
     assertTrue(actualConvertToSortedTelemetryResult.isEmpty());
@@ -7806,39 +9402,46 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonNull} (default constructor).</li>
-   *   <li>Then throw {@link JsonSyntaxException}.</li>
+   *   <li>When {@link JsonNull} (default constructor).
+   *   <li>Then throw {@link JsonSyntaxException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonNull (default constructor); then throw JsonSyntaxException")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonNull (default constructor); then throw JsonSyntaxException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_whenJsonNull_thenThrowJsonSyntaxException() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_whenJsonNull_thenThrowJsonSyntaxException()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(new JsonNull(), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToSortedTelemetry(new JsonNull(), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonObject (default constructor); then return Empty")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonObject (default constructor); then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
   void testConvertToSortedTelemetry_whenJsonObject_thenReturnEmpty() throws JsonSyntaxException {
     // Arrange and Act
-    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult = JsonConverter
-        .convertToSortedTelemetry(new JsonObject(), 1L);
+    Map<Long, List<KvEntry>> actualConvertToSortedTelemetryResult =
+        JsonConverter.convertToSortedTelemetry(new JsonObject(), 1L);
 
     // Assert
     assertTrue(actualConvertToSortedTelemetryResult.isEmpty());
@@ -7846,102 +9449,123 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Boolean)} with bool is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(Boolean) with bool is 'true'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(Boolean) with bool is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
   void testConvertToSortedTelemetry_whenJsonPrimitiveWithBoolIsTrue() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToSortedTelemetry(new JsonPrimitive(true), 1L));
+    assertThrows(
+        JsonSyntaxException.class,
+        () -> JsonConverter.convertToSortedTelemetry(new JsonPrimitive(true), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(Character)} with c is start of heading.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(Character)} with c is start of heading.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(Character) with c is start of heading")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(Character) with c is start of heading")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
-  void testConvertToSortedTelemetry_whenJsonPrimitiveWithCIsStartOfHeading() throws JsonSyntaxException {
+  void testConvertToSortedTelemetry_whenJsonPrimitiveWithCIsStartOfHeading()
+      throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToSortedTelemetry(new JsonPrimitive('\u0001'), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}.
+   *
    * <ul>
-   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.</li>
+   *   <li>When {@link JsonPrimitive#JsonPrimitive(String)} with {@code String}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToSortedTelemetry(JsonElement, long)}
    */
   @Test
-  @DisplayName("Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(String) with 'String'")
+  @DisplayName(
+      "Test convertToSortedTelemetry(JsonElement, long); when JsonPrimitive(String) with 'String'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map JsonConverter.convertToSortedTelemetry(JsonElement, long)"})
   void testConvertToSortedTelemetry_whenJsonPrimitiveWithString() throws JsonSyntaxException {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class,
+    assertThrows(
+        JsonSyntaxException.class,
         () -> JsonConverter.convertToSortedTelemetry(new JsonPrimitive("String"), 1L));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo() {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> JsonConverter
-        .convertToProvisionRequestMsg(JsonConverter.toGatewayDeviceDisconnectJson("deviceName", -1)));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            JsonConverter.convertToProvisionRequestMsg(
+                JsonConverter.toGatewayDeviceDisconnectJson("deviceName", -1)));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo2() {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> JsonConverter.convertToProvisionRequestMsg(JsonConverter.toGatewayDeviceDisconnectJson(null, -1)));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            JsonConverter.convertToProvisionRequestMsg(
+                JsonConverter.toGatewayDeviceDisconnectJson(null, -1)));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'A'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenA() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -7953,17 +9577,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given empty string.</li>
+   *   <li>Given empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenEmptyString() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -7975,17 +9601,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@code false}.</li>
+   *   <li>Given {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenFalse() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -7997,17 +9625,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given forty-two.</li>
+   *   <li>Given forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given forty-two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenFortyTwo() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8019,17 +9649,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given fromIntBits two.</li>
+   *   <li>Given fromIntBits two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given fromIntBits two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenFromIntBitsTwo() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8041,17 +9673,20 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.</li>
+   *   <li>Given {@link JsonArray#JsonArray(int)} with capacity is three add {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
-  @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given JsonArray(int) with capacity is three add 'true'")
+  @DisplayName(
+      "Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given JsonArray(int) with capacity is three add 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenJsonArrayWithCapacityIsThreeAddTrue() {
     // Arrange
     JsonArray value = new JsonArray(3);
@@ -8066,17 +9701,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@link Double#NaN}.</li>
+   *   <li>Given {@link Double#NaN}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given NaN")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenNaN() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8088,17 +9725,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@code Property}.</li>
+   *   <li>Given {@code Property}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'Property'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenProperty() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8110,17 +9749,20 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@code provisionDeviceKey}.</li>
+   *   <li>Given {@code provisionDeviceKey}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
-  @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'provisionDeviceKey'")
+  @DisplayName(
+      "Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'provisionDeviceKey'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenProvisionDeviceKey() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8132,17 +9774,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given start of text.</li>
+   *   <li>Given start of text.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given start of text")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenStartOfText() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8154,17 +9798,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenTen() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8176,17 +9822,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given ten.</li>
+   *   <li>Given ten.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenTen2() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8198,17 +9846,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
+   *   <li>Given {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenTrue() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8220,17 +9870,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given two.</li>
+   *   <li>Given two.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenTwo() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8242,17 +9894,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>Given valueOf minus one.</li>
+   *   <li>Given valueOf minus one.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; given valueOf minus one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_givenValueOfMinusOne() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8264,17 +9918,21 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor) addProperty {@code deviceName} and {@code 42}.</li>
+   *   <li>When {@link JsonObject} (default constructor) addProperty {@code deviceName} and {@code
+   *       42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
-  @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; when JsonObject (default constructor) addProperty 'deviceName' and '42'")
+  @DisplayName(
+      "Test convertToProvisionRequestMsg(JsonObject) with 'jo'; when JsonObject (default constructor) addProperty 'deviceName' and '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_whenJsonObjectAddPropertyDeviceNameAnd42() {
     // Arrange
     JsonObject jo = new JsonObject();
@@ -8286,35 +9944,42 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)} with {@code jo}.
+   *
    * <ul>
-   *   <li>When {@link JsonObject} (default constructor).</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>When {@link JsonObject} (default constructor).
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(JsonObject)}
    */
   @Test
-  @DisplayName("Test convertToProvisionRequestMsg(JsonObject) with 'jo'; when JsonObject (default constructor); then throw RuntimeException")
+  @DisplayName(
+      "Test convertToProvisionRequestMsg(JsonObject) with 'jo'; when JsonObject (default constructor); then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"})
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(JsonObject)"
+  })
   void testConvertToProvisionRequestMsgWithJo_whenJsonObject_thenThrowRuntimeException() {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> JsonConverter.convertToProvisionRequestMsg(new JsonObject()));
+    assertThrows(
+        RuntimeException.class, () -> JsonConverter.convertToProvisionRequestMsg(new JsonObject()));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
+   *   <li>When {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when '42'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_when42() {
     // Arrange, Act and Assert
     assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("42"));
@@ -8322,67 +9987,82 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42E}.</li>
+   *   <li>When {@code 42E}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when '42E'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_when42e() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("42E"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("42E"));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code 42.}.</li>
+   *   <li>When {@code 42.}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when '42.'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_when422() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("42."));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("42."));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code client}.</li>
+   *   <li>When {@code client}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when 'client'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_whenClient() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("client"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("client"));
   }
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code .}.</li>
+   *   <li>When {@code .}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when '.'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_whenDot() {
     // Arrange, Act and Assert
     assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("."));
@@ -8390,16 +10070,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code E}.</li>
+   *   <li>When {@code E}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when 'E'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_whenE() {
     // Arrange, Act and Assert
     assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("E"));
@@ -8407,16 +10090,19 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_whenEmptyString() {
     // Arrange, Act and Assert
     assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg(""));
@@ -8424,18 +10110,22 @@ class JsonConverterDiffblueTest {
 
   /**
    * Test {@link JsonConverter#convertToProvisionRequestMsg(String)} with {@code json}.
+   *
    * <ul>
-   *   <li>When {@code Json}.</li>
+   *   <li>When {@code Json}.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
+   *
+   * <p>Method under test: {@link JsonConverter#convertToProvisionRequestMsg(String)}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(String) with 'json'; when 'Json'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"})
+  @MethodsUnderTest({
+    "TransportProtos.ProvisionDeviceRequestMsg JsonConverter.convertToProvisionRequestMsg(String)"
+  })
   void testConvertToProvisionRequestMsgWithJson_whenJson() {
     // Arrange, Act and Assert
-    assertThrows(JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("Json"));
+    assertThrows(
+        JsonSyntaxException.class, () -> JsonConverter.convertToProvisionRequestMsg("Json"));
   }
 }

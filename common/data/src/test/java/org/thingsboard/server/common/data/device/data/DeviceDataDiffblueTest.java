@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 class DeviceDataDiffblueTest {
   /**
    * Test {@link DeviceData#equals(Object)}, and {@link DeviceData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceData#equals(Object)}
    *   <li>{@link DeviceData#hashCode()}
@@ -45,12 +47,14 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}, and {@link DeviceData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceData#equals(Object)}
    *   <li>{@link DeviceData#hashCode()}
@@ -74,12 +78,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -101,12 +106,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -128,12 +134,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -155,12 +162,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -182,12 +190,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -205,12 +214,13 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test {@link DeviceData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -228,8 +238,9 @@ class DeviceDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceData}
    *   <li>{@link DeviceData#setConfiguration(DeviceConfiguration)}
@@ -242,11 +253,14 @@ class DeviceDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceData.<init>()", "DeviceConfiguration DeviceData.getConfiguration()",
-      "DeviceTransportConfiguration DeviceData.getTransportConfiguration()",
-      "void DeviceData.setConfiguration(DeviceConfiguration)",
-      "void DeviceData.setTransportConfiguration(DeviceTransportConfiguration)",
-      "java.lang.String DeviceData.toString()"})
+  @MethodsUnderTest({
+    "void DeviceData.<init>()",
+    "DeviceConfiguration DeviceData.getConfiguration()",
+    "DeviceTransportConfiguration DeviceData.getTransportConfiguration()",
+    "void DeviceData.setConfiguration(DeviceConfiguration)",
+    "void DeviceData.setTransportConfiguration(DeviceTransportConfiguration)",
+    "java.lang.String DeviceData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceData actualDeviceData = new DeviceData();

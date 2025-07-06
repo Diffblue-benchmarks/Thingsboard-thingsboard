@@ -14,8 +14,9 @@ import org.thingsboard.server.common.data.security.model.mfa.account.AccountTwoF
 class UserAuthSettingsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link UserAuthSettings}
    *   <li>{@link UserAuthSettings#setTwoFaSettings(AccountTwoFaSettings)}
@@ -27,9 +28,14 @@ class UserAuthSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserAuthSettings.<init>()", "AccountTwoFaSettings UserAuthSettings.getTwoFaSettings()",
-      "UserId UserAuthSettings.getUserId()", "void UserAuthSettings.setTwoFaSettings(AccountTwoFaSettings)",
-      "void UserAuthSettings.setUserId(UserId)", "String UserAuthSettings.toString()"})
+  @MethodsUnderTest({
+    "void UserAuthSettings.<init>()",
+    "AccountTwoFaSettings UserAuthSettings.getTwoFaSettings()",
+    "UserId UserAuthSettings.getUserId()",
+    "void UserAuthSettings.setTwoFaSettings(AccountTwoFaSettings)",
+    "void UserAuthSettings.setUserId(UserId)",
+    "String UserAuthSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     UserAuthSettings actualUserAuthSettings = new UserAuthSettings();
@@ -41,7 +47,9 @@ class UserAuthSettingsDiffblueTest {
     UserId actualUserId = actualUserAuthSettings.getUserId();
 
     // Assert
-    assertEquals("UserAuthSettings(userId=null, twoFaSettings=AccountTwoFaSettings(configs={}))", actualToStringResult);
+    assertEquals(
+        "UserAuthSettings(userId=null, twoFaSettings=AccountTwoFaSettings(configs={}))",
+        actualToStringResult);
     assertNull(actualUserAuthSettings.getId());
     assertNull(actualUserId);
     assertEquals(0L, actualUserAuthSettings.getCreatedTime());

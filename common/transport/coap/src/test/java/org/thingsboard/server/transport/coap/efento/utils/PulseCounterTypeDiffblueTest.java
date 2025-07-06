@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class PulseCounterTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PulseCounterType#getMajorResolution()}
    *   <li>{@link PulseCounterType#getPrefix()}
@@ -19,7 +20,10 @@ class PulseCounterTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int PulseCounterType.getMajorResolution()", "java.lang.String PulseCounterType.getPrefix()"})
+  @MethodsUnderTest({
+    "int PulseCounterType.getMajorResolution()",
+    "java.lang.String PulseCounterType.getPrefix()"
+  })
   void testGettersAndSetters() {
     // Arrange
     PulseCounterType valueOfResult = PulseCounterType.valueOf("WATER_CNT_ACC");

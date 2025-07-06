@@ -12,7 +12,6 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.thingsboard.server.common.data.BaseData;
 import org.thingsboard.server.common.data.event.ErrorEvent;
 import org.thingsboard.server.common.data.event.ErrorEvent.ErrorEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
@@ -21,12 +20,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class ErrorEventEntityDiffblueTest {
   /**
    * Test {@link ErrorEventEntity#equals(Object)}, and {@link ErrorEventEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventEntity#equals(Object)}
    *   <li>{@link ErrorEventEntity#hashCode()}
@@ -67,12 +68,14 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}, and {@link ErrorEventEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventEntity#equals(Object)}
    *   <li>{@link ErrorEventEntity#hashCode()}
@@ -102,12 +105,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -142,12 +146,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -182,12 +187,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -222,12 +228,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -262,12 +269,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -302,12 +310,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -331,12 +340,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -360,8 +370,9 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ErrorEventEntity#ErrorEventEntity()}
    *   <li>{@link ErrorEventEntity#setError(String)}
@@ -373,9 +384,14 @@ public class ErrorEventEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void ErrorEventEntity.<init>()", "String ErrorEventEntity.getError()",
-      "String ErrorEventEntity.getMethod()", "void ErrorEventEntity.setError(String)",
-      "void ErrorEventEntity.setMethod(String)", "String ErrorEventEntity.toString()"})
+  @MethodsUnderTest({
+    "void ErrorEventEntity.<init>()",
+    "String ErrorEventEntity.getError()",
+    "String ErrorEventEntity.getMethod()",
+    "void ErrorEventEntity.setError(String)",
+    "void ErrorEventEntity.setMethod(String)",
+    "String ErrorEventEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     ErrorEventEntity actualErrorEventEntity = new ErrorEventEntity();
@@ -399,8 +415,8 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}.
-   * <p>
-   * Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -411,18 +427,21 @@ public class ErrorEventEntityDiffblueTest {
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     ErrorEventBuilder errorResult = builderResult.entityId(entityId).error("An error occurred");
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    ErrorEvent event = errorResult.id(id)
-        .method("Method")
-        .serviceId("42")
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .ts(1L)
-        .build();
+    ErrorEvent event =
+        errorResult
+            .id(id)
+            .method("Method")
+            .serviceId("42")
+            .tenantId(ModelConstants.SYSTEM_TENANT)
+            .ts(1L)
+            .build();
 
     // Act
     ErrorEventEntity actualErrorEventEntity = new ErrorEventEntity(event);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
     assertEquals("42", actualErrorEventEntity.getServiceId());
     UUID entityId2 = actualErrorEventEntity.getEntityId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
@@ -439,12 +458,13 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}.
+   *
    * <ul>
-   *   <li>Given {@link ModelConstants#SYSTEM_TENANT}.</li>
-   *   <li>Then calls {@link BaseData#getCreatedTime()}.</li>
+   *   <li>Given {@link ModelConstants#SYSTEM_TENANT}.
+   *   <li>Then calls {@link ErrorEvent#getCreatedTime()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#ErrorEventEntity(ErrorEvent)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -473,7 +493,8 @@ public class ErrorEventEntityDiffblueTest {
     verify(event).getServiceId();
     verify(event).getTenantId();
     verify(event).getId();
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualErrorEventEntity.getTenantId().toString());
     assertEquals("42", actualErrorEventEntity.getServiceId());
     UUID entityId = actualErrorEventEntity.getEntityId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId.toString());
@@ -490,19 +511,20 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Given {@link ErrorEventEntity#ErrorEventEntity()}.</li>
-   *   <li>Then return Error is {@code null}.</li>
+   *   <li>Given {@link ErrorEventEntity#ErrorEventEntity()}.
+   *   <li>Then return Error is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#toData()}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"ErrorEvent ErrorEventEntity.toData()"})
   public void testToData_givenErrorEventEntity_thenReturnErrorIsNull() {
     // Arrange and Act
-    ErrorEvent actualToDataResult = (new ErrorEventEntity()).toData();
+    ErrorEvent actualToDataResult = new ErrorEventEntity().toData();
 
     // Assert
     assertNull(actualToDataResult.getError());
@@ -517,11 +539,12 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#toData()}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -562,11 +585,12 @@ public class ErrorEventEntityDiffblueTest {
 
   /**
    * Test {@link ErrorEventEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link ErrorEventEntity#toData()}
+   *
+   * <p>Method under test: {@link ErrorEventEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -595,7 +619,9 @@ public class ErrorEventEntityDiffblueTest {
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", entityId2.toString());
     UUID uuidId = actualToDataResult.getUuidId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
-    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualToDataResult.getTenantId().getId().toString());
+    assertEquals(
+        "784f394c-42b6-435a-983c-b7beff2784f9",
+        actualToDataResult.getTenantId().getId().toString());
     assertEquals("An error occurred", actualToDataResult.getError());
     assertEquals("Method", actualToDataResult.getMethod());
     assertEquals(1L, actualToDataResult.getCreatedTime());

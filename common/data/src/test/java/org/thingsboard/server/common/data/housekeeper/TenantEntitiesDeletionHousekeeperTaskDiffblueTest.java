@@ -13,13 +13,16 @@ import org.thingsboard.server.common.data.id.TenantId;
 
 class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   /**
-   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link
+   * TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#hashCode()}
@@ -28,12 +31,16 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 =
+        new TenantEntitiesDeletionHousekeeperTask();
 
     // Act and Assert
     assertEquals(tenantEntitiesDeletionHousekeeperTask, tenantEntitiesDeletionHousekeeperTask2);
@@ -42,13 +49,16 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link
+   * TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#hashCode()}
@@ -57,14 +67,16 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask(
-        TenantId.SYS_TENANT_ID, EntityType.TENANT);
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 = new TenantEntitiesDeletionHousekeeperTask(
-        TenantId.SYS_TENANT_ID, EntityType.TENANT);
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, EntityType.TENANT);
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 =
+        new TenantEntitiesDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, EntityType.TENANT);
 
     // Act and Assert
     assertEquals(tenantEntitiesDeletionHousekeeperTask, tenantEntitiesDeletionHousekeeperTask2);
@@ -73,13 +85,16 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link
+   * TenantEntitiesDeletionHousekeeperTask#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#hashCode()}
@@ -88,11 +103,14 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
 
     // Act and Assert
     assertEquals(tenantEntitiesDeletionHousekeeperTask, tenantEntitiesDeletionHousekeeperTask);
@@ -102,69 +120,83 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask(
-        TenantId.SYS_TENANT_ID, EntityType.TENANT);
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, EntityType.TENANT);
 
     // Act and Assert
-    assertNotEquals(tenantEntitiesDeletionHousekeeperTask, new TenantEntitiesDeletionHousekeeperTask());
+    assertNotEquals(
+        tenantEntitiesDeletionHousekeeperTask, new TenantEntitiesDeletionHousekeeperTask());
   }
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
     tenantEntitiesDeletionHousekeeperTask.setEntityType(EntityType.TENANT);
 
     // Act and Assert
-    assertNotEquals(tenantEntitiesDeletionHousekeeperTask, new TenantEntitiesDeletionHousekeeperTask());
+    assertNotEquals(
+        tenantEntitiesDeletionHousekeeperTask, new TenantEntitiesDeletionHousekeeperTask());
   }
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
 
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 =
+        new TenantEntitiesDeletionHousekeeperTask();
     tenantEntitiesDeletionHousekeeperTask2.setEntityType(EntityType.TENANT);
 
     // Act and Assert
@@ -173,18 +205,21 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantEntitiesDeletionHousekeeperTask(), null);
@@ -192,28 +227,33 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-      "int TenantEntitiesDeletionHousekeeperTask.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
+    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TenantEntitiesDeletionHousekeeperTask(),
+    assertNotEquals(
+        new TenantEntitiesDeletionHousekeeperTask(),
         "Different type to TenantEntitiesDeletionHousekeeperTask");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#TenantEntitiesDeletionHousekeeperTask()}
    *   <li>{@link TenantEntitiesDeletionHousekeeperTask#setEntityType(EntityType)}
@@ -224,13 +264,16 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantEntitiesDeletionHousekeeperTask.<init>()",
-      "EntityType TenantEntitiesDeletionHousekeeperTask.getEntityType()",
-      "void TenantEntitiesDeletionHousekeeperTask.setEntityType(EntityType)",
-      "String TenantEntitiesDeletionHousekeeperTask.toString()"})
+  @MethodsUnderTest({
+    "void TenantEntitiesDeletionHousekeeperTask.<init>()",
+    "EntityType TenantEntitiesDeletionHousekeeperTask.getEntityType()",
+    "void TenantEntitiesDeletionHousekeeperTask.setEntityType(EntityType)",
+    "String TenantEntitiesDeletionHousekeeperTask.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TenantEntitiesDeletionHousekeeperTask actualTenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask actualTenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
     actualTenantEntitiesDeletionHousekeeperTask.setEntityType(EntityType.TENANT);
     String actualToStringResult = actualTenantEntitiesDeletionHousekeeperTask.toString();
     EntityType actualEntityType = actualTenantEntitiesDeletionHousekeeperTask.getEntityType();
@@ -248,9 +291,13 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   }
 
   /**
-   * Test {@link TenantEntitiesDeletionHousekeeperTask#TenantEntitiesDeletionHousekeeperTask(TenantId, EntityType)}.
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#TenantEntitiesDeletionHousekeeperTask(TenantId, EntityType)}
+   * Test {@link
+   * TenantEntitiesDeletionHousekeeperTask#TenantEntitiesDeletionHousekeeperTask(TenantId,
+   * EntityType)}.
+   *
+   * <p>Method under test: {@link
+   * TenantEntitiesDeletionHousekeeperTask#TenantEntitiesDeletionHousekeeperTask(TenantId,
+   * EntityType)}
    */
   @Test
   @DisplayName("Test new TenantEntitiesDeletionHousekeeperTask(TenantId, EntityType)")
@@ -261,13 +308,15 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
     TenantId tenantId = TenantId.SYS_TENANT_ID;
 
     // Act
-    TenantEntitiesDeletionHousekeeperTask actualTenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask(
-        tenantId, EntityType.TENANT);
+    TenantEntitiesDeletionHousekeeperTask actualTenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask(tenantId, EntityType.TENANT);
 
     // Assert
     assertEquals("tenants deletion", actualTenantEntitiesDeletionHousekeeperTask.getDescription());
     assertEquals(EntityType.TENANT, actualTenantEntitiesDeletionHousekeeperTask.getEntityType());
-    assertEquals(HousekeeperTaskType.DELETE_TENANT_ENTITIES, actualTenantEntitiesDeletionHousekeeperTask.getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_TENANT_ENTITIES,
+        actualTenantEntitiesDeletionHousekeeperTask.getTaskType());
     TenantId tenantId2 = tenantId.SYS_TENANT_ID;
     assertSame(tenantId2, actualTenantEntitiesDeletionHousekeeperTask.getEntityId());
     assertSame(tenantId2, actualTenantEntitiesDeletionHousekeeperTask.getTenantId());
@@ -275,11 +324,12 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
 
   /**
    * Test {@link TenantEntitiesDeletionHousekeeperTask#getDescription()}.
+   *
    * <ul>
-   *   <li>Then return {@code tenants deletion}.</li>
+   *   <li>Then return {@code tenants deletion}.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantEntitiesDeletionHousekeeperTask#getDescription()}
+   *
+   * <p>Method under test: {@link TenantEntitiesDeletionHousekeeperTask#getDescription()}
    */
   @Test
   @DisplayName("Test getDescription(); then return 'tenants deletion'")
@@ -287,7 +337,8 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
   @MethodsUnderTest({"String TenantEntitiesDeletionHousekeeperTask.getDescription()"})
   void testGetDescription_thenReturnTenantsDeletion() {
     // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask = new TenantEntitiesDeletionHousekeeperTask();
+    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
+        new TenantEntitiesDeletionHousekeeperTask();
     tenantEntitiesDeletionHousekeeperTask.setEntityType(EntityType.TENANT);
 
     // Act and Assert

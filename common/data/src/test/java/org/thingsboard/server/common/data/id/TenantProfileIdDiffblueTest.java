@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class TenantProfileIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantProfileId#TenantProfileId(UUID)}
    *   <li>{@link TenantProfileId#getEntityType()}
@@ -22,7 +23,10 @@ class TenantProfileIdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantProfileId.<init>(UUID)", "EntityType TenantProfileId.getEntityType()"})
+  @MethodsUnderTest({
+    "void TenantProfileId.<init>(UUID)",
+    "EntityType TenantProfileId.getEntityType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

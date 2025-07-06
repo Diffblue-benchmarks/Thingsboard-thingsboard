@@ -17,19 +17,23 @@ import org.thingsboard.server.common.data.util.TbPair;
 
 class VersionedCaffeineTbCacheDiffblueTest {
   /**
-   * Test {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)} with {@code DeviceCacheKey}, {@code Long}.
+   * Test {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)} with {@code
+   * DeviceCacheKey}, {@code Long}.
+   *
    * <ul>
-   *   <li>Given {@link TbPair} {@link TbPair#getFirst()} return fifty-nine.</li>
-   *   <li>Then calls {@link CacheLoader#load(Object)}.</li>
+   *   <li>Given {@link TbPair} {@link TbPair#getFirst()} return fifty-nine.
+   *   <li>Then calls {@link CacheLoader#load(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)}
+   *
+   * <p>Method under test: {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)}
    */
   @Test
-  @DisplayName("Test evict(VersionedCacheKey, Long) with 'DeviceCacheKey', 'Long'; given TbPair getFirst() return fifty-nine; then calls load(Object)")
+  @DisplayName(
+      "Test evict(VersionedCacheKey, Long) with 'DeviceCacheKey', 'Long'; given TbPair getFirst() return fifty-nine; then calls load(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void VersionedCaffeineTbCache.evict(VersionedCacheKey, Long)"})
-  void testEvictWithDeviceCacheKeyLong_givenTbPairGetFirstReturnFiftyNine_thenCallsLoad() throws Exception {
+  void testEvictWithDeviceCacheKeyLong_givenTbPairGetFirstReturnFiftyNine_thenCallsLoad()
+      throws Exception {
     // Arrange
     TbPair<Object, Object> tbPair = mock(TbPair.class);
     when(tbPair.getFirst()).thenReturn(59L);
@@ -49,19 +53,23 @@ class VersionedCaffeineTbCacheDiffblueTest {
   }
 
   /**
-   * Test {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)} with {@code DeviceCacheKey}, {@code Long}.
+   * Test {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)} with {@code
+   * DeviceCacheKey}, {@code Long}.
+   *
    * <ul>
-   *   <li>Given {@link TbPair} {@link TbPair#getFirst()} return zero.</li>
-   *   <li>Then calls {@link CacheLoader#load(Object)}.</li>
+   *   <li>Given {@link TbPair} {@link TbPair#getFirst()} return zero.
+   *   <li>Then calls {@link CacheLoader#load(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)}
+   *
+   * <p>Method under test: {@link VersionedCaffeineTbCache#evict(VersionedCacheKey, Long)}
    */
   @Test
-  @DisplayName("Test evict(VersionedCacheKey, Long) with 'DeviceCacheKey', 'Long'; given TbPair getFirst() return zero; then calls load(Object)")
+  @DisplayName(
+      "Test evict(VersionedCacheKey, Long) with 'DeviceCacheKey', 'Long'; given TbPair getFirst() return zero; then calls load(Object)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void VersionedCaffeineTbCache.evict(VersionedCacheKey, Long)"})
-  void testEvictWithDeviceCacheKeyLong_givenTbPairGetFirstReturnZero_thenCallsLoad() throws Exception {
+  void testEvictWithDeviceCacheKeyLong_givenTbPairGetFirstReturnZero_thenCallsLoad()
+      throws Exception {
     // Arrange
     TbPair<Object, Object> tbPair = mock(TbPair.class);
     when(tbPair.getFirst()).thenReturn(0L);

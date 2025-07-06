@@ -10,12 +10,13 @@ import org.junit.jupiter.api.Test;
 class SoftwareUpdateStateDiffblueTest {
   /**
    * Test {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Initial}.</li>
-   *   <li>Then return {@code INITIAL}.</li>
+   *   <li>When {@code Initial}.
+   *   <li>Then return {@code INITIAL}.
    * </ul>
-   * <p>
-   * Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}
+   *
+   * <p>Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}
    */
   @Test
   @DisplayName("Test fromUpdateStateSwByType(String); when 'Initial'; then return 'INITIAL'")
@@ -23,35 +24,40 @@ class SoftwareUpdateStateDiffblueTest {
   @MethodsUnderTest({"SoftwareUpdateState SoftwareUpdateState.fromUpdateStateSwByType(String)"})
   void testFromUpdateStateSwByType_whenInitial_thenReturnInitial() {
     // Arrange, Act and Assert
-    assertEquals(SoftwareUpdateState.INITIAL, SoftwareUpdateState.fromUpdateStateSwByType("Initial"));
+    assertEquals(
+        SoftwareUpdateState.INITIAL, SoftwareUpdateState.fromUpdateStateSwByType("Initial"));
   }
 
   /**
    * Test {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code Type}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}
+   *
+   * <p>Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByType(String)}
    */
   @Test
-  @DisplayName("Test fromUpdateStateSwByType(String); when 'Type'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test fromUpdateStateSwByType(String); when 'Type'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SoftwareUpdateState SoftwareUpdateState.fromUpdateStateSwByType(String)"})
   void testFromUpdateStateSwByType_whenType_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> SoftwareUpdateState.fromUpdateStateSwByType("Type"));
+    assertThrows(
+        IllegalArgumentException.class, () -> SoftwareUpdateState.fromUpdateStateSwByType("Type"));
   }
 
   /**
    * Test {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}.
+   *
    * <ul>
-   *   <li>When five.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When five.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}
+   *
+   * <p>Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}
    */
   @Test
   @DisplayName("Test fromUpdateStateSwByCode(int); when five; then throw IllegalArgumentException")
@@ -59,17 +65,19 @@ class SoftwareUpdateStateDiffblueTest {
   @MethodsUnderTest({"SoftwareUpdateState SoftwareUpdateState.fromUpdateStateSwByCode(int)"})
   void testFromUpdateStateSwByCode_whenFive_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> SoftwareUpdateState.fromUpdateStateSwByCode(5));
+    assertThrows(
+        IllegalArgumentException.class, () -> SoftwareUpdateState.fromUpdateStateSwByCode(5));
   }
 
   /**
    * Test {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code DOWNLOAD_STARTED}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code DOWNLOAD_STARTED}.
    * </ul>
-   * <p>
-   * Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}
+   *
+   * <p>Method under test: {@link SoftwareUpdateState#fromUpdateStateSwByCode(int)}
    */
   @Test
   @DisplayName("Test fromUpdateStateSwByCode(int); when one; then return 'DOWNLOAD_STARTED'")
@@ -77,13 +85,15 @@ class SoftwareUpdateStateDiffblueTest {
   @MethodsUnderTest({"SoftwareUpdateState SoftwareUpdateState.fromUpdateStateSwByCode(int)"})
   void testFromUpdateStateSwByCode_whenOne_thenReturnDownloadStarted() {
     // Arrange, Act and Assert
-    assertEquals(SoftwareUpdateState.DOWNLOAD_STARTED, SoftwareUpdateState.fromUpdateStateSwByCode(1));
+    assertEquals(
+        SoftwareUpdateState.DOWNLOAD_STARTED, SoftwareUpdateState.fromUpdateStateSwByCode(1));
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SoftwareUpdateState#getCode()}
    *   <li>{@link SoftwareUpdateState#getType()}

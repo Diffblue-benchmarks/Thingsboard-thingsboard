@@ -11,29 +11,37 @@ import org.junit.jupiter.api.Test;
 class TbRuleChainInputNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbRuleChainInputNodeConfiguration TbRuleChainInputNodeConfiguration.defaultConfiguration()"})
+  @MethodsUnderTest({
+    "TbRuleChainInputNodeConfiguration TbRuleChainInputNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbRuleChainInputNodeConfiguration, tbRuleChainInputNodeConfiguration.defaultConfiguration());
+    assertEquals(
+        tbRuleChainInputNodeConfiguration,
+        tbRuleChainInputNodeConfiguration.defaultConfiguration());
   }
 
   /**
-   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link TbRuleChainInputNodeConfiguration#hashCode()}.
+   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link
+   * TbRuleChainInputNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbRuleChainInputNodeConfiguration#equals(Object)}
    *   <li>{@link TbRuleChainInputNodeConfiguration#hashCode()}
@@ -42,12 +50,16 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 =
+        new TbRuleChainInputNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbRuleChainInputNodeConfiguration, tbRuleChainInputNodeConfiguration2);
@@ -56,13 +68,16 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link TbRuleChainInputNodeConfiguration#hashCode()}.
+   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link
+   * TbRuleChainInputNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbRuleChainInputNodeConfiguration#equals(Object)}
    *   <li>{@link TbRuleChainInputNodeConfiguration#hashCode()}
@@ -71,14 +86,18 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
     tbRuleChainInputNodeConfiguration.setRuleChainId("42");
 
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 =
+        new TbRuleChainInputNodeConfiguration();
     tbRuleChainInputNodeConfiguration2.setRuleChainId("42");
 
     // Act and Assert
@@ -88,13 +107,16 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link TbRuleChainInputNodeConfiguration#hashCode()}.
+   * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}, and {@link
+   * TbRuleChainInputNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbRuleChainInputNodeConfiguration#equals(Object)}
    *   <li>{@link TbRuleChainInputNodeConfiguration#hashCode()}
@@ -103,11 +125,14 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbRuleChainInputNodeConfiguration, tbRuleChainInputNodeConfiguration);
@@ -117,18 +142,21 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRuleChainInputNodeConfiguration(), 1);
@@ -136,21 +164,25 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
     tbRuleChainInputNodeConfiguration.setRuleChainId("42");
 
     // Act and Assert
@@ -159,21 +191,25 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
     tbRuleChainInputNodeConfiguration.setForwardMsgToDefaultRuleChain(true);
 
     // Act and Assert
@@ -182,23 +218,28 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
 
-    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration2 =
+        new TbRuleChainInputNodeConfiguration();
     tbRuleChainInputNodeConfiguration2.setRuleChainId("42");
 
     // Act and Assert
@@ -207,18 +248,21 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbRuleChainInputNodeConfiguration(), null);
@@ -226,27 +270,33 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbRuleChainInputNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbRuleChainInputNodeConfiguration.equals(Object)",
-      "int TbRuleChainInputNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbRuleChainInputNodeConfiguration.equals(Object)",
+    "int TbRuleChainInputNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbRuleChainInputNodeConfiguration(), "Different type to TbRuleChainInputNodeConfiguration");
+    assertNotEquals(
+        new TbRuleChainInputNodeConfiguration(),
+        "Different type to TbRuleChainInputNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbRuleChainInputNodeConfiguration}
    *   <li>{@link TbRuleChainInputNodeConfiguration#setForwardMsgToDefaultRuleChain(boolean)}
@@ -259,15 +309,18 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbRuleChainInputNodeConfiguration.<init>()",
-      "String TbRuleChainInputNodeConfiguration.getRuleChainId()",
-      "boolean TbRuleChainInputNodeConfiguration.isForwardMsgToDefaultRuleChain()",
-      "void TbRuleChainInputNodeConfiguration.setForwardMsgToDefaultRuleChain(boolean)",
-      "void TbRuleChainInputNodeConfiguration.setRuleChainId(String)",
-      "String TbRuleChainInputNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbRuleChainInputNodeConfiguration.<init>()",
+    "String TbRuleChainInputNodeConfiguration.getRuleChainId()",
+    "boolean TbRuleChainInputNodeConfiguration.isForwardMsgToDefaultRuleChain()",
+    "void TbRuleChainInputNodeConfiguration.setForwardMsgToDefaultRuleChain(boolean)",
+    "void TbRuleChainInputNodeConfiguration.setRuleChainId(String)",
+    "String TbRuleChainInputNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbRuleChainInputNodeConfiguration actualTbRuleChainInputNodeConfiguration = new TbRuleChainInputNodeConfiguration();
+    TbRuleChainInputNodeConfiguration actualTbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
     actualTbRuleChainInputNodeConfiguration.setForwardMsgToDefaultRuleChain(true);
     actualTbRuleChainInputNodeConfiguration.setRuleChainId("42");
     String actualToStringResult = actualTbRuleChainInputNodeConfiguration.toString();
@@ -275,7 +328,8 @@ class TbRuleChainInputNodeConfigurationDiffblueTest {
 
     // Assert
     assertEquals("42", actualRuleChainId);
-    assertEquals("TbRuleChainInputNodeConfiguration(ruleChainId=42, forwardMsgToDefaultRuleChain=true)",
+    assertEquals(
+        "TbRuleChainInputNodeConfiguration(ruleChainId=42, forwardMsgToDefaultRuleChain=true)",
         actualToStringResult);
     assertTrue(actualTbRuleChainInputNodeConfiguration.isForwardMsgToDefaultRuleChain());
   }

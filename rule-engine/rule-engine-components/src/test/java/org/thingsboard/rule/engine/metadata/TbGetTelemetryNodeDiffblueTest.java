@@ -10,8 +10,8 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,11 +22,12 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbGetTelemetryNodeDiffblueTest {
   /**
    * Test {@link TbGetTelemetryNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTelemetryNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbGetTelemetryNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
   @DisplayName("Test init(TbContext, TbNodeConfiguration); then throw RuntimeException")
@@ -41,24 +42,31 @@ class TbGetTelemetryNodeDiffblueTest {
     when(data.asToken()).thenReturn(JsonToken.START_ARRAY);
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbGetTelemetryNode.init(ctx, new TbNodeConfiguration(data)));
+    assertThrows(
+        RuntimeException.class, () -> tbGetTelemetryNode.init(ctx, new TbNodeConfiguration(data)));
     verify(data, atLeast(1)).asToken();
     verify(data).elements();
   }
 
   /**
    * Test {@link TbGetTelemetryNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
+   *       withExactBigDecimals {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @DisplayName(
+      "Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"})
-  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue()
+      throws TbNodeException {
     // Arrange
     TbGetTelemetryNode tbGetTelemetryNode = new TbGetTelemetryNode();
     ArrayNode oldConfiguration = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -69,45 +77,51 @@ class TbGetTelemetryNodeDiffblueTest {
 
   /**
    * Test {@link TbGetTelemetryNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When Instance.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When one.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when Instance; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenInstance_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenOne_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbGetTelemetryNode tbGetTelemetryNode = new TbGetTelemetryNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbGetTelemetryNode.upgrade(0, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbGetTelemetryNode.upgrade(1, oldConfiguration).getSecond());
   }
 
   /**
    * Test {@link TbGetTelemetryNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When valueOf ten.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbGetTelemetryNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when valueOf ten; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenOne_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbGetTelemetryNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenValueOfTen_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbGetTelemetryNode tbGetTelemetryNode = new TbGetTelemetryNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbGetTelemetryNode.upgrade(1, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbGetTelemetryNode.upgrade(0, oldConfiguration).getSecond());
   }
 }

@@ -1,25 +1,2779 @@
 package org.thingsboard.server.dao.model.sql;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.thingsboard.server.common.data.DeviceProfile;
 import org.thingsboard.server.common.data.DeviceProfileProvisionType;
 import org.thingsboard.server.common.data.DeviceProfileType;
 import org.thingsboard.server.common.data.DeviceTransportType;
+import org.thingsboard.server.common.data.EntityType;
+import org.thingsboard.server.common.data.id.DashboardId;
+import org.thingsboard.server.common.data.id.DeviceProfileId;
+import org.thingsboard.server.common.data.id.OtaPackageId;
+import org.thingsboard.server.common.data.id.RuleChainId;
+import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
+import org.thingsboard.server.dao.model.ModelConstants;
 
 public class DeviceProfileEntityDiffblueTest {
   /**
+   * Test {@link DeviceProfileEntity#equals(Object)}, and {@link DeviceProfileEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeviceProfileEntity#equals(Object)}
+   *   <li>{@link DeviceProfileEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(deviceProfileEntity, deviceProfileEntity2);
+    int expectedHashCodeResult = deviceProfileEntity.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}, and {@link DeviceProfileEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link DeviceProfileEntity#equals(Object)}
+   *   <li>{@link DeviceProfileEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertEquals(deviceProfileEntity, deviceProfileEntity);
+    int expectedHashCodeResult = deviceProfileEntity.hashCode();
+    assertEquals(expectedHashCodeResult, deviceProfileEntity.hashCode());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(3L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(false);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName(null);
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("Name");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription(null);
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Name");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage(null);
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Image");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName(null);
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(DoubleNode.valueOf(10.0d));
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(null);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Name");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey(null);
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(null);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.ALLOW_CREATE_NEW_DEVICES);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(ModelConstants.NULL_UUID);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(null);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.MQTT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(null);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    DeviceProfileEntity deviceProfileEntity2 = new DeviceProfileEntity();
+    deviceProfileEntity2.setCreatedTime(1L);
+    deviceProfileEntity2.setDefault(true);
+    deviceProfileEntity2.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity2.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setDescription("The characteristics of someone or something");
+    deviceProfileEntity2.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setImage("Image");
+    deviceProfileEntity2.setName("Name");
+    deviceProfileEntity2.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity2.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity2.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity2.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity2.setType(null);
+    deviceProfileEntity2.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity2.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, deviceProfileEntity2);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, null);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#equals(Object)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({
+    "boolean DeviceProfileEntity.equals(Object)",
+    "int DeviceProfileEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultDashboardId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultEdgeRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDefaultRuleChainId(
+        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setFirmwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProfileData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setSoftwareId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+
+    // Act and Assert
+    assertNotEquals(deviceProfileEntity, "Different type to DeviceProfileEntity");
+  }
+
+  /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileEntity#DeviceProfileEntity()}
    *   <li>{@link DeviceProfileEntity#setDefault(boolean)}
@@ -61,26 +2815,44 @@ public class DeviceProfileEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DeviceProfileEntity.<init>()", "UUID DeviceProfileEntity.getDefaultDashboardId()",
-      "UUID DeviceProfileEntity.getDefaultEdgeRuleChainId()", "String DeviceProfileEntity.getDefaultQueueName()",
-      "UUID DeviceProfileEntity.getDefaultRuleChainId()", "String DeviceProfileEntity.getDescription()",
-      "UUID DeviceProfileEntity.getExternalId()", "UUID DeviceProfileEntity.getFirmwareId()",
-      "String DeviceProfileEntity.getImage()", "String DeviceProfileEntity.getName()",
-      "JsonNode DeviceProfileEntity.getProfileData()", "String DeviceProfileEntity.getProvisionDeviceKey()",
-      "DeviceProfileProvisionType DeviceProfileEntity.getProvisionType()", "UUID DeviceProfileEntity.getSoftwareId()",
-      "UUID DeviceProfileEntity.getTenantId()", "DeviceTransportType DeviceProfileEntity.getTransportType()",
-      "DeviceProfileType DeviceProfileEntity.getType()", "boolean DeviceProfileEntity.isDefault()",
-      "void DeviceProfileEntity.setDefault(boolean)", "void DeviceProfileEntity.setDefaultDashboardId(UUID)",
-      "void DeviceProfileEntity.setDefaultEdgeRuleChainId(UUID)",
-      "void DeviceProfileEntity.setDefaultQueueName(String)", "void DeviceProfileEntity.setDefaultRuleChainId(UUID)",
-      "void DeviceProfileEntity.setDescription(String)", "void DeviceProfileEntity.setExternalId(UUID)",
-      "void DeviceProfileEntity.setFirmwareId(UUID)", "void DeviceProfileEntity.setImage(String)",
-      "void DeviceProfileEntity.setName(String)", "void DeviceProfileEntity.setProfileData(JsonNode)",
-      "void DeviceProfileEntity.setProvisionDeviceKey(String)",
-      "void DeviceProfileEntity.setProvisionType(DeviceProfileProvisionType)",
-      "void DeviceProfileEntity.setSoftwareId(UUID)", "void DeviceProfileEntity.setTenantId(UUID)",
-      "void DeviceProfileEntity.setTransportType(DeviceTransportType)",
-      "void DeviceProfileEntity.setType(DeviceProfileType)", "String DeviceProfileEntity.toString()"})
+  @MethodsUnderTest({
+    "void DeviceProfileEntity.<init>()",
+    "UUID DeviceProfileEntity.getDefaultDashboardId()",
+    "UUID DeviceProfileEntity.getDefaultEdgeRuleChainId()",
+    "String DeviceProfileEntity.getDefaultQueueName()",
+    "UUID DeviceProfileEntity.getDefaultRuleChainId()",
+    "String DeviceProfileEntity.getDescription()",
+    "UUID DeviceProfileEntity.getExternalId()",
+    "UUID DeviceProfileEntity.getFirmwareId()",
+    "String DeviceProfileEntity.getImage()",
+    "String DeviceProfileEntity.getName()",
+    "JsonNode DeviceProfileEntity.getProfileData()",
+    "String DeviceProfileEntity.getProvisionDeviceKey()",
+    "DeviceProfileProvisionType DeviceProfileEntity.getProvisionType()",
+    "UUID DeviceProfileEntity.getSoftwareId()",
+    "UUID DeviceProfileEntity.getTenantId()",
+    "DeviceTransportType DeviceProfileEntity.getTransportType()",
+    "DeviceProfileType DeviceProfileEntity.getType()",
+    "boolean DeviceProfileEntity.isDefault()",
+    "void DeviceProfileEntity.setDefault(boolean)",
+    "void DeviceProfileEntity.setDefaultDashboardId(UUID)",
+    "void DeviceProfileEntity.setDefaultEdgeRuleChainId(UUID)",
+    "void DeviceProfileEntity.setDefaultQueueName(String)",
+    "void DeviceProfileEntity.setDefaultRuleChainId(UUID)",
+    "void DeviceProfileEntity.setDescription(String)",
+    "void DeviceProfileEntity.setExternalId(UUID)",
+    "void DeviceProfileEntity.setFirmwareId(UUID)",
+    "void DeviceProfileEntity.setImage(String)",
+    "void DeviceProfileEntity.setName(String)",
+    "void DeviceProfileEntity.setProfileData(JsonNode)",
+    "void DeviceProfileEntity.setProvisionDeviceKey(String)",
+    "void DeviceProfileEntity.setProvisionType(DeviceProfileProvisionType)",
+    "void DeviceProfileEntity.setSoftwareId(UUID)",
+    "void DeviceProfileEntity.setTenantId(UUID)",
+    "void DeviceProfileEntity.setTransportType(DeviceTransportType)",
+    "void DeviceProfileEntity.setType(DeviceProfileType)",
+    "String DeviceProfileEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity();
@@ -167,5 +2939,672 @@ public class DeviceProfileEntityDiffblueTest {
     assertSame(softwareId, actualSoftwareId);
     assertSame(tenantId, actualTenantId);
     assertSame(profileData, actualProfileData);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualDeviceProfileEntity.getTenantId().toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity2() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setDefaultRuleChainId(new RuleChainId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID defaultRuleChainId = actualDeviceProfileEntity.getDefaultRuleChainId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", defaultRuleChainId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, defaultRuleChainId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity3() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setDefaultEdgeRuleChainId(new RuleChainId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID defaultEdgeRuleChainId = actualDeviceProfileEntity.getDefaultEdgeRuleChainId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", defaultEdgeRuleChainId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, defaultEdgeRuleChainId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity4() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setDefaultDashboardId(new DashboardId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID defaultDashboardId = actualDeviceProfileEntity.getDefaultDashboardId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", defaultDashboardId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, defaultDashboardId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity5() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setFirmwareId(new OtaPackageId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID firmwareId = actualDeviceProfileEntity.getFirmwareId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", firmwareId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, firmwareId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity6() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setSoftwareId(new OtaPackageId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID softwareId = actualDeviceProfileEntity.getSoftwareId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", softwareId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, softwareId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity7() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfile.setExternalId(new DeviceProfileId(id));
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    UUID externalId = actualDeviceProfileEntity.getExternalId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", externalId.toString());
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+    assertSame(id, externalId);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <ul>
+   *   <li>Given {@code A}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity_givenA() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <ul>
+   *   <li>Given empty array of {@code byte}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity_givenEmptyArrayOfByte() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setProfileDataBytes(new byte[] {});
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <ul>
+   *   <li>Given {@code true}.
+   *   <li>Then return Default.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity_givenTrue_thenReturnDefault() {
+    // Arrange
+    DeviceProfile deviceProfile = new DeviceProfile();
+    deviceProfile.setDefault(true);
+
+    // Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(deviceProfile);
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertTrue(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}.
+   *
+   * <ul>
+   *   <li>When {@link DeviceProfile#DeviceProfile()}.
+   *   <li>Then return DefaultDashboardId is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#DeviceProfileEntity(DeviceProfile)}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"void DeviceProfileEntity.<init>(DeviceProfile)"})
+  public void testNewDeviceProfileEntity_whenDeviceProfile_thenReturnDefaultDashboardIdIsNull() {
+    // Arrange and Act
+    DeviceProfileEntity actualDeviceProfileEntity = new DeviceProfileEntity(new DeviceProfile());
+
+    // Assert
+    assertNull(actualDeviceProfileEntity.getDefaultDashboardId());
+    assertNull(actualDeviceProfileEntity.getDefaultEdgeRuleChainId());
+    assertNull(actualDeviceProfileEntity.getDefaultRuleChainId());
+    assertNull(actualDeviceProfileEntity.getExternalId());
+    assertNull(actualDeviceProfileEntity.getFirmwareId());
+    assertNull(actualDeviceProfileEntity.getSoftwareId());
+    assertNull(actualDeviceProfileEntity.getTenantId());
+    assertFalse(actualDeviceProfileEntity.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    UUID defaultEdgeRuleChainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setDefaultEdgeRuleChainId(defaultEdgeRuleChainId);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act and Assert
+    RuleChainId defaultEdgeRuleChainId2 = deviceProfileEntity.toData().getDefaultEdgeRuleChainId();
+    UUID id = defaultEdgeRuleChainId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.RULE_CHAIN, defaultEdgeRuleChainId2.getEntityType());
+    assertFalse(defaultEdgeRuleChainId2.isNullUid());
+    assertSame(defaultEdgeRuleChainId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData2() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    UUID defaultDashboardId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setDefaultDashboardId(defaultDashboardId);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act and Assert
+    DashboardId defaultDashboardId2 = deviceProfileEntity.toData().getDefaultDashboardId();
+    UUID id = defaultDashboardId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.DASHBOARD, defaultDashboardId2.getEntityType());
+    assertFalse(defaultDashboardId2.isNullUid());
+    assertSame(defaultDashboardId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData3() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    UUID defaultRuleChainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setDefaultRuleChainId(defaultRuleChainId);
+
+    // Act and Assert
+    RuleChainId defaultRuleChainId2 = deviceProfileEntity.toData().getDefaultRuleChainId();
+    UUID id = defaultRuleChainId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.RULE_CHAIN, defaultRuleChainId2.getEntityType());
+    assertFalse(defaultRuleChainId2.isNullUid());
+    assertSame(defaultRuleChainId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Given {@link DeviceProfileEntity#DeviceProfileEntity()}.
+   *   <li>Then return Version is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_givenDeviceProfileEntity_thenReturnVersionIsNull() {
+    // Arrange and Act
+    DeviceProfile actualToDataResult = new DeviceProfileEntity().toData();
+
+    // Assert
+    assertNull(actualToDataResult.getVersion());
+    assertNull(actualToDataResult.getDefaultQueueName());
+    assertNull(actualToDataResult.getDescription());
+    assertNull(actualToDataResult.getImage());
+    assertNull(actualToDataResult.getName());
+    assertNull(actualToDataResult.getProvisionDeviceKey());
+    assertNull(actualToDataResult.getUuidId());
+    assertNull(actualToDataResult.getProvisionType());
+    assertNull(actualToDataResult.getType());
+    assertNull(actualToDataResult.getTransportType());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    assertFalse(actualToDataResult.isDefault());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return ExternalId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setExternalId(externalId);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act
+    DeviceProfile actualToDataResult = deviceProfileEntity.toData();
+
+    // Assert
+    DeviceProfileId externalId2 = actualToDataResult.getExternalId();
+    UUID id = externalId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.DEVICE_PROFILE, externalId2.getEntityType());
+    assertFalse(externalId2.isNullUid());
+    assertEquals(externalId2, actualToDataResult.getId());
+    assertSame(externalId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return FirmwareId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_thenReturnFirmwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    UUID firmwareId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setFirmwareId(firmwareId);
+    deviceProfileEntity.setSoftwareId(null);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act and Assert
+    OtaPackageId firmwareId2 = deviceProfileEntity.toData().getFirmwareId();
+    UUID id = firmwareId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.OTA_PACKAGE, firmwareId2.getEntityType());
+    assertFalse(firmwareId2.isNullUid());
+    assertSame(firmwareId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return SoftwareId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_thenReturnSoftwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setCreatedTime(1L);
+    deviceProfileEntity.setDefault(true);
+    deviceProfileEntity.setDefaultQueueName("Default Queue Name");
+    deviceProfileEntity.setDescription("The characteristics of someone or something");
+    deviceProfileEntity.setId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setImage("Image");
+    deviceProfileEntity.setName("Name");
+    deviceProfileEntity.setProvisionDeviceKey("Provision Device Key");
+    deviceProfileEntity.setProvisionType(DeviceProfileProvisionType.DISABLED);
+    deviceProfileEntity.setTransportType(DeviceTransportType.DEFAULT);
+    deviceProfileEntity.setType(DeviceProfileType.DEFAULT);
+    deviceProfileEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    deviceProfileEntity.setVersion(1L);
+    deviceProfileEntity.setTenantId(null);
+    deviceProfileEntity.setDefaultRuleChainId(null);
+    deviceProfileEntity.setDefaultDashboardId(null);
+    deviceProfileEntity.setFirmwareId(null);
+    UUID softwareId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    deviceProfileEntity.setSoftwareId(softwareId);
+    deviceProfileEntity.setDefaultEdgeRuleChainId(null);
+    deviceProfileEntity.setExternalId(null);
+    deviceProfileEntity.setProfileData(null);
+
+    // Act and Assert
+    OtaPackageId softwareId2 = deviceProfileEntity.toData().getSoftwareId();
+    UUID id = softwareId2.getId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id.toString());
+    assertEquals(EntityType.OTA_PACKAGE, softwareId2.getEntityType());
+    assertFalse(softwareId2.isNullUid());
+    assertSame(softwareId, id);
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id is randomUUID.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    UUID tenantId = UUID.randomUUID();
+    deviceProfileEntity.setTenantId(tenantId);
+
+    // Act and Assert
+    TenantId tenantId2 = deviceProfileEntity.toData().getTenantId();
+    assertEquals(EntityType.TENANT, tenantId2.getEntityType());
+    assertFalse(tenantId2.isNullUid());
+    assertFalse(tenantId2.isSysTenantId());
+    assertSame(tenantId, tenantId2.getId());
+  }
+
+  /**
+   * Test {@link DeviceProfileEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileEntity#toData()}
+   */
+  @Test
+  @Category(MaintainedByDiffblue.class)
+  @MethodsUnderTest({"DeviceProfile DeviceProfileEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    DeviceProfileEntity deviceProfileEntity = new DeviceProfileEntity();
+    deviceProfileEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    TenantId tenantId = deviceProfileEntity.toData().getTenantId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", tenantId.getId().toString());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertFalse(tenantId.isNullUid());
+    assertFalse(tenantId.isSysTenantId());
   }
 }

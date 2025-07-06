@@ -22,8 +22,8 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
 class RestClientDiffblueTest {
   /**
    * Test {@link RestClient#RestClient(String)}.
-   * <p>
-   * Method under test: {@link RestClient#RestClient(String)}
+   *
+   * <p>Method under test: {@link RestClient#RestClient(String)}
    */
   @Test
   @DisplayName("Test new RestClient(String)")
@@ -57,8 +57,8 @@ class RestClientDiffblueTest {
 
   /**
    * Test {@link RestClient#RestClient(RestTemplate, String)}.
-   * <p>
-   * Method under test: {@link RestClient#RestClient(RestTemplate, String)}
+   *
+   * <p>Method under test: {@link RestClient#RestClient(RestTemplate, String)}
    */
   @Test
   @DisplayName("Test new RestClient(RestTemplate, String)")
@@ -93,8 +93,9 @@ class RestClientDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RestClient#getRefreshToken()}
    *   <li>{@link RestClient#getRestTemplate()}
@@ -104,8 +105,11 @@ class RestClientDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String RestClient.getRefreshToken()", "RestTemplate RestClient.getRestTemplate()",
-      "String RestClient.getToken()"})
+  @MethodsUnderTest({
+    "String RestClient.getRefreshToken()",
+    "RestTemplate RestClient.getRestTemplate()",
+    "String RestClient.getToken()"
+  })
   void testGettersAndSetters() {
     // Arrange
     RestClient restClient = new RestClient("https://example.org/example");

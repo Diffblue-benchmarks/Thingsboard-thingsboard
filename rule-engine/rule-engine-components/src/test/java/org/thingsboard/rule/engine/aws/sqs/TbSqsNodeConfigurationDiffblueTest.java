@@ -16,8 +16,8 @@ import org.thingsboard.rule.engine.aws.sqs.TbSqsNodeConfiguration.QueueType;
 class TbSqsNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSqsNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -25,10 +25,12 @@ class TbSqsNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbSqsNodeConfiguration TbSqsNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbSqsNodeConfiguration actualDefaultConfigurationResult = (new TbSqsNodeConfiguration()).defaultConfiguration();
+    TbSqsNodeConfiguration actualDefaultConfigurationResult =
+        new TbSqsNodeConfiguration().defaultConfiguration();
 
     // Assert
-    assertEquals("https://sqs.us-east-1.amazonaws.com/123456789012/my-queue-name",
+    assertEquals(
+        "https://sqs.us-east-1.amazonaws.com/123456789012/my-queue-name",
         actualDefaultConfigurationResult.getQueueUrlPattern());
     assertEquals("us-east-1", actualDefaultConfigurationResult.getRegion());
     assertNull(actualDefaultConfigurationResult.getAccessKeyId());
@@ -39,13 +41,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -54,7 +59,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -67,13 +75,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -82,7 +93,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -98,13 +112,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -113,7 +130,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -129,13 +149,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -144,7 +167,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -160,13 +186,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -175,7 +204,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -191,13 +223,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -206,7 +241,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -222,13 +260,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -237,7 +278,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual7() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -253,13 +297,16 @@ class TbSqsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link TbSqsNodeConfiguration#hashCode()}.
+   * Test {@link TbSqsNodeConfiguration#equals(Object)}, and {@link
+   * TbSqsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSqsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSqsNodeConfiguration#hashCode()}
@@ -268,7 +315,10 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -281,17 +331,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSqsNodeConfiguration(), 1);
@@ -299,17 +353,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -321,17 +379,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -343,17 +405,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -365,17 +431,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -387,17 +457,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -409,17 +483,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -431,17 +509,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -453,17 +535,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -477,17 +563,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -501,17 +591,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -525,17 +619,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -549,17 +647,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -573,17 +675,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbSqsNodeConfiguration tbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -597,17 +703,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSqsNodeConfiguration(), null);
@@ -615,17 +725,21 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSqsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSqsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSqsNodeConfiguration.equals(Object)", "int TbSqsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSqsNodeConfiguration.equals(Object)",
+    "int TbSqsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSqsNodeConfiguration(), "Different type to TbSqsNodeConfiguration");
@@ -633,8 +747,9 @@ class TbSqsNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbSqsNodeConfiguration}
    *   <li>{@link TbSqsNodeConfiguration#setAccessKeyId(String)}
@@ -657,14 +772,24 @@ class TbSqsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbSqsNodeConfiguration.<init>()", "String TbSqsNodeConfiguration.getAccessKeyId()",
-      "int TbSqsNodeConfiguration.getDelaySeconds()", "Map TbSqsNodeConfiguration.getMessageAttributes()",
-      "QueueType TbSqsNodeConfiguration.getQueueType()", "String TbSqsNodeConfiguration.getQueueUrlPattern()",
-      "String TbSqsNodeConfiguration.getRegion()", "String TbSqsNodeConfiguration.getSecretAccessKey()",
-      "void TbSqsNodeConfiguration.setAccessKeyId(String)", "void TbSqsNodeConfiguration.setDelaySeconds(int)",
-      "void TbSqsNodeConfiguration.setMessageAttributes(Map)", "void TbSqsNodeConfiguration.setQueueType(QueueType)",
-      "void TbSqsNodeConfiguration.setQueueUrlPattern(String)", "void TbSqsNodeConfiguration.setRegion(String)",
-      "void TbSqsNodeConfiguration.setSecretAccessKey(String)", "String TbSqsNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbSqsNodeConfiguration.<init>()",
+    "String TbSqsNodeConfiguration.getAccessKeyId()",
+    "int TbSqsNodeConfiguration.getDelaySeconds()",
+    "Map TbSqsNodeConfiguration.getMessageAttributes()",
+    "QueueType TbSqsNodeConfiguration.getQueueType()",
+    "String TbSqsNodeConfiguration.getQueueUrlPattern()",
+    "String TbSqsNodeConfiguration.getRegion()",
+    "String TbSqsNodeConfiguration.getSecretAccessKey()",
+    "void TbSqsNodeConfiguration.setAccessKeyId(String)",
+    "void TbSqsNodeConfiguration.setDelaySeconds(int)",
+    "void TbSqsNodeConfiguration.setMessageAttributes(Map)",
+    "void TbSqsNodeConfiguration.setQueueType(QueueType)",
+    "void TbSqsNodeConfiguration.setQueueUrlPattern(String)",
+    "void TbSqsNodeConfiguration.setRegion(String)",
+    "void TbSqsNodeConfiguration.setSecretAccessKey(String)",
+    "String TbSqsNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbSqsNodeConfiguration actualTbSqsNodeConfiguration = new TbSqsNodeConfiguration();
@@ -679,7 +804,8 @@ class TbSqsNodeConfigurationDiffblueTest {
     String actualToStringResult = actualTbSqsNodeConfiguration.toString();
     String actualAccessKeyId = actualTbSqsNodeConfiguration.getAccessKeyId();
     int actualDelaySeconds = actualTbSqsNodeConfiguration.getDelaySeconds();
-    Map<String, String> actualMessageAttributes = actualTbSqsNodeConfiguration.getMessageAttributes();
+    Map<String, String> actualMessageAttributes =
+        actualTbSqsNodeConfiguration.getMessageAttributes();
     QueueType actualQueueType = actualTbSqsNodeConfiguration.getQueueType();
     String actualQueueUrlPattern = actualTbSqsNodeConfiguration.getQueueUrlPattern();
     String actualRegion = actualTbSqsNodeConfiguration.getRegion();

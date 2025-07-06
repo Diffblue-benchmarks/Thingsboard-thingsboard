@@ -14,15 +14,18 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 
 class TbSlackNodeDiffblueTest {
   /**
-   * Test {@link TbSlackNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code configuration}.
+   * Test {@link TbSlackNode#init(TbContext, TbNodeConfiguration)} with {@code ctx}, {@code
+   * configuration}.
+   *
    * <ul>
-   *   <li>Then calls {@link TbContext#isExternalNodeForceAck()}.</li>
+   *   <li>Then calls {@link TbContext#isExternalNodeForceAck()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSlackNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbSlackNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; then calls isExternalNodeForceAck()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration) with 'ctx', 'configuration'; then calls isExternalNodeForceAck()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbSlackNode.init(TbContext, TbNodeConfiguration)"})
   void testInitWithCtxConfiguration_thenCallsIsExternalNodeForceAck() throws TbNodeException {

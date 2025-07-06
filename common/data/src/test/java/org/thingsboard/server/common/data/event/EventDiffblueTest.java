@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class EventDiffblueTest {
   /**
    * Test {@link Event#putNotNull(ObjectNode, String, String)}.
-   * <p>
-   * Method under test: {@link Event#putNotNull(ObjectNode, String, String)}
+   *
+   * <p>Method under test: {@link Event#putNotNull(ObjectNode, String, String)}
    */
   @Test
   @DisplayName("Test putNotNull(ObjectNode, String, String)")
@@ -41,8 +41,8 @@ class EventDiffblueTest {
 
   /**
    * Test {@link Event#putNotNull(ObjectNode, String, String)}.
-   * <p>
-   * Method under test: {@link Event#putNotNull(ObjectNode, String, String)}
+   *
+   * <p>Method under test: {@link Event#putNotNull(ObjectNode, String, String)}
    */
   @Test
   @DisplayName("Test putNotNull(ObjectNode, String, String)")

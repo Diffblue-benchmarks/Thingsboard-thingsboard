@@ -11,15 +11,17 @@ import org.thingsboard.server.gen.edge.v1.EdgeVersion;
 class EdgeVersionUtilsDiffblueTest {
   /**
    * Test {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}.
+   *
    * <ul>
-   *   <li>When {@code V_3_3_0}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code V_3_3_0}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}
+   *
+   * <p>Method under test: {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}
    */
   @Test
-  @DisplayName("Test isEdgeVersionOlderThan(EdgeVersion, EdgeVersion); when 'V_3_3_0'; then return 'false'")
+  @DisplayName(
+      "Test isEdgeVersionOlderThan(EdgeVersion, EdgeVersion); when 'V_3_3_0'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeVersionUtils.isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)"})
   void testIsEdgeVersionOlderThan_whenV330_thenReturnFalse() {
@@ -29,15 +31,17 @@ class EdgeVersionUtilsDiffblueTest {
 
   /**
    * Test {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}.
+   *
    * <ul>
-   *   <li>When {@code V_3_3_3}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@code V_3_3_3}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}
+   *
+   * <p>Method under test: {@link EdgeVersionUtils#isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)}
    */
   @Test
-  @DisplayName("Test isEdgeVersionOlderThan(EdgeVersion, EdgeVersion); when 'V_3_3_3'; then return 'true'")
+  @DisplayName(
+      "Test isEdgeVersionOlderThan(EdgeVersion, EdgeVersion); when 'V_3_3_3'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeVersionUtils.isEdgeVersionOlderThan(EdgeVersion, EdgeVersion)"})
   void testIsEdgeVersionOlderThan_whenV333_thenReturnTrue() {

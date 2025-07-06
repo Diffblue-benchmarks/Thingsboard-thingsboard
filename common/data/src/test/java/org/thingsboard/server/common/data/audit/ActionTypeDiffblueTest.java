@@ -13,8 +13,8 @@ import org.thingsboard.server.common.data.msg.TbMsgType;
 class ActionTypeDiffblueTest {
   /**
    * Test {@link ActionType#getRuleEngineMsgType()}.
-   * <p>
-   * Method under test: {@link ActionType#getRuleEngineMsgType()}
+   *
+   * <p>Method under test: {@link ActionType#getRuleEngineMsgType()}
    */
   @Test
   @DisplayName("Test getRuleEngineMsgType()")
@@ -31,8 +31,9 @@ class ActionTypeDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionType#isAlarmAction()}
    *   <li>{@link ActionType#isRead()}

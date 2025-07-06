@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class OAuth2ClientIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientId#OAuth2ClientId(UUID)}
    *   <li>{@link OAuth2ClientId#getEntityType()}
@@ -22,7 +23,10 @@ class OAuth2ClientIdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientId.<init>(UUID)", "EntityType OAuth2ClientId.getEntityType()"})
+  @MethodsUnderTest({
+    "void OAuth2ClientId.<init>(UUID)",
+    "EntityType OAuth2ClientId.getEntityType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

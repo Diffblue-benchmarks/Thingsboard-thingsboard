@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class EventTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EventType#getOldName()}
    *   <li>{@link EventType#getTable()}
@@ -21,7 +22,11 @@ class EventTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String EventType.getOldName()", "String EventType.getTable()", "boolean EventType.isDebug()"})
+  @MethodsUnderTest({
+    "String EventType.getOldName()",
+    "String EventType.getTable()",
+    "boolean EventType.isDebug()"
+  })
   void testGettersAndSetters() {
     // Arrange
     EventType valueOfResult = EventType.valueOf("ERROR");

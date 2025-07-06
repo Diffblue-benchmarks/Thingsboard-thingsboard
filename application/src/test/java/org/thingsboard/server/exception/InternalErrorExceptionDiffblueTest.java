@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {InternalErrorException.class, String.class})
 @ExtendWith(SpringExtension.class)
 class InternalErrorExceptionDiffblueTest {
-  @Autowired
-  private InternalErrorException internalErrorException;
+  @Autowired private InternalErrorException internalErrorException;
 
   /**
    * Test {@link InternalErrorException#InternalErrorException(String)}.
-   * <p>
-   * Method under test: {@link InternalErrorException#InternalErrorException(String)}
+   *
+   * <p>Method under test: {@link InternalErrorException#InternalErrorException(String)}
    */
   @Test
   @DisplayName("Test new InternalErrorException(String)")
@@ -32,7 +31,8 @@ class InternalErrorExceptionDiffblueTest {
   @MethodsUnderTest({"void InternalErrorException.<init>(String)"})
   void testNewInternalErrorException() {
     // Arrange and Act
-    InternalErrorException actualInternalErrorException = new InternalErrorException("An error occurred");
+    InternalErrorException actualInternalErrorException =
+        new InternalErrorException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualInternalErrorException.getMessage());
@@ -42,8 +42,8 @@ class InternalErrorExceptionDiffblueTest {
 
   /**
    * Test {@link InternalErrorException#toErrorResponseEntity()}.
-   * <p>
-   * Method under test: {@link InternalErrorException#toErrorResponseEntity()}
+   *
+   * <p>Method under test: {@link InternalErrorException#toErrorResponseEntity()}
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
@@ -51,7 +51,8 @@ class InternalErrorExceptionDiffblueTest {
   @MethodsUnderTest({"ResponseEntity InternalErrorException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
-    ResponseEntity<String> actualToErrorResponseEntityResult = internalErrorException.toErrorResponseEntity();
+    ResponseEntity<String> actualToErrorResponseEntityResult =
+        internalErrorException.toErrorResponseEntity();
 
     // Assert
     HttpStatusCode statusCode = actualToErrorResponseEntityResult.getStatusCode();

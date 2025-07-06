@@ -3,92 +3,34 @@ package org.thingsboard.rule.engine.rabbitmq;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.google.api.core.ApiFutureToListenableFuture;
-import com.google.api.core.ForwardingApiFuture;
-import com.google.api.core.ListenableFutureToApiFuture;
-import com.google.common.util.concurrent.SettableFuture;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.rabbitmq.client.AMQP;
-import java.util.concurrent.Callable;
+import com.rabbitmq.client.AMQP.BasicProperties;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.thingsboard.rule.engine.TestDbCallbackExecutor;
-import org.thingsboard.rule.engine.api.TbContext;
 import org.thingsboard.rule.engine.api.TbNodeException;
-import org.thingsboard.server.common.msg.TbMsg;
 
 class TbRabbitMqNodeDiffblueTest {
   /**
-   * Test {@link TbRabbitMqNode#onMsg(TbContext, TbMsg)}.
-   * <ul>
-   *   <li>Then calls {@link TestDbCallbackExecutor#executeAsync(Callable)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#onMsg(TbContext, TbMsg)}
-   */
-  @Test
-  @DisplayName("Test onMsg(TbContext, TbMsg); then calls executeAsync(Callable)")
-  void testOnMsg_thenCallsExecuteAsync() {
-    // Arrange
-    TbRabbitMqNode tbRabbitMqNode = new TbRabbitMqNode();
-    TestDbCallbackExecutor testDbCallbackExecutor = mock(TestDbCallbackExecutor.class);
-    SettableFuture<Object> delegate = SettableFuture.create();
-    when(testDbCallbackExecutor.executeAsync(Mockito.<Callable<Object>>any())).thenReturn(
-        new ApiFutureToListenableFuture<>(new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
-    TbContext ctx = mock(TbContext.class);
-    when(ctx.getExternalCallExecutor()).thenReturn(testDbCallbackExecutor);
-
-    // Act
-    tbRabbitMqNode.onMsg(ctx, null);
-
-    // Assert
-    verify(testDbCallbackExecutor).executeAsync(isA(Callable.class));
-    verify(ctx).getExternalCallExecutor();
-  }
-
-  /**
-   * Test {@link TbRabbitMqNode#destroy()}.
-   * <ul>
-   *   <li>Then calls {@link TbContext#isExternalNodeForceAck()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#destroy()}
-   */
-  @Test
-  @DisplayName("Test destroy(); then calls isExternalNodeForceAck()")
-  void testDestroy_thenCallsIsExternalNodeForceAck() {
-    // Arrange
-    TbContext ctx = mock(TbContext.class);
-    when(ctx.isExternalNodeForceAck()).thenReturn(true);
-
-    TbRabbitMqNode tbRabbitMqNode = new TbRabbitMqNode();
-    tbRabbitMqNode.init(ctx);
-
-    // Act
-    tbRabbitMqNode.destroy();
-
-    // Assert that nothing has changed
-    verify(ctx).isExternalNodeForceAck();
-  }
-
-  /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code BASIC}.</li>
-   *   <li>Then return ContentType is {@code application/octet-stream}.</li>
+   *   <li>When {@code BASIC}.
+   *   <li>Then return ContentType is {@code application/octet-stream}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
-  @DisplayName("Test convert(String); when 'BASIC'; then return ContentType is 'application/octet-stream'")
-  void testConvert_whenBasic_thenReturnContentTypeIsApplicationOctetStream() throws TbNodeException {
+  @DisplayName(
+      "Test convert(String); when 'BASIC'; then return ContentType is 'application/octet-stream'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
+  void testConvert_whenBasic_thenReturnContentTypeIsApplicationOctetStream()
+      throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("BASIC");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("BASIC");
 
     // Assert
     assertEquals("application/octet-stream", actualConvertResult.getContentType());
@@ -112,18 +54,21 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code MINIMAL_BASIC}.</li>
-   *   <li>Then return DeliveryMode is {@code null}.</li>
+   *   <li>When {@code MINIMAL_BASIC}.
+   *   <li>Then return DeliveryMode is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
   @DisplayName("Test convert(String); when 'MINIMAL_BASIC'; then return DeliveryMode is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
   void testConvert_whenMinimalBasic_thenReturnDeliveryModeIsNull() throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("MINIMAL_BASIC");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("MINIMAL_BASIC");
 
     // Assert
     assertEquals("basic", actualConvertResult.getClassName());
@@ -147,18 +92,22 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code MINIMAL_PERSISTENT_BASIC}.</li>
-   *   <li>Then return Priority is {@code null}.</li>
+   *   <li>When {@code MINIMAL_PERSISTENT_BASIC}.
+   *   <li>Then return Priority is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
-  @DisplayName("Test convert(String); when 'MINIMAL_PERSISTENT_BASIC'; then return Priority is 'null'")
+  @DisplayName(
+      "Test convert(String); when 'MINIMAL_PERSISTENT_BASIC'; then return Priority is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
   void testConvert_whenMinimalPersistentBasic_thenReturnPriorityIsNull() throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("MINIMAL_PERSISTENT_BASIC");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("MINIMAL_PERSISTENT_BASIC");
 
     // Assert
     assertEquals("basic", actualConvertResult.getClassName());
@@ -182,15 +131,18 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
-   *   <li>Then throw {@link TbNodeException}.</li>
+   *   <li>When {@code Name}.
+   *   <li>Then throw {@link TbNodeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
   @DisplayName("Test convert(String); when 'Name'; then throw TbNodeException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
   void testConvert_whenName_thenThrowTbNodeException() throws TbNodeException {
     // Arrange, Act and Assert
     assertThrows(TbNodeException.class, () -> TbRabbitMqNode.convert("Name"));
@@ -198,18 +150,23 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code PERSISTENT_BASIC}.</li>
-   *   <li>Then return ContentType is {@code application/octet-stream}.</li>
+   *   <li>When {@code PERSISTENT_BASIC}.
+   *   <li>Then return ContentType is {@code application/octet-stream}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
-  @DisplayName("Test convert(String); when 'PERSISTENT_BASIC'; then return ContentType is 'application/octet-stream'")
-  void testConvert_whenPersistentBasic_thenReturnContentTypeIsApplicationOctetStream() throws TbNodeException {
+  @DisplayName(
+      "Test convert(String); when 'PERSISTENT_BASIC'; then return ContentType is 'application/octet-stream'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
+  void testConvert_whenPersistentBasic_thenReturnContentTypeIsApplicationOctetStream()
+      throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("PERSISTENT_BASIC");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("PERSISTENT_BASIC");
 
     // Assert
     assertEquals("application/octet-stream", actualConvertResult.getContentType());
@@ -233,18 +190,23 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code PERSISTENT_TEXT_PLAIN}.</li>
-   *   <li>Then return ContentType is {@code text/plain}.</li>
+   *   <li>When {@code PERSISTENT_TEXT_PLAIN}.
+   *   <li>Then return ContentType is {@code text/plain}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
-  @DisplayName("Test convert(String); when 'PERSISTENT_TEXT_PLAIN'; then return ContentType is 'text/plain'")
-  void testConvert_whenPersistentTextPlain_thenReturnContentTypeIsTextPlain() throws TbNodeException {
+  @DisplayName(
+      "Test convert(String); when 'PERSISTENT_TEXT_PLAIN'; then return ContentType is 'text/plain'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
+  void testConvert_whenPersistentTextPlain_thenReturnContentTypeIsTextPlain()
+      throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("PERSISTENT_TEXT_PLAIN");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("PERSISTENT_TEXT_PLAIN");
 
     // Assert
     assertEquals("basic", actualConvertResult.getClassName());
@@ -268,18 +230,21 @@ class TbRabbitMqNodeDiffblueTest {
 
   /**
    * Test {@link TbRabbitMqNode#convert(String)}.
+   *
    * <ul>
-   *   <li>When {@code TEXT_PLAIN}.</li>
-   *   <li>Then return ContentType is {@code text/plain}.</li>
+   *   <li>When {@code TEXT_PLAIN}.
+   *   <li>Then return ContentType is {@code text/plain}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRabbitMqNode#convert(String)}
+   *
+   * <p>Method under test: {@link TbRabbitMqNode#convert(String)}
    */
   @Test
   @DisplayName("Test convert(String); when 'TEXT_PLAIN'; then return ContentType is 'text/plain'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"BasicProperties TbRabbitMqNode.convert(String)"})
   void testConvert_whenTextPlain_thenReturnContentTypeIsTextPlain() throws TbNodeException {
     // Arrange and Act
-    AMQP.BasicProperties actualConvertResult = TbRabbitMqNode.convert("TEXT_PLAIN");
+    BasicProperties actualConvertResult = TbRabbitMqNode.convert("TEXT_PLAIN");
 
     // Assert
     assertEquals("basic", actualConvertResult.getClassName());

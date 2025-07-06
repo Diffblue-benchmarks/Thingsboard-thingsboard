@@ -23,16 +23,14 @@ import org.thingsboard.server.transport.lwm2m.server.store.TbLwM2MModelConfigSto
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class LwM2MModelConfigServiceImplDiffblueTest {
-  @InjectMocks
-  private LwM2MModelConfigServiceImpl lwM2MModelConfigServiceImpl;
+  @InjectMocks private LwM2MModelConfigServiceImpl lwM2MModelConfigServiceImpl;
 
-  @Mock
-  private TbLwM2MModelConfigStore tbLwM2MModelConfigStore;
+  @Mock private TbLwM2MModelConfigStore tbLwM2MModelConfigStore;
 
   /**
    * Test {@link LwM2MModelConfigServiceImpl#init()}.
-   * <p>
-   * Method under test: {@link LwM2MModelConfigServiceImpl#init()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfigServiceImpl#init()}
    */
   @Test
   @DisplayName("Test init()")
@@ -41,7 +39,8 @@ class LwM2MModelConfigServiceImplDiffblueTest {
   void testInit() {
     // Arrange
     ArrayList<LwM2MModelConfig> lwM2MModelConfigList = new ArrayList<>();
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
     lwM2MModelConfigList.add(lwM2MModelConfig);
     when(tbLwM2MModelConfigStore.getAll()).thenReturn(lwM2MModelConfigList);
 
@@ -50,15 +49,17 @@ class LwM2MModelConfigServiceImplDiffblueTest {
 
     // Assert
     verify(tbLwM2MModelConfigStore).getAll();
-    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap = lwM2MModelConfigServiceImpl.currentModelConfigs;
+    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap =
+        lwM2MModelConfigServiceImpl.currentModelConfigs;
     assertEquals(1, stringLwM2MModelConfigMap.size());
-    assertSame(lwM2MModelConfig, stringLwM2MModelConfigMap.get("https://config.us-east-2.amazonaws.com"));
+    assertSame(
+        lwM2MModelConfig, stringLwM2MModelConfigMap.get("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MModelConfigServiceImpl#init()}.
-   * <p>
-   * Method under test: {@link LwM2MModelConfigServiceImpl#init()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfigServiceImpl#init()}
    */
   @Test
   @DisplayName("Test init()")
@@ -67,7 +68,8 @@ class LwM2MModelConfigServiceImplDiffblueTest {
   void testInit2() {
     // Arrange
     ArrayList<LwM2MModelConfig> lwM2MModelConfigList = new ArrayList<>();
-    LwM2MModelConfig lwM2MModelConfig = new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
+    LwM2MModelConfig lwM2MModelConfig =
+        new LwM2MModelConfig("https://config.us-east-2.amazonaws.com");
     lwM2MModelConfigList.add(lwM2MModelConfig);
     lwM2MModelConfigList.add(new LwM2MModelConfig("https://config.us-east-2.amazonaws.com"));
     when(tbLwM2MModelConfigStore.getAll()).thenReturn(lwM2MModelConfigList);
@@ -77,15 +79,17 @@ class LwM2MModelConfigServiceImplDiffblueTest {
 
     // Assert
     verify(tbLwM2MModelConfigStore).getAll();
-    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap = lwM2MModelConfigServiceImpl.currentModelConfigs;
+    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap =
+        lwM2MModelConfigServiceImpl.currentModelConfigs;
     assertEquals(1, stringLwM2MModelConfigMap.size());
-    assertSame(lwM2MModelConfig, stringLwM2MModelConfigMap.get("https://config.us-east-2.amazonaws.com"));
+    assertSame(
+        lwM2MModelConfig, stringLwM2MModelConfigMap.get("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MModelConfigServiceImpl#init()}.
-   * <p>
-   * Method under test: {@link LwM2MModelConfigServiceImpl#init()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfigServiceImpl#init()}
    */
   @Test
   @DisplayName("Test init()")
@@ -106,18 +110,21 @@ class LwM2MModelConfigServiceImplDiffblueTest {
     // Assert
     verify(lwM2MModelConfig).getEndpoint();
     verify(tbLwM2MModelConfigStore).getAll();
-    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap = lwM2MModelConfigServiceImpl.currentModelConfigs;
+    ConcurrentMap<String, LwM2MModelConfig> stringLwM2MModelConfigMap =
+        lwM2MModelConfigServiceImpl.currentModelConfigs;
     assertEquals(1, stringLwM2MModelConfigMap.size());
     assertTrue(stringLwM2MModelConfigMap.containsKey("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link LwM2MModelConfigServiceImpl#init()}.
+   *
    * <ul>
-   *   <li>Then {@link LwM2MModelConfigServiceImpl} {@link LwM2MModelConfigServiceImpl#currentModelConfigs} Empty.</li>
+   *   <li>Then {@link LwM2MModelConfigServiceImpl} {@link
+   *       LwM2MModelConfigServiceImpl#currentModelConfigs} Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MModelConfigServiceImpl#init()}
+   *
+   * <p>Method under test: {@link LwM2MModelConfigServiceImpl#init()}
    */
   @Test
   @DisplayName("Test init(); then LwM2MModelConfigServiceImpl currentModelConfigs Empty")

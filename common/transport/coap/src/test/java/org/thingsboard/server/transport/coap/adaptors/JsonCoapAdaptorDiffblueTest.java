@@ -13,13 +13,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {JsonCoapAdaptor.class})
 @ExtendWith(SpringExtension.class)
 class JsonCoapAdaptorDiffblueTest {
-  @Autowired
-  private JsonCoapAdaptor jsonCoapAdaptor;
+  @Autowired private JsonCoapAdaptor jsonCoapAdaptor;
 
   /**
    * Test {@link JsonCoapAdaptor#getContentFormat()}.
-   * <p>
-   * Method under test: {@link JsonCoapAdaptor#getContentFormat()}
+   *
+   * <p>Method under test: {@link JsonCoapAdaptor#getContentFormat()}
    */
   @Test
   @DisplayName("Test getContentFormat()")

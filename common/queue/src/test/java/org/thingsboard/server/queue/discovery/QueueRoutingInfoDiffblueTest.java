@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -27,11 +27,12 @@ import org.thingsboard.server.gen.transport.TransportProtos.QueueUpdateMsg;
 class QueueRoutingInfoDiffblueTest {
   /**
    * Test {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}.
+   *
    * <ul>
-   *   <li>Then return QueueName is {@code Name}.</li>
+   *   <li>Then return QueueName is {@code Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}
    */
   @Test
   @DisplayName("Test new QueueRoutingInfo(Queue); then return QueueName is 'Name'")
@@ -51,7 +52,7 @@ class QueueRoutingInfoDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(15L);
@@ -63,7 +64,8 @@ class QueueRoutingInfoDiffblueTest {
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    QueueRoutingInfo actualQueueRoutingInfo = new QueueRoutingInfo(new Queue(tenantId, queueConfiguration));
+    QueueRoutingInfo actualQueueRoutingInfo =
+        new QueueRoutingInfo(new Queue(tenantId, queueConfiguration));
 
     // Assert
     assertEquals("Name", actualQueueRoutingInfo.getQueueName());
@@ -74,20 +76,26 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#QueueRoutingInfo(GetQueueRoutingInfoResponseMsg)}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return QueueName is empty string.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return QueueName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(TransportProtos.GetQueueRoutingInfoResponseMsg)}
+   *
+   * <p>Method under test: {@link
+   * QueueRoutingInfo#QueueRoutingInfo(TransportProtos.GetQueueRoutingInfoResponseMsg)}
    */
   @Test
-  @DisplayName("Test new QueueRoutingInfo(GetQueueRoutingInfoResponseMsg); when DefaultInstance; then return QueueName is empty string")
+  @DisplayName(
+      "Test new QueueRoutingInfo(GetQueueRoutingInfoResponseMsg); when DefaultInstance; then return QueueName is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void QueueRoutingInfo.<init>(TransportProtos.GetQueueRoutingInfoResponseMsg)"})
+  @MethodsUnderTest({
+    "void QueueRoutingInfo.<init>(TransportProtos.GetQueueRoutingInfoResponseMsg)"
+  })
   void testNewQueueRoutingInfo_whenDefaultInstance_thenReturnQueueNameIsEmptyString() {
     // Arrange and Act
-    QueueRoutingInfo actualQueueRoutingInfo = new QueueRoutingInfo(GetQueueRoutingInfoResponseMsg.getDefaultInstance());
+    QueueRoutingInfo actualQueueRoutingInfo =
+        new QueueRoutingInfo(GetQueueRoutingInfoResponseMsg.getDefaultInstance());
 
     // Assert
     assertEquals("", actualQueueRoutingInfo.getQueueName());
@@ -107,20 +115,23 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#QueueRoutingInfo(QueueUpdateMsg)}.
+   *
    * <ul>
-   *   <li>When DefaultInstance.</li>
-   *   <li>Then return QueueName is empty string.</li>
+   *   <li>When DefaultInstance.
+   *   <li>Then return QueueName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(QueueUpdateMsg)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(QueueUpdateMsg)}
    */
   @Test
-  @DisplayName("Test new QueueRoutingInfo(QueueUpdateMsg); when DefaultInstance; then return QueueName is empty string")
+  @DisplayName(
+      "Test new QueueRoutingInfo(QueueUpdateMsg); when DefaultInstance; then return QueueName is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueRoutingInfo.<init>(QueueUpdateMsg)"})
   void testNewQueueRoutingInfo_whenDefaultInstance_thenReturnQueueNameIsEmptyString2() {
     // Arrange and Act
-    QueueRoutingInfo actualQueueRoutingInfo = new QueueRoutingInfo(QueueUpdateMsg.getDefaultInstance());
+    QueueRoutingInfo actualQueueRoutingInfo =
+        new QueueRoutingInfo(QueueUpdateMsg.getDefaultInstance());
 
     // Assert
     assertEquals("", actualQueueRoutingInfo.getQueueName());
@@ -140,12 +151,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}.
+   *
    * <ul>
-   *   <li>When {@link Queue#Queue()}.</li>
-   *   <li>Then return QueueName is {@code null}.</li>
+   *   <li>When {@link Queue#Queue()}.
+   *   <li>Then return QueueName is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#QueueRoutingInfo(Queue)}
    */
   @Test
   @DisplayName("Test new QueueRoutingInfo(Queue); when Queue(); then return QueueName is 'null'")
@@ -164,12 +176,14 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}, and {@link QueueRoutingInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueRoutingInfo#equals(Object)}
    *   <li>{@link QueueRoutingInfo#hashCode()}
@@ -192,12 +206,14 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}, and {@link QueueRoutingInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueRoutingInfo#equals(Object)}
    *   <li>{@link QueueRoutingInfo#hashCode()}
@@ -221,7 +237,7 @@ class QueueRoutingInfoDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -230,8 +246,11 @@ class QueueRoutingInfoDiffblueTest {
     queueConfiguration.setProcessingStrategy(processingStrategy);
     queueConfiguration.setSubmitStrategy(submitStrategy);
     queueConfiguration.setTopic("Topic");
-    QueueRoutingInfo queueRoutingInfo = new QueueRoutingInfo(
-        new Queue(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), queueConfiguration));
+    QueueRoutingInfo queueRoutingInfo =
+        new QueueRoutingInfo(
+            new Queue(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                queueConfiguration));
 
     ProcessingStrategy processingStrategy2 = new ProcessingStrategy();
     processingStrategy2.setFailurePercentage(10.0d);
@@ -245,7 +264,7 @@ class QueueRoutingInfoDiffblueTest {
     submitStrategy2.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration2 = new TenantProfileQueueConfiguration();
-    queueConfiguration2.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration2.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration2.setConsumerPerPartition(true);
     queueConfiguration2.setName("Name");
     queueConfiguration2.setPackProcessingTimeout(1L);
@@ -254,8 +273,11 @@ class QueueRoutingInfoDiffblueTest {
     queueConfiguration2.setProcessingStrategy(processingStrategy2);
     queueConfiguration2.setSubmitStrategy(submitStrategy2);
     queueConfiguration2.setTopic("Topic");
-    QueueRoutingInfo queueRoutingInfo2 = new QueueRoutingInfo(
-        new Queue(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), queueConfiguration2));
+    QueueRoutingInfo queueRoutingInfo2 =
+        new QueueRoutingInfo(
+            new Queue(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                queueConfiguration2));
 
     // Act and Assert
     assertEquals(queueRoutingInfo, queueRoutingInfo2);
@@ -265,12 +287,14 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}, and {@link QueueRoutingInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueRoutingInfo#equals(Object)}
    *   <li>{@link QueueRoutingInfo#hashCode()}
@@ -292,12 +316,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -317,7 +342,7 @@ class QueueRoutingInfoDiffblueTest {
     submitStrategy.setType(SubmitStrategyType.BURST);
 
     TenantProfileQueueConfiguration queueConfiguration = new TenantProfileQueueConfiguration();
-    queueConfiguration.setAdditionalInfo(MissingNode.getInstance());
+    queueConfiguration.setAdditionalInfo(DoubleNode.valueOf(10.0d));
     queueConfiguration.setConsumerPerPartition(true);
     queueConfiguration.setName("Name");
     queueConfiguration.setPackProcessingTimeout(1L);
@@ -326,8 +351,11 @@ class QueueRoutingInfoDiffblueTest {
     queueConfiguration.setProcessingStrategy(processingStrategy);
     queueConfiguration.setSubmitStrategy(submitStrategy);
     queueConfiguration.setTopic("Topic");
-    QueueRoutingInfo queueRoutingInfo = new QueueRoutingInfo(
-        new Queue(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), queueConfiguration));
+    QueueRoutingInfo queueRoutingInfo =
+        new QueueRoutingInfo(
+            new Queue(
+                new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                queueConfiguration));
 
     // Act and Assert
     assertNotEquals(queueRoutingInfo, new QueueRoutingInfo(new Queue()));
@@ -335,12 +363,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -358,12 +387,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -381,12 +411,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -404,12 +435,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -428,12 +460,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -452,12 +485,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -476,12 +510,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -494,12 +529,13 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test {@link QueueRoutingInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueRoutingInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link QueueRoutingInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -512,8 +548,9 @@ class QueueRoutingInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link QueueRoutingInfo#toString()}
    *   <li>{@link QueueRoutingInfo#getPartitions()}
@@ -527,10 +564,15 @@ class QueueRoutingInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int QueueRoutingInfo.getPartitions()", "QueueId QueueRoutingInfo.getQueueId()",
-      "String QueueRoutingInfo.getQueueName()", "String QueueRoutingInfo.getQueueTopic()",
-      "TenantId QueueRoutingInfo.getTenantId()", "boolean QueueRoutingInfo.isDuplicateMsgToAllPartitions()",
-      "String QueueRoutingInfo.toString()"})
+  @MethodsUnderTest({
+    "int QueueRoutingInfo.getPartitions()",
+    "QueueId QueueRoutingInfo.getQueueId()",
+    "String QueueRoutingInfo.getQueueName()",
+    "String QueueRoutingInfo.getQueueTopic()",
+    "TenantId QueueRoutingInfo.getTenantId()",
+    "boolean QueueRoutingInfo.isDuplicateMsgToAllPartitions()",
+    "String QueueRoutingInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     QueueRoutingInfo queueRoutingInfo = new QueueRoutingInfo(new Queue());
@@ -544,8 +586,10 @@ class QueueRoutingInfoDiffblueTest {
     TenantId actualTenantId = queueRoutingInfo.getTenantId();
 
     // Assert
-    assertEquals("QueueRoutingInfo(tenantId=null, queueId=null, queueName=null, queueTopic=null, partitions=0,"
-        + " duplicateMsgToAllPartitions=false)", actualToStringResult);
+    assertEquals(
+        "QueueRoutingInfo(tenantId=null, queueId=null, queueName=null, queueTopic=null, partitions=0,"
+            + " duplicateMsgToAllPartitions=false)",
+        actualToStringResult);
     assertNull(actualQueueName);
     assertNull(actualQueueTopic);
     assertNull(actualQueueId);

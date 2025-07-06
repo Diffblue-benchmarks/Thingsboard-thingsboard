@@ -10,22 +10,27 @@ import org.thingsboard.server.common.data.id.UserId;
 
 class AlarmCreateOrUpdateActiveRequestDiffblueTest {
   /**
-   * Test {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm, UserId)} with {@code a}, {@code userId}.
+   * Test {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm, UserId)} with {@code a}, {@code
+   * userId}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Details is {@code null}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Details is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm, UserId)}
+   *
+   * <p>Method under test: {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm, UserId)}
    */
   @Test
-  @DisplayName("Test fromAlarm(Alarm, UserId) with 'a', 'userId'; when Alarm(); then return Details is 'null'")
+  @DisplayName(
+      "Test fromAlarm(Alarm, UserId) with 'a', 'userId'; when Alarm(); then return Details is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AlarmCreateOrUpdateActiveRequest AlarmCreateOrUpdateActiveRequest.fromAlarm(Alarm, UserId)"})
+  @MethodsUnderTest({
+    "AlarmCreateOrUpdateActiveRequest AlarmCreateOrUpdateActiveRequest.fromAlarm(Alarm, UserId)"
+  })
   void testFromAlarmWithAUserId_whenAlarm_thenReturnDetailsIsNull() {
     // Arrange and Act
-    AlarmCreateOrUpdateActiveRequest actualFromAlarmResult = AlarmCreateOrUpdateActiveRequest.fromAlarm(new Alarm(),
-        null);
+    AlarmCreateOrUpdateActiveRequest actualFromAlarmResult =
+        AlarmCreateOrUpdateActiveRequest.fromAlarm(new Alarm(), null);
 
     // Assert
     assertNull(actualFromAlarmResult.getDetails());
@@ -42,20 +47,24 @@ class AlarmCreateOrUpdateActiveRequestDiffblueTest {
 
   /**
    * Test {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm)} with {@code a}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Details is {@code null}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Details is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm)}
+   *
+   * <p>Method under test: {@link AlarmCreateOrUpdateActiveRequest#fromAlarm(Alarm)}
    */
   @Test
   @DisplayName("Test fromAlarm(Alarm) with 'a'; when Alarm(); then return Details is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AlarmCreateOrUpdateActiveRequest AlarmCreateOrUpdateActiveRequest.fromAlarm(Alarm)"})
+  @MethodsUnderTest({
+    "AlarmCreateOrUpdateActiveRequest AlarmCreateOrUpdateActiveRequest.fromAlarm(Alarm)"
+  })
   void testFromAlarmWithA_whenAlarm_thenReturnDetailsIsNull() {
     // Arrange and Act
-    AlarmCreateOrUpdateActiveRequest actualFromAlarmResult = AlarmCreateOrUpdateActiveRequest.fromAlarm(new Alarm());
+    AlarmCreateOrUpdateActiveRequest actualFromAlarmResult =
+        AlarmCreateOrUpdateActiveRequest.fromAlarm(new Alarm());
 
     // Assert
     assertNull(actualFromAlarmResult.getDetails());

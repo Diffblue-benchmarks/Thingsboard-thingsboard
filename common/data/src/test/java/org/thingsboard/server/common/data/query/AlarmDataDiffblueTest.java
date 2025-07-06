@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.ArrayList;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
@@ -24,15 +24,17 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AlarmDataDiffblueTest {
   /**
    * Test {@link AlarmData#AlarmData(Alarm, EntityId)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Status is {@code ACTIVE_ACK}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Status is {@code ACTIVE_ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmData#AlarmData(Alarm, EntityId)}
+   *
+   * <p>Method under test: {@link AlarmData#AlarmData(Alarm, EntityId)}
    */
   @Test
-  @DisplayName("Test new AlarmData(Alarm, EntityId); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @DisplayName(
+      "Test new AlarmData(Alarm, EntityId); given 'true'; then return Status is 'ACTIVE_ACK'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmData.<init>(Alarm, EntityId)"})
   void testNewAlarmData_givenTrue_thenReturnStatusIsActiveAck() {
@@ -80,42 +82,50 @@ class AlarmDataDiffblueTest {
 
   /**
    * Test {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Status is {@code ACTIVE_ACK}.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Status is {@code ACTIVE_ACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}
+   *
+   * <p>Method under test: {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}
    */
   @Test
-  @DisplayName("Test new AlarmData(AlarmInfo, AlarmData); given 'true'; then return Status is 'ACTIVE_ACK'")
+  @DisplayName(
+      "Test new AlarmData(AlarmInfo, AlarmData); given 'true'; then return Status is 'ACTIVE_ACK'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmData.<init>(AlarmInfo, AlarmData)"})
   void testNewAlarmData_givenTrue_thenReturnStatusIsActiveAck2() {
     // Arrange
     AlarmInfo main = new AlarmInfo();
     main.setAcknowledged(true);
-    AlarmBuilder clearedResult = Alarm.builder()
-        .ackTs(1L)
-        .acknowledged(true)
-        .assignTs(1L)
-        .assigneeId(null)
-        .clearTs(1L)
-        .cleared(true);
-    AlarmBuilder customerIdResult = clearedResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
-        .endTs(1L)
-        .originator(TenantId.SYS_TENANT_ID)
-        .propagate(true);
-    Alarm alarm = propagateResult.propagateRelationTypes(new ArrayList<>())
-        .propagateToOwner(true)
-        .propagateToTenant(true)
-        .severity(AlarmSeverity.CRITICAL)
-        .startTs(1L)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    AlarmBuilder clearedResult =
+        Alarm.builder()
+            .ackTs(1L)
+            .acknowledged(true)
+            .assignTs(1L)
+            .assigneeId(null)
+            .clearTs(1L)
+            .cleared(true);
+    AlarmBuilder customerIdResult =
+        clearedResult.customerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    AlarmBuilder propagateResult =
+        customerIdResult
+            .details(DoubleNode.valueOf(10.0d))
+            .endTs(1L)
+            .originator(TenantId.SYS_TENANT_ID)
+            .propagate(true);
+    Alarm alarm =
+        propagateResult
+            .propagateRelationTypes(new ArrayList<>())
+            .propagateToOwner(true)
+            .propagateToTenant(true)
+            .severity(AlarmSeverity.CRITICAL)
+            .startTs(1L)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act
     AlarmData actualAlarmData = new AlarmData(main, new AlarmData(alarm, TenantId.SYS_TENANT_ID));
@@ -154,11 +164,12 @@ class AlarmDataDiffblueTest {
 
   /**
    * Test {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}.
+   *
    * <ul>
-   *   <li>Then return Status is {@code ACTIVE_UNACK}.</li>
+   *   <li>Then return Status is {@code ACTIVE_UNACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}
+   *
+   * <p>Method under test: {@link AlarmData#AlarmData(AlarmInfo, AlarmData)}
    */
   @Test
   @DisplayName("Test new AlarmData(AlarmInfo, AlarmData); then return Status is 'ACTIVE_UNACK'")
@@ -167,27 +178,33 @@ class AlarmDataDiffblueTest {
   void testNewAlarmData_thenReturnStatusIsActiveUnack() {
     // Arrange
     AlarmInfo main = new AlarmInfo();
-    AlarmBuilder clearedResult = Alarm.builder()
-        .ackTs(1L)
-        .acknowledged(true)
-        .assignTs(1L)
-        .assigneeId(null)
-        .clearTs(1L)
-        .cleared(true);
-    AlarmBuilder customerIdResult = clearedResult
-        .customerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    AlarmBuilder propagateResult = customerIdResult.details(MissingNode.getInstance())
-        .endTs(1L)
-        .originator(TenantId.SYS_TENANT_ID)
-        .propagate(true);
-    Alarm alarm = propagateResult.propagateRelationTypes(new ArrayList<>())
-        .propagateToOwner(true)
-        .propagateToTenant(true)
-        .severity(AlarmSeverity.CRITICAL)
-        .startTs(1L)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    AlarmBuilder clearedResult =
+        Alarm.builder()
+            .ackTs(1L)
+            .acknowledged(true)
+            .assignTs(1L)
+            .assigneeId(null)
+            .clearTs(1L)
+            .cleared(true);
+    AlarmBuilder customerIdResult =
+        clearedResult.customerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    AlarmBuilder propagateResult =
+        customerIdResult
+            .details(DoubleNode.valueOf(10.0d))
+            .endTs(1L)
+            .originator(TenantId.SYS_TENANT_ID)
+            .propagate(true);
+    Alarm alarm =
+        propagateResult
+            .propagateRelationTypes(new ArrayList<>())
+            .propagateToOwner(true)
+            .propagateToTenant(true)
+            .severity(AlarmSeverity.CRITICAL)
+            .startTs(1L)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act
     AlarmData actualAlarmData = new AlarmData(main, new AlarmData(alarm, TenantId.SYS_TENANT_ID));
@@ -226,15 +243,17 @@ class AlarmDataDiffblueTest {
 
   /**
    * Test {@link AlarmData#AlarmData(Alarm, EntityId)}.
+   *
    * <ul>
-   *   <li>When {@link Alarm#Alarm()}.</li>
-   *   <li>Then return Status is {@code ACTIVE_UNACK}.</li>
+   *   <li>When {@link Alarm#Alarm()}.
+   *   <li>Then return Status is {@code ACTIVE_UNACK}.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmData#AlarmData(Alarm, EntityId)}
+   *
+   * <p>Method under test: {@link AlarmData#AlarmData(Alarm, EntityId)}
    */
   @Test
-  @DisplayName("Test new AlarmData(Alarm, EntityId); when Alarm(); then return Status is 'ACTIVE_UNACK'")
+  @DisplayName(
+      "Test new AlarmData(Alarm, EntityId); when Alarm(); then return Status is 'ACTIVE_UNACK'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmData.<init>(Alarm, EntityId)"})
   void testNewAlarmData_whenAlarm_thenReturnStatusIsActiveUnack() {

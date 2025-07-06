@@ -19,14 +19,16 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseDeviceMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseDeviceMsgConstructor#constructDeviceDeleteMsg(DeviceId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseDeviceMsgConstructor#constructDeviceDeleteMsg(DeviceId)}
+   *
+   * <p>Method under test: {@link BaseDeviceMsgConstructor#constructDeviceDeleteMsg(DeviceId)}
    */
   @Test
-  @DisplayName("Test constructDeviceDeleteMsg(DeviceId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructDeviceDeleteMsg(DeviceId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceUpdateMsg BaseDeviceMsgConstructor.constructDeviceDeleteMsg(DeviceId)"})
   void testConstructDeviceDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
@@ -34,8 +36,9 @@ class BaseDeviceMsgConstructorDiffblueTest {
     DeviceMsgConstructorV1 deviceMsgConstructorV1 = new DeviceMsgConstructorV1();
 
     // Act
-    DeviceUpdateMsg actualConstructDeviceDeleteMsgResult = deviceMsgConstructorV1
-        .constructDeviceDeleteMsg(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    DeviceUpdateMsg actualConstructDeviceDeleteMsgResult =
+        deviceMsgConstructorV1.constructDeviceDeleteMsg(
+            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructDeviceDeleteMsgResult.getInitializationErrorString());
@@ -58,7 +61,9 @@ class BaseDeviceMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructDeviceDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructDeviceDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructDeviceDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructDeviceDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructDeviceDeleteMsgResult.getMsgType());
     assertFalse(actualConstructDeviceDeleteMsgResult.hasAdditionalInfo());
     assertFalse(actualConstructDeviceDeleteMsgResult.hasConflictName());
     assertFalse(actualConstructDeviceDeleteMsgResult.hasCustomerIdLSB());
@@ -77,21 +82,24 @@ class BaseDeviceMsgConstructorDiffblueTest {
 
   /**
    * Test {@link BaseDeviceMsgConstructor#constructDeviceProfileDeleteMsg(DeviceProfileId)}.
-   * <p>
-   * Method under test: {@link BaseDeviceMsgConstructor#constructDeviceProfileDeleteMsg(DeviceProfileId)}
+   *
+   * <p>Method under test: {@link
+   * BaseDeviceMsgConstructor#constructDeviceProfileDeleteMsg(DeviceProfileId)}
    */
   @Test
   @DisplayName("Test constructDeviceProfileDeleteMsg(DeviceProfileId)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "DeviceProfileUpdateMsg BaseDeviceMsgConstructor.constructDeviceProfileDeleteMsg(DeviceProfileId)"})
+    "DeviceProfileUpdateMsg BaseDeviceMsgConstructor.constructDeviceProfileDeleteMsg(DeviceProfileId)"
+  })
   void testConstructDeviceProfileDeleteMsg() {
     // Arrange
     DeviceMsgConstructorV1 deviceMsgConstructorV1 = new DeviceMsgConstructorV1();
 
     // Act
-    DeviceProfileUpdateMsg actualConstructDeviceProfileDeleteMsgResult = deviceMsgConstructorV1
-        .constructDeviceProfileDeleteMsg(new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    DeviceProfileUpdateMsg actualConstructDeviceProfileDeleteMsgResult =
+        deviceMsgConstructorV1.constructDeviceProfileDeleteMsg(
+            new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructDeviceProfileDeleteMsgResult.getInitializationErrorString());
@@ -116,7 +124,9 @@ class BaseDeviceMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructDeviceProfileDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructDeviceProfileDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructDeviceProfileDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructDeviceProfileDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructDeviceProfileDeleteMsgResult.getMsgType());
     assertFalse(actualConstructDeviceProfileDeleteMsgResult.getDefault());
     assertFalse(actualConstructDeviceProfileDeleteMsgResult.hasDefaultDashboardIdLSB());
     assertFalse(actualConstructDeviceProfileDeleteMsgResult.hasDefaultDashboardIdMSB());
@@ -132,6 +142,8 @@ class BaseDeviceMsgConstructorDiffblueTest {
     assertTrue(actualConstructDeviceProfileDeleteMsgResult.findInitializationErrors().isEmpty());
     assertTrue(actualConstructDeviceProfileDeleteMsgResult.isInitialized());
     ByteString expectedProfileDataBytes = actualConstructDeviceProfileDeleteMsgResult.getImage();
-    assertSame(expectedProfileDataBytes, actualConstructDeviceProfileDeleteMsgResult.getProfileDataBytes());
+    assertSame(
+        expectedProfileDataBytes,
+        actualConstructDeviceProfileDeleteMsgResult.getProfileDataBytes());
   }
 }

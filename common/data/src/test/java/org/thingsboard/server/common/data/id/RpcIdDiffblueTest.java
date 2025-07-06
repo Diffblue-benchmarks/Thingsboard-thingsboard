@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class RpcIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcId#RpcId(UUID)}
    *   <li>{@link RpcId#getEntityType()}

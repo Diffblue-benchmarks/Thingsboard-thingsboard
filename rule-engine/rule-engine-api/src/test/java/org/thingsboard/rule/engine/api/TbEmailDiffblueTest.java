@@ -22,17 +22,18 @@ import org.thingsboard.rule.engine.api.TbEmail.TbEmailBuilder;
 @ContextConfiguration(classes = {TbEmailBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbEmailDiffblueTest {
-  @Autowired
-  private TbEmailBuilder tbEmailBuilder;
+  @Autowired private TbEmailBuilder tbEmailBuilder;
 
   /**
    * Test {@link TbEmail#equals(Object)}, and {@link TbEmail#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmail#equals(Object)}
    *   <li>{@link TbEmail#hashCode()}
@@ -44,26 +45,32 @@ class TbEmailDiffblueTest {
   @MethodsUnderTest({"boolean TbEmail.equals(Object)", "int TbEmail.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbEmailBuilder htmlResult = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -73,12 +80,14 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}, and {@link TbEmail#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmail#equals(Object)}
    *   <li>{@link TbEmail#hashCode()}
@@ -92,26 +101,34 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult2 = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -121,12 +138,14 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}, and {@link TbEmail#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmail#equals(Object)}
    *   <li>{@link TbEmail#hashCode()}
@@ -142,28 +161,36 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder4 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder4.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder3);
-    TbEmailBuilder htmlResult2 = tbEmailBuilder4.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder4
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -173,12 +200,14 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}, and {@link TbEmail#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmail#equals(Object)}
    *   <li>{@link TbEmail#hashCode()}
@@ -190,16 +219,19 @@ class TbEmailDiffblueTest {
   @MethodsUnderTest({"boolean TbEmail.equals(Object)", "int TbEmail.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbEmailBuilder htmlResult = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -209,12 +241,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -224,25 +257,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -250,12 +290,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -265,25 +306,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("jane.doe@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("jane.doe@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -291,12 +339,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -306,25 +355,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc(null)
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc(null)
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -332,12 +388,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -347,25 +404,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("alice.liddell@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("alice.liddell@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -373,12 +437,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -388,25 +453,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from(null)
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from(null)
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -414,12 +486,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -429,25 +502,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(false);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(false);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -455,12 +535,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -470,25 +551,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("jane.doe@example.org")
-        .build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("jane.doe@example.org")
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -496,12 +584,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -511,22 +600,32 @@ class TbEmailDiffblueTest {
     // Arrange
     TbEmailBuilder tbEmailBuilder = mock(TbEmailBuilder.class);
     when(tbEmailBuilder.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult = tbEmailBuilder.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>()).subject("Hello from the Dreaming Spires").to(null).build();
-    TbEmailBuilder htmlResult2 = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to(null)
+            .build();
+    TbEmailBuilder htmlResult2 =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -534,12 +633,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -551,26 +651,34 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult2 = tbEmailBuilder3.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder3
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -578,12 +686,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -595,26 +704,34 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("jane.doe@example.org")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("jane.doe@example.org")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult2 = tbEmailBuilder3.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder3
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -622,12 +739,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -639,23 +757,30 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>()).subject(null).to("alice.liddell@example.org").build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult.images(new HashMap<>()).subject(null).to("alice.liddell@example.org").build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.bcc(Mockito.<String>any())).thenReturn(TbEmail.builder());
-    TbEmailBuilder htmlResult2 = tbEmailBuilder3.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder3
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -663,12 +788,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -680,31 +806,39 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
 
     HashMap<String, String> images = new HashMap<>();
     images.put("ada.lovelace@example.org", "ada.lovelace@example.org");
-    TbEmail buildResult = htmlResult.images(images)
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmail buildResult =
+        htmlResult
+            .images(images)
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder4 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder4.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder3);
-    TbEmailBuilder htmlResult2 = tbEmailBuilder4.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder4
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -712,12 +846,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -731,28 +866,36 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder4 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder4.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder3);
-    TbEmailBuilder htmlResult2 = tbEmailBuilder4.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder4
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -760,12 +903,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -779,28 +923,36 @@ class TbEmailDiffblueTest {
     when(tbEmailBuilder.body(Mockito.<String>any())).thenReturn(builderResult);
     TbEmailBuilder tbEmailBuilder2 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder2.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder);
-    TbEmailBuilder htmlResult = tbEmailBuilder2.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        tbEmailBuilder2
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
     TbEmailBuilder tbEmailBuilder3 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder3.body(Mockito.<String>any())).thenReturn(TbEmail.builder());
     TbEmailBuilder tbEmailBuilder4 = mock(TbEmailBuilder.class);
     when(tbEmailBuilder4.bcc(Mockito.<String>any())).thenReturn(tbEmailBuilder3);
-    TbEmailBuilder htmlResult2 = tbEmailBuilder4.bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult2 = htmlResult2.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult2 =
+        tbEmailBuilder4
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult2 =
+        htmlResult2
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -808,12 +960,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -821,16 +974,19 @@ class TbEmailDiffblueTest {
   @MethodsUnderTest({"boolean TbEmail.equals(Object)", "int TbEmail.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TbEmailBuilder htmlResult = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -838,12 +994,13 @@ class TbEmailDiffblueTest {
 
   /**
    * Test {@link TbEmail#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbEmail#equals(Object)}
+   *
+   * <p>Method under test: {@link TbEmail#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -851,16 +1008,19 @@ class TbEmailDiffblueTest {
   @MethodsUnderTest({"boolean TbEmail.equals(Object)", "int TbEmail.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TbEmailBuilder htmlResult = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
-    TbEmail buildResult = htmlResult.images(new HashMap<>())
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmailBuilder htmlResult =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
+    TbEmail buildResult =
+        htmlResult
+            .images(new HashMap<>())
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to TbEmail");
@@ -868,8 +1028,9 @@ class TbEmailDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmail#TbEmail(String, String, String, String, String, String, Map, boolean)}
    *   <li>{@link TbEmail#toString()}
@@ -886,17 +1047,33 @@ class TbEmailDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbEmail.<init>(String, String, String, String, String, String, Map, boolean)",
-      "String TbEmail.getBcc()", "String TbEmail.getBody()", "String TbEmail.getCc()", "String TbEmail.getFrom()",
-      "Map TbEmail.getImages()", "String TbEmail.getSubject()", "String TbEmail.getTo()", "boolean TbEmail.isHtml()",
-      "String TbEmail.toString()"})
+  @MethodsUnderTest({
+    "void TbEmail.<init>(String, String, String, String, String, String, Map, boolean)",
+    "String TbEmail.getBcc()",
+    "String TbEmail.getBody()",
+    "String TbEmail.getCc()",
+    "String TbEmail.getFrom()",
+    "Map TbEmail.getImages()",
+    "String TbEmail.getSubject()",
+    "String TbEmail.getTo()",
+    "boolean TbEmail.isHtml()",
+    "String TbEmail.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HashMap<String, String> images = new HashMap<>();
 
     // Act
-    TbEmail actualTbEmail = new TbEmail("jane.doe@example.org", "alice.liddell@example.org", "ada.lovelace@example.org",
-        "ada.lovelace@example.org", "Hello from the Dreaming Spires", "Not all who wander are lost", images, true);
+    TbEmail actualTbEmail =
+        new TbEmail(
+            "jane.doe@example.org",
+            "alice.liddell@example.org",
+            "ada.lovelace@example.org",
+            "ada.lovelace@example.org",
+            "Hello from the Dreaming Spires",
+            "Not all who wander are lost",
+            images,
+            true);
     String actualToStringResult = actualTbEmail.toString();
     String actualBcc = actualTbEmail.getBcc();
     String actualBody = actualTbEmail.getBody();
@@ -910,9 +1087,11 @@ class TbEmailDiffblueTest {
     // Assert
     assertEquals("Hello from the Dreaming Spires", actualSubject);
     assertEquals("Not all who wander are lost", actualBody);
-    assertEquals("TbEmail(from=jane.doe@example.org, to=alice.liddell@example.org, cc=ada.lovelace@example.org,"
-        + " bcc=ada.lovelace@example.org, subject=Hello from the Dreaming Spires, body=Not all who wander are"
-        + " lost, images={}, html=true)", actualToStringResult);
+    assertEquals(
+        "TbEmail(from=jane.doe@example.org, to=alice.liddell@example.org, cc=ada.lovelace@example.org,"
+            + " bcc=ada.lovelace@example.org, subject=Hello from the Dreaming Spires, body=Not all who wander are"
+            + " lost, images={}, html=true)",
+        actualToStringResult);
     assertEquals("ada.lovelace@example.org", actualBcc);
     assertEquals("ada.lovelace@example.org", actualCc);
     assertEquals("alice.liddell@example.org", actualTo);
@@ -924,8 +1103,9 @@ class TbEmailDiffblueTest {
 
   /**
    * Test TbEmailBuilder {@link TbEmailBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbEmailBuilder#build()}
    *   <li>{@link TbEmailBuilder#bcc(String)}
@@ -941,27 +1121,37 @@ class TbEmailDiffblueTest {
   @Test
   @DisplayName("Test TbEmailBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbEmailBuilder.<init>()", "TbEmailBuilder TbEmailBuilder.bcc(String)",
-      "TbEmailBuilder TbEmailBuilder.body(String)", "TbEmail TbEmailBuilder.build()",
-      "TbEmailBuilder TbEmailBuilder.cc(String)", "TbEmailBuilder TbEmailBuilder.from(String)",
-      "TbEmailBuilder TbEmailBuilder.html(boolean)", "TbEmailBuilder TbEmailBuilder.images(Map)",
-      "TbEmailBuilder TbEmailBuilder.subject(String)", "TbEmailBuilder TbEmailBuilder.to(String)",
-      "String TbEmailBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TbEmailBuilder.<init>()",
+    "TbEmailBuilder TbEmailBuilder.bcc(String)",
+    "TbEmailBuilder TbEmailBuilder.body(String)",
+    "TbEmail TbEmailBuilder.build()",
+    "TbEmailBuilder TbEmailBuilder.cc(String)",
+    "TbEmailBuilder TbEmailBuilder.from(String)",
+    "TbEmailBuilder TbEmailBuilder.html(boolean)",
+    "TbEmailBuilder TbEmailBuilder.images(Map)",
+    "TbEmailBuilder TbEmailBuilder.subject(String)",
+    "TbEmailBuilder TbEmailBuilder.to(String)",
+    "String TbEmailBuilder.toString()"
+  })
   void testTbEmailBuilderBuild() {
     // Arrange
-    TbEmailBuilder htmlResult = TbEmail.builder()
-        .bcc("ada.lovelace@example.org")
-        .body("Not all who wander are lost")
-        .cc("ada.lovelace@example.org")
-        .from("jane.doe@example.org")
-        .html(true);
+    TbEmailBuilder htmlResult =
+        TbEmail.builder()
+            .bcc("ada.lovelace@example.org")
+            .body("Not all who wander are lost")
+            .cc("ada.lovelace@example.org")
+            .from("jane.doe@example.org")
+            .html(true);
     HashMap<String, String> images = new HashMap<>();
 
     // Act
-    TbEmail actualBuildResult = htmlResult.images(images)
-        .subject("Hello from the Dreaming Spires")
-        .to("alice.liddell@example.org")
-        .build();
+    TbEmail actualBuildResult =
+        htmlResult
+            .images(images)
+            .subject("Hello from the Dreaming Spires")
+            .to("alice.liddell@example.org")
+            .build();
 
     // Assert
     assertEquals("Hello from the Dreaming Spires", actualBuildResult.getSubject());

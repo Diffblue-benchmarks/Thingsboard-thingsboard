@@ -39,35 +39,36 @@ import org.thingsboard.server.service.mobile.secret.MobileAppSecretService;
 
 @ExtendWith(MockitoExtension.class)
 class MobileApplicationControllerDiffblueTest {
-  @Mock
-  private MobileAppSecretService mobileAppSecretService;
+  @Mock private MobileAppSecretService mobileAppSecretService;
 
-  @Mock
-  private MobileAppSettingsService mobileAppSettingsService;
+  @Mock private MobileAppSettingsService mobileAppSettingsService;
 
-  @InjectMocks
-  private MobileApplicationController mobileApplicationController;
+  @InjectMocks private MobileApplicationController mobileApplicationController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link MobileApplicationController#getAssetLinks()}.
+   *
    * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /.well-known/assetlinks.json}.</li>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code
+   *       /.well-known/assetlinks.json}.
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getAssetLinks()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getAssetLinks()}
    */
   @Test
-  @DisplayName("Test getAssetLinks(); when get(String, Object[]) '/.well-known/assetlinks.json'; then status isNotFound()")
+  @DisplayName(
+      "Test getAssetLinks(); when get(String, Object[]) '/.well-known/assetlinks.json'; then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ResponseEntity MobileApplicationController.getAssetLinks()"})
   void testGetAssetLinks_whenGetWellKnownAssetlinksJson_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any())).thenReturn(new MobileAppSettings());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/.well-known/assetlinks.json");
+    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any()))
+        .thenReturn(new MobileAppSettings());
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/.well-known/assetlinks.json");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileApplicationController)
@@ -79,21 +80,25 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getAppleAppSiteAssociation()}.
+   *
    * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /.well-known/apple-app-site-association}.</li>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code
+   *       /.well-known/apple-app-site-association}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getAppleAppSiteAssociation()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getAppleAppSiteAssociation()}
    */
   @Test
-  @DisplayName("Test getAppleAppSiteAssociation(); when get(String, Object[]) '/.well-known/apple-app-site-association'")
+  @DisplayName(
+      "Test getAppleAppSiteAssociation(); when get(String, Object[]) '/.well-known/apple-app-site-association'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ResponseEntity MobileApplicationController.getAppleAppSiteAssociation()"})
   void testGetAppleAppSiteAssociation_whenGetWellKnownAppleAppSiteAssociation() throws Exception {
     // Arrange
-    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any())).thenReturn(new MobileAppSettings());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-        .get("/.well-known/apple-app-site-association");
+    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any()))
+        .thenReturn(new MobileAppSettings());
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/.well-known/apple-app-site-association");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileApplicationController)
@@ -105,47 +110,57 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#saveMobileAppSettings(MobileAppSettings)}.
+   *
    * <ul>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#saveMobileAppSettings(MobileAppSettings)}
+   *
+   * <p>Method under test: {@link
+   * MobileApplicationController#saveMobileAppSettings(MobileAppSettings)}
    */
   @Test
   @DisplayName("Test saveMobileAppSettings(MobileAppSettings); then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"MobileAppSettings MobileApplicationController.saveMobileAppSettings(MobileAppSettings)"})
+  @MethodsUnderTest({
+    "MobileAppSettings MobileApplicationController.saveMobileAppSettings(MobileAppSettings)"
+  })
   void testSaveMobileAppSettings_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/mobile/app/settings");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/mobile/app/settings");
     postResult.characterEncoding("https://example.org/example");
 
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
-    AndroidConfig androidConfig = AndroidConfig.builder()
-        .appPackage("java.text")
-        .enabled(true)
-        .sha256CertFingerprints("b6:03:0e:39:97:9e:d0:e7:24:ce:a3:77:3e:01:42:09")
-        .storeLink("Store Link")
-        .build();
+    AndroidConfig androidConfig =
+        AndroidConfig.builder()
+            .appPackage("java.text")
+            .enabled(true)
+            .sha256CertFingerprints("b6:03:0e:39:97:9e:d0:e7:24:ce:a3:77:3e:01:42:09")
+            .storeLink("Store Link")
+            .build();
     mobileAppSettings.setAndroidConfig(androidConfig);
     mobileAppSettings.setCreatedTime(1L);
     mobileAppSettings.setDefaultAppStoreLink("Default App Store Link");
     mobileAppSettings.setDefaultGooglePlayLink("Default Google Play Link");
     mobileAppSettings.setId(null);
-    IosConfig iosConfig = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
+    IosConfig iosConfig =
+        IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
     mobileAppSettings.setIosConfig(iosConfig);
-    QRCodeConfig qrCodeConfig = QRCodeConfig.builder()
-        .badgeEnabled(true)
-        .badgePosition(BadgePosition.RIGHT)
-        .qrCodeLabel("Qr Code Label")
-        .qrCodeLabelEnabled(true)
-        .showOnHomePage(true)
-        .build();
+    QRCodeConfig qrCodeConfig =
+        QRCodeConfig.builder()
+            .badgeEnabled(true)
+            .badgePosition(BadgePosition.RIGHT)
+            .qrCodeLabel("Qr Code Label")
+            .qrCodeLabelEnabled(true)
+            .showOnHomePage(true)
+            .build();
     mobileAppSettings.setQrCodeConfig(qrCodeConfig);
-    mobileAppSettings.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    mobileAppSettings.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     mobileAppSettings.setUseDefaultApp(true);
-    String content = (new ObjectMapper()).writeValueAsString(mobileAppSettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(mobileAppSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileApplicationController)
@@ -157,8 +172,8 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppSettings()}.
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppSettings()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getMobileAppSettings()}
    */
   @Test
   @DisplayName("Test getMobileAppSettings()")
@@ -166,7 +181,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"MobileAppSettings MobileApplicationController.getMobileAppSettings()"})
   void testGetMobileAppSettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -180,8 +196,8 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppSettings()}.
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppSettings()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getMobileAppSettings()}
    */
   @Test
   @DisplayName("Test getMobileAppSettings()")
@@ -189,7 +205,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"MobileAppSettings MobileApplicationController.getMobileAppSettings()"})
   void testGetMobileAppSettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -199,17 +216,20 @@ class MobileApplicationControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link MobileApplicationController#getMobileAppSettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppSettings()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getMobileAppSettings()}
    */
   @Test
   @DisplayName("Test getMobileAppSettings(); then status isNotFound()")
@@ -217,7 +237,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"MobileAppSettings MobileApplicationController.getMobileAppSettings()"})
   void testGetMobileAppSettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -231,20 +252,24 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppSettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppSettings()}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getMobileAppSettings()}
    */
   @Test
-  @DisplayName("Test getMobileAppSettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getMobileAppSettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileAppSettings MobileApplicationController.getMobileAppSettings()"})
-  void testGetMobileAppSettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetMobileAppSettings_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -260,8 +285,9 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}.
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test getMobileAppDeepLink(HttpServletRequest)")
@@ -269,7 +295,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"String MobileApplicationController.getMobileAppDeepLink(HttpServletRequest)"})
   void testGetMobileAppDeepLink() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -283,8 +310,9 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}.
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test getMobileAppDeepLink(HttpServletRequest)")
@@ -292,7 +320,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"String MobileApplicationController.getMobileAppDeepLink(HttpServletRequest)"})
   void testGetMobileAppDeepLink2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -302,17 +331,21 @@ class MobileApplicationControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
    */
   @Test
   @DisplayName("Test getMobileAppDeepLink(HttpServletRequest); then status isNotFound()")
@@ -320,7 +353,8 @@ class MobileApplicationControllerDiffblueTest {
   @MethodsUnderTest({"String MobileApplicationController.getMobileAppDeepLink(HttpServletRequest)"})
   void testGetMobileAppDeepLink_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -334,20 +368,25 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link
+   * MobileApplicationController#getMobileAppDeepLink(HttpServletRequest)}
    */
   @Test
-  @DisplayName("Test getMobileAppDeepLink(HttpServletRequest); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getMobileAppDeepLink(HttpServletRequest); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String MobileApplicationController.getMobileAppDeepLink(HttpServletRequest)"})
-  void testGetMobileAppDeepLink_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetMobileAppDeepLink_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -363,21 +402,26 @@ class MobileApplicationControllerDiffblueTest {
 
   /**
    * Test {@link MobileApplicationController#getUserTokenByMobileSecret(String)}.
+   *
    * <ul>
-   *   <li>When {@code Secret}.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When {@code Secret}.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileApplicationController#getUserTokenByMobileSecret(String)}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getUserTokenByMobileSecret(String)}
    */
   @Test
-  @DisplayName("Test getUserTokenByMobileSecret(String); when 'Secret'; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getUserTokenByMobileSecret(String); when 'Secret'; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JwtPair MobileApplicationController.getUserTokenByMobileSecret(String)"})
-  void testGetUserTokenByMobileSecret_whenSecret_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetUserTokenByMobileSecret_whenSecret_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(mobileAppSecretService.getJwtPair(Mockito.<String>any())).thenReturn(new JwtPair("ABC123", "ABC123"));
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/noauth/qr/{secret}", "Secret");
+    when(mobileAppSecretService.getJwtPair(Mockito.<String>any()))
+        .thenReturn(new JwtPair("ABC123", "ABC123"));
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/noauth/qr/{secret}", "Secret");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileApplicationController)
@@ -386,13 +430,15 @@ class MobileApplicationControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-        .andExpect(MockMvcResultMatchers.content().string("{\"token\":\"ABC123\",\"refreshToken\":\"ABC123\"}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string("{\"token\":\"ABC123\",\"refreshToken\":\"ABC123\"}"));
   }
 
   /**
    * Test {@link MobileApplicationController#getApplicationRedirect(String)}.
-   * <p>
-   * Method under test: {@link MobileApplicationController#getApplicationRedirect(String)}
+   *
+   * <p>Method under test: {@link MobileApplicationController#getApplicationRedirect(String)}
    */
   @Test
   @DisplayName("Test getApplicationRedirect(String)")
@@ -402,19 +448,26 @@ class MobileApplicationControllerDiffblueTest {
     // Arrange
     AndroidConfigBuilder builderResult = AndroidConfig.builder();
     builderResult.enabled(true);
-    AndroidConfig androidConfig = builderResult.appPackage("java.text")
-        .enabled(true)
-        .sha256CertFingerprints("b6:03:0e:39:97:9e:d0:e7:24:ce:a3:77:3e:01:42:09")
-        .storeLink("Store Link")
-        .build();
+    AndroidConfig androidConfig =
+        builderResult
+            .appPackage("java.text")
+            .enabled(true)
+            .sha256CertFingerprints("b6:03:0e:39:97:9e:d0:e7:24:ce:a3:77:3e:01:42:09")
+            .storeLink("Store Link")
+            .build();
 
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
-    IosConfig iosConfig = IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
+    IosConfig iosConfig =
+        IosConfig.builder().appId("42").enabled(true).storeLink("Store Link").build();
     mobileAppSettings.setIosConfig(iosConfig);
     mobileAppSettings.setAndroidConfig(androidConfig);
-    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any())).thenReturn(mobileAppSettings);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/noauth/qr")
-        .header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0");
+    when(mobileAppSettingsService.getMobileAppSettings(Mockito.<TenantId>any()))
+        .thenReturn(mobileAppSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/noauth/qr")
+            .header(
+                "User-Agent",
+                "Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(mobileApplicationController)

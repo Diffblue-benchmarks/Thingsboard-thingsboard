@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class NoSecClientCredentialDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NoSecClientCredential}
    *   <li>{@link NoSecClientCredential#getSecurityConfigClientMode()}
@@ -20,12 +21,15 @@ class NoSecClientCredentialDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NoSecClientCredential.<init>()",
-      "LwM2MSecurityMode NoSecClientCredential.getSecurityConfigClientMode()"})
+  @MethodsUnderTest({
+    "void NoSecClientCredential.<init>()",
+    "LwM2MSecurityMode NoSecClientCredential.getSecurityConfigClientMode()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NoSecClientCredential actualNoSecClientCredential = new NoSecClientCredential();
-    LwM2MSecurityMode actualSecurityConfigClientMode = actualNoSecClientCredential.getSecurityConfigClientMode();
+    LwM2MSecurityMode actualSecurityConfigClientMode =
+        actualNoSecClientCredential.getSecurityConfigClientMode();
 
     // Assert
     assertNull(actualNoSecClientCredential.getEndpoint());

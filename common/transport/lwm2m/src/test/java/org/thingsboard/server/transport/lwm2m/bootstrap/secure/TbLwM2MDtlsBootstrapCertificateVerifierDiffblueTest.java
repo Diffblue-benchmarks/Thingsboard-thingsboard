@@ -28,8 +28,9 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
 
   /**
    * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#getSupportedCertificateTypes()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsBootstrapCertificateVerifier#getSupportedCertificateTypes()}
+   *
+   * <p>Method under test: {@link
+   * TbLwM2MDtlsBootstrapCertificateVerifier#getSupportedCertificateTypes()}
    */
   @Test
   @DisplayName("Test getSupportedCertificateTypes()")
@@ -37,8 +38,8 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
   @MethodsUnderTest({"List TbLwM2MDtlsBootstrapCertificateVerifier.getSupportedCertificateTypes()"})
   void testGetSupportedCertificateTypes() {
     // Arrange and Act
-    List<CertificateType> actualSupportedCertificateTypes = tbLwM2MDtlsBootstrapCertificateVerifier
-        .getSupportedCertificateTypes();
+    List<CertificateType> actualSupportedCertificateTypes =
+        tbLwM2MDtlsBootstrapCertificateVerifier.getSupportedCertificateTypes();
 
     // Assert
     assertEquals(2, actualSupportedCertificateTypes.size());
@@ -47,15 +48,20 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
   }
 
   /**
-   * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
+   * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId,
+   * ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
+   *
+   * <p>Method under test: {@link
+   * TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames,
+   * InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
    */
   @Test
-  @DisplayName("Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
+  @DisplayName(
+      "Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "CertificateVerificationResult TbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"})
+    "CertificateVerificationResult TbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"
+  })
   void testVerifyCertificate() throws UnsupportedEncodingException {
     // Arrange
     ConnectionId cid = new ConnectionId("AXAXAXAX".getBytes("UTF-8"));
@@ -63,8 +69,9 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
     InetSocketAddress remotePeer = InetSocketAddress.createUnresolved("foo", 1);
 
     // Act
-    CertificateVerificationResult actualVerifyCertificateResult = tbLwM2MDtlsBootstrapCertificateVerifier
-        .verifyCertificate(cid, serverName, remotePeer, true, true, true, new CertificateMessage());
+    CertificateVerificationResult actualVerifyCertificateResult =
+        tbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(
+            cid, serverName, remotePeer, true, true, true, new CertificateMessage());
 
     // Assert
     HandshakeException exception = actualVerifyCertificateResult.getException();
@@ -79,15 +86,20 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
   }
 
   /**
-   * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
+   * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId,
+   * ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}.
+   *
+   * <p>Method under test: {@link
+   * TbLwM2MDtlsBootstrapCertificateVerifier#verifyCertificate(ConnectionId, ServerNames,
+   * InetSocketAddress, boolean, boolean, boolean, CertificateMessage)}
    */
   @Test
-  @DisplayName("Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
+  @DisplayName(
+      "Test verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "CertificateVerificationResult TbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"})
+    "CertificateVerificationResult TbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(ConnectionId, ServerNames, InetSocketAddress, boolean, boolean, boolean, CertificateMessage)"
+  })
   void testVerifyCertificate2() throws UnsupportedEncodingException {
     // Arrange
     ConnectionId cid = new ConnectionId("XXAXAXAX".getBytes("UTF-8"));
@@ -95,8 +107,9 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
     InetSocketAddress remotePeer = InetSocketAddress.createUnresolved("foo", 1);
 
     // Act
-    CertificateVerificationResult actualVerifyCertificateResult = tbLwM2MDtlsBootstrapCertificateVerifier
-        .verifyCertificate(cid, serverName, remotePeer, true, true, true, new CertificateMessage());
+    CertificateVerificationResult actualVerifyCertificateResult =
+        tbLwM2MDtlsBootstrapCertificateVerifier.verifyCertificate(
+            cid, serverName, remotePeer, true, true, true, new CertificateMessage());
 
     // Assert
     HandshakeException exception = actualVerifyCertificateResult.getException();
@@ -112,8 +125,8 @@ class TbLwM2MDtlsBootstrapCertificateVerifierDiffblueTest {
 
   /**
    * Test {@link TbLwM2MDtlsBootstrapCertificateVerifier#getAcceptedIssuers()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDtlsBootstrapCertificateVerifier#getAcceptedIssuers()}
+   *
+   * <p>Method under test: {@link TbLwM2MDtlsBootstrapCertificateVerifier#getAcceptedIssuers()}
    */
   @Test
   @DisplayName("Test getAcceptedIssuers()")

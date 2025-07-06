@@ -10,13 +10,16 @@ import org.junit.jupiter.api.Test;
 
 class RpcWriteReplaceRequestDiffblueTest {
   /**
-   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link RpcWriteReplaceRequest#hashCode()}.
+   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link
+   * RpcWriteReplaceRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcWriteReplaceRequest#equals(Object)}
    *   <li>{@link RpcWriteReplaceRequest#hashCode()}
@@ -25,7 +28,10 @@ class RpcWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -47,13 +53,16 @@ class RpcWriteReplaceRequestDiffblueTest {
   }
 
   /**
-   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link RpcWriteReplaceRequest#hashCode()}.
+   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link
+   * RpcWriteReplaceRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcWriteReplaceRequest#equals(Object)}
    *   <li>{@link RpcWriteReplaceRequest#hashCode()}
@@ -62,7 +71,10 @@ class RpcWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -84,13 +96,16 @@ class RpcWriteReplaceRequestDiffblueTest {
   }
 
   /**
-   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link RpcWriteReplaceRequest#hashCode()}.
+   * Test {@link RpcWriteReplaceRequest#equals(Object)}, and {@link
+   * RpcWriteReplaceRequest#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RpcWriteReplaceRequest#equals(Object)}
    *   <li>{@link RpcWriteReplaceRequest#hashCode()}
@@ -99,7 +114,10 @@ class RpcWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -116,17 +134,21 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test {@link RpcWriteReplaceRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -147,17 +169,21 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test {@link RpcWriteReplaceRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -184,17 +210,21 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test {@link RpcWriteReplaceRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -215,17 +245,21 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test {@link RpcWriteReplaceRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -240,17 +274,21 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test {@link RpcWriteReplaceRequest#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
+   *
+   * <p>Method under test: {@link RpcWriteReplaceRequest#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RpcWriteReplaceRequest.equals(Object)", "int RpcWriteReplaceRequest.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RpcWriteReplaceRequest.equals(Object)",
+    "int RpcWriteReplaceRequest.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RpcWriteReplaceRequest rpcWriteReplaceRequest = new RpcWriteReplaceRequest();
@@ -265,8 +303,9 @@ class RpcWriteReplaceRequestDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link RpcWriteReplaceRequest}
    *   <li>{@link RpcWriteReplaceRequest#setValue(Object)}
@@ -277,8 +316,12 @@ class RpcWriteReplaceRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RpcWriteReplaceRequest.<init>()", "Object RpcWriteReplaceRequest.getValue()",
-      "void RpcWriteReplaceRequest.setValue(Object)", "String RpcWriteReplaceRequest.toString()"})
+  @MethodsUnderTest({
+    "void RpcWriteReplaceRequest.<init>()",
+    "Object RpcWriteReplaceRequest.getValue()",
+    "void RpcWriteReplaceRequest.setValue(Object)",
+    "String RpcWriteReplaceRequest.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     RpcWriteReplaceRequest actualRpcWriteReplaceRequest = new RpcWriteReplaceRequest();

@@ -16,20 +16,24 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseEntityViewMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseEntityViewMsgConstructor#constructEntityViewDeleteMsg(EntityViewId)}.
-   * <p>
-   * Method under test: {@link BaseEntityViewMsgConstructor#constructEntityViewDeleteMsg(EntityViewId)}
+   *
+   * <p>Method under test: {@link
+   * BaseEntityViewMsgConstructor#constructEntityViewDeleteMsg(EntityViewId)}
    */
   @Test
   @DisplayName("Test constructEntityViewDeleteMsg(EntityViewId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EntityViewUpdateMsg BaseEntityViewMsgConstructor.constructEntityViewDeleteMsg(EntityViewId)"})
+  @MethodsUnderTest({
+    "EntityViewUpdateMsg BaseEntityViewMsgConstructor.constructEntityViewDeleteMsg(EntityViewId)"
+  })
   void testConstructEntityViewDeleteMsg() {
     // Arrange
     EntityViewMsgConstructorV1 entityViewMsgConstructorV1 = new EntityViewMsgConstructorV1();
 
     // Act
-    EntityViewUpdateMsg actualConstructEntityViewDeleteMsgResult = entityViewMsgConstructorV1
-        .constructEntityViewDeleteMsg(new EntityViewId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    EntityViewUpdateMsg actualConstructEntityViewDeleteMsgResult =
+        entityViewMsgConstructorV1.constructEntityViewDeleteMsg(
+            new EntityViewId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructEntityViewDeleteMsgResult.getInitializationErrorString());
@@ -48,7 +52,9 @@ class BaseEntityViewMsgConstructorDiffblueTest {
     assertEquals(3, actualConstructEntityViewDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructEntityViewDeleteMsgResult.getIdMSB());
     assertEquals(EdgeEntityType.DEVICE, actualConstructEntityViewDeleteMsgResult.getEntityType());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructEntityViewDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructEntityViewDeleteMsgResult.getMsgType());
     assertFalse(actualConstructEntityViewDeleteMsgResult.hasAdditionalInfo());
     assertFalse(actualConstructEntityViewDeleteMsgResult.hasCustomerIdLSB());
     assertFalse(actualConstructEntityViewDeleteMsgResult.hasCustomerIdMSB());

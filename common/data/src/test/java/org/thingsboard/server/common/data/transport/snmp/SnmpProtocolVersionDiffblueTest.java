@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class SnmpProtocolVersionDiffblueTest {
   /**
    * Test {@link SnmpProtocolVersion#getCode()}.
-   * <p>
-   * Method under test: {@link SnmpProtocolVersion#getCode()}
+   *
+   * <p>Method under test: {@link SnmpProtocolVersion#getCode()}
    */
   @Test
   @DisplayName("Test getCode()")

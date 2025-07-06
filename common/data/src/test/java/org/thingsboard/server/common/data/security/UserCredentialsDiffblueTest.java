@@ -17,12 +17,14 @@ import org.thingsboard.server.common.data.id.UserId;
 class UserCredentialsDiffblueTest {
   /**
    * Test {@link UserCredentials#equals(Object)}, and {@link UserCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserCredentials#equals(Object)}
    *   <li>{@link UserCredentials#hashCode()}
@@ -45,12 +47,14 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}, and {@link UserCredentials#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserCredentials#equals(Object)}
    *   <li>{@link UserCredentials#hashCode()}
@@ -72,12 +76,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -85,8 +90,9 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"boolean UserCredentials.equals(Object)", "int UserCredentials.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    UserCredentials userCredentials = new UserCredentials(
-        new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    UserCredentials userCredentials =
+        new UserCredentials(
+            new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(userCredentials, new UserCredentials());
@@ -94,12 +100,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -116,12 +123,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -138,12 +146,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -160,12 +169,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -182,12 +192,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -204,12 +215,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -226,12 +238,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -248,12 +261,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -270,12 +284,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -294,12 +309,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -318,12 +334,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -342,12 +359,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -366,12 +384,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -390,12 +409,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -414,12 +434,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -438,12 +459,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -456,12 +478,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#equals(Object)}
+   *
+   * <p>Method under test: {@link UserCredentials#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -474,8 +497,9 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserCredentials#UserCredentials(UserCredentialsId)}
    *   <li>{@link UserCredentials#setActivateToken(String)}
@@ -501,20 +525,33 @@ class UserCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserCredentials.<init>()", "void UserCredentials.<init>(UserCredentialsId)",
-      "String UserCredentials.getActivateToken()", "Long UserCredentials.getActivateTokenExpTime()",
-      "Integer UserCredentials.getFailedLoginAttempts()", "Long UserCredentials.getLastLoginTs()",
-      "String UserCredentials.getPassword()", "String UserCredentials.getResetToken()",
-      "Long UserCredentials.getResetTokenExpTime()", "UserId UserCredentials.getUserId()",
-      "boolean UserCredentials.isEnabled()", "void UserCredentials.setActivateToken(String)",
-      "void UserCredentials.setActivateTokenExpTime(Long)", "void UserCredentials.setEnabled(boolean)",
-      "void UserCredentials.setFailedLoginAttempts(Integer)", "void UserCredentials.setLastLoginTs(Long)",
-      "void UserCredentials.setPassword(String)", "void UserCredentials.setResetToken(String)",
-      "void UserCredentials.setResetTokenExpTime(Long)", "void UserCredentials.setUserId(UserId)",
-      "String UserCredentials.toString()"})
+  @MethodsUnderTest({
+    "void UserCredentials.<init>()",
+    "void UserCredentials.<init>(UserCredentialsId)",
+    "String UserCredentials.getActivateToken()",
+    "Long UserCredentials.getActivateTokenExpTime()",
+    "Integer UserCredentials.getFailedLoginAttempts()",
+    "Long UserCredentials.getLastLoginTs()",
+    "String UserCredentials.getPassword()",
+    "String UserCredentials.getResetToken()",
+    "Long UserCredentials.getResetTokenExpTime()",
+    "UserId UserCredentials.getUserId()",
+    "boolean UserCredentials.isEnabled()",
+    "void UserCredentials.setActivateToken(String)",
+    "void UserCredentials.setActivateTokenExpTime(Long)",
+    "void UserCredentials.setEnabled(boolean)",
+    "void UserCredentials.setFailedLoginAttempts(Integer)",
+    "void UserCredentials.setLastLoginTs(Long)",
+    "void UserCredentials.setPassword(String)",
+    "void UserCredentials.setResetToken(String)",
+    "void UserCredentials.setResetTokenExpTime(Long)",
+    "void UserCredentials.setUserId(UserId)",
+    "String UserCredentials.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    UserCredentialsId id = new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    UserCredentialsId id =
+        new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
     UserCredentials actualUserCredentials = new UserCredentials(id);
@@ -540,9 +577,11 @@ class UserCredentialsDiffblueTest {
     // Assert
     assertEquals("ABC123", actualActivateToken);
     assertEquals("ABC123", actualResetToken);
-    assertEquals("UserCredentials(super=BaseData [createdTime=0, id=784f394c-42b6-435a-983c-b7beff2784f9], userId=null,"
-        + " enabled=true, password=iloveyou, activateToken=ABC123, activateTokenExpTime=1, resetToken=ABC123,"
-        + " resetTokenExpTime=1, lastLoginTs=1, failedLoginAttempts=1)", actualToStringResult);
+    assertEquals(
+        "UserCredentials(super=BaseData [createdTime=0, id=784f394c-42b6-435a-983c-b7beff2784f9], userId=null,"
+            + " enabled=true, password=iloveyou, activateToken=ABC123, activateTokenExpTime=1, resetToken=ABC123,"
+            + " resetTokenExpTime=1, lastLoginTs=1, failedLoginAttempts=1)",
+        actualToStringResult);
     assertEquals("iloveyou", actualPassword);
     assertNull(actualUserId);
     assertEquals(0L, actualUserCredentials.getCreatedTime());
@@ -556,11 +595,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link UserCredentials#UserCredentials()}
    *   <li>{@link UserCredentials#setActivateToken(String)}
@@ -586,17 +627,29 @@ class UserCredentialsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void UserCredentials.<init>()", "void UserCredentials.<init>(UserCredentialsId)",
-      "String UserCredentials.getActivateToken()", "Long UserCredentials.getActivateTokenExpTime()",
-      "Integer UserCredentials.getFailedLoginAttempts()", "Long UserCredentials.getLastLoginTs()",
-      "String UserCredentials.getPassword()", "String UserCredentials.getResetToken()",
-      "Long UserCredentials.getResetTokenExpTime()", "UserId UserCredentials.getUserId()",
-      "boolean UserCredentials.isEnabled()", "void UserCredentials.setActivateToken(String)",
-      "void UserCredentials.setActivateTokenExpTime(Long)", "void UserCredentials.setEnabled(boolean)",
-      "void UserCredentials.setFailedLoginAttempts(Integer)", "void UserCredentials.setLastLoginTs(Long)",
-      "void UserCredentials.setPassword(String)", "void UserCredentials.setResetToken(String)",
-      "void UserCredentials.setResetTokenExpTime(Long)", "void UserCredentials.setUserId(UserId)",
-      "String UserCredentials.toString()"})
+  @MethodsUnderTest({
+    "void UserCredentials.<init>()",
+    "void UserCredentials.<init>(UserCredentialsId)",
+    "String UserCredentials.getActivateToken()",
+    "Long UserCredentials.getActivateTokenExpTime()",
+    "Integer UserCredentials.getFailedLoginAttempts()",
+    "Long UserCredentials.getLastLoginTs()",
+    "String UserCredentials.getPassword()",
+    "String UserCredentials.getResetToken()",
+    "Long UserCredentials.getResetTokenExpTime()",
+    "UserId UserCredentials.getUserId()",
+    "boolean UserCredentials.isEnabled()",
+    "void UserCredentials.setActivateToken(String)",
+    "void UserCredentials.setActivateTokenExpTime(Long)",
+    "void UserCredentials.setEnabled(boolean)",
+    "void UserCredentials.setFailedLoginAttempts(Integer)",
+    "void UserCredentials.setLastLoginTs(Long)",
+    "void UserCredentials.setPassword(String)",
+    "void UserCredentials.setResetToken(String)",
+    "void UserCredentials.setResetTokenExpTime(Long)",
+    "void UserCredentials.setUserId(UserId)",
+    "String UserCredentials.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     UserCredentials actualUserCredentials = new UserCredentials();
@@ -640,12 +693,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#isActivationTokenExpired()}.
+   *
    * <ul>
-   *   <li>Given {@link UserCredentials#UserCredentials()}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link UserCredentials#UserCredentials()}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#isActivationTokenExpired()}
+   *
+   * <p>Method under test: {@link UserCredentials#isActivationTokenExpired()}
    */
   @Test
   @DisplayName("Test isActivationTokenExpired(); given UserCredentials(); then return 'true'")
@@ -653,16 +707,17 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"boolean UserCredentials.isActivationTokenExpired()"})
   void testIsActivationTokenExpired_givenUserCredentials_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new UserCredentials()).isActivationTokenExpired());
+    assertTrue(new UserCredentials().isActivationTokenExpired());
   }
 
   /**
    * Test {@link UserCredentials#isActivationTokenExpired()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#isActivationTokenExpired()}
+   *
+   * <p>Method under test: {@link UserCredentials#isActivationTokenExpired()}
    */
   @Test
   @DisplayName("Test isActivationTokenExpired(); then return 'false'")
@@ -670,7 +725,9 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"boolean UserCredentials.isActivationTokenExpired()"})
   void testIsActivationTokenExpired_thenReturnFalse() {
     // Arrange
-    UserCredentials userCredentials = new UserCredentials();
+    UserCredentials userCredentials =
+        new UserCredentials(
+            new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     userCredentials.setActivateTokenExpTime(Long.MAX_VALUE);
 
     // Act and Assert
@@ -679,12 +736,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#getActivationTokenTtl()}.
+   *
    * <ul>
-   *   <li>Given {@link UserCredentials#UserCredentials()}.</li>
-   *   <li>Then return zero.</li>
+   *   <li>Given {@link UserCredentials#UserCredentials()}.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#getActivationTokenTtl()}
+   *
+   * <p>Method under test: {@link UserCredentials#getActivationTokenTtl()}
    */
   @Test
   @DisplayName("Test getActivationTokenTtl(); given UserCredentials(); then return zero")
@@ -692,17 +750,18 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"long UserCredentials.getActivationTokenTtl()"})
   void testGetActivationTokenTtl_givenUserCredentials_thenReturnZero() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new UserCredentials()).getActivationTokenTtl());
+    assertEquals(0L, new UserCredentials().getActivationTokenTtl());
   }
 
   /**
    * Test {@link UserCredentials#isResetTokenExpired()}.
+   *
    * <ul>
-   *   <li>Given {@link UserCredentials#UserCredentials()}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link UserCredentials#UserCredentials()}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#isResetTokenExpired()}
+   *
+   * <p>Method under test: {@link UserCredentials#isResetTokenExpired()}
    */
   @Test
   @DisplayName("Test isResetTokenExpired(); given UserCredentials(); then return 'true'")
@@ -710,16 +769,17 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"boolean UserCredentials.isResetTokenExpired()"})
   void testIsResetTokenExpired_givenUserCredentials_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((new UserCredentials()).isResetTokenExpired());
+    assertTrue(new UserCredentials().isResetTokenExpired());
   }
 
   /**
    * Test {@link UserCredentials#isResetTokenExpired()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#isResetTokenExpired()}
+   *
+   * <p>Method under test: {@link UserCredentials#isResetTokenExpired()}
    */
   @Test
   @DisplayName("Test isResetTokenExpired(); then return 'false'")
@@ -727,7 +787,9 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"boolean UserCredentials.isResetTokenExpired()"})
   void testIsResetTokenExpired_thenReturnFalse() {
     // Arrange
-    UserCredentials userCredentials = new UserCredentials();
+    UserCredentials userCredentials =
+        new UserCredentials(
+            new UserCredentialsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     userCredentials.setResetTokenExpTime(Long.MAX_VALUE);
 
     // Act and Assert
@@ -736,12 +798,13 @@ class UserCredentialsDiffblueTest {
 
   /**
    * Test {@link UserCredentials#getResetTokenTtl()}.
+   *
    * <ul>
-   *   <li>Given {@link UserCredentials#UserCredentials()}.</li>
-   *   <li>Then return zero.</li>
+   *   <li>Given {@link UserCredentials#UserCredentials()}.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link UserCredentials#getResetTokenTtl()}
+   *
+   * <p>Method under test: {@link UserCredentials#getResetTokenTtl()}
    */
   @Test
   @DisplayName("Test getResetTokenTtl(); given UserCredentials(); then return zero")
@@ -749,6 +812,6 @@ class UserCredentialsDiffblueTest {
   @MethodsUnderTest({"long UserCredentials.getResetTokenTtl()"})
   void testGetResetTokenTtl_givenUserCredentials_thenReturnZero() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new UserCredentials()).getResetTokenTtl());
+    assertEquals(0L, new UserCredentials().getResetTokenTtl());
   }
 }

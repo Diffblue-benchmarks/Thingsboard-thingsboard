@@ -15,15 +15,18 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 
 class RuleChainMsgConstructorV2DiffblueTest {
   /**
-   * Test {@link RuleChainMsgConstructorV2#constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)}.
-   * <p>
-   * Method under test: {@link RuleChainMsgConstructorV2#constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)}
+   * Test {@link RuleChainMsgConstructorV2#constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain,
+   * boolean)}.
+   *
+   * <p>Method under test: {@link
+   * RuleChainMsgConstructorV2#constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)}
    */
   @Test
   @DisplayName("Test constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "RuleChainUpdateMsg RuleChainMsgConstructorV2.constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)"})
+    "RuleChainUpdateMsg RuleChainMsgConstructorV2.constructRuleChainUpdatedMsg(UpdateMsgType, RuleChain, boolean)"
+  })
   void testConstructRuleChainUpdatedMsg() {
     // Arrange
     RuleChainMsgConstructorV2 ruleChainMsgConstructorV2 = new RuleChainMsgConstructorV2();
@@ -32,8 +35,9 @@ class RuleChainMsgConstructorV2DiffblueTest {
     ruleChain.setId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    RuleChainUpdateMsg actualConstructRuleChainUpdatedMsgResult = ruleChainMsgConstructorV2
-        .constructRuleChainUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, ruleChain, true);
+    RuleChainUpdateMsg actualConstructRuleChainUpdatedMsgResult =
+        ruleChainMsgConstructorV2.constructRuleChainUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, ruleChain, true);
 
     // Assert
     assertEquals("", actualConstructRuleChainUpdatedMsgResult.getInitializationErrorString());
@@ -51,7 +55,9 @@ class RuleChainMsgConstructorV2DiffblueTest {
     assertEquals(287, actualConstructRuleChainUpdatedMsgResult.getSerializedSize());
     assertEquals(3, actualConstructRuleChainUpdatedMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructRuleChainUpdatedMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructRuleChainUpdatedMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructRuleChainUpdatedMsgResult.getMsgType());
     assertFalse(actualConstructRuleChainUpdatedMsgResult.getDebugMode());
     assertFalse(actualConstructRuleChainUpdatedMsgResult.getRoot());
     assertFalse(actualConstructRuleChainUpdatedMsgResult.hasFirstRuleNodeIdLSB());

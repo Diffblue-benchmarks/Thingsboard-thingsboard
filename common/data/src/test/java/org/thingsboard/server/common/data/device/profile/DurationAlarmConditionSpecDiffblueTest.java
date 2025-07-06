@@ -14,13 +14,16 @@ import org.thingsboard.server.common.data.query.FilterPredicateValue;
 
 class DurationAlarmConditionSpecDiffblueTest {
   /**
-   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link DurationAlarmConditionSpec#hashCode()}.
+   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link
+   * DurationAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DurationAlarmConditionSpec#equals(Object)}
    *   <li>{@link DurationAlarmConditionSpec#hashCode()}
@@ -29,17 +32,26 @@ class DurationAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -49,13 +61,16 @@ class DurationAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link DurationAlarmConditionSpec#hashCode()}.
+   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link
+   * DurationAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DurationAlarmConditionSpec#equals(Object)}
    *   <li>{@link DurationAlarmConditionSpec#hashCode()}
@@ -64,7 +79,10 @@ class DurationAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
@@ -82,13 +100,16 @@ class DurationAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link DurationAlarmConditionSpec#hashCode()}.
+   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link
+   * DurationAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DurationAlarmConditionSpec#equals(Object)}
    *   <li>{@link DurationAlarmConditionSpec#hashCode()}
@@ -97,17 +118,26 @@ class DurationAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(null);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(null);
 
     // Act and Assert
@@ -117,13 +147,16 @@ class DurationAlarmConditionSpecDiffblueTest {
   }
 
   /**
-   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link DurationAlarmConditionSpec#hashCode()}.
+   * Test {@link DurationAlarmConditionSpec#equals(Object)}, and {@link
+   * DurationAlarmConditionSpec#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DurationAlarmConditionSpec#equals(Object)}
    *   <li>{@link DurationAlarmConditionSpec#hashCode()}
@@ -132,12 +165,18 @@ class DurationAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -148,27 +187,37 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(1L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            1L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -177,17 +226,21 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
@@ -195,8 +248,11 @@ class DurationAlarmConditionSpecDiffblueTest {
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -205,27 +261,37 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(null);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -234,27 +300,37 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.MICROSECONDS);
 
     DurationAlarmConditionSpec durationAlarmConditionSpec2 = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec2.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec2.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec2.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -263,22 +339,29 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -287,22 +370,29 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test {@link DurationAlarmConditionSpec#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
+   *
+   * <p>Method under test: {@link DurationAlarmConditionSpec#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DurationAlarmConditionSpec.equals(Object)", "int DurationAlarmConditionSpec.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DurationAlarmConditionSpec.equals(Object)",
+    "int DurationAlarmConditionSpec.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DurationAlarmConditionSpec durationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    durationAlarmConditionSpec.setPredicate(new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
+    durationAlarmConditionSpec.setPredicate(
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute")));
     durationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);
 
     // Act and Assert
@@ -311,8 +401,9 @@ class DurationAlarmConditionSpecDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DurationAlarmConditionSpec}
    *   <li>{@link DurationAlarmConditionSpec#setPredicate(FilterPredicateValue)}
@@ -326,16 +417,23 @@ class DurationAlarmConditionSpecDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DurationAlarmConditionSpec.<init>()",
-      "FilterPredicateValue DurationAlarmConditionSpec.getPredicate()",
-      "AlarmConditionSpecType DurationAlarmConditionSpec.getType()", "TimeUnit DurationAlarmConditionSpec.getUnit()",
-      "void DurationAlarmConditionSpec.setPredicate(FilterPredicateValue)",
-      "void DurationAlarmConditionSpec.setUnit(TimeUnit)", "String DurationAlarmConditionSpec.toString()"})
+  @MethodsUnderTest({
+    "void DurationAlarmConditionSpec.<init>()",
+    "FilterPredicateValue DurationAlarmConditionSpec.getPredicate()",
+    "AlarmConditionSpecType DurationAlarmConditionSpec.getType()",
+    "TimeUnit DurationAlarmConditionSpec.getUnit()",
+    "void DurationAlarmConditionSpec.setPredicate(FilterPredicateValue)",
+    "void DurationAlarmConditionSpec.setUnit(TimeUnit)",
+    "String DurationAlarmConditionSpec.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DurationAlarmConditionSpec actualDurationAlarmConditionSpec = new DurationAlarmConditionSpec();
-    FilterPredicateValue<Long> predicate = new FilterPredicateValue<>(42L, 42L,
-        new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
+    FilterPredicateValue<Long> predicate =
+        new FilterPredicateValue<>(
+            42L,
+            42L,
+            new DynamicValue<>(DynamicValueSourceType.CURRENT_TENANT, "Source Attribute"));
 
     actualDurationAlarmConditionSpec.setPredicate(predicate);
     actualDurationAlarmConditionSpec.setUnit(TimeUnit.NANOSECONDS);

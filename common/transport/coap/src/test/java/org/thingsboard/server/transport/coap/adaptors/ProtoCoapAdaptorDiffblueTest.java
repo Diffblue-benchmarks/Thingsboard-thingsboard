@@ -13,13 +13,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {ProtoCoapAdaptor.class})
 @ExtendWith(SpringExtension.class)
 class ProtoCoapAdaptorDiffblueTest {
-  @Autowired
-  private ProtoCoapAdaptor protoCoapAdaptor;
+  @Autowired private ProtoCoapAdaptor protoCoapAdaptor;
 
   /**
    * Test {@link ProtoCoapAdaptor#getContentFormat()}.
-   * <p>
-   * Method under test: {@link ProtoCoapAdaptor#getContentFormat()}
+   *
+   * <p>Method under test: {@link ProtoCoapAdaptor#getContentFormat()}
    */
   @Test
   @DisplayName("Test getContentFormat()")

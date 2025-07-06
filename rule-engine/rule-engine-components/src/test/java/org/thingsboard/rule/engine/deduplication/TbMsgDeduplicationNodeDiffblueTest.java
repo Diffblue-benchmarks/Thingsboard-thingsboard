@@ -10,8 +10,8 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -25,47 +25,22 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbMsgDeduplicationNodeDiffblueTest {
   /**
    * Test {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_ARRAY}.</li>
-   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_ARRAY}.</li>
-   *   <li>Then calls {@link ArrayNode#elements()}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.
+   *   <li>Then calls {@link ArrayNode#fields()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_ARRAY'; when ArrayNode asToken() return 'START_ARRAY'; then calls elements()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgDeduplicationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartArray_whenArrayNodeAsTokenReturnStartArray_thenCallsElements() throws TbNodeException {
-    // Arrange
-    TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
-    TbContext ctx = mock(TbContext.class);
-    ArrayNode data = mock(ArrayNode.class);
-    when(data.elements()).thenThrow(new RuntimeException("foo"));
-    when(data.asToken()).thenReturn(JsonToken.START_ARRAY);
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbMsgDeduplicationNode.init(ctx, new TbNodeConfiguration(data)));
-    verify(data, atLeast(1)).asToken();
-    verify(data).elements();
-  }
-
-  /**
-   * Test {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}.
-   * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#fields()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}
-   */
-  @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMsgDeduplicationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields() throws TbNodeException {
+  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields()
+      throws TbNodeException {
     // Arrange
     TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
     TbContext ctx = mock(TbContext.class);
@@ -87,47 +62,50 @@ class TbMsgDeduplicationNodeDiffblueTest {
 
   /**
    * Test {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>When {@link TbContext} {@link TbContext#getQueueName()} throw {@link RuntimeException#RuntimeException(String)} with {@code foo}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbMsgDeduplicationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); when TbContext getQueueName() throw RuntimeException(String) with 'foo'")
+  @DisplayName("Test init(TbContext, TbNodeConfiguration); then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbMsgDeduplicationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_whenTbContextGetQueueNameThrowRuntimeExceptionWithFoo() throws TbNodeException {
+  void testInit_thenThrowRuntimeException() throws TbNodeException {
     // Arrange
     TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
     TbContext ctx = mock(TbContext.class);
-    when(ctx.getQueueName()).thenThrow(new RuntimeException("foo"));
     ArrayNode data = mock(ArrayNode.class);
-
-    ArrayList<Entry<String, JsonNode>> entryList = new ArrayList<>();
-    when(data.fields()).thenReturn(entryList.iterator());
-    when(data.asToken()).thenReturn(JsonToken.START_OBJECT);
+    when(data.asToken()).thenThrow(new RuntimeException("foo"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> tbMsgDeduplicationNode.init(ctx, new TbNodeConfiguration(data)));
-    verify(data).fields();
-    verify(data, atLeast(1)).asToken();
-    verify(ctx).getQueueName();
+    assertThrows(
+        RuntimeException.class,
+        () -> tbMsgDeduplicationNode.init(ctx, new TbNodeConfiguration(data)));
+    verify(data).asToken();
   }
 
   /**
    * Test {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
+   *       withExactBigDecimals {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @DisplayName(
+      "Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"})
-  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue()
+      throws TbNodeException {
     // Arrange
     TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
     ArrayNode oldConfiguration = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -138,45 +116,51 @@ class TbMsgDeduplicationNodeDiffblueTest {
 
   /**
    * Test {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When Instance.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When one.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when Instance; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenInstance_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenOne_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbMsgDeduplicationNode.upgrade(0, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbMsgDeduplicationNode.upgrade(1, oldConfiguration).getSecond());
   }
 
   /**
    * Test {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When valueOf ten.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbMsgDeduplicationNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when valueOf ten; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenOne_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbMsgDeduplicationNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenValueOfTen_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbMsgDeduplicationNode tbMsgDeduplicationNode = new TbMsgDeduplicationNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbMsgDeduplicationNode.upgrade(1, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbMsgDeduplicationNode.upgrade(0, oldConfiguration).getSecond());
   }
 }

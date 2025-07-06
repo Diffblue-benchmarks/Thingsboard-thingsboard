@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class InstallScriptsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link InstallScripts#setUpdateImages(boolean)}
    *   <li>{@link InstallScripts#isUpdateImages()}
@@ -19,7 +20,10 @@ class InstallScriptsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InstallScripts.isUpdateImages()", "void InstallScripts.setUpdateImages(boolean)"})
+  @MethodsUnderTest({
+    "boolean InstallScripts.isUpdateImages()",
+    "void InstallScripts.setUpdateImages(boolean)"
+  })
   void testGettersAndSetters() {
     // Arrange
     InstallScripts installScripts = new InstallScripts();

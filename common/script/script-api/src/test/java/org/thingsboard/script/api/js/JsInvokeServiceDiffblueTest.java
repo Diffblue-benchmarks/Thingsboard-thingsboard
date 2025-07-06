@@ -16,13 +16,12 @@ import org.thingsboard.server.common.stats.TbApiUsageStateClient;
 
 @ExtendWith(MockitoExtension.class)
 class JsInvokeServiceDiffblueTest {
-  @Mock
-  private TbApiUsageReportClient tbApiUsageReportClient;
+  @Mock private TbApiUsageReportClient tbApiUsageReportClient;
 
   /**
    * Test {@link JsInvokeService#getLanguage()}.
-   * <p>
-   * Method under test: {@link JsInvokeService#getLanguage()}
+   *
+   * <p>Method under test: {@link JsInvokeService#getLanguage()}
    */
   @Test
   @DisplayName("Test getLanguage()")
@@ -30,11 +29,13 @@ class JsInvokeServiceDiffblueTest {
   @MethodsUnderTest({"ScriptLanguage JsInvokeService.getLanguage()"})
   void testGetLanguage() {
     // Arrange
-    Optional<TbApiUsageStateClient> apiUsageStateClient = Optional.of(mock(TbApiUsageStateClient.class));
+    Optional<TbApiUsageStateClient> apiUsageStateClient =
+        Optional.of(mock(TbApiUsageStateClient.class));
     Optional<TbApiUsageReportClient> apiUsageReportClient = Optional.of(tbApiUsageReportClient);
 
     // Act and Assert
-    assertEquals(ScriptLanguage.JS,
-        (new NashornJsInvokeService(apiUsageStateClient, apiUsageReportClient)).getLanguage());
+    assertEquals(
+        ScriptLanguage.JS,
+        new NashornJsInvokeService(apiUsageStateClient, apiUsageReportClient).getLanguage());
   }
 }

@@ -12,8 +12,8 @@ import org.thingsboard.server.dao.sql.attributes.JpaAttributeDao;
 class AttributesDeletionTaskProcessorDiffblueTest {
   /**
    * Test {@link AttributesDeletionTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link AttributesDeletionTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link AttributesDeletionTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -21,7 +21,9 @@ class AttributesDeletionTaskProcessorDiffblueTest {
   @MethodsUnderTest({"HousekeeperTaskType AttributesDeletionTaskProcessor.getTaskType()"})
   void testGetTaskType() {
     // Arrange, Act and Assert
-    assertEquals(HousekeeperTaskType.DELETE_ATTRIBUTES,
-        (new AttributesDeletionTaskProcessor(new BaseAttributesService(new JpaAttributeDao()))).getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_ATTRIBUTES,
+        new AttributesDeletionTaskProcessor(new BaseAttributesService(new JpaAttributeDao()))
+            .getTaskType());
   }
 }

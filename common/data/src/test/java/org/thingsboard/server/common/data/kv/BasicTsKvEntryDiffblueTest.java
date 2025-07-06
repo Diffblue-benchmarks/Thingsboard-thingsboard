@@ -18,8 +18,8 @@ import org.mockito.Mockito;
 class BasicTsKvEntryDiffblueTest {
   /**
    * Test {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)}
    */
   @Test
   @DisplayName("Test new BasicTsKvEntry(long, KvEntry)")
@@ -52,8 +52,8 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry, Long)}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry, Long)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry, Long)}
    */
   @Test
   @DisplayName("Test new BasicTsKvEntry(long, KvEntry, Long)")
@@ -86,148 +86,181 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#getKey()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getKey()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getKey()}
    */
   @Test
-  @DisplayName("Test getKey(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getKey(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BasicTsKvEntry.getKey()"})
   void testGetKey_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange, Act and Assert
-    assertEquals("Key", (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getKey());
+    assertEquals(
+        "Key",
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L)).getKey());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getKey()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
-   *   <li>Then return {@code Key}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
+   *   <li>Then return {@code Key}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getKey()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getKey()}
    */
   @Test
-  @DisplayName("Test getKey(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String); then return 'Key'")
+  @DisplayName(
+      "Test getKey(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String); then return 'Key'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BasicTsKvEntry.getKey()"})
   void testGetKey_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry_thenReturnKey() {
     // Arrange, Act and Assert
-    assertEquals("Key", (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getKey());
+    assertEquals("Key", new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getKey());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataType()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataType()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataType()}
    */
   @Test
-  @DisplayName("Test getDataType(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getDataType(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataType BasicTsKvEntry.getDataType()"})
   void testGetDataType_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange, Act and Assert
-    assertEquals(DataType.JSON,
-        (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getDataType());
+    assertEquals(
+        DataType.JSON,
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getDataType());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataType()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataType()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataType()}
    */
   @Test
-  @DisplayName("Test getDataType(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getDataType(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DataType BasicTsKvEntry.getDataType()"})
   void testGetDataType_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertEquals(DataType.JSON, (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getDataType());
+    assertEquals(
+        DataType.JSON, new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getDataType());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getStrValue()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getStrValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getStrValue()}
    */
   @Test
-  @DisplayName("Test getStrValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getStrValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getStrValue()"})
   void testGetStrValue_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange, Act and Assert
     assertFalse(
-        (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getStrValue().isPresent());
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getStrValue()
+            .isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getStrValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getStrValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getStrValue()}
    */
   @Test
-  @DisplayName("Test getStrValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getStrValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getStrValue()"})
   void testGetStrValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getStrValue().isPresent());
+    assertFalse(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getStrValue().isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getLongValue()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getLongValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getLongValue()}
    */
   @Test
-  @DisplayName("Test getLongValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getLongValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getLongValue()"})
   void testGetLongValue_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange, Act and Assert
     assertFalse(
-        (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getLongValue().isPresent());
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getLongValue()
+            .isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getLongValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getLongValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getLongValue()}
    */
   @Test
-  @DisplayName("Test getLongValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getLongValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getLongValue()"})
   void testGetLongValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getLongValue().isPresent());
+    assertFalse(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getLongValue().isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getBooleanValue()}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getBooleanValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getBooleanValue()}
    */
   @Test
   @DisplayName("Test getBooleanValue()")
@@ -235,31 +268,37 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"Optional BasicTsKvEntry.getBooleanValue()"})
   void testGetBooleanValue() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getBooleanValue()
-        .isPresent());
+    assertFalse(
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getBooleanValue()
+            .isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getBooleanValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getBooleanValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getBooleanValue()}
    */
   @Test
-  @DisplayName("Test getBooleanValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getBooleanValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getBooleanValue()"})
   void testGetBooleanValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getBooleanValue().isPresent());
+    assertFalse(
+        new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getBooleanValue().isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDoubleValue()}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDoubleValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDoubleValue()}
    */
   @Test
   @DisplayName("Test getDoubleValue()")
@@ -267,43 +306,53 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"Optional BasicTsKvEntry.getDoubleValue()"})
   void testGetDoubleValue() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getDoubleValue()
-        .isPresent());
+    assertFalse(
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getDoubleValue()
+            .isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDoubleValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDoubleValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDoubleValue()}
    */
   @Test
-  @DisplayName("Test getDoubleValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getDoubleValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getDoubleValue()"})
   void testGetDoubleValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertFalse((new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getDoubleValue().isPresent());
+    assertFalse(
+        new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getDoubleValue().isPresent());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getJsonValue()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getJsonValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getJsonValue()}
    */
   @Test
-  @DisplayName("Test getJsonValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getJsonValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getJsonValue()"})
   void testGetJsonValue_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange and Act
-    Optional<String> actualJsonValue = (new BasicTsKvEntry(1L,
-        new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getJsonValue();
+    Optional<String> actualJsonValue =
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getJsonValue();
 
     // Assert
     assertEquals("42", actualJsonValue.get());
@@ -312,19 +361,23 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#getJsonValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getJsonValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getJsonValue()}
    */
   @Test
-  @DisplayName("Test getJsonValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getJsonValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BasicTsKvEntry.getJsonValue()"})
   void testGetJsonValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange and Act
-    Optional<String> actualJsonValue = (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getJsonValue();
+    Optional<String> actualJsonValue =
+        new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getJsonValue();
 
     // Assert
     assertEquals("42", actualJsonValue.get());
@@ -333,79 +386,94 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#getValue()}.
+   *
    * <ul>
-   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.</li>
+   *   <li>Given {@link AggTsKvEntry#AggTsKvEntry(long, KvEntry, long)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)} and count is three.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValue()}
    */
   @Test
-  @DisplayName("Test getValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
+  @DisplayName(
+      "Test getValue(); given AggTsKvEntry(long, KvEntry, long) with ts is one and kv is JsonDataEntry(String, String) and count is three")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BasicTsKvEntry.getValue()"})
   void testGetValue_givenAggTsKvEntryWithTsIsOneAndKvIsJsonDataEntryAndCountIsThree() {
     // Arrange, Act and Assert
-    assertEquals("42", (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getValue());
+    assertEquals(
+        "42",
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getValue());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
-   *   <li>Then return {@code 42}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
+   *   <li>Then return {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValue()}
    */
   @Test
-  @DisplayName("Test getValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String); then return '42'")
+  @DisplayName(
+      "Test getValue(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String); then return '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BasicTsKvEntry.getValue()"})
   void testGetValue_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry_thenReturn42() {
     // Arrange, Act and Assert
-    assertEquals("42", (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getValue());
+    assertEquals("42", new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getValue());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code false}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code false}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValue()}
    */
   @Test
-  @DisplayName("Test getValue(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'false'; then return 'false'")
+  @DisplayName(
+      "Test getValue(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'false'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BasicTsKvEntry.getValue()"})
   void testGetValue_givenBooleanDataEntryWithKeyAndValueIsFalse_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((Boolean) (new BasicTsKvEntry(1L, new BooleanDataEntry("Key", false))).getValue());
+    assertFalse((Boolean) new BasicTsKvEntry(1L, new BooleanDataEntry("Key", false)).getValue());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getValue()}.
+   *
    * <ul>
-   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValue()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValue()}
    */
   @Test
-  @DisplayName("Test getValue(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'; then return 'true'")
+  @DisplayName(
+      "Test getValue(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BasicTsKvEntry.getValue()"})
   void testGetValue_givenBooleanDataEntryWithKeyAndValueIsTrue_thenReturnTrue() {
     // Arrange, Act and Assert
-    assertTrue((Boolean) (new BasicTsKvEntry(1L, new BooleanDataEntry("Key", true))).getValue());
+    assertTrue((Boolean) new BasicTsKvEntry(1L, new BooleanDataEntry("Key", true)).getValue());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getValueAsString()}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValueAsString()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValueAsString()}
    */
   @Test
   @DisplayName("Test getValueAsString()")
@@ -413,31 +481,36 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"String BasicTsKvEntry.getValueAsString()"})
   void testGetValueAsString() {
     // Arrange, Act and Assert
-    assertEquals("42",
-        (new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getValueAsString());
+    assertEquals(
+        "42",
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getValueAsString());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getValueAsString()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getValueAsString()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getValueAsString()}
    */
   @Test
-  @DisplayName("Test getValueAsString(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getValueAsString(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BasicTsKvEntry.getValueAsString()"})
   void testGetValueAsString_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertEquals("42", (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getValueAsString());
+    assertEquals("42", new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getValueAsString());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataPoints()}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataPoints()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataPoints()}
    */
   @Test
   @DisplayName("Test getDataPoints()")
@@ -445,13 +518,16 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"int BasicTsKvEntry.getDataPoints()"})
   void testGetDataPoints() {
     // Arrange, Act and Assert
-    assertEquals(1, (new BasicTsKvEntry(2L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))).getDataPoints());
+    assertEquals(
+        1,
+        new BasicTsKvEntry(2L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L))
+            .getDataPoints());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataPoints()}.
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataPoints()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataPoints()}
    */
   @Test
   @DisplayName("Test getDataPoints()")
@@ -459,70 +535,83 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"int BasicTsKvEntry.getDataPoints()"})
   void testGetDataPoints2() {
     // Arrange, Act and Assert
-    assertEquals(1,
-        (new BasicTsKvEntry(2L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L))).getDataPoints());
+    assertEquals(
+        1,
+        new BasicTsKvEntry(2L, new AggTsKvEntry(1L, new StringDataEntry("Key", "42"), 3L))
+            .getDataPoints());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataPoints()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link JsonDataEntry#JsonDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link JsonDataEntry#JsonDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataPoints()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataPoints()}
    */
   @Test
-  @DisplayName("Test getDataPoints(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
+  @DisplayName(
+      "Test getDataPoints(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is JsonDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BasicTsKvEntry.getDataPoints()"})
   void testGetDataPoints_givenBasicTsKvEntryWithTsIsOneAndKvIsJsonDataEntry() {
     // Arrange, Act and Assert
-    assertEquals(1, (new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"))).getDataPoints());
+    assertEquals(1, new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")).getDataPoints());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataPoints()}.
+   *
    * <ul>
-   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is {@link StringDataEntry#StringDataEntry(String, String)}.</li>
+   *   <li>Given {@link BasicTsKvEntry#BasicTsKvEntry(long, KvEntry)} with ts is one and kv is
+   *       {@link StringDataEntry#StringDataEntry(String, String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataPoints()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataPoints()}
    */
   @Test
-  @DisplayName("Test getDataPoints(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is StringDataEntry(String, String)")
+  @DisplayName(
+      "Test getDataPoints(); given BasicTsKvEntry(long, KvEntry) with ts is one and kv is StringDataEntry(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BasicTsKvEntry.getDataPoints()"})
   void testGetDataPoints_givenBasicTsKvEntryWithTsIsOneAndKvIsStringDataEntry() {
     // Arrange, Act and Assert
-    assertEquals(1, (new BasicTsKvEntry(1L, new StringDataEntry("Key", "42"))).getDataPoints());
+    assertEquals(1, new BasicTsKvEntry(1L, new StringDataEntry("Key", "42")).getDataPoints());
   }
 
   /**
    * Test {@link BasicTsKvEntry#getDataPoints()}.
+   *
    * <ul>
-   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and value is {@code true}.</li>
-   *   <li>Then return one.</li>
+   *   <li>Given {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
+   *   <li>Then return one.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#getDataPoints()}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#getDataPoints()}
    */
   @Test
-  @DisplayName("Test getDataPoints(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'; then return one")
+  @DisplayName(
+      "Test getDataPoints(); given BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'; then return one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BasicTsKvEntry.getDataPoints()"})
   void testGetDataPoints_givenBooleanDataEntryWithKeyAndValueIsTrue_thenReturnOne() {
     // Arrange, Act and Assert
-    assertEquals(1, (new BasicTsKvEntry(2L, new BooleanDataEntry("Key", true))).getDataPoints());
+    assertEquals(1, new BasicTsKvEntry(2L, new BooleanDataEntry("Key", true)).getDataPoints());
   }
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}, and {@link BasicTsKvEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicTsKvEntry#equals(Object)}
    *   <li>{@link BasicTsKvEntry#hashCode()}
@@ -545,12 +634,14 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}, and {@link BasicTsKvEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicTsKvEntry#equals(Object)}
    *   <li>{@link BasicTsKvEntry#hashCode()}
@@ -562,10 +653,10 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"), 1L);
+    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, null);
     AggTsKvEntry aggTsKvEntry = mock(AggTsKvEntry.class);
-    when(aggTsKvEntry.getKv()).thenReturn(new JsonDataEntry("Key", "42"));
-    when(aggTsKvEntry.getVersion()).thenReturn(1L);
+    when(aggTsKvEntry.getKv()).thenReturn(null);
+    when(aggTsKvEntry.getVersion()).thenReturn(null);
     when(aggTsKvEntry.getTs()).thenReturn(1L);
     when(aggTsKvEntry.canEqual(Mockito.<Object>any())).thenReturn(true);
 
@@ -577,12 +668,14 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}, and {@link BasicTsKvEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicTsKvEntry#equals(Object)}
    *   <li>{@link BasicTsKvEntry#hashCode()}
@@ -604,12 +697,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -625,12 +719,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -646,12 +741,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -659,7 +755,8 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
+    BasicTsKvEntry basicTsKvEntry =
+        new BasicTsKvEntry(1L, new AggTsKvEntry(1L, new JsonDataEntry("Key", "42"), 3L));
 
     // Act and Assert
     assertNotEquals(basicTsKvEntry, new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")));
@@ -667,12 +764,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -688,12 +786,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -709,12 +808,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -730,18 +830,43 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"));
+    AggTsKvEntry aggTsKvEntry = mock(AggTsKvEntry.class);
+    when(aggTsKvEntry.canEqual(Mockito.<Object>any())).thenReturn(false);
+
+    // Act and Assert
+    assertNotEquals(basicTsKvEntry, aggTsKvEntry);
+  }
+
+  /**
+   * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"));
     AggTsKvEntry aggTsKvEntry = mock(AggTsKvEntry.class);
@@ -755,25 +880,26 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"), 1L);
+    BasicTsKvEntry basicTsKvEntry = new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42"));
     AggTsKvEntry aggTsKvEntry = mock(AggTsKvEntry.class);
-    when(aggTsKvEntry.getKv()).thenReturn(new JsonDataEntry("Key", "42"));
-    when(aggTsKvEntry.getVersion()).thenReturn(1L);
+    when(aggTsKvEntry.getKv()).thenReturn(null);
+    when(aggTsKvEntry.getVersion()).thenReturn(null);
     when(aggTsKvEntry.getTs()).thenReturn(1L);
-    when(aggTsKvEntry.canEqual(Mockito.<Object>any())).thenReturn(false);
+    when(aggTsKvEntry.canEqual(Mockito.<Object>any())).thenReturn(true);
 
     // Act and Assert
     assertNotEquals(basicTsKvEntry, aggTsKvEntry);
@@ -781,12 +907,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -799,12 +926,13 @@ class BasicTsKvEntryDiffblueTest {
 
   /**
    * Test {@link BasicTsKvEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link BasicTsKvEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link BasicTsKvEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -812,13 +940,15 @@ class BasicTsKvEntryDiffblueTest {
   @MethodsUnderTest({"boolean BasicTsKvEntry.equals(Object)", "int BasicTsKvEntry.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), "Different type to BasicTsKvEntry");
+    assertNotEquals(
+        new BasicTsKvEntry(1L, new JsonDataEntry("Key", "42")), "Different type to BasicTsKvEntry");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link BasicTsKvEntry#toString()}
    *   <li>{@link BasicTsKvEntry#getKv()}
@@ -829,8 +959,12 @@ class BasicTsKvEntryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"KvEntry BasicTsKvEntry.getKv()", "long BasicTsKvEntry.getTs()",
-      "Long BasicTsKvEntry.getVersion()", "String BasicTsKvEntry.toString()"})
+  @MethodsUnderTest({
+    "KvEntry BasicTsKvEntry.getKv()",
+    "long BasicTsKvEntry.getTs()",
+    "Long BasicTsKvEntry.getVersion()",
+    "String BasicTsKvEntry.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     JsonDataEntry kv = new JsonDataEntry("Key", "42");
@@ -843,7 +977,8 @@ class BasicTsKvEntryDiffblueTest {
     long actualTs = basicTsKvEntry.getTs();
 
     // Assert
-    assertEquals("BasicTsKvEntry(ts=1, kv=JsonDataEntry{value=42} BasicKvEntry{key='Key'}, version=null)",
+    assertEquals(
+        "BasicTsKvEntry(ts=1, kv=JsonDataEntry{value=42} BasicKvEntry{key='Key'}, version=null)",
         actualToStringResult);
     assertNull(basicTsKvEntry.getVersion());
     assertEquals(1L, actualTs);

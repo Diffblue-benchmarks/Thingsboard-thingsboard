@@ -12,8 +12,9 @@ import org.junit.experimental.categories.Category;
 public class AuditLogLevelPropertiesDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AuditLogLevelProperties#setMask(Map)}
    *   <li>{@link AuditLogLevelProperties#getMask()}
@@ -21,7 +22,10 @@ public class AuditLogLevelPropertiesDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"Map AuditLogLevelProperties.getMask()", "void AuditLogLevelProperties.setMask(Map)"})
+  @MethodsUnderTest({
+    "Map AuditLogLevelProperties.getMask()",
+    "void AuditLogLevelProperties.setMask(Map)"
+  })
   public void testGettersAndSetters() {
     // Arrange
     AuditLogLevelProperties auditLogLevelProperties = new AuditLogLevelProperties();

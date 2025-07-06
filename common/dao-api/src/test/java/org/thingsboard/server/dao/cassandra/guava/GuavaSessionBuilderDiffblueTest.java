@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
 class GuavaSessionBuilderDiffblueTest {
   /**
    * Test {@link GuavaSessionBuilder#wrap(CqlSession)}.
-   * <p>
-   * Method under test: {@link GuavaSessionBuilder#wrap(CqlSession)}
+   *
+   * <p>Method under test: {@link GuavaSessionBuilder#wrap(CqlSession)}
    */
   @Test
   @DisplayName("Test wrap(CqlSession)")
@@ -28,7 +28,8 @@ class GuavaSessionBuilderDiffblueTest {
   void testWrap() {
     // Arrange
     GuavaSessionBuilder builderResult = GuavaSessionUtils.builder();
-    DefaultDseSession defaultSession = new DefaultDseSession(new DefaultGuavaSession(mock(Session.class)));
+    DefaultDseSession defaultSession =
+        new DefaultDseSession(new DefaultGuavaSession(mock(Session.class)));
 
     // Act
     GuavaSession actualWrapResult = builderResult.wrap(defaultSession);
@@ -47,8 +48,8 @@ class GuavaSessionBuilderDiffblueTest {
 
   /**
    * Test new {@link GuavaSessionBuilder} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link GuavaSessionBuilder}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link GuavaSessionBuilder}
    */
   @Test
   @DisplayName("Test new GuavaSessionBuilder (default constructor)")
@@ -56,7 +57,7 @@ class GuavaSessionBuilderDiffblueTest {
   @MethodsUnderTest({"void GuavaSessionBuilder.<init>()"})
   void testNewGuavaSessionBuilder() {
     // Arrange, Act and Assert
-    GuavaSession wrapResult = (new GuavaSessionBuilder()).wrap(null);
+    GuavaSession wrapResult = new GuavaSessionBuilder().wrap(null);
     assertTrue(wrapResult instanceof DefaultGuavaSession);
     assertNull(((DefaultGuavaSession) wrapResult).getDelegate());
   }

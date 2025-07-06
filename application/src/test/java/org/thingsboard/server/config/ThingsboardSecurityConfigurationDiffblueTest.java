@@ -16,8 +16,8 @@ import org.springframework.web.filter.ShallowEtagHeaderFilter;
 class ThingsboardSecurityConfigurationDiffblueTest {
   /**
    * Test {@link ThingsboardSecurityConfiguration#buildEtagFilter()}.
-   * <p>
-   * Method under test: {@link ThingsboardSecurityConfiguration#buildEtagFilter()}
+   *
+   * <p>Method under test: {@link ThingsboardSecurityConfiguration#buildEtagFilter()}
    */
   @Test
   @DisplayName("Test buildEtagFilter()")
@@ -25,14 +25,14 @@ class ThingsboardSecurityConfigurationDiffblueTest {
   @MethodsUnderTest({"FilterRegistrationBean ThingsboardSecurityConfiguration.buildEtagFilter()"})
   void testBuildEtagFilter() throws Exception {
     // Arrange and Act
-    FilterRegistrationBean<ShallowEtagHeaderFilter> actualBuildEtagFilterResult = (new ThingsboardSecurityConfiguration())
-        .buildEtagFilter();
+    FilterRegistrationBean<ShallowEtagHeaderFilter> actualBuildEtagFilterResult =
+        new ThingsboardSecurityConfiguration().buildEtagFilter();
 
     // Assert
     Collection<String> servletNames = actualBuildEtagFilterResult.getServletNames();
     assertTrue(servletNames instanceof Set);
-    Collection<ServletRegistrationBean<?>> servletRegistrationBeans = actualBuildEtagFilterResult
-        .getServletRegistrationBeans();
+    Collection<ServletRegistrationBean<?>> servletRegistrationBeans =
+        actualBuildEtagFilterResult.getServletRegistrationBeans();
     assertTrue(servletRegistrationBeans instanceof Set);
     Collection<String> urlPatterns = actualBuildEtagFilterResult.getUrlPatterns();
     assertEquals(5, urlPatterns.size());

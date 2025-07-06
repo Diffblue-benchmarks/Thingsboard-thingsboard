@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,8 +21,8 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EdgeUtilsDiffblueTest {
   /**
    * Test {@link EdgeUtils#getEdgeEventTypeByEntityType(EntityType)}.
-   * <p>
-   * Method under test: {@link EdgeUtils#getEdgeEventTypeByEntityType(EntityType)}
+   *
+   * <p>Method under test: {@link EdgeUtils#getEdgeEventTypeByEntityType(EntityType)}
    */
   @Test
   @DisplayName("Test getEdgeEventTypeByEntityType(EntityType)")
@@ -35,44 +35,58 @@ class EdgeUtilsDiffblueTest {
 
   /**
    * Test {@link EdgeUtils#getEdgeEventActionTypeByActionType(ActionType)}.
-   * <p>
-   * Method under test: {@link EdgeUtils#getEdgeEventActionTypeByActionType(ActionType)}
+   *
+   * <p>Method under test: {@link EdgeUtils#getEdgeEventActionTypeByActionType(ActionType)}
    */
   @Test
   @DisplayName("Test getEdgeEventActionTypeByActionType(ActionType)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EdgeEventActionType EdgeUtils.getEdgeEventActionTypeByActionType(ActionType)"})
+  @MethodsUnderTest({
+    "EdgeEventActionType EdgeUtils.getEdgeEventActionTypeByActionType(ActionType)"
+  })
   void testGetEdgeEventActionTypeByActionType() {
     // Arrange, Act and Assert
-    assertEquals(EdgeEventActionType.ADDED, EdgeUtils.getEdgeEventActionTypeByActionType(ActionType.ADDED));
+    assertEquals(
+        EdgeEventActionType.ADDED, EdgeUtils.getEdgeEventActionTypeByActionType(ActionType.ADDED));
   }
 
   /**
-   * Test {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)}.
+   * Test {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType,
+   * EntityId, JsonNode)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then Body return {@link MissingNode}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then Body return {@link DoubleNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)}
+   *
+   * <p>Method under test: {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType,
+   * EdgeEventActionType, EntityId, JsonNode)}
    */
   @Test
-  @DisplayName("Test constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode); when 'null'; then Body return MissingNode")
+  @DisplayName(
+      "Test constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode); when 'null'; then Body return DoubleNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "EdgeEvent EdgeUtils.constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)"})
-  void testConstructEdgeEvent_whenNull_thenBodyReturnMissingNode() {
+    "EdgeEvent EdgeUtils.constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)"
+  })
+  void testConstructEdgeEvent_whenNull_thenBodyReturnDoubleNode() {
     // Arrange
     TenantId entityId = TenantId.SYS_TENANT_ID;
-    MissingNode body = MissingNode.getInstance();
+    DoubleNode body = DoubleNode.valueOf(10.0d);
 
     // Act
-    EdgeEvent actualConstructEdgeEventResult = EdgeUtils.constructEdgeEvent(TenantId.SYS_TENANT_ID, null,
-        EdgeEventType.DASHBOARD, EdgeEventActionType.ADDED, entityId, body);
+    EdgeEvent actualConstructEdgeEventResult =
+        EdgeUtils.constructEdgeEvent(
+            TenantId.SYS_TENANT_ID,
+            null,
+            EdgeEventType.DASHBOARD,
+            EdgeEventActionType.ADDED,
+            entityId,
+            body);
 
     // Assert
     JsonNode body2 = actualConstructEdgeEventResult.getBody();
-    assertTrue(body2 instanceof MissingNode);
+    assertTrue(body2 instanceof DoubleNode);
     assertNull(actualConstructEdgeEventResult.getUid());
     assertNull(actualConstructEdgeEventResult.getUuidId());
     assertNull(actualConstructEdgeEventResult.getId());
@@ -87,31 +101,37 @@ class EdgeUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)}.
+   * Test {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType,
+   * EntityId, JsonNode)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return EntityId is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)}
+   *
+   * <p>Method under test: {@link EdgeUtils#constructEdgeEvent(TenantId, EdgeId, EdgeEventType,
+   * EdgeEventActionType, EntityId, JsonNode)}
    */
   @Test
-  @DisplayName("Test constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode); when 'null'; then return EntityId is 'null'")
+  @DisplayName(
+      "Test constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode); when 'null'; then return EntityId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "EdgeEvent EdgeUtils.constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)"})
+    "EdgeEvent EdgeUtils.constructEdgeEvent(TenantId, EdgeId, EdgeEventType, EdgeEventActionType, EntityId, JsonNode)"
+  })
   void testConstructEdgeEvent_whenNull_thenReturnEntityIdIsNull() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
-    MissingNode body = MissingNode.getInstance();
+    DoubleNode body = DoubleNode.valueOf(10.0d);
 
     // Act
-    EdgeEvent actualConstructEdgeEventResult = EdgeUtils.constructEdgeEvent(tenantId, null, EdgeEventType.DASHBOARD,
-        EdgeEventActionType.ADDED, null, body);
+    EdgeEvent actualConstructEdgeEventResult =
+        EdgeUtils.constructEdgeEvent(
+            tenantId, null, EdgeEventType.DASHBOARD, EdgeEventActionType.ADDED, null, body);
 
     // Assert
     JsonNode body2 = actualConstructEdgeEventResult.getBody();
-    assertTrue(body2 instanceof MissingNode);
+    assertTrue(body2 instanceof DoubleNode);
     assertNull(actualConstructEdgeEventResult.getUid());
     assertNull(actualConstructEdgeEventResult.getEntityId());
     assertNull(actualConstructEdgeEventResult.getUuidId());
@@ -128,20 +148,23 @@ class EdgeUtilsDiffblueTest {
 
   /**
    * Test {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}.
+   *
    * <ul>
-   *   <li>Then return {@code . ( :17)}.</li>
+   *   <li>Then return {@code . ( :17)}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}
+   *
+   * <p>Method under test: {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}
    */
   @Test
   @DisplayName("Test createErrorMsgFromRootCauseAndStackTrace(Throwable); then return '. ( :17)'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(Throwable)"})
+  @MethodsUnderTest({
+    "java.lang.String EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(Throwable)"
+  })
   void testCreateErrorMsgFromRootCauseAndStackTrace_thenReturn17() {
     // Arrange
     Throwable t = new Throwable();
-    t.setStackTrace(new StackTraceElement[]{new StackTraceElement("\n", "\n", "\n", 17)});
+    t.setStackTrace(new StackTraceElement[] {new StackTraceElement("\n", "\n", "\n", 17)});
 
     // Act and Assert
     assertEquals("\n\n.\n(\n:17)", EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(t));
@@ -149,22 +172,27 @@ class EdgeUtilsDiffblueTest {
 
   /**
    * Test {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}.
+   *
    * <ul>
-   *   <li>Then return {@link DataConstants#DEFAULT_SECRET_KEY}.</li>
+   *   <li>Then return {@link DataConstants#DEFAULT_SECRET_KEY}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}
+   *
+   * <p>Method under test: {@link EdgeUtils#createErrorMsgFromRootCauseAndStackTrace(Throwable)}
    */
   @Test
-  @DisplayName("Test createErrorMsgFromRootCauseAndStackTrace(Throwable); then return DEFAULT_SECRET_KEY")
+  @DisplayName(
+      "Test createErrorMsgFromRootCauseAndStackTrace(Throwable); then return DEFAULT_SECRET_KEY")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(Throwable)"})
+  @MethodsUnderTest({
+    "java.lang.String EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(Throwable)"
+  })
   void testCreateErrorMsgFromRootCauseAndStackTrace_thenReturnDefault_secret_key() {
     // Arrange
     Throwable t = new Throwable();
-    t.setStackTrace(new StackTraceElement[]{});
+    t.setStackTrace(new StackTraceElement[] {});
 
     // Act and Assert
-    assertEquals(DataConstants.DEFAULT_SECRET_KEY, EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(t));
+    assertEquals(
+        DataConstants.DEFAULT_SECRET_KEY, EdgeUtils.createErrorMsgFromRootCauseAndStackTrace(t));
   }
 }

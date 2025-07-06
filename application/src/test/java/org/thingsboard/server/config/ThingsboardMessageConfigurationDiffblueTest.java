@@ -18,16 +18,16 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {ThingsboardMessageConfiguration.class})
 @ExtendWith(SpringExtension.class)
 class ThingsboardMessageConfigurationDiffblueTest {
-  @Autowired
-  private ThingsboardMessageConfiguration thingsboardMessageConfiguration;
+  @Autowired private ThingsboardMessageConfiguration thingsboardMessageConfiguration;
 
   /**
    * Test {@link ThingsboardMessageConfiguration#messageSource()}.
+   *
    * <ul>
-   *   <li>Given {@link ThingsboardMessageConfiguration}.</li>
+   *   <li>Given {@link ThingsboardMessageConfiguration}.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardMessageConfiguration#messageSource()}
+   *
+   * <p>Method under test: {@link ThingsboardMessageConfiguration#messageSource()}
    */
   @Test
   @DisplayName("Test messageSource(); given ThingsboardMessageConfiguration")
@@ -40,18 +40,20 @@ class ThingsboardMessageConfigurationDiffblueTest {
     // Assert
     assertTrue(actualMessageSourceResult instanceof ResourceBundleMessageSource);
     assertNull(((ResourceBundleMessageSource) actualMessageSourceResult).getParentMessageSource());
-    Set<String> basenameSet = ((ResourceBundleMessageSource) actualMessageSourceResult).getBasenameSet();
+    Set<String> basenameSet =
+        ((ResourceBundleMessageSource) actualMessageSourceResult).getBasenameSet();
     assertEquals(1, basenameSet.size());
     assertTrue(basenameSet.contains("i18n/messages"));
   }
 
   /**
    * Test {@link ThingsboardMessageConfiguration#messageSource()}.
+   *
    * <ul>
-   *   <li>Given {@link ThingsboardMessageConfiguration} (default constructor).</li>
+   *   <li>Given {@link ThingsboardMessageConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardMessageConfiguration#messageSource()}
+   *
+   * <p>Method under test: {@link ThingsboardMessageConfiguration#messageSource()}
    */
   @Test
   @DisplayName("Test messageSource(); given ThingsboardMessageConfiguration (default constructor)")
@@ -59,12 +61,13 @@ class ThingsboardMessageConfigurationDiffblueTest {
   @MethodsUnderTest({"MessageSource ThingsboardMessageConfiguration.messageSource()"})
   void testMessageSource_givenThingsboardMessageConfiguration2() {
     // Arrange and Act
-    MessageSource actualMessageSourceResult = (new ThingsboardMessageConfiguration()).messageSource();
+    MessageSource actualMessageSourceResult = new ThingsboardMessageConfiguration().messageSource();
 
     // Assert
     assertTrue(actualMessageSourceResult instanceof ResourceBundleMessageSource);
     assertNull(((ResourceBundleMessageSource) actualMessageSourceResult).getParentMessageSource());
-    Set<String> basenameSet = ((ResourceBundleMessageSource) actualMessageSourceResult).getBasenameSet();
+    Set<String> basenameSet =
+        ((ResourceBundleMessageSource) actualMessageSourceResult).getBasenameSet();
     assertEquals(1, basenameSet.size());
     assertTrue(basenameSet.contains("i18n/messages"));
   }

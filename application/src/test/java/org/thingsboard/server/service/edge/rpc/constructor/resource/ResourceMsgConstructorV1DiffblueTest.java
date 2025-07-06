@@ -20,18 +20,22 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class ResourceMsgConstructorV1DiffblueTest {
   /**
    * Test {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}.
+   *
    * <ul>
-   *   <li>Given {@code Etag}.</li>
-   *   <li>Then return {@code Etag}.</li>
+   *   <li>Given {@code Etag}.
+   *   <li>Then return {@code Etag}.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
+   *
+   * <p>Method under test: {@link
+   * ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
    */
   @Test
-  @DisplayName("Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'Etag'; then return 'Etag'")
+  @DisplayName(
+      "Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'Etag'; then return 'Etag'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"})
+    "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"
+  })
   void testConstructResourceUpdatedMsg_givenEtag_thenReturnEtag() {
     // Arrange
     ResourceMsgConstructorV1 resourceMsgConstructorV1 = new ResourceMsgConstructorV1();
@@ -45,8 +49,9 @@ class ResourceMsgConstructorV1DiffblueTest {
     tbResource.setId(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult = resourceMsgConstructorV1
-        .constructResourceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
+    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult =
+        resourceMsgConstructorV1.constructResourceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
 
     // Assert
     assertEquals("Etag", actualConstructResourceUpdatedMsgResult.getEtag());
@@ -63,18 +68,22 @@ class ResourceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}.
+   *
    * <ul>
-   *   <li>Given {@code foo.txt}.</li>
-   *   <li>Then return Data is empty string.</li>
+   *   <li>Given {@code foo.txt}.
+   *   <li>Then return Data is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
+   *
+   * <p>Method under test: {@link
+   * ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
    */
   @Test
-  @DisplayName("Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'foo.txt'; then return Data is empty string")
+  @DisplayName(
+      "Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'foo.txt'; then return Data is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"})
+    "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"
+  })
   void testConstructResourceUpdatedMsg_givenFooTxt_thenReturnDataIsEmptyString() {
     // Arrange
     ResourceMsgConstructorV1 resourceMsgConstructorV1 = new ResourceMsgConstructorV1();
@@ -87,8 +96,9 @@ class ResourceMsgConstructorV1DiffblueTest {
     tbResource.setId(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult = resourceMsgConstructorV1
-        .constructResourceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
+    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult =
+        resourceMsgConstructorV1.constructResourceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
 
     // Assert
     assertEquals("", actualConstructResourceUpdatedMsgResult.getData());
@@ -101,18 +111,22 @@ class ResourceMsgConstructorV1DiffblueTest {
 
   /**
    * Test {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}.
+   *
    * <ul>
-   *   <li>Given {@code IMAGE}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@code IMAGE}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
+   *
+   * <p>Method under test: {@link
+   * ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
    */
   @Test
-  @DisplayName("Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'IMAGE'; then return 'null'")
+  @DisplayName(
+      "Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); given 'IMAGE'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"})
+    "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"
+  })
   void testConstructResourceUpdatedMsg_givenImage_thenReturnNull() {
     // Arrange
     ResourceMsgConstructorV1 resourceMsgConstructorV1 = new ResourceMsgConstructorV1();
@@ -126,22 +140,27 @@ class ResourceMsgConstructorV1DiffblueTest {
 
     // Act and Assert
     assertNull(
-        resourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource));
+        resourceMsgConstructorV1.constructResourceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource));
   }
 
   /**
    * Test {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}.
+   *
    * <ul>
-   *   <li>Then return EntityBytes toStringUtf8 is empty string.</li>
+   *   <li>Then return EntityBytes toStringUtf8 is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
+   *
+   * <p>Method under test: {@link
+   * ResourceMsgConstructorV1#constructResourceUpdatedMsg(UpdateMsgType, TbResource)}
    */
   @Test
-  @DisplayName("Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); then return EntityBytes toStringUtf8 is empty string")
+  @DisplayName(
+      "Test constructResourceUpdatedMsg(UpdateMsgType, TbResource); then return EntityBytes toStringUtf8 is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"})
+    "ResourceUpdateMsg ResourceMsgConstructorV1.constructResourceUpdatedMsg(UpdateMsgType, TbResource)"
+  })
   void testConstructResourceUpdatedMsg_thenReturnEntityBytesToStringUtf8IsEmptyString() {
     // Arrange
     ResourceMsgConstructorV1 resourceMsgConstructorV1 = new ResourceMsgConstructorV1();
@@ -155,8 +174,9 @@ class ResourceMsgConstructorV1DiffblueTest {
     tbResource.setId(new TbResourceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult = resourceMsgConstructorV1
-        .constructResourceUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
+    ResourceUpdateMsg actualConstructResourceUpdatedMsgResult =
+        resourceMsgConstructorV1.constructResourceUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, tbResource);
 
     // Assert
     ByteString entityBytes = actualConstructResourceUpdatedMsgResult.getEntityBytes();
@@ -164,13 +184,15 @@ class ResourceMsgConstructorV1DiffblueTest {
     ByteString dataBytes = actualConstructResourceUpdatedMsgResult.getDataBytes();
     assertEquals("Data", dataBytes.toStringUtf8());
     assertEquals("Data", actualConstructResourceUpdatedMsgResult.getData());
-    assertEquals(11, actualConstructResourceUpdatedMsgResult.getDescriptorForType().getFields().size());
+    assertEquals(
+        11, actualConstructResourceUpdatedMsgResult.getDescriptorForType().getFields().size());
     assertFalse(dataBytes.isEmpty());
     assertFalse(entityBytes.iterator().hasNext());
     assertTrue(entityBytes.isEmpty());
     assertTrue(dataBytes.iterator().hasNext());
     assertTrue(actualConstructResourceUpdatedMsgResult.hasData());
-    ResourceUpdateMsg defaultInstanceForType = actualConstructResourceUpdatedMsgResult.getDefaultInstanceForType();
+    ResourceUpdateMsg defaultInstanceForType =
+        actualConstructResourceUpdatedMsgResult.getDefaultInstanceForType();
     assertEquals(entityBytes, defaultInstanceForType.getDataBytes());
     assertEquals(entityBytes, defaultInstanceForType.getEntityBytes());
     assertEquals(entityBytes, defaultInstanceForType.getEtagBytes());

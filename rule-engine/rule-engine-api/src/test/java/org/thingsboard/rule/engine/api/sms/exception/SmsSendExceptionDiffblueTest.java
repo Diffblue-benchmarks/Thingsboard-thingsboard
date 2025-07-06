@@ -11,17 +11,21 @@ import org.junit.jupiter.api.Test;
 class SmsSendExceptionDiffblueTest {
   /**
    * Test {@link SmsSendException#SmsSendException(String)}.
+   *
    * <ul>
-   *   <li>When {@code Msg}.</li>
-   *   <li>Then return Cause is {@code null}.</li>
+   *   <li>When {@code Msg}.
+   *   <li>Then return Cause is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsSendException#SmsSendException(String)}
+   *
+   * <p>Method under test: {@link SmsSendException#SmsSendException(String)}
    */
   @Test
   @DisplayName("Test new SmsSendException(String); when 'Msg'; then return Cause is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmsSendException.<init>(String)", "void SmsSendException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void SmsSendException.<init>(String)",
+    "void SmsSendException.<init>(String, Throwable)"
+  })
   void testNewSmsSendException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SmsSendException actualSmsSendException = new SmsSendException("Msg");
@@ -34,17 +38,22 @@ class SmsSendExceptionDiffblueTest {
 
   /**
    * Test {@link SmsSendException#SmsSendException(String, Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Cause is {@link Throwable#Throwable()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsSendException#SmsSendException(String, Throwable)}
+   *
+   * <p>Method under test: {@link SmsSendException#SmsSendException(String, Throwable)}
    */
   @Test
-  @DisplayName("Test new SmsSendException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @DisplayName(
+      "Test new SmsSendException(String, Throwable); when Throwable(); then return Cause is Throwable()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmsSendException.<init>(String)", "void SmsSendException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void SmsSendException.<init>(String)",
+    "void SmsSendException.<init>(String, Throwable)"
+  })
   void testNewSmsSendException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();

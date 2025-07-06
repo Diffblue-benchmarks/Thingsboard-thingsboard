@@ -12,13 +12,16 @@ import org.junit.jupiter.api.Test;
 
 class InetAddressRateLimitStatsDiffblueTest {
   /**
-   * Test {@link InetAddressRateLimitStats#equals(Object)}, and {@link InetAddressRateLimitStats#hashCode()}.
+   * Test {@link InetAddressRateLimitStats#equals(Object)}, and {@link
+   * InetAddressRateLimitStats#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link InetAddressRateLimitStats#equals(Object)}
    *   <li>{@link InetAddressRateLimitStats#hashCode()}
@@ -27,7 +30,10 @@ class InetAddressRateLimitStatsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -44,17 +50,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -75,17 +85,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -106,17 +120,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -137,17 +155,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -168,17 +190,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -199,17 +225,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -224,17 +254,21 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test {@link InetAddressRateLimitStats#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link InetAddressRateLimitStats#equals(Object)}
+   *
+   * <p>Method under test: {@link InetAddressRateLimitStats#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean InetAddressRateLimitStats.equals(Object)", "int InetAddressRateLimitStats.hashCode()"})
+  @MethodsUnderTest({
+    "boolean InetAddressRateLimitStats.equals(Object)",
+    "int InetAddressRateLimitStats.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     InetAddressRateLimitStats inetAddressRateLimitStats = new InetAddressRateLimitStats();
@@ -249,8 +283,9 @@ class InetAddressRateLimitStatsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link InetAddressRateLimitStats}
    *   <li>{@link InetAddressRateLimitStats#setBlocked(boolean)}
@@ -268,12 +303,19 @@ class InetAddressRateLimitStatsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void InetAddressRateLimitStats.<init>()", "int InetAddressRateLimitStats.getConnectionsCount()",
-      "int InetAddressRateLimitStats.getFailureCount()", "long InetAddressRateLimitStats.getLastActivityTs()",
-      "Lock InetAddressRateLimitStats.getLock()", "boolean InetAddressRateLimitStats.isBlocked()",
-      "void InetAddressRateLimitStats.setBlocked(boolean)", "void InetAddressRateLimitStats.setConnectionsCount(int)",
-      "void InetAddressRateLimitStats.setFailureCount(int)", "void InetAddressRateLimitStats.setLastActivityTs(long)",
-      "java.lang.String InetAddressRateLimitStats.toString()"})
+  @MethodsUnderTest({
+    "void InetAddressRateLimitStats.<init>()",
+    "int InetAddressRateLimitStats.getConnectionsCount()",
+    "int InetAddressRateLimitStats.getFailureCount()",
+    "long InetAddressRateLimitStats.getLastActivityTs()",
+    "Lock InetAddressRateLimitStats.getLock()",
+    "boolean InetAddressRateLimitStats.isBlocked()",
+    "void InetAddressRateLimitStats.setBlocked(boolean)",
+    "void InetAddressRateLimitStats.setConnectionsCount(int)",
+    "void InetAddressRateLimitStats.setFailureCount(int)",
+    "void InetAddressRateLimitStats.setLastActivityTs(long)",
+    "java.lang.String InetAddressRateLimitStats.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     InetAddressRateLimitStats actualInetAddressRateLimitStats = new InetAddressRateLimitStats();

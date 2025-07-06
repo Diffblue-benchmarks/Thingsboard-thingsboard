@@ -15,13 +15,13 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MCancelAllRe
 @ContextConfiguration(classes = {TbLwM2MCancelAllRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MCancelAllRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MCancelAllRequestBuilder tbLwM2MCancelAllRequestBuilder;
+  @Autowired private TbLwM2MCancelAllRequestBuilder tbLwM2MCancelAllRequestBuilder;
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MCancelAllRequest#getTimeout()}
    *   <li>{@link TbLwM2MCancelAllRequest#getType()}
@@ -30,8 +30,10 @@ class TbLwM2MCancelAllRequestDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long TbLwM2MCancelAllRequest.getTimeout()",
-      "LwM2MOperationType TbLwM2MCancelAllRequest.getType()"})
+  @MethodsUnderTest({
+    "long TbLwM2MCancelAllRequest.getTimeout()",
+    "LwM2MOperationType TbLwM2MCancelAllRequest.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbLwM2MCancelAllRequest buildResult = TbLwM2MCancelAllRequest.builder().timeout(10L).build();
@@ -46,8 +48,9 @@ class TbLwM2MCancelAllRequestDiffblueTest {
 
   /**
    * Test TbLwM2MCancelAllRequestBuilder {@link TbLwM2MCancelAllRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MCancelAllRequestBuilder#build()}
    *   <li>{@link TbLwM2MCancelAllRequestBuilder#timeout(long)}
@@ -56,13 +59,16 @@ class TbLwM2MCancelAllRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MCancelAllRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MCancelAllRequestBuilder.<init>()",
-      "TbLwM2MCancelAllRequest TbLwM2MCancelAllRequestBuilder.build()",
-      "TbLwM2MCancelAllRequestBuilder TbLwM2MCancelAllRequestBuilder.timeout(long)",
-      "java.lang.String TbLwM2MCancelAllRequestBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TbLwM2MCancelAllRequestBuilder.<init>()",
+    "TbLwM2MCancelAllRequest TbLwM2MCancelAllRequestBuilder.build()",
+    "TbLwM2MCancelAllRequestBuilder TbLwM2MCancelAllRequestBuilder.timeout(long)",
+    "java.lang.String TbLwM2MCancelAllRequestBuilder.toString()"
+  })
   void testTbLwM2MCancelAllRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MCancelAllRequest actualBuildResult = TbLwM2MCancelAllRequest.builder().timeout(10L).build();
+    TbLwM2MCancelAllRequest actualBuildResult =
+        TbLwM2MCancelAllRequest.builder().timeout(10L).build();
 
     // Assert
     assertEquals(10L, actualBuildResult.getTimeout());

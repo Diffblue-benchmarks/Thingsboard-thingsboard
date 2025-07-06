@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class TbSnsNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbSnsNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -20,10 +20,12 @@ class TbSnsNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbSnsNodeConfiguration TbSnsNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbSnsNodeConfiguration actualDefaultConfigurationResult = (new TbSnsNodeConfiguration()).defaultConfiguration();
+    TbSnsNodeConfiguration actualDefaultConfigurationResult =
+        new TbSnsNodeConfiguration().defaultConfiguration();
 
     // Assert
-    assertEquals("arn:aws:sns:us-east-1:123456789012:MyNewTopic",
+    assertEquals(
+        "arn:aws:sns:us-east-1:123456789012:MyNewTopic",
         actualDefaultConfigurationResult.getTopicArnPattern());
     assertEquals("us-east-1", actualDefaultConfigurationResult.getRegion());
     assertNull(actualDefaultConfigurationResult.getAccessKeyId());
@@ -31,13 +33,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -46,7 +51,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -59,13 +67,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -74,7 +85,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -90,13 +104,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -105,7 +122,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -121,13 +141,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -136,7 +159,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -152,13 +178,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -167,7 +196,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -183,13 +215,16 @@ class TbSnsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link TbSnsNodeConfiguration#hashCode()}.
+   * Test {@link TbSnsNodeConfiguration#equals(Object)}, and {@link
+   * TbSnsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbSnsNodeConfiguration#equals(Object)}
    *   <li>{@link TbSnsNodeConfiguration#hashCode()}
@@ -198,7 +233,10 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -211,17 +249,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSnsNodeConfiguration(), 1);
@@ -229,17 +271,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -251,17 +297,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -273,17 +323,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -295,17 +349,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -317,17 +375,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -341,17 +403,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -365,17 +431,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -389,17 +459,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbSnsNodeConfiguration tbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -413,17 +487,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSnsNodeConfiguration(), null);
@@ -431,17 +509,21 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbSnsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbSnsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbSnsNodeConfiguration.equals(Object)", "int TbSnsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbSnsNodeConfiguration.equals(Object)",
+    "int TbSnsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbSnsNodeConfiguration(), "Different type to TbSnsNodeConfiguration");
@@ -449,8 +531,9 @@ class TbSnsNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbSnsNodeConfiguration}
    *   <li>{@link TbSnsNodeConfiguration#setAccessKeyId(String)}
@@ -467,11 +550,18 @@ class TbSnsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbSnsNodeConfiguration.<init>()", "String TbSnsNodeConfiguration.getAccessKeyId()",
-      "String TbSnsNodeConfiguration.getRegion()", "String TbSnsNodeConfiguration.getSecretAccessKey()",
-      "String TbSnsNodeConfiguration.getTopicArnPattern()", "void TbSnsNodeConfiguration.setAccessKeyId(String)",
-      "void TbSnsNodeConfiguration.setRegion(String)", "void TbSnsNodeConfiguration.setSecretAccessKey(String)",
-      "void TbSnsNodeConfiguration.setTopicArnPattern(String)", "String TbSnsNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbSnsNodeConfiguration.<init>()",
+    "String TbSnsNodeConfiguration.getAccessKeyId()",
+    "String TbSnsNodeConfiguration.getRegion()",
+    "String TbSnsNodeConfiguration.getSecretAccessKey()",
+    "String TbSnsNodeConfiguration.getTopicArnPattern()",
+    "void TbSnsNodeConfiguration.setAccessKeyId(String)",
+    "void TbSnsNodeConfiguration.setRegion(String)",
+    "void TbSnsNodeConfiguration.setSecretAccessKey(String)",
+    "void TbSnsNodeConfiguration.setTopicArnPattern(String)",
+    "String TbSnsNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbSnsNodeConfiguration actualTbSnsNodeConfiguration = new TbSnsNodeConfiguration();
@@ -487,8 +577,10 @@ class TbSnsNodeConfigurationDiffblueTest {
     // Assert
     assertEquals("EXAMPLEakiAIOSFODNN7", actualAccessKeyId);
     assertEquals("EXAMPLEakiAIOSFODNN7", actualSecretAccessKey);
-    assertEquals("TbSnsNodeConfiguration(topicArnPattern=Topic Arn Pattern, accessKeyId=EXAMPLEakiAIOSFODNN7,"
-        + " secretAccessKey=EXAMPLEakiAIOSFODNN7, region=us-east-2)", actualToStringResult);
+    assertEquals(
+        "TbSnsNodeConfiguration(topicArnPattern=Topic Arn Pattern, accessKeyId=EXAMPLEakiAIOSFODNN7,"
+            + " secretAccessKey=EXAMPLEakiAIOSFODNN7, region=us-east-2)",
+        actualToStringResult);
     assertEquals("Topic Arn Pattern", actualTbSnsNodeConfiguration.getTopicArnPattern());
     assertEquals("us-east-2", actualRegion);
   }

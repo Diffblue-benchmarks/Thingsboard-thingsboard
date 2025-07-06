@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -24,13 +23,12 @@ import org.thingsboard.server.common.data.sync.vc.EntityLoadError.EntityLoadErro
 @ContextConfiguration(classes = {EntityLoadErrorBuilder.class})
 @ExtendWith(SpringExtension.class)
 class EntityLoadErrorDiffblueTest {
-  @Autowired
-  private EntityLoadErrorBuilder entityLoadErrorBuilder;
+  @Autowired private EntityLoadErrorBuilder entityLoadErrorBuilder;
 
   /**
    * Test {@link EntityLoadError#credentialsError(EntityId)}.
-   * <p>
-   * Method under test: {@link EntityLoadError#credentialsError(EntityId)}
+   *
+   * <p>Method under test: {@link EntityLoadError#credentialsError(EntityId)}
    */
   @Test
   @DisplayName("Test credentialsError(EntityId)")
@@ -53,8 +51,9 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test EntityLoadErrorBuilder {@link EntityLoadErrorBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityLoadErrorBuilder#build()}
    *   <li>{@link EntityLoadErrorBuilder#message(String)}
@@ -66,19 +65,24 @@ class EntityLoadErrorDiffblueTest {
   @Test
   @DisplayName("Test EntityLoadErrorBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityLoadErrorBuilder.<init>()", "EntityLoadError EntityLoadErrorBuilder.build()",
-      "EntityLoadErrorBuilder EntityLoadErrorBuilder.message(String)",
-      "EntityLoadErrorBuilder EntityLoadErrorBuilder.source(EntityId)",
-      "EntityLoadErrorBuilder EntityLoadErrorBuilder.target(EntityId)", "String EntityLoadErrorBuilder.toString()",
-      "EntityLoadErrorBuilder EntityLoadErrorBuilder.type(String)"})
+  @MethodsUnderTest({
+    "void EntityLoadErrorBuilder.<init>()",
+    "EntityLoadError EntityLoadErrorBuilder.build()",
+    "EntityLoadErrorBuilder EntityLoadErrorBuilder.message(String)",
+    "EntityLoadErrorBuilder EntityLoadErrorBuilder.source(EntityId)",
+    "EntityLoadErrorBuilder EntityLoadErrorBuilder.target(EntityId)",
+    "String EntityLoadErrorBuilder.toString()",
+    "EntityLoadErrorBuilder EntityLoadErrorBuilder.type(String)"
+  })
   void testEntityLoadErrorBuilderBuild() {
     // Arrange and Act
-    EntityLoadError actualBuildResult = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError actualBuildResult =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Assert
     EntityId source = actualBuildResult.getSource();
@@ -90,8 +94,8 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#referenceEntityError(EntityId, EntityId)}.
-   * <p>
-   * Method under test: {@link EntityLoadError#referenceEntityError(EntityId, EntityId)}
+   *
+   * <p>Method under test: {@link EntityLoadError#referenceEntityError(EntityId, EntityId)}
    */
   @Test
   @DisplayName("Test referenceEntityError(EntityId, EntityId)")
@@ -102,8 +106,8 @@ class EntityLoadErrorDiffblueTest {
     TenantId targetId = TenantId.SYS_TENANT_ID;
 
     // Act
-    EntityLoadError actualReferenceEntityErrorResult = EntityLoadError.referenceEntityError(TenantId.SYS_TENANT_ID,
-        targetId);
+    EntityLoadError actualReferenceEntityErrorResult =
+        EntityLoadError.referenceEntityError(TenantId.SYS_TENANT_ID, targetId);
 
     // Assert
     assertEquals("MISSING_REFERENCED_ENTITY", actualReferenceEntityErrorResult.getType());
@@ -115,86 +119,67 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#runtimeError(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link IOException#IOException(String)} with empty string.</li>
+   *   <li>When {@link Throwable#Throwable(String)} with empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#runtimeError(Throwable)}
+   *
+   * <p>Method under test: {@link EntityLoadError#runtimeError(Throwable)}
    */
   @Test
-  @DisplayName("Test runtimeError(Throwable); when IOException(String) with empty string")
+  @DisplayName("Test runtimeError(Throwable); when Throwable(String) with empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityLoadError EntityLoadError.runtimeError(Throwable)"})
-  void testRuntimeError_whenIOExceptionWithEmptyString() {
+  void testRuntimeError_whenThrowableWithEmptyString() {
     // Arrange and Act
-    EntityLoadError actualRuntimeErrorResult = EntityLoadError.runtimeError(new IOException(""));
+    EntityLoadError actualRuntimeErrorResult = EntityLoadError.runtimeError(new Throwable(""));
 
     // Assert
     assertEquals("RUNTIME", actualRuntimeErrorResult.getType());
-    assertEquals("unexpected error (IOException)", actualRuntimeErrorResult.getMessage());
+    assertEquals("unexpected error (Throwable)", actualRuntimeErrorResult.getMessage());
     assertNull(actualRuntimeErrorResult.getSource());
     assertNull(actualRuntimeErrorResult.getTarget());
   }
 
   /**
    * Test {@link EntityLoadError#runtimeError(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link IOException#IOException(String)} with {@code RUNTIME}.</li>
-   *   <li>Then return Message is {@code RUNTIME}.</li>
+   *   <li>When {@link Throwable#Throwable(String)} with {@code foo}.
+   *   <li>Then return Message is {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#runtimeError(Throwable)}
+   *
+   * <p>Method under test: {@link EntityLoadError#runtimeError(Throwable)}
    */
   @Test
-  @DisplayName("Test runtimeError(Throwable); when IOException(String) with 'RUNTIME'; then return Message is 'RUNTIME'")
+  @DisplayName(
+      "Test runtimeError(Throwable); when Throwable(String) with 'foo'; then return Message is 'foo'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityLoadError EntityLoadError.runtimeError(Throwable)"})
-  void testRuntimeError_whenIOExceptionWithRuntime_thenReturnMessageIsRuntime() {
+  void testRuntimeError_whenThrowableWithFoo_thenReturnMessageIsFoo() {
     // Arrange and Act
-    EntityLoadError actualRuntimeErrorResult = EntityLoadError.runtimeError(new IOException("RUNTIME"));
+    EntityLoadError actualRuntimeErrorResult = EntityLoadError.runtimeError(new Throwable("foo"));
 
     // Assert
-    assertEquals("RUNTIME", actualRuntimeErrorResult.getMessage());
     assertEquals("RUNTIME", actualRuntimeErrorResult.getType());
+    assertEquals("foo", actualRuntimeErrorResult.getMessage());
     assertNull(actualRuntimeErrorResult.getSource());
     assertNull(actualRuntimeErrorResult.getTarget());
   }
 
   /**
    * Test {@link EntityLoadError#runtimeError(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link IOException#IOException()}.</li>
-   *   <li>Then return Message is {@code unexpected error (IOException)}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Message is {@code unexpected error (Throwable)}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#runtimeError(Throwable)}
+   *
+   * <p>Method under test: {@link EntityLoadError#runtimeError(Throwable)}
    */
   @Test
-  @DisplayName("Test runtimeError(Throwable); when IOException(); then return Message is 'unexpected error (IOException)'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"EntityLoadError EntityLoadError.runtimeError(Throwable)"})
-  void testRuntimeError_whenIOException_thenReturnMessageIsUnexpectedErrorIOException() {
-    // Arrange and Act
-    EntityLoadError actualRuntimeErrorResult = EntityLoadError.runtimeError(new IOException());
-
-    // Assert
-    assertEquals("RUNTIME", actualRuntimeErrorResult.getType());
-    assertEquals("unexpected error (IOException)", actualRuntimeErrorResult.getMessage());
-    assertNull(actualRuntimeErrorResult.getSource());
-    assertNull(actualRuntimeErrorResult.getTarget());
-  }
-
-  /**
-   * Test {@link EntityLoadError#runtimeError(Throwable)}.
-   * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Message is {@code unexpected error (Throwable)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#runtimeError(Throwable)}
-   */
-  @Test
-  @DisplayName("Test runtimeError(Throwable); when Throwable(); then return Message is 'unexpected error (Throwable)'")
+  @DisplayName(
+      "Test runtimeError(Throwable); when Throwable(); then return Message is 'unexpected error (Throwable)'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityLoadError EntityLoadError.runtimeError(Throwable)"})
   void testRuntimeError_whenThrowable_thenReturnMessageIsUnexpectedErrorThrowable() {
@@ -210,12 +195,14 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}, and {@link EntityLoadError#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityLoadError#equals(Object)}
    *   <li>{@link EntityLoadError#hashCode()}
@@ -227,18 +214,20 @@ class EntityLoadErrorDiffblueTest {
   @MethodsUnderTest({"boolean EntityLoadError.equals(Object)", "int EntityLoadError.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    EntityLoadError buildResult = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -248,12 +237,14 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}, and {@link EntityLoadError#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityLoadError#equals(Object)}
    *   <li>{@link EntityLoadError#hashCode()}
@@ -266,23 +257,31 @@ class EntityLoadErrorDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     EntityLoadErrorBuilder entityLoadErrorBuilder4 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder4.message(Mockito.<String>any())).thenReturn(EntityLoadError.builder());
-    EntityLoadError buildResult2 = entityLoadErrorBuilder4.message("Not all who wander are lost")
-        .source(null)
-        .target(null)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder4.message(Mockito.<String>any()))
+        .thenReturn(EntityLoadError.builder());
+    EntityLoadError buildResult2 =
+        entityLoadErrorBuilder4
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(null)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -292,12 +291,14 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}, and {@link EntityLoadError#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityLoadError#equals(Object)}
    *   <li>{@link EntityLoadError#hashCode()}
@@ -309,12 +310,13 @@ class EntityLoadErrorDiffblueTest {
   @MethodsUnderTest({"boolean EntityLoadError.equals(Object)", "int EntityLoadError.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    EntityLoadError buildResult = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -324,12 +326,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -338,18 +341,22 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.message(Mockito.<String>any())).thenReturn(EntityLoadError.builder());
-    EntityLoadError buildResult = entityLoadErrorBuilder.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder.message(Mockito.<String>any()))
+        .thenReturn(EntityLoadError.builder());
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -357,12 +364,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -371,20 +379,24 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder2.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder);
-    EntityLoadError buildResult = entityLoadErrorBuilder2.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder2
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -392,12 +404,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -406,20 +419,24 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder2.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder);
-    EntityLoadError buildResult = entityLoadErrorBuilder2.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type(null)
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder2
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type(null)
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -427,12 +444,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -441,20 +459,24 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder2.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder);
-    EntityLoadError buildResult = entityLoadErrorBuilder2.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("42")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder2
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("42")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -462,12 +484,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -476,20 +499,24 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder2.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder);
-    EntityLoadError buildResult = entityLoadErrorBuilder2.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(null)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder2
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -497,12 +524,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -511,20 +539,24 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.source(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder2.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder);
-    EntityLoadError buildResult = entityLoadErrorBuilder2.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type(null)
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type(null)
-        .build();
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder2
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type(null)
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type(null)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -532,12 +564,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -546,22 +579,28 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(null)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -569,12 +608,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -583,22 +623,28 @@ class EntityLoadErrorDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(EntityLoadError.builder());
+    when(entityLoadErrorBuilder.target(Mockito.<EntityId>any()))
+        .thenReturn(EntityLoadError.builder());
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(null)
-        .target(null)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(null)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -606,12 +652,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -624,20 +671,25 @@ class EntityLoadErrorDiffblueTest {
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(builderResult);
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
-    EntityLoadError buildResult2 = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(null)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
+    EntityLoadError buildResult2 =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -645,12 +697,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -663,21 +716,28 @@ class EntityLoadErrorDiffblueTest {
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(builderResult);
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     EntityLoadErrorBuilder entityLoadErrorBuilder4 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder4.message(Mockito.<String>any())).thenReturn(EntityLoadError.builder());
-    EntityLoadError buildResult2 = entityLoadErrorBuilder4.message("Not all who wander are lost")
-        .source(null)
-        .target(null)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder4.message(Mockito.<String>any()))
+        .thenReturn(EntityLoadError.builder());
+    EntityLoadError buildResult2 =
+        entityLoadErrorBuilder4
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(null)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -685,12 +745,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -703,21 +764,28 @@ class EntityLoadErrorDiffblueTest {
     EntityLoadErrorBuilder entityLoadErrorBuilder = mock(EntityLoadErrorBuilder.class);
     when(entityLoadErrorBuilder.target(Mockito.<EntityId>any())).thenReturn(builderResult);
     EntityLoadErrorBuilder entityLoadErrorBuilder2 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any())).thenReturn(entityLoadErrorBuilder);
+    when(entityLoadErrorBuilder2.source(Mockito.<EntityId>any()))
+        .thenReturn(entityLoadErrorBuilder);
     EntityLoadErrorBuilder entityLoadErrorBuilder3 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder3.message(Mockito.<String>any())).thenReturn(entityLoadErrorBuilder2);
-    EntityLoadError buildResult = entityLoadErrorBuilder3.message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder3.message(Mockito.<String>any()))
+        .thenReturn(entityLoadErrorBuilder2);
+    EntityLoadError buildResult =
+        entityLoadErrorBuilder3
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
     EntityLoadErrorBuilder entityLoadErrorBuilder4 = mock(EntityLoadErrorBuilder.class);
-    when(entityLoadErrorBuilder4.message(Mockito.<String>any())).thenReturn(EntityLoadError.builder());
-    EntityLoadError buildResult2 = entityLoadErrorBuilder4.message("Not all who wander are lost")
-        .source(null)
-        .target(null)
-        .type("Type")
-        .build();
+    when(entityLoadErrorBuilder4.message(Mockito.<String>any()))
+        .thenReturn(EntityLoadError.builder());
+    EntityLoadError buildResult2 =
+        entityLoadErrorBuilder4
+            .message("Not all who wander are lost")
+            .source(null)
+            .target(null)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -725,12 +793,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -738,12 +807,13 @@ class EntityLoadErrorDiffblueTest {
   @MethodsUnderTest({"boolean EntityLoadError.equals(Object)", "int EntityLoadError.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    EntityLoadError buildResult = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -751,12 +821,13 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test {@link EntityLoadError#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityLoadError#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityLoadError#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -764,12 +835,13 @@ class EntityLoadErrorDiffblueTest {
   @MethodsUnderTest({"boolean EntityLoadError.equals(Object)", "int EntityLoadError.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    EntityLoadError buildResult = EntityLoadError.builder()
-        .message("Not all who wander are lost")
-        .source(TenantId.SYS_TENANT_ID)
-        .target(TenantId.SYS_TENANT_ID)
-        .type("Type")
-        .build();
+    EntityLoadError buildResult =
+        EntityLoadError.builder()
+            .message("Not all who wander are lost")
+            .source(TenantId.SYS_TENANT_ID)
+            .target(TenantId.SYS_TENANT_ID)
+            .type("Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to EntityLoadError");
@@ -777,8 +849,9 @@ class EntityLoadErrorDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityLoadError#EntityLoadError(String, EntityId, EntityId, String)}
    *   <li>{@link EntityLoadError#setMessage(String)}
@@ -795,16 +868,23 @@ class EntityLoadErrorDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityLoadError.<init>(String, EntityId, EntityId, String)",
-      "String EntityLoadError.getMessage()", "EntityId EntityLoadError.getSource()",
-      "EntityId EntityLoadError.getTarget()", "String EntityLoadError.getType()",
-      "void EntityLoadError.setMessage(String)", "void EntityLoadError.setSource(EntityId)",
-      "void EntityLoadError.setTarget(EntityId)", "void EntityLoadError.setType(String)",
-      "String EntityLoadError.toString()"})
+  @MethodsUnderTest({
+    "void EntityLoadError.<init>(String, EntityId, EntityId, String)",
+    "String EntityLoadError.getMessage()",
+    "EntityId EntityLoadError.getSource()",
+    "EntityId EntityLoadError.getTarget()",
+    "String EntityLoadError.getType()",
+    "void EntityLoadError.setMessage(String)",
+    "void EntityLoadError.setSource(EntityId)",
+    "void EntityLoadError.setTarget(EntityId)",
+    "void EntityLoadError.setType(String)",
+    "String EntityLoadError.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    EntityLoadError actualEntityLoadError = new EntityLoadError("Type", TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID,
-        "Not all who wander are lost");
+    EntityLoadError actualEntityLoadError =
+        new EntityLoadError(
+            "Type", TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID, "Not all who wander are lost");
     actualEntityLoadError.setMessage("Not all who wander are lost");
     actualEntityLoadError.setSource(TenantId.SYS_TENANT_ID);
     actualEntityLoadError.setTarget(TenantId.SYS_TENANT_ID);

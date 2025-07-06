@@ -15,12 +15,14 @@ import org.junit.jupiter.api.Test;
 class DeviceProfileDataDiffblueTest {
   /**
    * Test {@link DeviceProfileData#equals(Object)}, and {@link DeviceProfileData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileData#equals(Object)}
    *   <li>{@link DeviceProfileData#hashCode()}
@@ -29,7 +31,10 @@ class DeviceProfileDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -52,12 +57,14 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}, and {@link DeviceProfileData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileData#equals(Object)}
    *   <li>{@link DeviceProfileData#hashCode()}
@@ -66,7 +73,10 @@ class DeviceProfileDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -89,12 +99,14 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}, and {@link DeviceProfileData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceProfileData#equals(Object)}
    *   <li>{@link DeviceProfileData#hashCode()}
@@ -103,7 +115,10 @@ class DeviceProfileDataDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -120,17 +135,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -151,17 +170,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -182,17 +205,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -213,17 +240,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -244,17 +275,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -275,23 +310,28 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
     deviceProfileData.setAlarms(new ArrayList<>());
     deviceProfileData.setConfiguration(null);
-    deviceProfileData.setProvisionConfiguration(mock(X509CertificateChainProvisionConfiguration.class));
+    deviceProfileData.setProvisionConfiguration(
+        mock(X509CertificateChainProvisionConfiguration.class));
     deviceProfileData.setTransportConfiguration(null);
 
     DeviceProfileData deviceProfileData2 = new DeviceProfileData();
@@ -306,17 +346,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -331,17 +375,21 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test {@link DeviceProfileData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceProfileData#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceProfileData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DeviceProfileData.equals(Object)", "int DeviceProfileData.hashCode()"})
+  @MethodsUnderTest({
+    "boolean DeviceProfileData.equals(Object)",
+    "int DeviceProfileData.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceProfileData deviceProfileData = new DeviceProfileData();
@@ -356,8 +404,9 @@ class DeviceProfileDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DeviceProfileData}
    *   <li>{@link DeviceProfileData#setAlarms(List)}
@@ -374,14 +423,18 @@ class DeviceProfileDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void DeviceProfileData.<init>()", "List DeviceProfileData.getAlarms()",
-      "DeviceProfileConfiguration DeviceProfileData.getConfiguration()",
-      "DeviceProfileProvisionConfiguration DeviceProfileData.getProvisionConfiguration()",
-      "DeviceProfileTransportConfiguration DeviceProfileData.getTransportConfiguration()",
-      "void DeviceProfileData.setAlarms(List)", "void DeviceProfileData.setConfiguration(DeviceProfileConfiguration)",
-      "void DeviceProfileData.setProvisionConfiguration(DeviceProfileProvisionConfiguration)",
-      "void DeviceProfileData.setTransportConfiguration(DeviceProfileTransportConfiguration)",
-      "java.lang.String DeviceProfileData.toString()"})
+  @MethodsUnderTest({
+    "void DeviceProfileData.<init>()",
+    "List DeviceProfileData.getAlarms()",
+    "DeviceProfileConfiguration DeviceProfileData.getConfiguration()",
+    "DeviceProfileProvisionConfiguration DeviceProfileData.getProvisionConfiguration()",
+    "DeviceProfileTransportConfiguration DeviceProfileData.getTransportConfiguration()",
+    "void DeviceProfileData.setAlarms(List)",
+    "void DeviceProfileData.setConfiguration(DeviceProfileConfiguration)",
+    "void DeviceProfileData.setProvisionConfiguration(DeviceProfileProvisionConfiguration)",
+    "void DeviceProfileData.setTransportConfiguration(DeviceProfileTransportConfiguration)",
+    "java.lang.String DeviceProfileData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     DeviceProfileData actualDeviceProfileData = new DeviceProfileData();
@@ -389,17 +442,19 @@ class DeviceProfileDataDiffblueTest {
     actualDeviceProfileData.setAlarms(alarms);
     DeviceProfileConfiguration configuration = mock(DeviceProfileConfiguration.class);
     actualDeviceProfileData.setConfiguration(configuration);
-    X509CertificateChainProvisionConfiguration provisionConfiguration = new X509CertificateChainProvisionConfiguration();
+    X509CertificateChainProvisionConfiguration provisionConfiguration =
+        new X509CertificateChainProvisionConfiguration();
     actualDeviceProfileData.setProvisionConfiguration(provisionConfiguration);
-    DeviceProfileTransportConfiguration transportConfiguration = mock(DeviceProfileTransportConfiguration.class);
+    DeviceProfileTransportConfiguration transportConfiguration =
+        mock(DeviceProfileTransportConfiguration.class);
     actualDeviceProfileData.setTransportConfiguration(transportConfiguration);
     actualDeviceProfileData.toString();
     List<DeviceProfileAlarm> actualAlarms = actualDeviceProfileData.getAlarms();
     DeviceProfileConfiguration actualConfiguration = actualDeviceProfileData.getConfiguration();
-    DeviceProfileProvisionConfiguration actualProvisionConfiguration = actualDeviceProfileData
-        .getProvisionConfiguration();
-    DeviceProfileTransportConfiguration actualTransportConfiguration = actualDeviceProfileData
-        .getTransportConfiguration();
+    DeviceProfileProvisionConfiguration actualProvisionConfiguration =
+        actualDeviceProfileData.getProvisionConfiguration();
+    DeviceProfileTransportConfiguration actualTransportConfiguration =
+        actualDeviceProfileData.getTransportConfiguration();
 
     // Assert
     assertTrue(actualAlarms.isEmpty());

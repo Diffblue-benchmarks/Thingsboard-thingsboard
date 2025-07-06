@@ -17,23 +17,27 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {ApiUsageDataValidator.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ApiUsageDataValidatorDiffblueTest {
-  @Autowired
-  private ApiUsageDataValidator apiUsageDataValidator;
+  @Autowired private ApiUsageDataValidator apiUsageDataValidator;
 
   /**
-   * Test {@link ApiUsageDataValidator#validateDataImpl(TenantId, ApiUsageState)} with {@code TenantId}, {@code ApiUsageState}.
+   * Test {@link ApiUsageDataValidator#validateDataImpl(TenantId, ApiUsageState)} with {@code
+   * TenantId}, {@code ApiUsageState}.
+   *
    * <ul>
-   *   <li>When {@link ApiUsageState#ApiUsageState()}.</li>
+   *   <li>When {@link ApiUsageState#ApiUsageState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ApiUsageDataValidator#validateDataImpl(TenantId, ApiUsageState)}
+   *
+   * <p>Method under test: {@link ApiUsageDataValidator#validateDataImpl(TenantId, ApiUsageState)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void ApiUsageDataValidator.validateDataImpl(TenantId, ApiUsageState)"})
   public void testValidateDataImplWithTenantIdApiUsageState_whenApiUsageState() {
     // Arrange, Act and Assert
-    assertThrows(DataValidationException.class,
-        () -> apiUsageDataValidator.validateDataImpl(ModelConstants.SYSTEM_TENANT, new ApiUsageState()));
+    assertThrows(
+        DataValidationException.class,
+        () ->
+            apiUsageDataValidator.validateDataImpl(
+                ModelConstants.SYSTEM_TENANT, new ApiUsageState()));
   }
 }

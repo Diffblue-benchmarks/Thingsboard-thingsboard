@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -20,8 +20,8 @@ import org.mockito.Mockito;
 class DashboardDiffblueTest {
   /**
    * Test {@link Dashboard#getExternalId()}.
-   * <p>
-   * Method under test: {@link Dashboard#getExternalId()}
+   *
+   * <p>Method under test: {@link Dashboard#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -29,17 +29,18 @@ class DashboardDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId Dashboard.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new Dashboard()).getExternalId());
+    assertNull(new Dashboard().getExternalId());
   }
 
   /**
    * Test {@link Dashboard#Dashboard(DashboardInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return MobileHide.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return MobileHide.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
    */
   @Test
   @DisplayName("Test new Dashboard(DashboardInfo); given 'true'; then return MobileHide")
@@ -74,12 +75,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#Dashboard(Dashboard)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link Dashboard#Dashboard()} MobileHide is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link Dashboard#Dashboard()} MobileHide is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#Dashboard(Dashboard)}
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(Dashboard)}
    */
   @Test
   @DisplayName("Test new Dashboard(Dashboard); given 'true'; when Dashboard() MobileHide is 'true'")
@@ -96,11 +98,12 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#Dashboard(Dashboard)}.
+   *
    * <ul>
-   *   <li>When {@link Dashboard#Dashboard()}.</li>
+   *   <li>When {@link Dashboard#Dashboard()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#Dashboard(Dashboard)}
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(Dashboard)}
    */
   @Test
   @DisplayName("Test new Dashboard(Dashboard); when Dashboard()")
@@ -116,15 +119,17 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#Dashboard(DashboardInfo)}.
+   *
    * <ul>
-   *   <li>When {@link DashboardInfo#DashboardInfo()}.</li>
-   *   <li>Then return not MobileHide.</li>
+   *   <li>When {@link DashboardInfo#DashboardInfo()}.
+   *   <li>Then return not MobileHide.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
    */
   @Test
-  @DisplayName("Test new Dashboard(DashboardInfo); when DashboardInfo(); then return not MobileHide")
+  @DisplayName(
+      "Test new Dashboard(DashboardInfo); when DashboardInfo(); then return not MobileHide")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Dashboard.<init>(DashboardInfo)"})
   void testNewDashboard_whenDashboardInfo_thenReturnNotMobileHide() {
@@ -152,11 +157,12 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#getEntityAliasesConfig()}.
+   *
    * <ul>
-   *   <li>Given {@link Dashboard#Dashboard()}.</li>
+   *   <li>Given {@link Dashboard#Dashboard()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#getEntityAliasesConfig()}
+   *
+   * <p>Method under test: {@link Dashboard#getEntityAliasesConfig()}
    */
   @Test
   @DisplayName("Test getEntityAliasesConfig(); given Dashboard()")
@@ -164,25 +170,26 @@ class DashboardDiffblueTest {
   @MethodsUnderTest({"List Dashboard.getEntityAliasesConfig()"})
   void testGetEntityAliasesConfig_givenDashboard() {
     // Arrange, Act and Assert
-    assertTrue((new Dashboard()).getEntityAliasesConfig().isEmpty());
+    assertTrue(new Dashboard().getEntityAliasesConfig().isEmpty());
   }
 
   /**
    * Test {@link Dashboard#getEntityAliasesConfig()}.
+   *
    * <ul>
-   *   <li>Given {@link Dashboard#Dashboard()} Configuration is Instance.</li>
+   *   <li>Given {@link Dashboard#Dashboard()} Configuration is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#getEntityAliasesConfig()}
+   *
+   * <p>Method under test: {@link Dashboard#getEntityAliasesConfig()}
    */
   @Test
-  @DisplayName("Test getEntityAliasesConfig(); given Dashboard() Configuration is Instance")
+  @DisplayName("Test getEntityAliasesConfig(); given Dashboard() Configuration is valueOf ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List Dashboard.getEntityAliasesConfig()"})
-  void testGetEntityAliasesConfig_givenDashboardConfigurationIsInstance() {
+  void testGetEntityAliasesConfig_givenDashboardConfigurationIsValueOfTen() {
     // Arrange
     Dashboard dashboard = new Dashboard();
-    dashboard.setConfiguration(MissingNode.getInstance());
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertTrue(dashboard.getEntityAliasesConfig().isEmpty());
@@ -190,11 +197,12 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#getWidgetsConfig()}.
+   *
    * <ul>
-   *   <li>Given {@link Dashboard#Dashboard()}.</li>
+   *   <li>Given {@link Dashboard#Dashboard()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#getWidgetsConfig()}
+   *
+   * <p>Method under test: {@link Dashboard#getWidgetsConfig()}
    */
   @Test
   @DisplayName("Test getWidgetsConfig(); given Dashboard()")
@@ -202,25 +210,26 @@ class DashboardDiffblueTest {
   @MethodsUnderTest({"List Dashboard.getWidgetsConfig()"})
   void testGetWidgetsConfig_givenDashboard() {
     // Arrange, Act and Assert
-    assertTrue((new Dashboard()).getWidgetsConfig().isEmpty());
+    assertTrue(new Dashboard().getWidgetsConfig().isEmpty());
   }
 
   /**
    * Test {@link Dashboard#getWidgetsConfig()}.
+   *
    * <ul>
-   *   <li>Given {@link Dashboard#Dashboard()} Configuration is Instance.</li>
+   *   <li>Given {@link Dashboard#Dashboard()} Configuration is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#getWidgetsConfig()}
+   *
+   * <p>Method under test: {@link Dashboard#getWidgetsConfig()}
    */
   @Test
-  @DisplayName("Test getWidgetsConfig(); given Dashboard() Configuration is Instance")
+  @DisplayName("Test getWidgetsConfig(); given Dashboard() Configuration is valueOf ten")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List Dashboard.getWidgetsConfig()"})
-  void testGetWidgetsConfig_givenDashboardConfigurationIsInstance() {
+  void testGetWidgetsConfig_givenDashboardConfigurationIsValueOfTen() {
     // Arrange
     Dashboard dashboard = new Dashboard();
-    dashboard.setConfiguration(MissingNode.getInstance());
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertTrue(dashboard.getWidgetsConfig().isEmpty());
@@ -228,12 +237,14 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}, and {@link Dashboard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dashboard#equals(Object)}
    *   <li>{@link Dashboard#hashCode()}
@@ -256,12 +267,14 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}, and {@link Dashboard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Dashboard#equals(Object)}
    *   <li>{@link Dashboard#hashCode()}
@@ -283,12 +296,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -304,12 +318,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +340,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -348,12 +364,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -366,12 +383,13 @@ class DashboardDiffblueTest {
 
   /**
    * Test {@link Dashboard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Dashboard#equals(Object)}
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

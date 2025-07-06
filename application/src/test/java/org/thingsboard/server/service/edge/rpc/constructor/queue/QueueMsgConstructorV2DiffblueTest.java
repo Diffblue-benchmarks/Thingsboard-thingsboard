@@ -16,26 +16,30 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class QueueMsgConstructorV2DiffblueTest {
   /**
    * Test {@link QueueMsgConstructorV2#constructQueueUpdatedMsg(UpdateMsgType, Queue)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link QueueMsgConstructorV2#constructQueueUpdatedMsg(UpdateMsgType, Queue)}
+   *
+   * <p>Method under test: {@link QueueMsgConstructorV2#constructQueueUpdatedMsg(UpdateMsgType,
+   * Queue)}
    */
   @Test
-  @DisplayName("Test constructQueueUpdatedMsg(UpdateMsgType, Queue); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructQueueUpdatedMsg(UpdateMsgType, Queue); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"QueueUpdateMsg QueueMsgConstructorV2.constructQueueUpdatedMsg(UpdateMsgType, Queue)"})
+  @MethodsUnderTest({
+    "QueueUpdateMsg QueueMsgConstructorV2.constructQueueUpdatedMsg(UpdateMsgType, Queue)"
+  })
   void testConstructQueueUpdatedMsg_thenReturnInitializationErrorStringIsEmptyString() {
     // Arrange
     QueueMsgConstructorV2 queueMsgConstructorV2 = new QueueMsgConstructorV2();
 
-    Queue queue = new Queue();
-    queue.setId(new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-
     // Act
-    QueueUpdateMsg actualConstructQueueUpdatedMsgResult = queueMsgConstructorV2
-        .constructQueueUpdatedMsg(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, queue);
+    QueueUpdateMsg actualConstructQueueUpdatedMsgResult =
+        queueMsgConstructorV2.constructQueueUpdatedMsg(
+            UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+            new Queue(new QueueId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"))));
 
     // Assert
     assertEquals("", actualConstructQueueUpdatedMsgResult.getInitializationErrorString());
@@ -56,7 +60,9 @@ class QueueMsgConstructorV2DiffblueTest {
     assertEquals(3, actualConstructQueueUpdatedMsgResult.getAllFields().size());
     assertEquals(311, actualConstructQueueUpdatedMsgResult.getSerializedSize());
     assertEquals(8669210807411032922L, actualConstructQueueUpdatedMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE, actualConstructQueueUpdatedMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_CREATED_RPC_MESSAGE,
+        actualConstructQueueUpdatedMsgResult.getMsgType());
     assertFalse(actualConstructQueueUpdatedMsgResult.getConsumerPerPartition());
     assertFalse(actualConstructQueueUpdatedMsgResult.hasProcessingStrategy());
     assertFalse(actualConstructQueueUpdatedMsgResult.hasSubmitStrategy());

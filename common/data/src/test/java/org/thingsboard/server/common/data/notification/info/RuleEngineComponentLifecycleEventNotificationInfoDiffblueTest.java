@@ -28,15 +28,18 @@ import org.thingsboard.server.common.data.plugin.ComponentLifecycleEvent;
 @ExtendWith(SpringExtension.class)
 class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Autowired
-  private RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder;
+  private RuleEngineComponentLifecycleEventNotificationInfoBuilder
+      ruleEngineComponentLifecycleEventNotificationInfoBuilder;
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is eight.</li>
+   *   <li>Then return size is eight.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link
+   * RuleEngineComponentLifecycleEventNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is eight")
@@ -44,17 +47,18 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map RuleEngineComponentLifecycleEventNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsEight() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act
     Map<String, String> actualTemplateData = buildResult.getTemplateData();
@@ -72,13 +76,16 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}, and {@link RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}, and {@link
+   * RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}
@@ -87,32 +94,36 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -121,13 +132,16 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}, and {@link RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}.
+   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}, and {@link
+   * RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#hashCode()}
@@ -136,21 +150,24 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -160,45 +177,52 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.action(Mockito.<String>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -206,49 +230,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -256,49 +289,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(EntityId.NULL_UUID))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(EntityId.NULL_UUID))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -306,48 +348,56 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED)
-        .ruleChainId(null)
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED)
+            .ruleChainId(null)
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -355,49 +405,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName(null)
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName(null)
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -405,49 +464,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("42")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("42")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -455,49 +523,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(null)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(null)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -505,47 +582,54 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED)
-        .ruleChainId(null)
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED)
-        .ruleChainId(null)
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED)
+            .ruleChainId(null)
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED)
+            .ruleChainId(null)
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -553,49 +637,58 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder2
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName(null)
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName(null)
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName(null)
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName(null)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -603,53 +696,64 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(Mockito.<String>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(
+            Mockito.<String>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder3 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder3.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder2);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder3
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(null)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(null)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -657,53 +761,64 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(Mockito.<String>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(
+            Mockito.<String>any()))
         .thenReturn(RuleEngineComponentLifecycleEventNotificationInfo.builder());
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder2 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
-    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(Mockito.<EntityId>any()))
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(
+            Mockito.<EntityId>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder ruleEngineComponentLifecycleEventNotificationInfoBuilder3 = mock(
-        RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
     when(ruleEngineComponentLifecycleEventNotificationInfoBuilder3.action(Mockito.<String>any()))
         .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder2);
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = ruleEngineComponentLifecycleEventNotificationInfoBuilder3
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(null)
-        .componentName(null)
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 = eventTypeResult2
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(null)
+            .componentName(null)
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -711,31 +826,171 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+    // Arrange
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder builderResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder();
+    builderResult.componentId(TenantId.SYS_TENANT_ID);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(
+            Mockito.<String>any()))
+        .thenReturn(builderResult);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(
+            Mockito.<EntityId>any()))
+        .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder3.action(Mockito.<String>any()))
+        .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder2);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(null)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+    // Arrange
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder builderResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder();
+    builderResult.componentName("Rule Chain Name");
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(
+            Mockito.<String>any()))
+        .thenReturn(builderResult);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder2 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder2.componentId(
+            Mockito.<EntityId>any()))
+        .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3 =
+            mock(RuleEngineComponentLifecycleEventNotificationInfoBuilder.class);
+    when(ruleEngineComponentLifecycleEventNotificationInfoBuilder3.action(Mockito.<String>any()))
+        .thenReturn(ruleEngineComponentLifecycleEventNotificationInfoBuilder2);
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        ruleEngineComponentLifecycleEventNotificationInfoBuilder3
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult2 =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(null)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult2 =
+        eventTypeResult2
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
+
+    // Act and Assert
+    assertNotEquals(buildResult, buildResult2);
+  }
+
+  /**
+   * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -743,47 +998,55 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineComponentLifecycleEventNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
-      "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineComponentLifecycleEventNotificationInfo.equals(Object)",
+    "int RuleEngineComponentLifecycleEventNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleEngineComponentLifecycleEventNotificationInfo buildResult = eventTypeResult
-        .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleEngineComponentLifecycleEventNotificationInfo buildResult =
+        eventTypeResult
+            .ruleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .ruleChainName("Rule Chain Name")
+            .build();
 
     // Act and Assert
-    assertNotEquals(buildResult, "Different type to RuleEngineComponentLifecycleEventNotificationInfo");
+    assertNotEquals(
+        buildResult, "Different type to RuleEngineComponentLifecycleEventNotificationInfo");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#RuleEngineComponentLifecycleEventNotificationInfo()}
+   *   <li>{@link
+   *       RuleEngineComponentLifecycleEventNotificationInfo#RuleEngineComponentLifecycleEventNotificationInfo()}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setAction(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setComponentId(EntityId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setComponentName(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setError(String)}
-   *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setEventType(ComponentLifecycleEvent)}
+   *   <li>{@link
+   *       RuleEngineComponentLifecycleEventNotificationInfo#setEventType(ComponentLifecycleEvent)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setRuleChainId(RuleChainId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setRuleChainName(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#toString()}
@@ -800,69 +1063,88 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationInfo.<init>()",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.<init>(RuleChainId, String, EntityId, String, String, ComponentLifecycleEvent, String)",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getAction()",
-      "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getComponentId()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getComponentName()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getError()",
-      "ComponentLifecycleEvent RuleEngineComponentLifecycleEventNotificationInfo.getEventType()",
-      "RuleChainId RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName()",
-      "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId()",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setAction(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentId(EntityId)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentName(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setError(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(RuleChainId)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName(String)",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineComponentLifecycleEventNotificationInfo.<init>()",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.<init>(RuleChainId, String, EntityId, String, String, ComponentLifecycleEvent, String)",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getAction()",
+    "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getComponentId()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getComponentName()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getError()",
+    "ComponentLifecycleEvent RuleEngineComponentLifecycleEventNotificationInfo.getEventType()",
+    "RuleChainId RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName()",
+    "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId()",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setAction(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentId(EntityId)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentName(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setError(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(RuleChainId)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName(String)",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    RuleEngineComponentLifecycleEventNotificationInfo actualRuleEngineComponentLifecycleEventNotificationInfo = new RuleEngineComponentLifecycleEventNotificationInfo();
+    RuleEngineComponentLifecycleEventNotificationInfo
+        actualRuleEngineComponentLifecycleEventNotificationInfo =
+            new RuleEngineComponentLifecycleEventNotificationInfo();
     actualRuleEngineComponentLifecycleEventNotificationInfo.setAction("Action");
     actualRuleEngineComponentLifecycleEventNotificationInfo.setComponentId(TenantId.SYS_TENANT_ID);
     actualRuleEngineComponentLifecycleEventNotificationInfo.setComponentName("Component Name");
     actualRuleEngineComponentLifecycleEventNotificationInfo.setError("An error occurred");
-    actualRuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent.CREATED);
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    actualRuleEngineComponentLifecycleEventNotificationInfo.setEventType(
+        ComponentLifecycleEvent.CREATED);
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(ruleChainId);
     actualRuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName("Rule Chain Name");
-    String actualToStringResult = actualRuleEngineComponentLifecycleEventNotificationInfo.toString();
+    String actualToStringResult =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.toString();
     String actualAction = actualRuleEngineComponentLifecycleEventNotificationInfo.getAction();
-    EntityId actualComponentId = actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentId();
-    String actualComponentName = actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentName();
+    EntityId actualComponentId =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentId();
+    String actualComponentName =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentName();
     String actualError = actualRuleEngineComponentLifecycleEventNotificationInfo.getError();
-    ComponentLifecycleEvent actualEventType = actualRuleEngineComponentLifecycleEventNotificationInfo.getEventType();
-    RuleChainId actualRuleChainId = actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId();
-    String actualRuleChainName = actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName();
+    ComponentLifecycleEvent actualEventType =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getEventType();
+    RuleChainId actualRuleChainId =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId();
+    String actualRuleChainName =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName();
 
     // Assert
     assertEquals("Action", actualAction);
     assertEquals("An error occurred", actualError);
     assertEquals("Component Name", actualComponentName);
     assertEquals("Rule Chain Name", actualRuleChainName);
-    assertEquals("RuleEngineComponentLifecycleEventNotificationInfo(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9,"
-        + " ruleChainName=Rule Chain Name, componentId=13814000-1dd2-11b2-8080-808080808080, componentName=Component"
-        + " Name, action=Action, eventType=CREATED, error=An error occurred)", actualToStringResult);
+    assertEquals(
+        "RuleEngineComponentLifecycleEventNotificationInfo(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9,"
+            + " ruleChainName=Rule Chain Name, componentId=13814000-1dd2-11b2-8080-808080808080, componentName=Component"
+            + " Name, action=Action, eventType=CREATED, error=An error occurred)",
+        actualToStringResult);
     assertEquals(ComponentLifecycleEvent.CREATED, actualEventType);
     assertSame(ruleChainId, actualRuleChainId);
-    assertSame(ruleChainId, actualRuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId());
+    assertSame(
+        ruleChainId, actualRuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId());
     assertSame(((TenantId) actualComponentId).SYS_TENANT_ID, actualComponentId);
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#RuleEngineComponentLifecycleEventNotificationInfo(RuleChainId, String, EntityId, String, String, ComponentLifecycleEvent, String)}
+   *   <li>{@link
+   *       RuleEngineComponentLifecycleEventNotificationInfo#RuleEngineComponentLifecycleEventNotificationInfo(RuleChainId,
+   *       String, EntityId, String, String, ComponentLifecycleEvent, String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setAction(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setComponentId(EntityId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setComponentName(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setError(String)}
-   *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setEventType(ComponentLifecycleEvent)}
+   *   <li>{@link
+   *       RuleEngineComponentLifecycleEventNotificationInfo#setEventType(ComponentLifecycleEvent)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setRuleChainId(RuleChainId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#setRuleChainName(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfo#toString()}
@@ -879,71 +1161,94 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationInfo.<init>()",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.<init>(RuleChainId, String, EntityId, String, String, ComponentLifecycleEvent, String)",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getAction()",
-      "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getComponentId()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getComponentName()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getError()",
-      "ComponentLifecycleEvent RuleEngineComponentLifecycleEventNotificationInfo.getEventType()",
-      "RuleChainId RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId()",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName()",
-      "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId()",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setAction(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentId(EntityId)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentName(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setError(String)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(RuleChainId)",
-      "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName(String)",
-      "String RuleEngineComponentLifecycleEventNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineComponentLifecycleEventNotificationInfo.<init>()",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.<init>(RuleChainId, String, EntityId, String, String, ComponentLifecycleEvent, String)",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getAction()",
+    "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getComponentId()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getComponentName()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getError()",
+    "ComponentLifecycleEvent RuleEngineComponentLifecycleEventNotificationInfo.getEventType()",
+    "RuleChainId RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId()",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName()",
+    "EntityId RuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId()",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setAction(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentId(EntityId)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setComponentName(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setError(String)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(RuleChainId)",
+    "void RuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName(String)",
+    "String RuleEngineComponentLifecycleEventNotificationInfo.toString()"
+  })
   void testGettersAndSetters2() {
     // Arrange and Act
-    RuleEngineComponentLifecycleEventNotificationInfo actualRuleEngineComponentLifecycleEventNotificationInfo = new RuleEngineComponentLifecycleEventNotificationInfo(
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Rule Chain Name",
-        TenantId.SYS_TENANT_ID, "Component Name", "Action", ComponentLifecycleEvent.CREATED, "An error occurred");
+    RuleEngineComponentLifecycleEventNotificationInfo
+        actualRuleEngineComponentLifecycleEventNotificationInfo =
+            new RuleEngineComponentLifecycleEventNotificationInfo(
+                new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+                "Rule Chain Name",
+                TenantId.SYS_TENANT_ID,
+                "Component Name",
+                "Action",
+                ComponentLifecycleEvent.CREATED,
+                "An error occurred");
     actualRuleEngineComponentLifecycleEventNotificationInfo.setAction("Action");
     actualRuleEngineComponentLifecycleEventNotificationInfo.setComponentId(TenantId.SYS_TENANT_ID);
     actualRuleEngineComponentLifecycleEventNotificationInfo.setComponentName("Component Name");
     actualRuleEngineComponentLifecycleEventNotificationInfo.setError("An error occurred");
-    actualRuleEngineComponentLifecycleEventNotificationInfo.setEventType(ComponentLifecycleEvent.CREATED);
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    actualRuleEngineComponentLifecycleEventNotificationInfo.setEventType(
+        ComponentLifecycleEvent.CREATED);
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleEngineComponentLifecycleEventNotificationInfo.setRuleChainId(ruleChainId);
     actualRuleEngineComponentLifecycleEventNotificationInfo.setRuleChainName("Rule Chain Name");
-    String actualToStringResult = actualRuleEngineComponentLifecycleEventNotificationInfo.toString();
+    String actualToStringResult =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.toString();
     String actualAction = actualRuleEngineComponentLifecycleEventNotificationInfo.getAction();
-    EntityId actualComponentId = actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentId();
-    String actualComponentName = actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentName();
+    EntityId actualComponentId =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentId();
+    String actualComponentName =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getComponentName();
     String actualError = actualRuleEngineComponentLifecycleEventNotificationInfo.getError();
-    ComponentLifecycleEvent actualEventType = actualRuleEngineComponentLifecycleEventNotificationInfo.getEventType();
-    RuleChainId actualRuleChainId = actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId();
-    String actualRuleChainName = actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName();
+    ComponentLifecycleEvent actualEventType =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getEventType();
+    RuleChainId actualRuleChainId =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainId();
+    String actualRuleChainName =
+        actualRuleEngineComponentLifecycleEventNotificationInfo.getRuleChainName();
 
     // Assert
     assertEquals("Action", actualAction);
     assertEquals("An error occurred", actualError);
     assertEquals("Component Name", actualComponentName);
     assertEquals("Rule Chain Name", actualRuleChainName);
-    assertEquals("RuleEngineComponentLifecycleEventNotificationInfo(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9,"
-        + " ruleChainName=Rule Chain Name, componentId=13814000-1dd2-11b2-8080-808080808080, componentName=Component"
-        + " Name, action=Action, eventType=CREATED, error=An error occurred)", actualToStringResult);
+    assertEquals(
+        "RuleEngineComponentLifecycleEventNotificationInfo(ruleChainId=784f394c-42b6-435a-983c-b7beff2784f9,"
+            + " ruleChainName=Rule Chain Name, componentId=13814000-1dd2-11b2-8080-808080808080, componentName=Component"
+            + " Name, action=Action, eventType=CREATED, error=An error occurred)",
+        actualToStringResult);
     assertEquals(ComponentLifecycleEvent.CREATED, actualEventType);
     assertSame(ruleChainId, actualRuleChainId);
-    assertSame(ruleChainId, actualRuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId());
+    assertSame(
+        ruleChainId, actualRuleEngineComponentLifecycleEventNotificationInfo.getStateEntityId());
     assertSame(((TenantId) actualComponentId).SYS_TENANT_ID, actualComponentId);
   }
 
   /**
-   * Test RuleEngineComponentLifecycleEventNotificationInfoBuilder {@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test RuleEngineComponentLifecycleEventNotificationInfoBuilder {@link
+   * RuleEngineComponentLifecycleEventNotificationInfoBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#build()}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#action(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#componentId(EntityId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#componentName(String)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#error(String)}
-   *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#eventType(ComponentLifecycleEvent)}
+   *   <li>{@link
+   *       RuleEngineComponentLifecycleEventNotificationInfoBuilder#eventType(ComponentLifecycleEvent)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#ruleChainId(RuleChainId)}
    *   <li>{@link RuleEngineComponentLifecycleEventNotificationInfoBuilder#ruleChainName(String)}
    * </ul>
@@ -951,31 +1256,33 @@ class RuleEngineComponentLifecycleEventNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test RuleEngineComponentLifecycleEventNotificationInfoBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineComponentLifecycleEventNotificationInfoBuilder.<init>()",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.action(String)",
-      "RuleEngineComponentLifecycleEventNotificationInfo RuleEngineComponentLifecycleEventNotificationInfoBuilder.build()",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(EntityId)",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(String)",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.error(String)",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.eventType(ComponentLifecycleEvent)",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.ruleChainId(RuleChainId)",
-      "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.ruleChainName(String)",
-      "String RuleEngineComponentLifecycleEventNotificationInfoBuilder.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineComponentLifecycleEventNotificationInfoBuilder.<init>()",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.action(String)",
+    "RuleEngineComponentLifecycleEventNotificationInfo RuleEngineComponentLifecycleEventNotificationInfoBuilder.build()",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.componentId(EntityId)",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.componentName(String)",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.error(String)",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.eventType(ComponentLifecycleEvent)",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.ruleChainId(RuleChainId)",
+    "RuleEngineComponentLifecycleEventNotificationInfoBuilder RuleEngineComponentLifecycleEventNotificationInfoBuilder.ruleChainName(String)",
+    "String RuleEngineComponentLifecycleEventNotificationInfoBuilder.toString()"
+  })
   void testRuleEngineComponentLifecycleEventNotificationInfoBuilderBuild() {
     // Arrange
-    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult = RuleEngineComponentLifecycleEventNotificationInfo
-        .builder()
-        .action("Action")
-        .componentId(TenantId.SYS_TENANT_ID)
-        .componentName("Component Name")
-        .error("An error occurred")
-        .eventType(ComponentLifecycleEvent.CREATED);
-    RuleChainId ruleChainId = new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleEngineComponentLifecycleEventNotificationInfoBuilder eventTypeResult =
+        RuleEngineComponentLifecycleEventNotificationInfo.builder()
+            .action("Action")
+            .componentId(TenantId.SYS_TENANT_ID)
+            .componentName("Component Name")
+            .error("An error occurred")
+            .eventType(ComponentLifecycleEvent.CREATED);
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    RuleEngineComponentLifecycleEventNotificationInfo actualBuildResult = eventTypeResult.ruleChainId(ruleChainId)
-        .ruleChainName("Rule Chain Name")
-        .build();
+    RuleEngineComponentLifecycleEventNotificationInfo actualBuildResult =
+        eventTypeResult.ruleChainId(ruleChainId).ruleChainName("Rule Chain Name").build();
 
     // Assert
     assertTrue(actualBuildResult.getComponentId() instanceof TenantId);

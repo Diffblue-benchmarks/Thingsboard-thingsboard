@@ -13,12 +13,13 @@ import org.thingsboard.server.common.data.id.DeviceId;
 class DeviceAuthResultDiffblueTest {
   /**
    * Test {@link DeviceAuthResult#of(DeviceId)} with {@code deviceId}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return ErrorMsg is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return ErrorMsg is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceAuthResult#of(DeviceId)}
+   *
+   * <p>Method under test: {@link DeviceAuthResult#of(DeviceId)}
    */
   @Test
   @DisplayName("Test of(DeviceId) with 'deviceId'; when 'null'; then return ErrorMsg is 'null'")
@@ -36,8 +37,8 @@ class DeviceAuthResultDiffblueTest {
 
   /**
    * Test {@link DeviceAuthResult#of(String)} with {@code errorMsg}.
-   * <p>
-   * Method under test: {@link DeviceAuthResult#of(String)}
+   *
+   * <p>Method under test: {@link DeviceAuthResult#of(String)}
    */
   @Test
   @DisplayName("Test of(String) with 'errorMsg'")
@@ -55,8 +56,9 @@ class DeviceAuthResultDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceAuthResult#toString()}
    *   <li>{@link DeviceAuthResult#getDeviceId()}
@@ -67,8 +69,12 @@ class DeviceAuthResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeviceId DeviceAuthResult.getDeviceId()", "String DeviceAuthResult.getErrorMsg()",
-      "boolean DeviceAuthResult.isSuccess()", "String DeviceAuthResult.toString()"})
+  @MethodsUnderTest({
+    "DeviceId DeviceAuthResult.getDeviceId()",
+    "String DeviceAuthResult.getErrorMsg()",
+    "boolean DeviceAuthResult.isSuccess()",
+    "String DeviceAuthResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     DeviceAuthResult ofResult = DeviceAuthResult.of("An error occurred");
@@ -80,7 +86,9 @@ class DeviceAuthResultDiffblueTest {
 
     // Assert
     assertEquals("An error occurred", actualErrorMsg);
-    assertEquals("DeviceAuthResult [success=false, deviceId=null, errorMsg=An error occurred]", actualToStringResult);
+    assertEquals(
+        "DeviceAuthResult [success=false, deviceId=null, errorMsg=An error occurred]",
+        actualToStringResult);
     assertNull(actualDeviceId);
     assertFalse(ofResult.isSuccess());
   }

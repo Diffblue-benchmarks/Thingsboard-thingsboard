@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class NotificationDeliveryMethodDiffblueTest {
   /**
    * Test {@link NotificationDeliveryMethod#getName()}.
-   * <p>
-   * Method under test: {@link NotificationDeliveryMethod#getName()}
+   *
+   * <p>Method under test: {@link NotificationDeliveryMethod#getName()}
    */
   @Test
   @DisplayName("Test getName()")

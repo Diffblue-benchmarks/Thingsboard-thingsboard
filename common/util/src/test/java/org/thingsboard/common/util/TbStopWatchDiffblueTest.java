@@ -15,8 +15,8 @@ import org.springframework.util.StopWatch.TaskInfo;
 class TbStopWatchDiffblueTest {
   /**
    * Test {@link TbStopWatch#create()}.
-   * <p>
-   * Method under test: {@link TbStopWatch#create()}
+   *
+   * <p>Method under test: {@link TbStopWatch#create()}
    */
   @Test
   @DisplayName("Test create()")
@@ -39,8 +39,8 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#create(String)} with {@code String}.
-   * <p>
-   * Method under test: {@link TbStopWatch#create(String)}
+   *
+   * <p>Method under test: {@link TbStopWatch#create(String)}
    */
   @Test
   @DisplayName("Test create(String) with 'String'")
@@ -63,12 +63,13 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#startNew(String)}.
+   *
    * <ul>
-   *   <li>Given create.</li>
-   *   <li>Then create LastTaskName is empty string.</li>
+   *   <li>Given create.
+   *   <li>Then create LastTaskName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStopWatch#startNew(String)}
+   *
+   * <p>Method under test: {@link TbStopWatch#startNew(String)}
    */
   @Test
   @DisplayName("Test startNew(String); given create; then create LastTaskName is empty string")
@@ -96,18 +97,21 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#stopAndGetTotalTimeMillis()}.
+   *
    * <ul>
-   *   <li>Given create.</li>
-   *   <li>Then create LastTaskName is empty string.</li>
+   *   <li>Given create.
+   *   <li>Then create LastTaskName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStopWatch#stopAndGetTotalTimeMillis()}
+   *
+   * <p>Method under test: {@link TbStopWatch#stopAndGetTotalTimeMillis()}
    */
   @Test
-  @DisplayName("Test stopAndGetTotalTimeMillis(); given create; then create LastTaskName is empty string")
+  @DisplayName(
+      "Test stopAndGetTotalTimeMillis(); given create; then create LastTaskName is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long TbStopWatch.stopAndGetTotalTimeMillis()"})
-  void testStopAndGetTotalTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
+  void testStopAndGetTotalTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString()
+      throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
 
@@ -131,18 +135,21 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#stopAndGetTotalTimeNanos()}.
+   *
    * <ul>
-   *   <li>Given create.</li>
-   *   <li>Then create LastTaskName is empty string.</li>
+   *   <li>Given create.
+   *   <li>Then create LastTaskName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStopWatch#stopAndGetTotalTimeNanos()}
+   *
+   * <p>Method under test: {@link TbStopWatch#stopAndGetTotalTimeNanos()}
    */
   @Test
-  @DisplayName("Test stopAndGetTotalTimeNanos(); given create; then create LastTaskName is empty string")
+  @DisplayName(
+      "Test stopAndGetTotalTimeNanos(); given create; then create LastTaskName is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long TbStopWatch.stopAndGetTotalTimeNanos()"})
-  void testStopAndGetTotalTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
+  void testStopAndGetTotalTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString()
+      throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
 
@@ -165,18 +172,21 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#stopAndGetLastTaskTimeMillis()}.
+   *
    * <ul>
-   *   <li>Given create.</li>
-   *   <li>Then create LastTaskName is empty string.</li>
+   *   <li>Given create.
+   *   <li>Then create LastTaskName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStopWatch#stopAndGetLastTaskTimeMillis()}
+   *
+   * <p>Method under test: {@link TbStopWatch#stopAndGetLastTaskTimeMillis()}
    */
   @Test
-  @DisplayName("Test stopAndGetLastTaskTimeMillis(); given create; then create LastTaskName is empty string")
+  @DisplayName(
+      "Test stopAndGetLastTaskTimeMillis(); given create; then create LastTaskName is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long TbStopWatch.stopAndGetLastTaskTimeMillis()"})
-  void testStopAndGetLastTaskTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
+  void testStopAndGetLastTaskTimeMillis_givenCreate_thenCreateLastTaskNameIsEmptyString()
+      throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
 
@@ -200,18 +210,21 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test {@link TbStopWatch#stopAndGetLastTaskTimeNanos()}.
+   *
    * <ul>
-   *   <li>Given create.</li>
-   *   <li>Then create LastTaskName is empty string.</li>
+   *   <li>Given create.
+   *   <li>Then create LastTaskName is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStopWatch#stopAndGetLastTaskTimeNanos()}
+   *
+   * <p>Method under test: {@link TbStopWatch#stopAndGetLastTaskTimeNanos()}
    */
   @Test
-  @DisplayName("Test stopAndGetLastTaskTimeNanos(); given create; then create LastTaskName is empty string")
+  @DisplayName(
+      "Test stopAndGetLastTaskTimeNanos(); given create; then create LastTaskName is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long TbStopWatch.stopAndGetLastTaskTimeNanos()"})
-  void testStopAndGetLastTaskTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString() throws IllegalStateException {
+  void testStopAndGetLastTaskTimeNanos_givenCreate_thenCreateLastTaskNameIsEmptyString()
+      throws IllegalStateException {
     // Arrange
     TbStopWatch createResult = TbStopWatch.create();
 
@@ -234,8 +247,8 @@ class TbStopWatchDiffblueTest {
 
   /**
    * Test new {@link TbStopWatch} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbStopWatch}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbStopWatch}
    */
   @Test
   @DisplayName("Test new TbStopWatch (default constructor)")

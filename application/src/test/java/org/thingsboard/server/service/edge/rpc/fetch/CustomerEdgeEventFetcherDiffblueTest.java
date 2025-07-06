@@ -31,19 +31,18 @@ import org.thingsboard.server.common.data.page.PageLink;
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)
 class CustomerEdgeEventFetcherDiffblueTest {
-  @Autowired
-  private CustomerEdgeEventFetcher customerEdgeEventFetcher;
+  @Autowired private CustomerEdgeEventFetcher customerEdgeEventFetcher;
 
-  @InjectMocks
-  private CustomerId customerId;
+  @InjectMocks private CustomerEdgeEventFetcher customerEdgeEventFetcher2;
 
-  @MockBean
-  private UUID uUID;
+  @InjectMocks private CustomerId customerId;
+
+  @MockBean private UUID uUID;
 
   /**
    * Test {@link CustomerEdgeEventFetcher#getPageLink(int)}.
-   * <p>
-   * Method under test: {@link CustomerEdgeEventFetcher#getPageLink(int)}
+   *
+   * <p>Method under test: {@link CustomerEdgeEventFetcher#getPageLink(int)}
    */
   @Test
   @DisplayName("Test getPageLink(int)")
@@ -51,20 +50,23 @@ class CustomerEdgeEventFetcherDiffblueTest {
   @MethodsUnderTest({"PageLink CustomerEdgeEventFetcher.getPageLink(int)"})
   void testGetPageLink() {
     // Arrange, Act and Assert
-    assertNull(customerEdgeEventFetcher.getPageLink(3));
+    assertNull(customerEdgeEventFetcher2.getPageLink(3));
   }
 
   /**
    * Test {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
+   *
    * <ul>
-   *   <li>Given {@link CustomerEdgeEventFetcher}.</li>
-   *   <li>Then return Data size is one.</li>
+   *   <li>Given {@link CustomerEdgeEventFetcher}.
+   *   <li>Then return Data size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
+   *
+   * <p>Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge,
+   * PageLink)}
    */
   @Test
-  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); given CustomerEdgeEventFetcher; then return Data size is one")
+  @DisplayName(
+      "Test fetchEdgeEvents(TenantId, Edge, PageLink); given CustomerEdgeEventFetcher; then return Data size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData CustomerEdgeEventFetcher.fetchEdgeEvents(TenantId, Edge, PageLink)"})
   void testFetchEdgeEvents_givenCustomerEdgeEventFetcher_thenReturnDataSizeIsOne() {
@@ -73,8 +75,8 @@ class CustomerEdgeEventFetcherDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    PageData<EdgeEvent> actualFetchEdgeEventsResult = customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge,
-        new PageLink(3));
+    PageData<EdgeEvent> actualFetchEdgeEventsResult =
+        customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge, new PageLink(3));
 
     // Assert
     List<EdgeEvent> data = actualFetchEdgeEventsResult.getData();
@@ -97,14 +99,17 @@ class CustomerEdgeEventFetcherDiffblueTest {
 
   /**
    * Test {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}.
+   *
    * <ul>
-   *   <li>Then return Data first EntityId is {@code null}.</li>
+   *   <li>Then return Data first EntityId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge, PageLink)}
+   *
+   * <p>Method under test: {@link CustomerEdgeEventFetcher#fetchEdgeEvents(TenantId, Edge,
+   * PageLink)}
    */
   @Test
-  @DisplayName("Test fetchEdgeEvents(TenantId, Edge, PageLink); then return Data first EntityId is 'null'")
+  @DisplayName(
+      "Test fetchEdgeEvents(TenantId, Edge, PageLink); then return Data first EntityId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData CustomerEdgeEventFetcher.fetchEdgeEvents(TenantId, Edge, PageLink)"})
   void testFetchEdgeEvents_thenReturnDataFirstEntityIdIsNull() {
@@ -114,8 +119,8 @@ class CustomerEdgeEventFetcherDiffblueTest {
     Edge edge = new Edge();
 
     // Act
-    PageData<EdgeEvent> actualFetchEdgeEventsResult = customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge,
-        new PageLink(3));
+    PageData<EdgeEvent> actualFetchEdgeEventsResult =
+        customerEdgeEventFetcher.fetchEdgeEvents(tenantId, edge, new PageLink(3));
 
     // Assert
     List<EdgeEvent> data = actualFetchEdgeEventsResult.getData();

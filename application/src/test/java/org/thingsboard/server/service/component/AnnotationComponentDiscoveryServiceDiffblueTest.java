@@ -16,18 +16,19 @@ import org.thingsboard.server.common.data.rule.RuleChainType;
 
 @ExtendWith(MockitoExtension.class)
 class AnnotationComponentDiscoveryServiceDiffblueTest {
-  @InjectMocks
-  private AnnotationComponentDiscoveryService annotationComponentDiscoveryService;
+  @InjectMocks private AnnotationComponentDiscoveryService annotationComponentDiscoveryService;
 
   /**
    * Test {@link AnnotationComponentDiscoveryService#getRuleNodeInfo(String)}.
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getRuleNodeInfo(String)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getRuleNodeInfo(String)}
    */
   @Test
   @DisplayName("Test getRuleNodeInfo(String)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.Optional AnnotationComponentDiscoveryService.getRuleNodeInfo(String)"})
+  @MethodsUnderTest({
+    "java.util.Optional AnnotationComponentDiscoveryService.getRuleNodeInfo(String)"
+  })
   void testGetRuleNodeInfo() {
     // Arrange, Act and Assert
     assertFalse(annotationComponentDiscoveryService.getRuleNodeInfo("Clazz").isPresent());
@@ -35,8 +36,8 @@ class AnnotationComponentDiscoveryServiceDiffblueTest {
 
   /**
    * Test {@link AnnotationComponentDiscoveryService#getVersionedNodes()}.
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getVersionedNodes()}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getVersionedNodes()}
    */
   @Test
   @DisplayName("Test getVersionedNodes()")
@@ -48,76 +49,105 @@ class AnnotationComponentDiscoveryServiceDiffblueTest {
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)} with {@code type}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)}
+   * with {@code type}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>When {@code CORE}.</li>
+   *   <li>When {@code CORE}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(ComponentType,
+   * RuleChainType)}
    */
   @Test
-  @DisplayName("Test getComponents(ComponentType, RuleChainType) with 'type', 'ruleChainType'; when 'CORE'")
+  @DisplayName(
+      "Test getComponents(ComponentType, RuleChainType) with 'type', 'ruleChainType'; when 'CORE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(ComponentType, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(ComponentType, RuleChainType)"
+  })
   void testGetComponentsWithTypeRuleChainType_whenCore() {
     // Arrange, Act and Assert
     assertTrue(
-        annotationComponentDiscoveryService.getComponents(ComponentType.ENRICHMENT, RuleChainType.CORE).isEmpty());
+        annotationComponentDiscoveryService
+            .getComponents(ComponentType.ENRICHMENT, RuleChainType.CORE)
+            .isEmpty());
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)} with {@code type}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)}
+   * with {@code type}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
+   *   <li>When {@code EDGE}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(ComponentType, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(ComponentType,
+   * RuleChainType)}
    */
   @Test
-  @DisplayName("Test getComponents(ComponentType, RuleChainType) with 'type', 'ruleChainType'; when 'EDGE'")
+  @DisplayName(
+      "Test getComponents(ComponentType, RuleChainType) with 'type', 'ruleChainType'; when 'EDGE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(ComponentType, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(ComponentType, RuleChainType)"
+  })
   void testGetComponentsWithTypeRuleChainType_whenEdge() {
     // Arrange, Act and Assert
     assertTrue(
-        annotationComponentDiscoveryService.getComponents(ComponentType.ENRICHMENT, RuleChainType.EDGE).isEmpty());
+        annotationComponentDiscoveryService
+            .getComponents(ComponentType.ENRICHMENT, RuleChainType.EDGE)
+            .isEmpty());
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code types}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code
+   * types}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>Given {@code ENRICHMENT}.</li>
-   *   <li>When {@link HashSet#HashSet()} add {@code ENRICHMENT}.</li>
+   *   <li>Given {@code ENRICHMENT}.
+   *   <li>When {@link HashSet#HashSet()} add {@code ENRICHMENT}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set,
+   * RuleChainType)}
    */
   @Test
-  @DisplayName("Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; given 'ENRICHMENT'; when HashSet() add 'ENRICHMENT'")
+  @DisplayName(
+      "Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; given 'ENRICHMENT'; when HashSet() add 'ENRICHMENT'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"
+  })
   void testGetComponentsWithTypesRuleChainType_givenEnrichment_whenHashSetAddEnrichment() {
     // Arrange
     HashSet<ComponentType> types = new HashSet<>();
     types.add(ComponentType.ENRICHMENT);
 
     // Act and Assert
-    assertTrue(annotationComponentDiscoveryService.getComponents(types, RuleChainType.CORE).isEmpty());
+    assertTrue(
+        annotationComponentDiscoveryService.getComponents(types, RuleChainType.CORE).isEmpty());
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code types}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code
+   * types}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>Given {@code FILTER}.</li>
-   *   <li>When {@link HashSet#HashSet()} add {@code FILTER}.</li>
+   *   <li>Given {@code FILTER}.
+   *   <li>When {@link HashSet#HashSet()} add {@code FILTER}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set,
+   * RuleChainType)}
    */
   @Test
-  @DisplayName("Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; given 'FILTER'; when HashSet() add 'FILTER'")
+  @DisplayName(
+      "Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; given 'FILTER'; when HashSet() add 'FILTER'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"
+  })
   void testGetComponentsWithTypesRuleChainType_givenFilter_whenHashSetAddFilter() {
     // Arrange
     HashSet<ComponentType> types = new HashSet<>();
@@ -125,47 +155,65 @@ class AnnotationComponentDiscoveryServiceDiffblueTest {
     types.add(ComponentType.ENRICHMENT);
 
     // Act and Assert
-    assertTrue(annotationComponentDiscoveryService.getComponents(types, RuleChainType.CORE).isEmpty());
+    assertTrue(
+        annotationComponentDiscoveryService.getComponents(types, RuleChainType.CORE).isEmpty());
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code types}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code
+   * types}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>When {@code EDGE}.</li>
+   *   <li>When {@code EDGE}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set,
+   * RuleChainType)}
    */
   @Test
   @DisplayName("Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; when 'EDGE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"
+  })
   void testGetComponentsWithTypesRuleChainType_whenEdge() {
     // Arrange, Act and Assert
-    assertTrue(annotationComponentDiscoveryService.getComponents(new HashSet<>(), RuleChainType.EDGE).isEmpty());
+    assertTrue(
+        annotationComponentDiscoveryService
+            .getComponents(new HashSet<>(), RuleChainType.EDGE)
+            .isEmpty());
   }
 
   /**
-   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code types}, {@code ruleChainType}.
+   * Test {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)} with {@code
+   * types}, {@code ruleChainType}.
+   *
    * <ul>
-   *   <li>When {@link HashSet#HashSet()}.</li>
+   *   <li>When {@link HashSet#HashSet()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set, RuleChainType)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponents(Set,
+   * RuleChainType)}
    */
   @Test
-  @DisplayName("Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; when HashSet()")
+  @DisplayName(
+      "Test getComponents(Set, RuleChainType) with 'types', 'ruleChainType'; when HashSet()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"})
+  @MethodsUnderTest({
+    "java.util.List AnnotationComponentDiscoveryService.getComponents(Set, RuleChainType)"
+  })
   void testGetComponentsWithTypesRuleChainType_whenHashSet() {
     // Arrange, Act and Assert
-    assertTrue(annotationComponentDiscoveryService.getComponents(new HashSet<>(), RuleChainType.CORE).isEmpty());
+    assertTrue(
+        annotationComponentDiscoveryService
+            .getComponents(new HashSet<>(), RuleChainType.CORE)
+            .isEmpty());
   }
 
   /**
    * Test {@link AnnotationComponentDiscoveryService#getComponent(String)}.
-   * <p>
-   * Method under test: {@link AnnotationComponentDiscoveryService#getComponent(String)}
+   *
+   * <p>Method under test: {@link AnnotationComponentDiscoveryService#getComponent(String)}
    */
   @Test
   @DisplayName("Test getComponent(String)")

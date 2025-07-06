@@ -20,12 +20,14 @@ import org.thingsboard.server.dao.model.ModelConstants;
 public class MobileAppEntityDiffblueTest {
   /**
    * Test {@link MobileAppEntity#equals(Object)}, and {@link MobileAppEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#equals(Object)}
    *   <li>{@link MobileAppEntity#hashCode()}
@@ -62,12 +64,14 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}, and {@link MobileAppEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#equals(Object)}
    *   <li>{@link MobileAppEntity#hashCode()}
@@ -104,12 +108,14 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}, and {@link MobileAppEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#equals(Object)}
    *   <li>{@link MobileAppEntity#hashCode()}
@@ -146,12 +152,14 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}, and {@link MobileAppEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#equals(Object)}
    *   <li>{@link MobileAppEntity#hashCode()}
@@ -188,12 +196,14 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}, and {@link MobileAppEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#equals(Object)}
    *   <li>{@link MobileAppEntity#hashCode()}
@@ -221,12 +231,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -257,12 +268,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -293,12 +305,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -329,12 +342,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -365,12 +379,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -401,12 +416,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -437,12 +453,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -473,12 +490,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -509,12 +527,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -545,12 +564,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -572,12 +592,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -599,8 +620,9 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MobileAppEntity#MobileAppEntity()}
    *   <li>{@link MobileAppEntity#setAppSecret(String)}
@@ -616,11 +638,18 @@ public class MobileAppEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void MobileAppEntity.<init>()", "String MobileAppEntity.getAppSecret()",
-      "Boolean MobileAppEntity.getOauth2Enabled()", "String MobileAppEntity.getPkgName()",
-      "UUID MobileAppEntity.getTenantId()", "void MobileAppEntity.setAppSecret(String)",
-      "void MobileAppEntity.setOauth2Enabled(Boolean)", "void MobileAppEntity.setPkgName(String)",
-      "void MobileAppEntity.setTenantId(UUID)", "String MobileAppEntity.toString()"})
+  @MethodsUnderTest({
+    "void MobileAppEntity.<init>()",
+    "String MobileAppEntity.getAppSecret()",
+    "Boolean MobileAppEntity.getOauth2Enabled()",
+    "String MobileAppEntity.getPkgName()",
+    "UUID MobileAppEntity.getTenantId()",
+    "void MobileAppEntity.setAppSecret(String)",
+    "void MobileAppEntity.setOauth2Enabled(Boolean)",
+    "void MobileAppEntity.setPkgName(String)",
+    "void MobileAppEntity.setTenantId(UUID)",
+    "String MobileAppEntity.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     MobileAppEntity actualMobileAppEntity = new MobileAppEntity();
@@ -652,8 +681,8 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#MobileAppEntity(MobileApp)}.
-   * <p>
-   * Method under test: {@link MobileAppEntity#MobileAppEntity(MobileApp)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#MobileAppEntity(MobileApp)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -667,7 +696,8 @@ public class MobileAppEntityDiffblueTest {
     MobileAppEntity actualMobileAppEntity = new MobileAppEntity(mobile);
 
     // Assert
-    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualMobileAppEntity.getTenantId().toString());
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080", actualMobileAppEntity.getTenantId().toString());
     assertNull(actualMobileAppEntity.getAppSecret());
     assertNull(actualMobileAppEntity.getPkgName());
     assertNull(actualMobileAppEntity.getId());
@@ -678,12 +708,13 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#MobileAppEntity(MobileApp)}.
+   *
    * <ul>
-   *   <li>When {@link MobileApp#MobileApp()}.</li>
-   *   <li>Then return TenantId is {@code null}.</li>
+   *   <li>When {@link MobileApp#MobileApp()}.
+   *   <li>Then return TenantId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#MobileAppEntity(MobileApp)}
+   *
+   * <p>Method under test: {@link MobileAppEntity#MobileAppEntity(MobileApp)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -704,11 +735,12 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id is randomUUID.</li>
+   *   <li>Then return TenantId Id is randomUUID.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#toData()}
+   *
+   * <p>Method under test: {@link MobileAppEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -735,11 +767,12 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return TenantId Id toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#toData()}
+   *
+   * <p>Method under test: {@link MobileAppEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -765,11 +798,12 @@ public class MobileAppEntityDiffblueTest {
 
   /**
    * Test {@link MobileAppEntity#toData()}.
+   *
    * <ul>
-   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link MobileAppEntity#toData()}
+   *
+   * <p>Method under test: {@link MobileAppEntity#toData()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class RuleChainUpdateResultDiffblueTest {
   /**
    * Test {@link RuleChainUpdateResult#failed()}.
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#failed()}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#failed()}
    */
   @Test
   @DisplayName("Test failed()")
@@ -34,11 +34,12 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test {@link RuleChainUpdateResult#successful(List)}.
+   *
    * <ul>
-   *   <li>Then return UpdatedRuleNodes is {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then return UpdatedRuleNodes is {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#successful(List)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#successful(List)}
    */
   @Test
   @DisplayName("Test successful(List); then return UpdatedRuleNodes is ArrayList()")
@@ -51,16 +52,18 @@ class RuleChainUpdateResultDiffblueTest {
     updatedRuleNodes.add(new RuleNodeUpdateResult(oldRuleNode, new RuleNode()));
 
     // Act and Assert
-    assertSame(updatedRuleNodes, RuleChainUpdateResult.successful(updatedRuleNodes).getUpdatedRuleNodes());
+    assertSame(
+        updatedRuleNodes, RuleChainUpdateResult.successful(updatedRuleNodes).getUpdatedRuleNodes());
   }
 
   /**
    * Test {@link RuleChainUpdateResult#successful(List)}.
+   *
    * <ul>
-   *   <li>Then return UpdatedRuleNodes size is two.</li>
+   *   <li>Then return UpdatedRuleNodes size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#successful(List)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#successful(List)}
    */
   @Test
   @DisplayName("Test successful(List); then return UpdatedRuleNodes size is two")
@@ -72,25 +75,27 @@ class RuleChainUpdateResultDiffblueTest {
     RuleNode oldRuleNode = new RuleNode();
     updatedRuleNodes.add(new RuleNodeUpdateResult(oldRuleNode, new RuleNode()));
     RuleNode oldRuleNode2 = new RuleNode();
-    RuleNodeUpdateResult ruleNodeUpdateResult = new RuleNodeUpdateResult(oldRuleNode2, new RuleNode());
+    RuleNodeUpdateResult ruleNodeUpdateResult =
+        new RuleNodeUpdateResult(oldRuleNode2, new RuleNode());
 
     updatedRuleNodes.add(ruleNodeUpdateResult);
 
     // Act and Assert
-    List<RuleNodeUpdateResult> updatedRuleNodes2 = RuleChainUpdateResult.successful(updatedRuleNodes)
-        .getUpdatedRuleNodes();
+    List<RuleNodeUpdateResult> updatedRuleNodes2 =
+        RuleChainUpdateResult.successful(updatedRuleNodes).getUpdatedRuleNodes();
     assertEquals(2, updatedRuleNodes2.size());
     assertSame(ruleNodeUpdateResult, updatedRuleNodes2.get(1));
   }
 
   /**
    * Test {@link RuleChainUpdateResult#successful(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return UpdatedRuleNodes Empty.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return UpdatedRuleNodes Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#successful(List)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#successful(List)}
    */
   @Test
   @DisplayName("Test successful(List); when ArrayList(); then return UpdatedRuleNodes Empty")
@@ -98,7 +103,8 @@ class RuleChainUpdateResultDiffblueTest {
   @MethodsUnderTest({"RuleChainUpdateResult RuleChainUpdateResult.successful(List)"})
   void testSuccessful_whenArrayList_thenReturnUpdatedRuleNodesEmpty() {
     // Arrange and Act
-    RuleChainUpdateResult actualSuccessfulResult = RuleChainUpdateResult.successful(new ArrayList<>());
+    RuleChainUpdateResult actualSuccessfulResult =
+        RuleChainUpdateResult.successful(new ArrayList<>());
 
     // Assert
     assertTrue(actualSuccessfulResult.getUpdatedRuleNodes().isEmpty());
@@ -106,13 +112,16 @@ class RuleChainUpdateResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link RuleChainUpdateResult#hashCode()}.
+   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link
+   * RuleChainUpdateResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainUpdateResult#equals(Object)}
    *   <li>{@link RuleChainUpdateResult#hashCode()}
@@ -121,7 +130,10 @@ class RuleChainUpdateResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainUpdateResult failedResult = RuleChainUpdateResult.failed();
@@ -134,13 +146,16 @@ class RuleChainUpdateResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link RuleChainUpdateResult#hashCode()}.
+   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link
+   * RuleChainUpdateResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainUpdateResult#equals(Object)}
    *   <li>{@link RuleChainUpdateResult#hashCode()}
@@ -149,7 +164,10 @@ class RuleChainUpdateResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainUpdateResult successfulResult = RuleChainUpdateResult.successful(new ArrayList<>());
@@ -162,13 +180,16 @@ class RuleChainUpdateResultDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link RuleChainUpdateResult#hashCode()}.
+   * Test {@link RuleChainUpdateResult#equals(Object)}, and {@link
+   * RuleChainUpdateResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainUpdateResult#equals(Object)}
    *   <li>{@link RuleChainUpdateResult#hashCode()}
@@ -177,7 +198,10 @@ class RuleChainUpdateResultDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainUpdateResult failedResult = RuleChainUpdateResult.failed();
@@ -190,17 +214,21 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test {@link RuleChainUpdateResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainUpdateResult successfulResult = RuleChainUpdateResult.successful(new ArrayList<>());
@@ -211,17 +239,21 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test {@link RuleChainUpdateResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ArrayList<RuleNodeUpdateResult> updatedRuleNodes = new ArrayList<>();
@@ -235,17 +267,21 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test {@link RuleChainUpdateResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(RuleChainUpdateResult.failed(), null);
@@ -253,17 +289,21 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test {@link RuleChainUpdateResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleChainUpdateResult#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleChainUpdateResult#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleChainUpdateResult.equals(Object)", "int RuleChainUpdateResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleChainUpdateResult.equals(Object)",
+    "int RuleChainUpdateResult.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(RuleChainUpdateResult.failed(), "Different type to RuleChainUpdateResult");
@@ -271,8 +311,9 @@ class RuleChainUpdateResultDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleChainUpdateResult#toString()}
    *   <li>{@link RuleChainUpdateResult#getUpdatedRuleNodes()}
@@ -282,8 +323,11 @@ class RuleChainUpdateResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List RuleChainUpdateResult.getUpdatedRuleNodes()", "boolean RuleChainUpdateResult.isSuccess()",
-      "String RuleChainUpdateResult.toString()"})
+  @MethodsUnderTest({
+    "List RuleChainUpdateResult.getUpdatedRuleNodes()",
+    "boolean RuleChainUpdateResult.isSuccess()",
+    "String RuleChainUpdateResult.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     RuleChainUpdateResult failedResult = RuleChainUpdateResult.failed();
@@ -293,7 +337,8 @@ class RuleChainUpdateResultDiffblueTest {
     List<RuleNodeUpdateResult> actualUpdatedRuleNodes = failedResult.getUpdatedRuleNodes();
 
     // Assert
-    assertEquals("RuleChainUpdateResult(success=false, updatedRuleNodes=null)", actualToStringResult);
+    assertEquals(
+        "RuleChainUpdateResult(success=false, updatedRuleNodes=null)", actualToStringResult);
     assertNull(actualUpdatedRuleNodes);
     assertFalse(failedResult.isSuccess());
   }

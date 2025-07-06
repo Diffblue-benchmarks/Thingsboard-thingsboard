@@ -2,11 +2,13 @@ package org.thingsboard.server.cache;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.UUID;
@@ -24,32 +26,39 @@ import org.thingsboard.server.common.data.id.DeviceId;
 class TbTypedJsonRedisSerializerDiffblueTest {
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Given {@link HashSet#HashSet()}.</li>
-   *   <li>Then return array length is two hundred twenty-four.</li>
+   *   <li>Given {@link HashSet#HashSet()}.
+   *   <li>Then return array length is two hundred twenty-four.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
-  @DisplayName("Test serialize(Object); given HashSet(); then return array length is two hundred twenty-four")
+  @DisplayName(
+      "Test serialize(Object); given HashSet(); then return array length is two hundred twenty-four")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_givenHashSet_thenReturnArrayLengthIsTwoHundredTwentyFour() throws SerializationException {
+  void testSerialize_givenHashSet_thenReturnArrayLengthIsTwoHundredTwentyFour()
+      throws SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     Dashboard dashboard = new Dashboard();
     dashboard.setAssignedCustomers(new HashSet<>());
-    dashboard.setConfiguration(MissingNode.getInstance());
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
 
     // Act
-    byte[] actualSerializeResult = tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
+    byte[] actualSerializeResult =
+        tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
 
     // Assert
     assertEquals(224, actualSerializeResult.length);
     assertEquals(',', actualSerializeResult[211]);
+    assertEquals('.', actualSerializeResult[209]);
+    assertEquals('0', actualSerializeResult[208]);
+    assertEquals('1', actualSerializeResult[207]);
     assertEquals(':', actualSerializeResult[206]);
     assertEquals(':', actualSerializeResult[218]);
     assertEquals('"', actualSerializeResult[205]);
@@ -59,50 +68,53 @@ class TbTypedJsonRedisSerializerDiffblueTest {
     assertEquals('a', actualSerializeResult[214]);
     assertEquals('e', actualSerializeResult[216]);
     assertEquals('i', actualSerializeResult[202]);
-    assertEquals('l', actualSerializeResult[209]);
-    assertEquals('l', actualSerializeResult[210]);
     assertEquals('l', actualSerializeResult[221]);
     assertEquals('l', actualSerializeResult[222]);
     assertEquals('m', actualSerializeResult[215]);
     assertEquals('n', actualSerializeResult[204]);
-    assertEquals('n', actualSerializeResult[207]);
     assertEquals('n', actualSerializeResult[213]);
     assertEquals('n', actualSerializeResult[219]);
     assertEquals('o', actualSerializeResult[203]);
     assertEquals('r', actualSerializeResult[199]);
     assertEquals('t', actualSerializeResult[201]);
-    assertEquals('u', actualSerializeResult[208]);
     assertEquals('u', actualSerializeResult[220]);
     assertEquals('}', actualSerializeResult[223]);
   }
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Given Instance.</li>
-   *   <li>Then return array length is two hundred twenty-six.</li>
+   *   <li>Given valueOf ten.
+   *   <li>Then return array length is two hundred twenty-six.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
-  @DisplayName("Test serialize(Object); given Instance; then return array length is two hundred twenty-six")
+  @DisplayName(
+      "Test serialize(Object); given valueOf ten; then return array length is two hundred twenty-six")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_givenInstance_thenReturnArrayLengthIsTwoHundredTwentySix() throws SerializationException {
+  void testSerialize_givenValueOfTen_thenReturnArrayLengthIsTwoHundredTwentySix()
+      throws SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     Dashboard dashboard = new Dashboard();
-    dashboard.setConfiguration(MissingNode.getInstance());
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
 
     // Act
-    byte[] actualSerializeResult = tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
+    byte[] actualSerializeResult =
+        tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
 
     // Assert
     assertEquals(226, actualSerializeResult.length);
     assertEquals(',', actualSerializeResult[213]);
+    assertEquals('.', actualSerializeResult[211]);
+    assertEquals('0', actualSerializeResult[212]);
+    assertEquals('1', actualSerializeResult[209]);
     assertEquals(':', actualSerializeResult[208]);
     assertEquals(':', actualSerializeResult[220]);
     assertEquals('"', actualSerializeResult[207]);
@@ -112,30 +124,27 @@ class TbTypedJsonRedisSerializerDiffblueTest {
     assertEquals('a', actualSerializeResult[216]);
     assertEquals('e', actualSerializeResult[218]);
     assertEquals('i', actualSerializeResult[204]);
-    assertEquals('l', actualSerializeResult[211]);
-    assertEquals('l', actualSerializeResult[212]);
     assertEquals('l', actualSerializeResult[223]);
     assertEquals('l', actualSerializeResult[224]);
     assertEquals('m', actualSerializeResult[217]);
     assertEquals('n', actualSerializeResult[206]);
-    assertEquals('n', actualSerializeResult[209]);
     assertEquals('n', actualSerializeResult[215]);
     assertEquals('n', actualSerializeResult[221]);
     assertEquals('o', actualSerializeResult[205]);
     assertEquals('r', actualSerializeResult[201]);
     assertEquals('t', actualSerializeResult[203]);
-    assertEquals('u', actualSerializeResult[210]);
     assertEquals('u', actualSerializeResult[222]);
     assertEquals('}', actualSerializeResult[225]);
   }
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Then return array length is eighty-eight.</li>
+   *   <li>Then return array length is eighty-eight.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); then return array length is eighty-eight")
@@ -143,12 +152,14 @@ class TbTypedJsonRedisSerializerDiffblueTest {
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
   void testSerialize_thenReturnArrayLengthIsEightyEight() throws SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     // Act
-    byte[] actualSerializeResult = tbTypedJsonRedisSerializer
-        .serialize(new EntityInfo(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Name"));
+    byte[] actualSerializeResult =
+        tbTypedJsonRedisSerializer.serialize(
+            new EntityInfo(
+                new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Name"));
 
     // Assert
     assertEquals(88, actualSerializeResult.length);
@@ -199,11 +210,12 @@ class TbTypedJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Then return array length is three hundred thirty-five.</li>
+   *   <li>Then return array length is three hundred thirty-five.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); then return array length is three hundred thirty-five")
@@ -211,23 +223,29 @@ class TbTypedJsonRedisSerializerDiffblueTest {
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
   void testSerialize_thenReturnArrayLengthIsThreeHundredThirtyFive() throws SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
     assignedCustomers.add(
-        new ShortCustomerInfo(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr", true));
+        new ShortCustomerInfo(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), "Dr", true));
 
     Dashboard dashboard = new Dashboard();
     dashboard.setAssignedCustomers(assignedCustomers);
-    dashboard.setConfiguration(MissingNode.getInstance());
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
 
     // Act
-    byte[] actualSerializeResult = tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
+    byte[] actualSerializeResult =
+        tbTypedJsonRedisSerializer.serialize(new HomeDashboard(dashboard, true));
 
     // Assert
     assertEquals(335, actualSerializeResult.length);
     assertEquals(',', actualSerializeResult[322]);
+    assertEquals('.', actualSerializeResult[320]);
+    assertEquals('0', actualSerializeResult[319]);
+    assertEquals('0', actualSerializeResult[321]);
+    assertEquals('1', actualSerializeResult[318]);
     assertEquals(':', actualSerializeResult[317]);
     assertEquals(':', actualSerializeResult[329]);
     assertEquals('"', actualSerializeResult[316]);
@@ -237,42 +255,42 @@ class TbTypedJsonRedisSerializerDiffblueTest {
     assertEquals('a', actualSerializeResult[325]);
     assertEquals('e', actualSerializeResult[327]);
     assertEquals('i', actualSerializeResult[313]);
-    assertEquals('l', actualSerializeResult[320]);
-    assertEquals('l', actualSerializeResult[321]);
     assertEquals('l', actualSerializeResult[332]);
     assertEquals('l', actualSerializeResult[333]);
     assertEquals('m', actualSerializeResult[326]);
     assertEquals('n', actualSerializeResult[315]);
-    assertEquals('n', actualSerializeResult[318]);
     assertEquals('n', actualSerializeResult[324]);
     assertEquals('n', actualSerializeResult[330]);
     assertEquals('o', actualSerializeResult[314]);
     assertEquals('r', actualSerializeResult[310]);
     assertEquals('t', actualSerializeResult[312]);
-    assertEquals('u', actualSerializeResult[319]);
     assertEquals('u', actualSerializeResult[331]);
     assertEquals('}', actualSerializeResult[334]);
   }
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>Then return {@code {"id":null,"name":"Name"}} Bytes is {@code UTF-8}.</li>
+   *   <li>Then return {@code {"id":null,"name":"Name"}} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
-  @DisplayName("Test serialize(Object); then return '{\"id\":null,\"name\":\"Name\"}' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test serialize(Object); then return '{\"id\":null,\"name\":\"Name\"}' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_thenReturnIdNullNameNameBytesIsUtf8() throws UnsupportedEncodingException, SerializationException {
+  void testSerialize_thenReturnIdNullNameNameBytesIsUtf8()
+      throws UnsupportedEncodingException, SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     // Act
-    byte[] actualSerializeResult = tbTypedJsonRedisSerializer.serialize(new EntityInfo(null, "Name"));
+    byte[] actualSerializeResult =
+        tbTypedJsonRedisSerializer.serialize(new EntityInfo(null, "Name"));
 
     // Assert
     assertArrayEquals("{\"id\":null,\"name\":\"Name\"}".getBytes("UTF-8"), actualSerializeResult);
@@ -280,21 +298,23 @@ class TbTypedJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#serialize(Object)}.
+   *
    * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return {@code "42"} Bytes is {@code UTF-8}.</li>
+   *   <li>When {@code 42}.
+   *   <li>Then return {@code "42"} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object); when '42'; then return '\"42\"' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] TbTypedJsonRedisSerializer.serialize(Object)"})
-  void testSerialize_when42_thenReturn42BytesIsUtf8() throws UnsupportedEncodingException, SerializationException {
+  void testSerialize_when42_thenReturn42BytesIsUtf8()
+      throws UnsupportedEncodingException, SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(mock(TypeReference.class));
 
     // Act
     byte[] actualSerializeResult = tbTypedJsonRedisSerializer.serialize("42");
@@ -305,23 +325,29 @@ class TbTypedJsonRedisSerializerDiffblueTest {
 
   /**
    * Test {@link TbTypedJsonRedisSerializer#deserialize(Object, byte[])}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then throw {@link SerializationException}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbTypedJsonRedisSerializer#deserialize(Object, byte[])}
+   *
+   * <p>Method under test: {@link TbTypedJsonRedisSerializer#deserialize(Object, byte[])}
    */
   @Test
-  @DisplayName("Test deserialize(Object, byte[]); when 'null'; then return 'null'")
+  @DisplayName("Test deserialize(Object, byte[]); then throw SerializationException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TbTypedJsonRedisSerializer.deserialize(Object, byte[])"})
-  void testDeserialize_whenNull_thenReturnNull() throws SerializationException {
+  void testDeserialize_thenThrowSerializationException()
+      throws UnsupportedEncodingException, SerializationException {
     // Arrange
-    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer = new TbTypedJsonRedisSerializer<>(
-        mock(TypeReference.class));
+    TypeReference<Object> valueTypeRef = mock(TypeReference.class);
+    when(valueTypeRef.getType()).thenThrow(new SerializationException("Msg"));
+    TbTypedJsonRedisSerializer<Object, Object> tbTypedJsonRedisSerializer =
+        new TbTypedJsonRedisSerializer<>(valueTypeRef);
 
     // Act and Assert
-    assertNull(tbTypedJsonRedisSerializer.deserialize("Key", null));
+    assertThrows(
+        SerializationException.class,
+        () -> tbTypedJsonRedisSerializer.deserialize("Key", "AXAXAXAX".getBytes("UTF-8")));
+    verify(valueTypeRef).getType();
   }
 }

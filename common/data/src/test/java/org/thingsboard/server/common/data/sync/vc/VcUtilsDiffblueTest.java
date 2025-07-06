@@ -9,30 +9,34 @@ import org.junit.jupiter.api.Test;
 class VcUtilsDiffblueTest {
   /**
    * Test {@link VcUtils#checkBranchName(String)}.
+   *
    * <ul>
-   *   <li>When {@code contains whitespace}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code contains whitespace}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link VcUtils#checkBranchName(String)}
+   *
+   * <p>Method under test: {@link VcUtils#checkBranchName(String)}
    */
   @Test
-  @DisplayName("Test checkBranchName(String); when 'contains whitespace'; then throw IllegalArgumentException")
+  @DisplayName(
+      "Test checkBranchName(String); when 'contains whitespace'; then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void VcUtils.checkBranchName(String)"})
   void testCheckBranchName_whenContainsWhitespace_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> VcUtils.checkBranchName("contains whitespace"));
+    assertThrows(
+        IllegalArgumentException.class, () -> VcUtils.checkBranchName("contains whitespace"));
   }
 
   /**
    * Test {@link VcUtils#checkBranchName(String)}.
+   *
    * <ul>
-   *   <li>When {@code ..}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code ..}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link VcUtils#checkBranchName(String)}
+   *
+   * <p>Method under test: {@link VcUtils#checkBranchName(String)}
    */
   @Test
   @DisplayName("Test checkBranchName(String); when '..'; then throw IllegalArgumentException")
@@ -45,12 +49,13 @@ class VcUtilsDiffblueTest {
 
   /**
    * Test {@link VcUtils#checkBranchName(String)}.
+   *
    * <ul>
-   *   <li>When {@code /}.</li>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>When {@code /}.
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link VcUtils#checkBranchName(String)}
+   *
+   * <p>Method under test: {@link VcUtils#checkBranchName(String)}
    */
   @Test
   @DisplayName("Test checkBranchName(String); when '/'; then throw IllegalArgumentException")

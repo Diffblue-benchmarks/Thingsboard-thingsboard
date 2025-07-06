@@ -27,22 +27,18 @@ import org.thingsboard.server.common.data.id.TenantId;
 @ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
 class DeviceActorCreatorDiffblueTest {
-  @MockBean
-  private ActorSystemContext actorSystemContext;
+  @MockBean private ActorSystemContext actorSystemContext;
 
-  @Autowired
-  private DeviceActorCreator deviceActorCreator;
+  @Autowired private DeviceActorCreator deviceActorCreator;
 
-  @MockBean
-  private DeviceId deviceId;
+  @MockBean private DeviceId deviceId;
 
-  @MockBean
-  private UUID uUID;
+  @MockBean private UUID uUID;
 
   /**
    * Test {@link DeviceActorCreator#createActorId()}.
-   * <p>
-   * Method under test: {@link DeviceActorCreator#createActorId()}
+   *
+   * <p>Method under test: {@link DeviceActorCreator#createActorId()}
    */
   @Test
   @DisplayName("Test createActorId()")

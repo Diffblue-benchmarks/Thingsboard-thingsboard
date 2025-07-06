@@ -15,13 +15,16 @@ import org.mockito.Mockito;
 
 class LwM2MServerSecurityConfigDiffblueTest {
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link
+   * LwM2MServerSecurityConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MServerSecurityConfig#equals(Object)}
    *   <li>{@link LwM2MServerSecurityConfig#hashCode()}
@@ -30,7 +33,10 @@ class LwM2MServerSecurityConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -68,13 +74,16 @@ class LwM2MServerSecurityConfigDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link
+   * LwM2MServerSecurityConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MServerSecurityConfig#equals(Object)}
    *   <li>{@link LwM2MServerSecurityConfig#hashCode()}
@@ -83,11 +92,14 @@ class LwM2MServerSecurityConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
-    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBinding(null);
     lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
     lwM2MServerSecurityConfig.setBootstrapServerIs(true);
     lwM2MServerSecurityConfig.setClientHoldOffTime(1);
@@ -99,8 +111,9 @@ class LwM2MServerSecurityConfigDiffblueTest {
     lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
     lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
     lwM2MServerSecurityConfig.setShortServerId(1);
-    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault = mock(LwM2MServerSecurityConfigDefault.class);
-    when(lwM2MServerSecurityConfigDefault.getBinding()).thenReturn("Binding");
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getBinding()).thenReturn(null);
     when(lwM2MServerSecurityConfigDefault.getServerCertificate()).thenReturn("Server Certificate");
     when(lwM2MServerSecurityConfigDefault.getServerPublicKey()).thenReturn("Server Public Key");
     when(lwM2MServerSecurityConfigDefault.getHost()).thenReturn("localhost");
@@ -114,7 +127,9 @@ class LwM2MServerSecurityConfigDiffblueTest {
     when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
     when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
     doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
-    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
     doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
     doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
     doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
@@ -145,13 +160,16 @@ class LwM2MServerSecurityConfigDiffblueTest {
   }
 
   /**
-   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link LwM2MServerSecurityConfig#hashCode()}.
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}, and {@link
+   * LwM2MServerSecurityConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MServerSecurityConfig#equals(Object)}
    *   <li>{@link LwM2MServerSecurityConfig#hashCode()}
@@ -160,7 +178,10 @@ class LwM2MServerSecurityConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -185,20 +206,25 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault = new LwM2MServerSecurityConfigDefault();
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        new LwM2MServerSecurityConfigDefault();
     lwM2MServerSecurityConfigDefault.setBinding("localhost");
     lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
     lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
@@ -246,17 +272,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -293,17 +323,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -340,17 +374,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -387,17 +425,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -434,17 +476,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -481,17 +527,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -528,17 +578,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -575,17 +629,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -622,17 +680,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -669,17 +731,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -716,17 +782,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -763,17 +833,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -810,17 +884,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -857,17 +935,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -904,17 +986,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -951,17 +1037,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -998,17 +1088,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1045,17 +1139,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1092,17 +1190,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1139,17 +1241,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1186,17 +1292,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1233,17 +1343,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1280,17 +1394,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1307,7 +1425,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
     lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
     lwM2MServerSecurityConfig.setShortServerId(1);
 
-    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault = new LwM2MServerSecurityConfigDefault();
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        new LwM2MServerSecurityConfigDefault();
     lwM2MServerSecurityConfigDefault.setBinding("localhost");
     lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
     lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
@@ -1341,17 +1460,756 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getDefaultMinPeriod()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getHost()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getDefaultMinPeriod()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getServerPublicKey()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getHost()).thenReturn("localhost");
+    when(lwM2MServerSecurityConfigDefault.getDefaultMinPeriod()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getServerCertificate()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getServerPublicKey()).thenReturn("Server Public Key");
+    when(lwM2MServerSecurityConfigDefault.getHost()).thenReturn("localhost");
+    when(lwM2MServerSecurityConfigDefault.getDefaultMinPeriod()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+    // Arrange
+    LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
+    lwM2MServerSecurityConfig.setBinding("Binding");
+    lwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfig.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfig.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfig.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfig.setHost("localhost");
+    lwM2MServerSecurityConfig.setLifetime(1);
+    lwM2MServerSecurityConfig.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfig.setPort(8080);
+    lwM2MServerSecurityConfig.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfig.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfig.setShortServerId(1);
+    LwM2MServerSecurityConfigDefault lwM2MServerSecurityConfigDefault =
+        mock(LwM2MServerSecurityConfigDefault.class);
+    when(lwM2MServerSecurityConfigDefault.getBinding()).thenReturn(null);
+    when(lwM2MServerSecurityConfigDefault.getServerCertificate()).thenReturn("Server Certificate");
+    when(lwM2MServerSecurityConfigDefault.getServerPublicKey()).thenReturn("Server Public Key");
+    when(lwM2MServerSecurityConfigDefault.getHost()).thenReturn("localhost");
+    when(lwM2MServerSecurityConfigDefault.getDefaultMinPeriod()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getLifetime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getBootstrapServerAccountTimeout()).thenReturn(3);
+    when(lwM2MServerSecurityConfigDefault.getClientHoldOffTime()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.getPort()).thenReturn(8080);
+    when(lwM2MServerSecurityConfigDefault.getShortServerId()).thenReturn(1);
+    when(lwM2MServerSecurityConfigDefault.isNotifIfDisabled()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.isBootstrapServerIs()).thenReturn(true);
+    when(lwM2MServerSecurityConfigDefault.canEqual(Mockito.<Object>any())).thenReturn(true);
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBinding(Mockito.<String>any());
+    doNothing()
+        .when(lwM2MServerSecurityConfigDefault)
+        .setBootstrapServerAccountTimeout(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setBootstrapServerIs(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setClientHoldOffTime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setDefaultMinPeriod(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setHost(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setLifetime(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setNotifIfDisabled(anyBoolean());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setPort(Mockito.<Integer>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerCertificate(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setServerPublicKey(Mockito.<String>any());
+    doNothing().when(lwM2MServerSecurityConfigDefault).setShortServerId(Mockito.<Integer>any());
+    lwM2MServerSecurityConfigDefault.setBinding("Binding");
+    lwM2MServerSecurityConfigDefault.setBootstrapServerAccountTimeout(3);
+    lwM2MServerSecurityConfigDefault.setBootstrapServerIs(true);
+    lwM2MServerSecurityConfigDefault.setClientHoldOffTime(1);
+    lwM2MServerSecurityConfigDefault.setDefaultMinPeriod(1);
+    lwM2MServerSecurityConfigDefault.setHost("localhost");
+    lwM2MServerSecurityConfigDefault.setLifetime(1);
+    lwM2MServerSecurityConfigDefault.setNotifIfDisabled(true);
+    lwM2MServerSecurityConfigDefault.setPort(8080);
+    lwM2MServerSecurityConfigDefault.setServerCertificate("Server Certificate");
+    lwM2MServerSecurityConfigDefault.setServerPublicKey("Server Public Key");
+    lwM2MServerSecurityConfigDefault.setShortServerId(1);
+
+    // Act and Assert
+    assertNotEquals(lwM2MServerSecurityConfig, lwM2MServerSecurityConfigDefault);
+  }
+
+  /**
+   * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1374,17 +2232,21 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test {@link LwM2MServerSecurityConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link LwM2MServerSecurityConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LwM2MServerSecurityConfig.equals(Object)", "int LwM2MServerSecurityConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LwM2MServerSecurityConfig.equals(Object)",
+    "int LwM2MServerSecurityConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LwM2MServerSecurityConfig lwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1407,8 +2269,9 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LwM2MServerSecurityConfig}
    *   <li>{@link LwM2MServerSecurityConfig#setBinding(String)}
@@ -1441,24 +2304,34 @@ class LwM2MServerSecurityConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MServerSecurityConfig.<init>()", "String LwM2MServerSecurityConfig.getBinding()",
-      "Integer LwM2MServerSecurityConfig.getBootstrapServerAccountTimeout()",
-      "Integer LwM2MServerSecurityConfig.getClientHoldOffTime()",
-      "Integer LwM2MServerSecurityConfig.getDefaultMinPeriod()", "String LwM2MServerSecurityConfig.getHost()",
-      "Integer LwM2MServerSecurityConfig.getLifetime()", "Integer LwM2MServerSecurityConfig.getPort()",
-      "String LwM2MServerSecurityConfig.getServerCertificate()",
-      "String LwM2MServerSecurityConfig.getServerPublicKey()", "Integer LwM2MServerSecurityConfig.getShortServerId()",
-      "boolean LwM2MServerSecurityConfig.isBootstrapServerIs()",
-      "boolean LwM2MServerSecurityConfig.isNotifIfDisabled()", "void LwM2MServerSecurityConfig.setBinding(String)",
-      "void LwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(Integer)",
-      "void LwM2MServerSecurityConfig.setBootstrapServerIs(boolean)",
-      "void LwM2MServerSecurityConfig.setClientHoldOffTime(Integer)",
-      "void LwM2MServerSecurityConfig.setDefaultMinPeriod(Integer)", "void LwM2MServerSecurityConfig.setHost(String)",
-      "void LwM2MServerSecurityConfig.setLifetime(Integer)",
-      "void LwM2MServerSecurityConfig.setNotifIfDisabled(boolean)", "void LwM2MServerSecurityConfig.setPort(Integer)",
-      "void LwM2MServerSecurityConfig.setServerCertificate(String)",
-      "void LwM2MServerSecurityConfig.setServerPublicKey(String)",
-      "void LwM2MServerSecurityConfig.setShortServerId(Integer)", "String LwM2MServerSecurityConfig.toString()"})
+  @MethodsUnderTest({
+    "void LwM2MServerSecurityConfig.<init>()",
+    "String LwM2MServerSecurityConfig.getBinding()",
+    "Integer LwM2MServerSecurityConfig.getBootstrapServerAccountTimeout()",
+    "Integer LwM2MServerSecurityConfig.getClientHoldOffTime()",
+    "Integer LwM2MServerSecurityConfig.getDefaultMinPeriod()",
+    "String LwM2MServerSecurityConfig.getHost()",
+    "Integer LwM2MServerSecurityConfig.getLifetime()",
+    "Integer LwM2MServerSecurityConfig.getPort()",
+    "String LwM2MServerSecurityConfig.getServerCertificate()",
+    "String LwM2MServerSecurityConfig.getServerPublicKey()",
+    "Integer LwM2MServerSecurityConfig.getShortServerId()",
+    "boolean LwM2MServerSecurityConfig.isBootstrapServerIs()",
+    "boolean LwM2MServerSecurityConfig.isNotifIfDisabled()",
+    "void LwM2MServerSecurityConfig.setBinding(String)",
+    "void LwM2MServerSecurityConfig.setBootstrapServerAccountTimeout(Integer)",
+    "void LwM2MServerSecurityConfig.setBootstrapServerIs(boolean)",
+    "void LwM2MServerSecurityConfig.setClientHoldOffTime(Integer)",
+    "void LwM2MServerSecurityConfig.setDefaultMinPeriod(Integer)",
+    "void LwM2MServerSecurityConfig.setHost(String)",
+    "void LwM2MServerSecurityConfig.setLifetime(Integer)",
+    "void LwM2MServerSecurityConfig.setNotifIfDisabled(boolean)",
+    "void LwM2MServerSecurityConfig.setPort(Integer)",
+    "void LwM2MServerSecurityConfig.setServerCertificate(String)",
+    "void LwM2MServerSecurityConfig.setServerPublicKey(String)",
+    "void LwM2MServerSecurityConfig.setShortServerId(Integer)",
+    "String LwM2MServerSecurityConfig.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LwM2MServerSecurityConfig actualLwM2MServerSecurityConfig = new LwM2MServerSecurityConfig();
@@ -1476,7 +2349,8 @@ class LwM2MServerSecurityConfigDiffblueTest {
     actualLwM2MServerSecurityConfig.setShortServerId(1);
     String actualToStringResult = actualLwM2MServerSecurityConfig.toString();
     String actualBinding = actualLwM2MServerSecurityConfig.getBinding();
-    Integer actualBootstrapServerAccountTimeout = actualLwM2MServerSecurityConfig.getBootstrapServerAccountTimeout();
+    Integer actualBootstrapServerAccountTimeout =
+        actualLwM2MServerSecurityConfig.getBootstrapServerAccountTimeout();
     Integer actualClientHoldOffTime = actualLwM2MServerSecurityConfig.getClientHoldOffTime();
     Integer actualDefaultMinPeriod = actualLwM2MServerSecurityConfig.getDefaultMinPeriod();
     String actualHost = actualLwM2MServerSecurityConfig.getHost();
@@ -1490,10 +2364,12 @@ class LwM2MServerSecurityConfigDiffblueTest {
 
     // Assert
     assertEquals("Binding", actualBinding);
-    assertEquals("LwM2MServerSecurityConfig(shortServerId=1, bootstrapServerIs=true, host=localhost, port=8080,"
-        + " clientHoldOffTime=1, serverPublicKey=Server Public Key, serverCertificate=Server Certificate,"
-        + " bootstrapServerAccountTimeout=3, lifetime=1, defaultMinPeriod=1, notifIfDisabled=true, binding=Binding"
-        + ")", actualToStringResult);
+    assertEquals(
+        "LwM2MServerSecurityConfig(shortServerId=1, bootstrapServerIs=true, host=localhost, port=8080,"
+            + " clientHoldOffTime=1, serverPublicKey=Server Public Key, serverCertificate=Server Certificate,"
+            + " bootstrapServerAccountTimeout=3, lifetime=1, defaultMinPeriod=1, notifIfDisabled=true, binding=Binding"
+            + ")",
+        actualToStringResult);
     assertEquals("Server Certificate", actualServerCertificate);
     assertEquals("Server Public Key", actualServerPublicKey);
     assertEquals("localhost", actualHost);

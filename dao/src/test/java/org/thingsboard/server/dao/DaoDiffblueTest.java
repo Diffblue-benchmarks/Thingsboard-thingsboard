@@ -29,34 +29,26 @@ import org.thingsboard.server.dao.sql.component.JpaBaseComponentDescriptorDao;
 @PropertySource("classpath:application-test.properties")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DaoDiffblueTest {
-  @MockBean
-  private ComponentDescriptorInsertRepository componentDescriptorInsertRepository;
+  @MockBean private ComponentDescriptorInsertRepository componentDescriptorInsertRepository;
 
-  @MockBean
-  private ComponentDescriptorRepository componentDescriptorRepository;
+  @MockBean private ComponentDescriptorRepository componentDescriptorRepository;
 
-  @Autowired
-  private Dao<ComponentDescriptor> dao;
+  @Autowired private Dao<ComponentDescriptor> dao;
 
-  @MockBean
-  private DataSource dataSource;
+  @MockBean private DataSource dataSource;
 
-  @MockBean
-  private EntityManagerFactory entityManagerFactory;
+  @MockBean private EntityManagerFactory entityManagerFactory;
 
-  @MockBean
-  private JdbcTemplate jdbcTemplate;
+  @MockBean private JdbcTemplate jdbcTemplate;
 
-  @MockBean
-  private JpaExecutorService jpaExecutorService;
+  @MockBean private JpaExecutorService jpaExecutorService;
 
-  @MockBean
-  private TransactionTemplate transactionTemplate;
+  @MockBean private TransactionTemplate transactionTemplate;
 
   /**
    * Test {@link Dao#getEntityType()}.
-   * <p>
-   * Method under test: {@link Dao#getEntityType()}
+   *
+   * <p>Method under test: {@link Dao#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)

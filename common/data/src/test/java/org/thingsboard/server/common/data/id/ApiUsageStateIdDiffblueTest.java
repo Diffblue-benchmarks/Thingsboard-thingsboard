@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class ApiUsageStateIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ApiUsageStateId#ApiUsageStateId(UUID)}
    *   <li>{@link ApiUsageStateId#getEntityType()}
@@ -22,7 +23,10 @@ class ApiUsageStateIdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ApiUsageStateId.<init>(UUID)", "EntityType ApiUsageStateId.getEntityType()"})
+  @MethodsUnderTest({
+    "void ApiUsageStateId.<init>(UUID)",
+    "EntityType ApiUsageStateId.getEntityType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

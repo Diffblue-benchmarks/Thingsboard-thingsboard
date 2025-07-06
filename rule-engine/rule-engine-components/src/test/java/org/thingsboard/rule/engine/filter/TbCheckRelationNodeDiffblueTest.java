@@ -11,7 +11,7 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -26,19 +26,22 @@ import org.thingsboard.server.common.data.util.TbPair;
 class TbCheckRelationNodeDiffblueTest {
   /**
    * Test {@link TbCheckRelationNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#fields()}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.
+   *   <li>Then calls {@link ArrayNode#fields()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbCheckRelationNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields() throws TbNodeException {
+  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields()
+      throws TbNodeException {
     // Arrange
     TbCheckRelationNode tbCheckRelationNode = new TbCheckRelationNode();
     TbContext ctx = mock(TbContext.class);
@@ -58,28 +61,30 @@ class TbCheckRelationNodeDiffblueTest {
 
   /**
    * Test {@link TbCheckRelationNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then Second return {@link MissingNode}.</li>
+   *   <li>When one.
+   *   <li>Then Second return {@link DoubleNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckRelationNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbCheckRelationNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when one; then Second return MissingNode")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then Second return DoubleNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair TbCheckRelationNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenOne_thenSecondReturnMissingNode() throws TbNodeException {
+  void testUpgrade_whenOne_thenSecondReturnDoubleNode() throws TbNodeException {
     // Arrange
     TbCheckRelationNode tbCheckRelationNode = new TbCheckRelationNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbCheckRelationNode.upgrade(1, oldConfiguration);
+    TbPair<Boolean, JsonNode> actualUpgradeResult =
+        tbCheckRelationNode.upgrade(1, oldConfiguration);
 
     // Assert
     JsonNode second = actualUpgradeResult.getSecond();
-    assertTrue(second instanceof MissingNode);
+    assertTrue(second instanceof DoubleNode);
     assertFalse(actualUpgradeResult.getFirst());
     assertSame(oldConfiguration, second);
   }

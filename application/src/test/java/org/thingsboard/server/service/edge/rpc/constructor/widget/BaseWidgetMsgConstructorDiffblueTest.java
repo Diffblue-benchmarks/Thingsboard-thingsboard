@@ -22,83 +22,98 @@ import org.thingsboard.server.gen.edge.v1.WidgetsBundleUpdateMsg;
 
 @ExtendWith(MockitoExtension.class)
 class BaseWidgetMsgConstructorDiffblueTest {
-  @InjectMocks
-  private WidgetMsgConstructorV1 widgetMsgConstructorV1;
+  @InjectMocks private WidgetMsgConstructorV1 widgetMsgConstructorV1;
 
   /**
    * Test {@link BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}.
-   * <p>
-   * Method under test: {@link BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}
+   *
+   * <p>Method under test: {@link
+   * BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}
    */
   @Test
   @DisplayName("Test constructWidgetsBundleDeleteMsg(WidgetsBundleId)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "WidgetsBundleUpdateMsg BaseWidgetMsgConstructor.constructWidgetsBundleDeleteMsg(WidgetsBundleId)"})
+    "WidgetsBundleUpdateMsg BaseWidgetMsgConstructor.constructWidgetsBundleDeleteMsg(WidgetsBundleId)"
+  })
   void testConstructWidgetsBundleDeleteMsg() {
     // Arrange
     WidgetMsgConstructorV1 widgetMsgConstructorV1 = new WidgetMsgConstructorV1();
 
     // Act
-    WidgetsBundleUpdateMsg actualConstructWidgetsBundleDeleteMsgResult = widgetMsgConstructorV1
-        .constructWidgetsBundleDeleteMsg(new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    WidgetsBundleUpdateMsg actualConstructWidgetsBundleDeleteMsgResult =
+        widgetMsgConstructorV1.constructWidgetsBundleDeleteMsg(
+            new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructWidgetsBundleDeleteMsgResult.getUnknownFields();
-    WidgetsBundleUpdateMsg defaultInstanceForType = actualConstructWidgetsBundleDeleteMsgResult
-        .getDefaultInstanceForType();
+    WidgetsBundleUpdateMsg defaultInstanceForType =
+        actualConstructWidgetsBundleDeleteMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     ByteString expectedImage = actualConstructWidgetsBundleDeleteMsgResult.getImage();
     assertSame(expectedImage, defaultInstanceForType.getImage());
   }
 
   /**
    * Test {@link BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}.
+   *
    * <ul>
-   *   <li>Given {@link WidgetMsgConstructorV1}.</li>
+   *   <li>Given {@link WidgetMsgConstructorV1}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}
+   *
+   * <p>Method under test: {@link
+   * BaseWidgetMsgConstructor#constructWidgetsBundleDeleteMsg(WidgetsBundleId)}
    */
   @Test
-  @DisplayName("Test constructWidgetsBundleDeleteMsg(WidgetsBundleId); given WidgetMsgConstructorV1")
+  @DisplayName(
+      "Test constructWidgetsBundleDeleteMsg(WidgetsBundleId); given WidgetMsgConstructorV1")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "WidgetsBundleUpdateMsg BaseWidgetMsgConstructor.constructWidgetsBundleDeleteMsg(WidgetsBundleId)"})
+    "WidgetsBundleUpdateMsg BaseWidgetMsgConstructor.constructWidgetsBundleDeleteMsg(WidgetsBundleId)"
+  })
   void testConstructWidgetsBundleDeleteMsg_givenWidgetMsgConstructorV1() {
     // Arrange and Act
-    WidgetsBundleUpdateMsg actualConstructWidgetsBundleDeleteMsgResult = widgetMsgConstructorV1
-        .constructWidgetsBundleDeleteMsg(new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    WidgetsBundleUpdateMsg actualConstructWidgetsBundleDeleteMsgResult =
+        widgetMsgConstructorV1.constructWidgetsBundleDeleteMsg(
+            new WidgetsBundleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     UnknownFieldSet unknownFields = actualConstructWidgetsBundleDeleteMsgResult.getUnknownFields();
-    WidgetsBundleUpdateMsg defaultInstanceForType = actualConstructWidgetsBundleDeleteMsgResult
-        .getDefaultInstanceForType();
+    WidgetsBundleUpdateMsg defaultInstanceForType =
+        actualConstructWidgetsBundleDeleteMsgResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
     ByteString expectedImage = actualConstructWidgetsBundleDeleteMsgResult.getImage();
     assertSame(expectedImage, defaultInstanceForType.getImage());
   }
 
   /**
    * Test {@link BaseWidgetMsgConstructor#constructWidgetTypeDeleteMsg(WidgetTypeId)}.
-   * <p>
-   * Method under test: {@link BaseWidgetMsgConstructor#constructWidgetTypeDeleteMsg(WidgetTypeId)}
+   *
+   * <p>Method under test: {@link
+   * BaseWidgetMsgConstructor#constructWidgetTypeDeleteMsg(WidgetTypeId)}
    */
   @Test
   @DisplayName("Test constructWidgetTypeDeleteMsg(WidgetTypeId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WidgetTypeUpdateMsg BaseWidgetMsgConstructor.constructWidgetTypeDeleteMsg(WidgetTypeId)"})
+  @MethodsUnderTest({
+    "WidgetTypeUpdateMsg BaseWidgetMsgConstructor.constructWidgetTypeDeleteMsg(WidgetTypeId)"
+  })
   void testConstructWidgetTypeDeleteMsg() {
     // Arrange
     WidgetMsgConstructorV1 widgetMsgConstructorV1 = new WidgetMsgConstructorV1();
 
     // Act
-    WidgetTypeUpdateMsg actualConstructWidgetTypeDeleteMsgResult = widgetMsgConstructorV1
-        .constructWidgetTypeDeleteMsg(new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    WidgetTypeUpdateMsg actualConstructWidgetTypeDeleteMsgResult =
+        widgetMsgConstructorV1.constructWidgetTypeDeleteMsg(
+            new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructWidgetTypeDeleteMsgResult.getInitializationErrorString());
@@ -116,7 +131,9 @@ class BaseWidgetMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructWidgetTypeDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructWidgetTypeDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructWidgetTypeDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructWidgetTypeDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructWidgetTypeDeleteMsgResult.getMsgType());
     assertFalse(actualConstructWidgetTypeDeleteMsgResult.getDeprecated());
     assertFalse(actualConstructWidgetTypeDeleteMsgResult.getIsSystem());
     assertFalse(actualConstructWidgetTypeDeleteMsgResult.hasAlias());

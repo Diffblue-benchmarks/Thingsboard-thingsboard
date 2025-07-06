@@ -23,31 +23,41 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class RuleEngineControllerDiffblueTest {
-  @InjectMocks
-  private RuleEngineController ruleEngineController;
+  @InjectMocks private RuleEngineController ruleEngineController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code
+   * requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String, int, String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"})
-  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody() throws Exception {
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"
+  })
+  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody()
+      throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}", "Entity Type", "42", "Queue Name", 10)
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post(
+                "/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}",
+                "Entity Type",
+                "42",
+                "Queue Name",
+                10)
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -58,25 +68,38 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code
+   * requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String, int, String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"})
-  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody2() throws Exception {
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"
+  })
+  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody2()
+      throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}", "Entity Type", "42", "Queue Name", 10);
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}",
+            "Entity Type",
+            "42",
+            "Queue Name",
+            10);
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -87,26 +110,38 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String, int, String)}
+   * with {@code entityType}, {@code entityIdStr}, {@code queueName}, {@code timeout}, {@code
+   * requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String, int, String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String, int, String) with 'entityType', 'entityIdStr', 'queueName', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"})
-  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody3() throws Exception {
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String, int, String)"
+  })
+  void testHandleRuleEngineRequestWithEntityTypeEntityIdStrQueueNameTimeoutRequestBody3()
+      throws Exception {
     // Arrange
     doThrow(new IllegalArgumentException("You aren't authorized to perform this operation!"))
         .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}", "Entity Type", "42", "Queue Name", 10);
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}/{queueName}/{timeout}",
+            "Entity Type",
+            "42",
+            "Queue Name",
+            10);
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -117,24 +152,29 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code entityType}, {@code entityIdStr}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code
+   * entityType}, {@code entityIdStr}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrRequestBody() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}", "Entity Type", "42")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/rule-engine/{entityType}/{entityId}", "Entity Type", "42")
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -145,25 +185,32 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code entityType}, {@code entityIdStr}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code
+   * entityType}, {@code entityIdStr}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrRequestBody2() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rule-engine/{entityType}/{entityId}",
-        "Entity Type", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}", "Entity Type", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -174,26 +221,32 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code entityType}, {@code entityIdStr}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, String)} with {@code
+   * entityType}, {@code entityIdStr}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, String) with 'entityType', 'entityIdStr', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrRequestBody3() throws Exception {
     // Arrange
     doThrow(new IllegalArgumentException("You aren't authorized to perform this operation!"))
         .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rule-engine/{entityType}/{entityId}",
-        "Entity Type", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}", "Entity Type", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -204,24 +257,30 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with
+   * {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrTimeoutRequestBody() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10)
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post(
+                "/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10)
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -232,25 +291,32 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with
+   * {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrTimeoutRequestBody2() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10);
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10);
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -261,26 +327,32 @@ class RuleEngineControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)}
+   * Test {@link RuleEngineController#handleRuleEngineRequest(String, String, int, String)} with
+   * {@code entityType}, {@code entityIdStr}, {@code timeout}, {@code requestBody}.
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String, String, int,
+   * String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String, String, int, String) with 'entityType', 'entityIdStr', 'timeout', 'requestBody'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String, String, int, String)"
+  })
   void testHandleRuleEngineRequestWithEntityTypeEntityIdStrTimeoutRequestBody3() throws Exception {
     // Arrange
     doThrow(new IllegalArgumentException("You aren't authorized to perform this operation!"))
         .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders
-        .post("/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10);
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post(
+            "/api/rule-engine/{entityType}/{entityId}/{timeout}", "Entity Type", "42", 10);
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -292,17 +364,20 @@ class RuleEngineControllerDiffblueTest {
 
   /**
    * Test {@link RuleEngineController#handleRuleEngineRequest(String)} with {@code requestBody}.
+   *
    * <ul>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
    */
   @Test
-  @DisplayName("Test handleRuleEngineRequest(String) with 'requestBody'; then status four hundred fifteen")
+  @DisplayName(
+      "Test handleRuleEngineRequest(String) with 'requestBody'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"
+  })
   void testHandleRuleEngineRequestWithRequestBody_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
     doThrow(new IllegalArgumentException("You aren't authorized to perform this operation!"))
@@ -310,9 +385,10 @@ class RuleEngineControllerDiffblueTest {
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
     MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rule-engine/");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -324,25 +400,28 @@ class RuleEngineControllerDiffblueTest {
 
   /**
    * Test {@link RuleEngineController#handleRuleEngineRequest(String)} with {@code requestBody}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
    */
   @Test
   @DisplayName("Test handleRuleEngineRequest(String) with 'requestBody'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"
+  })
   void testHandleRuleEngineRequestWithRequestBody_thenStatusIsOk() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/rule-engine/")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/rule-engine/").contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)
@@ -354,26 +433,30 @@ class RuleEngineControllerDiffblueTest {
 
   /**
    * Test {@link RuleEngineController#handleRuleEngineRequest(String)} with {@code requestBody}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
+   *
+   * <p>Method under test: {@link RuleEngineController#handleRuleEngineRequest(String)}
    */
   @Test
   @DisplayName("Test handleRuleEngineRequest(String) with 'requestBody'; then status isOk()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"})
+    "org.springframework.web.context.request.async.DeferredResult RuleEngineController.handleRuleEngineRequest(String)"
+  })
   void testHandleRuleEngineRequestWithRequestBody_thenStatusIsOk2() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
     MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/rule-engine/");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString(""));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString(""));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleEngineController)

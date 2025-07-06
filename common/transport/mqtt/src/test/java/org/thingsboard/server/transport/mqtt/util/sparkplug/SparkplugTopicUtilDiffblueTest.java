@@ -15,12 +15,13 @@ import org.thingsboard.server.common.data.exception.ThingsboardException;
 class SparkplugTopicUtilDiffblueTest {
   /**
    * Test {@link SparkplugTopicUtil#getSplitTopic(String)}.
+   *
    * <ul>
-   *   <li>When {@code /}.</li>
-   *   <li>Then return array length is zero.</li>
+   *   <li>When {@code /}.
+   *   <li>Then return array length is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#getSplitTopic(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#getSplitTopic(String)}
    */
   @Test
   @DisplayName("Test getSplitTopic(String); when '/'; then return array length is zero")
@@ -33,12 +34,13 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#getSplitTopic(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic}.</li>
-   *   <li>Then return array of {@link String} with {@code Topic}.</li>
+   *   <li>When {@code Topic}.
+   *   <li>Then return array of {@link String} with {@code Topic}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#getSplitTopic(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#getSplitTopic(String)}
    */
   @Test
   @DisplayName("Test getSplitTopic(String); when 'Topic'; then return array of String with 'Topic'")
@@ -46,36 +48,41 @@ class SparkplugTopicUtilDiffblueTest {
   @MethodsUnderTest({"String[] SparkplugTopicUtil.getSplitTopic(String)"})
   void testGetSplitTopic_whenTopic_thenReturnArrayOfStringWithTopic() {
     // Arrange, Act and Assert
-    assertArrayEquals(new String[]{"Topic"}, SparkplugTopicUtil.getSplitTopic("Topic"));
+    assertArrayEquals(new String[] {"Topic"}, SparkplugTopicUtil.getSplitTopic("Topic"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}.
+   *
    * <ul>
-   *   <li>Then return {@code {"namespace":"spBv1.0","node":true}}.</li>
+   *   <li>Then return {@code {"namespace":"spBv1.0","node":true}}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}
    */
   @Test
-  @DisplayName("Test sparkplugTopicToString(SparkplugTopic); then return '{\"namespace\":\"spBv1.0\",\"node\":true}'")
+  @DisplayName(
+      "Test sparkplugTopicToString(SparkplugTopic); then return '{\"namespace\":\"spBv1.0\",\"node\":true}'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String SparkplugTopicUtil.sparkplugTopicToString(SparkplugTopic)"})
   void testSparkplugTopicToString_thenReturnNamespaceSpBv10NodeTrue()
       throws JsonProcessingException, ThingsboardException {
     // Arrange, Act and Assert
-    assertEquals("{\"namespace\":\"spBv1.0\",\"node\":true}", SparkplugTopicUtil
-        .sparkplugTopicToString(SparkplugTopicUtil.parseTopic(new String[]{SparkplugTopicUtil.NAMESPACE})));
+    assertEquals(
+        "{\"namespace\":\"spBv1.0\",\"node\":true}",
+        SparkplugTopicUtil.sparkplugTopicToString(
+            SparkplugTopicUtil.parseTopic(new String[] {SparkplugTopicUtil.NAMESPACE})));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}
    */
   @Test
   @DisplayName("Test sparkplugTopicToString(SparkplugTopic); when 'null'; then return 'null'")
@@ -88,21 +95,23 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicSubscribe(String)}.
+   *
    * <ul>
-   *   <li>When {@link SparkplugTopicUtil#NAMESPACE}.</li>
-   *   <li>Then return DeviceId is {@code null}.</li>
+   *   <li>When {@link SparkplugTopicUtil#NAMESPACE}.
+   *   <li>Then return DeviceId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
    */
   @Test
   @DisplayName("Test parseTopicSubscribe(String); when NAMESPACE; then return DeviceId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicSubscribe(String)"})
-  void testParseTopicSubscribe_whenNamespace_thenReturnDeviceIdIsNull() throws ThingsboardException {
+  void testParseTopicSubscribe_whenNamespace_thenReturnDeviceIdIsNull()
+      throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicSubscribeResult = SparkplugTopicUtil
-        .parseTopicSubscribe(SparkplugTopicUtil.NAMESPACE);
+    SparkplugTopic actualParseTopicSubscribeResult =
+        SparkplugTopicUtil.parseTopicSubscribe(SparkplugTopicUtil.NAMESPACE);
 
     // Assert
     assertNull(actualParseTopicSubscribeResult.getDeviceId());
@@ -116,12 +125,13 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicSubscribe(String)}.
+   *
    * <ul>
-   *   <li>When {@code spBv1.0#}.</li>
-   *   <li>Then return DeviceId is {@code null}.</li>
+   *   <li>When {@code spBv1.0#}.
+   *   <li>Then return DeviceId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
    */
   @Test
   @DisplayName("Test parseTopicSubscribe(String); when 'spBv1.0#'; then return DeviceId is 'null'")
@@ -129,7 +139,8 @@ class SparkplugTopicUtilDiffblueTest {
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicSubscribe(String)"})
   void testParseTopicSubscribe_whenSpBv10_thenReturnDeviceIdIsNull() throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicSubscribeResult = SparkplugTopicUtil.parseTopicSubscribe("spBv1.0#");
+    SparkplugTopic actualParseTopicSubscribeResult =
+        SparkplugTopicUtil.parseTopicSubscribe("spBv1.0#");
 
     // Assert
     assertNull(actualParseTopicSubscribeResult.getDeviceId());
@@ -143,120 +154,136 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicSubscribe(String)}.
+   *
    * <ul>
-   *   <li>When {@code spBv1.0spBv1.0$}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code spBv1.0spBv1.0spBv1.0}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
    */
   @Test
-  @DisplayName("Test parseTopicSubscribe(String); when 'spBv1.0spBv1.0$'; then throw ThingsboardException")
+  @DisplayName(
+      "Test parseTopicSubscribe(String); when 'spBv1.0spBv1.0spBv1.0'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicSubscribe(String)"})
-  void testParseTopicSubscribe_whenSpBv10spBv10_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopicSubscribe_whenSpBv10spBv10spBv10_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicSubscribe("spBv1.0spBv1.0$"));
+    assertThrows(
+        ThingsboardException.class,
+        () -> SparkplugTopicUtil.parseTopicSubscribe("spBv1.0spBv1.0spBv1.0"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicSubscribe(String)}.
+   *
    * <ul>
-   *   <li>When {@code Topic}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code Topic}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicSubscribe(String)}
    */
   @Test
   @DisplayName("Test parseTopicSubscribe(String); when 'Topic'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicSubscribe(String)"})
-  void testParseTopicSubscribe_whenTopic_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopicSubscribe_whenTopic_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
     assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicSubscribe("Topic"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
+   *
    * <ul>
-   *   <li>When {@code $}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code $}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
    */
   @Test
   @DisplayName("Test parseTopicPublish(String); when '$'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicPublish(String)"})
-  void testParseTopicPublish_whenDollarSign_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopicPublish_whenDollarSign_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
     assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicPublish("$"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
+   *
    * <ul>
-   *   <li>When {@code #}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code Invalid of topic elements for Publish}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
+   */
+  @Test
+  @DisplayName("Test parseTopicPublish(String); when 'Invalid of topic elements for Publish'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicPublish(String)"})
+  void testParseTopicPublish_whenInvalidOfTopicElementsForPublish() throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class,
+        () -> SparkplugTopicUtil.parseTopicPublish("Invalid of topic elements for Publish"));
+  }
+
+  /**
+   * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
+   *
+   * <ul>
+   *   <li>When {@code #}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
    */
   @Test
   @DisplayName("Test parseTopicPublish(String); when '#'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicPublish(String)"})
-  void testParseTopicPublish_whenNumberSign_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopicPublish_whenNumberSign_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
     assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicPublish("#"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
+   *
    * <ul>
-   *   <li>When {@code +}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code +}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
    */
   @Test
   @DisplayName("Test parseTopicPublish(String); when '+'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicPublish(String)"})
-  void testParseTopicPublish_whenPlusSign_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopicPublish_whenPlusSign_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
     assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicPublish("+"));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
+   *
    * <ul>
-   *   <li>When {@code spBv1.0TopicTopic}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code Topic}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
-   */
-  @Test
-  @DisplayName("Test parseTopicPublish(String); when 'spBv1.0TopicTopic'; then throw ThingsboardException")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopicPublish(String)"})
-  void testParseTopicPublish_whenSpBv10TopicTopic_thenThrowThingsboardException() throws ThingsboardException {
-    // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopicPublish("spBv1.0TopicTopic"));
-  }
-
-  /**
-   * Test {@link SparkplugTopicUtil#parseTopicPublish(String)}.
-   * <ul>
-   *   <li>When {@code Topic}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopicPublish(String)}
    */
   @Test
   @DisplayName("Test parseTopicPublish(String); when 'Topic'; then throw ThingsboardException")
@@ -269,11 +296,12 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>Then return Type is {@code NBIRTH}.</li>
+   *   <li>Then return Type is {@code NBIRTH}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
   @DisplayName("Test parseTopic(String[]); then return Type is 'NBIRTH'")
@@ -281,8 +309,9 @@ class SparkplugTopicUtilDiffblueTest {
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
   void testParseTopic_thenReturnTypeIsNbirth() throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicResult = SparkplugTopicUtil
-        .parseTopic(new String[]{SparkplugTopicUtil.NAMESPACE, "Split Topic", "NBIRTH"});
+    SparkplugTopic actualParseTopicResult =
+        SparkplugTopicUtil.parseTopic(
+            new String[] {SparkplugTopicUtil.NAMESPACE, "Split Topic", "NBIRTH"});
 
     // Assert
     assertEquals("Split Topic", actualParseTopicResult.getGroupId());
@@ -296,11 +325,12 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>Then return Type is {@code NDEATH}.</li>
+   *   <li>Then return Type is {@code NDEATH}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
   @DisplayName("Test parseTopic(String[]); then return Type is 'NDEATH'")
@@ -308,8 +338,9 @@ class SparkplugTopicUtilDiffblueTest {
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
   void testParseTopic_thenReturnTypeIsNdeath() throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicResult = SparkplugTopicUtil
-        .parseTopic(new String[]{SparkplugTopicUtil.NAMESPACE, "Split Topic", "NDEATH"});
+    SparkplugTopic actualParseTopicResult =
+        SparkplugTopicUtil.parseTopic(
+            new String[] {SparkplugTopicUtil.NAMESPACE, "Split Topic", "NDEATH"});
 
     // Assert
     assertEquals("Split Topic", actualParseTopicResult.getGroupId());
@@ -323,21 +354,25 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>When array of {@link String} with {@link SparkplugTopicUtil#NAMESPACE} and {@code Split Topic}.</li>
-   *   <li>Then return Type is {@code null}.</li>
+   *   <li>When array of {@link String} with {@link SparkplugTopicUtil#NAMESPACE} and {@code Split
+   *       Topic}.
+   *   <li>Then return Type is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
-  @DisplayName("Test parseTopic(String[]); when array of String with NAMESPACE and 'Split Topic'; then return Type is 'null'")
+  @DisplayName(
+      "Test parseTopic(String[]); when array of String with NAMESPACE and 'Split Topic'; then return Type is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
-  void testParseTopic_whenArrayOfStringWithNamespaceAndSplitTopic_thenReturnTypeIsNull() throws ThingsboardException {
+  void testParseTopic_whenArrayOfStringWithNamespaceAndSplitTopic_thenReturnTypeIsNull()
+      throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicResult = SparkplugTopicUtil
-        .parseTopic(new String[]{SparkplugTopicUtil.NAMESPACE, "Split Topic"});
+    SparkplugTopic actualParseTopicResult =
+        SparkplugTopicUtil.parseTopic(new String[] {SparkplugTopicUtil.NAMESPACE, "Split Topic"});
 
     // Assert
     assertEquals("Split Topic", actualParseTopicResult.getGroupId());
@@ -351,20 +386,24 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>When array of {@link String} with {@link SparkplugTopicUtil#NAMESPACE}.</li>
-   *   <li>Then return GroupId is {@code null}.</li>
+   *   <li>When array of {@link String} with {@link SparkplugTopicUtil#NAMESPACE}.
+   *   <li>Then return GroupId is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
-  @DisplayName("Test parseTopic(String[]); when array of String with NAMESPACE; then return GroupId is 'null'")
+  @DisplayName(
+      "Test parseTopic(String[]); when array of String with NAMESPACE; then return GroupId is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
-  void testParseTopic_whenArrayOfStringWithNamespace_thenReturnGroupIdIsNull() throws ThingsboardException {
+  void testParseTopic_whenArrayOfStringWithNamespace_thenReturnGroupIdIsNull()
+      throws ThingsboardException {
     // Arrange and Act
-    SparkplugTopic actualParseTopicResult = SparkplugTopicUtil.parseTopic(new String[]{SparkplugTopicUtil.NAMESPACE});
+    SparkplugTopic actualParseTopicResult =
+        SparkplugTopicUtil.parseTopic(new String[] {SparkplugTopicUtil.NAMESPACE});
 
     // Assert
     assertNull(actualParseTopicResult.getDeviceId());
@@ -378,37 +417,45 @@ class SparkplugTopicUtilDiffblueTest {
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>When array of {@link String} with {@code Split Topic}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When array of {@link String} with {@code Split Topic}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
-  @DisplayName("Test parseTopic(String[]); when array of String with 'Split Topic'; then throw ThingsboardException")
+  @DisplayName(
+      "Test parseTopic(String[]); when array of String with 'Split Topic'; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
-  void testParseTopic_whenArrayOfStringWithSplitTopic_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopic_whenArrayOfStringWithSplitTopic_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopic(new String[]{"Split Topic"}));
+    assertThrows(
+        ThingsboardException.class,
+        () -> SparkplugTopicUtil.parseTopic(new String[] {"Split Topic"}));
   }
 
   /**
    * Test {@link SparkplugTopicUtil#parseTopic(String[])}.
+   *
    * <ul>
-   *   <li>When empty array of {@link String}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When empty array of {@link String}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#parseTopic(String[])}
    */
   @Test
-  @DisplayName("Test parseTopic(String[]); when empty array of String; then throw ThingsboardException")
+  @DisplayName(
+      "Test parseTopic(String[]); when empty array of String; then throw ThingsboardException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SparkplugTopic SparkplugTopicUtil.parseTopic(String[])"})
-  void testParseTopic_whenEmptyArrayOfString_thenThrowThingsboardException() throws ThingsboardException {
+  void testParseTopic_whenEmptyArrayOfString_thenThrowThingsboardException()
+      throws ThingsboardException {
     // Arrange, Act and Assert
-    assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopic(new String[]{}));
+    assertThrows(ThingsboardException.class, () -> SparkplugTopicUtil.parseTopic(new String[] {}));
   }
 }

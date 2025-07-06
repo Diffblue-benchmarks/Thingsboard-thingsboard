@@ -33,26 +33,33 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return {@code customerId} is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Then return {@code customerId} is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}
    */
   @Test
-  @DisplayName("Test getTemplateData(); then return 'customerId' is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test getTemplateData(); then return 'customerId' is '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map RuleEngineOriginatedNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnCustomerIdIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act
     Map<String, String> actualTemplateData = buildResult.getTemplateData();
@@ -67,11 +74,12 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return {@code customerId} is empty string.</li>
+   *   <li>Then return {@code customerId} is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return 'customerId' is empty string")
@@ -79,18 +87,13 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map RuleEngineOriginatedNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnCustomerIdIsEmptyString() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    buildResult.setMsgCustomerId(null);
+    HashMap<String, String> msgMetadata = new HashMap<>();
 
     // Act
-    Map<String, String> actualTemplateData = buildResult.getTemplateData();
+    Map<String, String> actualTemplateData =
+        new RuleEngineOriginatedNotificationInfo(
+                TenantId.SYS_TENANT_ID, null, "Msg Type", msgMetadata, new HashMap<>())
+            .getTemplateData();
 
     // Assert
     assertEquals(4, actualTemplateData.size());
@@ -101,13 +104,16 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link RuleEngineOriginatedNotificationInfo#hashCode()}.
+   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link
+   * RuleEngineOriginatedNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#hashCode()}
@@ -116,26 +122,38 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder builderResult2 = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = builderResult2
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult2 =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        builderResult2.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -144,13 +162,16 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link RuleEngineOriginatedNotificationInfo#hashCode()}.
+   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link
+   * RuleEngineOriginatedNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#hashCode()}
@@ -159,32 +180,42 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder2
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder2.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -193,13 +224,16 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link RuleEngineOriginatedNotificationInfo#hashCode()}.
+   * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}, and {@link
+   * RuleEngineOriginatedNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#hashCode()}
@@ -208,18 +242,25 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -229,39 +270,51 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -269,39 +322,47 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(null)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult.msgMetadata(new HashMap<>()).msgOriginator(null).msgType("Msg Type").build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -309,40 +370,52 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfoBuilder msgMetadataResult = msgDataResult.msgMetadata(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgMetadataResult
-        .msgOriginator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfoBuilder msgMetadataResult =
+        msgDataResult.msgMetadata(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgMetadataResult
+            .msgOriginator(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")))
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -350,46 +423,57 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder2
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder2.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -397,50 +481,62 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
-    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(Mockito.<Map<String, String>>any()))
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
+    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(
+            Mockito.<Map<String, String>>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder2);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder4
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -448,50 +544,62 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
-    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(Mockito.<Map<String, String>>any()))
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
+    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(
+            Mockito.<Map<String, String>>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder2);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType(null)
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType(null)
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder4
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -499,50 +607,62 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
-    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(Mockito.<Map<String, String>>any()))
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
+    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(
+            Mockito.<Map<String, String>>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder2);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("42")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("42")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder4
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -550,52 +670,66 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    builderResult.msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
-    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(Mockito.<Map<String, String>>any()))
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    builderResult.msgCustomerId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
+    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(
+            Mockito.<Map<String, String>>any()))
         .thenReturn(builderResult);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder2);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder4
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -603,50 +737,62 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
-    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(Mockito.<Map<String, String>>any()))
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
+    when(ruleEngineOriginatedNotificationInfoBuilder.msgMetadata(
+            Mockito.<Map<String, String>>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder2 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder2.msgData(Mockito.<Map<String, String>>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder);
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder3 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(ruleEngineOriginatedNotificationInfoBuilder2);
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = ruleEngineOriginatedNotificationInfoBuilder3
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType(null)
-        .build();
-    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 = mock(
-        RuleEngineOriginatedNotificationInfoBuilder.class);
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        ruleEngineOriginatedNotificationInfoBuilder3.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType(null)
+            .build();
+    RuleEngineOriginatedNotificationInfoBuilder ruleEngineOriginatedNotificationInfoBuilder4 =
+        mock(RuleEngineOriginatedNotificationInfoBuilder.class);
     when(ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(Mockito.<CustomerId>any()))
         .thenReturn(RuleEngineOriginatedNotificationInfo.builder());
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 = ruleEngineOriginatedNotificationInfoBuilder4
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 = msgCustomerIdResult2.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult2 = msgDataResult2.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType(null)
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult2 =
+        ruleEngineOriginatedNotificationInfoBuilder4.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult2 =
+        msgCustomerIdResult2.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult2 =
+        msgDataResult2
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType(null)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -654,28 +800,36 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -683,28 +837,36 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test {@link RuleEngineOriginatedNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link RuleEngineOriginatedNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
-      "int RuleEngineOriginatedNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean RuleEngineOriginatedNotificationInfo.equals(Object)",
+    "int RuleEngineOriginatedNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult
-        .msgCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(new HashMap<>());
-    RuleEngineOriginatedNotificationInfo buildResult = msgDataResult.msgMetadata(new HashMap<>())
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(
+            new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(new HashMap<>());
+    RuleEngineOriginatedNotificationInfo buildResult =
+        msgDataResult
+            .msgMetadata(new HashMap<>())
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to RuleEngineOriginatedNotificationInfo");
@@ -712,8 +874,9 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineOriginatedNotificationInfo#RuleEngineOriginatedNotificationInfo()}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#setMsgCustomerId(CustomerId)}
@@ -734,25 +897,29 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineOriginatedNotificationInfo.<init>()",
-      "void RuleEngineOriginatedNotificationInfo.<init>(EntityId, CustomerId, String, Map, Map)",
-      "CustomerId RuleEngineOriginatedNotificationInfo.getAffectedCustomerId()",
-      "CustomerId RuleEngineOriginatedNotificationInfo.getMsgCustomerId()",
-      "Map RuleEngineOriginatedNotificationInfo.getMsgData()",
-      "Map RuleEngineOriginatedNotificationInfo.getMsgMetadata()",
-      "EntityId RuleEngineOriginatedNotificationInfo.getMsgOriginator()",
-      "String RuleEngineOriginatedNotificationInfo.getMsgType()",
-      "EntityId RuleEngineOriginatedNotificationInfo.getStateEntityId()",
-      "void RuleEngineOriginatedNotificationInfo.setMsgCustomerId(CustomerId)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgData(Map)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgMetadata(Map)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgOriginator(EntityId)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgType(String)",
-      "String RuleEngineOriginatedNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineOriginatedNotificationInfo.<init>()",
+    "void RuleEngineOriginatedNotificationInfo.<init>(EntityId, CustomerId, String, Map, Map)",
+    "CustomerId RuleEngineOriginatedNotificationInfo.getAffectedCustomerId()",
+    "CustomerId RuleEngineOriginatedNotificationInfo.getMsgCustomerId()",
+    "Map RuleEngineOriginatedNotificationInfo.getMsgData()",
+    "Map RuleEngineOriginatedNotificationInfo.getMsgMetadata()",
+    "EntityId RuleEngineOriginatedNotificationInfo.getMsgOriginator()",
+    "String RuleEngineOriginatedNotificationInfo.getMsgType()",
+    "EntityId RuleEngineOriginatedNotificationInfo.getStateEntityId()",
+    "void RuleEngineOriginatedNotificationInfo.setMsgCustomerId(CustomerId)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgData(Map)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgMetadata(Map)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgOriginator(EntityId)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgType(String)",
+    "String RuleEngineOriginatedNotificationInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    RuleEngineOriginatedNotificationInfo actualRuleEngineOriginatedNotificationInfo = new RuleEngineOriginatedNotificationInfo();
-    CustomerId msgCustomerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleEngineOriginatedNotificationInfo actualRuleEngineOriginatedNotificationInfo =
+        new RuleEngineOriginatedNotificationInfo();
+    CustomerId msgCustomerId =
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleEngineOriginatedNotificationInfo.setMsgCustomerId(msgCustomerId);
     HashMap<String, String> msgData = new HashMap<>();
     actualRuleEngineOriginatedNotificationInfo.setMsgData(msgData);
@@ -761,10 +928,12 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
     actualRuleEngineOriginatedNotificationInfo.setMsgOriginator(TenantId.SYS_TENANT_ID);
     actualRuleEngineOriginatedNotificationInfo.setMsgType("Msg Type");
     String actualToStringResult = actualRuleEngineOriginatedNotificationInfo.toString();
-    CustomerId actualAffectedCustomerId = actualRuleEngineOriginatedNotificationInfo.getAffectedCustomerId();
+    CustomerId actualAffectedCustomerId =
+        actualRuleEngineOriginatedNotificationInfo.getAffectedCustomerId();
     CustomerId actualMsgCustomerId = actualRuleEngineOriginatedNotificationInfo.getMsgCustomerId();
     Map<String, String> actualMsgData = actualRuleEngineOriginatedNotificationInfo.getMsgData();
-    Map<String, String> actualMsgMetadata = actualRuleEngineOriginatedNotificationInfo.getMsgMetadata();
+    Map<String, String> actualMsgMetadata =
+        actualRuleEngineOriginatedNotificationInfo.getMsgMetadata();
     EntityId actualMsgOriginator = actualRuleEngineOriginatedNotificationInfo.getMsgOriginator();
     String actualMsgType = actualRuleEngineOriginatedNotificationInfo.getMsgType();
     EntityId actualStateEntityId = actualRuleEngineOriginatedNotificationInfo.getStateEntityId();
@@ -788,13 +957,17 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>When {@link TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link RuleEngineOriginatedNotificationInfo#RuleEngineOriginatedNotificationInfo(EntityId, CustomerId, String, Map, Map)}
+   *   <li>{@link
+   *       RuleEngineOriginatedNotificationInfo#RuleEngineOriginatedNotificationInfo(EntityId,
+   *       CustomerId, String, Map, Map)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#setMsgCustomerId(CustomerId)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#setMsgData(Map)}
    *   <li>{@link RuleEngineOriginatedNotificationInfo#setMsgMetadata(Map)}
@@ -813,30 +986,35 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineOriginatedNotificationInfo.<init>()",
-      "void RuleEngineOriginatedNotificationInfo.<init>(EntityId, CustomerId, String, Map, Map)",
-      "CustomerId RuleEngineOriginatedNotificationInfo.getAffectedCustomerId()",
-      "CustomerId RuleEngineOriginatedNotificationInfo.getMsgCustomerId()",
-      "Map RuleEngineOriginatedNotificationInfo.getMsgData()",
-      "Map RuleEngineOriginatedNotificationInfo.getMsgMetadata()",
-      "EntityId RuleEngineOriginatedNotificationInfo.getMsgOriginator()",
-      "String RuleEngineOriginatedNotificationInfo.getMsgType()",
-      "EntityId RuleEngineOriginatedNotificationInfo.getStateEntityId()",
-      "void RuleEngineOriginatedNotificationInfo.setMsgCustomerId(CustomerId)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgData(Map)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgMetadata(Map)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgOriginator(EntityId)",
-      "void RuleEngineOriginatedNotificationInfo.setMsgType(String)",
-      "String RuleEngineOriginatedNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineOriginatedNotificationInfo.<init>()",
+    "void RuleEngineOriginatedNotificationInfo.<init>(EntityId, CustomerId, String, Map, Map)",
+    "CustomerId RuleEngineOriginatedNotificationInfo.getAffectedCustomerId()",
+    "CustomerId RuleEngineOriginatedNotificationInfo.getMsgCustomerId()",
+    "Map RuleEngineOriginatedNotificationInfo.getMsgData()",
+    "Map RuleEngineOriginatedNotificationInfo.getMsgMetadata()",
+    "EntityId RuleEngineOriginatedNotificationInfo.getMsgOriginator()",
+    "String RuleEngineOriginatedNotificationInfo.getMsgType()",
+    "EntityId RuleEngineOriginatedNotificationInfo.getStateEntityId()",
+    "void RuleEngineOriginatedNotificationInfo.setMsgCustomerId(CustomerId)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgData(Map)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgMetadata(Map)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgOriginator(EntityId)",
+    "void RuleEngineOriginatedNotificationInfo.setMsgType(String)",
+    "String RuleEngineOriginatedNotificationInfo.toString()"
+  })
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange
-    CustomerId msgCustomerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    CustomerId msgCustomerId =
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     HashMap<String, String> msgMetadata = new HashMap<>();
 
     // Act
-    RuleEngineOriginatedNotificationInfo actualRuleEngineOriginatedNotificationInfo = new RuleEngineOriginatedNotificationInfo(
-        TenantId.SYS_TENANT_ID, msgCustomerId, "Msg Type", msgMetadata, new HashMap<>());
-    CustomerId msgCustomerId2 = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleEngineOriginatedNotificationInfo actualRuleEngineOriginatedNotificationInfo =
+        new RuleEngineOriginatedNotificationInfo(
+            TenantId.SYS_TENANT_ID, msgCustomerId, "Msg Type", msgMetadata, new HashMap<>());
+    CustomerId msgCustomerId2 =
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualRuleEngineOriginatedNotificationInfo.setMsgCustomerId(msgCustomerId2);
     HashMap<String, String> msgData = new HashMap<>();
     actualRuleEngineOriginatedNotificationInfo.setMsgData(msgData);
@@ -845,10 +1023,12 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
     actualRuleEngineOriginatedNotificationInfo.setMsgOriginator(TenantId.SYS_TENANT_ID);
     actualRuleEngineOriginatedNotificationInfo.setMsgType("Msg Type");
     String actualToStringResult = actualRuleEngineOriginatedNotificationInfo.toString();
-    CustomerId actualAffectedCustomerId = actualRuleEngineOriginatedNotificationInfo.getAffectedCustomerId();
+    CustomerId actualAffectedCustomerId =
+        actualRuleEngineOriginatedNotificationInfo.getAffectedCustomerId();
     CustomerId actualMsgCustomerId = actualRuleEngineOriginatedNotificationInfo.getMsgCustomerId();
     Map<String, String> actualMsgData = actualRuleEngineOriginatedNotificationInfo.getMsgData();
-    Map<String, String> actualMsgMetadata = actualRuleEngineOriginatedNotificationInfo.getMsgMetadata();
+    Map<String, String> actualMsgMetadata =
+        actualRuleEngineOriginatedNotificationInfo.getMsgMetadata();
     EntityId actualMsgOriginator = actualRuleEngineOriginatedNotificationInfo.getMsgOriginator();
     String actualMsgType = actualRuleEngineOriginatedNotificationInfo.getMsgType();
     EntityId actualStateEntityId = actualRuleEngineOriginatedNotificationInfo.getStateEntityId();
@@ -871,9 +1051,11 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test RuleEngineOriginatedNotificationInfoBuilder {@link RuleEngineOriginatedNotificationInfoBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test RuleEngineOriginatedNotificationInfoBuilder {@link
+   * RuleEngineOriginatedNotificationInfoBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link RuleEngineOriginatedNotificationInfoBuilder#build()}
    *   <li>{@link RuleEngineOriginatedNotificationInfoBuilder#msgCustomerId(CustomerId)}
@@ -886,28 +1068,36 @@ class RuleEngineOriginatedNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test RuleEngineOriginatedNotificationInfoBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void RuleEngineOriginatedNotificationInfoBuilder.<init>()",
-      "RuleEngineOriginatedNotificationInfo RuleEngineOriginatedNotificationInfoBuilder.build()",
-      "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgCustomerId(CustomerId)",
-      "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgData(Map)",
-      "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgMetadata(Map)",
-      "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgOriginator(EntityId)",
-      "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgType(String)",
-      "String RuleEngineOriginatedNotificationInfoBuilder.toString()"})
+  @MethodsUnderTest({
+    "void RuleEngineOriginatedNotificationInfoBuilder.<init>()",
+    "RuleEngineOriginatedNotificationInfo RuleEngineOriginatedNotificationInfoBuilder.build()",
+    "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgCustomerId(CustomerId)",
+    "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgData(Map)",
+    "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgMetadata(Map)",
+    "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgOriginator(EntityId)",
+    "RuleEngineOriginatedNotificationInfoBuilder RuleEngineOriginatedNotificationInfoBuilder.msgType(String)",
+    "String RuleEngineOriginatedNotificationInfoBuilder.toString()"
+  })
   void testRuleEngineOriginatedNotificationInfoBuilderBuild() {
     // Arrange
-    RuleEngineOriginatedNotificationInfoBuilder builderResult = RuleEngineOriginatedNotificationInfo.builder();
-    CustomerId msgCustomerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult = builderResult.msgCustomerId(msgCustomerId);
+    RuleEngineOriginatedNotificationInfoBuilder builderResult =
+        RuleEngineOriginatedNotificationInfo.builder();
+    CustomerId msgCustomerId =
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    RuleEngineOriginatedNotificationInfoBuilder msgCustomerIdResult =
+        builderResult.msgCustomerId(msgCustomerId);
     HashMap<String, String> msgData = new HashMap<>();
-    RuleEngineOriginatedNotificationInfoBuilder msgDataResult = msgCustomerIdResult.msgData(msgData);
+    RuleEngineOriginatedNotificationInfoBuilder msgDataResult =
+        msgCustomerIdResult.msgData(msgData);
     HashMap<String, String> msgMetadata = new HashMap<>();
 
     // Act
-    RuleEngineOriginatedNotificationInfo actualBuildResult = msgDataResult.msgMetadata(msgMetadata)
-        .msgOriginator(TenantId.SYS_TENANT_ID)
-        .msgType("Msg Type")
-        .build();
+    RuleEngineOriginatedNotificationInfo actualBuildResult =
+        msgDataResult
+            .msgMetadata(msgMetadata)
+            .msgOriginator(TenantId.SYS_TENANT_ID)
+            .msgType("Msg Type")
+            .build();
 
     // Assert
     EntityId msgOriginator = actualBuildResult.getMsgOriginator();

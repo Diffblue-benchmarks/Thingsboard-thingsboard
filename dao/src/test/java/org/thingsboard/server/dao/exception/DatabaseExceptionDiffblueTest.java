@@ -11,16 +11,21 @@ import org.junit.experimental.categories.Category;
 public class DatabaseExceptionDiffblueTest {
   /**
    * Test {@link DatabaseException#DatabaseException()}.
+   *
    * <ul>
-   *   <li>Then return Message is {@code null}.</li>
+   *   <li>Then return Message is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link DatabaseException#DatabaseException()}
+   *
+   * <p>Method under test: {@link DatabaseException#DatabaseException()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DatabaseException.<init>()", "void DatabaseException.<init>(String)",
-      "void DatabaseException.<init>(String, Throwable)", "void DatabaseException.<init>(Throwable)"})
+  @MethodsUnderTest({
+    "void DatabaseException.<init>()",
+    "void DatabaseException.<init>(String)",
+    "void DatabaseException.<init>(String, Throwable)",
+    "void DatabaseException.<init>(Throwable)"
+  })
   public void testNewDatabaseException_thenReturnMessageIsNull() {
     // Arrange and Act
     DatabaseException actualDatabaseException = new DatabaseException();
@@ -33,17 +38,22 @@ public class DatabaseExceptionDiffblueTest {
 
   /**
    * Test {@link DatabaseException#DatabaseException(String)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
-   *   <li>Then return Message is {@code An error occurred}.</li>
+   *   <li>When {@code An error occurred}.
+   *   <li>Then return Message is {@code An error occurred}.
    * </ul>
-   * <p>
-   * Method under test: {@link DatabaseException#DatabaseException(String)}
+   *
+   * <p>Method under test: {@link DatabaseException#DatabaseException(String)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DatabaseException.<init>()", "void DatabaseException.<init>(String)",
-      "void DatabaseException.<init>(String, Throwable)", "void DatabaseException.<init>(Throwable)"})
+  @MethodsUnderTest({
+    "void DatabaseException.<init>()",
+    "void DatabaseException.<init>(String)",
+    "void DatabaseException.<init>(String, Throwable)",
+    "void DatabaseException.<init>(Throwable)"
+  })
   public void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred() {
     // Arrange and Act
     DatabaseException actualDatabaseException = new DatabaseException("An error occurred");
@@ -56,17 +66,22 @@ public class DatabaseExceptionDiffblueTest {
 
   /**
    * Test {@link DatabaseException#DatabaseException(String, Throwable)}.
+   *
    * <ul>
-   *   <li>When {@code An error occurred}.</li>
-   *   <li>Then return Message is {@code An error occurred}.</li>
+   *   <li>When {@code An error occurred}.
+   *   <li>Then return Message is {@code An error occurred}.
    * </ul>
-   * <p>
-   * Method under test: {@link DatabaseException#DatabaseException(String, Throwable)}
+   *
+   * <p>Method under test: {@link DatabaseException#DatabaseException(String, Throwable)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DatabaseException.<init>()", "void DatabaseException.<init>(String)",
-      "void DatabaseException.<init>(String, Throwable)", "void DatabaseException.<init>(Throwable)"})
+  @MethodsUnderTest({
+    "void DatabaseException.<init>()",
+    "void DatabaseException.<init>(String)",
+    "void DatabaseException.<init>(String, Throwable)",
+    "void DatabaseException.<init>(Throwable)"
+  })
   public void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred2() {
     // Arrange
     Throwable cause = new Throwable();
@@ -82,17 +97,22 @@ public class DatabaseExceptionDiffblueTest {
 
   /**
    * Test {@link DatabaseException#DatabaseException(Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Message is {@code Throwable}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Message is {@code Throwable}.
    * </ul>
-   * <p>
-   * Method under test: {@link DatabaseException#DatabaseException(Throwable)}
+   *
+   * <p>Method under test: {@link DatabaseException#DatabaseException(Throwable)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void DatabaseException.<init>()", "void DatabaseException.<init>(String)",
-      "void DatabaseException.<init>(String, Throwable)", "void DatabaseException.<init>(Throwable)"})
+  @MethodsUnderTest({
+    "void DatabaseException.<init>()",
+    "void DatabaseException.<init>(String)",
+    "void DatabaseException.<init>(String, Throwable)",
+    "void DatabaseException.<init>(Throwable)"
+  })
   public void testNewDatabaseException_whenThrowable_thenReturnMessageIsJavaLangThrowable() {
     // Arrange
     Throwable cause = new Throwable();

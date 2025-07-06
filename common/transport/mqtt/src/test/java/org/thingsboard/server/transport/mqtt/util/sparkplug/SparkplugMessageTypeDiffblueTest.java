@@ -13,12 +13,13 @@ import org.thingsboard.server.common.data.exception.ThingsboardException;
 class SparkplugMessageTypeDiffblueTest {
   /**
    * Test {@link SparkplugMessageType#parseMessageType(String)}.
+   *
    * <ul>
-   *   <li>When {@code NBIRTH}.</li>
-   *   <li>Then return {@code NBIRTH}.</li>
+   *   <li>When {@code NBIRTH}.
+   *   <li>Then return {@code NBIRTH}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#parseMessageType(String)}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#parseMessageType(String)}
    */
   @Test
   @DisplayName("Test parseMessageType(String); when 'NBIRTH'; then return 'NBIRTH'")
@@ -31,12 +32,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#parseMessageType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then throw {@link ThingsboardException}.</li>
+   *   <li>When {@code Type}.
+   *   <li>Then throw {@link ThingsboardException}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#parseMessageType(String)}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#parseMessageType(String)}
    */
   @Test
   @DisplayName("Test parseMessageType(String); when 'Type'; then throw ThingsboardException")
@@ -49,12 +51,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#messageName(SparkplugMessageType)}.
+   *
    * <ul>
-   *   <li>When {@code NBIRTH}.</li>
-   *   <li>Then return {@code NBIRTH}.</li>
+   *   <li>When {@code NBIRTH}.
+   *   <li>Then return {@code NBIRTH}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#messageName(SparkplugMessageType)}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#messageName(SparkplugMessageType)}
    */
   @Test
   @DisplayName("Test messageName(SparkplugMessageType); when 'NBIRTH'; then return 'NBIRTH'")
@@ -67,30 +70,34 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#messageName(SparkplugMessageType)}.
+   *
    * <ul>
-   *   <li>When {@code STATE}.</li>
-   *   <li>Then return {@code sparkplugConnectionState}.</li>
+   *   <li>When {@code STATE}.
+   *   <li>Then return {@code sparkplugConnectionState}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#messageName(SparkplugMessageType)}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#messageName(SparkplugMessageType)}
    */
   @Test
-  @DisplayName("Test messageName(SparkplugMessageType); when 'STATE'; then return 'sparkplugConnectionState'")
+  @DisplayName(
+      "Test messageName(SparkplugMessageType); when 'STATE'; then return 'sparkplugConnectionState'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String SparkplugMessageType.messageName(SparkplugMessageType)"})
   void testMessageName_whenState_thenReturnSparkplugConnectionState() {
     // Arrange, Act and Assert
-    assertEquals("sparkplugConnectionState", SparkplugMessageType.messageName(SparkplugMessageType.STATE));
+    assertEquals(
+        "sparkplugConnectionState", SparkplugMessageType.messageName(SparkplugMessageType.STATE));
   }
 
   /**
    * Test {@link SparkplugMessageType#isDeath()}.
+   *
    * <ul>
-   *   <li>Given {@code DDEATH}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code DDEATH}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isDeath()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isDeath()}
    */
   @Test
   @DisplayName("Test isDeath(); given 'DDEATH'; then return 'true'")
@@ -103,12 +110,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isDeath()}.
+   *
    * <ul>
-   *   <li>Given {@code NBIRTH}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code NBIRTH}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isDeath()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isDeath()}
    */
   @Test
   @DisplayName("Test isDeath(); given 'NBIRTH'; then return 'false'")
@@ -121,12 +129,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isDeath()}.
+   *
    * <ul>
-   *   <li>Given {@code NDEATH}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code NDEATH}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isDeath()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isDeath()}
    */
   @Test
   @DisplayName("Test isDeath(); given 'NDEATH'; then return 'true'")
@@ -139,12 +148,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isCommand()}.
+   *
    * <ul>
-   *   <li>Given {@code DCMD}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code DCMD}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isCommand()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isCommand()}
    */
   @Test
   @DisplayName("Test isCommand(); given 'DCMD'; then return 'true'")
@@ -157,12 +167,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isCommand()}.
+   *
    * <ul>
-   *   <li>Given {@code NBIRTH}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code NBIRTH}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isCommand()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isCommand()}
    */
   @Test
   @DisplayName("Test isCommand(); given 'NBIRTH'; then return 'false'")
@@ -175,12 +186,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isCommand()}.
+   *
    * <ul>
-   *   <li>Given {@code NCMD}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code NCMD}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isCommand()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isCommand()}
    */
   @Test
   @DisplayName("Test isCommand(); given 'NCMD'; then return 'true'")
@@ -193,12 +205,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isData()}.
+   *
    * <ul>
-   *   <li>Given {@code DDATA}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code DDATA}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isData()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isData()}
    */
   @Test
   @DisplayName("Test isData(); given 'DDATA'; then return 'true'")
@@ -211,12 +224,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isData()}.
+   *
    * <ul>
-   *   <li>Given {@code NBIRTH}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code NBIRTH}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isData()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isData()}
    */
   @Test
   @DisplayName("Test isData(); given 'NBIRTH'; then return 'false'")
@@ -229,12 +243,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isData()}.
+   *
    * <ul>
-   *   <li>Given {@code NDATA}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code NDATA}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isData()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isData()}
    */
   @Test
   @DisplayName("Test isData(); given 'NDATA'; then return 'true'")
@@ -247,12 +262,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isBirth()}.
+   *
    * <ul>
-   *   <li>Given {@code DBIRTH}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code DBIRTH}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isBirth()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isBirth()}
    */
   @Test
   @DisplayName("Test isBirth(); given 'DBIRTH'; then return 'true'")
@@ -265,12 +281,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isBirth()}.
+   *
    * <ul>
-   *   <li>Given {@code NBIRTH}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code NBIRTH}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isBirth()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isBirth()}
    */
   @Test
   @DisplayName("Test isBirth(); given 'NBIRTH'; then return 'true'")
@@ -283,12 +300,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isBirth()}.
+   *
    * <ul>
-   *   <li>Given {@code NDEATH}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code NDEATH}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isBirth()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isBirth()}
    */
   @Test
   @DisplayName("Test isBirth(); given 'NDEATH'; then return 'false'")
@@ -301,12 +319,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isRecord()}.
+   *
    * <ul>
-   *   <li>Given {@code DRECORD}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code DRECORD}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isRecord()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isRecord()}
    */
   @Test
   @DisplayName("Test isRecord(); given 'DRECORD'; then return 'true'")
@@ -319,12 +338,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isRecord()}.
+   *
    * <ul>
-   *   <li>Given {@code NBIRTH}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code NBIRTH}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isRecord()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isRecord()}
    */
   @Test
   @DisplayName("Test isRecord(); given 'NBIRTH'; then return 'false'")
@@ -337,12 +357,13 @@ class SparkplugMessageTypeDiffblueTest {
 
   /**
    * Test {@link SparkplugMessageType#isRecord()}.
+   *
    * <ul>
-   *   <li>Given {@code NRECORD}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@code NRECORD}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link SparkplugMessageType#isRecord()}
+   *
+   * <p>Method under test: {@link SparkplugMessageType#isRecord()}
    */
   @Test
   @DisplayName("Test isRecord(); given 'NRECORD'; then return 'true'")

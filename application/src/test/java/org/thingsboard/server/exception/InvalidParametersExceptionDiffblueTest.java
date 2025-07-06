@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {InvalidParametersException.class, String.class})
 @ExtendWith(SpringExtension.class)
 class InvalidParametersExceptionDiffblueTest {
-  @Autowired
-  private InvalidParametersException invalidParametersException;
+  @Autowired private InvalidParametersException invalidParametersException;
 
   /**
    * Test {@link InvalidParametersException#InvalidParametersException(String)}.
-   * <p>
-   * Method under test: {@link InvalidParametersException#InvalidParametersException(String)}
+   *
+   * <p>Method under test: {@link InvalidParametersException#InvalidParametersException(String)}
    */
   @Test
   @DisplayName("Test new InvalidParametersException(String)")
@@ -32,7 +31,8 @@ class InvalidParametersExceptionDiffblueTest {
   @MethodsUnderTest({"void InvalidParametersException.<init>(String)"})
   void testNewInvalidParametersException() {
     // Arrange and Act
-    InvalidParametersException actualInvalidParametersException = new InvalidParametersException("An error occurred");
+    InvalidParametersException actualInvalidParametersException =
+        new InvalidParametersException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualInvalidParametersException.getMessage());
@@ -42,8 +42,8 @@ class InvalidParametersExceptionDiffblueTest {
 
   /**
    * Test {@link InvalidParametersException#toErrorResponseEntity()}.
-   * <p>
-   * Method under test: {@link InvalidParametersException#toErrorResponseEntity()}
+   *
+   * <p>Method under test: {@link InvalidParametersException#toErrorResponseEntity()}
    */
   @Test
   @DisplayName("Test toErrorResponseEntity()")
@@ -51,7 +51,8 @@ class InvalidParametersExceptionDiffblueTest {
   @MethodsUnderTest({"ResponseEntity InvalidParametersException.toErrorResponseEntity()"})
   void testToErrorResponseEntity() {
     // Arrange and Act
-    ResponseEntity<String> actualToErrorResponseEntityResult = invalidParametersException.toErrorResponseEntity();
+    ResponseEntity<String> actualToErrorResponseEntityResult =
+        invalidParametersException.toErrorResponseEntity();
 
     // Assert
     HttpStatusCode statusCode = actualToErrorResponseEntityResult.getStatusCode();

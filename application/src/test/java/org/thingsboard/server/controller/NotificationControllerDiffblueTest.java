@@ -18,30 +18,30 @@ import org.thingsboard.server.service.security.model.SecurityUser;
 
 @ExtendWith(MockitoExtension.class)
 class NotificationControllerDiffblueTest {
-  @InjectMocks
-  private NotificationController notificationController;
+  @InjectMocks private NotificationController notificationController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}.
+   *
    * <ul>
-   *   <li>Given fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Given fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}
+   *
+   * <p>Method under test: {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}
    */
   @Test
-  @DisplayName("Test markNotificationAsRead(UUID, SecurityUser); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test markNotificationAsRead(UUID, SecurityUser); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationController.markNotificationAsRead(UUID, SecurityUser)"})
-  void testMarkNotificationAsRead_givenFromString784f394c42b6435a983cB7beff2784f9() throws Exception {
+  void testMarkNotificationAsRead_givenFromString784f394c42b6435a983cB7beff2784f9()
+      throws Exception {
     // Arrange
     UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/api/notification/{id}/read", "Uri Variables",
-        "Uri Variables");
-    MockHttpServletRequestBuilder requestBuilder = putResult.param("user", String.valueOf(new SecurityUser()));
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.put("/api/notification/{id}/read", "Uri Variables", "Uri Variables");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(notificationController)
@@ -53,21 +53,24 @@ class NotificationControllerDiffblueTest {
 
   /**
    * Test {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}.
+   *
    * <ul>
-   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}
+   *
+   * <p>Method under test: {@link NotificationController#markNotificationAsRead(UUID, SecurityUser)}
    */
   @Test
-  @DisplayName("Test markNotificationAsRead(UUID, SecurityUser); when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName(
+      "Test markNotificationAsRead(UUID, SecurityUser); when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationController.markNotificationAsRead(UUID, SecurityUser)"})
-  void testMarkNotificationAsRead_whenFromString784f394c42b6435a983cB7beff2784f9() throws Exception {
+  void testMarkNotificationAsRead_whenFromString784f394c42b6435a983cB7beff2784f9()
+      throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/api/notification/{id}/read",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    MockHttpServletRequestBuilder requestBuilder = putResult.param("user", String.valueOf(new SecurityUser()));
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.put(
+            "/api/notification/{id}/read", UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(notificationController)
@@ -79,22 +82,46 @@ class NotificationControllerDiffblueTest {
 
   /**
    * Test {@link NotificationController#deleteNotification(UUID, SecurityUser)}.
-   * <ul>
-   *   <li>Given fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
+   *
+   * <p>Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
    */
   @Test
-  @DisplayName("Test deleteNotification(UUID, SecurityUser); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName("Test deleteNotification(UUID, SecurityUser)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationController.deleteNotification(UUID, SecurityUser)"})
+  void testDeleteNotification() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete(
+            "/api/notification/{id}", UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(notificationController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link NotificationController#deleteNotification(UUID, SecurityUser)}.
+   *
+   * <ul>
+   *   <li>Given fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
+   * </ul>
+   *
+   * <p>Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
+   */
+  @Test
+  @DisplayName(
+      "Test deleteNotification(UUID, SecurityUser); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationController.deleteNotification(UUID, SecurityUser)"})
   void testDeleteNotification_givenFromString784f394c42b6435a983cB7beff2784f9() throws Exception {
     // Arrange
     UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-    MockHttpServletRequestBuilder deleteResult = MockMvcRequestBuilders.delete("/api/notification/{id}",
-        "Uri Variables", "Uri Variables");
-    MockHttpServletRequestBuilder requestBuilder = deleteResult.param("user", String.valueOf(new SecurityUser()));
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete("/api/notification/{id}", "Uri Variables", "Uri Variables");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(notificationController)
@@ -106,21 +133,23 @@ class NotificationControllerDiffblueTest {
 
   /**
    * Test {@link NotificationController#deleteNotification(UUID, SecurityUser)}.
+   *
    * <ul>
-   *   <li>When fromString {@code 784f394c-42b6-435a-983c-b7beff2784f9}.</li>
+   *   <li>Given {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
+   *
+   * <p>Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
    */
   @Test
-  @DisplayName("Test deleteNotification(UUID, SecurityUser); when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @DisplayName("Test deleteNotification(UUID, SecurityUser); given 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationController.deleteNotification(UUID, SecurityUser)"})
-  void testDeleteNotification_whenFromString784f394c42b6435a983cB7beff2784f9() throws Exception {
+  void testDeleteNotification_givenTrue() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder deleteResult = MockMvcRequestBuilders.delete("/api/notification/{id}",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    MockHttpServletRequestBuilder requestBuilder = deleteResult.param("user", String.valueOf(new SecurityUser()));
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete(
+            "/api/notification/{id}", UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    requestBuilder.secure(true);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(notificationController)
@@ -131,23 +160,46 @@ class NotificationControllerDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationController#deleteNotification(UUID, SecurityUser)}.
-   * <ul>
-   *   <li>When valueOf {@code FieldError source is not of type ConstraintViolation}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationController#deleteNotification(UUID, SecurityUser)}
+   * Test {@link NotificationController#getNotificationRequestById(UUID)}.
+   *
+   * <p>Method under test: {@link NotificationController#getNotificationRequestById(UUID)}
    */
   @Test
-  @DisplayName("Test deleteNotification(UUID, SecurityUser); when valueOf 'FieldError source is not of type ConstraintViolation'")
+  @DisplayName("Test getNotificationRequestById(UUID)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationController.deleteNotification(UUID, SecurityUser)"})
-  void testDeleteNotification_whenValueOfFieldErrorSourceIsNotOfTypeConstraintViolation() throws Exception {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.notification.NotificationRequestInfo NotificationController.getNotificationRequestById(UUID)"
+  })
+  void testGetNotificationRequestById() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder deleteResult = MockMvcRequestBuilders.delete("/api/notification/{id}",
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    MockHttpServletRequestBuilder requestBuilder = deleteResult.param("user",
-        String.valueOf("FieldError source is not of type ConstraintViolation"));
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get(
+            "/api/notification/request/{id}", "Uri Variables", "Uri Variables");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(notificationController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link NotificationController#deleteNotificationRequest(UUID)}.
+   *
+   * <p>Method under test: {@link NotificationController#deleteNotificationRequest(UUID)}
+   */
+  @Test
+  @DisplayName("Test deleteNotificationRequest(UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void NotificationController.deleteNotificationRequest(UUID)"})
+  void testDeleteNotificationRequest() throws Exception {
+    // Arrange
+    UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.delete(
+            "/api/notification/request/{id}", "Uri Variables", "Uri Variables");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(notificationController)

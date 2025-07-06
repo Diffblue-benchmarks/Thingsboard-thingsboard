@@ -19,12 +19,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class EntityDataDiffblueTest {
   /**
    * Test {@link EntityData#equals(Object)}, and {@link EntityData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#equals(Object)}
    *   <li>{@link EntityData#hashCode()}
@@ -49,12 +51,14 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}, and {@link EntityData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#equals(Object)}
    *   <li>{@link EntityData#hashCode()}
@@ -79,12 +83,14 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}, and {@link EntityData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#equals(Object)}
    *   <li>{@link EntityData#hashCode()}
@@ -98,10 +104,12 @@ class EntityDataDiffblueTest {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
-    EntityData entityData = new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, new HashMap<>());
+    EntityData entityData =
+        new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, new HashMap<>());
     HashMap<EntityKeyType, Map<String, TsValue>> latest2 = new HashMap<>();
     HashMap<String, TsValue[]> timeseries2 = new HashMap<>();
-    EntityData entityData2 = new EntityData(TenantId.SYS_TENANT_ID, latest2, timeseries2, new HashMap<>());
+    EntityData entityData2 =
+        new EntityData(TenantId.SYS_TENANT_ID, latest2, timeseries2, new HashMap<>());
 
     // Act and Assert
     assertEquals(entityData, entityData2);
@@ -111,12 +119,14 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}, and {@link EntityData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#equals(Object)}
    *   <li>{@link EntityData#hashCode()}
@@ -139,12 +149,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -162,12 +173,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -186,12 +198,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -210,12 +223,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -224,7 +238,7 @@ class EntityDataDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
-    timeseries.put("foo", new TsValue[]{TsValue.EMPTY});
+    timeseries.put("foo", new TsValue[] {TsValue.EMPTY});
     EntityData entityData = new EntityData(TenantId.SYS_TENANT_ID, new HashMap<>(), timeseries);
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
 
@@ -234,12 +248,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -249,7 +264,8 @@ class EntityDataDiffblueTest {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
-    EntityData entityData = new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, new HashMap<>());
+    EntityData entityData =
+        new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, new HashMap<>());
     HashMap<EntityKeyType, Map<String, TsValue>> latest2 = new HashMap<>();
 
     // Act and Assert
@@ -258,12 +274,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,17 +294,19 @@ class EntityDataDiffblueTest {
     HashMap<String, TsValue[]> timeseries = new HashMap<>();
 
     // Act and Assert
-    assertNotEquals(entityData, new EntityData(TenantId.SYS_TENANT_ID, latest2, timeseries, new HashMap<>()));
+    assertNotEquals(
+        entityData, new EntityData(TenantId.SYS_TENANT_ID, latest2, timeseries, new HashMap<>()));
   }
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -303,12 +322,13 @@ class EntityDataDiffblueTest {
 
   /**
    * Test {@link EntityData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityData#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -319,13 +339,16 @@ class EntityDataDiffblueTest {
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
 
     // Act and Assert
-    assertNotEquals(new EntityData(TenantId.SYS_TENANT_ID, latest, new HashMap<>()), "Different type to EntityData");
+    assertNotEquals(
+        new EntityData(TenantId.SYS_TENANT_ID, latest, new HashMap<>()),
+        "Different type to EntityData");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#EntityData(EntityId, Map, Map)}
    *   <li>{@link EntityData#toString()}
@@ -338,9 +361,15 @@ class EntityDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityData.<init>(EntityId, Map, Map)", "void EntityData.<init>(EntityId, Map, Map, Map)",
-      "Map EntityData.getAggLatest()", "EntityId EntityData.getEntityId()", "Map EntityData.getLatest()",
-      "Map EntityData.getTimeseries()", "String EntityData.toString()"})
+  @MethodsUnderTest({
+    "void EntityData.<init>(EntityId, Map, Map)",
+    "void EntityData.<init>(EntityId, Map, Map, Map)",
+    "Map EntityData.getAggLatest()",
+    "EntityId EntityData.getEntityId()",
+    "Map EntityData.getLatest()",
+    "Map EntityData.getTimeseries()",
+    "String EntityData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -355,7 +384,8 @@ class EntityDataDiffblueTest {
     Map<String, TsValue[]> actualTimeseries = actualEntityData.getTimeseries();
 
     // Assert
-    assertEquals("EntityData(entityId=13814000-1dd2-11b2-8080-808080808080, latest={}, timeseries={}, aggLatest=null)",
+    assertEquals(
+        "EntityData(entityId=13814000-1dd2-11b2-8080-808080808080, latest={}, timeseries={}, aggLatest=null)",
         actualToStringResult);
     assertNull(actualAggLatest);
     assertTrue(actualLatest.isEmpty());
@@ -367,8 +397,9 @@ class EntityDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityData#EntityData(EntityId, Map, Map, Map)}
    *   <li>{@link EntityData#toString()}
@@ -381,9 +412,15 @@ class EntityDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EntityData.<init>(EntityId, Map, Map)", "void EntityData.<init>(EntityId, Map, Map, Map)",
-      "Map EntityData.getAggLatest()", "EntityId EntityData.getEntityId()", "Map EntityData.getLatest()",
-      "Map EntityData.getTimeseries()", "String EntityData.toString()"})
+  @MethodsUnderTest({
+    "void EntityData.<init>(EntityId, Map, Map)",
+    "void EntityData.<init>(EntityId, Map, Map, Map)",
+    "Map EntityData.getAggLatest()",
+    "EntityId EntityData.getEntityId()",
+    "Map EntityData.getLatest()",
+    "Map EntityData.getTimeseries()",
+    "String EntityData.toString()"
+  })
   void testGettersAndSetters2() {
     // Arrange
     HashMap<EntityKeyType, Map<String, TsValue>> latest = new HashMap<>();
@@ -391,7 +428,8 @@ class EntityDataDiffblueTest {
     HashMap<Integer, ComparisonTsValue> aggLatest = new HashMap<>();
 
     // Act
-    EntityData actualEntityData = new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, aggLatest);
+    EntityData actualEntityData =
+        new EntityData(TenantId.SYS_TENANT_ID, latest, timeseries, aggLatest);
     String actualToStringResult = actualEntityData.toString();
     Map<Integer, ComparisonTsValue> actualAggLatest = actualEntityData.getAggLatest();
     EntityId actualEntityId = actualEntityData.getEntityId();
@@ -399,7 +437,8 @@ class EntityDataDiffblueTest {
     Map<String, TsValue[]> actualTimeseries = actualEntityData.getTimeseries();
 
     // Assert
-    assertEquals("EntityData(entityId=13814000-1dd2-11b2-8080-808080808080, latest={}, timeseries={}, aggLatest={})",
+    assertEquals(
+        "EntityData(entityId=13814000-1dd2-11b2-8080-808080808080, latest={}, timeseries={}, aggLatest={})",
         actualToStringResult);
     assertTrue(actualAggLatest.isEmpty());
     assertTrue(actualLatest.isEmpty());

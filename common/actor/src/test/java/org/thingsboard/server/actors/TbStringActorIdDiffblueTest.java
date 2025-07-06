@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class TbStringActorIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbStringActorId#TbStringActorId(String)}
    *   <li>{@link TbStringActorId#getEntityType()}
@@ -23,8 +24,11 @@ class TbStringActorIdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbStringActorId.<init>(String)", "EntityType TbStringActorId.getEntityType()",
-      "String TbStringActorId.toString()"})
+  @MethodsUnderTest({
+    "void TbStringActorId.<init>(String)",
+    "EntityType TbStringActorId.getEntityType()",
+    "String TbStringActorId.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbStringActorId actualTbStringActorId = new TbStringActorId("42");
@@ -37,12 +41,14 @@ class TbStringActorIdDiffblueTest {
 
   /**
    * Test {@link TbStringActorId#equals(Object)}, and {@link TbStringActorId#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbStringActorId#equals(Object)}
    *   <li>{@link TbStringActorId#hashCode()}
@@ -65,12 +71,14 @@ class TbStringActorIdDiffblueTest {
 
   /**
    * Test {@link TbStringActorId#equals(Object)}, and {@link TbStringActorId#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbStringActorId#equals(Object)}
    *   <li>{@link TbStringActorId#hashCode()}
@@ -92,12 +100,13 @@ class TbStringActorIdDiffblueTest {
 
   /**
    * Test {@link TbStringActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStringActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbStringActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -113,12 +122,13 @@ class TbStringActorIdDiffblueTest {
 
   /**
    * Test {@link TbStringActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStringActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbStringActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -131,12 +141,13 @@ class TbStringActorIdDiffblueTest {
 
   /**
    * Test {@link TbStringActorId#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbStringActorId#equals(Object)}
+   *
+   * <p>Method under test: {@link TbStringActorId#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

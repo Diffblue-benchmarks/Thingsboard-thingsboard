@@ -15,24 +15,25 @@ import org.thingsboard.monitoring.util.TbStopWatch;
 
 @ExtendWith(MockitoExtension.class)
 class WsClientFactoryDiffblueTest {
-  @Mock
-  private TbStopWatch tbStopWatch;
+  @Mock private TbStopWatch tbStopWatch;
 
-  @InjectMocks
-  private WsClientFactory wsClientFactory;
+  @InjectMocks private WsClientFactory wsClientFactory;
 
   /**
    * Test {@link WsClientFactory#createClient(String)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalStateException}.</li>
+   *   <li>Then throw {@link IllegalStateException}.
    * </ul>
-   * <p>
-   * Method under test: {@link WsClientFactory#createClient(String)}
+   *
+   * <p>Method under test: {@link WsClientFactory#createClient(String)}
    */
   @Test
   @DisplayName("Test createClient(String); then throw IllegalStateException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.monitoring.client.WsClient WsClientFactory.createClient(String)"})
+  @MethodsUnderTest({
+    "org.thingsboard.monitoring.client.WsClient WsClientFactory.createClient(String)"
+  })
   void testCreateClient_thenThrowIllegalStateException() throws Exception {
     // Arrange
     doThrow(new IllegalStateException("wss")).when(tbStopWatch).start();

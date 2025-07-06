@@ -12,10 +12,12 @@ import org.thingsboard.server.common.data.transport.snmp.SnmpMethod;
 class SharedAttributesSettingSnmpCommunicationConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>default or parameterless constructor of {@link SharedAttributesSettingSnmpCommunicationConfig}
+   *   <li>default or parameterless constructor of {@link
+   *       SharedAttributesSettingSnmpCommunicationConfig}
    *   <li>{@link SharedAttributesSettingSnmpCommunicationConfig#getMethod()}
    *   <li>{@link SharedAttributesSettingSnmpCommunicationConfig#getSpec()}
    * </ul>
@@ -23,14 +25,19 @@ class SharedAttributesSettingSnmpCommunicationConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SharedAttributesSettingSnmpCommunicationConfig.<init>()",
-      "SnmpMethod SharedAttributesSettingSnmpCommunicationConfig.getMethod()",
-      "SnmpCommunicationSpec SharedAttributesSettingSnmpCommunicationConfig.getSpec()"})
+  @MethodsUnderTest({
+    "void SharedAttributesSettingSnmpCommunicationConfig.<init>()",
+    "SnmpMethod SharedAttributesSettingSnmpCommunicationConfig.getMethod()",
+    "SnmpCommunicationSpec SharedAttributesSettingSnmpCommunicationConfig.getSpec()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    SharedAttributesSettingSnmpCommunicationConfig actualSharedAttributesSettingSnmpCommunicationConfig = new SharedAttributesSettingSnmpCommunicationConfig();
+    SharedAttributesSettingSnmpCommunicationConfig
+        actualSharedAttributesSettingSnmpCommunicationConfig =
+            new SharedAttributesSettingSnmpCommunicationConfig();
     SnmpMethod actualMethod = actualSharedAttributesSettingSnmpCommunicationConfig.getMethod();
-    SnmpCommunicationSpec actualSpec = actualSharedAttributesSettingSnmpCommunicationConfig.getSpec();
+    SnmpCommunicationSpec actualSpec =
+        actualSharedAttributesSettingSnmpCommunicationConfig.getSpec();
 
     // Assert
     assertNull(actualSharedAttributesSettingSnmpCommunicationConfig.getAllMappings());

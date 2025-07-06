@@ -23,13 +23,13 @@ import org.thingsboard.server.dao.model.ModelConstants;
 @ContextConfiguration(classes = {AssetCacheKeyBuilder.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AssetCacheKeyDiffblueTest {
-  @Autowired
-  private AssetCacheKeyBuilder assetCacheKeyBuilder;
+  @Autowired private AssetCacheKeyBuilder assetCacheKeyBuilder;
 
   /**
    * Test AssetCacheKeyBuilder {@link AssetCacheKeyBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetCacheKeyBuilder#build()}
    *   <li>{@link AssetCacheKeyBuilder#name(String)}
@@ -38,15 +38,17 @@ public class AssetCacheKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AssetCacheKeyBuilder.<init>()", "AssetCacheKey AssetCacheKeyBuilder.build()",
-      "AssetCacheKeyBuilder AssetCacheKeyBuilder.name(String)",
-      "AssetCacheKeyBuilder AssetCacheKeyBuilder.tenantId(TenantId)", "String AssetCacheKeyBuilder.toString()"})
+  @MethodsUnderTest({
+    "void AssetCacheKeyBuilder.<init>()",
+    "AssetCacheKey AssetCacheKeyBuilder.build()",
+    "AssetCacheKeyBuilder AssetCacheKeyBuilder.name(String)",
+    "AssetCacheKeyBuilder AssetCacheKeyBuilder.tenantId(TenantId)",
+    "String AssetCacheKeyBuilder.toString()"
+  })
   public void testAssetCacheKeyBuilderBuild() {
     // Arrange and Act
-    AssetCacheKey actualBuildResult = AssetCacheKey.builder()
-        .name("Name")
-        .tenantId(ModelConstants.SYSTEM_TENANT)
-        .build();
+    AssetCacheKey actualBuildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Assert
     TenantId tenantId = actualBuildResult.getTenantId();
@@ -59,12 +61,14 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}, and {@link AssetCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetCacheKey#equals(Object)}
    *   <li>{@link AssetCacheKey#hashCode()}
@@ -75,8 +79,10 @@ public class AssetCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean AssetCacheKey.equals(Object)", "int AssetCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    AssetCacheKey buildResult = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
-    AssetCacheKey buildResult2 = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult2 =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -86,12 +92,14 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}, and {@link AssetCacheKey#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetCacheKey#equals(Object)}
    *   <li>{@link AssetCacheKey#hashCode()}
@@ -102,7 +110,8 @@ public class AssetCacheKeyDiffblueTest {
   @MethodsUnderTest({"boolean AssetCacheKey.equals(Object)", "int AssetCacheKey.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    AssetCacheKey buildResult = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -112,12 +121,13 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -126,8 +136,10 @@ public class AssetCacheKeyDiffblueTest {
     // Arrange
     AssetCacheKeyBuilder assetCacheKeyBuilder = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder.name(Mockito.<String>any())).thenReturn(AssetCacheKey.builder());
-    AssetCacheKey buildResult = assetCacheKeyBuilder.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
-    AssetCacheKey buildResult2 = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        assetCacheKeyBuilder.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult2 =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -135,12 +147,13 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -148,11 +161,14 @@ public class AssetCacheKeyDiffblueTest {
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetCacheKeyBuilder assetCacheKeyBuilder = mock(AssetCacheKeyBuilder.class);
-    when(assetCacheKeyBuilder.tenantId(Mockito.<TenantId>any())).thenReturn(AssetCacheKey.builder());
+    when(assetCacheKeyBuilder.tenantId(Mockito.<TenantId>any()))
+        .thenReturn(AssetCacheKey.builder());
     AssetCacheKeyBuilder assetCacheKeyBuilder2 = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder2.name(Mockito.<String>any())).thenReturn(assetCacheKeyBuilder);
-    AssetCacheKey buildResult = assetCacheKeyBuilder2.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
-    AssetCacheKey buildResult2 = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        assetCacheKeyBuilder2.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult2 =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -160,12 +176,13 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -173,10 +190,12 @@ public class AssetCacheKeyDiffblueTest {
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetCacheKeyBuilder assetCacheKeyBuilder = mock(AssetCacheKeyBuilder.class);
-    when(assetCacheKeyBuilder.tenantId(Mockito.<TenantId>any())).thenReturn(AssetCacheKey.builder());
+    when(assetCacheKeyBuilder.tenantId(Mockito.<TenantId>any()))
+        .thenReturn(AssetCacheKey.builder());
     AssetCacheKeyBuilder assetCacheKeyBuilder2 = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder2.name(Mockito.<String>any())).thenReturn(assetCacheKeyBuilder);
-    AssetCacheKey buildResult = assetCacheKeyBuilder2.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        assetCacheKeyBuilder2.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
     AssetCacheKey buildResult2 = AssetCacheKey.builder().name("Name").tenantId(null).build();
 
     // Act and Assert
@@ -185,12 +204,13 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -198,13 +218,15 @@ public class AssetCacheKeyDiffblueTest {
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetCacheKeyBuilder assetCacheKeyBuilder = mock(AssetCacheKeyBuilder.class);
-    AssetCacheKey buildResult = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
     when(assetCacheKeyBuilder.build()).thenReturn(buildResult);
     AssetCacheKeyBuilder assetCacheKeyBuilder2 = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder2.tenantId(Mockito.<TenantId>any())).thenReturn(assetCacheKeyBuilder);
     AssetCacheKeyBuilder assetCacheKeyBuilder3 = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder3.name(Mockito.<String>any())).thenReturn(assetCacheKeyBuilder2);
-    AssetCacheKey buildResult2 = assetCacheKeyBuilder3.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult2 =
+        assetCacheKeyBuilder3.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
     AssetCacheKey buildResult3 = AssetCacheKey.builder().name("Name").tenantId(null).build();
 
     // Act and Assert
@@ -213,12 +235,13 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -232,7 +255,8 @@ public class AssetCacheKeyDiffblueTest {
     when(assetCacheKeyBuilder2.tenantId(Mockito.<TenantId>any())).thenReturn(assetCacheKeyBuilder);
     AssetCacheKeyBuilder assetCacheKeyBuilder3 = mock(AssetCacheKeyBuilder.class);
     when(assetCacheKeyBuilder3.name(Mockito.<String>any())).thenReturn(assetCacheKeyBuilder2);
-    AssetCacheKey buildResult2 = assetCacheKeyBuilder3.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult2 =
+        assetCacheKeyBuilder3.name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
     AssetCacheKey buildResult3 = AssetCacheKey.builder().name("Name").tenantId(null).build();
 
     // Act and Assert
@@ -241,19 +265,21 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean AssetCacheKey.equals(Object)", "int AssetCacheKey.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    AssetCacheKey buildResult = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -261,19 +287,21 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test {@link AssetCacheKey#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetCacheKey#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetCacheKey#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean AssetCacheKey.equals(Object)", "int AssetCacheKey.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    AssetCacheKey buildResult = AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
+    AssetCacheKey buildResult =
+        AssetCacheKey.builder().name("Name").tenantId(ModelConstants.SYSTEM_TENANT).build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to AssetCacheKey");
@@ -281,8 +309,9 @@ public class AssetCacheKeyDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetCacheKey#AssetCacheKey(TenantId, String)}
    *   <li>{@link AssetCacheKey#toString()}
@@ -292,8 +321,12 @@ public class AssetCacheKeyDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void AssetCacheKey.<init>(TenantId, String)", "String AssetCacheKey.getName()",
-      "TenantId AssetCacheKey.getTenantId()", "String AssetCacheKey.toString()"})
+  @MethodsUnderTest({
+    "void AssetCacheKey.<init>(TenantId, String)",
+    "String AssetCacheKey.getName()",
+    "TenantId AssetCacheKey.getTenantId()",
+    "String AssetCacheKey.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     AssetCacheKey actualAssetCacheKey = new AssetCacheKey(ModelConstants.SYSTEM_TENANT, "Name");

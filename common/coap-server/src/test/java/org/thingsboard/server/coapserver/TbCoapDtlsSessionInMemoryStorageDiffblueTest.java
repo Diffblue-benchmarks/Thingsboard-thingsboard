@@ -16,8 +16,9 @@ import org.junit.jupiter.api.Test;
 class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#TbCoapDtlsSessionInMemoryStorage(long, long)}.
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#TbCoapDtlsSessionInMemoryStorage(long, long)}
+   *
+   * <p>Method under test: {@link
+   * TbCoapDtlsSessionInMemoryStorage#TbCoapDtlsSessionInMemoryStorage(long, long)}
    */
   @Test
   @DisplayName("Test new TbCoapDtlsSessionInMemoryStorage(long, long)")
@@ -25,8 +26,8 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   @MethodsUnderTest({"void TbCoapDtlsSessionInMemoryStorage.<init>(long, long)"})
   void testNewTbCoapDtlsSessionInMemoryStorage() {
     // Arrange and Act
-    TbCoapDtlsSessionInMemoryStorage actualTbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L,
-        1L);
+    TbCoapDtlsSessionInMemoryStorage actualTbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
 
     // Assert
     assertEquals(1L, actualTbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout());
@@ -36,16 +37,20 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#put(InetSocketAddress, TbCoapDtlsSessionInfo)}.
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#put(InetSocketAddress, TbCoapDtlsSessionInfo)}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#put(InetSocketAddress,
+   * TbCoapDtlsSessionInfo)}
    */
   @Test
   @DisplayName("Test put(InetSocketAddress, TbCoapDtlsSessionInfo)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbCoapDtlsSessionInMemoryStorage.put(InetSocketAddress, TbCoapDtlsSessionInfo)"})
+  @MethodsUnderTest({
+    "void TbCoapDtlsSessionInMemoryStorage.put(InetSocketAddress, TbCoapDtlsSessionInfo)"
+  })
   void testPut() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
     InetSocketAddress remotePeer = InetSocketAddress.createUnresolved("foo", 1);
     TbCoapDtlsSessionInfo dtlsSessionInfo = mock(TbCoapDtlsSessionInfo.class);
     when(dtlsSessionInfo.getLastActivityTime()).thenReturn(1L);
@@ -60,8 +65,8 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}.
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}
    */
   @Test
   @DisplayName("Test evictTimeoutSessions()")
@@ -72,8 +77,10 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
     TbCoapDtlsSessionInfo dtlsSessionInfo = mock(TbCoapDtlsSessionInfo.class);
     when(dtlsSessionInfo.getLastActivityTime()).thenReturn(1L);
 
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
-    tbCoapDtlsSessionInMemoryStorage.put(InetSocketAddress.createUnresolved("foo", 1), dtlsSessionInfo);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    tbCoapDtlsSessionInMemoryStorage.put(
+        InetSocketAddress.createUnresolved("foo", 1), dtlsSessionInfo);
 
     // Act
     tbCoapDtlsSessionInMemoryStorage.evictTimeoutSessions();
@@ -84,8 +91,8 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}.
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#evictTimeoutSessions()}
    */
   @Test
   @DisplayName("Test evictTimeoutSessions()")
@@ -96,9 +103,10 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
     TbCoapDtlsSessionInfo dtlsSessionInfo = mock(TbCoapDtlsSessionInfo.class);
     when(dtlsSessionInfo.getLastActivityTime()).thenReturn(1L);
 
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(
-        Long.MAX_VALUE, 1L);
-    tbCoapDtlsSessionInMemoryStorage.put(InetSocketAddress.createUnresolved("foo", 1), dtlsSessionInfo);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(Long.MAX_VALUE, 1L);
+    tbCoapDtlsSessionInMemoryStorage.put(
+        InetSocketAddress.createUnresolved("foo", 1), dtlsSessionInfo);
 
     // Act
     tbCoapDtlsSessionInMemoryStorage.evictTimeoutSessions();
@@ -108,13 +116,16 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   }
 
   /**
-   * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}, and {@link TbCoapDtlsSessionInMemoryStorage#hashCode()}.
+   * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}, and {@link
+   * TbCoapDtlsSessionInMemoryStorage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#hashCode()}
@@ -123,12 +134,16 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage2 = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage2 =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
 
     // Act and Assert
     assertEquals(tbCoapDtlsSessionInMemoryStorage, tbCoapDtlsSessionInMemoryStorage2);
@@ -137,13 +152,16 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   }
 
   /**
-   * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}, and {@link TbCoapDtlsSessionInMemoryStorage#hashCode()}.
+   * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}, and {@link
+   * TbCoapDtlsSessionInMemoryStorage#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#hashCode()}
@@ -152,11 +170,14 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
 
     // Act and Assert
     assertEquals(tbCoapDtlsSessionInMemoryStorage, tbCoapDtlsSessionInMemoryStorage);
@@ -166,21 +187,25 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(3L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(3L, 1L);
 
     // Act and Assert
     assertNotEquals(tbCoapDtlsSessionInMemoryStorage, new TbCoapDtlsSessionInMemoryStorage(1L, 1L));
@@ -188,21 +213,25 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 3L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 3L);
 
     // Act and Assert
     assertNotEquals(tbCoapDtlsSessionInMemoryStorage, new TbCoapDtlsSessionInMemoryStorage(1L, 1L));
@@ -210,18 +239,21 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbCoapDtlsSessionInMemoryStorage(1L, 1L), null);
@@ -229,27 +261,33 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
 
   /**
    * Test {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapDtlsSessionInMemoryStorage#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
-      "int TbCoapDtlsSessionInMemoryStorage.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapDtlsSessionInMemoryStorage.equals(Object)",
+    "int TbCoapDtlsSessionInMemoryStorage.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCoapDtlsSessionInMemoryStorage(1L, 1L), "Different type to TbCoapDtlsSessionInMemoryStorage");
+    assertNotEquals(
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L),
+        "Different type to TbCoapDtlsSessionInMemoryStorage");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#setDtlsSessionInactivityTimeout(long)}
    *   <li>{@link TbCoapDtlsSessionInMemoryStorage#setDtlsSessionReportTimeout(long)}
@@ -262,22 +300,27 @@ class TbCoapDtlsSessionInMemoryStorageDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long TbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout()",
-      "long TbCoapDtlsSessionInMemoryStorage.getDtlsSessionReportTimeout()",
-      "java.util.concurrent.ConcurrentMap TbCoapDtlsSessionInMemoryStorage.getDtlsSessionsMap()",
-      "void TbCoapDtlsSessionInMemoryStorage.setDtlsSessionInactivityTimeout(long)",
-      "void TbCoapDtlsSessionInMemoryStorage.setDtlsSessionReportTimeout(long)",
-      "String TbCoapDtlsSessionInMemoryStorage.toString()"})
+  @MethodsUnderTest({
+    "long TbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout()",
+    "long TbCoapDtlsSessionInMemoryStorage.getDtlsSessionReportTimeout()",
+    "java.util.concurrent.ConcurrentMap TbCoapDtlsSessionInMemoryStorage.getDtlsSessionsMap()",
+    "void TbCoapDtlsSessionInMemoryStorage.setDtlsSessionInactivityTimeout(long)",
+    "void TbCoapDtlsSessionInMemoryStorage.setDtlsSessionReportTimeout(long)",
+    "String TbCoapDtlsSessionInMemoryStorage.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage = new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
+    TbCoapDtlsSessionInMemoryStorage tbCoapDtlsSessionInMemoryStorage =
+        new TbCoapDtlsSessionInMemoryStorage(1L, 1L);
 
     // Act
     tbCoapDtlsSessionInMemoryStorage.setDtlsSessionInactivityTimeout(1L);
     tbCoapDtlsSessionInMemoryStorage.setDtlsSessionReportTimeout(1L);
     String actualToStringResult = tbCoapDtlsSessionInMemoryStorage.toString();
-    long actualDtlsSessionInactivityTimeout = tbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout();
-    long actualDtlsSessionReportTimeout = tbCoapDtlsSessionInMemoryStorage.getDtlsSessionReportTimeout();
+    long actualDtlsSessionInactivityTimeout =
+        tbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout();
+    long actualDtlsSessionReportTimeout =
+        tbCoapDtlsSessionInMemoryStorage.getDtlsSessionReportTimeout();
 
     // Assert
     assertEquals(

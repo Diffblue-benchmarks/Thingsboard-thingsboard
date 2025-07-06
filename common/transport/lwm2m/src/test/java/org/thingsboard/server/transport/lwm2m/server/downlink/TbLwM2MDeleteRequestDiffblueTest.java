@@ -15,13 +15,12 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MDeleteReque
 @ContextConfiguration(classes = {TbLwM2MDeleteRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MDeleteRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MDeleteRequestBuilder tbLwM2MDeleteRequestBuilder;
+  @Autowired private TbLwM2MDeleteRequestBuilder tbLwM2MDeleteRequestBuilder;
 
   /**
    * Test {@link TbLwM2MDeleteRequest#getType()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDeleteRequest#getType()}
+   *
+   * <p>Method under test: {@link TbLwM2MDeleteRequest#getType()}
    */
   @Test
   @DisplayName("Test getType()")
@@ -29,7 +28,8 @@ class TbLwM2MDeleteRequestDiffblueTest {
   @MethodsUnderTest({"LwM2MOperationType TbLwM2MDeleteRequest.getType()"})
   void testGetType() {
     // Arrange
-    TbLwM2MDeleteRequest buildResult = TbLwM2MDeleteRequest.builder().timeout(10L).versionedId("42").build();
+    TbLwM2MDeleteRequest buildResult =
+        TbLwM2MDeleteRequest.builder().timeout(10L).versionedId("42").build();
 
     // Act and Assert
     assertEquals(LwM2MOperationType.DELETE, buildResult.getType());
@@ -37,8 +37,9 @@ class TbLwM2MDeleteRequestDiffblueTest {
 
   /**
    * Test TbLwM2MDeleteRequestBuilder {@link TbLwM2MDeleteRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MDeleteRequestBuilder#build()}
    *   <li>{@link TbLwM2MDeleteRequestBuilder#timeout(long)}
@@ -48,14 +49,17 @@ class TbLwM2MDeleteRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MDeleteRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MDeleteRequestBuilder.<init>()",
-      "TbLwM2MDeleteRequest TbLwM2MDeleteRequestBuilder.build()",
-      "TbLwM2MDeleteRequestBuilder TbLwM2MDeleteRequestBuilder.timeout(long)",
-      "String TbLwM2MDeleteRequestBuilder.toString()",
-      "TbLwM2MDeleteRequestBuilder TbLwM2MDeleteRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MDeleteRequestBuilder.<init>()",
+    "TbLwM2MDeleteRequest TbLwM2MDeleteRequestBuilder.build()",
+    "TbLwM2MDeleteRequestBuilder TbLwM2MDeleteRequestBuilder.timeout(long)",
+    "String TbLwM2MDeleteRequestBuilder.toString()",
+    "TbLwM2MDeleteRequestBuilder TbLwM2MDeleteRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MDeleteRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MDeleteRequest actualBuildResult = TbLwM2MDeleteRequest.builder().timeout(10L).versionedId("42").build();
+    TbLwM2MDeleteRequest actualBuildResult =
+        TbLwM2MDeleteRequest.builder().timeout(10L).versionedId("42").build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

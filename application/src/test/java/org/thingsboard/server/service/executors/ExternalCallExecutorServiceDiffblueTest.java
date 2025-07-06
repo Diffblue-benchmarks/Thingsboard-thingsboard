@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class ExternalCallExecutorServiceDiffblueTest {
   /**
    * Test {@link ExternalCallExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link ExternalCallExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link ExternalCallExecutorService#getThreadPollSize()}
    */
   @Test
   @DisplayName("Test getThreadPollSize()")
@@ -18,6 +18,6 @@ class ExternalCallExecutorServiceDiffblueTest {
   @MethodsUnderTest({"int ExternalCallExecutorService.getThreadPollSize()"})
   void testGetThreadPollSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new ExternalCallExecutorService()).getThreadPollSize());
+    assertEquals(0, new ExternalCallExecutorService().getThreadPollSize());
   }
 }

@@ -17,12 +17,13 @@ import org.thingsboard.rule.engine.util.TbMsgSource;
 class TbAbstractFetchToNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@code Other}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
@@ -30,122 +31,187 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TbFetchDeviceCredentialsNodeConfiguration()).canEqual("Other"));
+    assertFalse(new TbFetchDeviceCredentialsNodeConfiguration().canEqual("Other"));
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@link TbFetchDeviceCredentialsNodeConfiguration} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link TbFetchDeviceCredentialsNodeConfiguration} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when TbFetchDeviceCredentialsNodeConfiguration (default constructor); then return 'true'")
+  @DisplayName(
+      "Test canEqual(Object); when TbFetchDeviceCredentialsNodeConfiguration (default constructor); then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.canEqual(Object)"})
   void testCanEqual_whenTbFetchDeviceCredentialsNodeConfiguration_thenReturnTrue() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
 
     // Act and Assert
-    assertTrue(tbFetchDeviceCredentialsNodeConfiguration.canEqual(new TbFetchDeviceCredentialsNodeConfiguration()));
+    assertTrue(
+        tbFetchDeviceCredentialsNodeConfiguration.canEqual(
+            new TbFetchDeviceCredentialsNodeConfiguration()));
   }
 
   /**
-   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link TbAbstractFetchToNodeConfiguration#hashCode()}.
+   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link
+   * TbAbstractFetchToNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 = new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 =
+        new TbFetchDeviceCredentialsNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
+    assertEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
     int expectedHashCodeResult = tbFetchDeviceCredentialsNodeConfiguration.hashCode();
     assertEquals(expectedHashCodeResult, tbFetchDeviceCredentialsNodeConfiguration2.hashCode());
   }
 
   /**
-   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link TbAbstractFetchToNodeConfiguration#hashCode()}.
+   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link
+   * TbAbstractFetchToNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
-    tbFetchDeviceCredentialsNodeConfiguration.setFetchTo(TbMsgSource.DATA);
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 = mock(
-        TbFetchDeviceCredentialsNodeConfiguration.class);
-    when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(TbMsgSource.DATA);
-    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any())).thenReturn(true);
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 =
+        mock(TbFetchDeviceCredentialsNodeConfiguration.class);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(null);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
 
     // Act and Assert
-    assertEquals(tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
+    assertEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
     int notExpectedHashCodeResult = tbFetchDeviceCredentialsNodeConfiguration.hashCode();
-    assertNotEquals(notExpectedHashCodeResult, tbFetchDeviceCredentialsNodeConfiguration2.hashCode());
+    assertNotEquals(
+        notExpectedHashCodeResult, tbFetchDeviceCredentialsNodeConfiguration2.hashCode());
   }
 
   /**
-   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link TbAbstractFetchToNodeConfiguration#hashCode()}.
+   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link
+   * TbAbstractFetchToNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
+    tbFetchDeviceCredentialsNodeConfiguration.setFetchTo(TbMsgSource.DATA);
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 =
+        mock(TbFetchDeviceCredentialsNodeConfiguration.class);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(TbMsgSource.DATA);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
+
+    // Act and Assert
+    assertEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
+    int notExpectedHashCodeResult = tbFetchDeviceCredentialsNodeConfiguration.hashCode();
+    assertNotEquals(
+        notExpectedHashCodeResult, tbFetchDeviceCredentialsNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}, and {@link
+   * TbAbstractFetchToNodeConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
 
     // Act and Assert
-    assertEquals(tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration);
+    assertEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration);
     int expectedHashCodeResult = tbFetchDeviceCredentialsNodeConfiguration.hashCode();
     assertEquals(expectedHashCodeResult, tbFetchDeviceCredentialsNodeConfiguration.hashCode());
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbFetchDeviceCredentialsNodeConfiguration(), 1);
@@ -153,71 +219,86 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 = mock(
-        TbFetchDeviceCredentialsNodeConfiguration.class);
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 =
+        mock(TbFetchDeviceCredentialsNodeConfiguration.class);
     when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(TbMsgSource.DATA);
-    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any())).thenReturn(true);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
 
     // Act and Assert
-    assertNotEquals(tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
+    assertNotEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
-    tbFetchDeviceCredentialsNodeConfiguration.setFetchTo(TbMsgSource.METADATA);
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 = mock(
-        TbFetchDeviceCredentialsNodeConfiguration.class);
-    when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(TbMsgSource.DATA);
-    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any())).thenReturn(true);
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
+    tbFetchDeviceCredentialsNodeConfiguration.setFetchTo(TbMsgSource.DATA);
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration2 =
+        mock(TbFetchDeviceCredentialsNodeConfiguration.class);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.getFetchTo()).thenReturn(null);
+    when(tbFetchDeviceCredentialsNodeConfiguration2.canEqual(Mockito.<Object>any()))
+        .thenReturn(true);
 
     // Act and Assert
-    assertNotEquals(tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
+    assertNotEquals(
+        tbFetchDeviceCredentialsNodeConfiguration, tbFetchDeviceCredentialsNodeConfiguration2);
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbFetchDeviceCredentialsNodeConfiguration(), null);
@@ -225,28 +306,32 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
-      "int TbAbstractFetchToNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbAbstractFetchToNodeConfiguration.equals(Object)",
+    "int TbAbstractFetchToNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbFetchDeviceCredentialsNodeConfiguration(),
+    assertNotEquals(
+        new TbFetchDeviceCredentialsNodeConfiguration(),
         "Different type to TbAbstractFetchToNodeConfiguration");
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#getFetchTo()}.
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#getFetchTo()}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#getFetchTo()}
    */
   @Test
   @DisplayName("Test getFetchTo()")
@@ -254,13 +339,13 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbMsgSource TbAbstractFetchToNodeConfiguration.getFetchTo()"})
   void testGetFetchTo() {
     // Arrange, Act and Assert
-    assertNull((new TbFetchDeviceCredentialsNodeConfiguration()).getFetchTo());
+    assertNull(new TbFetchDeviceCredentialsNodeConfiguration().getFetchTo());
   }
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#setFetchTo(TbMsgSource)}.
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#setFetchTo(TbMsgSource)}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#setFetchTo(TbMsgSource)}
    */
   @Test
   @DisplayName("Test setFetchTo(TbMsgSource)")
@@ -268,7 +353,8 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"void TbAbstractFetchToNodeConfiguration.setFetchTo(TbMsgSource)"})
   void testSetFetchTo() {
     // Arrange
-    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration = new TbFetchDeviceCredentialsNodeConfiguration();
+    TbFetchDeviceCredentialsNodeConfiguration tbFetchDeviceCredentialsNodeConfiguration =
+        new TbFetchDeviceCredentialsNodeConfiguration();
 
     // Act
     tbFetchDeviceCredentialsNodeConfiguration.setFetchTo(TbMsgSource.DATA);
@@ -279,8 +365,8 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbAbstractFetchToNodeConfiguration#toString()}.
-   * <p>
-   * Method under test: {@link TbAbstractFetchToNodeConfiguration#toString()}
+   *
+   * <p>Method under test: {@link TbAbstractFetchToNodeConfiguration#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -288,7 +374,8 @@ class TbAbstractFetchToNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"java.lang.String TbAbstractFetchToNodeConfiguration.toString()"})
   void testToString() {
     // Arrange, Act and Assert
-    assertEquals("TbFetchDeviceCredentialsNodeConfiguration()",
-        (new TbFetchDeviceCredentialsNodeConfiguration()).toString());
+    assertEquals(
+        "TbFetchDeviceCredentialsNodeConfiguration()",
+        new TbFetchDeviceCredentialsNodeConfiguration().toString());
   }
 }

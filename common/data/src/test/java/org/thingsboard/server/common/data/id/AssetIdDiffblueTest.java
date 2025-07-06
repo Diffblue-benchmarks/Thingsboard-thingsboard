@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class AssetIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetId#AssetId(UUID)}
    *   <li>{@link AssetId#getEntityType()}

@@ -35,13 +35,14 @@ import org.thingsboard.server.service.housekeeper.stats.HousekeeperStatsService.
 
 @ExtendWith(MockitoExtension.class)
 class HousekeeperStatsServiceDiffblueTest {
-  @Mock
-  private StatsFactory statsFactory;
+  @Mock private StatsFactory statsFactory;
 
   /**
-   * Test HousekeeperStats {@link HousekeeperStats#HousekeeperStats(HousekeeperTaskType, StatsFactory)}.
-   * <p>
-   * Method under test: {@link HousekeeperStats#HousekeeperStats(HousekeeperTaskType, StatsFactory)}
+   * Test HousekeeperStats {@link HousekeeperStats#HousekeeperStats(HousekeeperTaskType,
+   * StatsFactory)}.
+   *
+   * <p>Method under test: {@link HousekeeperStats#HousekeeperStats(HousekeeperTaskType,
+   * StatsFactory)}
    */
   @Test
   @DisplayName("Test HousekeeperStats new HousekeeperStats(HousekeeperTaskType, StatsFactory)")
@@ -50,25 +51,45 @@ class HousekeeperStatsServiceDiffblueTest {
   void testHousekeeperStatsNewHousekeeperStats() {
     // Arrange
     AtomicInteger aiCounter = new AtomicInteger(1);
-    StatsCounter statsCounter = new StatsCounter(aiCounter,
-        new CumulativeCounter(
-            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-        "Name");
+    StatsCounter statsCounter =
+        new StatsCounter(
+            aiCounter,
+            new CumulativeCounter(
+                new Id(
+                    "Name",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)),
+            "Name");
 
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(statsCounter);
-    StatsTimer statsTimer = new StatsTimer("Name", new NoopTimer(
-        new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)));
+    StatsTimer statsTimer =
+        new StatsTimer(
+            "Name",
+            new NoopTimer(
+                new Id(
+                    "Name",
+                    Tags.empty(),
+                    "Base Unit",
+                    "The characteristics of someone or something",
+                    Type.COUNTER)));
 
-    when(statsFactory.createTimer(Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
+    when(statsFactory.createTimer(
+            Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(statsTimer);
 
     // Act
-    HousekeeperStats actualHousekeeperStats = new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
+    HousekeeperStats actualHousekeeperStats =
+        new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
 
     // Assert
-    verify(statsFactory, atLeast(1)).createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
-    verify(statsFactory).createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
+    verify(statsFactory, atLeast(1))
+        .createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
+    verify(statsFactory)
+        .createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
     List<StatsCounter> counters = actualHousekeeperStats.getCounters();
     assertEquals(4, counters.size());
     assertEquals(HousekeeperTaskType.DELETE_ATTRIBUTES, actualHousekeeperStats.getTaskType());
@@ -85,50 +106,75 @@ class HousekeeperStatsServiceDiffblueTest {
 
   /**
    * Test HousekeeperStats {@link HousekeeperStats#reset()}.
+   *
    * <ul>
-   *   <li>Given {@link NoopTimer#NoopTimer(Id)} with id is {@link Meter.Id#Id(String, Tags, String, String, Type)}.</li>
+   *   <li>Given {@link NoopTimer#NoopTimer(Id)} with id is {@link Meter.Id#Id(String, Tags, String,
+   *       String, Type)}.
    * </ul>
-   * <p>
-   * Method under test: {@link HousekeeperStats#reset()}
+   *
+   * <p>Method under test: {@link HousekeeperStats#reset()}
    */
   @Test
-  @DisplayName("Test HousekeeperStats reset(); given NoopTimer(Id) with id is Id(String, Tags, String, String, Type)")
+  @DisplayName(
+      "Test HousekeeperStats reset(); given NoopTimer(Id) with id is Id(String, Tags, String, String, Type)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void HousekeeperStats.reset()"})
   void testHousekeeperStatsReset_givenNoopTimerWithIdIsId() {
     // Arrange
     DefaultStatsFactory statsFactory = mock(DefaultStatsFactory.class);
     AtomicInteger aiCounter = new AtomicInteger(1);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
-    when(statsFactory.createTimer(Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsTimer("Name", new NoopTimer(
-            new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER))));
-    HousekeeperStats housekeeperStats = new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
+    when(statsFactory.createTimer(
+            Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsTimer(
+                "Name",
+                new NoopTimer(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER))));
+    HousekeeperStats housekeeperStats =
+        new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
 
     // Act
     housekeeperStats.reset();
 
     // Assert
-    verify(statsFactory, atLeast(1)).createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
-    verify(statsFactory).createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
+    verify(statsFactory, atLeast(1))
+        .createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
+    verify(statsFactory)
+        .createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
     assertEquals(0, housekeeperStats.getFailedProcessingCounter().get());
   }
 
   /**
    * Test HousekeeperStats {@link HousekeeperStats#reset()}.
+   *
    * <ul>
-   *   <li>Given {@link StatsTimer} {@link StatsTimer#reset()} does nothing.</li>
-   *   <li>Then calls {@link StatsTimer#reset()}.</li>
+   *   <li>Given {@link StatsTimer} {@link StatsTimer#reset()} does nothing.
+   *   <li>Then calls {@link StatsTimer#reset()}.
    * </ul>
-   * <p>
-   * Method under test: {@link HousekeeperStats#reset()}
+   *
+   * <p>Method under test: {@link HousekeeperStats#reset()}
    */
   @Test
-  @DisplayName("Test HousekeeperStats reset(); given StatsTimer reset() does nothing; then calls reset()")
+  @DisplayName(
+      "Test HousekeeperStats reset(); given StatsTimer reset() does nothing; then calls reset()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void HousekeeperStats.reset()"})
   void testHousekeeperStatsReset_givenStatsTimerResetDoesNothing_thenCallsReset() {
@@ -137,21 +183,33 @@ class HousekeeperStatsServiceDiffblueTest {
     doNothing().when(statsTimer).reset();
     DefaultStatsFactory statsFactory = mock(DefaultStatsFactory.class);
     AtomicInteger aiCounter = new AtomicInteger(1);
-    when(statsFactory.createStatsCounter(Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
-        .thenReturn(new StatsCounter(aiCounter,
-            new CumulativeCounter(
-                new Id("Name", Tags.empty(), "Base Unit", "The characteristics of someone or something", Type.COUNTER)),
-            "Name"));
-    when(statsFactory.createTimer(Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
+    when(statsFactory.createStatsCounter(
+            Mockito.<String>any(), Mockito.<String>any(), isA(String[].class)))
+        .thenReturn(
+            new StatsCounter(
+                aiCounter,
+                new CumulativeCounter(
+                    new Id(
+                        "Name",
+                        Tags.empty(),
+                        "Base Unit",
+                        "The characteristics of someone or something",
+                        Type.COUNTER)),
+                "Name"));
+    when(statsFactory.createTimer(
+            Mockito.<StatsType>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(statsTimer);
-    HousekeeperStats housekeeperStats = new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
+    HousekeeperStats housekeeperStats =
+        new HousekeeperStats(HousekeeperTaskType.DELETE_ATTRIBUTES, statsFactory);
 
     // Act
     housekeeperStats.reset();
 
     // Assert
-    verify(statsFactory, atLeast(1)).createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
-    verify(statsFactory).createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
+    verify(statsFactory, atLeast(1))
+        .createStatsCounter(eq("housekeeper"), Mockito.<String>any(), isA(String[].class));
+    verify(statsFactory)
+        .createTimer(eq(StatsType.HOUSEKEEPER), eq("processingTime"), isA(String[].class));
     verify(statsTimer).reset();
     assertEquals(0, housekeeperStats.getFailedProcessingCounter().get());
   }

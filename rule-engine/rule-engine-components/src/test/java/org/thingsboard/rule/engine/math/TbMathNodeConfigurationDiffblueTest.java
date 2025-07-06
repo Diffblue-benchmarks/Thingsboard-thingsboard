@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 class TbMathNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbMathNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
@@ -25,7 +25,8 @@ class TbMathNodeConfigurationDiffblueTest {
   @MethodsUnderTest({"TbMathNodeConfiguration TbMathNodeConfiguration.defaultConfiguration()"})
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbMathNodeConfiguration actualDefaultConfigurationResult = (new TbMathNodeConfiguration()).defaultConfiguration();
+    TbMathNodeConfiguration actualDefaultConfigurationResult =
+        new TbMathNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals("(x - 32) / 1.8", actualDefaultConfigurationResult.getCustomFunction());
@@ -42,19 +43,23 @@ class TbMathNodeConfigurationDiffblueTest {
     assertEquals(2, result.getResultValuePrecision());
     assertEquals(TbMathArgumentType.MESSAGE_BODY, getResult.getType());
     assertEquals(TbMathArgumentType.MESSAGE_BODY, result.getType());
-    assertEquals(TbRuleNodeMathFunctionType.CUSTOM, actualDefaultConfigurationResult.getOperation());
+    assertEquals(
+        TbRuleNodeMathFunctionType.CUSTOM, actualDefaultConfigurationResult.getOperation());
     assertFalse(result.isAddToBody());
     assertFalse(result.isAddToMetadata());
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -63,7 +68,10 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -76,13 +84,16 @@ class TbMathNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -91,7 +102,10 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -107,13 +121,16 @@ class TbMathNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -122,7 +139,10 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -138,13 +158,16 @@ class TbMathNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -153,7 +176,10 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -169,13 +195,16 @@ class TbMathNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -184,16 +213,19 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
-    tbMathNodeConfiguration
-        .setResult(new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
+    tbMathNodeConfiguration.setResult(
+        new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
 
     TbMathNodeConfiguration tbMathNodeConfiguration2 = new TbMathNodeConfiguration();
-    tbMathNodeConfiguration2
-        .setResult(new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
+    tbMathNodeConfiguration2.setResult(
+        new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
 
     // Act and Assert
     assertEquals(tbMathNodeConfiguration, tbMathNodeConfiguration2);
@@ -202,13 +234,16 @@ class TbMathNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link TbMathNodeConfiguration#hashCode()}.
+   * Test {@link TbMathNodeConfiguration#equals(Object)}, and {@link
+   * TbMathNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathNodeConfiguration#equals(Object)}
    *   <li>{@link TbMathNodeConfiguration#hashCode()}
@@ -217,7 +252,10 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -230,17 +268,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMathNodeConfiguration(), 1);
@@ -248,17 +290,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -270,17 +316,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -292,17 +342,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -314,22 +368,26 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
-    tbMathNodeConfiguration
-        .setResult(new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
+    tbMathNodeConfiguration.setResult(
+        new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
 
     // Act and Assert
     assertNotEquals(tbMathNodeConfiguration, new TbMathNodeConfiguration());
@@ -337,17 +395,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -361,17 +423,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -385,17 +451,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -409,24 +479,28 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbMathNodeConfiguration tbMathNodeConfiguration = new TbMathNodeConfiguration();
 
     TbMathNodeConfiguration tbMathNodeConfiguration2 = new TbMathNodeConfiguration();
-    tbMathNodeConfiguration2
-        .setResult(new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
+    tbMathNodeConfiguration2.setResult(
+        new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope"));
 
     // Act and Assert
     assertNotEquals(tbMathNodeConfiguration, tbMathNodeConfiguration2);
@@ -434,17 +508,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMathNodeConfiguration(), null);
@@ -452,17 +530,21 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbMathNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbMathNodeConfiguration.equals(Object)", "int TbMathNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbMathNodeConfiguration.equals(Object)",
+    "int TbMathNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbMathNodeConfiguration(), "Different type to TbMathNodeConfiguration");
@@ -470,8 +552,9 @@ class TbMathNodeConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbMathNodeConfiguration}
    *   <li>{@link TbMathNodeConfiguration#setArguments(List)}
@@ -488,13 +571,18 @@ class TbMathNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMathNodeConfiguration.<init>()", "List TbMathNodeConfiguration.getArguments()",
-      "String TbMathNodeConfiguration.getCustomFunction()",
-      "TbRuleNodeMathFunctionType TbMathNodeConfiguration.getOperation()",
-      "TbMathResult TbMathNodeConfiguration.getResult()", "void TbMathNodeConfiguration.setArguments(List)",
-      "void TbMathNodeConfiguration.setCustomFunction(String)",
-      "void TbMathNodeConfiguration.setOperation(TbRuleNodeMathFunctionType)",
-      "void TbMathNodeConfiguration.setResult(TbMathResult)", "String TbMathNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbMathNodeConfiguration.<init>()",
+    "List TbMathNodeConfiguration.getArguments()",
+    "String TbMathNodeConfiguration.getCustomFunction()",
+    "TbRuleNodeMathFunctionType TbMathNodeConfiguration.getOperation()",
+    "TbMathResult TbMathNodeConfiguration.getResult()",
+    "void TbMathNodeConfiguration.setArguments(List)",
+    "void TbMathNodeConfiguration.setCustomFunction(String)",
+    "void TbMathNodeConfiguration.setOperation(TbRuleNodeMathFunctionType)",
+    "void TbMathNodeConfiguration.setResult(TbMathResult)",
+    "String TbMathNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbMathNodeConfiguration actualTbMathNodeConfiguration = new TbMathNodeConfiguration();
@@ -502,7 +590,8 @@ class TbMathNodeConfigurationDiffblueTest {
     actualTbMathNodeConfiguration.setArguments(arguments);
     actualTbMathNodeConfiguration.setCustomFunction("Custom Function");
     actualTbMathNodeConfiguration.setOperation(TbRuleNodeMathFunctionType.ADD);
-    TbMathResult result = new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope");
+    TbMathResult result =
+        new TbMathResult(TbMathArgumentType.ATTRIBUTE, "Key", 42, true, true, "Attribute Scope");
 
     actualTbMathNodeConfiguration.setResult(result);
     String actualToStringResult = actualTbMathNodeConfiguration.toString();

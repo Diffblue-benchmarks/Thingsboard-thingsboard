@@ -4,7 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -32,6 +32,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.request.WebRequest;
 import org.thingsboard.server.common.data.AdminSettings;
 import org.thingsboard.server.common.data.EntityType;
+import org.thingsboard.server.common.data.FeaturesInfo;
 import org.thingsboard.server.common.data.SystemInfo;
 import org.thingsboard.server.common.data.SystemInfoData;
 import org.thingsboard.server.common.data.UpdateMessage;
@@ -52,22 +53,18 @@ import org.thingsboard.server.service.update.UpdateService;
 
 @ExtendWith(MockitoExtension.class)
 class AdminControllerDiffblueTest {
-  @InjectMocks
-  private AdminController adminController;
+  @InjectMocks private AdminController adminController;
 
-  @Mock
-  private SystemInfoService systemInfoService;
+  @Mock private SystemInfoService systemInfoService;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
-  @Mock
-  private UpdateService updateService;
+  @Mock private UpdateService updateService;
 
   /**
    * Test {@link AdminController#getAdminSettings(String)}.
-   * <p>
-   * Method under test: {@link AdminController#getAdminSettings(String)}
+   *
+   * <p>Method under test: {@link AdminController#getAdminSettings(String)}
    */
   @Test
   @DisplayName("Test getAdminSettings(String)")
@@ -75,7 +72,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AdminSettings AdminController.getAdminSettings(String)"})
   void testGetAdminSettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -89,8 +87,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAdminSettings(String)}.
-   * <p>
-   * Method under test: {@link AdminController#getAdminSettings(String)}
+   *
+   * <p>Method under test: {@link AdminController#getAdminSettings(String)}
    */
   @Test
   @DisplayName("Test getAdminSettings(String)")
@@ -98,7 +96,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AdminSettings AdminController.getAdminSettings(String)"})
   void testGetAdminSettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -108,17 +107,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getAdminSettings(String)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAdminSettings(String)}
+   *
+   * <p>Method under test: {@link AdminController#getAdminSettings(String)}
    */
   @Test
   @DisplayName("Test getAdminSettings(String); then status isNotFound()")
@@ -126,7 +128,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AdminSettings AdminController.getAdminSettings(String)"})
   void testGetAdminSettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -140,20 +143,23 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAdminSettings(String)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAdminSettings(String)}
+   *
+   * <p>Method under test: {@link AdminController#getAdminSettings(String)}
    */
   @Test
-  @DisplayName("Test getAdminSettings(String); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getAdminSettings(String); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AdminSettings AdminController.getAdminSettings(String)"})
   void testGetAdminSettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -169,8 +175,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#saveAdminSettings(AdminSettings)}.
-   * <p>
-   * Method under test: {@link AdminController#saveAdminSettings(AdminSettings)}
+   *
+   * <p>Method under test: {@link AdminController#saveAdminSettings(AdminSettings)}
    */
   @Test
   @DisplayName("Test saveAdminSettings(AdminSettings)")
@@ -183,12 +189,15 @@ class AdminControllerDiffblueTest {
 
     AdminSettings adminSettings = new AdminSettings();
     adminSettings.setCreatedTime(1L);
-    adminSettings.setId(new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    adminSettings.setJsonValue(MissingNode.getInstance());
+    adminSettings.setId(
+        new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    adminSettings.setJsonValue(DoubleNode.valueOf(10.0d));
     adminSettings.setKey("Key");
-    adminSettings.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    String content = (new ObjectMapper()).writeValueAsString(adminSettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    adminSettings.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    String content = new ObjectMapper().writeValueAsString(adminSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -200,8 +209,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getSecuritySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getSecuritySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getSecuritySettings()}
    */
   @Test
   @DisplayName("Test getSecuritySettings()")
@@ -209,7 +218,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"SecuritySettings AdminController.getSecuritySettings()"})
   void testGetSecuritySettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -223,8 +233,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getSecuritySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getSecuritySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getSecuritySettings()}
    */
   @Test
   @DisplayName("Test getSecuritySettings()")
@@ -232,7 +242,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"SecuritySettings AdminController.getSecuritySettings()"})
   void testGetSecuritySettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -242,17 +253,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getSecuritySettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getSecuritySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getSecuritySettings()}
    */
   @Test
   @DisplayName("Test getSecuritySettings(); then status isNotFound()")
@@ -260,7 +274,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"SecuritySettings AdminController.getSecuritySettings()"})
   void testGetSecuritySettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -274,20 +289,23 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getSecuritySettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getSecuritySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getSecuritySettings()}
    */
   @Test
-  @DisplayName("Test getSecuritySettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getSecuritySettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecuritySettings AdminController.getSecuritySettings()"})
   void testGetSecuritySettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -303,8 +321,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#saveSecuritySettings(SecuritySettings)}.
-   * <p>
-   * Method under test: {@link AdminController#saveSecuritySettings(SecuritySettings)}
+   *
+   * <p>Method under test: {@link AdminController#saveSecuritySettings(SecuritySettings)}
    */
   @Test
   @DisplayName("Test saveSecuritySettings(SecuritySettings)")
@@ -312,7 +330,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"SecuritySettings AdminController.saveSecuritySettings(SecuritySettings)"})
   void testSaveSecuritySettings() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/securitySettings");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/securitySettings");
     postResult.characterEncoding("https://example.org/example");
 
     UserPasswordPolicy passwordPolicy = new UserPasswordPolicy();
@@ -334,8 +353,9 @@ class AdminControllerDiffblueTest {
     securitySettings.setPasswordResetTokenTtl(1);
     securitySettings.setUserActivationTokenTtl(1);
     securitySettings.setUserLockoutNotificationEmail("jane.doe@example.org");
-    String content = (new ObjectMapper()).writeValueAsString(securitySettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(securitySettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -347,8 +367,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getJwtSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getJwtSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getJwtSettings()}
    */
   @Test
   @DisplayName("Test getJwtSettings()")
@@ -356,7 +376,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"JwtSettings AdminController.getJwtSettings()"})
   void testGetJwtSettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -370,8 +391,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getJwtSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getJwtSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getJwtSettings()}
    */
   @Test
   @DisplayName("Test getJwtSettings()")
@@ -379,7 +400,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"JwtSettings AdminController.getJwtSettings()"})
   void testGetJwtSettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -389,17 +411,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getJwtSettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getJwtSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getJwtSettings()}
    */
   @Test
   @DisplayName("Test getJwtSettings(); then status isNotFound()")
@@ -407,7 +432,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"JwtSettings AdminController.getJwtSettings()"})
   void testGetJwtSettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -421,12 +447,13 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getJwtSettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getJwtSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getJwtSettings()}
    */
   @Test
   @DisplayName("Test getJwtSettings(); when logout; then content contentType 'application/json'")
@@ -434,7 +461,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"JwtSettings AdminController.getJwtSettings()"})
   void testGetJwtSettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -450,17 +478,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#saveJwtSettings(JwtSettings)}.
-   * <p>
-   * Method under test: {@link AdminController#saveJwtSettings(JwtSettings)}
+   *
+   * <p>Method under test: {@link AdminController#saveJwtSettings(JwtSettings)}
    */
   @Test
   @DisplayName("Test saveJwtSettings(JwtSettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.security.model.JwtPair AdminController.saveJwtSettings(JwtSettings)"})
+    "org.thingsboard.server.common.data.security.model.JwtPair AdminController.saveJwtSettings(JwtSettings)"
+  })
   void testSaveJwtSettings() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/jwtSettings");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/jwtSettings");
     postResult.characterEncoding("https://example.org/example");
 
     JwtSettings jwtSettings = new JwtSettings();
@@ -468,8 +498,9 @@ class AdminControllerDiffblueTest {
     jwtSettings.setTokenExpirationTime(1);
     jwtSettings.setTokenIssuer("ABC123");
     jwtSettings.setTokenSigningKey("ABC123");
-    String content = (new ObjectMapper()).writeValueAsString(jwtSettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(jwtSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -481,8 +512,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#sendTestMail(AdminSettings)}.
-   * <p>
-   * Method under test: {@link AdminController#sendTestMail(AdminSettings)}
+   *
+   * <p>Method under test: {@link AdminController#sendTestMail(AdminSettings)}
    */
   @Test
   @DisplayName("Test sendTestMail(AdminSettings)")
@@ -490,17 +521,21 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"void AdminController.sendTestMail(AdminSettings)"})
   void testSendTestMail() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/settings/testMail");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/settings/testMail");
     postResult.characterEncoding("https://example.org/example");
 
     AdminSettings adminSettings = new AdminSettings();
     adminSettings.setCreatedTime(1L);
-    adminSettings.setId(new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    adminSettings.setJsonValue(MissingNode.getInstance());
+    adminSettings.setId(
+        new AdminSettingsId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    adminSettings.setJsonValue(DoubleNode.valueOf(10.0d));
     adminSettings.setKey("Key");
-    adminSettings.setTenantId(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
-    String content = (new ObjectMapper()).writeValueAsString(adminSettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    adminSettings.setTenantId(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    String content = new ObjectMapper().writeValueAsString(adminSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -512,20 +547,23 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#sendTestSms(TestSmsRequest)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
-   *   <li>Then status four hundred fifteen.</li>
+   *   <li>Given {@code https://example.org/example}.
+   *   <li>Then status four hundred fifteen.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#sendTestSms(TestSmsRequest)}
+   *
+   * <p>Method under test: {@link AdminController#sendTestSms(TestSmsRequest)}
    */
   @Test
-  @DisplayName("Test sendTestSms(TestSmsRequest); given 'https://example.org/example'; then status four hundred fifteen")
+  @DisplayName(
+      "Test sendTestSms(TestSmsRequest); given 'https://example.org/example'; then status four hundred fifteen")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AdminController.sendTestSms(TestSmsRequest)"})
   void testSendTestSms_givenHttpsExampleOrgExample_thenStatusFourHundredFifteen() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/settings/testSms");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/settings/testSms");
     postResult.characterEncoding("https://example.org/example");
 
     AwsSnsSmsProviderConfiguration providerConfiguration = new AwsSnsSmsProviderConfiguration();
@@ -537,8 +575,9 @@ class AdminControllerDiffblueTest {
     testSmsRequest.setMessage("Not all who wander are lost");
     testSmsRequest.setNumberTo("42");
     testSmsRequest.setProviderConfiguration(providerConfiguration);
-    String content = (new ObjectMapper()).writeValueAsString(testSmsRequest);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(testSmsRequest);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -550,8 +589,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettings()}
    */
   @Test
   @DisplayName("Test getRepositorySettings()")
@@ -559,7 +598,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettings AdminController.getRepositorySettings()"})
   void testGetRepositorySettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -573,8 +613,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettings()}
    */
   @Test
   @DisplayName("Test getRepositorySettings()")
@@ -582,7 +622,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettings AdminController.getRepositorySettings()"})
   void testGetRepositorySettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -592,17 +633,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getRepositorySettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettings()}
    */
   @Test
   @DisplayName("Test getRepositorySettings(); then status isNotFound()")
@@ -610,7 +654,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettings AdminController.getRepositorySettings()"})
   void testGetRepositorySettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -624,20 +669,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettings()}
    */
   @Test
-  @DisplayName("Test getRepositorySettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getRepositorySettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RepositorySettings AdminController.getRepositorySettings()"})
-  void testGetRepositorySettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetRepositorySettings_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -653,8 +702,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#repositorySettingsExists()}.
-   * <p>
-   * Method under test: {@link AdminController#repositorySettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#repositorySettingsExists()}
    */
   @Test
   @DisplayName("Test repositorySettingsExists()")
@@ -662,7 +711,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.repositorySettingsExists()"})
   void testRepositorySettingsExists() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -676,8 +726,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#repositorySettingsExists()}.
-   * <p>
-   * Method under test: {@link AdminController#repositorySettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#repositorySettingsExists()}
    */
   @Test
   @DisplayName("Test repositorySettingsExists()")
@@ -685,7 +735,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.repositorySettingsExists()"})
   void testRepositorySettingsExists2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -695,17 +746,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#repositorySettingsExists()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#repositorySettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#repositorySettingsExists()}
    */
   @Test
   @DisplayName("Test repositorySettingsExists(); then status isNotFound()")
@@ -713,7 +767,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.repositorySettingsExists()"})
   void testRepositorySettingsExists_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -727,20 +782,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#repositorySettingsExists()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#repositorySettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#repositorySettingsExists()}
    */
   @Test
-  @DisplayName("Test repositorySettingsExists(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test repositorySettingsExists(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Boolean AdminController.repositorySettingsExists()"})
-  void testRepositorySettingsExists_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testRepositorySettingsExists_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -756,8 +815,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettingsInfo()}.
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettingsInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettingsInfo()}
    */
   @Test
   @DisplayName("Test getRepositorySettingsInfo()")
@@ -765,7 +824,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettingsInfo AdminController.getRepositorySettingsInfo()"})
   void testGetRepositorySettingsInfo() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -779,8 +839,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettingsInfo()}.
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettingsInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettingsInfo()}
    */
   @Test
   @DisplayName("Test getRepositorySettingsInfo()")
@@ -788,7 +848,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettingsInfo AdminController.getRepositorySettingsInfo()"})
   void testGetRepositorySettingsInfo2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -798,17 +859,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getRepositorySettingsInfo()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettingsInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettingsInfo()}
    */
   @Test
   @DisplayName("Test getRepositorySettingsInfo(); then status isNotFound()")
@@ -816,7 +880,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"RepositorySettingsInfo AdminController.getRepositorySettingsInfo()"})
   void testGetRepositorySettingsInfo_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -830,20 +895,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getRepositorySettingsInfo()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getRepositorySettingsInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getRepositorySettingsInfo()}
    */
   @Test
-  @DisplayName("Test getRepositorySettingsInfo(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getRepositorySettingsInfo(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RepositorySettingsInfo AdminController.getRepositorySettingsInfo()"})
-  void testGetRepositorySettingsInfo_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetRepositorySettingsInfo_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -859,17 +928,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#saveRepositorySettings(RepositorySettings)}.
-   * <p>
-   * Method under test: {@link AdminController#saveRepositorySettings(RepositorySettings)}
+   *
+   * <p>Method under test: {@link AdminController#saveRepositorySettings(RepositorySettings)}
    */
   @Test
   @DisplayName("Test saveRepositorySettings(RepositorySettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.saveRepositorySettings(RepositorySettings)"})
+    "org.springframework.web.context.request.async.DeferredResult AdminController.saveRepositorySettings(RepositorySettings)"
+  })
   void testSaveRepositorySettings() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/repositorySettings");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/repositorySettings");
     postResult.characterEncoding("https://example.org/example");
 
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -884,8 +955,9 @@ class AdminControllerDiffblueTest {
     repositorySettings.setRepositoryUri("Repository Uri");
     repositorySettings.setShowMergeCommits(true);
     repositorySettings.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(repositorySettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(repositorySettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -897,17 +969,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteRepositorySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#deleteRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteRepositorySettings()}
    */
   @Test
   @DisplayName("Test deleteRepositorySettings()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"})
+    "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"
+  })
   void testDeleteRepositorySettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -921,17 +995,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteRepositorySettings()}.
-   * <p>
-   * Method under test: {@link AdminController#deleteRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteRepositorySettings()}
    */
   @Test
   @DisplayName("Test deleteRepositorySettings()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"})
+    "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"
+  })
   void testDeleteRepositorySettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -941,26 +1017,31 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#deleteRepositorySettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#deleteRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteRepositorySettings()}
    */
   @Test
   @DisplayName("Test deleteRepositorySettings(); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"})
+    "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"
+  })
   void testDeleteRepositorySettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -974,21 +1055,26 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteRepositorySettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#deleteRepositorySettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteRepositorySettings()}
    */
   @Test
-  @DisplayName("Test deleteRepositorySettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test deleteRepositorySettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"})
-  void testDeleteRepositorySettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+    "org.springframework.web.context.request.async.DeferredResult AdminController.deleteRepositorySettings()"
+  })
+  void testDeleteRepositorySettings_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1004,17 +1090,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#checkRepositoryAccess(RepositorySettings)}.
-   * <p>
-   * Method under test: {@link AdminController#checkRepositoryAccess(RepositorySettings)}
+   *
+   * <p>Method under test: {@link AdminController#checkRepositoryAccess(RepositorySettings)}
    */
   @Test
   @DisplayName("Test checkRepositoryAccess(RepositorySettings)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult AdminController.checkRepositoryAccess(RepositorySettings)"})
+    "org.springframework.web.context.request.async.DeferredResult AdminController.checkRepositoryAccess(RepositorySettings)"
+  })
   void testCheckRepositoryAccess() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/repositorySettings/checkAccess");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/repositorySettings/checkAccess");
     postResult.characterEncoding("https://example.org/example");
 
     RepositorySettings repositorySettings = new RepositorySettings();
@@ -1029,8 +1117,9 @@ class AdminControllerDiffblueTest {
     repositorySettings.setRepositoryUri("Repository Uri");
     repositorySettings.setShowMergeCommits(true);
     repositorySettings.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(repositorySettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(repositorySettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -1042,8 +1131,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAutoCommitSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test getAutoCommitSettings()")
@@ -1051,7 +1140,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AutoCommitSettings AdminController.getAutoCommitSettings()"})
   void testGetAutoCommitSettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1065,8 +1155,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAutoCommitSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#getAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test getAutoCommitSettings()")
@@ -1074,7 +1164,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AutoCommitSettings AdminController.getAutoCommitSettings()"})
   void testGetAutoCommitSettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1084,17 +1175,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getAutoCommitSettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test getAutoCommitSettings(); then status isNotFound()")
@@ -1102,7 +1196,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"AutoCommitSettings AdminController.getAutoCommitSettings()"})
   void testGetAutoCommitSettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1116,20 +1211,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAutoCommitSettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#getAutoCommitSettings()}
    */
   @Test
-  @DisplayName("Test getAutoCommitSettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getAutoCommitSettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AutoCommitSettings AdminController.getAutoCommitSettings()"})
-  void testGetAutoCommitSettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetAutoCommitSettings_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1145,8 +1244,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#autoCommitSettingsExists()}.
-   * <p>
-   * Method under test: {@link AdminController#autoCommitSettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#autoCommitSettingsExists()}
    */
   @Test
   @DisplayName("Test autoCommitSettingsExists()")
@@ -1154,7 +1253,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.autoCommitSettingsExists()"})
   void testAutoCommitSettingsExists() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1168,8 +1268,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#autoCommitSettingsExists()}.
-   * <p>
-   * Method under test: {@link AdminController#autoCommitSettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#autoCommitSettingsExists()}
    */
   @Test
   @DisplayName("Test autoCommitSettingsExists()")
@@ -1177,7 +1277,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.autoCommitSettingsExists()"})
   void testAutoCommitSettingsExists2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1187,17 +1288,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#autoCommitSettingsExists()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#autoCommitSettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#autoCommitSettingsExists()}
    */
   @Test
   @DisplayName("Test autoCommitSettingsExists(); then status isNotFound()")
@@ -1205,7 +1309,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AdminController.autoCommitSettingsExists()"})
   void testAutoCommitSettingsExists_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1219,20 +1324,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#autoCommitSettingsExists()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#autoCommitSettingsExists()}
+   *
+   * <p>Method under test: {@link AdminController#autoCommitSettingsExists()}
    */
   @Test
-  @DisplayName("Test autoCommitSettingsExists(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test autoCommitSettingsExists(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Boolean AdminController.autoCommitSettingsExists()"})
-  void testAutoCommitSettingsExists_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testAutoCommitSettingsExists_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1248,16 +1357,19 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#saveAutoCommitSettings(AutoCommitSettings)}.
-   * <p>
-   * Method under test: {@link AdminController#saveAutoCommitSettings(AutoCommitSettings)}
+   *
+   * <p>Method under test: {@link AdminController#saveAutoCommitSettings(AutoCommitSettings)}
    */
   @Test
   @DisplayName("Test saveAutoCommitSettings(AutoCommitSettings)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AutoCommitSettings AdminController.saveAutoCommitSettings(AutoCommitSettings)"})
+  @MethodsUnderTest({
+    "AutoCommitSettings AdminController.saveAutoCommitSettings(AutoCommitSettings)"
+  })
   void testSaveAutoCommitSettings() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/admin/autoCommitSettings");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/admin/autoCommitSettings");
     postResult.characterEncoding("https://example.org/example");
 
     AutoVersionCreateConfig autoVersionCreateConfig = new AutoVersionCreateConfig();
@@ -1270,8 +1382,9 @@ class AdminControllerDiffblueTest {
     autoCommitSettings.computeIfPresent(EntityType.TENANT, mock(BiFunction.class));
     autoCommitSettings.replace(EntityType.TENANT, autoVersionCreateConfig);
     autoCommitSettings.replaceAll(mock(BiFunction.class));
-    String content = (new ObjectMapper()).writeValueAsString(autoCommitSettings);
-    MockHttpServletRequestBuilder requestBuilder = postResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    String content = new ObjectMapper().writeValueAsString(autoCommitSettings);
+    MockHttpServletRequestBuilder requestBuilder =
+        postResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -1283,8 +1396,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteAutoCommitSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#deleteAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test deleteAutoCommitSettings()")
@@ -1292,7 +1405,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"void AdminController.deleteAutoCommitSettings()"})
   void testDeleteAutoCommitSettings() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1306,8 +1420,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteAutoCommitSettings()}.
-   * <p>
-   * Method under test: {@link AdminController#deleteAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test deleteAutoCommitSettings()")
@@ -1315,7 +1429,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"void AdminController.deleteAutoCommitSettings()"})
   void testDeleteAutoCommitSettings2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1325,17 +1440,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#deleteAutoCommitSettings()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#deleteAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteAutoCommitSettings()}
    */
   @Test
   @DisplayName("Test deleteAutoCommitSettings(); then status isNotFound()")
@@ -1343,7 +1461,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"void AdminController.deleteAutoCommitSettings()"})
   void testDeleteAutoCommitSettings_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1357,20 +1476,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#deleteAutoCommitSettings()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#deleteAutoCommitSettings()}
+   *
+   * <p>Method under test: {@link AdminController#deleteAutoCommitSettings()}
    */
   @Test
-  @DisplayName("Test deleteAutoCommitSettings(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test deleteAutoCommitSettings(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AdminController.deleteAutoCommitSettings()"})
-  void testDeleteAutoCommitSettings_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testDeleteAutoCommitSettings_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1386,21 +1509,31 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#checkUpdates()}.
+   *
    * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /api/admin/updates}.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code /api/admin/updates}.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#checkUpdates()}
+   *
+   * <p>Method under test: {@link AdminController#checkUpdates()}
    */
   @Test
-  @DisplayName("Test checkUpdates(); when get(String, Object[]) '/api/admin/updates'; then content contentType 'application/json'")
+  @DisplayName(
+      "Test checkUpdates(); when get(String, Object[]) '/api/admin/updates'; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UpdateMessage AdminController.checkUpdates()"})
-  void testCheckUpdates_whenGetApiAdminUpdates_thenContentContentTypeApplicationJson() throws Exception {
+  void testCheckUpdates_whenGetApiAdminUpdates_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(updateService.checkUpdates()).thenReturn(new UpdateMessage(true, "1.0.2", "1.0.2",
-        "https://example.org/example", "https://example.org/example", "https://example.org/example"));
+    when(updateService.checkUpdates())
+        .thenReturn(
+            new UpdateMessage(
+                true,
+                "1.0.2",
+                "1.0.2",
+                "https://example.org/example",
+                "https://example.org/example",
+                "https://example.org/example"));
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/admin/updates");
 
     // Act and Assert
@@ -1410,27 +1543,31 @@ class AdminControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"updateAvailable\":true,\"currentVersion\":\"1.0.2\",\"latestVersion\":\"1.0.2\",\"upgradeInstructionsUrl\":"
-                    + "\"https://example.org/example\",\"currentVersionReleaseNotesUrl\":\"https://example.org/example\","
-                    + "\"latestVersionReleaseNotesUrl\":\"https://example.org/example\"}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"updateAvailable\":true,\"currentVersion\":\"1.0.2\",\"latestVersion\":\"1.0.2\",\"upgradeInstructionsUrl\":"
+                        + "\"https://example.org/example\",\"currentVersionReleaseNotesUrl\":\"https://example.org/example\","
+                        + "\"latestVersionReleaseNotesUrl\":\"https://example.org/example\"}"));
   }
 
   /**
    * Test {@link AdminController#getSystemInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link SystemInfoData} (default constructor) CpuCount is three.</li>
-   *   <li>Then content string a string.</li>
+   *   <li>Given {@link SystemInfoData} (default constructor) CpuCount is three.
+   *   <li>Then content string a string.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getSystemInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getSystemInfo()}
    */
   @Test
-  @DisplayName("Test getSystemInfo(); given SystemInfoData (default constructor) CpuCount is three; then content string a string")
+  @DisplayName(
+      "Test getSystemInfo(); given SystemInfoData (default constructor) CpuCount is three; then content string a string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SystemInfo AdminController.getSystemInfo()"})
-  void testGetSystemInfo_givenSystemInfoDataCpuCountIsThree_thenContentStringAString() throws Exception {
+  void testGetSystemInfo_givenSystemInfoDataCpuCountIsThree_thenContentStringAString()
+      throws Exception {
     // Arrange
     SystemInfoData systemInfoData = new SystemInfoData();
     systemInfoData.setCpuCount(3L);
@@ -1449,7 +1586,8 @@ class AdminControllerDiffblueTest {
     systemInfo.setMonolith(true);
     systemInfo.setSystemData(systemData);
     when(systemInfoService.getSystemInfo()).thenReturn(systemInfo);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/admin/systemInfo");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/admin/systemInfo");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -1458,19 +1596,21 @@ class AdminControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"systemData\":[{\"serviceId\":\"42\",\"serviceType\":\"Service Type\",\"cpuUsage\":3,\"cpuCount\":3,\"memoryUsage"
-                    + "\":3,\"totalMemory\":3,\"discUsage\":3,\"totalDiscSpace\":3}],\"monolith\":true}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"systemData\":[{\"serviceId\":\"42\",\"serviceType\":\"Service Type\",\"cpuUsage\":3,\"cpuCount\":3,\"memoryUsage"
+                        + "\":3,\"totalMemory\":3,\"discUsage\":3,\"totalDiscSpace\":3}],\"monolith\":true}"));
   }
 
   /**
    * Test {@link AdminController#getSystemInfo()}.
+   *
    * <ul>
-   *   <li>Then content string {@code {"systemData":[],"monolith":true}}.</li>
+   *   <li>Then content string {@code {"systemData":[],"monolith":true}}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getSystemInfo()}
+   *
+   * <p>Method under test: {@link AdminController#getSystemInfo()}
    */
   @Test
   @DisplayName("Test getSystemInfo(); then content string '{\"systemData\":[],\"monolith\":true}'")
@@ -1482,7 +1622,8 @@ class AdminControllerDiffblueTest {
     systemInfo.setMonolith(true);
     systemInfo.setSystemData(new ArrayList<>());
     when(systemInfoService.getSystemInfo()).thenReturn(systemInfo);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/admin/systemInfo");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/admin/systemInfo");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(adminController)
@@ -1495,9 +1636,51 @@ class AdminControllerDiffblueTest {
   }
 
   /**
+   * Test {@link AdminController#getFeaturesInfo()}.
+   *
+   * <ul>
+   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code
+   *       /api/admin/featuresInfo}.
+   *   <li>Then content string a string.
+   * </ul>
+   *
+   * <p>Method under test: {@link AdminController#getFeaturesInfo()}
+   */
+  @Test
+  @DisplayName(
+      "Test getFeaturesInfo(); when get(String, Object[]) '/api/admin/featuresInfo'; then content string a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"FeaturesInfo AdminController.getFeaturesInfo()"})
+  void testGetFeaturesInfo_whenGetApiAdminFeaturesInfo_thenContentStringAString() throws Exception {
+    // Arrange
+    FeaturesInfo featuresInfo = new FeaturesInfo();
+    featuresInfo.setEmailEnabled(true);
+    featuresInfo.setNotificationEnabled(true);
+    featuresInfo.setOauthEnabled(true);
+    featuresInfo.setSmsEnabled(true);
+    featuresInfo.setTwoFaEnabled(true);
+    when(systemInfoService.getFeaturesInfo()).thenReturn(featuresInfo);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/admin/featuresInfo");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(adminController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"emailEnabled\":true,\"notificationEnabled\":true,\"oauthEnabled\":true,\"smsEnabled\":true,\"twoFaEnabled"
+                        + "\":true}"));
+  }
+
+  /**
    * Test {@link AdminController#getMailProcessingUrl()}.
-   * <p>
-   * Method under test: {@link AdminController#getMailProcessingUrl()}
+   *
+   * <p>Method under test: {@link AdminController#getMailProcessingUrl()}
    */
   @Test
   @DisplayName("Test getMailProcessingUrl()")
@@ -1505,7 +1688,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"String AdminController.getMailProcessingUrl()"})
   void testGetMailProcessingUrl() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1519,8 +1703,8 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getMailProcessingUrl()}.
-   * <p>
-   * Method under test: {@link AdminController#getMailProcessingUrl()}
+   *
+   * <p>Method under test: {@link AdminController#getMailProcessingUrl()}
    */
   @Test
   @DisplayName("Test getMailProcessingUrl()")
@@ -1528,7 +1712,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"String AdminController.getMailProcessingUrl()"})
   void testGetMailProcessingUrl2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1538,17 +1723,20 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getMailProcessingUrl()}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getMailProcessingUrl()}
+   *
+   * <p>Method under test: {@link AdminController#getMailProcessingUrl()}
    */
   @Test
   @DisplayName("Test getMailProcessingUrl(); then status isNotFound()")
@@ -1556,7 +1744,8 @@ class AdminControllerDiffblueTest {
   @MethodsUnderTest({"String AdminController.getMailProcessingUrl()"})
   void testGetMailProcessingUrl_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1570,20 +1759,24 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getMailProcessingUrl()}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getMailProcessingUrl()}
+   *
+   * <p>Method under test: {@link AdminController#getMailProcessingUrl()}
    */
   @Test
-  @DisplayName("Test getMailProcessingUrl(); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getMailProcessingUrl(); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AdminController.getMailProcessingUrl()"})
-  void testGetMailProcessingUrl_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
+  void testGetMailProcessingUrl_whenLogout_thenContentContentTypeApplicationJson()
+      throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 
@@ -1599,16 +1792,20 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}.
-   * <p>
-   * Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
   @DisplayName("Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"})
+  @MethodsUnderTest({
+    "String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"
+  })
   void testGetAuthorizationUrl() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1622,16 +1819,20 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}.
-   * <p>
-   * Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
   @DisplayName("Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"})
+  @MethodsUnderTest({
+    "String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"
+  })
   void testGetAuthorizationUrl2() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>("Body", HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1641,25 +1842,33 @@ class AdminControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .contentType("application/x-www-form-urlencoded;charset=ISO-8859-1"))
         .andExpect(MockMvcResultMatchers.content().string("Body"));
   }
 
   /**
    * Test {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}.
+   *
    * <ul>
-   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.</li>
+   *   <li>Then status {@link StatusResultMatchers#isNotFound()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse); then status isNotFound()")
+  @DisplayName(
+      "Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse); then status isNotFound()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"})
+  @MethodsUnderTest({
+    "String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"
+  })
   void testGetAuthorizationUrl_thenStatusIsNotFound() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     FormLoginRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.formLogin();
 
@@ -1673,20 +1882,26 @@ class AdminControllerDiffblueTest {
 
   /**
    * Test {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}.
+   *
    * <ul>
-   *   <li>When logout.</li>
-   *   <li>Then content contentType {@code application/json}.</li>
+   *   <li>When logout.
+   *   <li>Then content contentType {@code application/json}.
    * </ul>
-   * <p>
-   * Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link AdminController#getAuthorizationUrl(HttpServletRequest,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse); when logout; then content contentType 'application/json'")
+  @DisplayName(
+      "Test getAuthorizationUrl(HttpServletRequest, HttpServletResponse); when logout; then content contentType 'application/json'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"})
+  @MethodsUnderTest({
+    "String AdminController.getAuthorizationUrl(HttpServletRequest, HttpServletResponse)"
+  })
   void testGetAuthorizationUrl_whenLogout_thenContentContentTypeApplicationJson() throws Exception {
     // Arrange
-    when(thingsboardErrorResponseHandler.handleException(Mockito.<Exception>any(), Mockito.<WebRequest>any()))
+    when(thingsboardErrorResponseHandler.handleException(
+            Mockito.<Exception>any(), Mockito.<WebRequest>any()))
         .thenReturn(new ResponseEntity<>(42, HttpStatus.OK));
     LogoutRequestBuilder requestBuilder = SecurityMockMvcRequestBuilders.logout();
 

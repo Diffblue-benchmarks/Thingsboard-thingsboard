@@ -25,12 +25,14 @@ import org.thingsboard.server.common.data.notification.rule.trigger.config.Notif
 class NotificationRuleDiffblueTest {
   /**
    * Test {@link NotificationRule#equals(Object)}, and {@link NotificationRule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRule#equals(Object)}
    *   <li>{@link NotificationRule#hashCode()}
@@ -53,12 +55,14 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}, and {@link NotificationRule#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRule#equals(Object)}
    *   <li>{@link NotificationRule#hashCode()}
@@ -80,12 +84,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -101,12 +106,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -122,12 +128,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -145,12 +152,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -167,12 +175,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -189,12 +198,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -211,12 +221,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -225,7 +236,8 @@ class NotificationRuleDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NotificationRule notificationRule = new NotificationRule();
-    notificationRule.setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationRule.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(notificationRule, new NotificationRule());
@@ -233,12 +245,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -255,12 +268,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -277,12 +291,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -299,12 +314,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -324,12 +340,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -338,7 +355,8 @@ class NotificationRuleDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     NotificationRule notificationRule = new NotificationRule();
-    notificationRule.setExternalId(new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationRule.setExternalId(
+        new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(notificationRule, new NotificationRule());
@@ -346,12 +364,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -370,12 +389,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -394,12 +414,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -410,8 +431,8 @@ class NotificationRuleDiffblueTest {
     NotificationRule notificationRule = new NotificationRule();
 
     NotificationRule notificationRule2 = new NotificationRule();
-    notificationRule2
-        .setTemplateId(new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationRule2.setTemplateId(
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(notificationRule, notificationRule2);
@@ -419,12 +440,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -443,12 +465,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -467,12 +490,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -491,12 +515,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -518,12 +543,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -534,7 +560,8 @@ class NotificationRuleDiffblueTest {
     NotificationRule notificationRule = new NotificationRule();
 
     NotificationRule notificationRule2 = new NotificationRule();
-    notificationRule2.setExternalId(new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    notificationRule2.setExternalId(
+        new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(notificationRule, notificationRule2);
@@ -542,12 +569,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -560,12 +588,13 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationRule#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -578,8 +607,8 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#getExternalId()}.
-   * <p>
-   * Method under test: {@link NotificationRule#getExternalId()}
+   *
+   * <p>Method under test: {@link NotificationRule#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -587,13 +616,14 @@ class NotificationRuleDiffblueTest {
   @MethodsUnderTest({"NotificationRuleId NotificationRule.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new NotificationRule()).getExternalId());
+    assertNull(new NotificationRule().getExternalId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationRule#NotificationRule()}
    *   <li>{@link NotificationRule#setAdditionalConfig(NotificationRuleConfig)}
@@ -619,17 +649,27 @@ class NotificationRuleDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationRule.<init>()", "NotificationRuleConfig NotificationRule.getAdditionalConfig()",
-      "String NotificationRule.getName()", "NotificationRuleRecipientsConfig NotificationRule.getRecipientsConfig()",
-      "NotificationTemplateId NotificationRule.getTemplateId()", "TenantId NotificationRule.getTenantId()",
-      "NotificationRuleTriggerConfig NotificationRule.getTriggerConfig()",
-      "NotificationRuleTriggerType NotificationRule.getTriggerType()", "boolean NotificationRule.isEnabled()",
-      "void NotificationRule.setAdditionalConfig(NotificationRuleConfig)", "void NotificationRule.setEnabled(boolean)",
-      "void NotificationRule.setExternalId(NotificationRuleId)", "void NotificationRule.setName(String)",
-      "void NotificationRule.setRecipientsConfig(NotificationRuleRecipientsConfig)",
-      "void NotificationRule.setTemplateId(NotificationTemplateId)", "void NotificationRule.setTenantId(TenantId)",
-      "void NotificationRule.setTriggerConfig(NotificationRuleTriggerConfig)",
-      "void NotificationRule.setTriggerType(NotificationRuleTriggerType)", "String NotificationRule.toString()"})
+  @MethodsUnderTest({
+    "void NotificationRule.<init>()",
+    "NotificationRuleConfig NotificationRule.getAdditionalConfig()",
+    "String NotificationRule.getName()",
+    "NotificationRuleRecipientsConfig NotificationRule.getRecipientsConfig()",
+    "NotificationTemplateId NotificationRule.getTemplateId()",
+    "TenantId NotificationRule.getTenantId()",
+    "NotificationRuleTriggerConfig NotificationRule.getTriggerConfig()",
+    "NotificationRuleTriggerType NotificationRule.getTriggerType()",
+    "boolean NotificationRule.isEnabled()",
+    "void NotificationRule.setAdditionalConfig(NotificationRuleConfig)",
+    "void NotificationRule.setEnabled(boolean)",
+    "void NotificationRule.setExternalId(NotificationRuleId)",
+    "void NotificationRule.setName(String)",
+    "void NotificationRule.setRecipientsConfig(NotificationRuleRecipientsConfig)",
+    "void NotificationRule.setTemplateId(NotificationTemplateId)",
+    "void NotificationRule.setTenantId(TenantId)",
+    "void NotificationRule.setTriggerConfig(NotificationRuleTriggerConfig)",
+    "void NotificationRule.setTriggerType(NotificationRuleTriggerType)",
+    "String NotificationRule.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationRule actualNotificationRule = new NotificationRule();
@@ -637,13 +677,15 @@ class NotificationRuleDiffblueTest {
     additionalConfig.setDescription("The characteristics of someone or something");
     actualNotificationRule.setAdditionalConfig(additionalConfig);
     actualNotificationRule.setEnabled(true);
-    NotificationRuleId externalId = new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    NotificationRuleId externalId =
+        new NotificationRuleId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualNotificationRule.setExternalId(externalId);
     actualNotificationRule.setName("Name");
-    DefaultNotificationRuleRecipientsConfig recipientsConfig = new DefaultNotificationRuleRecipientsConfig();
+    DefaultNotificationRuleRecipientsConfig recipientsConfig =
+        new DefaultNotificationRuleRecipientsConfig();
     actualNotificationRule.setRecipientsConfig(recipientsConfig);
-    NotificationTemplateId templateId = new NotificationTemplateId(
-        UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    NotificationTemplateId templateId =
+        new NotificationTemplateId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     actualNotificationRule.setTemplateId(templateId);
     actualNotificationRule.setTenantId(TenantId.SYS_TENANT_ID);
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
@@ -652,7 +694,8 @@ class NotificationRuleDiffblueTest {
     actualNotificationRule.toString();
     NotificationRuleConfig actualAdditionalConfig = actualNotificationRule.getAdditionalConfig();
     String actualName = actualNotificationRule.getName();
-    NotificationRuleRecipientsConfig actualRecipientsConfig = actualNotificationRule.getRecipientsConfig();
+    NotificationRuleRecipientsConfig actualRecipientsConfig =
+        actualNotificationRule.getRecipientsConfig();
     NotificationTemplateId actualTemplateId = actualNotificationRule.getTemplateId();
     TenantId actualTenantId = actualNotificationRule.getTenantId();
     NotificationRuleTriggerConfig actualTriggerConfig = actualNotificationRule.getTriggerConfig();
@@ -661,7 +704,8 @@ class NotificationRuleDiffblueTest {
 
     // Assert
     assertEquals("Name", actualName);
-    assertEquals("The characteristics of someone or something", actualAdditionalConfig.getDescription());
+    assertEquals(
+        "The characteristics of someone or something", actualAdditionalConfig.getDescription());
     assertNull(actualNotificationRule.getId());
     assertEquals(0L, actualNotificationRule.getCreatedTime());
     assertEquals(NotificationRuleTriggerType.ENTITY_ACTION, actualTriggerType);
@@ -676,8 +720,8 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#NotificationRule(NotificationRule)}.
-   * <p>
-   * Method under test: {@link NotificationRule#NotificationRule(NotificationRule)}
+   *
+   * <p>Method under test: {@link NotificationRule#NotificationRule(NotificationRule)}
    */
   @Test
   @DisplayName("Test new NotificationRule(NotificationRule)")
@@ -693,11 +737,12 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#isValid()}
+   *
+   * <p>Method under test: {@link NotificationRule#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'false'")
@@ -721,11 +766,12 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#isValid()}
+   *
+   * <p>Method under test: {@link NotificationRule#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'false'")
@@ -751,11 +797,12 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#isValid()}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#isValid()}
+   *
+   * <p>Method under test: {@link NotificationRule#isValid()}
    */
   @Test
   @DisplayName("Test isValid(); then return 'true'")
@@ -766,7 +813,8 @@ class NotificationRuleDiffblueTest {
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);
     when(triggerConfig.getTriggerType()).thenReturn(NotificationRuleTriggerType.ENTITY_ACTION);
 
-    DefaultNotificationRuleRecipientsConfig recipientsConfig = new DefaultNotificationRuleRecipientsConfig();
+    DefaultNotificationRuleRecipientsConfig recipientsConfig =
+        new DefaultNotificationRuleRecipientsConfig();
     recipientsConfig.setTriggerType(NotificationRuleTriggerType.ENTITY_ACTION);
 
     NotificationRule notificationRule = new NotificationRule();
@@ -784,11 +832,12 @@ class NotificationRuleDiffblueTest {
 
   /**
    * Test {@link NotificationRule#getDeduplicationKey()}.
+   *
    * <ul>
-   *   <li>Then return {@code :Deduplication Key}.</li>
+   *   <li>Then return {@code :Deduplication Key}.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationRule#getDeduplicationKey()}
+   *
+   * <p>Method under test: {@link NotificationRule#getDeduplicationKey()}
    */
   @Test
   @DisplayName("Test getDeduplicationKey(); then return ':Deduplication Key'")
@@ -796,7 +845,8 @@ class NotificationRuleDiffblueTest {
   @MethodsUnderTest({"String NotificationRule.getDeduplicationKey()"})
   void testGetDeduplicationKey_thenReturnDeduplicationKey() {
     // Arrange
-    EscalatedNotificationRuleRecipientsConfig recipientsConfig = new EscalatedNotificationRuleRecipientsConfig();
+    EscalatedNotificationRuleRecipientsConfig recipientsConfig =
+        new EscalatedNotificationRuleRecipientsConfig();
     recipientsConfig.setEscalationTable(new HashMap<>());
     recipientsConfig.setTriggerType(NotificationRuleTriggerType.ENTITY_ACTION);
     NotificationRuleTriggerConfig triggerConfig = mock(NotificationRuleTriggerConfig.class);

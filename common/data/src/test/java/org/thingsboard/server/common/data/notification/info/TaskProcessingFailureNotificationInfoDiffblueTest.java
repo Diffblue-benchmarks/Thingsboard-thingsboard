@@ -31,11 +31,12 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is seven.</li>
+   *   <li>Then return size is seven.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is seven")
@@ -43,14 +44,15 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map TaskProcessingFailureNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsSeven() {
     // Arrange
-    TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act
     Map<String, String> actualTemplateData = buildResult.getTemplateData();
@@ -67,13 +69,16 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link TaskProcessingFailureNotificationInfo#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link
+   * TaskProcessingFailureNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationInfo#equals(Object)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#hashCode()}
@@ -82,26 +87,30 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
-      "int TaskProcessingFailureNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+    "int TaskProcessingFailureNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    TaskProcessingFailureNotificationInfo buildResult2 = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    TaskProcessingFailureNotificationInfo buildResult2 =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -110,13 +119,16 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link TaskProcessingFailureNotificationInfo#hashCode()}.
+   * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}, and {@link
+   * TaskProcessingFailureNotificationInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationInfo#equals(Object)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#hashCode()}
@@ -125,18 +137,21 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
-      "int TaskProcessingFailureNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+    "int TaskProcessingFailureNotificationInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -146,39 +161,45 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
-      "int TaskProcessingFailureNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+    "int TaskProcessingFailureNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfoBuilder taskProcessingFailureNotificationInfoBuilder = mock(
-        TaskProcessingFailureNotificationInfoBuilder.class);
+    TaskProcessingFailureNotificationInfoBuilder taskProcessingFailureNotificationInfoBuilder =
+        mock(TaskProcessingFailureNotificationInfoBuilder.class);
     when(taskProcessingFailureNotificationInfoBuilder.attempt(anyInt()))
         .thenReturn(TaskProcessingFailureNotificationInfo.builder());
-    TaskProcessingFailureNotificationInfo buildResult = taskProcessingFailureNotificationInfoBuilder.attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
-    TaskProcessingFailureNotificationInfo buildResult2 = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        taskProcessingFailureNotificationInfoBuilder
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
+    TaskProcessingFailureNotificationInfo buildResult2 =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -186,28 +207,32 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
-      "int TaskProcessingFailureNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+    "int TaskProcessingFailureNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -215,28 +240,32 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test {@link TaskProcessingFailureNotificationInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TaskProcessingFailureNotificationInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TaskProcessingFailureNotificationInfo.equals(Object)",
-      "int TaskProcessingFailureNotificationInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TaskProcessingFailureNotificationInfo.equals(Object)",
+    "int TaskProcessingFailureNotificationInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    TaskProcessingFailureNotificationInfo buildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo buildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to TaskProcessingFailureNotificationInfo");
@@ -244,8 +273,9 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo()}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setAttempt(int)}
@@ -267,25 +297,28 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfo.<init>()",
-      "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
-      "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
-      "int TaskProcessingFailureNotificationInfo.getAttempt()",
-      "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
-      "String TaskProcessingFailureNotificationInfo.getError()",
-      "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
-      "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
-      "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
-      "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
-      "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
-      "void TaskProcessingFailureNotificationInfo.setError(String)",
-      "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
-      "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
-      "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
-      "String TaskProcessingFailureNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureNotificationInfo.<init>()",
+    "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
+    "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
+    "int TaskProcessingFailureNotificationInfo.getAttempt()",
+    "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
+    "String TaskProcessingFailureNotificationInfo.getError()",
+    "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
+    "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
+    "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
+    "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
+    "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
+    "void TaskProcessingFailureNotificationInfo.setError(String)",
+    "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
+    "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
+    "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
+    "String TaskProcessingFailureNotificationInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo = new TaskProcessingFailureNotificationInfo();
+    TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo =
+        new TaskProcessingFailureNotificationInfo();
     actualTaskProcessingFailureNotificationInfo.setAttempt(1);
     actualTaskProcessingFailureNotificationInfo.setEntityId(TenantId.SYS_TENANT_ID);
     actualTaskProcessingFailureNotificationInfo.setError("An error occurred");
@@ -293,7 +326,8 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
     actualTaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType.DELETE_ATTRIBUTES);
     actualTaskProcessingFailureNotificationInfo.setTenantId(TenantId.SYS_TENANT_ID);
     String actualToStringResult = actualTaskProcessingFailureNotificationInfo.toString();
-    TenantId actualAffectedTenantId = actualTaskProcessingFailureNotificationInfo.getAffectedTenantId();
+    TenantId actualAffectedTenantId =
+        actualTaskProcessingFailureNotificationInfo.getAffectedTenantId();
     int actualAttempt = actualTaskProcessingFailureNotificationInfo.getAttempt();
     EntityId actualEntityId = actualTaskProcessingFailureNotificationInfo.getEntityId();
     String actualError = actualTaskProcessingFailureNotificationInfo.getError();
@@ -319,13 +353,17 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>When {@link TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo(TenantId, EntityId, HousekeeperTaskType, String, String, int)}
+   *   <li>{@link
+   *       TaskProcessingFailureNotificationInfo#TaskProcessingFailureNotificationInfo(TenantId,
+   *       EntityId, HousekeeperTaskType, String, String, int)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setAttempt(int)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setEntityId(EntityId)}
    *   <li>{@link TaskProcessingFailureNotificationInfo#setError(String)}
@@ -345,27 +383,34 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when SYS_TENANT_ID")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfo.<init>()",
-      "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
-      "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
-      "int TaskProcessingFailureNotificationInfo.getAttempt()",
-      "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
-      "String TaskProcessingFailureNotificationInfo.getError()",
-      "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
-      "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
-      "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
-      "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
-      "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
-      "void TaskProcessingFailureNotificationInfo.setError(String)",
-      "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
-      "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
-      "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
-      "String TaskProcessingFailureNotificationInfo.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureNotificationInfo.<init>()",
+    "void TaskProcessingFailureNotificationInfo.<init>(TenantId, EntityId, HousekeeperTaskType, String, String, int)",
+    "TenantId TaskProcessingFailureNotificationInfo.getAffectedTenantId()",
+    "int TaskProcessingFailureNotificationInfo.getAttempt()",
+    "EntityId TaskProcessingFailureNotificationInfo.getEntityId()",
+    "String TaskProcessingFailureNotificationInfo.getError()",
+    "String TaskProcessingFailureNotificationInfo.getTaskDescription()",
+    "HousekeeperTaskType TaskProcessingFailureNotificationInfo.getTaskType()",
+    "TenantId TaskProcessingFailureNotificationInfo.getTenantId()",
+    "void TaskProcessingFailureNotificationInfo.setAttempt(int)",
+    "void TaskProcessingFailureNotificationInfo.setEntityId(EntityId)",
+    "void TaskProcessingFailureNotificationInfo.setError(String)",
+    "void TaskProcessingFailureNotificationInfo.setTaskDescription(String)",
+    "void TaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType)",
+    "void TaskProcessingFailureNotificationInfo.setTenantId(TenantId)",
+    "String TaskProcessingFailureNotificationInfo.toString()"
+  })
   void testGettersAndSetters_whenSys_tenant_id() {
     // Arrange and Act
-    TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo = new TaskProcessingFailureNotificationInfo(
-        TenantId.SYS_TENANT_ID, TenantId.SYS_TENANT_ID, HousekeeperTaskType.DELETE_ATTRIBUTES, "Task Description",
-        "An error occurred", 1);
+    TaskProcessingFailureNotificationInfo actualTaskProcessingFailureNotificationInfo =
+        new TaskProcessingFailureNotificationInfo(
+            TenantId.SYS_TENANT_ID,
+            TenantId.SYS_TENANT_ID,
+            HousekeeperTaskType.DELETE_ATTRIBUTES,
+            "Task Description",
+            "An error occurred",
+            1);
     actualTaskProcessingFailureNotificationInfo.setAttempt(1);
     actualTaskProcessingFailureNotificationInfo.setEntityId(TenantId.SYS_TENANT_ID);
     actualTaskProcessingFailureNotificationInfo.setError("An error occurred");
@@ -373,7 +418,8 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
     actualTaskProcessingFailureNotificationInfo.setTaskType(HousekeeperTaskType.DELETE_ATTRIBUTES);
     actualTaskProcessingFailureNotificationInfo.setTenantId(TenantId.SYS_TENANT_ID);
     String actualToStringResult = actualTaskProcessingFailureNotificationInfo.toString();
-    TenantId actualAffectedTenantId = actualTaskProcessingFailureNotificationInfo.getAffectedTenantId();
+    TenantId actualAffectedTenantId =
+        actualTaskProcessingFailureNotificationInfo.getAffectedTenantId();
     int actualAttempt = actualTaskProcessingFailureNotificationInfo.getAttempt();
     EntityId actualEntityId = actualTaskProcessingFailureNotificationInfo.getEntityId();
     String actualError = actualTaskProcessingFailureNotificationInfo.getError();
@@ -398,9 +444,11 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   }
 
   /**
-   * Test TaskProcessingFailureNotificationInfoBuilder {@link TaskProcessingFailureNotificationInfoBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test TaskProcessingFailureNotificationInfoBuilder {@link
+   * TaskProcessingFailureNotificationInfoBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#build()}
    *   <li>{@link TaskProcessingFailureNotificationInfoBuilder#attempt(int)}
@@ -414,25 +462,28 @@ class TaskProcessingFailureNotificationInfoDiffblueTest {
   @Test
   @DisplayName("Test TaskProcessingFailureNotificationInfoBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TaskProcessingFailureNotificationInfoBuilder.<init>()",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.attempt(int)",
-      "TaskProcessingFailureNotificationInfo TaskProcessingFailureNotificationInfoBuilder.build()",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.entityId(EntityId)",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.error(String)",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskDescription(String)",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskType(HousekeeperTaskType)",
-      "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.tenantId(TenantId)",
-      "String TaskProcessingFailureNotificationInfoBuilder.toString()"})
+  @MethodsUnderTest({
+    "void TaskProcessingFailureNotificationInfoBuilder.<init>()",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.attempt(int)",
+    "TaskProcessingFailureNotificationInfo TaskProcessingFailureNotificationInfoBuilder.build()",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.entityId(EntityId)",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.error(String)",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskDescription(String)",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.taskType(HousekeeperTaskType)",
+    "TaskProcessingFailureNotificationInfoBuilder TaskProcessingFailureNotificationInfoBuilder.tenantId(TenantId)",
+    "String TaskProcessingFailureNotificationInfoBuilder.toString()"
+  })
   void testTaskProcessingFailureNotificationInfoBuilderBuild() {
     // Arrange and Act
-    TaskProcessingFailureNotificationInfo actualBuildResult = TaskProcessingFailureNotificationInfo.builder()
-        .attempt(1)
-        .entityId(TenantId.SYS_TENANT_ID)
-        .error("An error occurred")
-        .taskDescription("Task Description")
-        .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
-        .tenantId(TenantId.SYS_TENANT_ID)
-        .build();
+    TaskProcessingFailureNotificationInfo actualBuildResult =
+        TaskProcessingFailureNotificationInfo.builder()
+            .attempt(1)
+            .entityId(TenantId.SYS_TENANT_ID)
+            .error("An error occurred")
+            .taskDescription("Task Description")
+            .taskType(HousekeeperTaskType.DELETE_ATTRIBUTES)
+            .tenantId(TenantId.SYS_TENANT_ID)
+            .build();
 
     // Assert
     Map<String, String> templateData = actualBuildResult.getTemplateData();

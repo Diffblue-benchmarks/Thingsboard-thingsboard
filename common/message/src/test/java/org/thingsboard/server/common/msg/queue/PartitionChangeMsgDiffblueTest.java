@@ -11,12 +11,14 @@ import org.thingsboard.server.common.msg.MsgType;
 class PartitionChangeMsgDiffblueTest {
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}, and {@link PartitionChangeMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PartitionChangeMsg#equals(Object)}
    *   <li>{@link PartitionChangeMsg#hashCode()}
@@ -25,7 +27,10 @@ class PartitionChangeMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PartitionChangeMsg partitionChangeMsg = new PartitionChangeMsg(ServiceType.TB_CORE);
@@ -39,12 +44,14 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}, and {@link PartitionChangeMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PartitionChangeMsg#equals(Object)}
    *   <li>{@link PartitionChangeMsg#hashCode()}
@@ -53,7 +60,10 @@ class PartitionChangeMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     PartitionChangeMsg partitionChangeMsg = new PartitionChangeMsg(null);
@@ -67,12 +77,14 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}, and {@link PartitionChangeMsg#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PartitionChangeMsg#equals(Object)}
    *   <li>{@link PartitionChangeMsg#hashCode()}
@@ -81,7 +93,10 @@ class PartitionChangeMsgDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PartitionChangeMsg partitionChangeMsg = new PartitionChangeMsg(ServiceType.TB_CORE);
@@ -94,17 +109,21 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PartitionChangeMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link PartitionChangeMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PartitionChangeMsg partitionChangeMsg = new PartitionChangeMsg(null);
@@ -115,17 +134,21 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PartitionChangeMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link PartitionChangeMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PartitionChangeMsg partitionChangeMsg = new PartitionChangeMsg(ServiceType.TB_RULE_ENGINE);
@@ -136,17 +159,21 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PartitionChangeMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link PartitionChangeMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PartitionChangeMsg(ServiceType.TB_CORE), null);
@@ -154,26 +181,32 @@ class PartitionChangeMsgDiffblueTest {
 
   /**
    * Test {@link PartitionChangeMsg#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link PartitionChangeMsg#equals(Object)}
+   *
+   * <p>Method under test: {@link PartitionChangeMsg#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean PartitionChangeMsg.equals(Object)", "int PartitionChangeMsg.hashCode()"})
+  @MethodsUnderTest({
+    "boolean PartitionChangeMsg.equals(Object)",
+    "int PartitionChangeMsg.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new PartitionChangeMsg(ServiceType.TB_CORE), "Different type to PartitionChangeMsg");
+    assertNotEquals(
+        new PartitionChangeMsg(ServiceType.TB_CORE), "Different type to PartitionChangeMsg");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link PartitionChangeMsg#PartitionChangeMsg(ServiceType)}
    *   <li>{@link PartitionChangeMsg#toString()}
@@ -184,8 +217,12 @@ class PartitionChangeMsgDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void PartitionChangeMsg.<init>(ServiceType)", "MsgType PartitionChangeMsg.getMsgType()",
-      "ServiceType PartitionChangeMsg.getServiceType()", "String PartitionChangeMsg.toString()"})
+  @MethodsUnderTest({
+    "void PartitionChangeMsg.<init>(ServiceType)",
+    "MsgType PartitionChangeMsg.getMsgType()",
+    "ServiceType PartitionChangeMsg.getServiceType()",
+    "String PartitionChangeMsg.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     PartitionChangeMsg actualPartitionChangeMsg = new PartitionChangeMsg(ServiceType.TB_CORE);

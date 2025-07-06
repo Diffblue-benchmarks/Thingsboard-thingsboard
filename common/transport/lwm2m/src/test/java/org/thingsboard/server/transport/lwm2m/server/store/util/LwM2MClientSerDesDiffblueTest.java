@@ -13,8 +13,8 @@ import org.thingsboard.server.transport.lwm2m.server.client.LwM2mClient;
 class LwM2MClientSerDesDiffblueTest {
   /**
    * Test {@link LwM2MClientSerDes#serialize(LwM2mClient)} with {@code client}.
-   * <p>
-   * Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
+   *
+   * <p>Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
    */
   @Test
   @DisplayName("Test serialize(LwM2mClient) with 'client'")
@@ -22,8 +22,9 @@ class LwM2MClientSerDesDiffblueTest {
   @MethodsUnderTest({"byte[] LwM2MClientSerDes.serialize(LwM2mClient)"})
   void testSerializeWithClient() {
     // Arrange and Act
-    byte[] actualSerializeResult = LwM2MClientSerDes
-        .serialize(new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"));
+    byte[] actualSerializeResult =
+        LwM2MClientSerDes.serialize(
+            new LwM2mClient("42", "https://config.us-east-2.amazonaws.com"));
 
     // Assert
     assertEquals(246, actualSerializeResult.length);
@@ -60,11 +61,12 @@ class LwM2MClientSerDesDiffblueTest {
 
   /**
    * Test {@link LwM2MClientSerDes#serialize(LwM2mClient)} with {@code client}.
+   *
    * <ul>
-   *   <li>Given Default.</li>
+   *   <li>Given Default.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
+   *
+   * <p>Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
    */
   @Test
   @DisplayName("Test serialize(LwM2mClient) with 'client'; given Default")
@@ -113,14 +115,16 @@ class LwM2MClientSerDesDiffblueTest {
 
   /**
    * Test {@link LwM2MClientSerDes#serialize(LwM2mClient)} with {@code client}.
+   *
    * <ul>
-   *   <li>Then return array length is three hundred one.</li>
+   *   <li>Then return array length is three hundred one.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
+   *
+   * <p>Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
    */
   @Test
-  @DisplayName("Test serialize(LwM2mClient) with 'client'; then return array length is three hundred one")
+  @DisplayName(
+      "Test serialize(LwM2mClient) with 'client'; then return array length is three hundred one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"byte[] LwM2MClientSerDes.serialize(LwM2mClient)"})
   void testSerializeWithClient_thenReturnArrayLengthIsThreeHundredOne() {
@@ -162,11 +166,12 @@ class LwM2MClientSerDesDiffblueTest {
 
   /**
    * Test {@link LwM2MClientSerDes#serialize(LwM2mClient)} with {@code client}.
+   *
    * <ul>
-   *   <li>Then return thirteenth element is {@code l}.</li>
+   *   <li>Then return thirteenth element is {@code l}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
+   *
+   * <p>Method under test: {@link LwM2MClientSerDes#serialize(LwM2mClient)}
    */
   @Test
   @DisplayName("Test serialize(LwM2mClient) with 'client'; then return thirteenth element is 'l'")
@@ -174,8 +179,9 @@ class LwM2MClientSerDesDiffblueTest {
   @MethodsUnderTest({"byte[] LwM2MClientSerDes.serialize(LwM2mClient)"})
   void testSerializeWithClient_thenReturnThirteenthElementIsL() {
     // Arrange and Act
-    byte[] actualSerializeResult = LwM2MClientSerDes
-        .serialize(new LwM2mClient(null, "https://config.us-east-2.amazonaws.com"));
+    byte[] actualSerializeResult =
+        LwM2MClientSerDes.serialize(
+            new LwM2mClient(null, "https://config.us-east-2.amazonaws.com"));
 
     // Assert
     assertEquals(246, actualSerializeResult.length);

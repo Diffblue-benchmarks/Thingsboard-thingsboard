@@ -16,12 +16,14 @@ import org.thingsboard.server.common.data.notification.NotificationDeliveryMetho
 class NotificationSettingsDiffblueTest {
   /**
    * Test {@link NotificationSettings#equals(Object)}, and {@link NotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationSettings#equals(Object)}
    *   <li>{@link NotificationSettings#hashCode()}
@@ -30,7 +32,10 @@ class NotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationSettings.equals(Object)", "int NotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationSettings.equals(Object)",
+    "int NotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -47,12 +52,14 @@ class NotificationSettingsDiffblueTest {
 
   /**
    * Test {@link NotificationSettings#equals(Object)}, and {@link NotificationSettings#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationSettings#equals(Object)}
    *   <li>{@link NotificationSettings#hashCode()}
@@ -61,7 +68,10 @@ class NotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationSettings.equals(Object)", "int NotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationSettings.equals(Object)",
+    "int NotificationSettings.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -75,21 +85,27 @@ class NotificationSettingsDiffblueTest {
 
   /**
    * Test {@link NotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationSettings.equals(Object)", "int NotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationSettings.equals(Object)",
+    "int NotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    HashMap<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> deliveryMethodsConfigs = new HashMap<>();
-    deliveryMethodsConfigs.put(NotificationDeliveryMethod.WEB, mock(NotificationDeliveryMethodConfig.class));
+    HashMap<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> deliveryMethodsConfigs =
+        new HashMap<>();
+    deliveryMethodsConfigs.put(
+        NotificationDeliveryMethod.WEB, mock(NotificationDeliveryMethodConfig.class));
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setDeliveryMethodsConfigs(deliveryMethodsConfigs);
@@ -103,17 +119,21 @@ class NotificationSettingsDiffblueTest {
 
   /**
    * Test {@link NotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationSettings.equals(Object)", "int NotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationSettings.equals(Object)",
+    "int NotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -125,17 +145,21 @@ class NotificationSettingsDiffblueTest {
 
   /**
    * Test {@link NotificationSettings#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link NotificationSettings#equals(Object)}
+   *
+   * <p>Method under test: {@link NotificationSettings#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean NotificationSettings.equals(Object)", "int NotificationSettings.hashCode()"})
+  @MethodsUnderTest({
+    "boolean NotificationSettings.equals(Object)",
+    "int NotificationSettings.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -147,8 +171,9 @@ class NotificationSettingsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationSettings}
    *   <li>{@link NotificationSettings#setDeliveryMethodsConfigs(Map)}
@@ -159,16 +184,21 @@ class NotificationSettingsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationSettings.<init>()", "Map NotificationSettings.getDeliveryMethodsConfigs()",
-      "void NotificationSettings.setDeliveryMethodsConfigs(Map)", "String NotificationSettings.toString()"})
+  @MethodsUnderTest({
+    "void NotificationSettings.<init>()",
+    "Map NotificationSettings.getDeliveryMethodsConfigs()",
+    "void NotificationSettings.setDeliveryMethodsConfigs(Map)",
+    "String NotificationSettings.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     NotificationSettings actualNotificationSettings = new NotificationSettings();
-    HashMap<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> deliveryMethodsConfigs = new HashMap<>();
+    HashMap<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> deliveryMethodsConfigs =
+        new HashMap<>();
     actualNotificationSettings.setDeliveryMethodsConfigs(deliveryMethodsConfigs);
     String actualToStringResult = actualNotificationSettings.toString();
-    Map<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> actualDeliveryMethodsConfigs = actualNotificationSettings
-        .getDeliveryMethodsConfigs();
+    Map<NotificationDeliveryMethod, NotificationDeliveryMethodConfig> actualDeliveryMethodsConfigs =
+        actualNotificationSettings.getDeliveryMethodsConfigs();
 
     // Assert
     assertEquals("NotificationSettings(deliveryMethodsConfigs={})", actualToStringResult);

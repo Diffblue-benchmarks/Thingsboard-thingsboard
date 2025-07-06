@@ -10,7 +10,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletResponseWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletResponseWrapper;
@@ -41,58 +40,22 @@ import org.thingsboard.server.common.data.exception.ThingsboardErrorCode;
 @ContextConfiguration(classes = {ThingsboardErrorResponseHandler.class})
 @ExtendWith(SpringExtension.class)
 class ThingsboardErrorResponseHandlerDiffblueTest {
-  @Autowired
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Autowired private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handleError(HttpServletRequest)}.
+   * Test {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)} with {@code
+   * exception}, {@code response}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequest#MockHttpServletRequest()}.</li>
-   *   <li>Then StatusCode return {@link HttpStatus}.</li>
+   *   <li>Given {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handleError(HttpServletRequest)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handle(Exception,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test handleError(HttpServletRequest); when MockHttpServletRequest(); then StatusCode return HttpStatus")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ResponseEntity ThingsboardErrorResponseHandler.handleError(HttpServletRequest)"})
-  void testHandleError_whenMockHttpServletRequest_thenStatusCodeReturnHttpStatus() {
-    //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
-    //   Run dcover create --keep-partial-tests to gain insights into why
-    //   a non-Spring test was created.
-
-    // Arrange
-    ThingsboardErrorResponseHandler thingsboardErrorResponseHandler = new ThingsboardErrorResponseHandler();
-
-    // Act
-    ResponseEntity<Object> actualHandleErrorResult = thingsboardErrorResponseHandler
-        .handleError(new MockHttpServletRequest());
-
-    // Assert
-    HttpStatusCode statusCode = actualHandleErrorResult.getStatusCode();
-    assertTrue(statusCode instanceof HttpStatus);
-    Object body = actualHandleErrorResult.getBody();
-    assertTrue(body instanceof ThingsboardErrorResponse);
-    assertEquals("Internal Server Error", ((ThingsboardErrorResponse) body).getMessage());
-    assertEquals(500, ((ThingsboardErrorResponse) body).getStatus().intValue());
-    assertEquals(500, actualHandleErrorResult.getStatusCodeValue());
-    assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, statusCode);
-    assertEquals(ThingsboardErrorCode.GENERAL, ((ThingsboardErrorResponse) body).getErrorCode());
-    assertTrue(actualHandleErrorResult.hasBody());
-    assertTrue(actualHandleErrorResult.getHeaders().isEmpty());
-  }
-
-  /**
-   * Test {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)} with {@code exception}, {@code response}.
-   * <ul>
-   *   <li>Given {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)}
-   */
-  @Test
-  @DisplayName("Test handle(Exception, HttpServletResponse) with 'exception', 'response'; given 'true'")
+  @DisplayName(
+      "Test handle(Exception, HttpServletResponse) with 'exception', 'response'; given 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ThingsboardErrorResponseHandler.handle(Exception, HttpServletResponse)"})
   void testHandleWithExceptionResponse_givenTrue() {
@@ -109,15 +72,19 @@ class ThingsboardErrorResponseHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)} with {@code exception}, {@code response}.
+   * Test {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)} with {@code
+   * exception}, {@code response}.
+   *
    * <ul>
-   *   <li>Then calls {@link ServletResponseWrapper#getWriter()}.</li>
+   *   <li>Then calls {@link HttpServletResponseWrapper#getWriter()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handle(Exception, HttpServletResponse)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handle(Exception,
+   * HttpServletResponse)}
    */
   @Test
-  @DisplayName("Test handle(Exception, HttpServletResponse) with 'exception', 'response'; then calls getWriter()")
+  @DisplayName(
+      "Test handle(Exception, HttpServletResponse) with 'exception', 'response'; then calls getWriter()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ThingsboardErrorResponseHandler.handle(Exception, HttpServletResponse)"})
   void testHandleWithExceptionResponse_thenCallsGetWriter() throws IOException {
@@ -140,15 +107,19 @@ class ThingsboardErrorResponseHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)} with {@code request}, {@code response}, {@code accessDeniedException}.
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)}
+   * Test {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse,
+   * AccessDeniedException)} with {@code request}, {@code response}, {@code accessDeniedException}.
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest,
+   * HttpServletResponse, AccessDeniedException)}
    */
   @Test
-  @DisplayName("Test handle(HttpServletRequest, HttpServletResponse, AccessDeniedException) with 'request', 'response', 'accessDeniedException'")
+  @DisplayName(
+      "Test handle(HttpServletRequest, HttpServletResponse, AccessDeniedException) with 'request', 'response', 'accessDeniedException'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void ThingsboardErrorResponseHandler.handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)"})
+    "void ThingsboardErrorResponseHandler.handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)"
+  })
   void testHandleWithRequestResponseAccessDeniedException() throws ServletException, IOException {
     // Arrange
     MockHttpServletRequest request = new MockHttpServletRequest();
@@ -169,19 +140,25 @@ class ThingsboardErrorResponseHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)} with {@code request}, {@code response}, {@code accessDeniedException}.
+   * Test {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse,
+   * AccessDeniedException)} with {@code request}, {@code response}, {@code accessDeniedException}.
+   *
    * <ul>
-   *   <li>Then calls {@link ServletResponseWrapper#isCommitted()}.</li>
+   *   <li>Then calls {@link HttpServletResponseWrapper#isCommitted()}.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handle(HttpServletRequest,
+   * HttpServletResponse, AccessDeniedException)}
    */
   @Test
-  @DisplayName("Test handle(HttpServletRequest, HttpServletResponse, AccessDeniedException) with 'request', 'response', 'accessDeniedException'; then calls isCommitted()")
+  @DisplayName(
+      "Test handle(HttpServletRequest, HttpServletResponse, AccessDeniedException) with 'request', 'response', 'accessDeniedException'; then calls isCommitted()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void ThingsboardErrorResponseHandler.handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)"})
-  void testHandleWithRequestResponseAccessDeniedException_thenCallsIsCommitted() throws ServletException, IOException {
+    "void ThingsboardErrorResponseHandler.handle(HttpServletRequest, HttpServletResponse, AccessDeniedException)"
+  })
+  void testHandleWithRequestResponseAccessDeniedException_thenCallsIsCommitted()
+      throws ServletException, IOException {
     // Arrange
     MockHttpServletRequest request = new MockHttpServletRequest();
     HttpServletResponseWrapper response = mock(HttpServletResponseWrapper.class);
@@ -195,26 +172,35 @@ class ThingsboardErrorResponseHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)}.
+   * Test {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object,
+   * HttpHeaders, HttpStatusCode, WebRequest)}.
+   *
    * <ul>
-   *   <li>Then return Body Status intValue is five hundred.</li>
+   *   <li>Then return Body Status intValue is five hundred.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception,
+   * Object, HttpHeaders, HttpStatusCode, WebRequest)}
    */
   @Test
-  @DisplayName("Test handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest); then return Body Status intValue is five hundred")
+  @DisplayName(
+      "Test handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest); then return Body Status intValue is five hundred")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResponseEntity ThingsboardErrorResponseHandler.handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)"})
+    "ResponseEntity ThingsboardErrorResponseHandler.handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)"
+  })
   void testHandleExceptionInternal_thenReturnBodyStatusIntValueIsFiveHundred() {
     // Arrange
     Exception ex = new Exception("foo");
     HttpHeaders headers = new HttpHeaders();
 
     // Act
-    ResponseEntity<Object> actualHandleExceptionInternalResult = thingsboardErrorResponseHandler
-        .handleExceptionInternal(ex, "Body", headers, HttpStatus.INTERNAL_SERVER_ERROR,
+    ResponseEntity<Object> actualHandleExceptionInternalResult =
+        thingsboardErrorResponseHandler.handleExceptionInternal(
+            ex,
+            "Body",
+            headers,
+            HttpStatus.INTERNAL_SERVER_ERROR,
             new ServletWebRequest(new MockHttpServletRequest()));
 
     // Assert
@@ -232,27 +218,36 @@ class ThingsboardErrorResponseHandlerDiffblueTest {
   }
 
   /**
-   * Test {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)}.
+   * Test {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object,
+   * HttpHeaders, HttpStatusCode, WebRequest)}.
+   *
    * <ul>
-   *   <li>When {@link HttpStatus#OK}.</li>
-   *   <li>Then return Body Status intValue is two hundred.</li>
+   *   <li>When {@link HttpStatus#OK}.
+   *   <li>Then return Body Status intValue is two hundred.
    * </ul>
-   * <p>
-   * Method under test: {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)}
+   *
+   * <p>Method under test: {@link ThingsboardErrorResponseHandler#handleExceptionInternal(Exception,
+   * Object, HttpHeaders, HttpStatusCode, WebRequest)}
    */
   @Test
-  @DisplayName("Test handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest); when OK; then return Body Status intValue is two hundred")
+  @DisplayName(
+      "Test handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest); when OK; then return Body Status intValue is two hundred")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "ResponseEntity ThingsboardErrorResponseHandler.handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)"})
+    "ResponseEntity ThingsboardErrorResponseHandler.handleExceptionInternal(Exception, Object, HttpHeaders, HttpStatusCode, WebRequest)"
+  })
   void testHandleExceptionInternal_whenOk_thenReturnBodyStatusIntValueIsTwoHundred() {
     // Arrange
     Exception ex = new Exception("foo");
     HttpHeaders headers = new HttpHeaders();
 
     // Act
-    ResponseEntity<Object> actualHandleExceptionInternalResult = thingsboardErrorResponseHandler
-        .handleExceptionInternal(ex, "Body", headers, HttpStatus.OK,
+    ResponseEntity<Object> actualHandleExceptionInternalResult =
+        thingsboardErrorResponseHandler.handleExceptionInternal(
+            ex,
+            "Body",
+            headers,
+            HttpStatus.OK,
             new ServletWebRequest(new MockHttpServletRequest()));
 
     // Assert

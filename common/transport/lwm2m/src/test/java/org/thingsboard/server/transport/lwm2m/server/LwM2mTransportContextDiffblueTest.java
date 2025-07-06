@@ -9,16 +9,18 @@ import org.junit.jupiter.api.Test;
 class LwM2mTransportContextDiffblueTest {
   /**
    * Test {@link LwM2mTransportContext#getServer()}.
-   * <p>
-   * Method under test: {@link LwM2mTransportContext#getServer()}
+   *
+   * <p>Method under test: {@link LwM2mTransportContext#getServer()}
    */
   @Test
   @DisplayName("Test getServer()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.eclipse.leshan.server.LeshanServer LwM2mTransportContext.getServer()",
-      "void LwM2mTransportContext.setServer(org.eclipse.leshan.server.LeshanServer)"})
+  @MethodsUnderTest({
+    "org.eclipse.leshan.server.LeshanServer LwM2mTransportContext.getServer()",
+    "void LwM2mTransportContext.setServer(org.eclipse.leshan.server.LeshanServer)"
+  })
   void testGetServer() {
     // Arrange, Act and Assert
-    assertNull((new LwM2mTransportContext()).getServer());
+    assertNull(new LwM2mTransportContext().getServer());
   }
 }

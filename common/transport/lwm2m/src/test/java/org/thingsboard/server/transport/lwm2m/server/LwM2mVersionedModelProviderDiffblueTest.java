@@ -24,22 +24,21 @@ import org.thingsboard.server.transport.lwm2m.server.client.LwM2mClientContext;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class LwM2mVersionedModelProviderDiffblueTest {
-  @Mock
-  private LwM2mClientContext lwM2mClientContext;
+  @Mock private LwM2mClientContext lwM2mClientContext;
 
-  @InjectMocks
-  private LwM2mVersionedModelProvider lwM2mVersionedModelProvider;
+  @InjectMocks private LwM2mVersionedModelProvider lwM2mVersionedModelProvider;
 
   /**
    * Test {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}.
-   * <p>
-   * Method under test: {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}
+   *
+   * <p>Method under test: {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}
    */
   @Test
   @DisplayName("Test getObjectModel(Registration)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.core.model.LwM2mModel LwM2mVersionedModelProvider.getObjectModel(Registration)"})
+    "org.eclipse.leshan.core.model.LwM2mModel LwM2mVersionedModelProvider.getObjectModel(Registration)"
+  })
   void testGetObjectModel() {
     // Arrange
     when(lwM2mClientContext.getClientByEndpoint(Mockito.<String>any()))
@@ -57,21 +56,24 @@ class LwM2mVersionedModelProviderDiffblueTest {
 
   /**
    * Test {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}.
+   *
    * <ul>
-   *   <li>Then calls {@link LwM2mClient#getTenantId()}.</li>
+   *   <li>Then calls {@link LwM2mClient#getTenantId()}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}
+   *
+   * <p>Method under test: {@link LwM2mVersionedModelProvider#getObjectModel(Registration)}
    */
   @Test
   @DisplayName("Test getObjectModel(Registration); then calls getTenantId()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.eclipse.leshan.core.model.LwM2mModel LwM2mVersionedModelProvider.getObjectModel(Registration)"})
+    "org.eclipse.leshan.core.model.LwM2mModel LwM2mVersionedModelProvider.getObjectModel(Registration)"
+  })
   void testGetObjectModel_thenCallsGetTenantId() {
     // Arrange
     LwM2mClient lwM2mClient = mock(LwM2mClient.class);
-    when(lwM2mClient.getTenantId()).thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    when(lwM2mClient.getTenantId())
+        .thenReturn(new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
     when(lwM2mClientContext.getClientByEndpoint(Mockito.<String>any())).thenReturn(lwM2mClient);
     Registration registration = mock(Registration.class);
     when(registration.getEndpoint()).thenReturn("https://config.us-east-2.amazonaws.com");

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class ThingsboardErrorCodeDiffblueTest {
   /**
    * Test {@link ThingsboardErrorCode#getErrorCode()}.
-   * <p>
-   * Method under test: {@link ThingsboardErrorCode#getErrorCode()}
+   *
+   * <p>Method under test: {@link ThingsboardErrorCode#getErrorCode()}
    */
   @Test
   @DisplayName("Test getErrorCode()")

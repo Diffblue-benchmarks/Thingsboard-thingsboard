@@ -14,18 +14,19 @@ import org.thingsboard.rule.engine.util.TbMsgSource;
 class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   /**
    * Test {@link TbGetCustomerDetailsNodeConfiguration#defaultConfiguration()}.
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNodeConfiguration#defaultConfiguration()}
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNodeConfiguration#defaultConfiguration()}
    */
   @Test
   @DisplayName("Test defaultConfiguration()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbGetCustomerDetailsNodeConfiguration TbGetCustomerDetailsNodeConfiguration.defaultConfiguration()"})
+    "TbGetCustomerDetailsNodeConfiguration TbGetCustomerDetailsNodeConfiguration.defaultConfiguration()"
+  })
   void testDefaultConfiguration() {
     // Arrange and Act
-    TbGetCustomerDetailsNodeConfiguration actualDefaultConfigurationResult = (new TbGetCustomerDetailsNodeConfiguration())
-        .defaultConfiguration();
+    TbGetCustomerDetailsNodeConfiguration actualDefaultConfigurationResult =
+        new TbGetCustomerDetailsNodeConfiguration().defaultConfiguration();
 
     // Assert
     assertEquals(TbMsgSource.DATA, actualDefaultConfigurationResult.getFetchTo());
@@ -33,13 +34,16 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}, and {@link TbGetCustomerDetailsNodeConfiguration#hashCode()}.
+   * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}, and {@link
+   * TbGetCustomerDetailsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    *   <li>{@link TbGetCustomerDetailsNodeConfiguration#hashCode()}
@@ -48,12 +52,16 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration = new TbGetCustomerDetailsNodeConfiguration();
-    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration2 = new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration =
+        new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration2 =
+        new TbGetCustomerDetailsNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGetCustomerDetailsNodeConfiguration, tbGetCustomerDetailsNodeConfiguration2);
@@ -62,13 +70,16 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}, and {@link TbGetCustomerDetailsNodeConfiguration#hashCode()}.
+   * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}, and {@link
+   * TbGetCustomerDetailsNodeConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    *   <li>{@link TbGetCustomerDetailsNodeConfiguration#hashCode()}
@@ -77,11 +88,14 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration = new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration =
+        new TbGetCustomerDetailsNodeConfiguration();
 
     // Act and Assert
     assertEquals(tbGetCustomerDetailsNodeConfiguration, tbGetCustomerDetailsNodeConfiguration);
@@ -91,18 +105,21 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetCustomerDetailsNodeConfiguration(), 1);
@@ -110,41 +127,49 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration = new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration =
+        new TbGetCustomerDetailsNodeConfiguration();
     tbGetCustomerDetailsNodeConfiguration.setDetailsList(new ArrayList<>());
 
     // Act and Assert
-    assertNotEquals(tbGetCustomerDetailsNodeConfiguration, new TbGetCustomerDetailsNodeConfiguration());
+    assertNotEquals(
+        tbGetCustomerDetailsNodeConfiguration, new TbGetCustomerDetailsNodeConfiguration());
   }
 
   /**
    * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TbGetCustomerDetailsNodeConfiguration(), null);
@@ -152,28 +177,33 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
 
   /**
    * Test {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNodeConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
-      "int TbGetCustomerDetailsNodeConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbGetCustomerDetailsNodeConfiguration.equals(Object)",
+    "int TbGetCustomerDetailsNodeConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbGetCustomerDetailsNodeConfiguration(),
+    assertNotEquals(
+        new TbGetCustomerDetailsNodeConfiguration(),
         "Different type to TbGetCustomerDetailsNodeConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGetCustomerDetailsNodeConfiguration}
    *   <li>{@link TbGetCustomerDetailsNodeConfiguration#toString()}
@@ -182,14 +212,19 @@ class TbGetCustomerDetailsNodeConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGetCustomerDetailsNodeConfiguration.<init>()",
-      "java.lang.String TbGetCustomerDetailsNodeConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void TbGetCustomerDetailsNodeConfiguration.<init>()",
+    "java.lang.String TbGetCustomerDetailsNodeConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    TbGetCustomerDetailsNodeConfiguration actualTbGetCustomerDetailsNodeConfiguration = new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration actualTbGetCustomerDetailsNodeConfiguration =
+        new TbGetCustomerDetailsNodeConfiguration();
 
     // Assert
-    assertEquals("TbGetCustomerDetailsNodeConfiguration()", actualTbGetCustomerDetailsNodeConfiguration.toString());
+    assertEquals(
+        "TbGetCustomerDetailsNodeConfiguration()",
+        actualTbGetCustomerDetailsNodeConfiguration.toString());
     assertNull(actualTbGetCustomerDetailsNodeConfiguration.getDetailsList());
     assertNull(actualTbGetCustomerDetailsNodeConfiguration.getFetchTo());
   }

@@ -13,8 +13,9 @@ import org.springframework.web.cors.CorsConfiguration;
 class MvcCorsPropertiesDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MvcCorsProperties#setMappings(Map)}
    *   <li>{@link MvcCorsProperties#getMappings()}
@@ -23,7 +24,10 @@ class MvcCorsPropertiesDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map MvcCorsProperties.getMappings()", "void MvcCorsProperties.setMappings(Map)"})
+  @MethodsUnderTest({
+    "Map MvcCorsProperties.getMappings()",
+    "void MvcCorsProperties.setMappings(Map)"
+  })
   void testGettersAndSetters() {
     // Arrange
     MvcCorsProperties mvcCorsProperties = new MvcCorsProperties();

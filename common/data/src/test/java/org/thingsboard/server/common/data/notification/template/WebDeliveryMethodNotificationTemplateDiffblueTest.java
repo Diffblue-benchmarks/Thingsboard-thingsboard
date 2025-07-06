@@ -13,12 +13,11 @@ import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.BigIntegerNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.fasterxml.jackson.databind.node.POJONode;
-import java.math.BigInteger;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Iterator;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -30,8 +29,9 @@ import org.thingsboard.server.common.data.notification.NotificationDeliveryMetho
 class WebDeliveryMethodNotificationTemplateDiffblueTest {
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}
    */
   @Test
   @DisplayName("Test new WebDeliveryMethodNotificationTemplate()")
@@ -39,11 +39,13 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>()"})
   void testNewWebDeliveryMethodNotificationTemplate() {
     // Arrange and Act
-    WebDeliveryMethodNotificationTemplate actualWebDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate actualWebDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
 
     // Assert
     assertNull(actualWebDeliveryMethodNotificationTemplate.getAdditionalConfig());
-    List<TemplatableValue> templatableValues = actualWebDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> templatableValues =
+        actualWebDeliveryMethodNotificationTemplate.getTemplatableValues();
     assertEquals(4, templatableValues.size());
     assertNull(templatableValues.get(0).get());
     assertNull(templatableValues.get(1).get());
@@ -53,45 +55,60 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
     assertNull(actualWebDeliveryMethodNotificationTemplate.getButtonLink());
     assertNull(actualWebDeliveryMethodNotificationTemplate.getButtonText());
     assertNull(actualWebDeliveryMethodNotificationTemplate.getSubject());
-    assertEquals(NotificationDeliveryMethod.WEB, actualWebDeliveryMethodNotificationTemplate.getMethod());
+    assertEquals(
+        NotificationDeliveryMethod.WEB, actualWebDeliveryMethodNotificationTemplate.getMethod());
     assertFalse(actualWebDeliveryMethodNotificationTemplate.isEnabled());
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate2() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate other = new WebDeliveryMethodNotificationTemplate();
-    MissingNode additionalConfig = MissingNode.getInstance();
+    WebDeliveryMethodNotificationTemplate other =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
+    DoubleNode additionalConfig = DoubleNode.valueOf(10.0d);
     other.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
-    assertSame(additionalConfig, (new WebDeliveryMethodNotificationTemplate(other)).getAdditionalConfig());
+    assertSame(
+        additionalConfig, new WebDeliveryMethodNotificationTemplate(other).getAdditionalConfig());
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate3() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate other = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate other =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
     other.setAdditionalConfig(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
 
     // Act and Assert
-    JsonNode additionalConfig = (new WebDeliveryMethodNotificationTemplate(other)).getAdditionalConfig();
+    JsonNode additionalConfig =
+        new WebDeliveryMethodNotificationTemplate(other).getAdditionalConfig();
     assertTrue(additionalConfig instanceof ArrayNode);
     assertEquals("[ ]", additionalConfig.toPrettyString());
     assertEquals(0, additionalConfig.size());
@@ -100,112 +117,139 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate4() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate other = new WebDeliveryMethodNotificationTemplate();
-    BigIntegerNode additionalConfig = new BigIntegerNode(BigInteger.valueOf(1L));
+    WebDeliveryMethodNotificationTemplate other =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
+    MissingNode additionalConfig = MissingNode.getInstance();
     other.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
-    assertSame(additionalConfig, (new WebDeliveryMethodNotificationTemplate(other)).getAdditionalConfig());
+    assertSame(
+        additionalConfig, new WebDeliveryMethodNotificationTemplate(other).getAdditionalConfig());
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate5() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate other = new WebDeliveryMethodNotificationTemplate();
-
     ArrayNode additionalConfig = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    MissingNode value = MissingNode.getInstance();
-    additionalConfig.add(value);
+    additionalConfig.addArray();
+
+    WebDeliveryMethodNotificationTemplate other =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
     other.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
-    JsonNode additionalConfig2 = (new WebDeliveryMethodNotificationTemplate(other)).getAdditionalConfig();
-    assertTrue(additionalConfig2 instanceof ArrayNode);
+    JsonNode additionalConfig2 =
+        new WebDeliveryMethodNotificationTemplate(other).getAdditionalConfig();
     Iterator<JsonNode> elementsResult = additionalConfig2.elements();
-    JsonNode actualNextResult = elementsResult.next();
+    JsonNode nextResult = elementsResult.next();
+    assertTrue(nextResult instanceof ArrayNode);
+    assertTrue(additionalConfig2 instanceof ArrayNode);
+    assertEquals("[ [ ] ]", additionalConfig2.toPrettyString());
+    assertEquals("[ ]", nextResult.toPrettyString());
+    assertEquals(0, nextResult.size());
+    assertEquals(JsonNodeType.ARRAY, nextResult.getNodeType());
+    assertFalse(nextResult.isObject());
+    assertFalse(nextResult.elements().hasNext());
     assertFalse(elementsResult.hasNext());
-    assertSame(value, actualNextResult);
-    Iterator<JsonNode> iteratorResult = additionalConfig2.iterator();
-    JsonNode actualNextResult2 = iteratorResult.next();
-    assertFalse(iteratorResult.hasNext());
-    assertSame(value, actualNextResult2);
-    assertEquals(1, additionalConfig2.size());
-    assertEquals("[ null ]", additionalConfig2.toPrettyString());
+    assertTrue(nextResult.isArray());
+    assertTrue(nextResult.isEmpty());
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate6() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate other = new WebDeliveryMethodNotificationTemplate();
-
     ArrayNode additionalConfig = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    additionalConfig.addPOJO("Pojo");
-    additionalConfig.add(MissingNode.getInstance());
+    additionalConfig.addObject();
+
+    WebDeliveryMethodNotificationTemplate other =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
     other.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
-    JsonNode additionalConfig2 = (new WebDeliveryMethodNotificationTemplate(other)).getAdditionalConfig();
+    JsonNode additionalConfig2 =
+        new WebDeliveryMethodNotificationTemplate(other).getAdditionalConfig();
     assertTrue(additionalConfig2 instanceof ArrayNode);
     Iterator<JsonNode> elementsResult = additionalConfig2.elements();
     JsonNode nextResult = elementsResult.next();
-    JsonNode nextResult2 = elementsResult.next();
+    assertTrue(nextResult instanceof ObjectNode);
+    assertEquals("[ { } ]", additionalConfig2.toPrettyString());
+    assertEquals("{ }", nextResult.toPrettyString());
+    assertEquals(0, nextResult.size());
+    assertEquals(JsonNodeType.OBJECT, nextResult.getNodeType());
+    assertFalse(nextResult.isArray());
     assertFalse(elementsResult.hasNext());
-    assertTrue(nextResult instanceof POJONode);
-    assertEquals(JsonNodeType.POJO, nextResult.getNodeType());
-    assertEquals("Pojo", ((POJONode) nextResult).getPojo());
-    assertTrue(nextResult.isPojo());
-    assertTrue(nextResult.isValueNode());
-    assertEquals("\"Pojo\"", nextResult.toPrettyString());
-    assertTrue(nextResult2 instanceof MissingNode);
-    assertEquals("[ \"Pojo\", null ]", additionalConfig2.toPrettyString());
+    assertTrue(nextResult.isEmpty());
+    assertTrue(nextResult.isObject());
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   * Test {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}.
+   *
    * <ul>
-   *   <li>Then return AdditionalConfig is {@code null}.</li>
+   *   <li>Then return AdditionalConfig is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
+   *
+   * <p>Method under test: {@link
+   * WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate); then return AdditionalConfig is 'null'")
+  @DisplayName(
+      "Test new WebDeliveryMethodNotificationTemplate(WebDeliveryMethodNotificationTemplate); then return AdditionalConfig is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void WebDeliveryMethodNotificationTemplate.<init>(WebDeliveryMethodNotificationTemplate)"
+  })
   void testNewWebDeliveryMethodNotificationTemplate_thenReturnAdditionalConfigIsNull() {
     // Arrange and Act
-    WebDeliveryMethodNotificationTemplate actualWebDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate(
-        new WebDeliveryMethodNotificationTemplate());
+    WebDeliveryMethodNotificationTemplate actualWebDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
 
     // Assert
     assertNull(actualWebDeliveryMethodNotificationTemplate.getAdditionalConfig());
-    List<TemplatableValue> templatableValues = actualWebDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> templatableValues =
+        actualWebDeliveryMethodNotificationTemplate.getTemplatableValues();
     assertEquals(4, templatableValues.size());
     assertNull(templatableValues.get(0).get());
     assertNull(templatableValues.get(1).get());
@@ -215,14 +259,15 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
     assertNull(actualWebDeliveryMethodNotificationTemplate.getButtonLink());
     assertNull(actualWebDeliveryMethodNotificationTemplate.getButtonText());
     assertNull(actualWebDeliveryMethodNotificationTemplate.getSubject());
-    assertEquals(NotificationDeliveryMethod.WEB, actualWebDeliveryMethodNotificationTemplate.getMethod());
+    assertEquals(
+        NotificationDeliveryMethod.WEB, actualWebDeliveryMethodNotificationTemplate.getMethod());
     assertFalse(actualWebDeliveryMethodNotificationTemplate.isEnabled());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#getBody()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getBody()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#getBody()}
    */
   @Test
   @DisplayName("Test getBody()")
@@ -230,13 +275,13 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getBody()"})
   void testGetBody() {
     // Arrange, Act and Assert
-    assertNull((new WebDeliveryMethodNotificationTemplate()).getBody());
+    assertNull(new WebDeliveryMethodNotificationTemplate().getBody());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#getButtonText()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonText()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonText()}
    */
   @Test
   @DisplayName("Test getButtonText()")
@@ -244,8 +289,9 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonText()"})
   void testGetButtonText() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNull(webDeliveryMethodNotificationTemplate.getButtonText());
@@ -253,31 +299,13 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#getButtonText()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonText()}
-   */
-  @Test
-  @DisplayName("Test getButtonText()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonText()"})
-  void testGetButtonText2() {
-    // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
-    webDeliveryMethodNotificationTemplate
-        .setAdditionalConfig(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
-
-    // Act and Assert
-    assertNull(webDeliveryMethodNotificationTemplate.getButtonText());
-  }
-
-  /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#getButtonText()}.
+   *
    * <ul>
-   *   <li>Given {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}.</li>
+   *   <li>Given {@link
+   *       WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonText()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonText()}
    */
   @Test
   @DisplayName("Test getButtonText(); given WebDeliveryMethodNotificationTemplate()")
@@ -285,28 +313,31 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonText()"})
   void testGetButtonText_givenWebDeliveryMethodNotificationTemplate() {
     // Arrange, Act and Assert
-    assertNull((new WebDeliveryMethodNotificationTemplate()).getButtonText());
+    assertNull(new WebDeliveryMethodNotificationTemplate().getButtonText());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#setButtonText(String)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return Instance.</li>
-   *   <li>Then calls {@link ArrayNode#get(String)}.</li>
+   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return valueOf ten.
+   *   <li>Then calls {@link ArrayNode#get(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#setButtonText(String)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#setButtonText(String)}
    */
   @Test
-  @DisplayName("Test setButtonText(String); given ArrayNode get(String) return Instance; then calls get(String)")
+  @DisplayName(
+      "Test setButtonText(String); given ArrayNode get(String) return valueOf ten; then calls get(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.setButtonText(String)"})
-  void testSetButtonText_givenArrayNodeGetReturnInstance_thenCallsGet() {
+  void testSetButtonText_givenArrayNodeGetReturnValueOfTen_thenCallsGet() {
     // Arrange
     ArrayNode additionalConfig = mock(ArrayNode.class);
-    when(additionalConfig.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
+    when(additionalConfig.get(Mockito.<String>any())).thenReturn(DoubleNode.valueOf(10.0d));
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
 
     // Act
@@ -318,8 +349,8 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}
    */
   @Test
   @DisplayName("Test getButtonLink()")
@@ -327,8 +358,9 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonLink()"})
   void testGetButtonLink() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNull(webDeliveryMethodNotificationTemplate.getButtonLink());
@@ -336,31 +368,13 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}
-   */
-  @Test
-  @DisplayName("Test getButtonLink()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonLink()"})
-  void testGetButtonLink2() {
-    // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
-    webDeliveryMethodNotificationTemplate
-        .setAdditionalConfig(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
-
-    // Act and Assert
-    assertNull(webDeliveryMethodNotificationTemplate.getButtonLink());
-  }
-
-  /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}.
+   *
    * <ul>
-   *   <li>Given {@link WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}.</li>
+   *   <li>Given {@link
+   *       WebDeliveryMethodNotificationTemplate#WebDeliveryMethodNotificationTemplate()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#getButtonLink()}
    */
   @Test
   @DisplayName("Test getButtonLink(); given WebDeliveryMethodNotificationTemplate()")
@@ -368,28 +382,31 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"String WebDeliveryMethodNotificationTemplate.getButtonLink()"})
   void testGetButtonLink_givenWebDeliveryMethodNotificationTemplate() {
     // Arrange, Act and Assert
-    assertNull((new WebDeliveryMethodNotificationTemplate()).getButtonLink());
+    assertNull(new WebDeliveryMethodNotificationTemplate().getButtonLink());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#setButtonLink(String)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return Instance.</li>
-   *   <li>Then calls {@link ArrayNode#get(String)}.</li>
+   *   <li>Given {@link ArrayNode} {@link ArrayNode#get(String)} return valueOf ten.
+   *   <li>Then calls {@link ArrayNode#get(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#setButtonLink(String)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#setButtonLink(String)}
    */
   @Test
-  @DisplayName("Test setButtonLink(String); given ArrayNode get(String) return Instance; then calls get(String)")
+  @DisplayName(
+      "Test setButtonLink(String); given ArrayNode get(String) return valueOf ten; then calls get(String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WebDeliveryMethodNotificationTemplate.setButtonLink(String)"})
-  void testSetButtonLink_givenArrayNodeGetReturnInstance_thenCallsGet() {
+  void testSetButtonLink_givenArrayNodeGetReturnValueOfTen_thenCallsGet() {
     // Arrange
     ArrayNode additionalConfig = mock(ArrayNode.class);
-    when(additionalConfig.get(Mockito.<String>any())).thenReturn(MissingNode.getInstance());
+    when(additionalConfig.get(Mockito.<String>any())).thenReturn(DoubleNode.valueOf(10.0d));
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
 
     // Act
@@ -401,18 +418,21 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
   void testCopy() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate
-        .setAdditionalConfig(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(
+        new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
 
     // Act and Assert
     JsonNode additionalConfig = webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig();
@@ -425,23 +445,67 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
+   *
    * <ul>
-   *   <li>Then AdditionalConfig elements next return {@link POJONode}.</li>
+   *   <li>Then AdditionalConfig elements next return {@link ArrayNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
-  @DisplayName("Test copy(); then AdditionalConfig elements next return POJONode")
+  @DisplayName("Test copy(); then AdditionalConfig elements next return ArrayNode")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
-  void testCopy_thenAdditionalConfigElementsNextReturnPOJONode() {
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
+  void testCopy_thenAdditionalConfigElementsNextReturnArrayNode() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-
     ArrayNode additionalConfig = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    additionalConfig.addPOJO("Pojo");
-    additionalConfig.add(MissingNode.getInstance());
+    additionalConfig.addArray();
+
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
+
+    // Act and Assert
+    JsonNode additionalConfig2 = webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig();
+    Iterator<JsonNode> elementsResult = additionalConfig2.elements();
+    JsonNode nextResult = elementsResult.next();
+    assertTrue(nextResult instanceof ArrayNode);
+    assertTrue(additionalConfig2 instanceof ArrayNode);
+    assertEquals("[ [ ] ]", additionalConfig2.toPrettyString());
+    assertEquals("[ ]", nextResult.toPrettyString());
+    assertEquals(0, nextResult.size());
+    assertEquals(JsonNodeType.ARRAY, nextResult.getNodeType());
+    assertFalse(nextResult.isObject());
+    assertFalse(nextResult.elements().hasNext());
+    assertFalse(elementsResult.hasNext());
+    assertTrue(nextResult.isArray());
+    assertTrue(nextResult.isEmpty());
+  }
+
+  /**
+   * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
+   *
+   * <ul>
+   *   <li>Then AdditionalConfig elements next return {@link ObjectNode}.
+   * </ul>
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   */
+  @Test
+  @DisplayName("Test copy(); then AdditionalConfig elements next return ObjectNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
+  void testCopy_thenAdditionalConfigElementsNextReturnObjectNode() {
+    // Arrange
+    ArrayNode additionalConfig = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
+    additionalConfig.addObject();
+
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
     webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
@@ -449,113 +513,63 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
     assertTrue(additionalConfig2 instanceof ArrayNode);
     Iterator<JsonNode> elementsResult = additionalConfig2.elements();
     JsonNode nextResult = elementsResult.next();
-    JsonNode nextResult2 = elementsResult.next();
+    assertTrue(nextResult instanceof ObjectNode);
+    assertEquals("[ { } ]", additionalConfig2.toPrettyString());
+    assertEquals("{ }", nextResult.toPrettyString());
+    assertEquals(0, nextResult.size());
+    assertEquals(JsonNodeType.OBJECT, nextResult.getNodeType());
+    assertFalse(nextResult.isArray());
     assertFalse(elementsResult.hasNext());
-    assertTrue(nextResult instanceof POJONode);
-    assertEquals(JsonNodeType.POJO, nextResult.getNodeType());
-    assertEquals("Pojo", ((POJONode) nextResult).getPojo());
-    assertTrue(nextResult.isPojo());
-    assertTrue(nextResult.isValueNode());
-    assertEquals("\"Pojo\"", nextResult.toPrettyString());
-    assertTrue(nextResult2 instanceof MissingNode);
-    assertEquals("[ \"Pojo\", null ]", additionalConfig2.toPrettyString());
+    assertTrue(nextResult.isEmpty());
+    assertTrue(nextResult.isObject());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
+   *
    * <ul>
-   *   <li>Then return AdditionalConfig elements next is Instance.</li>
+   *   <li>Then return AdditionalConfig is Instance.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
-   */
-  @Test
-  @DisplayName("Test copy(); then return AdditionalConfig elements next is Instance")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
-  void testCopy_thenReturnAdditionalConfigElementsNextIsInstance() {
-    // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-
-    ArrayNode additionalConfig = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
-    MissingNode value = MissingNode.getInstance();
-    additionalConfig.add(value);
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
-
-    // Act and Assert
-    JsonNode additionalConfig2 = webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig();
-    assertTrue(additionalConfig2 instanceof ArrayNode);
-    Iterator<JsonNode> elementsResult = additionalConfig2.elements();
-    JsonNode actualNextResult = elementsResult.next();
-    assertFalse(elementsResult.hasNext());
-    assertSame(value, actualNextResult);
-    Iterator<JsonNode> iteratorResult = additionalConfig2.iterator();
-    JsonNode actualNextResult2 = iteratorResult.next();
-    assertFalse(iteratorResult.hasNext());
-    assertSame(value, actualNextResult2);
-    assertEquals(1, additionalConfig2.size());
-    assertEquals("[ null ]", additionalConfig2.toPrettyString());
-  }
-
-  /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
-   * <ul>
-   *   <li>Then return AdditionalConfig is {@link BigIntegerNode#BigIntegerNode(BigInteger)} with v is valueOf one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
-   */
-  @Test
-  @DisplayName("Test copy(); then return AdditionalConfig is BigIntegerNode(BigInteger) with v is valueOf one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
-  void testCopy_thenReturnAdditionalConfigIsBigIntegerNodeWithVIsValueOfOne() {
-    // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    BigIntegerNode additionalConfig = new BigIntegerNode(BigInteger.valueOf(1L));
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
-
-    // Act and Assert
-    assertSame(additionalConfig, webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig());
-  }
-
-  /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
-   * <ul>
-   *   <li>Then return AdditionalConfig is Instance.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy(); then return AdditionalConfig is Instance")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
   void testCopy_thenReturnAdditionalConfigIsInstance() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
     MissingNode additionalConfig = MissingNode.getInstance();
     webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
 
     // Act and Assert
-    assertSame(additionalConfig, webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig());
+    assertSame(
+        additionalConfig, webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
+   *
    * <ul>
-   *   <li>Then return AdditionalConfig is {@code null}.</li>
+   *   <li>Then return AdditionalConfig is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy(); then return AdditionalConfig is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"})
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
   void testCopy_thenReturnAdditionalConfigIsNull() {
     // Arrange and Act
-    WebDeliveryMethodNotificationTemplate actualCopyResult = (new WebDeliveryMethodNotificationTemplate()).copy();
+    WebDeliveryMethodNotificationTemplate actualCopyResult =
+        new WebDeliveryMethodNotificationTemplate().copy();
 
     // Assert
     assertNull(actualCopyResult.getAdditionalConfig());
@@ -574,13 +588,43 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}, and {@link WebDeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link WebDeliveryMethodNotificationTemplate#copy()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>Then return AdditionalConfig is valueOf ten.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#copy()}
+   */
+  @Test
+  @DisplayName("Test copy(); then return AdditionalConfig is valueOf ten")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "WebDeliveryMethodNotificationTemplate WebDeliveryMethodNotificationTemplate.copy()"
+  })
+  void testCopy_thenReturnAdditionalConfigIsValueOfTen() {
+    // Arrange
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate(new WebDeliveryMethodNotificationTemplate());
+    DoubleNode additionalConfig = DoubleNode.valueOf(10.0d);
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
+
+    // Act and Assert
+    assertSame(
+        additionalConfig, webDeliveryMethodNotificationTemplate.copy().getAdditionalConfig());
+  }
+
+  /**
+   * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}, and {@link
+   * WebDeliveryMethodNotificationTemplate#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    *   <li>{@link WebDeliveryMethodNotificationTemplate#hashCode()}
@@ -589,11 +633,14 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
 
     // Act and Assert
     assertEquals(webDeliveryMethodNotificationTemplate, webDeliveryMethodNotificationTemplate);
@@ -603,114 +650,139 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
 
     // Act and Assert
-    assertNotEquals(webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
 
     // Act and Assert
-    assertNotEquals(webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
-    assertNotEquals(webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate.setEnabled(true);
 
     // Act and Assert
-    assertNotEquals(webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        webDeliveryMethodNotificationTemplate, new WebDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate2.setSubject("Hello from the Dreaming Spires");
 
     // Act and Assert
@@ -719,24 +791,29 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate2.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate2.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(webDeliveryMethodNotificationTemplate, webDeliveryMethodNotificationTemplate2);
@@ -744,24 +821,29 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate.setSubject("Hello from the Dreaming Spires");
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 = new WebDeliveryMethodNotificationTemplate();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 =
+        new WebDeliveryMethodNotificationTemplate();
     webDeliveryMethodNotificationTemplate2.setSubject("Hello from the Dreaming Spires");
 
     // Act and Assert
@@ -770,25 +852,30 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 = new WebDeliveryMethodNotificationTemplate();
-    webDeliveryMethodNotificationTemplate2.setAdditionalConfig(MissingNode.getInstance());
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate2 =
+        new WebDeliveryMethodNotificationTemplate();
+    webDeliveryMethodNotificationTemplate2.setAdditionalConfig(DoubleNode.valueOf(10.0d));
 
     // Act and Assert
     assertNotEquals(webDeliveryMethodNotificationTemplate, webDeliveryMethodNotificationTemplate2);
@@ -796,18 +883,21 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WebDeliveryMethodNotificationTemplate(), null);
@@ -815,28 +905,33 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link WebDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link WebDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
-      "int WebDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean WebDeliveryMethodNotificationTemplate.equals(Object)",
+    "int WebDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new WebDeliveryMethodNotificationTemplate(),
+    assertNotEquals(
+        new WebDeliveryMethodNotificationTemplate(),
         "Different type to WebDeliveryMethodNotificationTemplate");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WebDeliveryMethodNotificationTemplate#setAdditionalConfig(JsonNode)}
    *   <li>{@link WebDeliveryMethodNotificationTemplate#setSubject(String)}
@@ -850,17 +945,20 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"JsonNode WebDeliveryMethodNotificationTemplate.getAdditionalConfig()",
-      "NotificationDeliveryMethod WebDeliveryMethodNotificationTemplate.getMethod()",
-      "String WebDeliveryMethodNotificationTemplate.getSubject()",
-      "List WebDeliveryMethodNotificationTemplate.getTemplatableValues()",
-      "void WebDeliveryMethodNotificationTemplate.setAdditionalConfig(JsonNode)",
-      "void WebDeliveryMethodNotificationTemplate.setSubject(String)",
-      "String WebDeliveryMethodNotificationTemplate.toString()"})
+  @MethodsUnderTest({
+    "JsonNode WebDeliveryMethodNotificationTemplate.getAdditionalConfig()",
+    "NotificationDeliveryMethod WebDeliveryMethodNotificationTemplate.getMethod()",
+    "String WebDeliveryMethodNotificationTemplate.getSubject()",
+    "List WebDeliveryMethodNotificationTemplate.getTemplatableValues()",
+    "void WebDeliveryMethodNotificationTemplate.setAdditionalConfig(JsonNode)",
+    "void WebDeliveryMethodNotificationTemplate.setSubject(String)",
+    "String WebDeliveryMethodNotificationTemplate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate = new WebDeliveryMethodNotificationTemplate();
-    MissingNode additionalConfig = MissingNode.getInstance();
+    WebDeliveryMethodNotificationTemplate webDeliveryMethodNotificationTemplate =
+        new WebDeliveryMethodNotificationTemplate();
+    DoubleNode additionalConfig = DoubleNode.valueOf(10.0d);
 
     // Act
     webDeliveryMethodNotificationTemplate.setAdditionalConfig(additionalConfig);
@@ -869,7 +967,8 @@ class WebDeliveryMethodNotificationTemplateDiffblueTest {
     JsonNode actualAdditionalConfig = webDeliveryMethodNotificationTemplate.getAdditionalConfig();
     NotificationDeliveryMethod actualMethod = webDeliveryMethodNotificationTemplate.getMethod();
     String actualSubject = webDeliveryMethodNotificationTemplate.getSubject();
-    List<TemplatableValue> actualTemplatableValues = webDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> actualTemplatableValues =
+        webDeliveryMethodNotificationTemplate.getTemplatableValues();
 
     // Assert
     assertEquals(4, actualTemplatableValues.size());

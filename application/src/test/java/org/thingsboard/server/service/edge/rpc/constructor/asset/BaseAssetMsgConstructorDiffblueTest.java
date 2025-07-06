@@ -17,14 +17,16 @@ import org.thingsboard.server.gen.edge.v1.UpdateMsgType;
 class BaseAssetMsgConstructorDiffblueTest {
   /**
    * Test {@link BaseAssetMsgConstructor#constructAssetDeleteMsg(AssetId)}.
+   *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
+   *   <li>Then return InitializationErrorString is empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseAssetMsgConstructor#constructAssetDeleteMsg(AssetId)}
+   *
+   * <p>Method under test: {@link BaseAssetMsgConstructor#constructAssetDeleteMsg(AssetId)}
    */
   @Test
-  @DisplayName("Test constructAssetDeleteMsg(AssetId); then return InitializationErrorString is empty string")
+  @DisplayName(
+      "Test constructAssetDeleteMsg(AssetId); then return InitializationErrorString is empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetUpdateMsg BaseAssetMsgConstructor.constructAssetDeleteMsg(AssetId)"})
   void testConstructAssetDeleteMsg_thenReturnInitializationErrorStringIsEmptyString() {
@@ -32,8 +34,9 @@ class BaseAssetMsgConstructorDiffblueTest {
     AssetMsgConstructorV1 assetMsgConstructorV1 = new AssetMsgConstructorV1();
 
     // Act
-    AssetUpdateMsg actualConstructAssetDeleteMsgResult = assetMsgConstructorV1
-        .constructAssetDeleteMsg(new AssetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    AssetUpdateMsg actualConstructAssetDeleteMsgResult =
+        assetMsgConstructorV1.constructAssetDeleteMsg(
+            new AssetId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructAssetDeleteMsgResult.getInitializationErrorString());
@@ -51,7 +54,8 @@ class BaseAssetMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructAssetDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructAssetDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructAssetDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructAssetDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructAssetDeleteMsgResult.getMsgType());
     assertFalse(actualConstructAssetDeleteMsgResult.hasAdditionalInfo());
     assertFalse(actualConstructAssetDeleteMsgResult.hasAssetProfileIdLSB());
     assertFalse(actualConstructAssetDeleteMsgResult.hasAssetProfileIdMSB());
@@ -64,20 +68,24 @@ class BaseAssetMsgConstructorDiffblueTest {
 
   /**
    * Test {@link BaseAssetMsgConstructor#constructAssetProfileDeleteMsg(AssetProfileId)}.
-   * <p>
-   * Method under test: {@link BaseAssetMsgConstructor#constructAssetProfileDeleteMsg(AssetProfileId)}
+   *
+   * <p>Method under test: {@link
+   * BaseAssetMsgConstructor#constructAssetProfileDeleteMsg(AssetProfileId)}
    */
   @Test
   @DisplayName("Test constructAssetProfileDeleteMsg(AssetProfileId)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AssetProfileUpdateMsg BaseAssetMsgConstructor.constructAssetProfileDeleteMsg(AssetProfileId)"})
+  @MethodsUnderTest({
+    "AssetProfileUpdateMsg BaseAssetMsgConstructor.constructAssetProfileDeleteMsg(AssetProfileId)"
+  })
   void testConstructAssetProfileDeleteMsg() {
     // Arrange
     AssetMsgConstructorV1 assetMsgConstructorV1 = new AssetMsgConstructorV1();
 
     // Act
-    AssetProfileUpdateMsg actualConstructAssetProfileDeleteMsgResult = assetMsgConstructorV1
-        .constructAssetProfileDeleteMsg(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    AssetProfileUpdateMsg actualConstructAssetProfileDeleteMsgResult =
+        assetMsgConstructorV1.constructAssetProfileDeleteMsg(
+            new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
     assertEquals("", actualConstructAssetProfileDeleteMsgResult.getInitializationErrorString());
@@ -94,7 +102,9 @@ class BaseAssetMsgConstructorDiffblueTest {
     assertEquals(23, actualConstructAssetProfileDeleteMsgResult.getSerializedSize());
     assertEquals(3, actualConstructAssetProfileDeleteMsgResult.getAllFields().size());
     assertEquals(8669210807411032922L, actualConstructAssetProfileDeleteMsgResult.getIdMSB());
-    assertEquals(UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE, actualConstructAssetProfileDeleteMsgResult.getMsgType());
+    assertEquals(
+        UpdateMsgType.ENTITY_DELETED_RPC_MESSAGE,
+        actualConstructAssetProfileDeleteMsgResult.getMsgType());
     assertFalse(actualConstructAssetProfileDeleteMsgResult.getDefault());
     assertFalse(actualConstructAssetProfileDeleteMsgResult.hasDefaultQueueName());
     assertFalse(actualConstructAssetProfileDeleteMsgResult.hasDescription());

@@ -20,20 +20,23 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class TransportMonitoringConfigDiffblueTest {
   /**
    * Test {@link TransportMonitoringConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@link CoapTransportMonitoringConfig} (default constructor).</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@link CoapTransportMonitoringConfig} (default constructor).
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#canEqual(Object)}
    */
   @Test
-  @DisplayName("Test canEqual(Object); when CoapTransportMonitoringConfig (default constructor); then return 'true'")
+  @DisplayName(
+      "Test canEqual(Object); when CoapTransportMonitoringConfig (default constructor); then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TransportMonitoringConfig.canEqual(Object)"})
   void testCanEqual_whenCoapTransportMonitoringConfig_thenReturnTrue() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     // Act and Assert
     assertTrue(coapTransportMonitoringConfig.canEqual(new CoapTransportMonitoringConfig()));
@@ -41,12 +44,13 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#canEqual(Object)}.
+   *
    * <ul>
-   *   <li>When {@code Other}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#canEqual(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#canEqual(Object)}
    */
   @Test
   @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
@@ -54,17 +58,20 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"boolean TransportMonitoringConfig.canEqual(Object)"})
   void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new CoapTransportMonitoringConfig()).canEqual("Other"));
+    assertFalse(new CoapTransportMonitoringConfig().canEqual("Other"));
   }
 
   /**
-   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link TransportMonitoringConfig#hashCode()}.
+   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link
+   * TransportMonitoringConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TransportMonitoringConfig#equals(Object)}
    *   <li>{@link TransportMonitoringConfig#hashCode()}
@@ -73,11 +80,16 @@ class TransportMonitoringConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 =
+        new CoapTransportMonitoringConfig();
 
     // Act and Assert
     assertEquals(coapTransportMonitoringConfig, coapTransportMonitoringConfig2);
@@ -86,13 +98,16 @@ class TransportMonitoringConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link TransportMonitoringConfig#hashCode()}.
+   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link
+   * TransportMonitoringConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TransportMonitoringConfig#equals(Object)}
    *   <li>{@link TransportMonitoringConfig#hashCode()}
@@ -101,13 +116,18 @@ class TransportMonitoringConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
     coapTransportMonitoringConfig.setTargets(new ArrayList<>());
 
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 =
+        new CoapTransportMonitoringConfig();
     coapTransportMonitoringConfig2.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -117,13 +137,16 @@ class TransportMonitoringConfigDiffblueTest {
   }
 
   /**
-   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link TransportMonitoringConfig#hashCode()}.
+   * Test {@link TransportMonitoringConfig#equals(Object)}, and {@link
+   * TransportMonitoringConfig#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TransportMonitoringConfig#equals(Object)}
    *   <li>{@link TransportMonitoringConfig#hashCode()}
@@ -132,10 +155,14 @@ class TransportMonitoringConfigDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     // Act and Assert
     assertEquals(coapTransportMonitoringConfig, coapTransportMonitoringConfig);
@@ -145,17 +172,21 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CoapTransportMonitoringConfig(), 1);
@@ -163,20 +194,25 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     // Act and Assert
     assertNotEquals(coapTransportMonitoringConfig, new MqttTransportMonitoringConfig());
@@ -184,20 +220,25 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
     coapTransportMonitoringConfig.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -206,20 +247,25 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
     coapTransportMonitoringConfig.setRequestTimeoutMs(10);
 
     // Act and Assert
@@ -228,22 +274,28 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig2 =
+        new CoapTransportMonitoringConfig();
     coapTransportMonitoringConfig2.setTargets(new ArrayList<>());
 
     // Act and Assert
@@ -252,17 +304,21 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CoapTransportMonitoringConfig(), null);
@@ -270,26 +326,31 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#equals(Object)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TransportMonitoringConfig.equals(Object)", "int TransportMonitoringConfig.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TransportMonitoringConfig.equals(Object)",
+    "int TransportMonitoringConfig.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new CoapTransportMonitoringConfig(), "Different type to TransportMonitoringConfig");
+    assertNotEquals(
+        new CoapTransportMonitoringConfig(), "Different type to TransportMonitoringConfig");
   }
 
   /**
    * Test {@link TransportMonitoringConfig#getRequestTimeoutMs()}.
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#getRequestTimeoutMs()}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#getRequestTimeoutMs()}
    */
   @Test
   @DisplayName("Test getRequestTimeoutMs()")
@@ -297,13 +358,13 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"int TransportMonitoringConfig.getRequestTimeoutMs()"})
   void testGetRequestTimeoutMs() {
     // Arrange, Act and Assert
-    assertEquals(0, (new CoapTransportMonitoringConfig()).getRequestTimeoutMs());
+    assertEquals(0, new CoapTransportMonitoringConfig().getRequestTimeoutMs());
   }
 
   /**
    * Test {@link TransportMonitoringConfig#getTargets()}.
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#getTargets()}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#getTargets()}
    */
   @Test
   @DisplayName("Test getTargets()")
@@ -311,13 +372,13 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"List TransportMonitoringConfig.getTargets()"})
   void testGetTargets() {
     // Arrange, Act and Assert
-    assertNull((new CoapTransportMonitoringConfig()).getTargets());
+    assertNull(new CoapTransportMonitoringConfig().getTargets());
   }
 
   /**
    * Test {@link TransportMonitoringConfig#setRequestTimeoutMs(int)}.
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#setRequestTimeoutMs(int)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#setRequestTimeoutMs(int)}
    */
   @Test
   @DisplayName("Test setRequestTimeoutMs(int)")
@@ -325,7 +386,8 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"void TransportMonitoringConfig.setRequestTimeoutMs(int)"})
   void testSetRequestTimeoutMs() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     // Act
     coapTransportMonitoringConfig.setRequestTimeoutMs(10);
@@ -336,8 +398,8 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#setTargets(List)}.
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#setTargets(List)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#setTargets(List)}
    */
   @Test
   @DisplayName("Test setTargets(List)")
@@ -345,7 +407,8 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"void TransportMonitoringConfig.setTargets(List)"})
   void testSetTargets() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     DeviceConfig device = new DeviceConfig();
     device.setCredentials(new DeviceCredentials());
@@ -367,7 +430,8 @@ class TransportMonitoringConfigDiffblueTest {
     transportMonitoringTarget2.setBaseUrl("Base Url");
     transportMonitoringTarget2.setCheckDomainIps(false);
     transportMonitoringTarget2.setDevice(device2);
-    transportMonitoringTarget2.setQueue("org.thingsboard.monitoring.config.transport.TransportMonitoringTarget");
+    transportMonitoringTarget2.setQueue(
+        "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget");
 
     ArrayList<TransportMonitoringTarget> targets = new ArrayList<>();
     targets.add(transportMonitoringTarget2);
@@ -382,19 +446,23 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#setTargets(List)}.
+   *
    * <ul>
-   *   <li>Given {@link DeviceConfig} (default constructor) Credentials is {@link DeviceCredentials#DeviceCredentials()}.</li>
+   *   <li>Given {@link DeviceConfig} (default constructor) Credentials is {@link
+   *       DeviceCredentials#DeviceCredentials()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#setTargets(List)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#setTargets(List)}
    */
   @Test
-  @DisplayName("Test setTargets(List); given DeviceConfig (default constructor) Credentials is DeviceCredentials()")
+  @DisplayName(
+      "Test setTargets(List); given DeviceConfig (default constructor) Credentials is DeviceCredentials()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TransportMonitoringConfig.setTargets(List)"})
   void testSetTargets_givenDeviceConfigCredentialsIsDeviceCredentials() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
 
     DeviceConfig device = new DeviceConfig();
     device.setCredentials(new DeviceCredentials());
@@ -419,11 +487,12 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#setTargets(List)}.
+   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link ArrayList#ArrayList()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#setTargets(List)}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#setTargets(List)}
    */
   @Test
   @DisplayName("Test setTargets(List); when ArrayList()")
@@ -431,7 +500,8 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"void TransportMonitoringConfig.setTargets(List)"})
   void testSetTargets_whenArrayList() {
     // Arrange
-    CoapTransportMonitoringConfig coapTransportMonitoringConfig = new CoapTransportMonitoringConfig();
+    CoapTransportMonitoringConfig coapTransportMonitoringConfig =
+        new CoapTransportMonitoringConfig();
     ArrayList<TransportMonitoringTarget> targets = new ArrayList<>();
 
     // Act
@@ -443,8 +513,8 @@ class TransportMonitoringConfigDiffblueTest {
 
   /**
    * Test {@link TransportMonitoringConfig#toString()}.
-   * <p>
-   * Method under test: {@link TransportMonitoringConfig#toString()}
+   *
+   * <p>Method under test: {@link TransportMonitoringConfig#toString()}
    */
   @Test
   @DisplayName("Test toString()")
@@ -452,7 +522,8 @@ class TransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"java.lang.String TransportMonitoringConfig.toString()"})
   void testToString() {
     // Arrange, Act and Assert
-    assertEquals("TransportMonitoringConfig(targets=null, requestTimeoutMs=0)",
-        (new CoapTransportMonitoringConfig()).toString());
+    assertEquals(
+        "TransportMonitoringConfig(targets=null, requestTimeoutMs=0)",
+        new CoapTransportMonitoringConfig().toString());
   }
 }

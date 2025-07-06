@@ -17,13 +17,16 @@ import org.junit.jupiter.api.Test;
 
 class TbCoapObservationStateDiffblueTest {
   /**
-   * Test {@link TbCoapObservationState#equals(Object)}, and {@link TbCoapObservationState#hashCode()}.
+   * Test {@link TbCoapObservationState#equals(Object)}, and {@link
+   * TbCoapObservationState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbCoapObservationState#equals(Object)}
    *   <li>{@link TbCoapObservationState#hashCode()}
@@ -32,12 +35,18 @@ class TbCoapObservationStateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        "ABC123");
+    TbCoapObservationState tbCoapObservationState =
+        new TbCoapObservationState(
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            "ABC123");
 
     // Act and Assert
     assertEquals(tbCoapObservationState, tbCoapObservationState);
@@ -47,67 +56,88 @@ class TbCoapObservationStateDiffblueTest {
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        "ABC123");
+    TbCoapObservationState tbCoapObservationState =
+        new TbCoapObservationState(
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            "ABC123");
 
     // Act and Assert
-    assertNotEquals(tbCoapObservationState,
+    assertNotEquals(
+        tbCoapObservationState,
         new TbCoapObservationState(
-            new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
             "ABC123"));
   }
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(null, "ABC123");
 
     // Act and Assert
-    assertNotEquals(tbCoapObservationState,
+    assertNotEquals(
+        tbCoapObservationState,
         new TbCoapObservationState(
-            new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
             "ABC123"));
   }
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(null, "ABC123");
@@ -118,17 +148,21 @@ class TbCoapObservationStateDiffblueTest {
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(null, "Token");
@@ -139,17 +173,21 @@ class TbCoapObservationStateDiffblueTest {
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(null, null);
@@ -160,17 +198,21 @@ class TbCoapObservationStateDiffblueTest {
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbCoapObservationState tbCoapObservationState = new TbCoapObservationState(null, null);
@@ -181,48 +223,65 @@ class TbCoapObservationStateDiffblueTest {
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCoapObservationState(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        "ABC123"), null);
+    assertNotEquals(
+        new TbCoapObservationState(
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            "ABC123"),
+        null);
   }
 
   /**
    * Test {@link TbCoapObservationState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapObservationState#equals(Object)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean TbCoapObservationState.equals(Object)", "int TbCoapObservationState.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TbCoapObservationState.equals(Object)",
+    "int TbCoapObservationState.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbCoapObservationState(
-        new CoapExchange(new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
-        "ABC123"), "Different type to TbCoapObservationState");
+    assertNotEquals(
+        new TbCoapObservationState(
+            new CoapExchange(
+                new Exchange(
+                    Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class))),
+            "ABC123"),
+        "Different type to TbCoapObservationState");
   }
 
   /**
    * Test {@link TbCoapObservationState#TbCoapObservationState(CoapExchange, String)}.
-   * <p>
-   * Method under test: {@link TbCoapObservationState#TbCoapObservationState(CoapExchange, String)}
+   *
+   * <p>Method under test: {@link TbCoapObservationState#TbCoapObservationState(CoapExchange,
+   * String)}
    */
   @Test
   @DisplayName("Test new TbCoapObservationState(CoapExchange, String)")
@@ -230,15 +289,19 @@ class TbCoapObservationStateDiffblueTest {
   @MethodsUnderTest({"void TbCoapObservationState.<init>(CoapExchange, String)"})
   void testNewTbCoapObservationState() {
     // Arrange
-    CoapExchange exchange = new CoapExchange(
-        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
+    CoapExchange exchange =
+        new CoapExchange(
+            new Exchange(
+                Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class)));
 
     // Act
-    TbCoapObservationState actualTbCoapObservationState = new TbCoapObservationState(exchange, "ABC123");
+    TbCoapObservationState actualTbCoapObservationState =
+        new TbCoapObservationState(exchange, "ABC123");
 
     // Assert
     assertEquals("ABC123", actualTbCoapObservationState.getToken());
     assertNull(actualTbCoapObservationState.getObserveRelation());
+    assertEquals(0, actualTbCoapObservationState.getObserveCounter().get());
     assertSame(exchange, actualTbCoapObservationState.getExchange());
   }
 }

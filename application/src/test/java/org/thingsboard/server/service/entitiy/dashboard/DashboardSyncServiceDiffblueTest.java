@@ -19,16 +19,14 @@ import org.thingsboard.server.service.sync.GitSyncService;
 
 @ExtendWith(MockitoExtension.class)
 class DashboardSyncServiceDiffblueTest {
-  @InjectMocks
-  private DashboardSyncService dashboardSyncService;
+  @InjectMocks private DashboardSyncService dashboardSyncService;
 
-  @Mock
-  private GitSyncService gitSyncService;
+  @Mock private GitSyncService gitSyncService;
 
   /**
    * Test {@link DashboardSyncService#init()}.
-   * <p>
-   * Method under test: {@link DashboardSyncService#init()}
+   *
+   * <p>Method under test: {@link DashboardSyncService#init()}
    */
   @Test
   @DisplayName("Test init()")
@@ -36,14 +34,20 @@ class DashboardSyncServiceDiffblueTest {
   @MethodsUnderTest({"void DashboardSyncService.init()"})
   void testInit() throws Exception {
     // Arrange
-    doNothing().when(gitSyncService)
-        .registerSync(Mockito.<String>any(), Mockito.<String>any(), Mockito.<String>any(), anyLong(),
+    doNothing()
+        .when(gitSyncService)
+        .registerSync(
+            Mockito.<String>any(),
+            Mockito.<String>any(),
+            Mockito.<String>any(),
+            anyLong(),
             Mockito.<Runnable>any());
 
     // Act
     dashboardSyncService.init();
 
     // Assert
-    verify(gitSyncService).registerSync(eq("gateways-dashboard"), isNull(), isNull(), eq(0L), isA(Runnable.class));
+    verify(gitSyncService)
+        .registerSync(eq("gateways-dashboard"), isNull(), isNull(), eq(0L), isA(Runnable.class));
   }
 }

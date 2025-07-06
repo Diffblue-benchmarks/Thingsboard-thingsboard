@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class CoapTransportMonitoringConfigDiffblueTest {
   /**
    * Test {@link CoapTransportMonitoringConfig#getTransportType()}.
-   * <p>
-   * Method under test: {@link CoapTransportMonitoringConfig#getTransportType()}
+   *
+   * <p>Method under test: {@link CoapTransportMonitoringConfig#getTransportType()}
    */
   @Test
   @DisplayName("Test getTransportType()")
@@ -18,6 +18,6 @@ class CoapTransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"TransportType CoapTransportMonitoringConfig.getTransportType()"})
   void testGetTransportType() {
     // Arrange, Act and Assert
-    assertEquals(TransportType.COAP, (new CoapTransportMonitoringConfig()).getTransportType());
+    assertEquals(TransportType.COAP, new CoapTransportMonitoringConfig().getTransportType());
   }
 }

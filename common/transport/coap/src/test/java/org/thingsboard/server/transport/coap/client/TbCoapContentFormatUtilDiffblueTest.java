@@ -11,12 +11,13 @@ import org.junit.jupiter.api.Test;
 class TbCoapContentFormatUtilDiffblueTest {
   /**
    * Test {@link TbCoapContentFormatUtil#getContentFormat(int, int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return forty-two.</li>
+   *   <li>When forty-two.
+   *   <li>Then return forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when forty-two; then return forty-two")
@@ -29,12 +30,13 @@ class TbCoapContentFormatUtilDiffblueTest {
 
   /**
    * Test {@link TbCoapContentFormatUtil#getContentFormat(int, int)}.
+   *
    * <ul>
-   *   <li>When minus one.</li>
-   *   <li>Then return forty-two.</li>
+   *   <li>When minus one.
+   *   <li>Then return forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when minus one; then return forty-two")
@@ -47,12 +49,13 @@ class TbCoapContentFormatUtilDiffblueTest {
 
   /**
    * Test {@link TbCoapContentFormatUtil#getContentFormat(int, int)}.
+   *
    * <ul>
-   *   <li>When minus one.</li>
-   *   <li>Then return three.</li>
+   *   <li>When minus one.
+   *   <li>Then return three.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when minus one; then return three")
@@ -65,12 +68,13 @@ class TbCoapContentFormatUtilDiffblueTest {
 
   /**
    * Test {@link TbCoapContentFormatUtil#getContentFormat(int, int)}.
+   *
    * <ul>
-   *   <li>When three.</li>
-   *   <li>Then return three.</li>
+   *   <li>When three.
+   *   <li>Then return three.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#getContentFormat(int, int)}
    */
   @Test
   @DisplayName("Test getContentFormat(int, int); when three; then return three")
@@ -83,12 +87,13 @@ class TbCoapContentFormatUtilDiffblueTest {
 
   /**
    * Test {@link TbCoapContentFormatUtil#isStrict(int)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When forty-two.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#isStrict(int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#isStrict(int)}
    */
   @Test
   @DisplayName("Test isStrict(int); when forty-two; then return 'true'")
@@ -101,12 +106,13 @@ class TbCoapContentFormatUtilDiffblueTest {
 
   /**
    * Test {@link TbCoapContentFormatUtil#isStrict(int)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When one.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCoapContentFormatUtil#isStrict(int)}
+   *
+   * <p>Method under test: {@link TbCoapContentFormatUtil#isStrict(int)}
    */
   @Test
   @DisplayName("Test isStrict(int); when one; then return 'false'")

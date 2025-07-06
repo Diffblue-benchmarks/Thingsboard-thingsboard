@@ -20,16 +20,14 @@ import org.thingsboard.server.common.data.EntityType;
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class CustomerApiUsageStateDiffblueTest {
-  @MockBean
-  private ApiUsageState apiUsageState;
+  @MockBean private ApiUsageState apiUsageState;
 
-  @Autowired
-  private CustomerApiUsageState customerApiUsageState;
+  @Autowired private CustomerApiUsageState customerApiUsageState;
 
   /**
    * Test {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}.
-   * <p>
-   * Method under test: {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}
+   *
+   * <p>Method under test: {@link CustomerApiUsageState#CustomerApiUsageState(ApiUsageState)}
    */
   @Test
   @DisplayName("Test new CustomerApiUsageState(ApiUsageState)")
@@ -48,8 +46,8 @@ class CustomerApiUsageStateDiffblueTest {
 
   /**
    * Test {@link CustomerApiUsageState#getEntityType()}.
-   * <p>
-   * Method under test: {@link CustomerApiUsageState#getEntityType()}
+   *
+   * <p>Method under test: {@link CustomerApiUsageState#getEntityType()}
    */
   @Test
   @DisplayName("Test getEntityType()")
@@ -57,6 +55,7 @@ class CustomerApiUsageStateDiffblueTest {
   @MethodsUnderTest({"EntityType CustomerApiUsageState.getEntityType()"})
   void testGetEntityType() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.CUSTOMER, (new CustomerApiUsageState(new ApiUsageState())).getEntityType());
+    assertEquals(
+        EntityType.CUSTOMER, new CustomerApiUsageState(new ApiUsageState()).getEntityType());
   }
 }

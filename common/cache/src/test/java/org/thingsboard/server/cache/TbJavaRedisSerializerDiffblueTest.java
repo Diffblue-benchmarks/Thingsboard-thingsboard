@@ -15,8 +15,8 @@ import org.springframework.data.redis.serializer.SerializationException;
 class TbJavaRedisSerializerDiffblueTest {
   /**
    * Test {@link TbJavaRedisSerializer#serialize(Object)}.
-   * <p>
-   * Method under test: {@link TbJavaRedisSerializer#serialize(Object)}
+   *
+   * <p>Method under test: {@link TbJavaRedisSerializer#serialize(Object)}
    */
   @Test
   @DisplayName("Test serialize(Object)")
@@ -27,18 +27,20 @@ class TbJavaRedisSerializerDiffblueTest {
     TbJavaRedisSerializer<Object, Object> tbJavaRedisSerializer = new TbJavaRedisSerializer<>();
 
     // Act and Assert
-    assertArrayEquals(new byte[]{-84, -19, 0, 5, 't', 0, 5, 'V', 'a', 'l', 'u', 'e'},
+    assertArrayEquals(
+        new byte[] {-84, -19, 0, 5, 't', 0, 5, 'V', 'a', 'l', 'u', 'e'},
         tbJavaRedisSerializer.serialize("Value"));
   }
 
   /**
    * Test {@link TbJavaRedisSerializer#deserialize(Object, byte[])}.
+   *
    * <ul>
-   *   <li>When empty array of {@code byte}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When empty array of {@code byte}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbJavaRedisSerializer#deserialize(Object, byte[])}
+   *
+   * <p>Method under test: {@link TbJavaRedisSerializer#deserialize(Object, byte[])}
    */
   @Test
   @DisplayName("Test deserialize(Object, byte[]); when empty array of byte; then return 'null'")
@@ -49,13 +51,13 @@ class TbJavaRedisSerializerDiffblueTest {
     TbJavaRedisSerializer<Object, Object> tbJavaRedisSerializer = new TbJavaRedisSerializer<>();
 
     // Act and Assert
-    assertNull(tbJavaRedisSerializer.deserialize("Key", new byte[]{}));
+    assertNull(tbJavaRedisSerializer.deserialize("Key", new byte[] {}));
   }
 
   /**
    * Test new {@link TbJavaRedisSerializer} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbJavaRedisSerializer}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link TbJavaRedisSerializer}
    */
   @Test
   @DisplayName("Test new TbJavaRedisSerializer (default constructor)")
@@ -63,7 +65,8 @@ class TbJavaRedisSerializerDiffblueTest {
   @MethodsUnderTest({"void TbJavaRedisSerializer.<init>()"})
   void testNewTbJavaRedisSerializer() {
     // Arrange and Act
-    TbJavaRedisSerializer<Object, Object> actualTbJavaRedisSerializer = new TbJavaRedisSerializer<>();
+    TbJavaRedisSerializer<Object, Object> actualTbJavaRedisSerializer =
+        new TbJavaRedisSerializer<>();
 
     // Assert
     RedisSerializer<Object> redisSerializer = actualTbJavaRedisSerializer.serializer;

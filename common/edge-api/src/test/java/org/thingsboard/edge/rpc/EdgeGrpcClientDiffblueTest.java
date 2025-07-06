@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class EdgeGrpcClientDiffblueTest {
   /**
    * Test {@link EdgeGrpcClient#getServerMaxInboundMessageSize()}.
-   * <p>
-   * Method under test: {@link EdgeGrpcClient#getServerMaxInboundMessageSize()}
+   *
+   * <p>Method under test: {@link EdgeGrpcClient#getServerMaxInboundMessageSize()}
    */
   @Test
   @DisplayName("Test getServerMaxInboundMessageSize()")
@@ -18,6 +18,6 @@ class EdgeGrpcClientDiffblueTest {
   @MethodsUnderTest({"int EdgeGrpcClient.getServerMaxInboundMessageSize()"})
   void testGetServerMaxInboundMessageSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new EdgeGrpcClient()).getServerMaxInboundMessageSize());
+    assertEquals(0, new EdgeGrpcClient().getServerMaxInboundMessageSize());
   }
 }

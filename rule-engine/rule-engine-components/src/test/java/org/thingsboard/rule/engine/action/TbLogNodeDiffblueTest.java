@@ -28,23 +28,27 @@ import org.thingsboard.server.common.data.script.ScriptLanguage;
 class TbLogNodeDiffblueTest {
   /**
    * Test {@link TbLogNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.</li>
-   *   <li>Then calls {@link JsonNode#fields()}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>When {@link ArrayNode} {@link ArrayNode#asToken()} return {@code START_OBJECT}.
+   *   <li>Then calls {@link ArrayNode#fields()}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; when ArrayNode asToken() return 'START_OBJECT'; then calls fields()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbLogNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields() throws TbNodeException {
+  void testInit_givenStartObject_whenArrayNodeAsTokenReturnStartObject_thenCallsFields()
+      throws TbNodeException {
     // Arrange
     TbLogNode tbLogNode = new TbLogNode();
     TbContext ctx = mock(TbContext.class);
-    when(ctx.createScriptEngine(Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
+    when(ctx.createScriptEngine(
+            Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(mock(ScriptEngine.class));
     ArrayNode data = mock(ArrayNode.class);
 
@@ -63,22 +67,27 @@ class TbLogNodeDiffblueTest {
 
   /**
    * Test {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code TBEL}.</li>
-   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code TBEL}.</li>
+   *   <li>Given {@code TBEL}.
+   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code TBEL}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test createScriptEngine(TbContext, TbLogNodeConfiguration); given 'TBEL'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'TBEL'")
+  @DisplayName(
+      "Test createScriptEngine(TbContext, TbLogNodeConfiguration); given 'TBEL'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'TBEL'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ScriptEngine TbLogNode.createScriptEngine(TbContext, TbLogNodeConfiguration)"})
+  @MethodsUnderTest({
+    "ScriptEngine TbLogNode.createScriptEngine(TbContext, TbLogNodeConfiguration)"
+  })
   void testCreateScriptEngine_givenTbel_whenTbLogNodeConfigurationScriptLangIsTbel() {
     // Arrange
     TbLogNode tbLogNode = new TbLogNode();
     TbContext ctx = mock(TbContext.class);
-    when(ctx.createScriptEngine(Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
+    when(ctx.createScriptEngine(
+            Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(mock(ScriptEngine.class));
 
     TbLogNodeConfiguration config = new TbLogNodeConfiguration();
@@ -93,22 +102,27 @@ class TbLogNodeDiffblueTest {
 
   /**
    * Test {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>When {@link TbLogNodeConfiguration} (default constructor).</li>
-   *   <li>Then calls {@link TbContext#createScriptEngine(ScriptLanguage, String, String[])}.</li>
+   *   <li>When {@link TbLogNodeConfiguration} (default constructor).
+   *   <li>Then calls {@link TbContext#createScriptEngine(ScriptLanguage, String, String[])}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#createScriptEngine(TbContext, TbLogNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test createScriptEngine(TbContext, TbLogNodeConfiguration); when TbLogNodeConfiguration (default constructor); then calls createScriptEngine(ScriptLanguage, String, String[])")
+  @DisplayName(
+      "Test createScriptEngine(TbContext, TbLogNodeConfiguration); when TbLogNodeConfiguration (default constructor); then calls createScriptEngine(ScriptLanguage, String, String[])")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ScriptEngine TbLogNode.createScriptEngine(TbContext, TbLogNodeConfiguration)"})
+  @MethodsUnderTest({
+    "ScriptEngine TbLogNode.createScriptEngine(TbContext, TbLogNodeConfiguration)"
+  })
   void testCreateScriptEngine_whenTbLogNodeConfiguration_thenCallsCreateScriptEngine() {
     // Arrange
     TbLogNode tbLogNode = new TbLogNode();
     TbContext ctx = mock(TbContext.class);
-    when(ctx.createScriptEngine(Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
+    when(ctx.createScriptEngine(
+            Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(mock(ScriptEngine.class));
 
     // Act
@@ -120,16 +134,18 @@ class TbLogNodeDiffblueTest {
 
   /**
    * Test {@link TbLogNode#isStandard(TbLogNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code JS}.</li>
-   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code JS}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@code JS}.
+   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code JS}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test isStandard(TbLogNodeConfiguration); given 'JS'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'JS'; then return 'false'")
+  @DisplayName(
+      "Test isStandard(TbLogNodeConfiguration); given 'JS'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'JS'; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbLogNode.isStandard(TbLogNodeConfiguration)"})
   void testIsStandard_givenJs_whenTbLogNodeConfigurationScriptLangIsJs_thenReturnFalse() {
@@ -145,15 +161,17 @@ class TbLogNodeDiffblueTest {
 
   /**
    * Test {@link TbLogNode#isStandard(TbLogNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code TBEL}.</li>
-   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code TBEL}.</li>
+   *   <li>Given {@code TBEL}.
+   *   <li>When {@link TbLogNodeConfiguration} (default constructor) ScriptLang is {@code TBEL}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test isStandard(TbLogNodeConfiguration); given 'TBEL'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'TBEL'")
+  @DisplayName(
+      "Test isStandard(TbLogNodeConfiguration); given 'TBEL'; when TbLogNodeConfiguration (default constructor) ScriptLang is 'TBEL'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbLogNode.isStandard(TbLogNodeConfiguration)"})
   void testIsStandard_givenTbel_whenTbLogNodeConfigurationScriptLangIsTbel() {
@@ -169,15 +187,17 @@ class TbLogNodeDiffblueTest {
 
   /**
    * Test {@link TbLogNode#isStandard(TbLogNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>When {@link TbLogNodeConfiguration} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@link TbLogNodeConfiguration} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbLogNode#isStandard(TbLogNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test isStandard(TbLogNodeConfiguration); when TbLogNodeConfiguration (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isStandard(TbLogNodeConfiguration); when TbLogNodeConfiguration (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbLogNode.isStandard(TbLogNodeConfiguration)"})
   void testIsStandard_whenTbLogNodeConfiguration_thenReturnFalse() {

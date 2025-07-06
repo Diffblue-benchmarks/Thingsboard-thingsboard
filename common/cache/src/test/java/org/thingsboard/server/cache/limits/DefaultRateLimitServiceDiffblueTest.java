@@ -17,23 +17,25 @@ import org.thingsboard.server.common.data.limit.LimitedApi;
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class DefaultRateLimitServiceDiffblueTest {
-  @Autowired
-  private DefaultRateLimitService defaultRateLimitService;
+  @Autowired private DefaultRateLimitService defaultRateLimitService;
 
-  @MockBean
-  private TenantProfileProvider tenantProfileProvider;
+  @MockBean private TenantProfileProvider tenantProfileProvider;
 
   /**
-   * Test {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)} with {@code api}, {@code level}, {@code rateLimitConfig}.
+   * Test {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)} with {@code
+   * api}, {@code level}, {@code rateLimitConfig}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When empty string.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)}
+   *
+   * <p>Method under test: {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object,
+   * String)}
    */
   @Test
-  @DisplayName("Test checkRateLimit(LimitedApi, Object, String) with 'api', 'level', 'rateLimitConfig'; when empty string; then return 'true'")
+  @DisplayName(
+      "Test checkRateLimit(LimitedApi, Object, String) with 'api', 'level', 'rateLimitConfig'; when empty string; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DefaultRateLimitService.checkRateLimit(LimitedApi, Object, String)"})
   void testCheckRateLimitWithApiLevelRateLimitConfig_whenEmptyString_thenReturnTrue() {
@@ -42,16 +44,20 @@ class DefaultRateLimitServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)} with {@code api}, {@code level}, {@code rateLimitConfig}.
+   * Test {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)} with {@code
+   * api}, {@code level}, {@code rateLimitConfig}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object, String)}
+   *
+   * <p>Method under test: {@link DefaultRateLimitService#checkRateLimit(LimitedApi, Object,
+   * String)}
    */
   @Test
-  @DisplayName("Test checkRateLimit(LimitedApi, Object, String) with 'api', 'level', 'rateLimitConfig'; when 'null'; then return 'true'")
+  @DisplayName(
+      "Test checkRateLimit(LimitedApi, Object, String) with 'api', 'level', 'rateLimitConfig'; when 'null'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DefaultRateLimitService.checkRateLimit(LimitedApi, Object, String)"})
   void testCheckRateLimitWithApiLevelRateLimitConfig_whenNull_thenReturnTrue() {

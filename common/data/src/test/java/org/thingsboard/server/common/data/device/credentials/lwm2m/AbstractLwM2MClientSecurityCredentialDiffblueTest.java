@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class AbstractLwM2MClientSecurityCredentialDiffblueTest {
   /**
    * Test {@link AbstractLwM2MClientSecurityCredential#getKey()}.
-   * <p>
-   * Method under test: {@link AbstractLwM2MClientSecurityCredential#getKey()}
+   *
+   * <p>Method under test: {@link AbstractLwM2MClientSecurityCredential#getKey()}
    */
   @Test
   @DisplayName("Test getKey()")
@@ -19,13 +19,13 @@ class AbstractLwM2MClientSecurityCredentialDiffblueTest {
   @MethodsUnderTest({"String AbstractLwM2MClientSecurityCredential.getKey()"})
   void testGetKey() {
     // Arrange, Act and Assert
-    assertNull((new PSKClientCredential()).getKey());
+    assertNull(new PSKClientCredential().getKey());
   }
 
   /**
    * Test {@link AbstractLwM2MClientSecurityCredential#setKey(String)}.
-   * <p>
-   * Method under test: {@link AbstractLwM2MClientSecurityCredential#setKey(String)}
+   *
+   * <p>Method under test: {@link AbstractLwM2MClientSecurityCredential#setKey(String)}
    */
   @Test
   @DisplayName("Test setKey(String)")

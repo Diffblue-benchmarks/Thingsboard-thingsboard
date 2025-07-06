@@ -25,35 +25,42 @@ import org.thingsboard.server.transport.lwm2m.secure.LwM2mCredentialsSecurityInf
 import org.thingsboard.server.transport.lwm2m.secure.TbLwM2MSecurityInfo;
 import org.thingsboard.server.transport.lwm2m.server.LwM2mTransportContext;
 import org.thingsboard.server.transport.lwm2m.server.client.LwM2MAuthException;
+import org.thingsboard.server.transport.lwm2m.server.uplink.LwM2mTypeServer;
 
 class TbLwM2mSecurityStoreDiffblueTest {
   /**
    * Test {@link TbLwM2mSecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getTbLwM2MSecurityInfoByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getTbLwM2MSecurityInfoByEndpoint(String); then return 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TbLwM2MSecurityInfo TbLwM2mSecurityStore.getTbLwM2MSecurityInfoByEndpoint(String)"})
+  @MethodsUnderTest({
+    "TbLwM2MSecurityInfo TbLwM2mSecurityStore.getTbLwM2MSecurityInfoByEndpoint(String)"
+  })
   void testGetTbLwM2MSecurityInfoByEndpoint_thenReturnNull() {
     // Arrange
     TbInMemorySecurityStore securityStore = new TbInMemorySecurityStore();
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act and Assert
-    assertNull((new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
-        .getTbLwM2MSecurityInfoByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertNull(
+        new TbLwM2mSecurityStore(
+                securityStore,
+                new LwM2mCredentialsSecurityInfoValidator(
+                    context, new LwM2MTransportServerConfig()))
+            .getTbLwM2MSecurityInfoByEndpoint("https://config.us-east-2.amazonaws.com"));
   }
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getByEndpoint(String)")
@@ -69,8 +76,9 @@ class TbLwM2mSecurityStoreDiffblueTest {
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act
-    (new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
+    new TbLwM2mSecurityStore(
+            securityStore,
+            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()))
         .getByEndpoint("https://config.us-east-2.amazonaws.com");
 
     // Assert
@@ -81,14 +89,17 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getEndpoint()} throw {@link LwM2MAuthException} (default constructor).</li>
+   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getEndpoint()} throw {@link
+   *       LwM2MAuthException} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
-  @DisplayName("Test getByEndpoint(String); given SecurityInfo getEndpoint() throw LwM2MAuthException (default constructor)")
+  @DisplayName(
+      "Test getByEndpoint(String); given SecurityInfo getEndpoint() throw LwM2MAuthException (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint_givenSecurityInfoGetEndpointThrowLwM2MAuthException() {
@@ -101,10 +112,14 @@ class TbLwM2mSecurityStoreDiffblueTest {
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act and Assert
-    assertThrows(LwM2MAuthException.class,
-        () -> (new TbLwM2mSecurityStore(securityStore,
-            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
-            .getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertThrows(
+        LwM2MAuthException.class,
+        () ->
+            new TbLwM2mSecurityStore(
+                    securityStore,
+                    new LwM2mCredentialsSecurityInfoValidator(
+                        context, new LwM2MTransportServerConfig()))
+                .getByEndpoint("https://config.us-east-2.amazonaws.com"));
     verify(securityInfo).getEndpoint();
     verify(securityInfo).usePSK();
     verify(securityStore).getByEndpoint(eq("https://config.us-east-2.amazonaws.com"));
@@ -112,14 +127,17 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getPreSharedKey()} throw {@link LwM2MAuthException} (default constructor).</li>
+   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getPreSharedKey()} throw {@link
+   *       LwM2MAuthException} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
-  @DisplayName("Test getByEndpoint(String); given SecurityInfo getPreSharedKey() throw LwM2MAuthException (default constructor)")
+  @DisplayName(
+      "Test getByEndpoint(String); given SecurityInfo getPreSharedKey() throw LwM2MAuthException (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint_givenSecurityInfoGetPreSharedKeyThrowLwM2MAuthException() {
@@ -134,10 +152,14 @@ class TbLwM2mSecurityStoreDiffblueTest {
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act and Assert
-    assertThrows(LwM2MAuthException.class,
-        () -> (new TbLwM2mSecurityStore(securityStore,
-            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
-            .getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertThrows(
+        LwM2MAuthException.class,
+        () ->
+            new TbLwM2mSecurityStore(
+                    securityStore,
+                    new LwM2mCredentialsSecurityInfoValidator(
+                        context, new LwM2MTransportServerConfig()))
+                .getByEndpoint("https://config.us-east-2.amazonaws.com"));
     verify(securityInfo).getEndpoint();
     verify(securityInfo).getPreSharedKey();
     verify(securityInfo).getPskIdentity();
@@ -147,14 +169,17 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getPskIdentity()} return {@code Psk Identity}.</li>
+   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getPskIdentity()} return {@code Psk
+   *       Identity}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
-  @DisplayName("Test getByEndpoint(String); given SecurityInfo getPskIdentity() return 'Psk Identity'")
+  @DisplayName(
+      "Test getByEndpoint(String); given SecurityInfo getPskIdentity() return 'Psk Identity'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint_givenSecurityInfoGetPskIdentityReturnPskIdentity() {
@@ -168,8 +193,9 @@ class TbLwM2mSecurityStoreDiffblueTest {
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act
-    (new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
+    new TbLwM2mSecurityStore(
+            securityStore,
+            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()))
         .getByEndpoint("https://config.us-east-2.amazonaws.com");
 
     // Assert
@@ -181,11 +207,88 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Then calls {@link SecurityInfo#getPreSharedKey()}.</li>
+   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#getPskIdentity()} throw {@link
+   *       LwM2MAuthException} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   */
+  @Test
+  @DisplayName(
+      "Test getByEndpoint(String); given SecurityInfo getPskIdentity() throw LwM2MAuthException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
+  void testGetByEndpoint_givenSecurityInfoGetPskIdentityThrowLwM2MAuthException() {
+    // Arrange
+    SecurityInfo securityInfo = mock(SecurityInfo.class);
+    when(securityInfo.getPskIdentity()).thenThrow(new LwM2MAuthException());
+    when(securityInfo.getEndpoint()).thenReturn("NO_SEC");
+    when(securityInfo.usePSK()).thenReturn(true);
+    TbEditableSecurityStore securityStore = mock(TbEditableSecurityStore.class);
+    when(securityStore.getByEndpoint(Mockito.<String>any())).thenReturn(securityInfo);
+    LwM2mTransportContext context = new LwM2mTransportContext();
+
+    // Act and Assert
+    assertThrows(
+        LwM2MAuthException.class,
+        () ->
+            new TbLwM2mSecurityStore(
+                    securityStore,
+                    new LwM2mCredentialsSecurityInfoValidator(
+                        context, new LwM2MTransportServerConfig()))
+                .getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    verify(securityInfo).getEndpoint();
+    verify(securityInfo).getPskIdentity();
+    verify(securityInfo).usePSK();
+    verify(securityStore).getByEndpoint(eq("https://config.us-east-2.amazonaws.com"));
+  }
+
+  /**
+   * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
+   * <ul>
+   *   <li>Given {@link SecurityInfo} {@link SecurityInfo#usePSK()} throw {@link LwM2MAuthException}
+   *       (default constructor).
+   * </ul>
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   */
+  @Test
+  @DisplayName(
+      "Test getByEndpoint(String); given SecurityInfo usePSK() throw LwM2MAuthException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
+  void testGetByEndpoint_givenSecurityInfoUsePSKThrowLwM2MAuthException() {
+    // Arrange
+    SecurityInfo securityInfo = mock(SecurityInfo.class);
+    when(securityInfo.usePSK()).thenThrow(new LwM2MAuthException());
+    TbEditableSecurityStore securityStore = mock(TbEditableSecurityStore.class);
+    when(securityStore.getByEndpoint(Mockito.<String>any())).thenReturn(securityInfo);
+    LwM2mTransportContext context = new LwM2mTransportContext();
+
+    // Act and Assert
+    assertThrows(
+        LwM2MAuthException.class,
+        () ->
+            new TbLwM2mSecurityStore(
+                    securityStore,
+                    new LwM2mCredentialsSecurityInfoValidator(
+                        context, new LwM2MTransportServerConfig()))
+                .getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    verify(securityInfo).usePSK();
+    verify(securityStore).getByEndpoint(eq("https://config.us-east-2.amazonaws.com"));
+  }
+
+  /**
+   * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link SecurityInfo#getPreSharedKey()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
   @DisplayName("Test getByEndpoint(String); then calls getPreSharedKey()")
@@ -203,8 +306,9 @@ class TbLwM2mSecurityStoreDiffblueTest {
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act
-    (new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
+    new TbLwM2mSecurityStore(
+            securityStore,
+            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()))
         .getByEndpoint("https://config.us-east-2.amazonaws.com");
 
     // Assert
@@ -217,27 +321,33 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByEndpoint(String)}.
+   *
    * <ul>
-   *   <li>Then return newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.</li>
+   *   <li>Then return newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByEndpoint(String)}
    */
   @Test
-  @DisplayName("Test getByEndpoint(String); then return newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
+  @DisplayName(
+      "Test getByEndpoint(String); then return newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByEndpoint(String)"})
   void testGetByEndpoint_thenReturnNewX509CertInfoHttpsConfigUsEast2AmazonawsCom() {
     // Arrange
     TbEditableSecurityStore securityStore = mock(TbEditableSecurityStore.class);
-    SecurityInfo newX509CertInfoResult = SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
+    SecurityInfo newX509CertInfoResult =
+        SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
     when(securityStore.getByEndpoint(Mockito.<String>any())).thenReturn(newX509CertInfoResult);
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act
-    SecurityInfo actualByEndpoint = (new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
-        .getByEndpoint("https://config.us-east-2.amazonaws.com");
+    SecurityInfo actualByEndpoint =
+        new TbLwM2mSecurityStore(
+                securityStore,
+                new LwM2mCredentialsSecurityInfoValidator(
+                    context, new LwM2MTransportServerConfig()))
+            .getByEndpoint("https://config.us-east-2.amazonaws.com");
 
     // Assert
     verify(securityStore).getByEndpoint(eq("https://config.us-east-2.amazonaws.com"));
@@ -246,24 +356,33 @@ class TbLwM2mSecurityStoreDiffblueTest {
 
   /**
    * Test {@link TbLwM2mSecurityStore#getByIdentity(String)}.
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByIdentity(String)}
+   *
+   * <ul>
+   *   <li>Then return newX509CertInfo {@code https://config.us-east-2.amazonaws.com}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByIdentity(String)}
    */
   @Test
-  @DisplayName("Test getByIdentity(String)")
+  @DisplayName(
+      "Test getByIdentity(String); then return newX509CertInfo 'https://config.us-east-2.amazonaws.com'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByIdentity(String)"})
-  void testGetByIdentity() {
+  void testGetByIdentity_thenReturnNewX509CertInfoHttpsConfigUsEast2AmazonawsCom() {
     // Arrange
     TbEditableSecurityStore securityStore = mock(TbEditableSecurityStore.class);
-    SecurityInfo newX509CertInfoResult = SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
+    SecurityInfo newX509CertInfoResult =
+        SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
     when(securityStore.getByIdentity(Mockito.<String>any())).thenReturn(newX509CertInfoResult);
     LwM2mTransportContext context = new LwM2mTransportContext();
 
     // Act
-    SecurityInfo actualByIdentity = (new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig())))
-        .getByIdentity("Psk Identity");
+    SecurityInfo actualByIdentity =
+        new TbLwM2mSecurityStore(
+                securityStore,
+                new LwM2mCredentialsSecurityInfoValidator(
+                    context, new LwM2MTransportServerConfig()))
+            .getByIdentity("Psk Identity");
 
     // Assert
     verify(securityStore).getByIdentity(eq("Psk Identity"));
@@ -271,9 +390,43 @@ class TbLwM2mSecurityStoreDiffblueTest {
   }
 
   /**
+   * Test {@link TbLwM2mSecurityStore#getByIdentity(String)}.
+   *
+   * <ul>
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByIdentity(String)}
+   */
+  @Test
+  @DisplayName("Test getByIdentity(String); then return 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"SecurityInfo TbLwM2mSecurityStore.getByIdentity(String)"})
+  void testGetByIdentity_thenReturnNull() {
+    // Arrange
+    TbEditableSecurityStore securityStore = mock(TbEditableSecurityStore.class);
+    when(securityStore.getByIdentity(Mockito.<String>any())).thenReturn(null);
+    LwM2mCredentialsSecurityInfoValidator validator =
+        mock(LwM2mCredentialsSecurityInfoValidator.class);
+    when(validator.getEndpointSecurityInfoByCredentialsId(
+            Mockito.<String>any(), Mockito.<LwM2mTypeServer>any()))
+        .thenThrow(new LwM2MAuthException());
+
+    // Act
+    SecurityInfo actualByIdentity =
+        new TbLwM2mSecurityStore(securityStore, validator).getByIdentity("Psk Identity");
+
+    // Assert
+    verify(securityStore).getByIdentity(eq("Psk Identity"));
+    verify(validator)
+        .getEndpointSecurityInfoByCredentialsId(eq("Psk Identity"), eq(LwM2mTypeServer.CLIENT));
+    assertNull(actualByIdentity);
+  }
+
+  /**
    * Test {@link TbLwM2mSecurityStore#getByOscoreIdentity(OscoreIdentity)}.
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#getByOscoreIdentity(OscoreIdentity)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#getByOscoreIdentity(OscoreIdentity)}
    */
   @Test
   @DisplayName("Test getByOscoreIdentity(OscoreIdentity)")
@@ -283,17 +436,20 @@ class TbLwM2mSecurityStoreDiffblueTest {
     // Arrange
     TbInMemorySecurityStore securityStore = new TbInMemorySecurityStore();
     LwM2mTransportContext context = new LwM2mTransportContext();
-    TbLwM2mSecurityStore tbLwM2mSecurityStore = new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()));
+    TbLwM2mSecurityStore tbLwM2mSecurityStore =
+        new TbLwM2mSecurityStore(
+            securityStore,
+            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()));
 
     // Act and Assert
-    assertNull(tbLwM2mSecurityStore.getByOscoreIdentity(new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
+    assertNull(
+        tbLwM2mSecurityStore.getByOscoreIdentity(new OscoreIdentity("AXAXAXAX".getBytes("UTF-8"))));
   }
 
   /**
    * Test {@link TbLwM2mSecurityStore#putX509(TbLwM2MSecurityInfo)}.
-   * <p>
-   * Method under test: {@link TbLwM2mSecurityStore#putX509(TbLwM2MSecurityInfo)}
+   *
+   * <p>Method under test: {@link TbLwM2mSecurityStore#putX509(TbLwM2MSecurityInfo)}
    */
   @Test
   @DisplayName("Test putX509(TbLwM2MSecurityInfo)")
@@ -303,15 +459,18 @@ class TbLwM2mSecurityStoreDiffblueTest {
     // Arrange
     TbInMemorySecurityStore securityStore = new TbInMemorySecurityStore();
     LwM2mTransportContext context = new LwM2mTransportContext();
-    TbLwM2mSecurityStore tbLwM2mSecurityStore = new TbLwM2mSecurityStore(securityStore,
-        new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()));
+    TbLwM2mSecurityStore tbLwM2mSecurityStore =
+        new TbLwM2mSecurityStore(
+            securityStore,
+            new LwM2mCredentialsSecurityInfoValidator(context, new LwM2MTransportServerConfig()));
 
     TbLwM2MSecurityInfo securityInfo = new TbLwM2MSecurityInfo();
     securityInfo.setBootstrapConfig(new BootstrapConfig());
     securityInfo.setBootstrapCredentialConfig(new LwM2MBootstrapConfig());
     securityInfo.setDeviceProfile(new DeviceProfile());
     securityInfo.setEndpoint("https://config.us-east-2.amazonaws.com");
-    SecurityInfo securityInfo2 = SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
+    SecurityInfo securityInfo2 =
+        SecurityInfo.newX509CertInfo("https://config.us-east-2.amazonaws.com");
     securityInfo.setSecurityInfo(securityInfo2);
     securityInfo.setSecurityMode(SecurityMode.PSK);
 
@@ -319,6 +478,8 @@ class TbLwM2mSecurityStoreDiffblueTest {
     tbLwM2mSecurityStore.putX509(securityInfo);
 
     // Assert
-    assertSame(securityInfo2, tbLwM2mSecurityStore.getByEndpoint("https://config.us-east-2.amazonaws.com"));
+    assertSame(
+        securityInfo2,
+        tbLwM2mSecurityStore.getByEndpoint("https://config.us-east-2.amazonaws.com"));
   }
 }

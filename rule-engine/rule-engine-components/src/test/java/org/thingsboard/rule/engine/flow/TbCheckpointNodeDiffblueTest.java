@@ -7,8 +7,8 @@ import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -19,8 +19,8 @@ import org.thingsboard.rule.engine.api.TbNodeException;
 class TbCheckpointNodeDiffblueTest {
   /**
    * Test {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}.
-   * <p>
-   * Method under test: {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbCheckpointNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
   @DisplayName("Test init(TbContext, TbNodeConfiguration)")
@@ -33,7 +33,7 @@ class TbCheckpointNodeDiffblueTest {
     when(ctx.getQueueName()).thenReturn("Queue Name");
 
     // Act
-    tbCheckpointNode.init(ctx, new TbNodeConfiguration(MissingNode.getInstance()));
+    tbCheckpointNode.init(ctx, new TbNodeConfiguration(DoubleNode.valueOf(10.0d)));
 
     // Assert
     verify(ctx).getQueueName();
@@ -41,17 +41,23 @@ class TbCheckpointNodeDiffblueTest {
 
   /**
    * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   *   <li>Then return Second is {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is
+   *       withExactBigDecimals {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @DisplayName(
+      "Test upgrade(int, JsonNode); then return Second is ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
-  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_thenReturnSecondIsArrayNodeWithNfIsWithExactBigDecimalsTrue()
+      throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
     ArrayNode oldConfiguration = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -62,45 +68,51 @@ class TbCheckpointNodeDiffblueTest {
 
   /**
    * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When Instance.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When one.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when Instance; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenInstance_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenOne_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbCheckpointNode.upgrade(0, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbCheckpointNode.upgrade(1, oldConfiguration).getSecond());
   }
 
   /**
    * Test {@link TbCheckpointNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return Second is Instance.</li>
+   *   <li>When valueOf ten.
+   *   <li>Then return Second is valueOf ten.
    * </ul>
-   * <p>
-   * Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbCheckpointNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when one; then return Second is Instance")
+  @DisplayName("Test upgrade(int, JsonNode); when valueOf ten; then return Second is valueOf ten")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"})
-  void testUpgrade_whenOne_thenReturnSecondIsInstance() throws TbNodeException {
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.util.TbPair TbCheckpointNode.upgrade(int, JsonNode)"
+  })
+  void testUpgrade_whenValueOfTen_thenReturnSecondIsValueOfTen() throws TbNodeException {
     // Arrange
     TbCheckpointNode tbCheckpointNode = new TbCheckpointNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act and Assert
-    assertSame(oldConfiguration, tbCheckpointNode.upgrade(1, oldConfiguration).getSecond());
+    assertSame(oldConfiguration, tbCheckpointNode.upgrade(0, oldConfiguration).getSecond());
   }
 }

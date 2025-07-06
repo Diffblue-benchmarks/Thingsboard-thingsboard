@@ -16,8 +16,8 @@ import org.thingsboard.server.common.data.DeviceTransportType;
 class Lwm2mDeviceTransportConfigurationDiffblueTest {
   /**
    * Test {@link Lwm2mDeviceTransportConfiguration#put(String, Object)}.
-   * <p>
-   * Method under test: {@link Lwm2mDeviceTransportConfiguration#put(String, Object)}
+   *
+   * <p>Method under test: {@link Lwm2mDeviceTransportConfiguration#put(String, Object)}
    */
   @Test
   @DisplayName("Test put(String, Object)")
@@ -25,7 +25,8 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   @MethodsUnderTest({"void Lwm2mDeviceTransportConfiguration.put(String, Object)"})
   void testPut() {
     // Arrange
-    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration = new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration =
+        new Lwm2mDeviceTransportConfiguration();
 
     // Act
     lwm2mDeviceTransportConfiguration.put("Name", "Value");
@@ -37,13 +38,16 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}, and {@link
+   * Lwm2mDeviceTransportConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Lwm2mDeviceTransportConfiguration#equals(Object)}
    *   <li>{@link Lwm2mDeviceTransportConfiguration#hashCode()}
@@ -52,12 +56,16 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
-      "int Lwm2mDeviceTransportConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
+    "int Lwm2mDeviceTransportConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration = new Lwm2mDeviceTransportConfiguration();
-    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration2 = new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration =
+        new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration2 =
+        new Lwm2mDeviceTransportConfiguration();
 
     // Act and Assert
     assertEquals(lwm2mDeviceTransportConfiguration, lwm2mDeviceTransportConfiguration2);
@@ -66,13 +74,16 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}, and {@link Lwm2mDeviceTransportConfiguration#hashCode()}.
+   * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}, and {@link
+   * Lwm2mDeviceTransportConfiguration#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Lwm2mDeviceTransportConfiguration#equals(Object)}
    *   <li>{@link Lwm2mDeviceTransportConfiguration#hashCode()}
@@ -81,11 +92,14 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
-      "int Lwm2mDeviceTransportConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
+    "int Lwm2mDeviceTransportConfiguration.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration = new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration =
+        new Lwm2mDeviceTransportConfiguration();
 
     // Act and Assert
     assertEquals(lwm2mDeviceTransportConfiguration, lwm2mDeviceTransportConfiguration);
@@ -95,21 +109,25 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
 
   /**
    * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
-      "int Lwm2mDeviceTransportConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
+    "int Lwm2mDeviceTransportConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration = new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration lwm2mDeviceTransportConfiguration =
+        new Lwm2mDeviceTransportConfiguration();
     lwm2mDeviceTransportConfiguration.put("Name", "Value");
 
     // Act and Assert
@@ -118,18 +136,21 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
 
   /**
    * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
-      "int Lwm2mDeviceTransportConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
+    "int Lwm2mDeviceTransportConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Lwm2mDeviceTransportConfiguration(), null);
@@ -137,27 +158,33 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
 
   /**
    * Test {@link Lwm2mDeviceTransportConfiguration#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
+   *
+   * <p>Method under test: {@link Lwm2mDeviceTransportConfiguration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
-      "int Lwm2mDeviceTransportConfiguration.hashCode()"})
+  @MethodsUnderTest({
+    "boolean Lwm2mDeviceTransportConfiguration.equals(Object)",
+    "int Lwm2mDeviceTransportConfiguration.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new Lwm2mDeviceTransportConfiguration(), "Different type to Lwm2mDeviceTransportConfiguration");
+    assertNotEquals(
+        new Lwm2mDeviceTransportConfiguration(),
+        "Different type to Lwm2mDeviceTransportConfiguration");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Lwm2mDeviceTransportConfiguration}
    *   <li>{@link Lwm2mDeviceTransportConfiguration#setProperties(Map)}
@@ -170,20 +197,25 @@ class Lwm2mDeviceTransportConfigurationDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Lwm2mDeviceTransportConfiguration.<init>()",
-      "Map Lwm2mDeviceTransportConfiguration.getProperties()",
-      "DeviceTransportType Lwm2mDeviceTransportConfiguration.getType()",
-      "Map Lwm2mDeviceTransportConfiguration.properties()", "void Lwm2mDeviceTransportConfiguration.setProperties(Map)",
-      "String Lwm2mDeviceTransportConfiguration.toString()"})
+  @MethodsUnderTest({
+    "void Lwm2mDeviceTransportConfiguration.<init>()",
+    "Map Lwm2mDeviceTransportConfiguration.getProperties()",
+    "DeviceTransportType Lwm2mDeviceTransportConfiguration.getType()",
+    "Map Lwm2mDeviceTransportConfiguration.properties()",
+    "void Lwm2mDeviceTransportConfiguration.setProperties(Map)",
+    "String Lwm2mDeviceTransportConfiguration.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    Lwm2mDeviceTransportConfiguration actualLwm2mDeviceTransportConfiguration = new Lwm2mDeviceTransportConfiguration();
+    Lwm2mDeviceTransportConfiguration actualLwm2mDeviceTransportConfiguration =
+        new Lwm2mDeviceTransportConfiguration();
     HashMap<String, Object> properties = new HashMap<>();
     actualLwm2mDeviceTransportConfiguration.setProperties(properties);
     String actualToStringResult = actualLwm2mDeviceTransportConfiguration.toString();
     Map<String, Object> actualProperties = actualLwm2mDeviceTransportConfiguration.getProperties();
     DeviceTransportType actualType = actualLwm2mDeviceTransportConfiguration.getType();
-    Map<String, Object> actualPropertiesResult = actualLwm2mDeviceTransportConfiguration.properties();
+    Map<String, Object> actualPropertiesResult =
+        actualLwm2mDeviceTransportConfiguration.properties();
 
     // Assert
     assertEquals("Lwm2mDeviceTransportConfiguration(properties={})", actualToStringResult);

@@ -21,13 +21,12 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 
 @ExtendWith(MockitoExtension.class)
 class Lwm2mTransportHealthCheckerDiffblueTest {
-  @InjectMocks
-  private Lwm2mTransportHealthChecker lwm2mTransportHealthChecker;
+  @InjectMocks private Lwm2mTransportHealthChecker lwm2mTransportHealthChecker;
 
   /**
    * Test {@link Lwm2mTransportHealthChecker#createTestPayload(String)}.
-   * <p>
-   * Method under test: {@link Lwm2mTransportHealthChecker#createTestPayload(String)}
+   *
+   * <p>Method under test: {@link Lwm2mTransportHealthChecker#createTestPayload(String)}
    */
   @Test
   @DisplayName("Test createTestPayload(String)")
@@ -40,11 +39,12 @@ class Lwm2mTransportHealthCheckerDiffblueTest {
 
   /**
    * Test {@link Lwm2mTransportHealthChecker#destroyClient()}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.</li>
+   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Lwm2mTransportHealthChecker#destroyClient()}
+   *
+   * <p>Method under test: {@link Lwm2mTransportHealthChecker#destroyClient()}
    */
   @Test
   @DisplayName("Test destroyClient(); then calls setCredentials(DeviceCredentials)")
@@ -67,7 +67,7 @@ class Lwm2mTransportHealthCheckerDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    (new Lwm2mTransportHealthChecker(new Lwm2mTransportMonitoringConfig(), target)).destroyClient();
+    new Lwm2mTransportHealthChecker(new Lwm2mTransportMonitoringConfig(), target).destroyClient();
 
     // Assert
     verify(device).setCredentials(isA(DeviceCredentials.class));

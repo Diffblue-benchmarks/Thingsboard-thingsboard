@@ -12,8 +12,8 @@ import org.thingsboard.monitoring.data.Latency;
 class HighLatencyNotificationDiffblueTest {
   /**
    * Test {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}.
-   * <p>
-   * Method under test: {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}
+   *
+   * <p>Method under test: {@link HighLatencyNotification#HighLatencyNotification(Collection, int)}
    */
   @Test
   @DisplayName("Test new HighLatencyNotification(Collection, int)")
@@ -21,14 +21,15 @@ class HighLatencyNotificationDiffblueTest {
   @MethodsUnderTest({"void HighLatencyNotification.<init>(Collection, int)"})
   void testNewHighLatencyNotification() {
     // Arrange, Act and Assert
-    assertEquals("Some of the latencies are higher than 1 ms:\n",
-        (new HighLatencyNotification(new ArrayList<>(), 1)).getText());
+    assertEquals(
+        "Some of the latencies are higher than 1 ms:\n",
+        new HighLatencyNotification(new ArrayList<>(), 1).getText());
   }
 
   /**
    * Test {@link HighLatencyNotification#getText()}.
-   * <p>
-   * Method under test: {@link HighLatencyNotification#getText()}
+   *
+   * <p>Method under test: {@link HighLatencyNotification#getText()}
    */
   @Test
   @DisplayName("Test getText()")
@@ -40,17 +41,19 @@ class HighLatencyNotificationDiffblueTest {
     highLatencies.add(Latency.of("Some of the latencies are higher than ", 10.0d));
 
     // Act and Assert
-    assertEquals("Some of the latencies are higher than 1 ms:\n[Some of the latencies are higher than ] *10.00 ms*\n",
-        (new HighLatencyNotification(highLatencies, 1)).getText());
+    assertEquals(
+        "Some of the latencies are higher than 1 ms:\n[Some of the latencies are higher than ] *10.00 ms*\n",
+        new HighLatencyNotification(highLatencies, 1).getText());
   }
 
   /**
    * Test {@link HighLatencyNotification#getText()}.
+   *
    * <ul>
-   *   <li>Then return a string.</li>
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link HighLatencyNotification#getText()}
+   *
+   * <p>Method under test: {@link HighLatencyNotification#getText()}
    */
   @Test
   @DisplayName("Test getText(); then return a string")
@@ -64,18 +67,20 @@ class HighLatencyNotificationDiffblueTest {
 
     // Act and Assert
     assertEquals(
-        "Some of the latencies are higher than 1 ms:\n" + "[Some of the latencies are higher than ] *10.00 ms*\n"
+        "Some of the latencies are higher than 1 ms:\n"
+            + "[Some of the latencies are higher than ] *10.00 ms*\n"
             + "[Some of the latencies are higher than ] *10.00 ms*\n",
-        (new HighLatencyNotification(highLatencies, 1)).getText());
+        new HighLatencyNotification(highLatencies, 1).getText());
   }
 
   /**
    * Test {@link HighLatencyNotification#getText()}.
+   *
    * <ul>
-   *   <li>Then return {@code Some of the latencies are higher than 1 ms:}.</li>
+   *   <li>Then return {@code Some of the latencies are higher than 1 ms:}.
    * </ul>
-   * <p>
-   * Method under test: {@link HighLatencyNotification#getText()}
+   *
+   * <p>Method under test: {@link HighLatencyNotification#getText()}
    */
   @Test
   @DisplayName("Test getText(); then return 'Some of the latencies are higher than 1 ms:'")
@@ -83,7 +88,8 @@ class HighLatencyNotificationDiffblueTest {
   @MethodsUnderTest({"java.lang.String HighLatencyNotification.getText()"})
   void testGetText_thenReturnSomeOfTheLatenciesAreHigherThan1Ms() {
     // Arrange, Act and Assert
-    assertEquals("Some of the latencies are higher than 1 ms:\n",
-        (new HighLatencyNotification(new ArrayList<>(), 1)).getText());
+    assertEquals(
+        "Some of the latencies are higher than 1 ms:\n",
+        new HighLatencyNotification(new ArrayList<>(), 1).getText());
   }
 }

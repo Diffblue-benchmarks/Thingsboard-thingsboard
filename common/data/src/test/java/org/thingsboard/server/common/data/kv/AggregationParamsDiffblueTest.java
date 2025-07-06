@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 class AggregationParamsDiffblueTest {
   /**
    * Test {@link AggregationParams#none()}.
-   * <p>
-   * Method under test: {@link AggregationParams#none()}
+   *
+   * <p>Method under test: {@link AggregationParams#none()}
    */
   @Test
   @DisplayName("Test none()")
@@ -34,8 +34,8 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#milliseconds(Aggregation, long)}.
-   * <p>
-   * Method under test: {@link AggregationParams#milliseconds(Aggregation, long)}
+   *
+   * <p>Method under test: {@link AggregationParams#milliseconds(Aggregation, long)}
    */
   @Test
   @DisplayName("Test milliseconds(Aggregation, long)")
@@ -43,7 +43,8 @@ class AggregationParamsDiffblueTest {
   @MethodsUnderTest({"AggregationParams AggregationParams.milliseconds(Aggregation, long)"})
   void testMilliseconds() {
     // Arrange and Act
-    AggregationParams actualMillisecondsResult = AggregationParams.milliseconds(Aggregation.MIN, 42L);
+    AggregationParams actualMillisecondsResult =
+        AggregationParams.milliseconds(Aggregation.MIN, 42L);
 
     // Assert
     assertNull(actualMillisecondsResult.getTzId());
@@ -53,21 +54,25 @@ class AggregationParamsDiffblueTest {
   }
 
   /**
-   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, ZoneId)} with {@code aggregationType}, {@code intervalType}, {@code tzId}.
-   * <p>
-   * Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, ZoneId)}
+   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, ZoneId)} with {@code
+   * aggregationType}, {@code intervalType}, {@code tzId}.
+   *
+   * <p>Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, ZoneId)}
    */
   @Test
-  @DisplayName("Test calendar(Aggregation, IntervalType, ZoneId) with 'aggregationType', 'intervalType', 'tzId'")
+  @DisplayName(
+      "Test calendar(Aggregation, IntervalType, ZoneId) with 'aggregationType', 'intervalType', 'tzId'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.calendar(Aggregation, IntervalType, ZoneId)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.calendar(Aggregation, IntervalType, ZoneId)"
+  })
   void testCalendarWithAggregationTypeIntervalTypeTzId() {
     // Arrange
     ZoneOffset tzId = ZoneOffset.ofTotalSeconds(1);
 
     // Act
-    AggregationParams actualCalendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        tzId);
+    AggregationParams actualCalendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, tzId);
 
     // Assert
     assertEquals(0L, actualCalendarResult.getInterval());
@@ -77,18 +82,22 @@ class AggregationParamsDiffblueTest {
   }
 
   /**
-   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code aggregationType}, {@code intervalType}, {@code tzIdStr}.
-   * <p>
-   * Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
+   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code
+   * aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   *
+   * <p>Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
    */
   @Test
-  @DisplayName("Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'")
+  @DisplayName(
+      "Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"
+  })
   void testCalendarWithAggregationTypeIntervalTypeTzIdStr() {
     // Arrange and Act
-    AggregationParams actualCalendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        "America/Phoenix");
+    AggregationParams actualCalendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, "America/Phoenix");
 
     // Assert
     assertEquals("America/Phoenix", actualCalendarResult.getTzId().toString());
@@ -98,20 +107,26 @@ class AggregationParamsDiffblueTest {
   }
 
   /**
-   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code
+   * aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
+   *
+   * <p>Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
    */
   @Test
-  @DisplayName("Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when empty string")
+  @DisplayName(
+      "Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when empty string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"
+  })
   void testCalendarWithAggregationTypeIntervalTypeTzIdStr_whenEmptyString() {
     // Arrange and Act
-    AggregationParams actualCalendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, "");
+    AggregationParams actualCalendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, "");
 
     // Assert
     assertEquals(0L, actualCalendarResult.getInterval());
@@ -120,21 +135,26 @@ class AggregationParamsDiffblueTest {
   }
 
   /**
-   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code
+   * aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
+   *   <li>When {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
+   *
+   * <p>Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
    */
   @Test
-  @DisplayName("Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when 'null'")
+  @DisplayName(
+      "Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"
+  })
   void testCalendarWithAggregationTypeIntervalTypeTzIdStr_whenNull() {
     // Arrange and Act
-    AggregationParams actualCalendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        (String) null);
+    AggregationParams actualCalendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, (String) null);
 
     // Assert
     assertEquals(0L, actualCalendarResult.getInterval());
@@ -143,21 +163,26 @@ class AggregationParamsDiffblueTest {
   }
 
   /**
-   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   * Test {@link AggregationParams#calendar(Aggregation, IntervalType, String)} with {@code
+   * aggregationType}, {@code intervalType}, {@code tzIdStr}.
+   *
    * <ul>
-   *   <li>When {@code Tz Id Str}.</li>
+   *   <li>When {@code Tz Id Str}.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
+   *
+   * <p>Method under test: {@link AggregationParams#calendar(Aggregation, IntervalType, String)}
    */
   @Test
-  @DisplayName("Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when 'Tz Id Str'")
+  @DisplayName(
+      "Test calendar(Aggregation, IntervalType, String) with 'aggregationType', 'intervalType', 'tzIdStr'; when 'Tz Id Str'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.calendar(Aggregation, IntervalType, String)"
+  })
   void testCalendarWithAggregationTypeIntervalTypeTzIdStr_whenTzIdStr() {
     // Arrange and Act
-    AggregationParams actualCalendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        "Tz Id Str");
+    AggregationParams actualCalendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, "Tz Id Str");
 
     // Assert
     assertEquals(0L, actualCalendarResult.getInterval());
@@ -167,19 +192,22 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#of(Aggregation, IntervalType, ZoneId, long)}.
-   * <p>
-   * Method under test: {@link AggregationParams#of(Aggregation, IntervalType, ZoneId, long)}
+   *
+   * <p>Method under test: {@link AggregationParams#of(Aggregation, IntervalType, ZoneId, long)}
    */
   @Test
   @DisplayName("Test of(Aggregation, IntervalType, ZoneId, long)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AggregationParams AggregationParams.of(Aggregation, IntervalType, ZoneId, long)"})
+  @MethodsUnderTest({
+    "AggregationParams AggregationParams.of(Aggregation, IntervalType, ZoneId, long)"
+  })
   void testOf() {
     // Arrange
     ZoneOffset tzId = ZoneOffset.ofTotalSeconds(1);
 
     // Act
-    AggregationParams actualOfResult = AggregationParams.of(Aggregation.MIN, IntervalType.MILLISECONDS, tzId, 42L);
+    AggregationParams actualOfResult =
+        AggregationParams.of(Aggregation.MIN, IntervalType.MILLISECONDS, tzId, 42L);
 
     // Assert
     assertEquals(42L, actualOfResult.getInterval());
@@ -190,30 +218,13 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#getInterval()}.
+   *
    * <ul>
-   *   <li>Given milliseconds {@code MIN} and forty-two.</li>
-   *   <li>Then return forty-two.</li>
+   *   <li>Given none.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#getInterval()}
-   */
-  @Test
-  @DisplayName("Test getInterval(); given milliseconds 'MIN' and forty-two; then return forty-two")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long AggregationParams.getInterval()"})
-  void testGetInterval_givenMillisecondsMinAndFortyTwo_thenReturnFortyTwo() {
-    // Arrange, Act and Assert
-    assertEquals(42L, AggregationParams.milliseconds(Aggregation.MIN, 42L).getInterval());
-  }
-
-  /**
-   * Test {@link AggregationParams#getInterval()}.
-   * <ul>
-   *   <li>Given none.</li>
-   *   <li>Then return zero.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#getInterval()}
+   *
+   * <p>Method under test: {@link AggregationParams#getInterval()}
    */
   @Test
   @DisplayName("Test getInterval(); given none; then return zero")
@@ -226,11 +237,12 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#getInterval()}.
+   *
    * <ul>
-   *   <li>Then return {@code 604800000}.</li>
+   *   <li>Then return {@code 604800000}.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#getInterval()}
+   *
+   * <p>Method under test: {@link AggregationParams#getInterval()}
    */
   @Test
   @DisplayName("Test getInterval(); then return '604800000'")
@@ -238,17 +250,20 @@ class AggregationParamsDiffblueTest {
   @MethodsUnderTest({"long AggregationParams.getInterval()"})
   void testGetInterval_thenReturn604800000() {
     // Arrange, Act and Assert
-    assertEquals(604800000L,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.WEEK, ZoneOffset.ofTotalSeconds(1)).getInterval());
+    assertEquals(
+        604800000L,
+        new AggregationParams(Aggregation.MIN, IntervalType.WEEK, ZoneOffset.ofTotalSeconds(1), 42L)
+            .getInterval());
   }
 
   /**
    * Test {@link AggregationParams#getInterval()}.
+   *
    * <ul>
-   *   <li>Then return {@code 2592000000}.</li>
+   *   <li>Then return {@code 2592000000}.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#getInterval()}
+   *
+   * <p>Method under test: {@link AggregationParams#getInterval()}
    */
   @Test
   @DisplayName("Test getInterval(); then return '2592000000'")
@@ -256,17 +271,21 @@ class AggregationParamsDiffblueTest {
   @MethodsUnderTest({"long AggregationParams.getInterval()"})
   void testGetInterval_thenReturn2592000000() {
     // Arrange, Act and Assert
-    assertEquals(2592000000L,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.MONTH, ZoneOffset.ofTotalSeconds(1)).getInterval());
+    assertEquals(
+        2592000000L,
+        new AggregationParams(
+                Aggregation.MIN, IntervalType.MONTH, ZoneOffset.ofTotalSeconds(1), 42L)
+            .getInterval());
   }
 
   /**
    * Test {@link AggregationParams#getInterval()}.
+   *
    * <ul>
-   *   <li>Then return {@code 7776000000}.</li>
+   *   <li>Then return {@code 7776000000}.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#getInterval()}
+   *
+   * <p>Method under test: {@link AggregationParams#getInterval()}
    */
   @Test
   @DisplayName("Test getInterval(); then return '7776000000'")
@@ -274,18 +293,45 @@ class AggregationParamsDiffblueTest {
   @MethodsUnderTest({"long AggregationParams.getInterval()"})
   void testGetInterval_thenReturn7776000000() {
     // Arrange, Act and Assert
-    assertEquals(7776000000L,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.QUARTER, ZoneOffset.ofTotalSeconds(1)).getInterval());
+    assertEquals(
+        7776000000L,
+        new AggregationParams(
+                Aggregation.MIN, IntervalType.QUARTER, ZoneOffset.ofTotalSeconds(1), 42L)
+            .getInterval());
+  }
+
+  /**
+   * Test {@link AggregationParams#getInterval()}.
+   *
+   * <ul>
+   *   <li>Then return forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link AggregationParams#getInterval()}
+   */
+  @Test
+  @DisplayName("Test getInterval(); then return forty-two")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"long AggregationParams.getInterval()"})
+  void testGetInterval_thenReturnFortyTwo() {
+    // Arrange, Act and Assert
+    assertEquals(
+        42L,
+        new AggregationParams(
+                Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1), 42L)
+            .getInterval());
   }
 
   /**
    * Test {@link AggregationParams#equals(Object)}, and {@link AggregationParams#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AggregationParams#equals(Object)}
    *   <li>{@link AggregationParams#hashCode()}
@@ -294,7 +340,10 @@ class AggregationParamsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AggregationParams noneResult = AggregationParams.none();
@@ -308,12 +357,14 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}, and {@link AggregationParams#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AggregationParams#equals(Object)}
    *   <li>{@link AggregationParams#hashCode()}
@@ -322,7 +373,10 @@ class AggregationParamsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AggregationParams millisecondsResult = AggregationParams.milliseconds(Aggregation.MIN, 42L);
@@ -336,12 +390,14 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}, and {@link AggregationParams#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AggregationParams#equals(Object)}
    *   <li>{@link AggregationParams#hashCode()}
@@ -350,13 +406,18 @@ class AggregationParamsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(1));
-    AggregationParams calendarResult2 = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult2 =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertEquals(calendarResult, calendarResult2);
@@ -366,12 +427,14 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}, and {@link AggregationParams#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AggregationParams#equals(Object)}
    *   <li>{@link AggregationParams#hashCode()}
@@ -380,7 +443,10 @@ class AggregationParamsDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AggregationParams noneResult = AggregationParams.none();
@@ -393,17 +459,21 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AggregationParams millisecondsResult = AggregationParams.milliseconds(Aggregation.MIN, 42L);
@@ -414,21 +484,26 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertNotEquals(calendarResult, AggregationParams.none());
@@ -436,21 +511,25 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(null, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(null, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertNotEquals(calendarResult, AggregationParams.none());
@@ -458,21 +537,26 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.WEEK,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.WEEK, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertNotEquals(calendarResult, AggregationParams.none());
@@ -480,21 +564,26 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MONTH,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MONTH, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertNotEquals(calendarResult, AggregationParams.none());
@@ -502,21 +591,26 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.QUARTER,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.QUARTER, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
     assertNotEquals(calendarResult, AggregationParams.none());
@@ -524,107 +618,138 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, null, ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(Aggregation.MIN, null, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
-    assertNotEquals(calendarResult,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
+    assertNotEquals(
+        calendarResult,
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
   }
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(3));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(3));
 
     // Act and Assert
-    assertNotEquals(calendarResult,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
+    assertNotEquals(
+        calendarResult,
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
   }
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        (ZoneId) null);
+    AggregationParams calendarResult =
+        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, (ZoneId) null);
 
     // Act and Assert
-    assertNotEquals(calendarResult,
-        AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
+    assertNotEquals(
+        calendarResult,
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1)));
   }
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    AggregationParams calendarResult = AggregationParams.calendar(Aggregation.MIN, IntervalType.MILLISECONDS,
-        ZoneOffset.ofTotalSeconds(1));
+    AggregationParams calendarResult =
+        AggregationParams.calendar(
+            Aggregation.MIN, IntervalType.MILLISECONDS, ZoneOffset.ofTotalSeconds(1));
 
     // Act and Assert
-    assertNotEquals(calendarResult, AggregationParams.calendar(Aggregation.MIN, null, ZoneOffset.ofTotalSeconds(1)));
+    assertNotEquals(
+        calendarResult,
+        AggregationParams.calendar(Aggregation.MIN, null, ZoneOffset.ofTotalSeconds(1)));
   }
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(AggregationParams.none(), null);
@@ -632,17 +757,21 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test {@link AggregationParams#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AggregationParams#equals(Object)}
+   *
+   * <p>Method under test: {@link AggregationParams#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AggregationParams.equals(Object)", "int AggregationParams.hashCode()"})
+  @MethodsUnderTest({
+    "boolean AggregationParams.equals(Object)",
+    "int AggregationParams.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(AggregationParams.none(), "Different type to AggregationParams");
@@ -650,8 +779,9 @@ class AggregationParamsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AggregationParams#AggregationParams(Aggregation, IntervalType, ZoneId, long)}
    *   <li>{@link AggregationParams#getAggregation()}
@@ -662,16 +792,19 @@ class AggregationParamsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AggregationParams.<init>(Aggregation, IntervalType, ZoneId, long)",
-      "Aggregation AggregationParams.getAggregation()", "IntervalType AggregationParams.getIntervalType()",
-      "ZoneId AggregationParams.getTzId()"})
+  @MethodsUnderTest({
+    "void AggregationParams.<init>(Aggregation, IntervalType, ZoneId, long)",
+    "Aggregation AggregationParams.getAggregation()",
+    "IntervalType AggregationParams.getIntervalType()",
+    "ZoneId AggregationParams.getTzId()"
+  })
   void testGettersAndSetters() {
     // Arrange
     ZoneOffset tzId = ZoneOffset.ofTotalSeconds(1);
 
     // Act
-    AggregationParams actualAggregationParams = new AggregationParams(Aggregation.MIN, IntervalType.MILLISECONDS, tzId,
-        42L);
+    AggregationParams actualAggregationParams =
+        new AggregationParams(Aggregation.MIN, IntervalType.MILLISECONDS, tzId, 42L);
     Aggregation actualAggregation = actualAggregationParams.getAggregation();
     IntervalType actualIntervalType = actualAggregationParams.getIntervalType();
     ZoneId actualTzId = actualAggregationParams.getTzId();

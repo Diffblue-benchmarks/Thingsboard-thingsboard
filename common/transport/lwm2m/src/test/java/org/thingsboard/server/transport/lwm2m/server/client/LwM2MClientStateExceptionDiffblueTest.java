@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class LwM2MClientStateExceptionDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MClientStateException#LwM2MClientStateException(LwM2MClientState, String)}
    *   <li>{@link LwM2MClientStateException#getState()}
@@ -20,12 +21,14 @@ class LwM2MClientStateExceptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LwM2MClientStateException.<init>(LwM2MClientState, String)",
-      "LwM2MClientState LwM2MClientStateException.getState()"})
+  @MethodsUnderTest({
+    "void LwM2MClientStateException.<init>(LwM2MClientState, String)",
+    "LwM2MClientState LwM2MClientStateException.getState()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    LwM2MClientStateException actualLwM2MClientStateException = new LwM2MClientStateException(LwM2MClientState.CREATED,
-        "An error occurred");
+    LwM2MClientStateException actualLwM2MClientStateException =
+        new LwM2MClientStateException(LwM2MClientState.CREATED, "An error occurred");
     LwM2MClientState actualState = actualLwM2MClientStateException.getState();
 
     // Assert

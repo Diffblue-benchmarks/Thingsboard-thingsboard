@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>TenantMsgConstructorV1.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright &#169; 2016-2024 The Thingsboard Authors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.thingsboard.server.service.edge.rpc.constructor.tenant;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.google.protobuf.ByteString;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.stereotype.Component;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.common.util.JacksonUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.Tenant;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.common.data.TenantProfile;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.gen.edge.v1.EdgeVersion;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.gen.edge.v1.TenantProfileUpdateMsg;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.gen.edge.v1.TenantUpdateMsg;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.gen.edge.v1.UpdateMsgType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.queue.util.TbCoreComponent;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.thingsboard.server.service.edge.rpc.utils.EdgeVersionUtils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Component</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@TbCoreComponent</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class TenantMsgConstructorV1 implements TenantMsgConstructor {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TenantUpdateMsg constructTenantUpdateMsg(UpdateMsgType msgType, Tenant tenant) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        TenantUpdateMsg.Builder builder = TenantUpdateMsg.newBuilder()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setMsgType(msgType)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setIdMSB(tenant.getId().getId().getMostSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setIdLSB(tenant.getId().getId().getLeastSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setTitle(tenant.getTitle())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setProfileIdMSB(tenant.getTenantProfileId().getId().getMostSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setProfileIdLSB(tenant.getTenantProfileId().getId().getLeastSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setRegion(tenant.getRegion());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_44'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getCountry() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setCountry(tenant.getCountry());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_47'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getState() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setState(tenant.getState());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_50'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getCity() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setCity(tenant.getCity());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_53'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getAddress() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setAddress(tenant.getAddress());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_56'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (tenant.getAddress2() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setAddress2(tenant.getAddress2());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_59'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getZip() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setZip(tenant.getZip());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_62'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getPhone() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setPhone(tenant.getPhone());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_65'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getEmail() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setEmail(tenant.getEmail());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_68'/>
+68
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_68'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenant.getAdditionalInfo() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.setAdditionalInfo(JacksonUtil.toString(tenant.getAdditionalInfo()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_71'>1</a>
+<span>
+
+1. constructTenantUpdateMsg : replaced return value with null for org/thingsboard/server/service/edge/rpc/constructor/tenant/TenantMsgConstructorV1::constructTenantUpdateMsg &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.build();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TenantProfileUpdateMsg constructTenantProfileUpdateMsg(UpdateMsgType msgType, TenantProfile tenantProfile, EdgeVersion edgeVersion) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        tenantProfile = JacksonUtil.clone(tenantProfile);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // clear all config</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        var tenantProfileData = tenantProfile.getProfileData();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        var configuration = tenantProfile.getDefaultProfileConfiguration();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_80'/>
+80
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_80'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setRpcTtlDays &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setRpcTtlDays(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_81'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxJSExecutions &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxJSExecutions(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_82'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxREExecutions &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxREExecutions(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_83'/>
+83
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_83'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxDPStorageDays &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxDPStorageDays(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_84'/>
+84
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_84'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTbelExecutions &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxTbelExecutions(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_85'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setQueueStatsTtlDays &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setQueueStatsTtlDays(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_86'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTransportMessages &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxTransportMessages(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_87'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setDefaultStorageTtlDays &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setDefaultStorageTtlDays(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_88'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTransportDataPoints &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxTransportDataPoints(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_89'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setRuleEngineExceptionsTtlDays &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setRuleEngineExceptionsTtlDays(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_90'/>
+90
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_90'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxRuleNodeExecutionsPerMessage &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        configuration.setMaxRuleNodeExecutionsPerMessage(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_91'/>
+91
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_91'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/tenant/profile/TenantProfileData::setConfiguration &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        tenantProfileData.setConfiguration(configuration);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_92'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : removed call to org/thingsboard/server/common/data/TenantProfile::setProfileData &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        tenantProfile.setProfileData(tenantProfileData);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_94'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        ByteString profileData = EdgeVersionUtils.isEdgeVersionOlderThan(edgeVersion, EdgeVersion.V_3_6_2) ?</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                ByteString.empty() : ByteString.copyFrom(tenantProfile.getProfileDataBytes());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        TenantProfileUpdateMsg.Builder builder = TenantProfileUpdateMsg.newBuilder()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setMsgType(msgType)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setIdMSB(tenantProfile.getId().getId().getMostSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setIdLSB(tenantProfile.getId().getId().getLeastSignificantBits())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setName(tenantProfile.getName())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setDefault(tenantProfile.isDefault())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setIsolatedRuleChain(tenantProfile.isIsolatedTbRuleEngine())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                .setProfileDataBytes(profileData);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_104'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tenantProfile.getDescription() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            builder.setDescription(tenantProfile.getDescription());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_107'/>
+107
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_107'>1</a>
+<span>
+
+1. constructTenantProfileUpdateMsg : replaced return value with null for org/thingsboard/server/service/edge/rpc/constructor/tenant/TenantMsgConstructorV1::constructTenantProfileUpdateMsg &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.build();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@301313f0_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnCountryBytesToStringUtf8IsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnStateIsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnCityBytesToStringUtf8IsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnAddressBytesToStringUtf8IsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_56'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b></span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/Tenant;)Lorg/thingsboard/server/gen/edge/v1/TenantUpdateMsg;],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/Tenant;)Lorg/thingsboard/server/gen/edge/v1/TenantUpdateMsg;],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/Tenant;)Lorg/thingsboard/server/gen/edge/v1/TenantUpdateMsg;],-indexes=[103],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnZipIsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnPhoneIsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnEmailBytesToStringUtf8IsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_68'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantUpdateMsg_thenReturnPhoneIsEmptyString()]</span></span> replaced return value with null for org/thingsboard/server/service/edge/rpc/constructor/tenant/TenantMsgConstructorV1::constructTenantUpdateMsg &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_80'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setRpcTtlDays &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_81'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxJSExecutions &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_82'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxREExecutions &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_83'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxDPStorageDays &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_84'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTbelExecutions &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_85'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setQueueStatsTtlDays &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_86'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTransportMessages &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_87'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setDefaultStorageTtlDays &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_88'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxTransportDataPoints &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_89'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setRuleEngineExceptionsTtlDays &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[66],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[66],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[66],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_90'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/DefaultTenantProfileConfiguration::setMaxRuleNodeExecutionsPerMessage &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[71],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[71],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[71],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_91'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/tenant/profile/TenantProfileData::setConfiguration &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[76],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_92'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b></span></span> removed call to org/thingsboard/server/common/data/TenantProfile::setProfileData &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[81],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[81],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1,-method=constructTenantProfileUpdateMsg,-methodDesc=(Lorg/thingsboard/server/gen/edge/v1/UpdateMsgType;Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/gen/edge/v1/EdgeVersion;)Lorg/thingsboard/server/gen/edge/v1/TenantProfileUpdateMsg;],-indexes=[81],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantProfileUpdateMsg()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantProfileUpdateMsg()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@301313f0_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@301313f0_107'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>constructTenantProfileUpdateMsg<br/><b>Killed by : </b>org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest.[engine:junit-jupiter]/[class:org.thingsboard.server.service.edge.rpc.constructor.tenant.TenantMsgConstructorV1DiffblueTest]/[method:testConstructTenantProfileUpdateMsg()]</span></span> replaced return value with null for org/thingsboard/server/service/edge/rpc/constructor/tenant/TenantMsgConstructorV1::constructTenantProfileUpdateMsg &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.1
+
+</body>
+</html>

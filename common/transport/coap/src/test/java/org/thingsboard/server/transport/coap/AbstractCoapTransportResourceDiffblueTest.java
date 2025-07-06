@@ -21,11 +21,12 @@ import org.thingsboard.server.transport.coap.efento.CoapEfentoTransportResource;
 class AbstractCoapTransportResourceDiffblueTest {
   /**
    * Test {@link AbstractCoapTransportResource#handleGET(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
    */
   @Test
   @DisplayName("Test handleGET(CoapExchange); given 'A'")
@@ -33,16 +34,17 @@ class AbstractCoapTransportResourceDiffblueTest {
   @MethodsUnderTest({"void AbstractCoapTransportResource.handleGET(CoapExchange)"})
   void testHandleGET_givenA() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
-    exchange2.setETag(new byte[]{'A', 2, 'A', 2, 'A', 2, 'A', 2});
+    exchange2.setETag(new byte[] {'A', 2, 'A', 2, 'A', 2, 'A', 2});
 
     // Act
     coapEfentoTransportResource.handleGET(exchange2);
@@ -53,25 +55,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handleGET(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given two.</li>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.</li>
+   *   <li>Given two.
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handleGET(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
+  @DisplayName(
+      "Test handleGET(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handleGET(CoapExchange)"})
   void testHandleGET_givenTwo_whenCoapExchangeWithExchangeIsExchangeMaxAgeIsTwo() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -86,24 +92,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handleGET(CoapExchange)}.
+   *
    * <ul>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)} LocationPath is {@code Invalid path: [{}]}.</li>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationPath is {@code Invalid
+   *       path: [{}]}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationPath is 'Invalid path: [{}]'")
+  @DisplayName(
+      "Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationPath is 'Invalid path: [{}]'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handleGET(CoapExchange)"})
   void testHandleGET_whenCoapExchangeWithExchangeIsExchangeLocationPathIsInvalidPath() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -118,24 +129,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handleGET(CoapExchange)}.
+   *
    * <ul>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)} LocationQuery is {@code Invalid path: [{}]}.</li>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} LocationQuery is {@code Invalid
+   *       path: [{}]}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationQuery is 'Invalid path: [{}]'")
+  @DisplayName(
+      "Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) LocationQuery is 'Invalid path: [{}]'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handleGET(CoapExchange)"})
   void testHandleGET_whenCoapExchangeWithExchangeIsExchangeLocationQueryIsInvalidPath() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -150,25 +166,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handleGET(CoapExchange)}.
+   *
    * <ul>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)}.</li>
-   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.</li>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
+   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handleGET(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor); then calls sendResponse(Exchange, Response)")
+  @DisplayName(
+      "Test handleGET(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor); then calls sendResponse(Exchange, Response)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handleGET(CoapExchange)"})
   void testHandleGET_whenCoapExchangeWithExchangeIsExchange_thenCallsSendResponse() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     // Act
@@ -180,8 +200,8 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}.
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
    */
   @Test
   @DisplayName("Test handlePOST(CoapExchange)")
@@ -189,12 +209,13 @@ class AbstractCoapTransportResourceDiffblueTest {
   @MethodsUnderTest({"void AbstractCoapTransportResource.handlePOST(CoapExchange)"})
   void testHandlePOST() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -209,8 +230,8 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}.
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
    */
   @Test
   @DisplayName("Test handlePOST(CoapExchange)")
@@ -218,12 +239,13 @@ class AbstractCoapTransportResourceDiffblueTest {
   @MethodsUnderTest({"void AbstractCoapTransportResource.handlePOST(CoapExchange)"})
   void testHandlePOST2() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -238,11 +260,12 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given {@code A}.</li>
+   *   <li>Given {@code A}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
    */
   @Test
   @DisplayName("Test handlePOST(CoapExchange); given 'A'")
@@ -250,16 +273,17 @@ class AbstractCoapTransportResourceDiffblueTest {
   @MethodsUnderTest({"void AbstractCoapTransportResource.handlePOST(CoapExchange)"})
   void testHandlePOST_givenA() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
-    exchange2.setETag(new byte[]{'A', 2, 'A', 2, 'A', 2, 'A', 2});
+    exchange2.setETag(new byte[] {'A', 2, 'A', 2, 'A', 2, 'A', 2});
 
     // Act
     coapEfentoTransportResource.handlePOST(exchange2);
@@ -270,25 +294,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}.
+   *
    * <ul>
-   *   <li>Given two.</li>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.</li>
+   *   <li>Given two.
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)} MaxAge is two.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handlePOST(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
+  @DisplayName(
+      "Test handlePOST(CoapExchange); given two; when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor) MaxAge is two")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handlePOST(CoapExchange)"})
   void testHandlePOST_givenTwo_whenCoapExchangeWithExchangeIsExchangeMaxAgeIsTwo() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     CoapExchange exchange2 = new CoapExchange(exchange);
@@ -303,25 +331,29 @@ class AbstractCoapTransportResourceDiffblueTest {
 
   /**
    * Test {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}.
+   *
    * <ul>
-   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link Exchange#Exchange(Request, Object, Origin, Executor)}.</li>
-   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.</li>
+   *   <li>When {@link CoapExchange#CoapExchange(Exchange)} with exchange is {@link
+   *       Exchange#Exchange(Request, Object, Origin, Executor)}.
+   *   <li>Then calls {@link Endpoint#sendResponse(Exchange, Response)}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
+   *
+   * <p>Method under test: {@link AbstractCoapTransportResource#handlePOST(CoapExchange)}
    */
   @Test
-  @DisplayName("Test handlePOST(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor); then calls sendResponse(Exchange, Response)")
+  @DisplayName(
+      "Test handlePOST(CoapExchange); when CoapExchange(Exchange) with exchange is Exchange(Request, Object, Origin, Executor); then calls sendResponse(Exchange, Response)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractCoapTransportResource.handlePOST(CoapExchange)"})
   void testHandlePOST_whenCoapExchangeWithExchangeIsExchange_thenCallsSendResponse() {
     // Arrange
-    CoapEfentoTransportResource coapEfentoTransportResource = new CoapEfentoTransportResource(
-        new CoapTransportContext(), "Name");
+    CoapEfentoTransportResource coapEfentoTransportResource =
+        new CoapEfentoTransportResource(new CoapTransportContext(), "Name");
     Endpoint endpoint = mock(Endpoint.class);
     doNothing().when(endpoint).sendResponse(Mockito.<Exchange>any(), Mockito.<Response>any());
 
-    Exchange exchange = new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
+    Exchange exchange =
+        new Exchange(Request.newDelete(), "Peers Identity", Origin.LOCAL, mock(Executor.class));
     exchange.setEndpoint(endpoint);
 
     // Act

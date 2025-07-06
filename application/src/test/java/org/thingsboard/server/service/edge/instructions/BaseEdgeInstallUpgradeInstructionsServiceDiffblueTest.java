@@ -21,17 +21,17 @@ import org.thingsboard.server.service.install.InstallScripts;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
-  @Mock
-  private InstallScripts installScripts;
+  @Mock private InstallScripts installScripts;
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}.
+   *
    * <ul>
-   *   <li>When {@code .0}.</li>
-   *   <li>Then return empty string.</li>
+   *   <li>When {@code .0}.
+   *   <li>Then return empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
    */
   @Test
   @DisplayName("Test getTagVersion(String); when '.0'; then return empty string")
@@ -39,17 +39,18 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
   @MethodsUnderTest({"String BaseEdgeInstallUpgradeInstructionsService.getTagVersion(String)"})
   void testGetTagVersion_when0_thenReturnEmptyString() {
     // Arrange, Act and Assert
-    assertEquals("", (new DefaultEdgeInstallInstructionsService(installScripts)).getTagVersion(".0"));
+    assertEquals("", new DefaultEdgeInstallInstructionsService(installScripts).getTagVersion(".0"));
   }
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}.
+   *
    * <ul>
-   *   <li>When {@code 1.0.2}.</li>
-   *   <li>Then return {@code 1.0.2}.</li>
+   *   <li>When {@code 1.0.2}.
+   *   <li>Then return {@code 1.0.2}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
    */
   @Test
   @DisplayName("Test getTagVersion(String); when '1.0.2'; then return '1.0.2'")
@@ -57,28 +58,34 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
   @MethodsUnderTest({"String BaseEdgeInstallUpgradeInstructionsService.getTagVersion(String)"})
   void testGetTagVersion_when102_thenReturn102() {
     // Arrange, Act and Assert
-    assertEquals("1.0.2", (new DefaultEdgeInstallInstructionsService(installScripts)).getTagVersion("1.0.2"));
+    assertEquals(
+        "1.0.2", new DefaultEdgeInstallInstructionsService(installScripts).getTagVersion("1.0.2"));
   }
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}.
+   *
    * <ul>
-   *   <li>Then return toFile Name is {@code Sub Dirs}.</li>
+   *   <li>Then return toFile Name is {@code Sub Dirs}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String,
+   * String[])}
    */
   @Test
   @DisplayName("Test resolveFile(String, String[]); then return toFile Name is 'Sub Dirs'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"})
+  @MethodsUnderTest({
+    "Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"
+  })
   void testResolveFile_thenReturnToFileNameIsSubDirs() {
     // Arrange
     when(installScripts.getDataDir()).thenReturn("Data Dir");
 
     // Act
-    Path actualResolveFileResult = (new DefaultEdgeInstallInstructionsService(installScripts)).resolveFile("Sub Dir",
-        "Sub Dirs");
+    Path actualResolveFileResult =
+        new DefaultEdgeInstallInstructionsService(installScripts)
+            .resolveFile("Sub Dir", "Sub Dirs");
 
     // Assert
     verify(installScripts).getDataDir();
@@ -89,33 +96,42 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String,
+   * String[])}
    */
   @Test
   @DisplayName("Test resolveFile(String, String[]); then throw RuntimeException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"})
+  @MethodsUnderTest({
+    "Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"
+  })
   void testResolveFile_thenThrowRuntimeException() {
     // Arrange
     when(installScripts.getDataDir()).thenThrow(new RuntimeException("json"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> (new DefaultEdgeInstallInstructionsService(installScripts)).resolveFile("Sub Dir", "Sub Dirs"));
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            new DefaultEdgeInstallInstructionsService(installScripts)
+                .resolveFile("Sub Dir", "Sub Dirs"));
     verify(installScripts).getDataDir();
   }
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}.
+   *
    * <ul>
-   *   <li>Then return toFile Name is {@code install}.</li>
+   *   <li>Then return toFile Name is {@code install}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
+   *
+   * <p>Method under test: {@link
+   * BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
    */
   @Test
   @DisplayName("Test getEdgeInstructionsDir(); then return toFile Name is 'install'")
@@ -126,8 +142,8 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
     when(installScripts.getDataDir()).thenReturn("Data Dir");
 
     // Act
-    Path actualEdgeInstructionsDir = (new DefaultEdgeInstallInstructionsService(installScripts))
-        .getEdgeInstructionsDir();
+    Path actualEdgeInstructionsDir =
+        new DefaultEdgeInstallInstructionsService(installScripts).getEdgeInstructionsDir();
 
     // Assert
     verify(installScripts).getDataDir();
@@ -138,11 +154,13 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}.
+   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
+   *
+   * <p>Method under test: {@link
+   * BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
    */
   @Test
   @DisplayName("Test getEdgeInstructionsDir(); then throw RuntimeException")
@@ -153,15 +171,16 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
     when(installScripts.getDataDir()).thenThrow(new RuntimeException("json"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class,
-        () -> (new DefaultEdgeInstallInstructionsService(installScripts)).getEdgeInstructionsDir());
+    assertThrows(
+        RuntimeException.class,
+        () -> new DefaultEdgeInstallInstructionsService(installScripts).getEdgeInstructionsDir());
     verify(installScripts).getDataDir();
   }
 
   /**
    * Test {@link BaseEdgeInstallUpgradeInstructionsService#setAppVersion(String)}.
-   * <p>
-   * Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#setAppVersion(String)}
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#setAppVersion(String)}
    */
   @Test
   @DisplayName("Test setAppVersion(String)")
@@ -169,8 +188,8 @@ class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
   @MethodsUnderTest({"void BaseEdgeInstallUpgradeInstructionsService.setAppVersion(String)"})
   void testSetAppVersion() {
     // Arrange
-    DefaultEdgeInstallInstructionsService defaultEdgeInstallInstructionsService = new DefaultEdgeInstallInstructionsService(
-        installScripts);
+    DefaultEdgeInstallInstructionsService defaultEdgeInstallInstructionsService =
+        new DefaultEdgeInstallInstructionsService(installScripts);
 
     // Act
     defaultEdgeInstallInstructionsService.setAppVersion("1.0.2");

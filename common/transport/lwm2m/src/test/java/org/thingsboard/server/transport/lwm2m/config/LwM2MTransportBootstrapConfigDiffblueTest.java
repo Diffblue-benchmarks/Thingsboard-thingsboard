@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class LwM2MTransportBootstrapConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MTransportBootstrapConfig#getHost()}
    *   <li>{@link LwM2MTransportBootstrapConfig#getId()}
@@ -22,12 +23,17 @@ class LwM2MTransportBootstrapConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String LwM2MTransportBootstrapConfig.getHost()", "Integer LwM2MTransportBootstrapConfig.getId()",
-      "Integer LwM2MTransportBootstrapConfig.getPort()", "String LwM2MTransportBootstrapConfig.getSecureHost()",
-      "Integer LwM2MTransportBootstrapConfig.getSecurePort()"})
+  @MethodsUnderTest({
+    "String LwM2MTransportBootstrapConfig.getHost()",
+    "Integer LwM2MTransportBootstrapConfig.getId()",
+    "Integer LwM2MTransportBootstrapConfig.getPort()",
+    "String LwM2MTransportBootstrapConfig.getSecureHost()",
+    "Integer LwM2MTransportBootstrapConfig.getSecurePort()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    LwM2MTransportBootstrapConfig lwM2MTransportBootstrapConfig = new LwM2MTransportBootstrapConfig();
+    LwM2MTransportBootstrapConfig lwM2MTransportBootstrapConfig =
+        new LwM2MTransportBootstrapConfig();
 
     // Act
     String actualHost = lwM2MTransportBootstrapConfig.getHost();

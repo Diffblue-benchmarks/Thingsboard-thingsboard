@@ -13,11 +13,12 @@ import org.thingsboard.server.common.data.id.EdgeId;
 class EdgeCommunicationFailureNotificationInfoDiffblueTest {
   /**
    * Test {@link EdgeCommunicationFailureNotificationInfo#getTemplateData()}.
+   *
    * <ul>
-   *   <li>Then return size is three.</li>
+   *   <li>Then return size is three.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeCommunicationFailureNotificationInfo#getTemplateData()}
+   *
+   * <p>Method under test: {@link EdgeCommunicationFailureNotificationInfo#getTemplateData()}
    */
   @Test
   @DisplayName("Test getTemplateData(); then return size is three")
@@ -25,12 +26,14 @@ class EdgeCommunicationFailureNotificationInfoDiffblueTest {
   @MethodsUnderTest({"Map EdgeCommunicationFailureNotificationInfo.getTemplateData()"})
   void testGetTemplateData_thenReturnSizeIsThree() {
     // Arrange
-    EdgeCommunicationFailureNotificationInfo edgeCommunicationFailureNotificationInfo = new EdgeCommunicationFailureNotificationInfo();
-    edgeCommunicationFailureNotificationInfo
-        .setEdgeId(new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    EdgeCommunicationFailureNotificationInfo edgeCommunicationFailureNotificationInfo =
+        new EdgeCommunicationFailureNotificationInfo();
+    edgeCommunicationFailureNotificationInfo.setEdgeId(
+        new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act
-    Map<String, String> actualTemplateData = edgeCommunicationFailureNotificationInfo.getTemplateData();
+    Map<String, String> actualTemplateData =
+        edgeCommunicationFailureNotificationInfo.getTemplateData();
 
     // Assert
     assertEquals(3, actualTemplateData.size());

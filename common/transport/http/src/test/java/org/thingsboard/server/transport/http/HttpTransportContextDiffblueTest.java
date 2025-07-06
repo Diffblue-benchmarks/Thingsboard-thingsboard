@@ -13,22 +13,23 @@ import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
 
 @ExtendWith(MockitoExtension.class)
 class HttpTransportContextDiffblueTest {
-  @InjectMocks
-  private HttpTransportContext httpTransportContext;
+  @InjectMocks private HttpTransportContext httpTransportContext;
 
   /**
    * Test {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}.
-   * <p>
-   * Method under test: {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}
+   *
+   * <p>Method under test: {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}
    */
   @Test
   @DisplayName("Test tomcatAsyncTimeoutConnectorCustomizer()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TomcatConnectorCustomizer HttpTransportContext.tomcatAsyncTimeoutConnectorCustomizer()"})
+  @MethodsUnderTest({
+    "TomcatConnectorCustomizer HttpTransportContext.tomcatAsyncTimeoutConnectorCustomizer()"
+  })
   void testTomcatAsyncTimeoutConnectorCustomizer() {
     // Arrange and Act
-    TomcatConnectorCustomizer actualTomcatAsyncTimeoutConnectorCustomizerResult = httpTransportContext
-        .tomcatAsyncTimeoutConnectorCustomizer();
+    TomcatConnectorCustomizer actualTomcatAsyncTimeoutConnectorCustomizerResult =
+        httpTransportContext.tomcatAsyncTimeoutConnectorCustomizer();
     Connector connector = new Connector("Setting async max request timeout {}");
     actualTomcatAsyncTimeoutConnectorCustomizerResult.customize(connector);
 
@@ -38,20 +39,24 @@ class HttpTransportContextDiffblueTest {
 
   /**
    * Test {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}.
+   *
    * <ul>
-   *   <li>Then {@link Connector#Connector()} AsyncTimeout is zero.</li>
+   *   <li>Then {@link Connector#Connector()} AsyncTimeout is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}
+   *
+   * <p>Method under test: {@link HttpTransportContext#tomcatAsyncTimeoutConnectorCustomizer()}
    */
   @Test
-  @DisplayName("Test tomcatAsyncTimeoutConnectorCustomizer(); then Connector() AsyncTimeout is zero")
+  @DisplayName(
+      "Test tomcatAsyncTimeoutConnectorCustomizer(); then Connector() AsyncTimeout is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TomcatConnectorCustomizer HttpTransportContext.tomcatAsyncTimeoutConnectorCustomizer()"})
+  @MethodsUnderTest({
+    "TomcatConnectorCustomizer HttpTransportContext.tomcatAsyncTimeoutConnectorCustomizer()"
+  })
   void testTomcatAsyncTimeoutConnectorCustomizer_thenConnectorAsyncTimeoutIsZero() {
     // Arrange and Act
-    TomcatConnectorCustomizer actualTomcatAsyncTimeoutConnectorCustomizerResult = httpTransportContext
-        .tomcatAsyncTimeoutConnectorCustomizer();
+    TomcatConnectorCustomizer actualTomcatAsyncTimeoutConnectorCustomizerResult =
+        httpTransportContext.tomcatAsyncTimeoutConnectorCustomizer();
     Connector connector = new Connector();
     actualTomcatAsyncTimeoutConnectorCustomizerResult.customize(connector);
 
@@ -61,8 +66,9 @@ class HttpTransportContextDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link HttpTransportContext#getDefaultTimeout()}
    *   <li>{@link HttpTransportContext#getMaxRequestTimeout()}
@@ -71,8 +77,10 @@ class HttpTransportContextDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long HttpTransportContext.getDefaultTimeout()",
-      "long HttpTransportContext.getMaxRequestTimeout()"})
+  @MethodsUnderTest({
+    "long HttpTransportContext.getDefaultTimeout()",
+    "long HttpTransportContext.getMaxRequestTimeout()"
+  })
   void testGettersAndSetters() {
     // Arrange
     HttpTransportContext httpTransportContext = new HttpTransportContext();

@@ -14,13 +14,16 @@ import org.thingsboard.common.util.ListeningExecutor;
 class MqttClientDiffblueTest {
   /**
    * Test {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}.
-   * <p>
-   * Method under test: {@link MqttClient#create(MqttClientConfig, MqttHandler, ListeningExecutor)}
+   *
+   * <p>Method under test: {@link MqttClient#create(MqttClientConfig, MqttHandler,
+   * ListeningExecutor)}
    */
   @Test
   @DisplayName("Test create(MqttClientConfig, MqttHandler, ListeningExecutor)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"MqttClient MqttClient.create(MqttClientConfig, MqttHandler, ListeningExecutor)"})
+  @MethodsUnderTest({
+    "MqttClient MqttClient.create(MqttClientConfig, MqttHandler, ListeningExecutor)"
+  })
   void testCreate() {
     // Arrange
     MqttClientConfig config = new MqttClientConfig();

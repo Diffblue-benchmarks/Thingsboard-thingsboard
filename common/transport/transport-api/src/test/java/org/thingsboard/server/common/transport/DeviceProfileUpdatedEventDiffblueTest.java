@@ -10,8 +10,9 @@ import org.thingsboard.server.common.data.DeviceProfile;
 class DeviceProfileUpdatedEventDiffblueTest {
   /**
    * Test {@link DeviceProfileUpdatedEvent#DeviceProfileUpdatedEvent(DeviceProfile)}.
-   * <p>
-   * Method under test: {@link DeviceProfileUpdatedEvent#DeviceProfileUpdatedEvent(DeviceProfile)}
+   *
+   * <p>Method under test: {@link
+   * DeviceProfileUpdatedEvent#DeviceProfileUpdatedEvent(DeviceProfile)}
    */
   @Test
   @DisplayName("Test new DeviceProfileUpdatedEvent(DeviceProfile)")
@@ -22,13 +23,13 @@ class DeviceProfileUpdatedEventDiffblueTest {
     DeviceProfile deviceProfile = new DeviceProfile();
 
     // Act and Assert
-    assertSame(deviceProfile, (new DeviceProfileUpdatedEvent(deviceProfile)).getDeviceProfile());
+    assertSame(deviceProfile, new DeviceProfileUpdatedEvent(deviceProfile).getDeviceProfile());
   }
 
   /**
    * Test {@link DeviceProfileUpdatedEvent#getDeviceProfile()}.
-   * <p>
-   * Method under test: {@link DeviceProfileUpdatedEvent#getDeviceProfile()}
+   *
+   * <p>Method under test: {@link DeviceProfileUpdatedEvent#getDeviceProfile()}
    */
   @Test
   @DisplayName("Test getDeviceProfile()")
@@ -39,6 +40,6 @@ class DeviceProfileUpdatedEventDiffblueTest {
     DeviceProfile deviceProfile = new DeviceProfile();
 
     // Act and Assert
-    assertSame(deviceProfile, (new DeviceProfileUpdatedEvent(deviceProfile)).getDeviceProfile());
+    assertSame(deviceProfile, new DeviceProfileUpdatedEvent(deviceProfile).getDeviceProfile());
   }
 }

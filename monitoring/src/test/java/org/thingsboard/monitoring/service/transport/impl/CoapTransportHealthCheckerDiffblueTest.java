@@ -19,11 +19,12 @@ import org.thingsboard.server.common.data.security.DeviceCredentials;
 class CoapTransportHealthCheckerDiffblueTest {
   /**
    * Test {@link CoapTransportHealthChecker#initClient()}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceConfig#getCredentials()}.</li>
+   *   <li>Then calls {@link DeviceConfig#getCredentials()}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapTransportHealthChecker#initClient()}
+   *
+   * <p>Method under test: {@link CoapTransportHealthChecker#initClient()}
    */
   @Test
   @DisplayName("Test initClient(); then calls getCredentials()")
@@ -47,7 +48,7 @@ class CoapTransportHealthCheckerDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    (new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target)).initClient();
+    new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target).initClient();
 
     // Assert
     verify(device).getCredentials();
@@ -58,11 +59,12 @@ class CoapTransportHealthCheckerDiffblueTest {
 
   /**
    * Test {@link CoapTransportHealthChecker#destroyClient()}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.</li>
+   *   <li>Then calls {@link DeviceConfig#setCredentials(DeviceCredentials)}.
    * </ul>
-   * <p>
-   * Method under test: {@link CoapTransportHealthChecker#destroyClient()}
+   *
+   * <p>Method under test: {@link CoapTransportHealthChecker#destroyClient()}
    */
   @Test
   @DisplayName("Test destroyClient(); then calls setCredentials(DeviceCredentials)")
@@ -85,7 +87,7 @@ class CoapTransportHealthCheckerDiffblueTest {
     target.setQueue("Queue");
 
     // Act
-    (new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target)).destroyClient();
+    new CoapTransportHealthChecker(new CoapTransportMonitoringConfig(), target).destroyClient();
 
     // Assert
     verify(device).setCredentials(isA(DeviceCredentials.class));

@@ -13,23 +13,24 @@ import org.thingsboard.server.common.data.edge.EdgeEventActionType;
 
 @ExtendWith(MockitoExtension.class)
 class EdgeProcessorDiffblueTest {
-  @InjectMocks
-  private EdgeProcessor edgeProcessor;
+  @InjectMocks private EdgeProcessor edgeProcessor;
 
   /**
    * Test {@link EdgeProcessor#convertEdgeEventToDownlink(EdgeEvent)}.
+   *
    * <ul>
-   *   <li>Given {@code ADDED}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@code ADDED}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeProcessor#convertEdgeEventToDownlink(EdgeEvent)}
+   *
+   * <p>Method under test: {@link EdgeProcessor#convertEdgeEventToDownlink(EdgeEvent)}
    */
   @Test
   @DisplayName("Test convertEdgeEventToDownlink(EdgeEvent); given 'ADDED'; then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.gen.edge.v1.DownlinkMsg EdgeProcessor.convertEdgeEventToDownlink(EdgeEvent)"})
+    "org.thingsboard.server.gen.edge.v1.DownlinkMsg EdgeProcessor.convertEdgeEventToDownlink(EdgeEvent)"
+  })
   void testConvertEdgeEventToDownlink_givenAdded_thenReturnNull() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent();

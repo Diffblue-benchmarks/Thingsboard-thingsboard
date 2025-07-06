@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class HttpTransportMonitoringConfigDiffblueTest {
   /**
    * Test {@link HttpTransportMonitoringConfig#getTransportType()}.
-   * <p>
-   * Method under test: {@link HttpTransportMonitoringConfig#getTransportType()}
+   *
+   * <p>Method under test: {@link HttpTransportMonitoringConfig#getTransportType()}
    */
   @Test
   @DisplayName("Test getTransportType()")
@@ -18,6 +18,6 @@ class HttpTransportMonitoringConfigDiffblueTest {
   @MethodsUnderTest({"TransportType HttpTransportMonitoringConfig.getTransportType()"})
   void testGetTransportType() {
     // Arrange, Act and Assert
-    assertEquals(TransportType.HTTP, (new HttpTransportMonitoringConfig()).getTransportType());
+    assertEquals(TransportType.HTTP, new HttpTransportMonitoringConfig().getTransportType());
   }
 }

@@ -21,31 +21,31 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class RpcV1ControllerDiffblueTest {
-  @InjectMocks
-  private RpcV1Controller rpcV1Controller;
+  @InjectMocks private RpcV1Controller rpcV1Controller;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}.
-   * <p>
-   * Method under test: {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}
    */
   @Test
   @DisplayName("Test handleOneWayDeviceRPCRequest(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleOneWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleOneWayDeviceRPCRequest(String, String)"
+  })
   void testHandleOneWayDeviceRPCRequest() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .post("/api/plugins/rpc/oneway/{deviceId}", "42")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/plugins/rpc/oneway/{deviceId}", "42")
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV1Controller)
@@ -57,26 +57,32 @@ class RpcV1ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
+   *   <li>Given {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV1Controller#handleOneWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleOneWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
+  @DisplayName(
+      "Test handleOneWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleOneWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleOneWayDeviceRPCRequest(String, String)"
+  })
   void testHandleOneWayDeviceRPCRequest_givenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/plugins/rpc/oneway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/plugins/rpc/oneway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV1Controller)
@@ -88,23 +94,25 @@ class RpcV1ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}.
-   * <p>
-   * Method under test: {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}
    */
   @Test
   @DisplayName("Test handleTwoWayDeviceRPCRequest(String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleTwoWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleTwoWayDeviceRPCRequest(String, String)"
+  })
   void testHandleTwoWayDeviceRPCRequest() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders
-        .post("/api/plugins/rpc/twoway/{deviceId}", "42")
-        .contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        MockMvcRequestBuilders.post("/api/plugins/rpc/twoway/{deviceId}", "42")
+            .contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV1Controller)
@@ -116,26 +124,32 @@ class RpcV1ControllerDiffblueTest {
 
   /**
    * Test {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}.
+   *
    * <ul>
-   *   <li>Given {@code https://example.org/example}.</li>
+   *   <li>Given {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}
+   *
+   * <p>Method under test: {@link RpcV1Controller#handleTwoWayDeviceRPCRequest(String, String)}
    */
   @Test
-  @DisplayName("Test handleTwoWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
+  @DisplayName(
+      "Test handleTwoWayDeviceRPCRequest(String, String); given 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleTwoWayDeviceRPCRequest(String, String)"})
+    "org.springframework.web.context.request.async.DeferredResult RpcV1Controller.handleTwoWayDeviceRPCRequest(String, String)"
+  })
   void testHandleTwoWayDeviceRPCRequest_givenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder postResult = MockMvcRequestBuilders.post("/api/plugins/rpc/twoway/{deviceId}", "42");
+    MockHttpServletRequestBuilder postResult =
+        MockMvcRequestBuilders.post("/api/plugins/rpc/twoway/{deviceId}", "42");
     postResult.characterEncoding("https://example.org/example");
-    MockHttpServletRequestBuilder contentTypeResult = postResult.contentType(MediaType.APPLICATION_JSON);
-    MockHttpServletRequestBuilder requestBuilder = contentTypeResult
-        .content((new ObjectMapper()).writeValueAsString("foo"));
+    MockHttpServletRequestBuilder contentTypeResult =
+        postResult.contentType(MediaType.APPLICATION_JSON);
+    MockHttpServletRequestBuilder requestBuilder =
+        contentTypeResult.content(new ObjectMapper().writeValueAsString("foo"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(rpcV1Controller)

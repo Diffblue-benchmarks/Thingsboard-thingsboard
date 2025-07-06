@@ -15,13 +15,12 @@ import org.thingsboard.server.transport.lwm2m.server.downlink.TbLwM2MDiscoverReq
 @ContextConfiguration(classes = {TbLwM2MDiscoverRequestBuilder.class})
 @ExtendWith(SpringExtension.class)
 class TbLwM2MDiscoverRequestDiffblueTest {
-  @Autowired
-  private TbLwM2MDiscoverRequestBuilder tbLwM2MDiscoverRequestBuilder;
+  @Autowired private TbLwM2MDiscoverRequestBuilder tbLwM2MDiscoverRequestBuilder;
 
   /**
    * Test {@link TbLwM2MDiscoverRequest#getType()}.
-   * <p>
-   * Method under test: {@link TbLwM2MDiscoverRequest#getType()}
+   *
+   * <p>Method under test: {@link TbLwM2MDiscoverRequest#getType()}
    */
   @Test
   @DisplayName("Test getType()")
@@ -29,7 +28,8 @@ class TbLwM2MDiscoverRequestDiffblueTest {
   @MethodsUnderTest({"LwM2MOperationType TbLwM2MDiscoverRequest.getType()"})
   void testGetType() {
     // Arrange
-    TbLwM2MDiscoverRequest buildResult = TbLwM2MDiscoverRequest.builder().timeout(10L).versionedId("42").build();
+    TbLwM2MDiscoverRequest buildResult =
+        TbLwM2MDiscoverRequest.builder().timeout(10L).versionedId("42").build();
 
     // Act and Assert
     assertEquals(LwM2MOperationType.DISCOVER, buildResult.getType());
@@ -37,8 +37,9 @@ class TbLwM2MDiscoverRequestDiffblueTest {
 
   /**
    * Test TbLwM2MDiscoverRequestBuilder {@link TbLwM2MDiscoverRequestBuilder#build()}.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbLwM2MDiscoverRequestBuilder#build()}
    *   <li>{@link TbLwM2MDiscoverRequestBuilder#timeout(long)}
@@ -48,14 +49,17 @@ class TbLwM2MDiscoverRequestDiffblueTest {
   @Test
   @DisplayName("Test TbLwM2MDiscoverRequestBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbLwM2MDiscoverRequestBuilder.<init>()",
-      "TbLwM2MDiscoverRequest TbLwM2MDiscoverRequestBuilder.build()",
-      "TbLwM2MDiscoverRequestBuilder TbLwM2MDiscoverRequestBuilder.timeout(long)",
-      "String TbLwM2MDiscoverRequestBuilder.toString()",
-      "TbLwM2MDiscoverRequestBuilder TbLwM2MDiscoverRequestBuilder.versionedId(String)"})
+  @MethodsUnderTest({
+    "void TbLwM2MDiscoverRequestBuilder.<init>()",
+    "TbLwM2MDiscoverRequest TbLwM2MDiscoverRequestBuilder.build()",
+    "TbLwM2MDiscoverRequestBuilder TbLwM2MDiscoverRequestBuilder.timeout(long)",
+    "String TbLwM2MDiscoverRequestBuilder.toString()",
+    "TbLwM2MDiscoverRequestBuilder TbLwM2MDiscoverRequestBuilder.versionedId(String)"
+  })
   void testTbLwM2MDiscoverRequestBuilderBuild() {
     // Arrange and Act
-    TbLwM2MDiscoverRequest actualBuildResult = TbLwM2MDiscoverRequest.builder().timeout(10L).versionedId("42").build();
+    TbLwM2MDiscoverRequest actualBuildResult =
+        TbLwM2MDiscoverRequest.builder().timeout(10L).versionedId("42").build();
 
     // Assert
     assertEquals("42", actualBuildResult.getVersionedId());

@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.MissingNode;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -20,12 +20,14 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 class WidgetTypeInfoDiffblueTest {
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}, and {@link WidgetTypeInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#equals(Object)}
    *   <li>{@link WidgetTypeInfo#hashCode()}
@@ -48,12 +50,14 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}, and {@link WidgetTypeInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#equals(Object)}
    *   <li>{@link WidgetTypeInfo#hashCode()}
@@ -76,12 +80,14 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}, and {@link WidgetTypeInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#equals(Object)}
    *   <li>{@link WidgetTypeInfo#hashCode()}
@@ -107,12 +113,14 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}, and {@link WidgetTypeInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#equals(Object)}
    *   <li>{@link WidgetTypeInfo#hashCode()}
@@ -138,12 +146,14 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}, and {@link WidgetTypeInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#equals(Object)}
    *   <li>{@link WidgetTypeInfo#hashCode()}
@@ -165,12 +175,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -186,12 +197,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -207,12 +219,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -229,12 +242,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -251,12 +265,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -265,7 +280,7 @@ class WidgetTypeInfoDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetTypeInfo widgetTypeInfo = new WidgetTypeInfo();
-    widgetTypeInfo.setTags(new String[]{"Tags"});
+    widgetTypeInfo.setTags(new String[] {"Tags"});
 
     // Act and Assert
     assertNotEquals(widgetTypeInfo, new WidgetTypeInfo());
@@ -273,12 +288,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -297,12 +313,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -321,12 +338,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -339,12 +357,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -357,8 +376,9 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeId)}
    *   <li>{@link WidgetTypeInfo#setDescription(String)}
@@ -375,11 +395,19 @@ class WidgetTypeInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeInfo.<init>()", "void WidgetTypeInfo.<init>(WidgetTypeId)",
-      "String WidgetTypeInfo.getDescription()", "String WidgetTypeInfo.getImage()", "String[] WidgetTypeInfo.getTags()",
-      "String WidgetTypeInfo.getWidgetType()", "void WidgetTypeInfo.setDescription(String)",
-      "void WidgetTypeInfo.setImage(String)", "void WidgetTypeInfo.setTags(String[])",
-      "void WidgetTypeInfo.setWidgetType(String)", "String WidgetTypeInfo.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeInfo.<init>()",
+    "void WidgetTypeInfo.<init>(WidgetTypeId)",
+    "String WidgetTypeInfo.getDescription()",
+    "String WidgetTypeInfo.getImage()",
+    "String[] WidgetTypeInfo.getTags()",
+    "String WidgetTypeInfo.getWidgetType()",
+    "void WidgetTypeInfo.setDescription(String)",
+    "void WidgetTypeInfo.setImage(String)",
+    "void WidgetTypeInfo.setTags(String[])",
+    "void WidgetTypeInfo.setWidgetType(String)",
+    "String WidgetTypeInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     WidgetTypeId id = new WidgetTypeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -388,7 +416,7 @@ class WidgetTypeInfoDiffblueTest {
     WidgetTypeInfo actualWidgetTypeInfo = new WidgetTypeInfo(id);
     actualWidgetTypeInfo.setDescription("The characteristics of someone or something");
     actualWidgetTypeInfo.setImage("Image");
-    String[] tags = new String[]{"Tags"};
+    String[] tags = new String[] {"Tags"};
     actualWidgetTypeInfo.setTags(tags);
     actualWidgetTypeInfo.setWidgetType("Widget Type");
     String actualToStringResult = actualWidgetTypeInfo.toString();
@@ -400,8 +428,10 @@ class WidgetTypeInfoDiffblueTest {
     assertEquals("Image", actualImage);
     assertEquals("The characteristics of someone or something", actualDescription);
     assertEquals("Widget Type", actualWidgetTypeInfo.getWidgetType());
-    assertEquals("WidgetTypeInfo(image=Image, description=The characteristics of someone or something, tags=[Tags],"
-        + " widgetType=Widget Type)", actualToStringResult);
+    assertEquals(
+        "WidgetTypeInfo(image=Image, description=The characteristics of someone or something, tags=[Tags],"
+            + " widgetType=Widget Type)",
+        actualToStringResult);
     assertNull(actualWidgetTypeInfo.getVersion());
     assertNull(actualWidgetTypeInfo.getFqn());
     assertNull(actualWidgetTypeInfo.getName());
@@ -411,16 +441,18 @@ class WidgetTypeInfoDiffblueTest {
     assertFalse(actualWidgetTypeInfo.isScada());
     assertSame(id, actualWidgetTypeInfo.getId());
     assertSame(tags, actualTags);
-    assertArrayEquals(new String[]{"Tags"}, actualTags);
+    assertArrayEquals(new String[] {"Tags"}, actualTags);
   }
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link WidgetTypeInfo#WidgetTypeInfo()}
    *   <li>{@link WidgetTypeInfo#setDescription(String)}
@@ -437,17 +469,25 @@ class WidgetTypeInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeInfo.<init>()", "void WidgetTypeInfo.<init>(WidgetTypeId)",
-      "String WidgetTypeInfo.getDescription()", "String WidgetTypeInfo.getImage()", "String[] WidgetTypeInfo.getTags()",
-      "String WidgetTypeInfo.getWidgetType()", "void WidgetTypeInfo.setDescription(String)",
-      "void WidgetTypeInfo.setImage(String)", "void WidgetTypeInfo.setTags(String[])",
-      "void WidgetTypeInfo.setWidgetType(String)", "String WidgetTypeInfo.toString()"})
+  @MethodsUnderTest({
+    "void WidgetTypeInfo.<init>()",
+    "void WidgetTypeInfo.<init>(WidgetTypeId)",
+    "String WidgetTypeInfo.getDescription()",
+    "String WidgetTypeInfo.getImage()",
+    "String[] WidgetTypeInfo.getTags()",
+    "String WidgetTypeInfo.getWidgetType()",
+    "void WidgetTypeInfo.setDescription(String)",
+    "void WidgetTypeInfo.setImage(String)",
+    "void WidgetTypeInfo.setTags(String[])",
+    "void WidgetTypeInfo.setWidgetType(String)",
+    "String WidgetTypeInfo.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     WidgetTypeInfo actualWidgetTypeInfo = new WidgetTypeInfo();
     actualWidgetTypeInfo.setDescription("The characteristics of someone or something");
     actualWidgetTypeInfo.setImage("Image");
-    String[] tags = new String[]{"Tags"};
+    String[] tags = new String[] {"Tags"};
     actualWidgetTypeInfo.setTags(tags);
     actualWidgetTypeInfo.setWidgetType("Widget Type");
     String actualToStringResult = actualWidgetTypeInfo.toString();
@@ -459,8 +499,10 @@ class WidgetTypeInfoDiffblueTest {
     assertEquals("Image", actualImage);
     assertEquals("The characteristics of someone or something", actualDescription);
     assertEquals("Widget Type", actualWidgetTypeInfo.getWidgetType());
-    assertEquals("WidgetTypeInfo(image=Image, description=The characteristics of someone or something, tags=[Tags],"
-        + " widgetType=Widget Type)", actualToStringResult);
+    assertEquals(
+        "WidgetTypeInfo(image=Image, description=The characteristics of someone or something, tags=[Tags],"
+            + " widgetType=Widget Type)",
+        actualToStringResult);
     assertNull(actualWidgetTypeInfo.getVersion());
     assertNull(actualWidgetTypeInfo.getFqn());
     assertNull(actualWidgetTypeInfo.getName());
@@ -470,63 +512,28 @@ class WidgetTypeInfoDiffblueTest {
     assertFalse(actualWidgetTypeInfo.isDeprecated());
     assertFalse(actualWidgetTypeInfo.isScada());
     assertSame(tags, actualTags);
-    assertArrayEquals(new String[]{"Tags"}, actualTags);
+    assertArrayEquals(new String[] {"Tags"}, actualTags);
   }
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code true}.</li>
+   *   <li>Given {@link ArrayNode#ArrayNode(JsonNodeFactory)} with nf is withExactBigDecimals {@code
+   *       true}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeInfo(WidgetTypeDetails); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @DisplayName(
+      "Test new WidgetTypeInfo(WidgetTypeDetails); given ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeInfo.<init>(WidgetTypeDetails)"})
   void testNewWidgetTypeInfo_givenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
     widgetTypeDetails.setDescriptor(new ArrayNode(JsonNodeFactory.withExactBigDecimals(true)));
-    widgetTypeDetails.setDeprecated(true);
-
-    // Act
-    WidgetTypeInfo actualWidgetTypeInfo = new WidgetTypeInfo(widgetTypeDetails);
-
-    // Assert
-    assertEquals("", actualWidgetTypeInfo.getWidgetType());
-    assertNull(actualWidgetTypeInfo.getVersion());
-    assertNull(actualWidgetTypeInfo.getFqn());
-    assertNull(actualWidgetTypeInfo.getName());
-    assertNull(actualWidgetTypeInfo.getDescription());
-    assertNull(actualWidgetTypeInfo.getImage());
-    assertNull(actualWidgetTypeInfo.getTags());
-    assertNull(actualWidgetTypeInfo.getUuidId());
-    assertNull(actualWidgetTypeInfo.getTenantId());
-    assertNull(actualWidgetTypeInfo.getId());
-    assertEquals(0L, actualWidgetTypeInfo.getCreatedTime());
-    assertFalse(actualWidgetTypeInfo.isScada());
-    assertTrue(actualWidgetTypeInfo.isDeprecated());
-  }
-
-  /**
-   * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}.
-   * <ul>
-   *   <li>Given Instance.</li>
-   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()} Descriptor is Instance.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
-   */
-  @Test
-  @DisplayName("Test new WidgetTypeInfo(WidgetTypeDetails); given Instance; when WidgetTypeDetails() Descriptor is Instance")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void WidgetTypeInfo.<init>(WidgetTypeDetails)"})
-  void testNewWidgetTypeInfo_givenInstance_whenWidgetTypeDetailsDescriptorIsInstance() {
-    // Arrange
-    WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails();
-    widgetTypeDetails.setDescriptor(MissingNode.getInstance());
 
     // Act
     WidgetTypeInfo actualWidgetTypeInfo = new WidgetTypeInfo(widgetTypeDetails);
@@ -549,12 +556,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Deprecated.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}
    */
   @Test
   @DisplayName("Test new WidgetTypeInfo(BaseWidgetType); given 'true'; then return Deprecated")
@@ -586,12 +594,13 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>Then return Deprecated.</li>
+   *   <li>Given {@code true}.
+   *   <li>Then return Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
    */
   @Test
   @DisplayName("Test new WidgetTypeInfo(WidgetTypeDetails); given 'true'; then return Deprecated")
@@ -623,15 +632,17 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link WidgetTypeInfo#WidgetTypeInfo()} Deprecated is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link WidgetTypeInfo#WidgetTypeInfo()} Deprecated is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeInfo(WidgetTypeInfo); given 'true'; when WidgetTypeInfo() Deprecated is 'true'")
+  @DisplayName(
+      "Test new WidgetTypeInfo(WidgetTypeInfo); given 'true'; when WidgetTypeInfo() Deprecated is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeInfo.<init>(WidgetTypeInfo)"})
   void testNewWidgetTypeInfo_givenTrue_whenWidgetTypeInfoDeprecatedIsTrue() {
@@ -644,16 +655,50 @@ class WidgetTypeInfoDiffblueTest {
   }
 
   /**
-   * Test {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}.
+   * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.</li>
-   *   <li>Then return not Deprecated.</li>
+   *   <li>Then return UuidId toString is {@code 784f394c-42b6-435a-983c-b7beff2784f9}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeInfo(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
+  @DisplayName(
+      "Test new WidgetTypeInfo(WidgetTypeDetails); then return UuidId toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void WidgetTypeInfo.<init>(WidgetTypeDetails)"})
+  void testNewWidgetTypeInfo_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+    // Arrange
+    UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
+    WidgetTypeId id2 = new WidgetTypeId(id);
+
+    WidgetTypeDetails widgetTypeDetails = new WidgetTypeDetails(id2);
+    widgetTypeDetails.setDescriptor(DoubleNode.valueOf(10.0d));
+
+    // Act
+    WidgetTypeInfo actualWidgetTypeInfo = new WidgetTypeInfo(widgetTypeDetails);
+
+    // Assert
+    UUID uuidId = actualWidgetTypeInfo.getUuidId();
+    assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", uuidId.toString());
+    assertSame(id2, actualWidgetTypeInfo.getId());
+    assertSame(id, uuidId);
+  }
+
+  /**
+   * Test {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}.
+   *
+   * <ul>
+   *   <li>When {@link BaseWidgetType#BaseWidgetType()}.
+   *   <li>Then return not Deprecated.
+   * </ul>
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(BaseWidgetType)}
+   */
+  @Test
+  @DisplayName(
+      "Test new WidgetTypeInfo(BaseWidgetType); when BaseWidgetType(); then return not Deprecated")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeInfo.<init>(BaseWidgetType)"})
   void testNewWidgetTypeInfo_whenBaseWidgetType_thenReturnNotDeprecated() {
@@ -678,15 +723,17 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}.
+   *
    * <ul>
-   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()}.</li>
-   *   <li>Then return not Deprecated.</li>
+   *   <li>When {@link WidgetTypeDetails#WidgetTypeDetails()}.
+   *   <li>Then return not Deprecated.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeDetails)}
    */
   @Test
-  @DisplayName("Test new WidgetTypeInfo(WidgetTypeDetails); when WidgetTypeDetails(); then return not Deprecated")
+  @DisplayName(
+      "Test new WidgetTypeInfo(WidgetTypeDetails); when WidgetTypeDetails(); then return not Deprecated")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void WidgetTypeInfo.<init>(WidgetTypeDetails)"})
   void testNewWidgetTypeInfo_whenWidgetTypeDetails_thenReturnNotDeprecated() {
@@ -711,11 +758,12 @@ class WidgetTypeInfoDiffblueTest {
 
   /**
    * Test {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}.
+   *
    * <ul>
-   *   <li>When {@link WidgetTypeInfo#WidgetTypeInfo()}.</li>
+   *   <li>When {@link WidgetTypeInfo#WidgetTypeInfo()}.
    * </ul>
-   * <p>
-   * Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}
+   *
+   * <p>Method under test: {@link WidgetTypeInfo#WidgetTypeInfo(WidgetTypeInfo)}
    */
   @Test
   @DisplayName("Test new WidgetTypeInfo(WidgetTypeInfo); when WidgetTypeInfo()")

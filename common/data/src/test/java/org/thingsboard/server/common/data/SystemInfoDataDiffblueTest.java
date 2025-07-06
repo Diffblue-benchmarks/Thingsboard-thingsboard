@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class SystemInfoDataDiffblueTest {
   /**
    * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SystemInfoData#equals(Object)}
    *   <li>{@link SystemInfoData#hashCode()}
@@ -55,12 +57,14 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SystemInfoData#equals(Object)}
    *   <li>{@link SystemInfoData#hashCode()}
@@ -100,12 +104,14 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SystemInfoData#equals(Object)}
    *   <li>{@link SystemInfoData#hashCode()}
@@ -145,12 +151,14 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SystemInfoData#equals(Object)}
    *   <li>{@link SystemInfoData#hashCode()}
@@ -190,12 +198,14 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}, and {@link SystemInfoData#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SystemInfoData#equals(Object)}
    *   <li>{@link SystemInfoData#hashCode()}
@@ -225,12 +235,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -264,12 +275,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -303,12 +315,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -342,12 +355,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -381,12 +395,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -420,12 +435,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -459,12 +475,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -498,12 +515,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -537,12 +555,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -576,12 +595,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -615,12 +635,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -654,12 +675,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -693,12 +715,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -732,12 +755,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -771,12 +795,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -810,12 +835,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -849,12 +875,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -878,12 +905,13 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test {@link SystemInfoData#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SystemInfoData#equals(Object)}
+   *
+   * <p>Method under test: {@link SystemInfoData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -907,8 +935,9 @@ class SystemInfoDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link SystemInfoData}
    *   <li>{@link SystemInfoData#setCpuCount(Long)}
@@ -933,15 +962,26 @@ class SystemInfoDataDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SystemInfoData.<init>()", "Long SystemInfoData.getCpuCount()",
-      "Long SystemInfoData.getCpuUsage()", "Long SystemInfoData.getDiscUsage()", "Long SystemInfoData.getMemoryUsage()",
-      "String SystemInfoData.getServiceId()", "String SystemInfoData.getServiceType()",
-      "Long SystemInfoData.getTotalDiscSpace()", "Long SystemInfoData.getTotalMemory()",
-      "void SystemInfoData.setCpuCount(Long)", "void SystemInfoData.setCpuUsage(Long)",
-      "void SystemInfoData.setDiscUsage(Long)", "void SystemInfoData.setMemoryUsage(Long)",
-      "void SystemInfoData.setServiceId(String)", "void SystemInfoData.setServiceType(String)",
-      "void SystemInfoData.setTotalDiscSpace(Long)", "void SystemInfoData.setTotalMemory(Long)",
-      "String SystemInfoData.toString()"})
+  @MethodsUnderTest({
+    "void SystemInfoData.<init>()",
+    "Long SystemInfoData.getCpuCount()",
+    "Long SystemInfoData.getCpuUsage()",
+    "Long SystemInfoData.getDiscUsage()",
+    "Long SystemInfoData.getMemoryUsage()",
+    "String SystemInfoData.getServiceId()",
+    "String SystemInfoData.getServiceType()",
+    "Long SystemInfoData.getTotalDiscSpace()",
+    "Long SystemInfoData.getTotalMemory()",
+    "void SystemInfoData.setCpuCount(Long)",
+    "void SystemInfoData.setCpuUsage(Long)",
+    "void SystemInfoData.setDiscUsage(Long)",
+    "void SystemInfoData.setMemoryUsage(Long)",
+    "void SystemInfoData.setServiceId(String)",
+    "void SystemInfoData.setServiceType(String)",
+    "void SystemInfoData.setTotalDiscSpace(Long)",
+    "void SystemInfoData.setTotalMemory(Long)",
+    "String SystemInfoData.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     SystemInfoData actualSystemInfoData = new SystemInfoData();
@@ -966,8 +1006,10 @@ class SystemInfoDataDiffblueTest {
     // Assert
     assertEquals("42", actualServiceId);
     assertEquals("Service Type", actualServiceType);
-    assertEquals("SystemInfoData(serviceId=42, serviceType=Service Type, cpuUsage=1, cpuCount=3, memoryUsage=1,"
-        + " totalMemory=1, discUsage=1, totalDiscSpace=1)", actualToStringResult);
+    assertEquals(
+        "SystemInfoData(serviceId=42, serviceType=Service Type, cpuUsage=1, cpuCount=3, memoryUsage=1,"
+            + " totalMemory=1, discUsage=1, totalDiscSpace=1)",
+        actualToStringResult);
     assertEquals(1L, actualCpuUsage.longValue());
     assertEquals(1L, actualDiscUsage.longValue());
     assertEquals(1L, actualMemoryUsage.longValue());

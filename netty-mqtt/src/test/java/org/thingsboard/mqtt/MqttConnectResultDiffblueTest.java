@@ -15,10 +15,12 @@ import org.junit.jupiter.api.Test;
 class MqttConnectResultDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link MqttConnectResult#MqttConnectResult(boolean, MqttConnectReturnCode, ChannelFuture)}
+   *   <li>{@link MqttConnectResult#MqttConnectResult(boolean, MqttConnectReturnCode,
+   *       ChannelFuture)}
    *   <li>{@link MqttConnectResult#getCloseFuture()}
    *   <li>{@link MqttConnectResult#getReturnCode()}
    *   <li>{@link MqttConnectResult#isSuccess()}
@@ -27,16 +29,20 @@ class MqttConnectResultDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttConnectResult.<init>(boolean, MqttConnectReturnCode, ChannelFuture)",
-      "ChannelFuture MqttConnectResult.getCloseFuture()", "MqttConnectReturnCode MqttConnectResult.getReturnCode()",
-      "boolean MqttConnectResult.isSuccess()"})
+  @MethodsUnderTest({
+    "void MqttConnectResult.<init>(boolean, MqttConnectReturnCode, ChannelFuture)",
+    "ChannelFuture MqttConnectResult.getCloseFuture()",
+    "MqttConnectReturnCode MqttConnectResult.getReturnCode()",
+    "boolean MqttConnectResult.isSuccess()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    DefaultChannelProgressivePromise closeFuture = new DefaultChannelProgressivePromise(new EmbeddedChannel());
+    DefaultChannelProgressivePromise closeFuture =
+        new DefaultChannelProgressivePromise(new EmbeddedChannel());
 
     // Act
-    MqttConnectResult actualMqttConnectResult = new MqttConnectResult(true, MqttConnectReturnCode.CONNECTION_ACCEPTED,
-        closeFuture);
+    MqttConnectResult actualMqttConnectResult =
+        new MqttConnectResult(true, MqttConnectReturnCode.CONNECTION_ACCEPTED, closeFuture);
     ChannelFuture actualCloseFuture = actualMqttConnectResult.getCloseFuture();
     MqttConnectReturnCode actualReturnCode = actualMqttConnectResult.getReturnCode();
 

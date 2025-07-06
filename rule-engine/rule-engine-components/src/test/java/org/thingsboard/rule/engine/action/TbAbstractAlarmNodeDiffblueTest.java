@@ -27,22 +27,27 @@ import org.thingsboard.server.common.data.script.ScriptLanguage;
 class TbAbstractAlarmNodeDiffblueTest {
   /**
    * Test {@link TbAbstractAlarmNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>Then {@link TbClearAlarmNode} (default constructor) {@link TbAbstractAlarmNode#config} AlarmDetailsBuildJs is {@code null}.</li>
+   *   <li>Given {@code START_OBJECT}.
+   *   <li>Then {@link TbClearAlarmNode} (default constructor) {@link TbAbstractAlarmNode#config}
+   *       AlarmDetailsBuildJs is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbAbstractAlarmNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbAbstractAlarmNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; then TbClearAlarmNode (default constructor) config AlarmDetailsBuildJs is 'null'")
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; then TbClearAlarmNode (default constructor) config AlarmDetailsBuildJs is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbAbstractAlarmNode.init(TbContext, TbNodeConfiguration)"})
-  void testInit_givenStartObject_thenTbClearAlarmNodeConfigAlarmDetailsBuildJsIsNull() throws TbNodeException {
+  void testInit_givenStartObject_thenTbClearAlarmNodeConfigAlarmDetailsBuildJsIsNull()
+      throws TbNodeException {
     // Arrange
     TbClearAlarmNode tbClearAlarmNode = new TbClearAlarmNode();
     TbContext ctx = mock(TbContext.class);
-    when(ctx.createScriptEngine(Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
+    when(ctx.createScriptEngine(
+            Mockito.<ScriptLanguage>any(), Mockito.<String>any(), isA(String[].class)))
         .thenReturn(mock(ScriptEngine.class));
     ArrayNode data = mock(ArrayNode.class);
 

@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Test;
 class LwM2MOperationTypeDiffblueTest {
   /**
    * Test {@link LwM2MOperationType#fromType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Read}.</li>
-   *   <li>Then return {@code READ}.</li>
+   *   <li>When {@code Read}.
+   *   <li>Then return {@code READ}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MOperationType#fromType(String)}
+   *
+   * <p>Method under test: {@link LwM2MOperationType#fromType(String)}
    */
   @Test
   @DisplayName("Test fromType(String); when 'Read'; then return 'READ'")
@@ -30,12 +31,13 @@ class LwM2MOperationTypeDiffblueTest {
 
   /**
    * Test {@link LwM2MOperationType#fromType(String)}.
+   *
    * <ul>
-   *   <li>When {@code Type}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code Type}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2MOperationType#fromType(String)}
+   *
+   * <p>Method under test: {@link LwM2MOperationType#fromType(String)}
    */
   @Test
   @DisplayName("Test fromType(String); when 'Type'; then return 'null'")
@@ -48,8 +50,9 @@ class LwM2MOperationTypeDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LwM2MOperationType#getCode()}
    *   <li>{@link LwM2MOperationType#getType()}
@@ -60,8 +63,12 @@ class LwM2MOperationTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int LwM2MOperationType.getCode()", "String LwM2MOperationType.getType()",
-      "boolean LwM2MOperationType.isComposite()", "boolean LwM2MOperationType.isHasObjectId()"})
+  @MethodsUnderTest({
+    "int LwM2MOperationType.getCode()",
+    "String LwM2MOperationType.getType()",
+    "boolean LwM2MOperationType.isComposite()",
+    "boolean LwM2MOperationType.isHasObjectId()"
+  })
   void testGettersAndSetters() {
     // Arrange
     LwM2MOperationType valueOfResult = LwM2MOperationType.valueOf("READ");

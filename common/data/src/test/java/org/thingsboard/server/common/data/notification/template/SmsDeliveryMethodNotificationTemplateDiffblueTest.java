@@ -15,8 +15,9 @@ import org.thingsboard.server.common.data.notification.NotificationDeliveryMetho
 class SmsDeliveryMethodNotificationTemplateDiffblueTest {
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate()}.
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate()}
+   *
+   * <p>Method under test: {@link
+   * SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate()}
    */
   @Test
   @DisplayName("Test new SmsDeliveryMethodNotificationTemplate()")
@@ -24,47 +25,58 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"void SmsDeliveryMethodNotificationTemplate.<init>()"})
   void testNewSmsDeliveryMethodNotificationTemplate() {
     // Arrange and Act
-    SmsDeliveryMethodNotificationTemplate actualSmsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate();
+    SmsDeliveryMethodNotificationTemplate actualSmsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate();
 
     // Assert
     assertNull(actualSmsDeliveryMethodNotificationTemplate.getBody());
-    List<TemplatableValue> templatableValues = actualSmsDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> templatableValues =
+        actualSmsDeliveryMethodNotificationTemplate.getTemplatableValues();
     assertEquals(1, templatableValues.size());
     assertNull(templatableValues.get(0).get());
-    assertEquals(NotificationDeliveryMethod.SMS, actualSmsDeliveryMethodNotificationTemplate.getMethod());
+    assertEquals(
+        NotificationDeliveryMethod.SMS, actualSmsDeliveryMethodNotificationTemplate.getMethod());
     assertFalse(actualSmsDeliveryMethodNotificationTemplate.isEnabled());
   }
 
   /**
-   * Test {@link SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate)}.
+   * Test {@link
+   * SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate)}.
+   *
    * <ul>
-   *   <li>Then return Body is {@code null}.</li>
+   *   <li>Then return Body is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate)}
+   *
+   * <p>Method under test: {@link
+   * SmsDeliveryMethodNotificationTemplate#SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate)}
    */
   @Test
-  @DisplayName("Test new SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate); then return Body is 'null'")
+  @DisplayName(
+      "Test new SmsDeliveryMethodNotificationTemplate(SmsDeliveryMethodNotificationTemplate); then return Body is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmsDeliveryMethodNotificationTemplate.<init>(SmsDeliveryMethodNotificationTemplate)"})
+  @MethodsUnderTest({
+    "void SmsDeliveryMethodNotificationTemplate.<init>(SmsDeliveryMethodNotificationTemplate)"
+  })
   void testNewSmsDeliveryMethodNotificationTemplate_thenReturnBodyIsNull() {
     // Arrange and Act
-    SmsDeliveryMethodNotificationTemplate actualSmsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate(
-        new SmsDeliveryMethodNotificationTemplate());
+    SmsDeliveryMethodNotificationTemplate actualSmsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate(new SmsDeliveryMethodNotificationTemplate());
 
     // Assert
     assertNull(actualSmsDeliveryMethodNotificationTemplate.getBody());
-    List<TemplatableValue> templatableValues = actualSmsDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> templatableValues =
+        actualSmsDeliveryMethodNotificationTemplate.getTemplatableValues();
     assertEquals(1, templatableValues.size());
     assertNull(templatableValues.get(0).get());
-    assertEquals(NotificationDeliveryMethod.SMS, actualSmsDeliveryMethodNotificationTemplate.getMethod());
+    assertEquals(
+        NotificationDeliveryMethod.SMS, actualSmsDeliveryMethodNotificationTemplate.getMethod());
     assertFalse(actualSmsDeliveryMethodNotificationTemplate.isEnabled());
   }
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#getBody()}.
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#getBody()}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#getBody()}
    */
   @Test
   @DisplayName("Test getBody()")
@@ -72,17 +84,20 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
   @MethodsUnderTest({"java.lang.String SmsDeliveryMethodNotificationTemplate.getBody()"})
   void testGetBody() {
     // Arrange, Act and Assert
-    assertNull((new SmsDeliveryMethodNotificationTemplate()).getBody());
+    assertNull(new SmsDeliveryMethodNotificationTemplate().getBody());
   }
 
   /**
-   * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}, and {@link SmsDeliveryMethodNotificationTemplate#hashCode()}.
+   * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}, and {@link
+   * SmsDeliveryMethodNotificationTemplate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
    *   <li>{@link SmsDeliveryMethodNotificationTemplate#hashCode()}
@@ -91,11 +106,14 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
-      "int SmsDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
+    "int SmsDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate();
+    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate();
 
     // Act and Assert
     assertEquals(smsDeliveryMethodNotificationTemplate, smsDeliveryMethodNotificationTemplate);
@@ -105,63 +123,76 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
-      "int SmsDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
+    "int SmsDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate();
+    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate();
 
     // Act and Assert
-    assertNotEquals(smsDeliveryMethodNotificationTemplate, new SmsDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        smsDeliveryMethodNotificationTemplate, new SmsDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
-      "int SmsDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
+    "int SmsDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate();
+    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate();
     smsDeliveryMethodNotificationTemplate.setEnabled(true);
 
     // Act and Assert
-    assertNotEquals(smsDeliveryMethodNotificationTemplate, new SmsDeliveryMethodNotificationTemplate());
+    assertNotEquals(
+        smsDeliveryMethodNotificationTemplate, new SmsDeliveryMethodNotificationTemplate());
   }
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
-      "int SmsDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
+    "int SmsDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new SmsDeliveryMethodNotificationTemplate(), null);
@@ -169,28 +200,33 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
-      "int SmsDeliveryMethodNotificationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean SmsDeliveryMethodNotificationTemplate.equals(Object)",
+    "int SmsDeliveryMethodNotificationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new SmsDeliveryMethodNotificationTemplate(),
+    assertNotEquals(
+        new SmsDeliveryMethodNotificationTemplate(),
         "Different type to SmsDeliveryMethodNotificationTemplate");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link SmsDeliveryMethodNotificationTemplate#toString()}
    *   <li>{@link SmsDeliveryMethodNotificationTemplate#getMethod()}
@@ -200,17 +236,21 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"NotificationDeliveryMethod SmsDeliveryMethodNotificationTemplate.getMethod()",
-      "List SmsDeliveryMethodNotificationTemplate.getTemplatableValues()",
-      "java.lang.String SmsDeliveryMethodNotificationTemplate.toString()"})
+  @MethodsUnderTest({
+    "NotificationDeliveryMethod SmsDeliveryMethodNotificationTemplate.getMethod()",
+    "List SmsDeliveryMethodNotificationTemplate.getTemplatableValues()",
+    "java.lang.String SmsDeliveryMethodNotificationTemplate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate = new SmsDeliveryMethodNotificationTemplate();
+    SmsDeliveryMethodNotificationTemplate smsDeliveryMethodNotificationTemplate =
+        new SmsDeliveryMethodNotificationTemplate();
 
     // Act
     smsDeliveryMethodNotificationTemplate.toString();
     NotificationDeliveryMethod actualMethod = smsDeliveryMethodNotificationTemplate.getMethod();
-    List<TemplatableValue> actualTemplatableValues = smsDeliveryMethodNotificationTemplate.getTemplatableValues();
+    List<TemplatableValue> actualTemplatableValues =
+        smsDeliveryMethodNotificationTemplate.getTemplatableValues();
 
     // Assert
     assertEquals(1, actualTemplatableValues.size());
@@ -220,16 +260,19 @@ class SmsDeliveryMethodNotificationTemplateDiffblueTest {
 
   /**
    * Test {@link SmsDeliveryMethodNotificationTemplate#copy()}.
-   * <p>
-   * Method under test: {@link SmsDeliveryMethodNotificationTemplate#copy()}
+   *
+   * <p>Method under test: {@link SmsDeliveryMethodNotificationTemplate#copy()}
    */
   @Test
   @DisplayName("Test copy()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"DeliveryMethodNotificationTemplate SmsDeliveryMethodNotificationTemplate.copy()"})
+  @MethodsUnderTest({
+    "DeliveryMethodNotificationTemplate SmsDeliveryMethodNotificationTemplate.copy()"
+  })
   void testCopy() {
     // Arrange and Act
-    DeliveryMethodNotificationTemplate actualCopyResult = (new SmsDeliveryMethodNotificationTemplate()).copy();
+    DeliveryMethodNotificationTemplate actualCopyResult =
+        new SmsDeliveryMethodNotificationTemplate().copy();
 
     // Assert
     assertTrue(actualCopyResult instanceof SmsDeliveryMethodNotificationTemplate);

@@ -13,12 +13,14 @@ import org.thingsboard.server.common.data.id.EntityId;
 class StarredDashboardInfoDiffblueTest {
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}, and {@link StarredDashboardInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StarredDashboardInfo#equals(Object)}
    *   <li>{@link StarredDashboardInfo#hashCode()}
@@ -27,7 +29,10 @@ class StarredDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -48,12 +53,14 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}, and {@link StarredDashboardInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StarredDashboardInfo#equals(Object)}
    *   <li>{@link StarredDashboardInfo#hashCode()}
@@ -62,7 +69,10 @@ class StarredDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -78,17 +88,21 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StarredDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link StarredDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -107,17 +121,21 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StarredDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link StarredDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -136,17 +154,21 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StarredDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link StarredDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -160,17 +182,21 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test {@link StarredDashboardInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StarredDashboardInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link StarredDashboardInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StarredDashboardInfo.equals(Object)", "int StarredDashboardInfo.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StarredDashboardInfo.equals(Object)",
+    "int StarredDashboardInfo.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     StarredDashboardInfo starredDashboardInfo = new StarredDashboardInfo();
@@ -184,8 +210,9 @@ class StarredDashboardInfoDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link StarredDashboardInfo}
    *   <li>{@link StarredDashboardInfo#setStarredAt(long)}
@@ -196,8 +223,12 @@ class StarredDashboardInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void StarredDashboardInfo.<init>()", "long StarredDashboardInfo.getStarredAt()",
-      "void StarredDashboardInfo.setStarredAt(long)", "String StarredDashboardInfo.toString()"})
+  @MethodsUnderTest({
+    "void StarredDashboardInfo.<init>()",
+    "long StarredDashboardInfo.getStarredAt()",
+    "void StarredDashboardInfo.setStarredAt(long)",
+    "String StarredDashboardInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     StarredDashboardInfo actualStarredDashboardInfo = new StarredDashboardInfo();

@@ -25,24 +25,26 @@ import org.thingsboard.server.service.notification.channels.TeamsMessageCard.Sec
 @ContextConfiguration(classes = {TeamsMessageCard.class})
 @ExtendWith(SpringExtension.class)
 class TeamsMessageCardDiffblueTest {
-  @Autowired
-  private TeamsMessageCard teamsMessageCard;
+  @Autowired private TeamsMessageCard teamsMessageCard;
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}, and {@link ActionCard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard#equals(Object)}
    *   <li>{@link ActionCard#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.equals(Object)", "int ActionCard.hashCode()"})
   void testActionCardEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -69,19 +71,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}, and {@link ActionCard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard#equals(Object)}
    *   <li>{@link ActionCard#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ActionCard equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.equals(Object)", "int ActionCard.hashCode()"})
   void testActionCardEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -101,12 +106,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -137,12 +143,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -180,12 +187,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -213,12 +221,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -246,12 +255,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -282,12 +292,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -315,12 +326,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is different; then return not equal")
@@ -348,12 +360,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is 'null'; then return not equal")
@@ -374,12 +387,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard {@link ActionCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard equals(Object); when other is wrong type; then return not equal")
@@ -400,8 +414,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ActionCard}
    *   <li>{@link ActionCard#setActions(List)}
@@ -420,10 +435,20 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test ActionCard getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ActionCard.<init>()", "List ActionCard.getActions()", "List ActionCard.getInputs()",
-      "String ActionCard.getName()", "List ActionCard.getTargets()", "String ActionCard.getType()",
-      "void ActionCard.setActions(List)", "void ActionCard.setInputs(List)", "void ActionCard.setName(String)",
-      "void ActionCard.setTargets(List)", "void ActionCard.setType(String)", "String ActionCard.toString()"})
+  @MethodsUnderTest({
+    "void ActionCard.<init>()",
+    "List ActionCard.getActions()",
+    "List ActionCard.getInputs()",
+    "String ActionCard.getName()",
+    "List ActionCard.getTargets()",
+    "String ActionCard.getType()",
+    "void ActionCard.setActions(List)",
+    "void ActionCard.setInputs(List)",
+    "void ActionCard.setName(String)",
+    "void ActionCard.setTargets(List)",
+    "void ActionCard.setType(String)",
+    "String ActionCard.toString()"
+  })
   void testActionCardGettersAndSetters() {
     // Arrange and Act
     ActionCard actualActionCard = new ActionCard();
@@ -443,7 +468,8 @@ class TeamsMessageCardDiffblueTest {
 
     // Assert
     assertEquals("Name", actualName);
-    assertEquals("TeamsMessageCard.ActionCard(type=Type, name=Name, inputs=[], actions=[], targets=[])",
+    assertEquals(
+        "TeamsMessageCard.ActionCard(type=Type, name=Name, inputs=[], actions=[], targets=[])",
         actualToStringResult);
     assertEquals("Type", actualActionCard.getType());
     assertTrue(actualActions.isEmpty());
@@ -456,19 +482,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}, and {@link Action#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#equals(Object)}
    *   <li>{@link Action#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -484,19 +513,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}, and {@link Action#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#equals(Object)}
    *   <li>{@link Action#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -512,19 +544,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}, and {@link Action#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#equals(Object)}
    *   <li>{@link Action#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -540,19 +575,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}, and {@link Action#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#equals(Object)}
    *   <li>{@link Action#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
@@ -568,19 +606,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}, and {@link Action#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#equals(Object)}
    *   <li>{@link Action#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -595,15 +636,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -616,15 +659,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
@@ -637,15 +682,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
@@ -658,15 +705,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
@@ -679,15 +728,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
@@ -700,15 +751,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
@@ -721,12 +774,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard_Action equals(Object); when other is 'null'; then return not equal")
@@ -739,15 +793,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action {@link Action#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Action#equals(Object)}
+   *
+   * <p>Method under test: {@link Action#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Action equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Action equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Action.equals(Object)", "int Action.hashCode()"})
   void testActionCard_ActionEquals_whenOtherIsWrongType_thenReturnNotEqual() {
@@ -757,8 +813,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Action getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Action#Action(String, String, String)}
    *   <li>{@link Action#toString()}
@@ -770,8 +827,13 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test ActionCard_Action getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Action.<init>(String, String, String)", "String Action.getName()",
-      "String Action.getTarget()", "String Action.getType()", "String Action.toString()"})
+  @MethodsUnderTest({
+    "void Action.<init>(String, String, String)",
+    "String Action.getName()",
+    "String Action.getTarget()",
+    "String Action.getType()",
+    "String Action.toString()"
+  })
   void testActionCard_ActionGettersAndSetters() {
     // Arrange and Act
     Action actualAction = new Action("Type", "Name", "Target");
@@ -782,25 +844,31 @@ class TeamsMessageCardDiffblueTest {
     // Assert
     assertEquals("Name", actualName);
     assertEquals("Target", actualTarget);
-    assertEquals("TeamsMessageCard.ActionCard.Action(type=Type, name=Name, target=Target)", actualToStringResult);
+    assertEquals(
+        "TeamsMessageCard.ActionCard.Action(type=Type, name=Name, target=Target)",
+        actualToStringResult);
     assertEquals("Type", actualAction.getType());
   }
 
   /**
-   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link ActionCard.Input#hashCode()}.
+   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link
+   * ActionCard.Input#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Input#equals(Object)}
    *   <li>{@link ActionCard.Input#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -826,20 +894,24 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link ActionCard.Input#hashCode()}.
+   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link
+   * ActionCard.Input#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Input#equals(Object)}
    *   <li>{@link ActionCard.Input#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -865,20 +937,24 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link ActionCard.Input#hashCode()}.
+   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link
+   * ActionCard.Input#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Input#equals(Object)}
    *   <li>{@link ActionCard.Input#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -904,20 +980,24 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link ActionCard.Input#hashCode()}.
+   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link
+   * ActionCard.Input#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Input#equals(Object)}
    *   <li>{@link ActionCard.Input#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
@@ -943,20 +1023,24 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link ActionCard.Input#hashCode()}.
+   * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}, and {@link
+   * ActionCard.Input#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Input#equals(Object)}
    *   <li>{@link ActionCard.Input#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -976,15 +1060,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -1009,15 +1095,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
@@ -1042,15 +1130,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
@@ -1075,15 +1165,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
@@ -1108,15 +1200,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
@@ -1141,15 +1235,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
@@ -1174,15 +1270,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
@@ -1207,15 +1305,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
@@ -1240,12 +1340,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard_Input equals(Object); when other is 'null'; then return not equal")
@@ -1266,15 +1367,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input {@link ActionCard.Input#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Input#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Input#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ActionCard.Input.equals(Object)", "int ActionCard.Input.hashCode()"})
   void testActionCard_InputEquals_whenOtherIsWrongType_thenReturnNotEqual() {
@@ -1292,8 +1395,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ActionCard.Input}
    *   <li>{@link ActionCard.Input#setId(String)}
@@ -1312,12 +1416,20 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test ActionCard_Input getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ActionCard.Input.<init>()", "String ActionCard.Input.getId()",
-      "String ActionCard.Input.getTitle()", "String ActionCard.Input.getType()",
-      "boolean ActionCard.Input.isMultiSelect()", "boolean ActionCard.Input.isMultiple()",
-      "void ActionCard.Input.setId(String)", "void ActionCard.Input.setMultiSelect(boolean)",
-      "void ActionCard.Input.setMultiple(boolean)", "void ActionCard.Input.setTitle(String)",
-      "void ActionCard.Input.setType(String)", "String ActionCard.Input.toString()"})
+  @MethodsUnderTest({
+    "void ActionCard.Input.<init>()",
+    "String ActionCard.Input.getId()",
+    "String ActionCard.Input.getTitle()",
+    "String ActionCard.Input.getType()",
+    "boolean ActionCard.Input.isMultiSelect()",
+    "boolean ActionCard.Input.isMultiple()",
+    "void ActionCard.Input.setId(String)",
+    "void ActionCard.Input.setMultiSelect(boolean)",
+    "void ActionCard.Input.setMultiple(boolean)",
+    "void ActionCard.Input.setTitle(String)",
+    "void ActionCard.Input.setType(String)",
+    "String ActionCard.Input.toString()"
+  })
   void testActionCard_InputGettersAndSetters() {
     // Arrange and Act
     Input actualInput = new Input();
@@ -1335,7 +1447,8 @@ class TeamsMessageCardDiffblueTest {
     // Assert
     assertEquals("42", actualId);
     assertEquals("Dr", actualTitle);
-    assertEquals("TeamsMessageCard.ActionCard.Input(type=Type, id=42, isMultiple=true, title=Dr, isMultiSelect=true)",
+    assertEquals(
+        "TeamsMessageCard.ActionCard.Input(type=Type, id=42, isMultiple=true, title=Dr, isMultiSelect=true)",
         actualToStringResult);
     assertEquals("Type", actualType);
     assertTrue(actualIsMultiSelectResult);
@@ -1344,19 +1457,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}, and {@link Choice#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Choice#equals(Object)}
    *   <li>{@link Choice#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -1372,19 +1488,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}, and {@link Choice#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Choice#equals(Object)}
    *   <li>{@link Choice#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -1400,19 +1519,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}, and {@link Choice#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Choice#equals(Object)}
    *   <li>{@link Choice#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -1428,19 +1550,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}, and {@link Choice#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Choice#equals(Object)}
    *   <li>{@link Choice#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -1455,15 +1580,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -1476,15 +1603,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
@@ -1497,15 +1626,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
@@ -1518,15 +1649,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
@@ -1539,15 +1672,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is 'null'; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsNull_thenReturnNotEqual() {
@@ -1557,15 +1692,17 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice {@link Choice#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Choice#equals(Object)}
+   *
+   * <p>Method under test: {@link Choice#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Input_Choice equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Input_Choice equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Choice.equals(Object)", "int Choice.hashCode()"})
   void testActionCard_Input_ChoiceEquals_whenOtherIsWrongType_thenReturnNotEqual() {
@@ -1575,8 +1712,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Input_Choice getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Choice#Choice(String, String)}
    *   <li>{@link Choice#toString()}
@@ -1587,8 +1725,12 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test ActionCard_Input_Choice getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Choice.<init>(String, String)", "String Choice.getDisplay()", "String Choice.getValue()",
-      "String Choice.toString()"})
+  @MethodsUnderTest({
+    "void Choice.<init>(String, String)",
+    "String Choice.getDisplay()",
+    "String Choice.getValue()",
+    "String Choice.toString()"
+  })
   void testActionCard_Input_ChoiceGettersAndSetters() {
     // Arrange and Act
     Choice actualChoice = new Choice("Display", "42");
@@ -1598,26 +1740,35 @@ class TeamsMessageCardDiffblueTest {
     // Assert
     assertEquals("42", actualChoice.getValue());
     assertEquals("Display", actualDisplay);
-    assertEquals("TeamsMessageCard.ActionCard.Input.Choice(display=Display, value=42)", actualToStringResult);
+    assertEquals(
+        "TeamsMessageCard.ActionCard.Input.Choice(display=Display, value=42)",
+        actualToStringResult);
   }
 
   /**
-   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link ActionCard.Target#hashCode()}.
+   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link
+   * ActionCard.Target#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Target#equals(Object)}
    *   <li>{@link ActionCard.Target#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Target target = new Target("Os", "Uri");
@@ -1630,22 +1781,29 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link ActionCard.Target#hashCode()}.
+   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link
+   * ActionCard.Target#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Target#equals(Object)}
    *   <li>{@link ActionCard.Target#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     Target target = new Target(null, "Uri");
@@ -1658,22 +1816,29 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link ActionCard.Target#hashCode()}.
+   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link
+   * ActionCard.Target#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Target#equals(Object)}
    *   <li>{@link ActionCard.Target#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     Target target = new Target("Os", null);
@@ -1686,22 +1851,29 @@ class TeamsMessageCardDiffblueTest {
   }
 
   /**
-   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link ActionCard.Target#hashCode()}.
+   * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}, and {@link
+   * ActionCard.Target#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Target#equals(Object)}
    *   <li>{@link ActionCard.Target#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Target target = new Target("Os", "Uri");
@@ -1714,17 +1886,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Target target = new Target("Uri", "Uri");
@@ -1735,17 +1912,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Target target = new Target(null, "Uri");
@@ -1756,17 +1938,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     Target target = new Target("Os", "Os");
@@ -1777,17 +1964,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     Target target = new Target("Os", null);
@@ -1798,17 +1990,21 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
   @DisplayName("Test ActionCard_Target equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Target("Os", "Uri"), null);
@@ -1816,17 +2012,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target {@link ActionCard.Target#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActionCard.Target#equals(Object)}
+   *
+   * <p>Method under test: {@link ActionCard.Target#equals(Object)}
    */
   @Test
-  @DisplayName("Test ActionCard_Target equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test ActionCard_Target equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ActionCard.Target.equals(Object)", "int ActionCard.Target.hashCode()"})
+  @MethodsUnderTest({
+    "boolean ActionCard.Target.equals(Object)",
+    "int ActionCard.Target.hashCode()"
+  })
   void testActionCard_TargetEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Target("Os", "Uri"), "Different type to Target");
@@ -1834,8 +2035,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test ActionCard_Target getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActionCard.Target#Target(String, String)}
    *   <li>{@link ActionCard.Target#toString()}
@@ -1846,8 +2048,12 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test ActionCard_Target getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ActionCard.Target.<init>(String, String)", "String ActionCard.Target.getOs()",
-      "String ActionCard.Target.getUri()", "String ActionCard.Target.toString()"})
+  @MethodsUnderTest({
+    "void ActionCard.Target.<init>(String, String)",
+    "String ActionCard.Target.getOs()",
+    "String ActionCard.Target.getUri()",
+    "String ActionCard.Target.toString()"
+  })
   void testActionCard_TargetGettersAndSetters() {
     // Arrange and Act
     Target actualTarget = new Target("Os", "Uri");
@@ -1862,12 +2068,14 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}, and {@link TeamsMessageCard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TeamsMessageCard#equals(Object)}
    *   <li>{@link TeamsMessageCard#hashCode()}
@@ -1901,12 +2109,14 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}, and {@link TeamsMessageCard#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TeamsMessageCard#equals(Object)}
    *   <li>{@link TeamsMessageCard#hashCode()}
@@ -1933,12 +2143,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -1976,12 +2187,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2019,12 +2231,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2052,12 +2265,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2085,12 +2299,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2118,12 +2333,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2151,12 +2367,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2184,12 +2401,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -2217,12 +2435,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -2243,12 +2462,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TeamsMessageCard#equals(Object)}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -2269,8 +2489,8 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test {@link TeamsMessageCard#getContext()}.
-   * <p>
-   * Method under test: {@link TeamsMessageCard#getContext()}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#getContext()}
    */
   @Test
   @DisplayName("Test getContext()")
@@ -2278,13 +2498,13 @@ class TeamsMessageCardDiffblueTest {
   @MethodsUnderTest({"String TeamsMessageCard.getContext()"})
   void testGetContext() {
     // Arrange, Act and Assert
-    assertEquals("http://schema.org/extensions", (new TeamsMessageCard()).getContext());
+    assertEquals("http://schema.org/extensions", teamsMessageCard.getContext());
   }
 
   /**
    * Test {@link TeamsMessageCard#getType()}.
-   * <p>
-   * Method under test: {@link TeamsMessageCard#getType()}
+   *
+   * <p>Method under test: {@link TeamsMessageCard#getType()}
    */
   @Test
   @DisplayName("Test getType()")
@@ -2292,13 +2512,14 @@ class TeamsMessageCardDiffblueTest {
   @MethodsUnderTest({"String TeamsMessageCard.getType()"})
   void testGetType() {
     // Arrange, Act and Assert
-    assertEquals("MessageCard", (new TeamsMessageCard()).getType());
+    assertEquals("MessageCard", teamsMessageCard.getType());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TeamsMessageCard}
    *   <li>{@link TeamsMessageCard#setPotentialAction(List)}
@@ -2317,12 +2538,20 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TeamsMessageCard.<init>()", "List TeamsMessageCard.getPotentialAction()",
-      "List TeamsMessageCard.getSections()", "String TeamsMessageCard.getSummary()",
-      "String TeamsMessageCard.getText()", "String TeamsMessageCard.getThemeColor()",
-      "void TeamsMessageCard.setPotentialAction(List)", "void TeamsMessageCard.setSections(List)",
-      "void TeamsMessageCard.setSummary(String)", "void TeamsMessageCard.setText(String)",
-      "void TeamsMessageCard.setThemeColor(String)", "String TeamsMessageCard.toString()"})
+  @MethodsUnderTest({
+    "void TeamsMessageCard.<init>()",
+    "List TeamsMessageCard.getPotentialAction()",
+    "List TeamsMessageCard.getSections()",
+    "String TeamsMessageCard.getSummary()",
+    "String TeamsMessageCard.getText()",
+    "String TeamsMessageCard.getThemeColor()",
+    "void TeamsMessageCard.setPotentialAction(List)",
+    "void TeamsMessageCard.setSections(List)",
+    "void TeamsMessageCard.setSummary(String)",
+    "void TeamsMessageCard.setText(String)",
+    "void TeamsMessageCard.setThemeColor(String)",
+    "String TeamsMessageCard.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TeamsMessageCard actualTeamsMessageCard = new TeamsMessageCard();
@@ -2341,8 +2570,10 @@ class TeamsMessageCardDiffblueTest {
 
     // Assert
     assertEquals("Summary", actualSummary);
-    assertEquals("TeamsMessageCard(type=MessageCard, context=http://schema.org/extensions, themeColor=Theme Color,"
-        + " summary=Summary, text=Text, sections=[], potentialAction=[])", actualToStringResult);
+    assertEquals(
+        "TeamsMessageCard(type=MessageCard, context=http://schema.org/extensions, themeColor=Theme Color,"
+            + " summary=Summary, text=Text, sections=[], potentialAction=[])",
+        actualToStringResult);
     assertEquals("Text", actualText);
     assertEquals("Theme Color", actualTeamsMessageCard.getThemeColor());
     assertTrue(actualPotentialAction.isEmpty());
@@ -2353,19 +2584,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}, and {@link Section#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Section#equals(Object)}
    *   <li>{@link Section#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Section.equals(Object)", "int Section.hashCode()"})
   void testSectionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -2392,19 +2626,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}, and {@link Section#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Section#equals(Object)}
    *   <li>{@link Section#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Section.equals(Object)", "int Section.hashCode()"})
   void testSectionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -2431,19 +2668,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}, and {@link Section#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Section#equals(Object)}
    *   <li>{@link Section#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Section.equals(Object)", "int Section.hashCode()"})
   void testSectionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -2470,19 +2710,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}, and {@link Section#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Section#equals(Object)}
    *   <li>{@link Section#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Section.equals(Object)", "int Section.hashCode()"})
   void testSectionEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
@@ -2509,12 +2752,14 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}, and {@link Section#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Section#equals(Object)}
    *   <li>{@link Section#hashCode()}
@@ -2541,12 +2786,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2574,12 +2820,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2607,12 +2854,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2640,12 +2888,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2673,12 +2922,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2706,12 +2956,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2739,12 +2990,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2775,12 +3027,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is different; then return not equal")
@@ -2808,12 +3061,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is 'null'; then return not equal")
@@ -2834,12 +3088,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section {@link Section#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Section#equals(Object)}
+   *
+   * <p>Method under test: {@link Section#equals(Object)}
    */
   @Test
   @DisplayName("Test Section equals(Object); when other is wrong type; then return not equal")
@@ -2860,8 +3115,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Section}
    *   <li>{@link Section#setActivityImage(String)}
@@ -2880,11 +3136,20 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test Section getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Section.<init>()", "String Section.getActivityImage()",
-      "String Section.getActivitySubtitle()", "String Section.getActivityTitle()", "List Section.getFacts()",
-      "boolean Section.isMarkdown()", "void Section.setActivityImage(String)",
-      "void Section.setActivitySubtitle(String)", "void Section.setActivityTitle(String)",
-      "void Section.setFacts(List)", "void Section.setMarkdown(boolean)", "String Section.toString()"})
+  @MethodsUnderTest({
+    "void Section.<init>()",
+    "String Section.getActivityImage()",
+    "String Section.getActivitySubtitle()",
+    "String Section.getActivityTitle()",
+    "List Section.getFacts()",
+    "boolean Section.isMarkdown()",
+    "void Section.setActivityImage(String)",
+    "void Section.setActivitySubtitle(String)",
+    "void Section.setActivityTitle(String)",
+    "void Section.setFacts(List)",
+    "void Section.setMarkdown(boolean)",
+    "String Section.toString()"
+  })
   void testSectionGettersAndSetters() {
     // Arrange and Act
     Section actualSection = new Section();
@@ -2916,19 +3181,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}, and {@link Fact#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Fact#equals(Object)}
    *   <li>{@link Fact#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Fact.equals(Object)", "int Fact.hashCode()"})
   void testSection_FactEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
@@ -2944,19 +3212,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}, and {@link Fact#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Fact#equals(Object)}
    *   <li>{@link Fact#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Fact.equals(Object)", "int Fact.hashCode()"})
   void testSection_FactEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
@@ -2972,19 +3243,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}, and {@link Fact#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Fact#equals(Object)}
    *   <li>{@link Fact#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test Section_Fact equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Fact.equals(Object)", "int Fact.hashCode()"})
   void testSection_FactEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
@@ -3000,19 +3274,22 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}, and {@link Fact#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Fact#equals(Object)}
    *   <li>{@link Fact#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test Section_Fact equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test Section_Fact equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean Fact.equals(Object)", "int Fact.hashCode()"})
   void testSection_FactEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
@@ -3027,12 +3304,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is different; then return not equal")
@@ -3048,12 +3326,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is different; then return not equal")
@@ -3069,12 +3348,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is different; then return not equal")
@@ -3090,12 +3370,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is different; then return not equal")
@@ -3111,12 +3392,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is 'null'; then return not equal")
@@ -3129,12 +3411,13 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact {@link Fact#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Fact#equals(Object)}
+   *
+   * <p>Method under test: {@link Fact#equals(Object)}
    */
   @Test
   @DisplayName("Test Section_Fact equals(Object); when other is wrong type; then return not equal")
@@ -3147,8 +3430,9 @@ class TeamsMessageCardDiffblueTest {
 
   /**
    * Test Section_Fact getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Fact#Fact(String, String)}
    *   <li>{@link Fact#toString()}
@@ -3159,8 +3443,12 @@ class TeamsMessageCardDiffblueTest {
   @Test
   @DisplayName("Test Section_Fact getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Fact.<init>(String, String)", "String Fact.getName()", "String Fact.getValue()",
-      "String Fact.toString()"})
+  @MethodsUnderTest({
+    "void Fact.<init>(String, String)",
+    "String Fact.getName()",
+    "String Fact.getValue()",
+    "String Fact.toString()"
+  })
   void testSection_FactGettersAndSetters() {
     // Arrange and Act
     Fact actualFact = new Fact("Name", "42");

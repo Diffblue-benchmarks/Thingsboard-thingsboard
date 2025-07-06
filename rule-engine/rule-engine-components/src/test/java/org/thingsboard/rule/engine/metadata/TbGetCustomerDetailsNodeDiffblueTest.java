@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.POJONode;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
@@ -20,60 +20,75 @@ import org.thingsboard.server.common.data.util.TbPair;
 class TbGetCustomerDetailsNodeDiffblueTest {
   /**
    * Test {@link TbGetCustomerDetailsNode#loadNodeConfiguration(TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Then return {@link TbGetCustomerDetailsNodeConfiguration} (default constructor).</li>
+   *   <li>Then return {@link TbGetCustomerDetailsNodeConfiguration} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNode#loadNodeConfiguration(TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link
+   * TbGetCustomerDetailsNode#loadNodeConfiguration(TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test loadNodeConfiguration(TbNodeConfiguration); then return TbGetCustomerDetailsNodeConfiguration (default constructor)")
+  @DisplayName(
+      "Test loadNodeConfiguration(TbNodeConfiguration); then return TbGetCustomerDetailsNodeConfiguration (default constructor)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "TbGetCustomerDetailsNodeConfiguration TbGetCustomerDetailsNode.loadNodeConfiguration(TbNodeConfiguration)"})
-  void testLoadNodeConfiguration_thenReturnTbGetCustomerDetailsNodeConfiguration() throws TbNodeException {
+    "TbGetCustomerDetailsNodeConfiguration TbGetCustomerDetailsNode.loadNodeConfiguration(TbNodeConfiguration)"
+  })
+  void testLoadNodeConfiguration_thenReturnTbGetCustomerDetailsNodeConfiguration()
+      throws TbNodeException {
     // Arrange
     TbGetCustomerDetailsNode tbGetCustomerDetailsNode = new TbGetCustomerDetailsNode();
 
     ArrayList<ContactBasedEntityDetails> detailsList = new ArrayList<>();
     detailsList.add(ContactBasedEntityDetails.ID);
 
-    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration = new TbGetCustomerDetailsNodeConfiguration();
+    TbGetCustomerDetailsNodeConfiguration tbGetCustomerDetailsNodeConfiguration =
+        new TbGetCustomerDetailsNodeConfiguration();
     tbGetCustomerDetailsNodeConfiguration.setDetailsList(detailsList);
 
     // Act and Assert
-    assertSame(tbGetCustomerDetailsNodeConfiguration, tbGetCustomerDetailsNode
-        .loadNodeConfiguration(new TbNodeConfiguration(new POJONode(tbGetCustomerDetailsNodeConfiguration))));
+    assertSame(
+        tbGetCustomerDetailsNodeConfiguration,
+        tbGetCustomerDetailsNode.loadNodeConfiguration(
+            new TbNodeConfiguration(new POJONode(tbGetCustomerDetailsNodeConfiguration))));
   }
 
   /**
    * Test {@link TbGetCustomerDetailsNode#upgrade(int, JsonNode)}.
-   * <p>
-   * Method under test: {@link TbGetCustomerDetailsNode#upgrade(int, JsonNode)}
+   *
+   * <ul>
+   *   <li>When one.
+   *   <li>Then Second return {@link DoubleNode}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbGetCustomerDetailsNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode)")
+  @DisplayName("Test upgrade(int, JsonNode); when one; then Second return DoubleNode")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TbPair TbGetCustomerDetailsNode.upgrade(int, JsonNode)"})
-  void testUpgrade() throws TbNodeException {
+  void testUpgrade_whenOne_thenSecondReturnDoubleNode() throws TbNodeException {
     // Arrange
     TbGetCustomerDetailsNode tbGetCustomerDetailsNode = new TbGetCustomerDetailsNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbGetCustomerDetailsNode.upgrade(1, oldConfiguration);
+    TbPair<Boolean, JsonNode> actualUpgradeResult =
+        tbGetCustomerDetailsNode.upgrade(1, oldConfiguration);
 
     // Assert
     JsonNode second = actualUpgradeResult.getSecond();
-    assertTrue(second instanceof MissingNode);
+    assertTrue(second instanceof DoubleNode);
     assertFalse(actualUpgradeResult.getFirst());
     assertSame(oldConfiguration, second);
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbGetCustomerDetailsNode}
    *   <li>{@link TbGetCustomerDetailsNode#getPrefix()}
@@ -82,9 +97,12 @@ class TbGetCustomerDetailsNodeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbGetCustomerDetailsNode.<init>()", "java.lang.String TbGetCustomerDetailsNode.getPrefix()"})
+  @MethodsUnderTest({
+    "void TbGetCustomerDetailsNode.<init>()",
+    "java.lang.String TbGetCustomerDetailsNode.getPrefix()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals("customer_", (new TbGetCustomerDetailsNode()).getPrefix());
+    assertEquals("customer_", new TbGetCustomerDetailsNode().getPrefix());
   }
 }

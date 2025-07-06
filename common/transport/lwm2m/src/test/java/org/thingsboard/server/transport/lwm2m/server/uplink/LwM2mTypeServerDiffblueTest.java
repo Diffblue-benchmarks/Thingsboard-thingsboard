@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 class LwM2mTypeServerDiffblueTest {
   /**
    * Test {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}.
+   *
    * <ul>
-   *   <li>When {@code bootstrap}.</li>
-   *   <li>Then return {@code BOOTSTRAP}.</li>
+   *   <li>When {@code bootstrap}.
+   *   <li>Then return {@code BOOTSTRAP}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}
+   *
+   * <p>Method under test: {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}
    */
   @Test
   @DisplayName("Test fromLwM2mTypeServer(String); when 'bootstrap'; then return 'BOOTSTRAP'")
@@ -27,12 +28,13 @@ class LwM2mTypeServerDiffblueTest {
 
   /**
    * Test {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}.
+   *
    * <ul>
-   *   <li>When {@code client}.</li>
-   *   <li>Then return {@code CLIENT}.</li>
+   *   <li>When {@code client}.
+   *   <li>Then return {@code CLIENT}.
    * </ul>
-   * <p>
-   * Method under test: {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}
+   *
+   * <p>Method under test: {@link LwM2mTypeServer#fromLwM2mTypeServer(String)}
    */
   @Test
   @DisplayName("Test fromLwM2mTypeServer(String); when 'client'; then return 'CLIENT'")

@@ -13,13 +13,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {TbWebSocketTextMsg.class, String.class})
 @ExtendWith(SpringExtension.class)
 class TbWebSocketTextMsgDiffblueTest {
-  @Autowired
-  private TbWebSocketTextMsg tbWebSocketTextMsg;
+  @Autowired private TbWebSocketTextMsg tbWebSocketTextMsg;
 
   /**
    * Test {@link TbWebSocketTextMsg#getMsg()}.
-   * <p>
-   * Method under test: {@link TbWebSocketTextMsg#getMsg()}
+   *
+   * <p>Method under test: {@link TbWebSocketTextMsg#getMsg()}
    */
   @Test
   @DisplayName("Test getMsg()")
@@ -32,8 +31,9 @@ class TbWebSocketTextMsgDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbWebSocketTextMsg#TbWebSocketTextMsg(String)}
    *   <li>{@link TbWebSocketTextMsg#getType()}
@@ -42,7 +42,10 @@ class TbWebSocketTextMsgDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbWebSocketTextMsg.<init>(String)", "TbWebSocketMsgType TbWebSocketTextMsg.getType()"})
+  @MethodsUnderTest({
+    "void TbWebSocketTextMsg.<init>(String)",
+    "TbWebSocketMsgType TbWebSocketTextMsg.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbWebSocketTextMsg actualTbWebSocketTextMsg = new TbWebSocketTextMsg("42");

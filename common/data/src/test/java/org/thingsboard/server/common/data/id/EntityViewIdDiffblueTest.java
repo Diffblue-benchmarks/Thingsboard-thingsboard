@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class EntityViewIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityViewId#EntityViewId(UUID)}
    *   <li>{@link EntityViewId#getEntityType()}

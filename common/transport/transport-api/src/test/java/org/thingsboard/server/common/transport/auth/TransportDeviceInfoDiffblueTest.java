@@ -18,8 +18,9 @@ import org.thingsboard.server.common.data.id.TenantId;
 class TransportDeviceInfoDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TransportDeviceInfo}
    *   <li>{@link TransportDeviceInfo#setAdditionalInfo(String)}
@@ -50,19 +51,34 @@ class TransportDeviceInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TransportDeviceInfo.<init>()", "String TransportDeviceInfo.getAdditionalInfo()",
-      "CustomerId TransportDeviceInfo.getCustomerId()", "DeviceId TransportDeviceInfo.getDeviceId()",
-      "String TransportDeviceInfo.getDeviceName()", "DeviceProfileId TransportDeviceInfo.getDeviceProfileId()",
-      "String TransportDeviceInfo.getDeviceType()", "Long TransportDeviceInfo.getEdrxCycle()",
-      "Long TransportDeviceInfo.getPagingTransmissionWindow()", "PowerMode TransportDeviceInfo.getPowerMode()",
-      "Long TransportDeviceInfo.getPsmActivityTimer()", "TenantId TransportDeviceInfo.getTenantId()",
-      "boolean TransportDeviceInfo.isGateway()", "void TransportDeviceInfo.setAdditionalInfo(String)",
-      "void TransportDeviceInfo.setCustomerId(CustomerId)", "void TransportDeviceInfo.setDeviceId(DeviceId)",
-      "void TransportDeviceInfo.setDeviceName(String)", "void TransportDeviceInfo.setDeviceProfileId(DeviceProfileId)",
-      "void TransportDeviceInfo.setDeviceType(String)", "void TransportDeviceInfo.setEdrxCycle(Long)",
-      "void TransportDeviceInfo.setGateway(boolean)", "void TransportDeviceInfo.setPagingTransmissionWindow(Long)",
-      "void TransportDeviceInfo.setPowerMode(PowerMode)", "void TransportDeviceInfo.setPsmActivityTimer(Long)",
-      "void TransportDeviceInfo.setTenantId(TenantId)", "String TransportDeviceInfo.toString()"})
+  @MethodsUnderTest({
+    "void TransportDeviceInfo.<init>()",
+    "String TransportDeviceInfo.getAdditionalInfo()",
+    "CustomerId TransportDeviceInfo.getCustomerId()",
+    "DeviceId TransportDeviceInfo.getDeviceId()",
+    "String TransportDeviceInfo.getDeviceName()",
+    "DeviceProfileId TransportDeviceInfo.getDeviceProfileId()",
+    "String TransportDeviceInfo.getDeviceType()",
+    "Long TransportDeviceInfo.getEdrxCycle()",
+    "Long TransportDeviceInfo.getPagingTransmissionWindow()",
+    "PowerMode TransportDeviceInfo.getPowerMode()",
+    "Long TransportDeviceInfo.getPsmActivityTimer()",
+    "TenantId TransportDeviceInfo.getTenantId()",
+    "boolean TransportDeviceInfo.isGateway()",
+    "void TransportDeviceInfo.setAdditionalInfo(String)",
+    "void TransportDeviceInfo.setCustomerId(CustomerId)",
+    "void TransportDeviceInfo.setDeviceId(DeviceId)",
+    "void TransportDeviceInfo.setDeviceName(String)",
+    "void TransportDeviceInfo.setDeviceProfileId(DeviceProfileId)",
+    "void TransportDeviceInfo.setDeviceType(String)",
+    "void TransportDeviceInfo.setEdrxCycle(Long)",
+    "void TransportDeviceInfo.setGateway(boolean)",
+    "void TransportDeviceInfo.setPagingTransmissionWindow(Long)",
+    "void TransportDeviceInfo.setPowerMode(PowerMode)",
+    "void TransportDeviceInfo.setPsmActivityTimer(Long)",
+    "void TransportDeviceInfo.setTenantId(TenantId)",
+    "String TransportDeviceInfo.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TransportDeviceInfo actualTransportDeviceInfo = new TransportDeviceInfo();
@@ -96,10 +112,12 @@ class TransportDeviceInfoDiffblueTest {
     assertEquals("Additional Info", actualAdditionalInfo);
     assertEquals("Device Name", actualDeviceName);
     assertEquals("Device Type", actualDeviceType);
-    assertEquals("TransportDeviceInfo(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, customerId=784f394c-42b6-435a-983c"
-        + "-b7beff2784f9, deviceProfileId=null, deviceId=null, deviceName=Device Name, deviceType=Device Type,"
-        + " powerMode=PSM, additionalInfo=Additional Info, edrxCycle=1, psmActivityTimer=1, pagingTransmissionWindow=1,"
-        + " gateway=true)", actualToStringResult);
+    assertEquals(
+        "TransportDeviceInfo(tenantId=784f394c-42b6-435a-983c-b7beff2784f9, customerId=784f394c-42b6-435a-983c"
+            + "-b7beff2784f9, deviceProfileId=null, deviceId=null, deviceName=Device Name, deviceType=Device Type,"
+            + " powerMode=PSM, additionalInfo=Additional Info, edrxCycle=1, psmActivityTimer=1, pagingTransmissionWindow=1,"
+            + " gateway=true)",
+        actualToStringResult);
     assertNull(actualDeviceId);
     assertNull(actualDeviceProfileId);
     assertEquals(1L, actualEdrxCycle.longValue());

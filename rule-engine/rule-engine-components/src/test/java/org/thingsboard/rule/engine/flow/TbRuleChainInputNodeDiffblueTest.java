@@ -3,98 +3,116 @@ package org.thingsboard.rule.engine.flow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.doNothing;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.fasterxml.jackson.core.JsonToken;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.MissingNode;
-import java.util.ArrayList;
-import java.util.Map;
+import com.fasterxml.jackson.databind.node.DoubleNode;
+import com.fasterxml.jackson.databind.node.POJONode;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.thingsboard.rule.engine.api.TbContext;
 import org.thingsboard.rule.engine.api.TbNodeConfiguration;
 import org.thingsboard.rule.engine.api.TbNodeException;
-import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.util.TbPair;
-import org.thingsboard.server.common.msg.TbMsg;
 
 class TbRuleChainInputNodeDiffblueTest {
   /**
    * Test {@link TbRuleChainInputNode#init(TbContext, TbNodeConfiguration)}.
+   *
    * <ul>
-   *   <li>Given {@code START_OBJECT}.</li>
-   *   <li>Then throw {@link TbNodeException}.</li>
+   *   <li>Given {@code foo}.
+   *   <li>When {@link TbRuleChainInputNodeConfiguration} (default constructor) RuleChainId is
+   *       {@code foo}.
    * </ul>
-   * <p>
-   * Method under test:
-   * {@link TbRuleChainInputNode#init(TbContext, TbNodeConfiguration)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test init(TbContext, TbNodeConfiguration); given 'START_OBJECT'; then throw TbNodeException")
-  void testInit_givenStartObject_thenThrowTbNodeException() throws TbNodeException {
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'foo'; when TbRuleChainInputNodeConfiguration (default constructor) RuleChainId is 'foo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbRuleChainInputNode.init(TbContext, TbNodeConfiguration)"})
+  void testInit_givenFoo_whenTbRuleChainInputNodeConfigurationRuleChainIdIsFoo()
+      throws TbNodeException {
     // Arrange
     TbRuleChainInputNode tbRuleChainInputNode = new TbRuleChainInputNode();
     TbContext ctx = mock(TbContext.class);
-    ArrayNode data = mock(ArrayNode.class);
 
-    ArrayList<Map.Entry<String, JsonNode>> entryList = new ArrayList<>();
-    when(data.fields()).thenReturn(entryList.iterator());
-    when(data.asToken()).thenReturn(JsonToken.START_OBJECT);
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
+    tbRuleChainInputNodeConfiguration.setRuleChainId("foo");
 
     // Act and Assert
-    assertThrows(TbNodeException.class, () -> tbRuleChainInputNode.init(ctx, new TbNodeConfiguration(data)));
-    verify(data).fields();
-    verify(data, atLeast(1)).asToken();
+    assertThrows(
+        TbNodeException.class,
+        () ->
+            tbRuleChainInputNode.init(
+                ctx, new TbNodeConfiguration(new POJONode(tbRuleChainInputNodeConfiguration))));
   }
 
   /**
-   * Test {@link TbRuleChainInputNode#onMsg(TbContext, TbMsg)}.
-   * <p>
-   * Method under test: {@link TbRuleChainInputNode#onMsg(TbContext, TbMsg)}
+   * Test {@link TbRuleChainInputNode#init(TbContext, TbNodeConfiguration)}.
+   *
+   * <ul>
+   *   <li>Given {@code null}.
+   *   <li>When {@link TbRuleChainInputNodeConfiguration} (default constructor) RuleChainId is
+   *       {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TbRuleChainInputNode#init(TbContext, TbNodeConfiguration)}
    */
   @Test
-  @DisplayName("Test onMsg(TbContext, TbMsg)")
-  void testOnMsg() throws TbNodeException {
+  @DisplayName(
+      "Test init(TbContext, TbNodeConfiguration); given 'null'; when TbRuleChainInputNodeConfiguration (default constructor) RuleChainId is 'null'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void TbRuleChainInputNode.init(TbContext, TbNodeConfiguration)"})
+  void testInit_givenNull_whenTbRuleChainInputNodeConfigurationRuleChainIdIsNull()
+      throws TbNodeException {
     // Arrange
     TbRuleChainInputNode tbRuleChainInputNode = new TbRuleChainInputNode();
     TbContext ctx = mock(TbContext.class);
-    doNothing().when(ctx).input(Mockito.<TbMsg>any(), Mockito.<RuleChainId>any());
 
-    // Act
-    tbRuleChainInputNode.onMsg(ctx, null);
+    TbRuleChainInputNodeConfiguration tbRuleChainInputNodeConfiguration =
+        new TbRuleChainInputNodeConfiguration();
+    tbRuleChainInputNodeConfiguration.setRuleChainId(null);
 
-    // Assert
-    verify(ctx).input(isNull(), isNull());
+    // Act and Assert
+    assertThrows(
+        TbNodeException.class,
+        () ->
+            tbRuleChainInputNode.init(
+                ctx, new TbNodeConfiguration(new POJONode(tbRuleChainInputNodeConfiguration))));
   }
 
   /**
    * Test {@link TbRuleChainInputNode#upgrade(int, JsonNode)}.
+   *
    * <ul>
-   *   <li>When one.</li>
-   *   <li>Then return not First.</li>
+   *   <li>When one.
+   *   <li>Then Second return {@link DoubleNode}.
    * </ul>
-   * <p>
-   * Method under test: {@link TbRuleChainInputNode#upgrade(int, JsonNode)}
+   *
+   * <p>Method under test: {@link TbRuleChainInputNode#upgrade(int, JsonNode)}
    */
   @Test
-  @DisplayName("Test upgrade(int, JsonNode); when one; then return not First")
-  void testUpgrade_whenOne_thenReturnNotFirst() throws TbNodeException {
+  @DisplayName("Test upgrade(int, JsonNode); when one; then Second return DoubleNode")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"TbPair TbRuleChainInputNode.upgrade(int, JsonNode)"})
+  void testUpgrade_whenOne_thenSecondReturnDoubleNode() throws TbNodeException {
     // Arrange
     TbRuleChainInputNode tbRuleChainInputNode = new TbRuleChainInputNode();
-    MissingNode oldConfiguration = MissingNode.getInstance();
+    DoubleNode oldConfiguration = DoubleNode.valueOf(10.0d);
 
     // Act
-    TbPair<Boolean, JsonNode> actualUpgradeResult = tbRuleChainInputNode.upgrade(1, oldConfiguration);
+    TbPair<Boolean, JsonNode> actualUpgradeResult =
+        tbRuleChainInputNode.upgrade(1, oldConfiguration);
 
     // Assert
+    JsonNode second = actualUpgradeResult.getSecond();
+    assertTrue(second instanceof DoubleNode);
     assertFalse(actualUpgradeResult.getFirst());
-    assertSame(oldConfiguration, actualUpgradeResult.getSecond());
+    assertSame(oldConfiguration, second);
   }
 }

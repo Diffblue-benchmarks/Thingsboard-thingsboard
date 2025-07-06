@@ -12,8 +12,9 @@ import org.thingsboard.server.common.data.EntityType;
 class NotificationTemplateIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link NotificationTemplateId#NotificationTemplateId(UUID)}
    *   <li>{@link NotificationTemplateId#getEntityType()}
@@ -22,7 +23,10 @@ class NotificationTemplateIdDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationTemplateId.<init>(UUID)", "EntityType NotificationTemplateId.getEntityType()"})
+  @MethodsUnderTest({
+    "void NotificationTemplateId.<init>(UUID)",
+    "EntityType NotificationTemplateId.getEntityType()"
+  })
   void testGettersAndSetters() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

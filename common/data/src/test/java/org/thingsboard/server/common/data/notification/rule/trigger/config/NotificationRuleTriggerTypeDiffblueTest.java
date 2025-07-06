@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class NotificationRuleTriggerTypeDiffblueTest {
   /**
    * Test {@link NotificationRuleTriggerType#isTenantLevel()}.
-   * <p>
-   * Method under test: {@link NotificationRuleTriggerType#isTenantLevel()}
+   *
+   * <p>Method under test: {@link NotificationRuleTriggerType#isTenantLevel()}
    */
   @Test
   @DisplayName("Test isTenantLevel()")

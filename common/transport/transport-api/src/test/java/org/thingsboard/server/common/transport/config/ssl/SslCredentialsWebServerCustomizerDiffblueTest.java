@@ -14,22 +14,23 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class SslCredentialsWebServerCustomizerDiffblueTest {
-  @InjectMocks
-  private SslCredentialsWebServerCustomizer sslCredentialsWebServerCustomizer;
+  @InjectMocks private SslCredentialsWebServerCustomizer sslCredentialsWebServerCustomizer;
 
   /**
    * Test {@link SslCredentialsWebServerCustomizer#httpServerSslCredentials()}.
-   * <p>
-   * Method under test: {@link SslCredentialsWebServerCustomizer#httpServerSslCredentials()}
+   *
+   * <p>Method under test: {@link SslCredentialsWebServerCustomizer#httpServerSslCredentials()}
    */
   @Test
   @DisplayName("Test httpServerSslCredentials()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"SslCredentialsConfig SslCredentialsWebServerCustomizer.httpServerSslCredentials()"})
+  @MethodsUnderTest({
+    "SslCredentialsConfig SslCredentialsWebServerCustomizer.httpServerSslCredentials()"
+  })
   void testHttpServerSslCredentials() {
     // Arrange and Act
-    SslCredentialsConfig actualHttpServerSslCredentialsResult = sslCredentialsWebServerCustomizer
-        .httpServerSslCredentials();
+    SslCredentialsConfig actualHttpServerSslCredentialsResult =
+        sslCredentialsWebServerCustomizer.httpServerSslCredentials();
 
     // Assert
     assertEquals("HTTP Server SSL Credentials", actualHttpServerSslCredentialsResult.getName());

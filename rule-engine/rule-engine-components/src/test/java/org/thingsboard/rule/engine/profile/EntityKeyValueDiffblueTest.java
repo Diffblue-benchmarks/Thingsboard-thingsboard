@@ -14,8 +14,8 @@ import org.thingsboard.server.common.data.kv.DataType;
 class EntityKeyValueDiffblueTest {
   /**
    * Test {@link EntityKeyValue#getLngValue()}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#getLngValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getLngValue()}
    */
   @Test
   @DisplayName("Test getLngValue()")
@@ -28,8 +28,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#setLngValue(Long)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#setLngValue(Long)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#setLngValue(Long)}
    */
   @Test
   @DisplayName("Test setLngValue(Long)")
@@ -50,12 +50,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getDblValue()}.
+   *
    * <ul>
-   *   <li>Given fromBool {@code true}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given fromBool {@code true}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getDblValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getDblValue()}
    */
   @Test
   @DisplayName("Test getDblValue(); given fromBool 'true'; then return 'null'")
@@ -68,12 +69,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getDblValue()}.
+   *
    * <ul>
-   *   <li>Given fromDouble ten.</li>
-   *   <li>Then return doubleValue is ten.</li>
+   *   <li>Given fromDouble ten.
+   *   <li>Then return doubleValue is ten.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getDblValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getDblValue()}
    */
   @Test
   @DisplayName("Test getDblValue(); given fromDouble ten; then return doubleValue is ten")
@@ -86,8 +88,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#setDblValue(Double)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#setDblValue(Double)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#setDblValue(Double)}
    */
   @Test
   @DisplayName("Test setDblValue(Double)")
@@ -108,30 +110,33 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getBoolValue()}.
+   *
    * <ul>
-   *   <li>Given {@link EntityKeyValue} (default constructor).</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link EntityKeyValue} (default constructor).
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getBoolValue()}
    */
   @Test
-  @DisplayName("Test getBoolValue(); given EntityKeyValue (default constructor); then return 'null'")
+  @DisplayName(
+      "Test getBoolValue(); given EntityKeyValue (default constructor); then return 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Boolean EntityKeyValue.getBoolValue()"})
   void testGetBoolValue_givenEntityKeyValue_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new EntityKeyValue()).getBoolValue());
+    assertNull(new EntityKeyValue().getBoolValue());
   }
 
   /**
    * Test {@link EntityKeyValue#getBoolValue()}.
+   *
    * <ul>
-   *   <li>Given fromBool {@code false}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given fromBool {@code false}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getBoolValue()}
    */
   @Test
   @DisplayName("Test getBoolValue(); given fromBool 'false'; then return 'false'")
@@ -144,12 +149,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getBoolValue()}.
+   *
    * <ul>
-   *   <li>Given fromBool {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given fromBool {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getBoolValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getBoolValue()}
    */
   @Test
   @DisplayName("Test getBoolValue(); given fromBool 'true'; then return 'true'")
@@ -162,8 +168,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getStrValue()}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#getStrValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getStrValue()}
    */
   @Test
   @DisplayName("Test getStrValue()")
@@ -176,8 +182,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#setStrValue(String)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#setStrValue(String)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#setStrValue(String)}
    */
   @Test
   @DisplayName("Test setStrValue(String)")
@@ -198,8 +204,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#setJsonValue(String)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#setJsonValue(String)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#setJsonValue(String)}
    */
   @Test
   @DisplayName("Test setJsonValue(String)")
@@ -220,12 +226,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getJsonValue()}.
+   *
    * <ul>
-   *   <li>Given fromBool {@code true}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given fromBool {@code true}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getJsonValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getJsonValue()}
    */
   @Test
   @DisplayName("Test getJsonValue(); given fromBool 'true'; then return 'null'")
@@ -238,12 +245,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#getJsonValue()}.
+   *
    * <ul>
-   *   <li>Given fromJson {@code foo}.</li>
-   *   <li>Then return {@code foo}.</li>
+   *   <li>Given fromJson {@code foo}.
+   *   <li>Then return {@code foo}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#getJsonValue()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#getJsonValue()}
    */
   @Test
   @DisplayName("Test getJsonValue(); given fromJson 'foo'; then return 'foo'")
@@ -256,12 +264,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#isSet()}.
+   *
    * <ul>
-   *   <li>Given {@link EntityKeyValue} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link EntityKeyValue} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#isSet()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#isSet()}
    */
   @Test
   @DisplayName("Test isSet(); given EntityKeyValue (default constructor); then return 'false'")
@@ -269,17 +278,18 @@ class EntityKeyValueDiffblueTest {
   @MethodsUnderTest({"boolean EntityKeyValue.isSet()"})
   void testIsSet_givenEntityKeyValue_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new EntityKeyValue()).isSet());
+    assertFalse(new EntityKeyValue().isSet());
   }
 
   /**
    * Test {@link EntityKeyValue#isSet()}.
+   *
    * <ul>
-   *   <li>Given fromBool {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given fromBool {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#isSet()}
+   *
+   * <p>Method under test: {@link EntityKeyValue#isSet()}
    */
   @Test
   @DisplayName("Test isSet(); given fromBool 'true'; then return 'true'")
@@ -292,8 +302,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#fromString(String)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#fromString(String)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#fromString(String)}
    */
   @Test
   @DisplayName("Test fromString(String)")
@@ -315,8 +325,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#fromBool(boolean)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#fromBool(boolean)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#fromBool(boolean)}
    */
   @Test
   @DisplayName("Test fromBool(boolean)")
@@ -338,8 +348,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#fromLong(long)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#fromLong(long)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#fromLong(long)}
    */
   @Test
   @DisplayName("Test fromLong(long)")
@@ -361,8 +371,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#fromDouble(double)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#fromDouble(double)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#fromDouble(double)}
    */
   @Test
   @DisplayName("Test fromDouble(double)")
@@ -384,8 +394,8 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#fromJson(String)}.
-   * <p>
-   * Method under test: {@link EntityKeyValue#fromJson(String)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#fromJson(String)}
    */
   @Test
   @DisplayName("Test fromJson(String)")
@@ -407,12 +417,14 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKeyValue#equals(Object)}
    *   <li>{@link EntityKeyValue#hashCode()}
@@ -435,12 +447,14 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKeyValue#equals(Object)}
    *   <li>{@link EntityKeyValue#hashCode()}
@@ -463,12 +477,14 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKeyValue#equals(Object)}
    *   <li>{@link EntityKeyValue#hashCode()}
@@ -491,12 +507,14 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}, and {@link EntityKeyValue#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EntityKeyValue#equals(Object)}
    *   <li>{@link EntityKeyValue#hashCode()}
@@ -518,12 +536,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -539,12 +558,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -560,12 +580,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -581,12 +602,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -602,12 +624,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -623,12 +646,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -644,12 +668,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -662,12 +687,13 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test {@link EntityKeyValue#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityKeyValue#equals(Object)}
+   *
+   * <p>Method under test: {@link EntityKeyValue#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -680,8 +706,9 @@ class EntityKeyValueDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link EntityKeyValue}
    *   <li>{@link EntityKeyValue#getDataType()}
@@ -693,6 +720,6 @@ class EntityKeyValueDiffblueTest {
   @MethodsUnderTest({"void EntityKeyValue.<init>()", "DataType EntityKeyValue.getDataType()"})
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertNull((new EntityKeyValue()).getDataType());
+    assertNull(new EntityKeyValue().getDataType());
   }
 }

@@ -10,8 +10,8 @@ import org.thingsboard.server.common.data.audit.ActionType;
 class EdgeEventActionTypeDiffblueTest {
   /**
    * Test {@link EdgeEventActionType#getActionType()}.
-   * <p>
-   * Method under test: {@link EdgeEventActionType#getActionType()}
+   *
+   * <p>Method under test: {@link EdgeEventActionType#getActionType()}
    */
   @Test
   @DisplayName("Test getActionType()")

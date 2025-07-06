@@ -17,13 +17,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {TbWebSocketPingMsg.class})
 @ExtendWith(SpringExtension.class)
 class TbWebSocketPingMsgDiffblueTest {
-  @Autowired
-  private TbWebSocketPingMsg tbWebSocketPingMsg;
+  @Autowired private TbWebSocketPingMsg tbWebSocketPingMsg;
 
   /**
    * Test {@link TbWebSocketPingMsg#getMsg()}.
-   * <p>
-   * Method under test: {@link TbWebSocketPingMsg#getMsg()}
+   *
+   * <p>Method under test: {@link TbWebSocketPingMsg#getMsg()}
    */
   @Test
   @DisplayName("Test getMsg()")
@@ -39,13 +38,14 @@ class TbWebSocketPingMsgDiffblueTest {
     assertEquals(0, actualMsg.position());
     assertFalse(actualMsg.hasRemaining());
     assertTrue(actualMsg.hasArray());
-    assertArrayEquals(new byte[]{}, actualMsg.array());
+    assertArrayEquals(new byte[] {}, actualMsg.array());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link TbWebSocketPingMsg}
    *   <li>{@link TbWebSocketPingMsg#getType()}
@@ -54,9 +54,12 @@ class TbWebSocketPingMsgDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbWebSocketPingMsg.<init>()", "TbWebSocketMsgType TbWebSocketPingMsg.getType()"})
+  @MethodsUnderTest({
+    "void TbWebSocketPingMsg.<init>()",
+    "TbWebSocketMsgType TbWebSocketPingMsg.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals(TbWebSocketMsgType.PING, (new TbWebSocketPingMsg()).getType());
+    assertEquals(TbWebSocketMsgType.PING, new TbWebSocketPingMsg().getType());
   }
 }

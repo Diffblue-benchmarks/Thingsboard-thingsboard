@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class JavaSerDesUtilDiffblueTest {
   /**
    * Test {@link JavaSerDesUtil#encode(Object)}, and {@link JavaSerDesUtil#decode(byte[])}.
+   *
    * <ul>
-   *   <li>When {@code Msq}.</li>
-   *   <li>Then return decode is {@code Msq}.</li>
+   *   <li>When {@code Msq}.
+   *   <li>Then return decode is {@code Msq}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JavaSerDesUtil#encode(Object)}
    *   <li>{@link JavaSerDesUtil#decode(byte[])}
@@ -24,7 +26,10 @@ class JavaSerDesUtilDiffblueTest {
   @Test
   @DisplayName("Test encode(Object), and decode(byte[]); when 'Msq'; then return decode is 'Msq'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"byte[] JavaSerDesUtil.encode(Object)", "Object JavaSerDesUtil.decode(byte[])"})
+  @MethodsUnderTest({
+    "byte[] JavaSerDesUtil.encode(Object)",
+    "Object JavaSerDesUtil.decode(byte[])"
+  })
   void testEncodeAndDecode_whenMsq_thenReturnDecodeIsMsq() {
     // Arrange, Act and Assert
     assertEquals("Msq", JavaSerDesUtil.decode(JavaSerDesUtil.encode("Msq")));
@@ -32,12 +37,14 @@ class JavaSerDesUtilDiffblueTest {
 
   /**
    * Test {@link JavaSerDesUtil#encode(Object)}, and {@link JavaSerDesUtil#decode(byte[])}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return decode is {@code null}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return decode is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JavaSerDesUtil#encode(Object)}
    *   <li>{@link JavaSerDesUtil#decode(byte[])}
@@ -46,7 +53,10 @@ class JavaSerDesUtilDiffblueTest {
   @Test
   @DisplayName("Test encode(Object), and decode(byte[]); when 'null'; then return decode is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"byte[] JavaSerDesUtil.encode(Object)", "Object JavaSerDesUtil.decode(byte[])"})
+  @MethodsUnderTest({
+    "byte[] JavaSerDesUtil.encode(Object)",
+    "Object JavaSerDesUtil.decode(byte[])"
+  })
   void testEncodeAndDecode_whenNull_thenReturnDecodeIsNull() {
     // Arrange, Act and Assert
     assertNull(JavaSerDesUtil.decode(JavaSerDesUtil.encode(null)));

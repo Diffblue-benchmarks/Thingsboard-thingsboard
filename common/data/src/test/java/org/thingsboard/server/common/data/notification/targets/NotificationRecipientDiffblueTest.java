@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class NotificationRecipientDiffblueTest {
   /**
    * Test {@link NotificationRecipient#getFirstName()}.
-   * <p>
-   * Method under test: {@link NotificationRecipient#getFirstName()}
+   *
+   * <p>Method under test: {@link NotificationRecipient#getFirstName()}
    */
   @Test
   @DisplayName("Test getFirstName()")
@@ -18,13 +18,13 @@ class NotificationRecipientDiffblueTest {
   @MethodsUnderTest({"java.lang.String NotificationRecipient.getFirstName()"})
   void testGetFirstName() {
     // Arrange, Act and Assert
-    assertNull((new MicrosoftTeamsNotificationTargetConfig()).getFirstName());
+    assertNull(new MicrosoftTeamsNotificationTargetConfig().getFirstName());
   }
 
   /**
    * Test {@link NotificationRecipient#getLastName()}.
-   * <p>
-   * Method under test: {@link NotificationRecipient#getLastName()}
+   *
+   * <p>Method under test: {@link NotificationRecipient#getLastName()}
    */
   @Test
   @DisplayName("Test getLastName()")
@@ -32,13 +32,13 @@ class NotificationRecipientDiffblueTest {
   @MethodsUnderTest({"java.lang.String NotificationRecipient.getLastName()"})
   void testGetLastName() {
     // Arrange, Act and Assert
-    assertNull((new MicrosoftTeamsNotificationTargetConfig()).getLastName());
+    assertNull(new MicrosoftTeamsNotificationTargetConfig().getLastName());
   }
 
   /**
    * Test {@link NotificationRecipient#getEmail()}.
-   * <p>
-   * Method under test: {@link NotificationRecipient#getEmail()}
+   *
+   * <p>Method under test: {@link NotificationRecipient#getEmail()}
    */
   @Test
   @DisplayName("Test getEmail()")
@@ -46,6 +46,6 @@ class NotificationRecipientDiffblueTest {
   @MethodsUnderTest({"java.lang.String NotificationRecipient.getEmail()"})
   void testGetEmail() {
     // Arrange, Act and Assert
-    assertNull((new MicrosoftTeamsNotificationTargetConfig()).getEmail());
+    assertNull(new MicrosoftTeamsNotificationTargetConfig().getEmail());
   }
 }

@@ -41,35 +41,95 @@ import org.thingsboard.server.service.apiusage.BaseApiUsageState.StatsCalculatio
 @DisabledInAotMode
 @ExtendWith(SpringExtension.class)
 class BaseApiUsageStateDiffblueTest {
-  @MockBean
-  private ApiUsageState apiUsageState;
+  @MockBean private ApiUsageState apiUsageState;
 
-  @Autowired
-  private BaseApiUsageState baseApiUsageState;
+  @Autowired private BaseApiUsageState baseApiUsageState;
 
-  @Autowired
-  private StatsCalculationResultBuilder statsCalculationResultBuilder;
+  @Autowired private StatsCalculationResultBuilder statsCalculationResultBuilder;
 
   /**
    * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
+   *
    * <ul>
-   *   <li>When {@code -232118639}.</li>
-   *   <li>Then return NewValue is {@code -232118639}.</li>
+   *   <li>Given {@link ApiUsageState}.
+   *   <li>When {@code null}.
+   *   <li>Then return NewValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
    */
   @Test
-  @DisplayName("Test calculate(ApiUsageRecordKey, long, String); when '-232118639'; then return NewValue is '-232118639'")
+  @DisplayName(
+      "Test calculate(ApiUsageRecordKey, long, String); given ApiUsageState; when 'null'; then return NewValue is forty-two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"})
-  void testCalculate_when232118639_thenReturnNewValueIs232118639() {
+  @MethodsUnderTest({
+    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
+  })
+  void testCalculate_givenApiUsageState_whenNull_thenReturnNewValueIsFortyTwo() {
     // Arrange and Act
-    StatsCalculationResult actualCalculateResult = (new CustomerApiUsageState(new ApiUsageState()))
-        .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, -232118639L, "42");
+    StatsCalculationResult actualCalculateResult =
+        baseApiUsageState.calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 42L, null);
 
     // Assert
-    assertEquals(-232118639L, actualCalculateResult.getNewValue());
+    assertEquals(42L, actualCalculateResult.getNewHourlyValue());
+    assertEquals(42L, actualCalculateResult.getNewValue());
+    assertFalse(actualCalculateResult.isHourlyValueChanged());
+  }
+
+  /**
+   * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
+   *
+   * <ul>
+   *   <li>Given {@link ApiUsageState}.
+   *   <li>When three.
+   *   <li>Then return NewValue is three.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test calculate(ApiUsageRecordKey, long, String); given ApiUsageState; when three; then return NewValue is three")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
+  })
+  void testCalculate_givenApiUsageState_whenThree_thenReturnNewValueIsThree() {
+    // Arrange and Act
+    StatsCalculationResult actualCalculateResult =
+        baseApiUsageState.calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 3L, "42");
+
+    // Assert
+    assertEquals(3L, actualCalculateResult.getNewValue());
+    assertEquals(42L, actualCalculateResult.getNewHourlyValue());
+    assertFalse(actualCalculateResult.isHourlyValueChanged());
+  }
+
+  /**
+   * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
+   *
+   * <ul>
+   *   <li>When {@code -581570517}.
+   *   <li>Then return NewValue is {@code -581570517}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test calculate(ApiUsageRecordKey, long, String); when '-581570517'; then return NewValue is '-581570517'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
+  })
+  void testCalculate_when581570517_thenReturnNewValueIs581570517() {
+    // Arrange and Act
+    StatsCalculationResult actualCalculateResult =
+        new CustomerApiUsageState(new ApiUsageState())
+            .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, -581570517L, "42");
+
+    // Assert
+    assertEquals(-581570517L, actualCalculateResult.getNewValue());
     assertEquals(0L, actualCalculateResult.getNewHourlyValue());
     assertTrue(actualCalculateResult.isHourlyValueChanged());
     assertTrue(actualCalculateResult.isValueChanged());
@@ -77,21 +137,25 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
+   *
    * <ul>
-   *   <li>When {@code TRANSPORT_MSG_COUNT}.</li>
-   *   <li>Then return HourlyValueChanged.</li>
+   *   <li>When {@code TRANSPORT_MSG_COUNT}.
+   *   <li>Then return HourlyValueChanged.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
    */
   @Test
-  @DisplayName("Test calculate(ApiUsageRecordKey, long, String); when 'TRANSPORT_MSG_COUNT'; then return HourlyValueChanged")
+  @DisplayName(
+      "Test calculate(ApiUsageRecordKey, long, String); when 'TRANSPORT_MSG_COUNT'; then return HourlyValueChanged")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"})
+  @MethodsUnderTest({
+    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
+  })
   void testCalculate_whenTransportMsgCount_thenReturnHourlyValueChanged() {
     // Arrange and Act
-    StatsCalculationResult actualCalculateResult = baseApiUsageState.calculate(ApiUsageRecordKey.TRANSPORT_MSG_COUNT,
-        42L, "42");
+    StatsCalculationResult actualCalculateResult =
+        baseApiUsageState.calculate(ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 42L, "42");
 
     // Assert
     assertTrue(actualCalculateResult.isHourlyValueChanged());
@@ -100,21 +164,26 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return NewValue is zero.</li>
+   *   <li>When zero.
+   *   <li>Then return NewValue is zero.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
    */
   @Test
-  @DisplayName("Test calculate(ApiUsageRecordKey, long, String); when zero; then return NewValue is zero")
+  @DisplayName(
+      "Test calculate(ApiUsageRecordKey, long, String); when zero; then return NewValue is zero")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"})
+  @MethodsUnderTest({
+    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
+  })
   void testCalculate_whenZero_thenReturnNewValueIsZero() {
     // Arrange and Act
-    StatsCalculationResult actualCalculateResult = (new CustomerApiUsageState(new ApiUsageState()))
-        .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 0L, "42");
+    StatsCalculationResult actualCalculateResult =
+        new CustomerApiUsageState(new ApiUsageState())
+            .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 0L, "42");
 
     // Assert
     assertEquals(0L, actualCalculateResult.getNewHourlyValue());
@@ -125,8 +194,8 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setHour(long)}.
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setHour(long)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setHour(long)}
    */
   @Test
   @DisplayName("Test setHour(long)")
@@ -143,8 +212,8 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setCycles(long, long)}.
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setCycles(long, long)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setCycles(long, long)}
    */
   @Test
   @DisplayName("Test setCycles(long, long)")
@@ -162,11 +231,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getAlarmExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getAlarmExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getAlarmExecState()")
@@ -186,11 +256,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getDbStorageState()")
@@ -210,11 +281,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getEmailExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getEmailExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getEmailExecState()")
@@ -234,11 +306,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getJsExecState()")
@@ -258,11 +331,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getReExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getReExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getReExecState()")
@@ -282,11 +356,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getSmsExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getSmsExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getSmsExecState()")
@@ -306,11 +381,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getTbelExecState()")
@@ -330,11 +406,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getFeatureValue(ApiFeature)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getTransportState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getTransportState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getFeatureValue(ApiFeature)}
    */
   @Test
   @DisplayName("Test getFeatureValue(ApiFeature); then calls getTransportState()")
@@ -354,14 +431,17 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Given {@link ApiUsageState} {@link ApiUsageState#getTransportState()} return {@code ENABLED}.</li>
+   *   <li>Given {@link ApiUsageState} {@link ApiUsageState#getTransportState()} return {@code
+   *       ENABLED}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); given ApiUsageState getTransportState() return 'ENABLED'")
+  @DisplayName(
+      "Test setFeatureValue(ApiFeature, ApiUsageStateValue); given ApiUsageState getTransportState() return 'ENABLED'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BaseApiUsageState.setFeatureValue(ApiFeature, ApiUsageStateValue)"})
   void testSetFeatureValue_givenApiUsageStateGetTransportStateReturnEnabled() {
@@ -370,8 +450,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.TRANSPORT, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getTransportState();
@@ -381,14 +461,16 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getAlarmExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getAlarmExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getAlarmExecState()")
+  @DisplayName(
+      "Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getAlarmExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BaseApiUsageState.setFeatureValue(ApiFeature, ApiUsageStateValue)"})
   void testSetFeatureValue_thenCallsGetAlarmExecState() {
@@ -397,8 +479,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setAlarmExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.ALARM,
-        ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.ALARM, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getAlarmExecState();
@@ -408,14 +490,16 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getDbStorageState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getDbStorageState()")
+  @DisplayName(
+      "Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getDbStorageState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BaseApiUsageState.setFeatureValue(ApiFeature, ApiUsageStateValue)"})
   void testSetFeatureValue_thenCallsGetDbStorageState() {
@@ -424,7 +508,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setDbStorageState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.DB, ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.DB, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getDbStorageState();
@@ -434,14 +519,16 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getEmailExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getEmailExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getEmailExecState()")
+  @DisplayName(
+      "Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getEmailExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BaseApiUsageState.setFeatureValue(ApiFeature, ApiUsageStateValue)"})
   void testSetFeatureValue_thenCallsGetEmailExecState() {
@@ -450,8 +537,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setEmailExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.EMAIL,
-        ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.EMAIL, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getEmailExecState();
@@ -461,11 +548,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getJsExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
   @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getJsExecState()")
@@ -477,7 +565,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setJsExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.JS, ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.JS, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getJsExecState();
@@ -487,11 +576,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getReExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getReExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
   @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getReExecState()")
@@ -503,7 +593,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setReExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.RE, ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.RE, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getReExecState();
@@ -513,11 +604,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getSmsExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getSmsExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
   @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getSmsExecState()")
@@ -529,7 +621,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setSmsExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.SMS, ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.SMS, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getSmsExecState();
@@ -539,14 +632,16 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.</li>
+   *   <li>Then calls {@link ApiUsageState#getTbelExecState()}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
-  @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getTbelExecState()")
+  @DisplayName(
+      "Test setFeatureValue(ApiFeature, ApiUsageStateValue); then calls getTbelExecState()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean BaseApiUsageState.setFeatureValue(ApiFeature, ApiUsageStateValue)"})
   void testSetFeatureValue_thenCallsGetTbelExecState() {
@@ -555,8 +650,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setTbelExecState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.TBEL,
-        ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.TBEL, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getTbelExecState();
@@ -566,11 +661,12 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}.
+   *
    * <ul>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#setFeatureValue(ApiFeature, ApiUsageStateValue)}
    */
   @Test
   @DisplayName("Test setFeatureValue(ApiFeature, ApiUsageStateValue); then return 'true'")
@@ -582,8 +678,8 @@ class BaseApiUsageStateDiffblueTest {
     doNothing().when(apiUsageState).setTransportState(Mockito.<ApiUsageStateValue>any());
 
     // Act
-    boolean actualSetFeatureValueResult = baseApiUsageState.setFeatureValue(ApiFeature.TRANSPORT,
-        ApiUsageStateValue.ENABLED);
+    boolean actualSetFeatureValueResult =
+        baseApiUsageState.setFeatureValue(ApiFeature.TRANSPORT, ApiUsageStateValue.ENABLED);
 
     // Assert
     verify(apiUsageState).getTransportState();
@@ -593,8 +689,8 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getTenantId()}.
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getTenantId()}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getTenantId()}
    */
   @Test
   @DisplayName("Test getTenantId()")
@@ -615,8 +711,8 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getEntityId()}.
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getEntityId()}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getEntityId()}
    */
   @Test
   @DisplayName("Test getEntityId()")
@@ -636,8 +732,8 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test {@link BaseApiUsageState#getApiUsageState()}.
-   * <p>
-   * Method under test: {@link BaseApiUsageState#getApiUsageState()}
+   *
+   * <p>Method under test: {@link BaseApiUsageState#getApiUsageState()}
    */
   @Test
   @DisplayName("Test getApiUsageState()")
@@ -648,40 +744,49 @@ class BaseApiUsageStateDiffblueTest {
     ApiUsageState apiUsageState = new ApiUsageState();
 
     // Act and Assert
-    assertSame(apiUsageState, (new CustomerApiUsageState(apiUsageState)).getApiUsageState());
+    assertSame(apiUsageState, new CustomerApiUsageState(apiUsageState).getApiUsageState());
   }
 
   /**
-   * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}, and {@link StatsCalculationResult#hashCode()}.
+   * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}, and {@link
+   * StatsCalculationResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatsCalculationResult#equals(Object)}
    *   <li>{@link StatsCalculationResult#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object), and hashCode(); when other is equal; then return equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    StatsCalculationResult buildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
-    StatsCalculationResult buildResult2 = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult buildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
+    StatsCalculationResult buildResult2 =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult2);
@@ -690,30 +795,38 @@ class BaseApiUsageStateDiffblueTest {
   }
 
   /**
-   * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}, and {@link StatsCalculationResult#hashCode()}.
+   * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}, and {@link
+   * StatsCalculationResult#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatsCalculationResult#equals(Object)}
    *   <li>{@link StatsCalculationResult#hashCode()}
    * </ul>
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object), and hashCode(); when other is same; then return equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    StatsCalculationResult buildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult buildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertEquals(buildResult, buildResult);
@@ -723,32 +836,42 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsCalculationResult#equals(Object)}
+   *
+   * <p>Method under test: {@link StatsCalculationResult#equals(Object)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    StatsCalculationResultBuilder statsCalculationResultBuilder = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder.hourlyValueChanged(anyBoolean())).thenReturn(StatsCalculationResult.builder());
-    StatsCalculationResult buildResult = statsCalculationResultBuilder.hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
-    StatsCalculationResult buildResult2 = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResultBuilder statsCalculationResultBuilder =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder.hourlyValueChanged(anyBoolean()))
+        .thenReturn(StatsCalculationResult.builder());
+    StatsCalculationResult buildResult =
+        statsCalculationResultBuilder
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
+    StatsCalculationResult buildResult2 =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -756,34 +879,46 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsCalculationResult#equals(Object)}
+   *
+   * <p>Method under test: {@link StatsCalculationResult#equals(Object)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    StatsCalculationResultBuilder statsCalculationResultBuilder = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder.newHourlyValue(anyLong())).thenReturn(StatsCalculationResult.builder());
-    StatsCalculationResultBuilder statsCalculationResultBuilder2 = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder2.hourlyValueChanged(anyBoolean())).thenReturn(statsCalculationResultBuilder);
-    StatsCalculationResult buildResult = statsCalculationResultBuilder2.hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
-    StatsCalculationResult buildResult2 = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResultBuilder statsCalculationResultBuilder =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder.newHourlyValue(anyLong()))
+        .thenReturn(StatsCalculationResult.builder());
+    StatsCalculationResultBuilder statsCalculationResultBuilder2 =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder2.hourlyValueChanged(anyBoolean()))
+        .thenReturn(statsCalculationResultBuilder);
+    StatsCalculationResult buildResult =
+        statsCalculationResultBuilder2
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
+    StatsCalculationResult buildResult2 =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -791,36 +926,50 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsCalculationResult#equals(Object)}
+   *
+   * <p>Method under test: {@link StatsCalculationResult#equals(Object)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object); when other is different; then return not equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    StatsCalculationResultBuilder statsCalculationResultBuilder = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder.newValue(anyLong())).thenReturn(StatsCalculationResult.builder());
-    StatsCalculationResultBuilder statsCalculationResultBuilder2 = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder2.newHourlyValue(anyLong())).thenReturn(statsCalculationResultBuilder);
-    StatsCalculationResultBuilder statsCalculationResultBuilder3 = mock(StatsCalculationResultBuilder.class);
-    when(statsCalculationResultBuilder3.hourlyValueChanged(anyBoolean())).thenReturn(statsCalculationResultBuilder2);
-    StatsCalculationResult buildResult = statsCalculationResultBuilder3.hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
-    StatsCalculationResult buildResult2 = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResultBuilder statsCalculationResultBuilder =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder.newValue(anyLong()))
+        .thenReturn(StatsCalculationResult.builder());
+    StatsCalculationResultBuilder statsCalculationResultBuilder2 =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder2.newHourlyValue(anyLong()))
+        .thenReturn(statsCalculationResultBuilder);
+    StatsCalculationResultBuilder statsCalculationResultBuilder3 =
+        mock(StatsCalculationResultBuilder.class);
+    when(statsCalculationResultBuilder3.hourlyValueChanged(anyBoolean()))
+        .thenReturn(statsCalculationResultBuilder2);
+    StatsCalculationResult buildResult =
+        statsCalculationResultBuilder3
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
+    StatsCalculationResult buildResult2 =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, buildResult2);
@@ -828,25 +977,31 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsCalculationResult#equals(Object)}
+   *
+   * <p>Method under test: {@link StatsCalculationResult#equals(Object)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object); when other is 'null'; then return not equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    StatsCalculationResult buildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult buildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, null);
@@ -854,25 +1009,31 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult {@link StatsCalculationResult#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link StatsCalculationResult#equals(Object)}
+   *
+   * <p>Method under test: {@link StatsCalculationResult#equals(Object)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult equals(Object); when other is wrong type; then return not equal")
+  @DisplayName(
+      "Test StatsCalculationResult equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StatsCalculationResult.equals(Object)", "int StatsCalculationResult.hashCode()"})
+  @MethodsUnderTest({
+    "boolean StatsCalculationResult.equals(Object)",
+    "int StatsCalculationResult.hashCode()"
+  })
   void testStatsCalculationResultEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    StatsCalculationResult buildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult buildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act and Assert
     assertNotEquals(buildResult, "Different type to StatsCalculationResult");
@@ -880,8 +1041,9 @@ class BaseApiUsageStateDiffblueTest {
 
   /**
    * Test StatsCalculationResult getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatsCalculationResult#toString()}
    *   <li>{@link StatsCalculationResult#getNewHourlyValue()}
@@ -893,17 +1055,22 @@ class BaseApiUsageStateDiffblueTest {
   @Test
   @DisplayName("Test StatsCalculationResult getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"long StatsCalculationResult.getNewHourlyValue()", "long StatsCalculationResult.getNewValue()",
-      "boolean StatsCalculationResult.isHourlyValueChanged()", "boolean StatsCalculationResult.isValueChanged()",
-      "String StatsCalculationResult.toString()"})
+  @MethodsUnderTest({
+    "long StatsCalculationResult.getNewHourlyValue()",
+    "long StatsCalculationResult.getNewValue()",
+    "boolean StatsCalculationResult.isHourlyValueChanged()",
+    "boolean StatsCalculationResult.isValueChanged()",
+    "String StatsCalculationResult.toString()"
+  })
   void testStatsCalculationResultGettersAndSetters() {
     // Arrange
-    StatsCalculationResult buildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult buildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Act
     String actualToStringResult = buildResult.toString();
@@ -912,8 +1079,10 @@ class BaseApiUsageStateDiffblueTest {
     boolean actualIsHourlyValueChangedResult = buildResult.isHourlyValueChanged();
 
     // Assert
-    assertEquals("BaseApiUsageState.StatsCalculationResult(newValue=42, valueChanged=true, newHourlyValue=42,"
-        + " hourlyValueChanged=true)", actualToStringResult);
+    assertEquals(
+        "BaseApiUsageState.StatsCalculationResult(newValue=42, valueChanged=true, newHourlyValue=42,"
+            + " hourlyValueChanged=true)",
+        actualToStringResult);
     assertEquals(42L, actualNewHourlyValue);
     assertEquals(42L, actualNewValue);
     assertTrue(actualIsHourlyValueChangedResult);
@@ -921,17 +1090,21 @@ class BaseApiUsageStateDiffblueTest {
   }
 
   /**
-   * Test StatsCalculationResult {@link StatsCalculationResult#StatsCalculationResult(long, boolean, long, boolean)}.
-   * <p>
-   * Method under test: {@link StatsCalculationResult#StatsCalculationResult(long, boolean, long, boolean)}
+   * Test StatsCalculationResult {@link StatsCalculationResult#StatsCalculationResult(long, boolean,
+   * long, boolean)}.
+   *
+   * <p>Method under test: {@link StatsCalculationResult#StatsCalculationResult(long, boolean, long,
+   * boolean)}
    */
   @Test
-  @DisplayName("Test StatsCalculationResult new StatsCalculationResult(long, boolean, long, boolean)")
+  @DisplayName(
+      "Test StatsCalculationResult new StatsCalculationResult(long, boolean, long, boolean)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void StatsCalculationResult.<init>(long, boolean, long, boolean)"})
   void testStatsCalculationResultNewStatsCalculationResult() {
     // Arrange and Act
-    StatsCalculationResult actualStatsCalculationResult = new StatsCalculationResult(42L, true, 42L, true);
+    StatsCalculationResult actualStatsCalculationResult =
+        new StatsCalculationResult(42L, true, 42L, true);
 
     // Assert
     assertEquals(42L, actualStatsCalculationResult.getNewHourlyValue());
@@ -941,9 +1114,11 @@ class BaseApiUsageStateDiffblueTest {
   }
 
   /**
-   * Test StatsCalculationResult_StatsCalculationResultBuilder {@link StatsCalculationResult.StatsCalculationResultBuilder#build()}.
-   * <p>
-   * Methods under test:
+   * Test StatsCalculationResult_StatsCalculationResultBuilder {@link
+   * StatsCalculationResult.StatsCalculationResultBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link StatsCalculationResult.StatsCalculationResultBuilder#build()}
    *   <li>{@link StatsCalculationResult.StatsCalculationResultBuilder#hourlyValueChanged(boolean)}
@@ -955,21 +1130,24 @@ class BaseApiUsageStateDiffblueTest {
   @Test
   @DisplayName("Test StatsCalculationResult_StatsCalculationResultBuilder build()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void StatsCalculationResult.StatsCalculationResultBuilder.<init>()",
-      "StatsCalculationResult StatsCalculationResult.StatsCalculationResultBuilder.build()",
-      "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.hourlyValueChanged(boolean)",
-      "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.newHourlyValue(long)",
-      "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.newValue(long)",
-      "String StatsCalculationResult.StatsCalculationResultBuilder.toString()",
-      "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.valueChanged(boolean)"})
+  @MethodsUnderTest({
+    "void StatsCalculationResult.StatsCalculationResultBuilder.<init>()",
+    "StatsCalculationResult StatsCalculationResult.StatsCalculationResultBuilder.build()",
+    "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.hourlyValueChanged(boolean)",
+    "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.newHourlyValue(long)",
+    "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.newValue(long)",
+    "String StatsCalculationResult.StatsCalculationResultBuilder.toString()",
+    "StatsCalculationResult.StatsCalculationResultBuilder StatsCalculationResult.StatsCalculationResultBuilder.valueChanged(boolean)"
+  })
   void testStatsCalculationResult_StatsCalculationResultBuilderBuild() {
     // Arrange and Act
-    StatsCalculationResult actualBuildResult = StatsCalculationResult.builder()
-        .hourlyValueChanged(true)
-        .newHourlyValue(42L)
-        .newValue(42L)
-        .valueChanged(true)
-        .build();
+    StatsCalculationResult actualBuildResult =
+        StatsCalculationResult.builder()
+            .hourlyValueChanged(true)
+            .newHourlyValue(42L)
+            .newValue(42L)
+            .valueChanged(true)
+            .build();
 
     // Assert
     assertEquals(42L, actualBuildResult.getNewHourlyValue());

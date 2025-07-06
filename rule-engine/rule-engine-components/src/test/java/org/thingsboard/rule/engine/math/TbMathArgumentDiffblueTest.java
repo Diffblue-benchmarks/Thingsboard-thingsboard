@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class TbMathArgumentDiffblueTest {
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -38,12 +40,14 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -66,12 +70,14 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -94,12 +100,14 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -125,12 +133,14 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -156,12 +166,14 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}, and {@link TbMathArgument#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#equals(Object)}
    *   <li>{@link TbMathArgument#hashCode()}
@@ -183,12 +195,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -204,12 +217,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -225,12 +239,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -246,12 +261,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -259,8 +275,9 @@ class TbMathArgumentDiffblueTest {
   @MethodsUnderTest({"boolean TbMathArgument.equals(Object)", "int TbMathArgument.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    TbMathArgument tbMathArgument = new TbMathArgument(TbMathArgumentType.ATTRIBUTE,
-        "org.thingsboard.rule.engine.math.TbMathArgument");
+    TbMathArgument tbMathArgument =
+        new TbMathArgument(
+            TbMathArgumentType.ATTRIBUTE, "org.thingsboard.rule.engine.math.TbMathArgument");
 
     // Act and Assert
     assertNotEquals(tbMathArgument, new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key"));
@@ -268,12 +285,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -290,12 +308,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -312,12 +331,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -336,12 +356,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -360,12 +381,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -373,8 +395,9 @@ class TbMathArgumentDiffblueTest {
   @MethodsUnderTest({"boolean TbMathArgument.equals(Object)", "int TbMathArgument.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    TbMathArgument tbMathArgument = new TbMathArgument(TbMathArgumentType.ATTRIBUTE,
-        "org.thingsboard.rule.engine.math.TbMathArgument");
+    TbMathArgument tbMathArgument =
+        new TbMathArgument(
+            TbMathArgumentType.ATTRIBUTE, "org.thingsboard.rule.engine.math.TbMathArgument");
 
     TbMathArgument tbMathArgument2 = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
     tbMathArgument2.setName("org.thingsboard.rule.engine.math.TbMathArgument");
@@ -385,12 +408,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -409,12 +433,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -427,12 +452,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test {@link TbMathArgument#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TbMathArgument#equals(Object)}
+   *
+   * <p>Method under test: {@link TbMathArgument#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -440,13 +466,16 @@ class TbMathArgumentDiffblueTest {
   @MethodsUnderTest({"boolean TbMathArgument.equals(Object)", "int TbMathArgument.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key"), "Different type to TbMathArgument");
+    assertNotEquals(
+        new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key"),
+        "Different type to TbMathArgument");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#TbMathArgument()}
    *   <li>{@link TbMathArgument#setAttributeScope(String)}
@@ -465,14 +494,23 @@ class TbMathArgumentDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMathArgument.<init>()", "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
-      "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
-      "void TbMathArgument.<init>(TbMathArgumentType, String)", "String TbMathArgument.getAttributeScope()",
-      "Double TbMathArgument.getDefaultValue()", "String TbMathArgument.getKey()", "String TbMathArgument.getName()",
-      "TbMathArgumentType TbMathArgument.getType()", "void TbMathArgument.setAttributeScope(String)",
-      "void TbMathArgument.setDefaultValue(Double)", "void TbMathArgument.setKey(String)",
-      "void TbMathArgument.setName(String)", "void TbMathArgument.setType(TbMathArgumentType)",
-      "String TbMathArgument.toString()"})
+  @MethodsUnderTest({
+    "void TbMathArgument.<init>()",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
+    "void TbMathArgument.<init>(TbMathArgumentType, String)",
+    "String TbMathArgument.getAttributeScope()",
+    "Double TbMathArgument.getDefaultValue()",
+    "String TbMathArgument.getKey()",
+    "String TbMathArgument.getName()",
+    "TbMathArgumentType TbMathArgument.getType()",
+    "void TbMathArgument.setAttributeScope(String)",
+    "void TbMathArgument.setDefaultValue(Double)",
+    "void TbMathArgument.setKey(String)",
+    "void TbMathArgument.setName(String)",
+    "void TbMathArgument.setType(TbMathArgumentType)",
+    "String TbMathArgument.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     TbMathArgument actualTbMathArgument = new TbMathArgument();
@@ -493,7 +531,8 @@ class TbMathArgumentDiffblueTest {
     assertEquals("Key", actualKey);
     assertEquals("Name", actualName);
     assertEquals(
-        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope," + " defaultValue=10.0)",
+        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope,"
+            + " defaultValue=10.0)",
         actualToStringResult);
     assertEquals(10.0d, actualDefaultValue.doubleValue());
     assertEquals(TbMathArgumentType.ATTRIBUTE, actualType);
@@ -501,11 +540,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code ATTRIBUTE}.</li>
+   *   <li>When {@code ATTRIBUTE}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#TbMathArgument(TbMathArgumentType, String)}
    *   <li>{@link TbMathArgument#setAttributeScope(String)}
@@ -524,14 +565,23 @@ class TbMathArgumentDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'ATTRIBUTE'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMathArgument.<init>()", "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
-      "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
-      "void TbMathArgument.<init>(TbMathArgumentType, String)", "String TbMathArgument.getAttributeScope()",
-      "Double TbMathArgument.getDefaultValue()", "String TbMathArgument.getKey()", "String TbMathArgument.getName()",
-      "TbMathArgumentType TbMathArgument.getType()", "void TbMathArgument.setAttributeScope(String)",
-      "void TbMathArgument.setDefaultValue(Double)", "void TbMathArgument.setKey(String)",
-      "void TbMathArgument.setName(String)", "void TbMathArgument.setType(TbMathArgumentType)",
-      "String TbMathArgument.toString()"})
+  @MethodsUnderTest({
+    "void TbMathArgument.<init>()",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
+    "void TbMathArgument.<init>(TbMathArgumentType, String)",
+    "String TbMathArgument.getAttributeScope()",
+    "Double TbMathArgument.getDefaultValue()",
+    "String TbMathArgument.getKey()",
+    "String TbMathArgument.getName()",
+    "TbMathArgumentType TbMathArgument.getType()",
+    "void TbMathArgument.setAttributeScope(String)",
+    "void TbMathArgument.setDefaultValue(Double)",
+    "void TbMathArgument.setKey(String)",
+    "void TbMathArgument.setName(String)",
+    "void TbMathArgument.setType(TbMathArgumentType)",
+    "String TbMathArgument.toString()"
+  })
   void testGettersAndSetters_whenAttribute() {
     // Arrange and Act
     TbMathArgument actualTbMathArgument = new TbMathArgument(TbMathArgumentType.ATTRIBUTE, "Key");
@@ -552,7 +602,8 @@ class TbMathArgumentDiffblueTest {
     assertEquals("Key", actualKey);
     assertEquals("Name", actualName);
     assertEquals(
-        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope," + " defaultValue=10.0)",
+        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope,"
+            + " defaultValue=10.0)",
         actualToStringResult);
     assertEquals(10.0d, actualDefaultValue.doubleValue());
     assertEquals(TbMathArgumentType.ATTRIBUTE, actualType);
@@ -560,11 +611,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Attribute Scope}.</li>
+   *   <li>When {@code Attribute Scope}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#TbMathArgument(String, TbMathArgumentType, String, String, Double)}
    *   <li>{@link TbMathArgument#setAttributeScope(String)}
@@ -583,18 +636,27 @@ class TbMathArgumentDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Attribute Scope'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMathArgument.<init>()", "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
-      "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
-      "void TbMathArgument.<init>(TbMathArgumentType, String)", "String TbMathArgument.getAttributeScope()",
-      "Double TbMathArgument.getDefaultValue()", "String TbMathArgument.getKey()", "String TbMathArgument.getName()",
-      "TbMathArgumentType TbMathArgument.getType()", "void TbMathArgument.setAttributeScope(String)",
-      "void TbMathArgument.setDefaultValue(Double)", "void TbMathArgument.setKey(String)",
-      "void TbMathArgument.setName(String)", "void TbMathArgument.setType(TbMathArgumentType)",
-      "String TbMathArgument.toString()"})
+  @MethodsUnderTest({
+    "void TbMathArgument.<init>()",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
+    "void TbMathArgument.<init>(TbMathArgumentType, String)",
+    "String TbMathArgument.getAttributeScope()",
+    "Double TbMathArgument.getDefaultValue()",
+    "String TbMathArgument.getKey()",
+    "String TbMathArgument.getName()",
+    "TbMathArgumentType TbMathArgument.getType()",
+    "void TbMathArgument.setAttributeScope(String)",
+    "void TbMathArgument.setDefaultValue(Double)",
+    "void TbMathArgument.setKey(String)",
+    "void TbMathArgument.setName(String)",
+    "void TbMathArgument.setType(TbMathArgumentType)",
+    "String TbMathArgument.toString()"
+  })
   void testGettersAndSetters_whenAttributeScope() {
     // Arrange and Act
-    TbMathArgument actualTbMathArgument = new TbMathArgument("Name", TbMathArgumentType.ATTRIBUTE, "Key",
-        "Attribute Scope", 10.0d);
+    TbMathArgument actualTbMathArgument =
+        new TbMathArgument("Name", TbMathArgumentType.ATTRIBUTE, "Key", "Attribute Scope", 10.0d);
     actualTbMathArgument.setAttributeScope("Attribute Scope");
     actualTbMathArgument.setDefaultValue(10.0d);
     actualTbMathArgument.setKey("Key");
@@ -612,7 +674,8 @@ class TbMathArgumentDiffblueTest {
     assertEquals("Key", actualKey);
     assertEquals("Name", actualName);
     assertEquals(
-        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope," + " defaultValue=10.0)",
+        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope,"
+            + " defaultValue=10.0)",
         actualToStringResult);
     assertEquals(10.0d, actualDefaultValue.doubleValue());
     assertEquals(TbMathArgumentType.ATTRIBUTE, actualType);
@@ -620,11 +683,13 @@ class TbMathArgumentDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Name}.</li>
+   *   <li>When {@code Name}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbMathArgument#TbMathArgument(String, TbMathArgumentType, String)}
    *   <li>{@link TbMathArgument#setAttributeScope(String)}
@@ -643,17 +708,27 @@ class TbMathArgumentDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Name'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TbMathArgument.<init>()", "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
-      "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
-      "void TbMathArgument.<init>(TbMathArgumentType, String)", "String TbMathArgument.getAttributeScope()",
-      "Double TbMathArgument.getDefaultValue()", "String TbMathArgument.getKey()", "String TbMathArgument.getName()",
-      "TbMathArgumentType TbMathArgument.getType()", "void TbMathArgument.setAttributeScope(String)",
-      "void TbMathArgument.setDefaultValue(Double)", "void TbMathArgument.setKey(String)",
-      "void TbMathArgument.setName(String)", "void TbMathArgument.setType(TbMathArgumentType)",
-      "String TbMathArgument.toString()"})
+  @MethodsUnderTest({
+    "void TbMathArgument.<init>()",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String)",
+    "void TbMathArgument.<init>(String, TbMathArgumentType, String, String, Double)",
+    "void TbMathArgument.<init>(TbMathArgumentType, String)",
+    "String TbMathArgument.getAttributeScope()",
+    "Double TbMathArgument.getDefaultValue()",
+    "String TbMathArgument.getKey()",
+    "String TbMathArgument.getName()",
+    "TbMathArgumentType TbMathArgument.getType()",
+    "void TbMathArgument.setAttributeScope(String)",
+    "void TbMathArgument.setDefaultValue(Double)",
+    "void TbMathArgument.setKey(String)",
+    "void TbMathArgument.setName(String)",
+    "void TbMathArgument.setType(TbMathArgumentType)",
+    "String TbMathArgument.toString()"
+  })
   void testGettersAndSetters_whenName() {
     // Arrange and Act
-    TbMathArgument actualTbMathArgument = new TbMathArgument("Name", TbMathArgumentType.ATTRIBUTE, "Key");
+    TbMathArgument actualTbMathArgument =
+        new TbMathArgument("Name", TbMathArgumentType.ATTRIBUTE, "Key");
     actualTbMathArgument.setAttributeScope("Attribute Scope");
     actualTbMathArgument.setDefaultValue(10.0d);
     actualTbMathArgument.setKey("Key");
@@ -671,7 +746,8 @@ class TbMathArgumentDiffblueTest {
     assertEquals("Key", actualKey);
     assertEquals("Name", actualName);
     assertEquals(
-        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope," + " defaultValue=10.0)",
+        "TbMathArgument(name=Name, type=ATTRIBUTE, key=Key, attributeScope=Attribute Scope,"
+            + " defaultValue=10.0)",
         actualToStringResult);
     assertEquals(10.0d, actualDefaultValue.doubleValue());
     assertEquals(TbMathArgumentType.ATTRIBUTE, actualType);

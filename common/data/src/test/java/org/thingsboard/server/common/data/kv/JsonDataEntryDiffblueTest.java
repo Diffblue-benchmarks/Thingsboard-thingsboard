@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 class JsonDataEntryDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsonDataEntry#JsonDataEntry(String, String)}
    *   <li>{@link JsonDataEntry#toString()}
@@ -25,8 +26,13 @@ class JsonDataEntryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void JsonDataEntry.<init>(String, String)", "DataType JsonDataEntry.getDataType()",
-      "Object JsonDataEntry.getValue()", "String JsonDataEntry.getValueAsString()", "String JsonDataEntry.toString()"})
+  @MethodsUnderTest({
+    "void JsonDataEntry.<init>(String, String)",
+    "DataType JsonDataEntry.getDataType()",
+    "Object JsonDataEntry.getValue()",
+    "String JsonDataEntry.getValueAsString()",
+    "String JsonDataEntry.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     JsonDataEntry actualJsonDataEntry = new JsonDataEntry("Key", "42");
@@ -44,8 +50,8 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#getJsonValue()}.
-   * <p>
-   * Method under test: {@link JsonDataEntry#getJsonValue()}
+   *
+   * <p>Method under test: {@link JsonDataEntry#getJsonValue()}
    */
   @Test
   @DisplayName("Test getJsonValue()")
@@ -53,7 +59,7 @@ class JsonDataEntryDiffblueTest {
   @MethodsUnderTest({"Optional JsonDataEntry.getJsonValue()"})
   void testGetJsonValue() {
     // Arrange and Act
-    Optional<String> actualJsonValue = (new JsonDataEntry("Key", "42")).getJsonValue();
+    Optional<String> actualJsonValue = new JsonDataEntry("Key", "42").getJsonValue();
 
     // Assert
     assertEquals("42", actualJsonValue.get());
@@ -62,12 +68,14 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#equals(Object)}, and {@link JsonDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsonDataEntry#equals(Object)}
    *   <li>{@link JsonDataEntry#hashCode()}
@@ -90,12 +98,14 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#equals(Object)}, and {@link JsonDataEntry#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link JsonDataEntry#equals(Object)}
    *   <li>{@link JsonDataEntry#hashCode()}
@@ -117,12 +127,13 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link JsonDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -130,7 +141,8 @@ class JsonDataEntryDiffblueTest {
   @MethodsUnderTest({"boolean JsonDataEntry.equals(Object)", "int JsonDataEntry.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    JsonDataEntry jsonDataEntry = new JsonDataEntry("org.thingsboard.server.common.data.kv.JsonDataEntry", "42");
+    JsonDataEntry jsonDataEntry =
+        new JsonDataEntry("org.thingsboard.server.common.data.kv.JsonDataEntry", "42");
 
     // Act and Assert
     assertNotEquals(jsonDataEntry, new JsonDataEntry("Key", "42"));
@@ -138,12 +150,13 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link JsonDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -156,12 +169,13 @@ class JsonDataEntryDiffblueTest {
 
   /**
    * Test {@link JsonDataEntry#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link JsonDataEntry#equals(Object)}
+   *
+   * <p>Method under test: {@link JsonDataEntry#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

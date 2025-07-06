@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class TbKafkaConsumerStatisticConfigDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbKafkaConsumerStatisticConfig#getEnabled()}
    *   <li>{@link TbKafkaConsumerStatisticConfig#getKafkaResponseTimeoutMs()}
@@ -20,12 +21,15 @@ class TbKafkaConsumerStatisticConfigDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Boolean TbKafkaConsumerStatisticConfig.getEnabled()",
-      "Long TbKafkaConsumerStatisticConfig.getKafkaResponseTimeoutMs()",
-      "Long TbKafkaConsumerStatisticConfig.getPrintIntervalMs()"})
+  @MethodsUnderTest({
+    "Boolean TbKafkaConsumerStatisticConfig.getEnabled()",
+    "Long TbKafkaConsumerStatisticConfig.getKafkaResponseTimeoutMs()",
+    "Long TbKafkaConsumerStatisticConfig.getPrintIntervalMs()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig = new TbKafkaConsumerStatisticConfig();
+    TbKafkaConsumerStatisticConfig tbKafkaConsumerStatisticConfig =
+        new TbKafkaConsumerStatisticConfig();
 
     // Act
     Boolean actualEnabled = tbKafkaConsumerStatisticConfig.getEnabled();

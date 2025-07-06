@@ -1,5 +1,6 @@
 package org.thingsboard.server.service.install.update;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
@@ -20,28 +21,30 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultCacheCleanupServiceDiffblueTest {
-  @Mock
-  private CacheManager cacheManager;
+  @Mock private CacheManager cacheManager;
 
-  @InjectMocks
-  private DefaultCacheCleanupService defaultCacheCleanupService;
+  @InjectMocks private DefaultCacheCleanupService defaultCacheCleanupService;
 
   /**
    * Test {@link DefaultCacheCleanupService#clearCache(String)}.
+   *
    * <ul>
-   *   <li>Then calls {@link CacheManager#getCache(String)}.</li>
+   *   <li>Given {@link CacheManager} {@link CacheManager#getCache(String)} return {@link
+   *       ConcurrentMapCache#ConcurrentMapCache(String)} with {@code Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCacheCleanupService#clearCache(String)}
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearCache(String)}
    */
   @Test
-  @DisplayName("Test clearCache(String); then calls getCache(String)")
+  @DisplayName(
+      "Test clearCache(String); given CacheManager getCache(String) return ConcurrentMapCache(String) with 'Name'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultCacheCleanupService.clearCache(String)"})
-  void testClearCache_thenCallsGetCache() throws Exception {
+  void testClearCache_givenCacheManagerGetCacheReturnConcurrentMapCacheWithName() throws Exception {
     // Arrange
     when(cacheManager.getCache(Mockito.<String>any())).thenReturn(new ConcurrentMapCache("Name"));
 
@@ -53,16 +56,85 @@ class DefaultCacheCleanupServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   * Test {@link DefaultCacheCleanupService#clearCache(String)}.
+   *
    * <ul>
-   *   <li>Given {@link Cache} {@link Cache#invalidateAll()} does nothing.</li>
-   *   <li>Then calls {@link Cache#invalidateAll()}.</li>
+   *   <li>Then throw {@link EmptyResultDataAccessException}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearCache(String)}
    */
   @Test
-  @DisplayName("Test clearAllCaches(); given Cache invalidateAll() does nothing; then calls invalidateAll()")
+  @DisplayName("Test clearCache(String); then throw EmptyResultDataAccessException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCacheCleanupService.clearCache(String)"})
+  void testClearCache_thenThrowEmptyResultDataAccessException() throws Exception {
+    // Arrange
+    when(cacheManager.getCache(Mockito.<String>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        EmptyResultDataAccessException.class, () -> defaultCacheCleanupService.clearCache("3.6.1"));
+    verify(cacheManager).getCache(eq("securitySettings"));
+  }
+
+  /**
+   * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   */
+  @Test
+  @DisplayName("Test clearAllCaches()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCacheCleanupService.clearAllCaches()"})
+  void testClearAllCaches() {
+    // Arrange
+    when(cacheManager.getCacheNames()).thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        EmptyResultDataAccessException.class, () -> defaultCacheCleanupService.clearAllCaches());
+    verify(cacheManager).getCacheNames();
+  }
+
+  /**
+   * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   */
+  @Test
+  @DisplayName("Test clearAllCaches()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCacheCleanupService.clearAllCaches()"})
+  void testClearAllCaches2() {
+    // Arrange
+    ArrayList<String> stringList = new ArrayList<>();
+    stringList.add("foo");
+    when(cacheManager.getCache(Mockito.<String>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+    when(cacheManager.getCacheNames()).thenReturn(stringList);
+
+    // Act and Assert
+    assertThrows(
+        EmptyResultDataAccessException.class, () -> defaultCacheCleanupService.clearAllCaches());
+    verify(cacheManager).getCache(eq("foo"));
+    verify(cacheManager).getCacheNames();
+  }
+
+  /**
+   * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   *
+   * <ul>
+   *   <li>Given {@link Cache} {@link Cache#invalidateAll()} does nothing.
+   *   <li>Then calls {@link Cache#invalidateAll()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   */
+  @Test
+  @DisplayName(
+      "Test clearAllCaches(); given Cache invalidateAll() does nothing; then calls invalidateAll()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultCacheCleanupService.clearAllCaches()"})
   void testClearAllCaches_givenCacheInvalidateAllDoesNothing_thenCallsInvalidateAll() {
@@ -87,14 +159,17 @@ class DefaultCacheCleanupServiceDiffblueTest {
 
   /**
    * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   *
    * <ul>
-   *   <li>Given {@link CacheManager} {@link CacheManager#getCache(String)} return {@link ConcurrentMapCache#ConcurrentMapCache(String)} with {@code Name}.</li>
+   *   <li>Given {@link CacheManager} {@link CacheManager#getCache(String)} return {@link
+   *       ConcurrentMapCache#ConcurrentMapCache(String)} with {@code Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
    */
   @Test
-  @DisplayName("Test clearAllCaches(); given CacheManager getCache(String) return ConcurrentMapCache(String) with 'Name'")
+  @DisplayName(
+      "Test clearAllCaches(); given CacheManager getCache(String) return ConcurrentMapCache(String) with 'Name'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultCacheCleanupService.clearAllCaches()"})
   void testClearAllCaches_givenCacheManagerGetCacheReturnConcurrentMapCacheWithName() {
@@ -114,11 +189,12 @@ class DefaultCacheCleanupServiceDiffblueTest {
 
   /**
    * Test {@link DefaultCacheCleanupService#clearAllCaches()}.
+   *
    * <ul>
-   *   <li>Then calls {@link CacheManager#getCacheNames()}.</li>
+   *   <li>Then calls {@link CacheManager#getCacheNames()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearAllCaches()}
    */
   @Test
   @DisplayName("Test clearAllCaches(); then calls getCacheNames()")
@@ -137,17 +213,20 @@ class DefaultCacheCleanupServiceDiffblueTest {
 
   /**
    * Test {@link DefaultCacheCleanupService#clearCacheByName(String)}.
+   *
    * <ul>
-   *   <li>Then calls {@link CacheManager#getCache(String)}.</li>
+   *   <li>Given {@link CacheManager} {@link CacheManager#getCache(String)} return {@link
+   *       ConcurrentMapCache#ConcurrentMapCache(String)} with {@code Name}.
    * </ul>
-   * <p>
-   * Method under test: {@link DefaultCacheCleanupService#clearCacheByName(String)}
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearCacheByName(String)}
    */
   @Test
-  @DisplayName("Test clearCacheByName(String); then calls getCache(String)")
+  @DisplayName(
+      "Test clearCacheByName(String); given CacheManager getCache(String) return ConcurrentMapCache(String) with 'Name'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DefaultCacheCleanupService.clearCacheByName(String)"})
-  void testClearCacheByName_thenCallsGetCache() {
+  void testClearCacheByName_givenCacheManagerGetCacheReturnConcurrentMapCacheWithName() {
     // Arrange
     when(cacheManager.getCache(Mockito.<String>any())).thenReturn(new ConcurrentMapCache("Name"));
 
@@ -155,6 +234,31 @@ class DefaultCacheCleanupServiceDiffblueTest {
     defaultCacheCleanupService.clearCacheByName("Cache Name");
 
     // Assert
+    verify(cacheManager).getCache(eq("Cache Name"));
+  }
+
+  /**
+   * Test {@link DefaultCacheCleanupService#clearCacheByName(String)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link EmptyResultDataAccessException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultCacheCleanupService#clearCacheByName(String)}
+   */
+  @Test
+  @DisplayName("Test clearCacheByName(String); then throw EmptyResultDataAccessException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DefaultCacheCleanupService.clearCacheByName(String)"})
+  void testClearCacheByName_thenThrowEmptyResultDataAccessException() {
+    // Arrange
+    when(cacheManager.getCache(Mockito.<String>any()))
+        .thenThrow(new EmptyResultDataAccessException(3));
+
+    // Act and Assert
+    assertThrows(
+        EmptyResultDataAccessException.class,
+        () -> defaultCacheCleanupService.clearCacheByName("Cache Name"));
     verify(cacheManager).getCache(eq("Cache Name"));
   }
 }

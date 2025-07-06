@@ -16,11 +16,13 @@ import org.junit.jupiter.api.Test;
 class AlarmDataQueryDiffblueTest {
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return KeyFilters is {@code null}.</li>
+   *   <li>Then return KeyFilters is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmDataQuery#AlarmDataQuery()}
    *   <li>{@link AlarmDataQuery#toString()}
@@ -30,9 +32,13 @@ class AlarmDataQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return KeyFilters is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmDataQuery.<init>()", "void AlarmDataQuery.<init>(EntityFilter, List)",
-      "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
-      "List AlarmDataQuery.getAlarmFields()", "String AlarmDataQuery.toString()"})
+  @MethodsUnderTest({
+    "void AlarmDataQuery.<init>()",
+    "void AlarmDataQuery.<init>(EntityFilter, List)",
+    "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
+    "List AlarmDataQuery.getAlarmFields()",
+    "String AlarmDataQuery.toString()"
+  })
   void testGettersAndSetters_thenReturnKeyFiltersIsNull() {
     // Arrange and Act
     AlarmDataQuery actualAlarmDataQuery = new AlarmDataQuery();
@@ -51,13 +57,16 @@ class AlarmDataQueryDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return toString is {@code AlarmDataQuery(alarmFields=[])}.</li>
+   *   <li>Then return toString is {@code AlarmDataQuery(alarmFields=[])}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link AlarmDataQuery#AlarmDataQuery(EntityFilter, AlarmDataPageLink, List, List, List, List)}
+   *   <li>{@link AlarmDataQuery#AlarmDataQuery(EntityFilter, AlarmDataPageLink, List, List, List,
+   *       List)}
    *   <li>{@link AlarmDataQuery#toString()}
    *   <li>{@link AlarmDataQuery#getAlarmFields()}
    * </ul>
@@ -65,9 +74,13 @@ class AlarmDataQueryDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return toString is 'AlarmDataQuery(alarmFields=[])'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmDataQuery.<init>()", "void AlarmDataQuery.<init>(EntityFilter, List)",
-      "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
-      "List AlarmDataQuery.getAlarmFields()", "String AlarmDataQuery.toString()"})
+  @MethodsUnderTest({
+    "void AlarmDataQuery.<init>()",
+    "void AlarmDataQuery.<init>(EntityFilter, List)",
+    "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
+    "List AlarmDataQuery.getAlarmFields()",
+    "String AlarmDataQuery.toString()"
+  })
   void testGettersAndSetters_thenReturnToStringIsAlarmDataQueryAlarmFields() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
@@ -78,8 +91,9 @@ class AlarmDataQueryDiffblueTest {
     ArrayList<EntityKey> alarmFields = new ArrayList<>();
 
     // Act
-    AlarmDataQuery actualAlarmDataQuery = new AlarmDataQuery(entityFilter, pageLink, entityFields, latestValues,
-        keyFilters, alarmFields);
+    AlarmDataQuery actualAlarmDataQuery =
+        new AlarmDataQuery(
+            entityFilter, pageLink, entityFields, latestValues, keyFilters, alarmFields);
     String actualToStringResult = actualAlarmDataQuery.toString();
     List<EntityKey> actualAlarmFields = actualAlarmDataQuery.getAlarmFields();
 
@@ -102,11 +116,13 @@ class AlarmDataQueryDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return toString is {@code AlarmDataQuery(alarmFields=null)}.</li>
+   *   <li>Then return toString is {@code AlarmDataQuery(alarmFields=null)}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AlarmDataQuery#AlarmDataQuery(EntityFilter, List)}
    *   <li>{@link AlarmDataQuery#toString()}
@@ -114,11 +130,16 @@ class AlarmDataQueryDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; then return toString is 'AlarmDataQuery(alarmFields=null)'")
+  @DisplayName(
+      "Test getters and setters; then return toString is 'AlarmDataQuery(alarmFields=null)'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AlarmDataQuery.<init>()", "void AlarmDataQuery.<init>(EntityFilter, List)",
-      "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
-      "List AlarmDataQuery.getAlarmFields()", "String AlarmDataQuery.toString()"})
+  @MethodsUnderTest({
+    "void AlarmDataQuery.<init>()",
+    "void AlarmDataQuery.<init>(EntityFilter, List)",
+    "void AlarmDataQuery.<init>(EntityFilter, AlarmDataPageLink, List, List, List, List)",
+    "List AlarmDataQuery.getAlarmFields()",
+    "String AlarmDataQuery.toString()"
+  })
   void testGettersAndSetters_thenReturnToStringIsAlarmDataQueryAlarmFieldsNull() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
@@ -143,15 +164,17 @@ class AlarmDataQueryDiffblueTest {
 
   /**
    * Test {@link AlarmDataQuery#next()}.
+   *
    * <ul>
-   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is {@code true}.</li>
-   *   <li>Then return PageLink Dynamic.</li>
+   *   <li>Given {@link AlarmDataPageLink#AlarmDataPageLink()} Dynamic is {@code true}.
+   *   <li>Then return PageLink Dynamic.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmDataQuery#next()}
+   *
+   * <p>Method under test: {@link AlarmDataQuery#next()}
    */
   @Test
-  @DisplayName("Test next(); given AlarmDataPageLink() Dynamic is 'true'; then return PageLink Dynamic")
+  @DisplayName(
+      "Test next(); given AlarmDataPageLink() Dynamic is 'true'; then return PageLink Dynamic")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmDataQuery AlarmDataQuery.next()"})
   void testNext_givenAlarmDataPageLinkDynamicIsTrue_thenReturnPageLinkDynamic() {
@@ -164,8 +187,10 @@ class AlarmDataQueryDiffblueTest {
     ArrayList<KeyFilter> keyFilters = new ArrayList<>();
 
     // Act
-    AlarmDataQuery actualNextResult = (new AlarmDataQuery(entityFilter, pageLink, entityFields, latestValues,
-        keyFilters, new ArrayList<>())).next();
+    AlarmDataQuery actualNextResult =
+        new AlarmDataQuery(
+                entityFilter, pageLink, entityFields, latestValues, keyFilters, new ArrayList<>())
+            .next();
 
     // Assert
     AlarmDataPageLink pageLink2 = actualNextResult.getPageLink();
@@ -190,11 +215,12 @@ class AlarmDataQueryDiffblueTest {
 
   /**
    * Test {@link AlarmDataQuery#next()}.
+   *
    * <ul>
-   *   <li>Then return not PageLink Dynamic.</li>
+   *   <li>Then return not PageLink Dynamic.
    * </ul>
-   * <p>
-   * Method under test: {@link AlarmDataQuery#next()}
+   *
+   * <p>Method under test: {@link AlarmDataQuery#next()}
    */
   @Test
   @DisplayName("Test next(); then return not PageLink Dynamic")
@@ -209,8 +235,10 @@ class AlarmDataQueryDiffblueTest {
     ArrayList<KeyFilter> keyFilters = new ArrayList<>();
 
     // Act
-    AlarmDataQuery actualNextResult = (new AlarmDataQuery(entityFilter, pageLink, entityFields, latestValues,
-        keyFilters, new ArrayList<>())).next();
+    AlarmDataQuery actualNextResult =
+        new AlarmDataQuery(
+                entityFilter, pageLink, entityFields, latestValues, keyFilters, new ArrayList<>())
+            .next();
 
     // Assert
     AlarmDataPageLink pageLink2 = actualNextResult.getPageLink();

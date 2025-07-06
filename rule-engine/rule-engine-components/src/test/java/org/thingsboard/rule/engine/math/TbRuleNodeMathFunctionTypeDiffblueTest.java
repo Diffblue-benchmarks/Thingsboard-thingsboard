@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class TbRuleNodeMathFunctionTypeDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TbRuleNodeMathFunctionType#getMaxArgs()}
    *   <li>{@link TbRuleNodeMathFunctionType#getMinArgs()}
@@ -21,8 +22,11 @@ class TbRuleNodeMathFunctionTypeDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int TbRuleNodeMathFunctionType.getMaxArgs()", "int TbRuleNodeMathFunctionType.getMinArgs()",
-      "boolean TbRuleNodeMathFunctionType.isIntegerResult()"})
+  @MethodsUnderTest({
+    "int TbRuleNodeMathFunctionType.getMaxArgs()",
+    "int TbRuleNodeMathFunctionType.getMinArgs()",
+    "boolean TbRuleNodeMathFunctionType.isIntegerResult()"
+  })
   void testGettersAndSetters() {
     // Arrange
     TbRuleNodeMathFunctionType valueOfResult = TbRuleNodeMathFunctionType.valueOf("ADD");

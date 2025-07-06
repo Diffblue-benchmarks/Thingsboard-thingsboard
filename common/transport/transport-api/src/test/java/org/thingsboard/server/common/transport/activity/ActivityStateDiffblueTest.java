@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class ActivityStateDiffblueTest {
   /**
    * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActivityState#equals(Object)}
    *   <li>{@link ActivityState#hashCode()}
@@ -43,12 +45,14 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActivityState#equals(Object)}
    *   <li>{@link ActivityState#hashCode()}
@@ -76,12 +80,14 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}, and {@link ActivityState#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ActivityState#equals(Object)}
    *   <li>{@link ActivityState#hashCode()}
@@ -105,12 +111,13 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActivityState#equals(Object)}
+   *
+   * <p>Method under test: {@link ActivityState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -132,12 +139,13 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActivityState#equals(Object)}
+   *
+   * <p>Method under test: {@link ActivityState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -163,12 +171,13 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActivityState#equals(Object)}
+   *
+   * <p>Method under test: {@link ActivityState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -190,12 +199,13 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActivityState#equals(Object)}
+   *
+   * <p>Method under test: {@link ActivityState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -213,12 +223,13 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test {@link ActivityState#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link ActivityState#equals(Object)}
+   *
+   * <p>Method under test: {@link ActivityState#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -236,8 +247,9 @@ class ActivityStateDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link ActivityState}
    *   <li>{@link ActivityState#setLastRecordedTime(long)}
@@ -250,9 +262,14 @@ class ActivityStateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ActivityState.<init>()", "long ActivityState.getLastRecordedTime()",
-      "Object ActivityState.getMetadata()", "void ActivityState.setLastRecordedTime(long)",
-      "void ActivityState.setMetadata(Object)", "String ActivityState.toString()"})
+  @MethodsUnderTest({
+    "void ActivityState.<init>()",
+    "long ActivityState.getLastRecordedTime()",
+    "Object ActivityState.getMetadata()",
+    "void ActivityState.setLastRecordedTime(long)",
+    "void ActivityState.setMetadata(Object)",
+    "String ActivityState.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     ActivityState<Object> actualActivityState = new ActivityState<>();

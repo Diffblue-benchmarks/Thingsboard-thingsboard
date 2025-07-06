@@ -35,82 +35,118 @@ import org.thingsboard.server.gen.transport.TransportProtos.ToServerRpcRequestMs
 class ProtoConverterDiffblueTest {
   /**
    * Test {@link ProtoConverter#convertToTelemetryProto(byte[])}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToTelemetryProto(byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToTelemetryProto(byte[])}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(byte[]); then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"
+  })
   void testConvertToTelemetryProto_thenThrowIllegalArgumentException()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> ProtoConverter.convertToTelemetryProto(
-        new byte[]{'A', '\b', 'A', '\b', 'A', '\b', 'A', '\b', 'A', '\b', 'A', '\b', 'A', Byte.MIN_VALUE, 'A', '\b'}));
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            ProtoConverter.convertToTelemetryProto(
+                new byte[] {
+                  'A',
+                  '\b',
+                  'A',
+                  '\b',
+                  'A',
+                  '\b',
+                  'A',
+                  '\b',
+                  'A',
+                  '\b',
+                  'A',
+                  '\b',
+                  'A',
+                  Byte.MIN_VALUE,
+                  'A',
+                  '\b'
+                }));
   }
 
   /**
    * Test {@link ProtoConverter#convertToTelemetryProto(byte[])}.
+   *
    * <ul>
-   *   <li>When empty array of {@code byte}.</li>
+   *   <li>When empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToTelemetryProto(byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToTelemetryProto(byte[])}
    */
   @Test
   @DisplayName("Test convertToTelemetryProto(byte[]); when empty array of byte")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg ProtoConverter.convertToTelemetryProto(byte[])"
+  })
   void testConvertToTelemetryProto_whenEmptyArrayOfByte()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> ProtoConverter.convertToTelemetryProto(new byte[]{}));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> ProtoConverter.convertToTelemetryProto(new byte[] {}));
   }
 
   /**
    * Test {@link ProtoConverter#validatePostTelemetryMsg(byte[])}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#validatePostTelemetryMsg(byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#validatePostTelemetryMsg(byte[])}
    */
   @Test
   @DisplayName("Test validatePostTelemetryMsg(byte[]); then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"TransportProtos.PostTelemetryMsg ProtoConverter.validatePostTelemetryMsg(byte[])"})
+  @MethodsUnderTest({
+    "TransportProtos.PostTelemetryMsg ProtoConverter.validatePostTelemetryMsg(byte[])"
+  })
   void testValidatePostTelemetryMsg_thenThrowIllegalArgumentException()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> ProtoConverter.validatePostTelemetryMsg(new byte[]{}));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> ProtoConverter.validatePostTelemetryMsg(new byte[] {}));
   }
 
   /**
    * Test {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}
+   *
+   * <p>Method under test: {@link ProtoConverter#validatePostAttributeMsg(PostAttributeMsg)}
    */
   @Test
-  @DisplayName("Test validatePostAttributeMsg(PostAttributeMsg); then throw IllegalArgumentException")
+  @DisplayName(
+      "Test validatePostAttributeMsg(PostAttributeMsg); then throw IllegalArgumentException")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PostAttributeMsg ProtoConverter.validatePostAttributeMsg(PostAttributeMsg)"})
   void testValidatePostAttributeMsg_thenThrowIllegalArgumentException()
       throws InvalidProtocolBufferException, IllegalArgumentException {
     // Arrange, Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> ProtoConverter.validatePostAttributeMsg(PostAttributeMsg.getDefaultInstance()));
   }
 
   /**
    * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
@@ -118,21 +154,25 @@ class ProtoConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg ProtoConverter.convertToClaimDeviceProto(DeviceId, byte[])"})
   void testConvertToClaimDeviceProto() throws InvalidProtocolBufferException {
     // Arrange and Act
-    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult =
+        ProtoConverter.convertToClaimDeviceProto(
+            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), null);
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    ClaimDeviceMsg defaultInstanceForType =
+        actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}.
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToClaimDeviceProto(DeviceId, byte[])}
    */
   @Test
   @DisplayName("Test convertToClaimDeviceProto(DeviceId, byte[])")
@@ -140,191 +180,256 @@ class ProtoConverterDiffblueTest {
   @MethodsUnderTest({"ClaimDeviceMsg ProtoConverter.convertToClaimDeviceProto(DeviceId, byte[])"})
   void testConvertToClaimDeviceProto2() throws InvalidProtocolBufferException {
     // Arrange and Act
-    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult = ProtoConverter
-        .convertToClaimDeviceProto(new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), new byte[]{});
+    ClaimDeviceMsg actualConvertToClaimDeviceProtoResult =
+        ProtoConverter.convertToClaimDeviceProto(
+            new DeviceId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")), new byte[] {});
 
     // Assert
     UnknownFieldSet unknownFields = actualConvertToClaimDeviceProtoResult.getUnknownFields();
-    ClaimDeviceMsg defaultInstanceForType = actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
+    ClaimDeviceMsg defaultInstanceForType =
+        actualConvertToClaimDeviceProtoResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
    */
   @Test
-  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when array of byte with MIN_VALUE and 'X'")
+  @DisplayName(
+      "Test convertToGetAttributeRequestMessage(byte[], int); when array of byte with MIN_VALUE and 'X'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  @MethodsUnderTest({
+    "GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"
+  })
   void testConvertToGetAttributeRequestMessage_whenArrayOfByteWithMin_valueAndX()
       throws InvalidProtocolBufferException, RuntimeException {
     // Arrange and Act
-    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
-        .convertToGetAttributeRequestMessage(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
-            1);
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult =
+        ProtoConverter.convertToGetAttributeRequestMessage(
+            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'}, 1);
 
     // Assert
-    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
-    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
-        .getDefaultInstanceForType();
+    UnknownFieldSet unknownFields =
+        actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType =
+        actualConvertToGetAttributeRequestMessageResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
-        .getClientAttributeNamesList();
+    ProtocolStringList clientAttributeNamesList =
+        actualConvertToGetAttributeRequestMessageResult.getClientAttributeNamesList();
     assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
     assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
-    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        clientAttributeNamesList,
+        actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   *
    * <ul>
-   *   <li>When empty array of {@code byte}.</li>
+   *   <li>When empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
    */
   @Test
   @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when empty array of byte")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  @MethodsUnderTest({
+    "GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"
+  })
   void testConvertToGetAttributeRequestMessage_whenEmptyArrayOfByte()
       throws InvalidProtocolBufferException, RuntimeException {
     // Arrange and Act
-    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
-        .convertToGetAttributeRequestMessage(new byte[]{}, 1);
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult =
+        ProtoConverter.convertToGetAttributeRequestMessage(new byte[] {}, 1);
 
     // Assert
-    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
-    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
-        .getDefaultInstanceForType();
+    UnknownFieldSet unknownFields =
+        actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType =
+        actualConvertToGetAttributeRequestMessageResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
-        .getClientAttributeNamesList();
+    ProtocolStringList clientAttributeNamesList =
+        actualConvertToGetAttributeRequestMessageResult.getClientAttributeNamesList();
     assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
     assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
-    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        clientAttributeNamesList,
+        actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}.
+   *
    * <ul>
-   *   <li>When two.</li>
-   *   <li>Then return RequestId is two.</li>
+   *   <li>When two.
+   *   <li>Then return RequestId is two.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToGetAttributeRequestMessage(byte[], int)}
    */
   @Test
-  @DisplayName("Test convertToGetAttributeRequestMessage(byte[], int); when two; then return RequestId is two")
+  @DisplayName(
+      "Test convertToGetAttributeRequestMessage(byte[], int); when two; then return RequestId is two")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"})
+  @MethodsUnderTest({
+    "GetAttributeRequestMsg ProtoConverter.convertToGetAttributeRequestMessage(byte[], int)"
+  })
   void testConvertToGetAttributeRequestMessage_whenTwo_thenReturnRequestIdIsTwo()
       throws InvalidProtocolBufferException, RuntimeException {
     // Arrange and Act
-    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult = ProtoConverter
-        .convertToGetAttributeRequestMessage(new byte[]{}, 2);
+    GetAttributeRequestMsg actualConvertToGetAttributeRequestMessageResult =
+        ProtoConverter.convertToGetAttributeRequestMessage(new byte[] {}, 2);
 
     // Assert
     assertEquals(2, actualConvertToGetAttributeRequestMessageResult.getRequestId());
-    UnknownFieldSet unknownFields = actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
-    GetAttributeRequestMsg defaultInstanceForType = actualConvertToGetAttributeRequestMessageResult
-        .getDefaultInstanceForType();
+    UnknownFieldSet unknownFields =
+        actualConvertToGetAttributeRequestMessageResult.getUnknownFields();
+    GetAttributeRequestMsg defaultInstanceForType =
+        actualConvertToGetAttributeRequestMessageResult.getDefaultInstanceForType();
     assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
     assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
-    ProtocolStringList clientAttributeNamesList = actualConvertToGetAttributeRequestMessageResult
-        .getClientAttributeNamesList();
+    ProtocolStringList clientAttributeNamesList =
+        actualConvertToGetAttributeRequestMessageResult.getClientAttributeNamesList();
     assertSame(clientAttributeNamesList, defaultInstanceForType.getClientAttributeNamesList());
     assertSame(clientAttributeNamesList, defaultInstanceForType.getSharedAttributeNamesList());
-    assertSame(clientAttributeNamesList, actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
-    assertSame(defaultInstanceForType.getDefaultInstanceForType(), defaultInstanceForType.getDefaultInstanceForType());
+    assertSame(
+        clientAttributeNamesList,
+        actualConvertToGetAttributeRequestMessageResult.getSharedAttributeNamesList());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}.
-   * <ul>
-   *   <li>Then return InitializationErrorString is empty string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}
    */
   @Test
-  @DisplayName("Test convertToServerRpcRequest(byte[], int); then return InitializationErrorString is empty string")
+  @DisplayName("Test convertToServerRpcRequest(byte[], int)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"})
-  void testConvertToServerRpcRequest_thenReturnInitializationErrorStringIsEmptyString()
-      throws InvalidProtocolBufferException {
+  void testConvertToServerRpcRequest() throws InvalidProtocolBufferException {
     // Arrange and Act
-    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult = ProtoConverter.convertToServerRpcRequest(new byte[]{},
-        1);
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        ProtoConverter.convertToServerRpcRequest(
+            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'}, 1);
 
     // Assert
-    assertEquals("", actualConvertToServerRpcRequestResult.getInitializationErrorString());
-    assertEquals("", actualConvertToServerRpcRequestResult.getMethodName());
-    assertEquals("", actualConvertToServerRpcRequestResult.getParams());
-    assertEquals(1, actualConvertToServerRpcRequestResult.getAllFields().size());
-    assertEquals(1, actualConvertToServerRpcRequestResult.getRequestId());
-    assertEquals(2, actualConvertToServerRpcRequestResult.getSerializedSize());
-    assertTrue(actualConvertToServerRpcRequestResult.findInitializationErrors().isEmpty());
-    assertTrue(actualConvertToServerRpcRequestResult.isInitialized());
+    UnknownFieldSet unknownFields = actualConvertToServerRpcRequestResult.getUnknownFields();
+    ToServerRpcRequestMsg defaultInstanceForType =
+        actualConvertToServerRpcRequestResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
+  }
+
+  /**
+   * Test {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}.
+   *
+   * <ul>
+   *   <li>When empty array of {@code byte}.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToServerRpcRequest(byte[], int)}
+   */
+  @Test
+  @DisplayName("Test convertToServerRpcRequest(byte[], int); when empty array of byte")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"})
+  void testConvertToServerRpcRequest_whenEmptyArrayOfByte() throws InvalidProtocolBufferException {
+    // Arrange and Act
+    ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
+        ProtoConverter.convertToServerRpcRequest(new byte[] {}, 1);
+
+    // Assert
+    UnknownFieldSet unknownFields = actualConvertToServerRpcRequestResult.getUnknownFields();
+    ToServerRpcRequestMsg defaultInstanceForType =
+        actualConvertToServerRpcRequestResult.getDefaultInstanceForType();
+    assertSame(unknownFields, defaultInstanceForType.getUnknownFields());
+    assertSame(unknownFields, unknownFields.getDefaultInstanceForType());
+    assertSame(
+        defaultInstanceForType.getDefaultInstanceForType(),
+        defaultInstanceForType.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#convertToProvisionRequestMsg(byte[])}.
-   * <p>
-   * Method under test: {@link ProtoConverter#convertToProvisionRequestMsg(byte[])}
+   *
+   * <p>Method under test: {@link ProtoConverter#convertToProvisionRequestMsg(byte[])}
    */
   @Test
   @DisplayName("Test convertToProvisionRequestMsg(byte[])")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ProvisionDeviceRequestMsg ProtoConverter.convertToProvisionRequestMsg(byte[])"})
+  @MethodsUnderTest({
+    "ProvisionDeviceRequestMsg ProtoConverter.convertToProvisionRequestMsg(byte[])"
+  })
   void testConvertToProvisionRequestMsg() throws InvalidProtocolBufferException {
     // Arrange and Act
-    ProvisionDeviceRequestMsg actualConvertToProvisionRequestMsgResult = ProtoConverter
-        .convertToProvisionRequestMsg(new byte[]{});
+    ProvisionDeviceRequestMsg actualConvertToProvisionRequestMsgResult =
+        ProtoConverter.convertToProvisionRequestMsg(new byte[] {});
 
     // Assert
     assertEquals("", actualConvertToProvisionRequestMsgResult.getInitializationErrorString());
     assertEquals("", actualConvertToProvisionRequestMsgResult.getDeviceName());
     assertEquals(0, actualConvertToProvisionRequestMsgResult.getCredentialsTypeValue());
     assertEquals(0, actualConvertToProvisionRequestMsgResult.getSerializedSize());
-    assertEquals(CredentialsType.ACCESS_TOKEN, actualConvertToProvisionRequestMsgResult.getCredentialsType());
+    assertEquals(
+        CredentialsType.ACCESS_TOKEN,
+        actualConvertToProvisionRequestMsgResult.getCredentialsType());
     assertFalse(actualConvertToProvisionRequestMsgResult.getGateway());
     assertFalse(actualConvertToProvisionRequestMsgResult.hasCredentialsDataProto());
     assertFalse(actualConvertToProvisionRequestMsgResult.hasProvisionDeviceCredentialsMsg());
     assertTrue(actualConvertToProvisionRequestMsgResult.findInitializationErrors().isEmpty());
     assertTrue(actualConvertToProvisionRequestMsgResult.getAllFields().isEmpty());
     assertTrue(actualConvertToProvisionRequestMsgResult.isInitialized());
-    assertEquals(actualConvertToProvisionRequestMsgResult,
+    assertEquals(
+        actualConvertToProvisionRequestMsgResult,
         actualConvertToProvisionRequestMsgResult.getDefaultInstanceForType());
   }
 
   /**
    * Test {@link ProtoConverter#validateDescriptor(Descriptor)}.
+   *
    * <ul>
-   *   <li>When Descriptor.</li>
-   *   <li>Then return Name is {@code Any}.</li>
+   *   <li>When Descriptor.
+   *   <li>Then return Name is {@code Any}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
    */
   @Test
   @DisplayName("Test validateDescriptor(Descriptor); when Descriptor; then return Name is 'Any'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"})
+  @MethodsUnderTest({
+    "Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"
+  })
   void testValidateDescriptor_whenDescriptor_thenReturnNameIsAny() throws AdaptorException {
     // Arrange and Act
-    Descriptor actualValidateDescriptorResult = ProtoConverter.validateDescriptor(Any.getDescriptor());
+    Descriptor actualValidateDescriptorResult =
+        ProtoConverter.validateDescriptor(Any.getDescriptor());
 
     // Assert
     assertEquals("Any", actualValidateDescriptorResult.getName());
@@ -342,17 +447,20 @@ class ProtoConverterDiffblueTest {
 
   /**
    * Test {@link ProtoConverter#validateDescriptor(Descriptor)}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then throw {@link AdaptorException}.</li>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link AdaptorException}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
    */
   @Test
   @DisplayName("Test validateDescriptor(Descriptor); when 'null'; then throw AdaptorException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"})
+  @MethodsUnderTest({
+    "Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"
+  })
   void testValidateDescriptor_whenNull_thenThrowAdaptorException() throws AdaptorException {
     // Arrange, Act and Assert
     assertThrows(AdaptorException.class, () -> ProtoConverter.validateDescriptor(null));
@@ -360,147 +468,212 @@ class ProtoConverterDiffblueTest {
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>Then return {@code {}}.</li>
+   *   <li>Then return {@code {}}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
   @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
-  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket() throws InvalidProtocolBufferException {
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
+  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket()
+      throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Any.getDescriptor()));
+    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[] {}, Any.getDescriptor()));
   }
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>Then return {@code {}}.</li>
+   *   <li>Then return {@code {}}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
   @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
-  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket2() throws InvalidProtocolBufferException {
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
+  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket2()
+      throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[]{}, Builder.getDescriptor()));
+    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[] {}, Builder.getDescriptor()));
   }
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>Then return {@code { "name": "", "value": [], "reservedRange": [], "reservedName": [] }}.</li>
+   *   <li>Then return {@code { "name": "", "value": [], "reservedRange": [], "reservedName": [] }}.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{ \"name\": \"\", \"value\": [], \"reservedRange\": [], \"reservedName\": [] }'")
+  @DisplayName(
+      "Test dynamicMsgToJson(byte[], Descriptor); then return '{ \"name\": \"\", \"value\": [], \"reservedRange\": [], \"reservedName\": [] }'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
-  void testDynamicMsgToJson_thenReturnNameValueReservedRangeReservedName() throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals("{\n  \"name\": \"\",\n  \"value\": [],\n  \"reservedRange\": [],\n  \"reservedName\": []\n}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{}, EnumDescriptorProto.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
-   *   <li>Then return a string.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
-  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString() throws InvalidProtocolBufferException {
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
+  void testDynamicMsgToJson_thenReturnNameValueReservedRangeReservedName()
+      throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
     assertEquals(
-        "{\n" + "  \"name\": \"\",\n" + "  \"field\": [],\n" + "  \"nestedType\": [],\n" + "  \"enumType\": [],\n"
-            + "  \"extensionRange\": [],\n" + "  \"extension\": [],\n" + "  \"oneofDecl\": [],\n"
-            + "  \"reservedRange\": [],\n" + "  \"reservedName\": []\n" + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+        "{\n  \"name\": \"\",\n  \"value\": [],\n  \"reservedRange\": [],\n  \"reservedName\": []\n}",
+        ProtoConverter.dynamicMsgToJson(new byte[] {}, EnumDescriptorProto.getDescriptor()));
+  }
+
+  /**
+   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
+   * <ul>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
+   *   <li>Then return a string.
+   * </ul>
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   */
+  @Test
+  @DisplayName(
+      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
+  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString()
+      throws InvalidProtocolBufferException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\n"
+            + "  \"name\": \"\",\n"
+            + "  \"field\": [],\n"
+            + "  \"nestedType\": [],\n"
+            + "  \"enumType\": [],\n"
+            + "  \"extensionRange\": [],\n"
+            + "  \"extension\": [],\n"
+            + "  \"oneofDecl\": [],\n"
+            + "  \"reservedRange\": [],\n"
+            + "  \"reservedName\": []\n"
+            + "}",
+        ProtoConverter.dynamicMsgToJson(
+            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
             DescriptorProto.getDescriptor()));
   }
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
-   *   <li>Then return a string.</li>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @DisplayName(
+      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
   void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString2()
       throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
     assertEquals(
-        "{\n" + "  \"name\": \"\",\n" + "  \"package\": \"\",\n" + "  \"dependency\": [],\n"
-            + "  \"messageType\": [],\n" + "  \"enumType\": [],\n" + "  \"service\": [],\n" + "  \"extension\": [],\n"
-            + "  \"publicDependency\": [],\n" + "  \"weakDependency\": [65],\n" + "  \"syntax\": \"\",\n"
-            + "  \"edition\": \"EDITION_UNKNOWN\"\n" + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+        "{\n"
+            + "  \"name\": \"\",\n"
+            + "  \"package\": \"\",\n"
+            + "  \"dependency\": [],\n"
+            + "  \"messageType\": [],\n"
+            + "  \"enumType\": [],\n"
+            + "  \"service\": [],\n"
+            + "  \"extension\": [],\n"
+            + "  \"publicDependency\": [],\n"
+            + "  \"weakDependency\": [65],\n"
+            + "  \"syntax\": \"\",\n"
+            + "  \"edition\": \"EDITION_UNKNOWN\"\n"
+            + "}",
+        ProtoConverter.dynamicMsgToJson(
+            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
             FileDescriptorProto.getDescriptor()));
   }
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.</li>
-   *   <li>Then return a string.</li>
+   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
+  @DisplayName(
+      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
   void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString3()
       throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
     assertEquals(
-        "{\n" + "  \"messageSetWireFormat\": false,\n" + "  \"noStandardDescriptorAccessor\": false,\n"
-            + "  \"deprecated\": false,\n" + "  \"mapEntry\": false,\n"
-            + "  \"deprecatedLegacyJsonFieldConflicts\": true,\n" + "  \"uninterpretedOption\": []\n" + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
+        "{\n"
+            + "  \"messageSetWireFormat\": false,\n"
+            + "  \"noStandardDescriptorAccessor\": false,\n"
+            + "  \"deprecated\": false,\n"
+            + "  \"mapEntry\": false,\n"
+            + "  \"deprecatedLegacyJsonFieldConflicts\": true,\n"
+            + "  \"uninterpretedOption\": []\n"
+            + "}",
+        ProtoConverter.dynamicMsgToJson(
+            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
             MessageOptions.getDescriptor()));
   }
 
   /**
    * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
+   *
    * <ul>
-   *   <li>When empty array of {@code byte}.</li>
-   *   <li>Then return a string.</li>
+   *   <li>When empty array of {@code byte}.
+   *   <li>Then return a string.
    * </ul>
-   * <p>
-   * Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
+   *
+   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
    */
   @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); when empty array of byte; then return a string")
+  @DisplayName(
+      "Test dynamicMsgToJson(byte[], Descriptor); when empty array of byte; then return a string")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"})
-  void testDynamicMsgToJson_whenEmptyArrayOfByte_thenReturnAString() throws InvalidProtocolBufferException {
+  @MethodsUnderTest({
+    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
+  })
+  void testDynamicMsgToJson_whenEmptyArrayOfByte_thenReturnAString()
+      throws InvalidProtocolBufferException {
     // Arrange, Act and Assert
     assertEquals(
-        "{\n" + "  \"name\": \"\",\n" + "  \"field\": [],\n" + "  \"nestedType\": [],\n" + "  \"enumType\": [],\n"
-            + "  \"extensionRange\": [],\n" + "  \"extension\": [],\n" + "  \"oneofDecl\": [],\n"
-            + "  \"reservedRange\": [],\n" + "  \"reservedName\": []\n" + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[]{}, DescriptorProto.getDescriptor()));
+        "{\n"
+            + "  \"name\": \"\",\n"
+            + "  \"field\": [],\n"
+            + "  \"nestedType\": [],\n"
+            + "  \"enumType\": [],\n"
+            + "  \"extensionRange\": [],\n"
+            + "  \"extension\": [],\n"
+            + "  \"oneofDecl\": [],\n"
+            + "  \"reservedRange\": [],\n"
+            + "  \"reservedName\": []\n"
+            + "}",
+        ProtoConverter.dynamicMsgToJson(new byte[] {}, DescriptorProto.getDescriptor()));
   }
 }

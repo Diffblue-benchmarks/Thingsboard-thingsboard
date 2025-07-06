@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 class TbApplicationEventDiffblueTest {
   /**
    * Test {@link TbApplicationEvent#TbApplicationEvent(Object)}.
-   * <p>
-   * Method under test: {@link TbApplicationEvent#TbApplicationEvent(Object)}
+   *
+   * <p>Method under test: {@link TbApplicationEvent#TbApplicationEvent(Object)}
    */
   @Test
   @DisplayName("Test new TbApplicationEvent(Object)")
@@ -18,6 +18,6 @@ class TbApplicationEventDiffblueTest {
   @MethodsUnderTest({"void TbApplicationEvent.<init>(Object)"})
   void testNewTbApplicationEvent() {
     // Arrange, Act and Assert
-    assertEquals("Source", (new TbApplicationEvent("Source")).getSource());
+    assertEquals("Source", new TbApplicationEvent("Source").getSource());
   }
 }

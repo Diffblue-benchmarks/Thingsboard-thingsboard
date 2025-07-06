@@ -16,18 +16,20 @@ import org.thingsboard.server.gen.edge.v1.AssetUpdateMsg;
 
 @ExtendWith(MockitoExtension.class)
 class AssetEdgeProcessorV1DiffblueTest {
-  @InjectMocks
-  private AssetEdgeProcessorV1 assetEdgeProcessorV1;
+  @InjectMocks private AssetEdgeProcessorV1 assetEdgeProcessorV1;
 
   /**
    * Test {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}.
-   * <p>
-   * Method under test: {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)}
+   *
+   * <p>Method under test: {@link AssetEdgeProcessorV1#setCustomerId(TenantId, CustomerId, Asset,
+   * AssetUpdateMsg)}
    */
   @Test
   @DisplayName("Test setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AssetEdgeProcessorV1.setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)"})
+  @MethodsUnderTest({
+    "void AssetEdgeProcessorV1.setCustomerId(TenantId, CustomerId, Asset, AssetUpdateMsg)"
+  })
   void testSetCustomerId() {
     // Arrange
     TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -35,7 +37,8 @@ class AssetEdgeProcessorV1DiffblueTest {
     Asset asset = new Asset();
 
     // Act
-    assetEdgeProcessorV1.setCustomerId(tenantId, customerId, asset, AssetUpdateMsg.getDefaultInstance());
+    assetEdgeProcessorV1.setCustomerId(
+        tenantId, customerId, asset, AssetUpdateMsg.getDefaultInstance());
 
     // Assert
     assertSame(customerId, asset.getCustomerId());

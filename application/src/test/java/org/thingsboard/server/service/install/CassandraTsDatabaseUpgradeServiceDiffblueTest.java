@@ -11,13 +11,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class CassandraTsDatabaseUpgradeServiceDiffblueTest {
-  @InjectMocks
-  private CassandraTsDatabaseUpgradeService cassandraTsDatabaseUpgradeService;
+  @InjectMocks private CassandraTsDatabaseUpgradeService cassandraTsDatabaseUpgradeService;
 
   /**
    * Test {@link CassandraTsDatabaseUpgradeService#upgradeDatabase(String)}.
-   * <p>
-   * Method under test: {@link CassandraTsDatabaseUpgradeService#upgradeDatabase(String)}
+   *
+   * <p>Method under test: {@link CassandraTsDatabaseUpgradeService#upgradeDatabase(String)}
    */
   @Test
   @DisplayName("Test upgradeDatabase(String)")
@@ -25,7 +24,8 @@ class CassandraTsDatabaseUpgradeServiceDiffblueTest {
   @MethodsUnderTest({"void CassandraTsDatabaseUpgradeService.upgradeDatabase(String)"})
   void testUpgradeDatabase() throws Exception {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class,
+    assertThrows(
+        RuntimeException.class,
         () -> cassandraTsDatabaseUpgradeService.upgradeDatabase("jane.doe@example.org"));
   }
 }

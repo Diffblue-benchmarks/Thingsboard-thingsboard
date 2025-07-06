@@ -11,8 +11,8 @@ import org.thingsboard.server.dao.timeseries.BaseTimeseriesService;
 class TelemetryDeletionTaskProcessorDiffblueTest {
   /**
    * Test {@link TelemetryDeletionTaskProcessor#getTaskType()}.
-   * <p>
-   * Method under test: {@link TelemetryDeletionTaskProcessor#getTaskType()}
+   *
+   * <p>Method under test: {@link TelemetryDeletionTaskProcessor#getTaskType()}
    */
   @Test
   @DisplayName("Test getTaskType()")
@@ -20,7 +20,8 @@ class TelemetryDeletionTaskProcessorDiffblueTest {
   @MethodsUnderTest({"HousekeeperTaskType TelemetryDeletionTaskProcessor.getTaskType()"})
   void testGetTaskType() {
     // Arrange, Act and Assert
-    assertEquals(HousekeeperTaskType.DELETE_TELEMETRY,
-        (new TelemetryDeletionTaskProcessor(new BaseTimeseriesService())).getTaskType());
+    assertEquals(
+        HousekeeperTaskType.DELETE_TELEMETRY,
+        new TelemetryDeletionTaskProcessor(new BaseTimeseriesService()).getTaskType());
   }
 }

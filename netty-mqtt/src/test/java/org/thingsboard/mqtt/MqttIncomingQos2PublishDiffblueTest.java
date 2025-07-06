@@ -17,8 +17,9 @@ import org.junit.jupiter.api.Test;
 class MqttIncomingQos2PublishDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link MqttIncomingQos2Publish#MqttIncomingQos2Publish(MqttPublishMessage)}
    *   <li>{@link MqttIncomingQos2Publish#getIncomingPublish()}
@@ -27,18 +28,24 @@ class MqttIncomingQos2PublishDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MqttIncomingQos2Publish.<init>(MqttPublishMessage)",
-      "MqttPublishMessage MqttIncomingQos2Publish.getIncomingPublish()"})
+  @MethodsUnderTest({
+    "void MqttIncomingQos2Publish.<init>(MqttPublishMessage)",
+    "MqttPublishMessage MqttIncomingQos2Publish.getIncomingPublish()"
+  })
   void testGettersAndSetters() {
     // Arrange
-    MqttFixedHeader mqttFixedHeader = new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
+    MqttFixedHeader mqttFixedHeader =
+        new MqttFixedHeader(MqttMessageType.CONNECT, true, MqttQoS.AT_MOST_ONCE, true, 3);
 
     MqttPublishVariableHeader variableHeader = new MqttPublishVariableHeader("Topic Name", 1);
 
-    MqttPublishMessage incomingPublish = new MqttPublishMessage(mqttFixedHeader, variableHeader,
-        new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator())));
+    MqttPublishMessage incomingPublish =
+        new MqttPublishMessage(
+            mqttFixedHeader,
+            variableHeader,
+            new DuplicatedByteBuf(new EmptyByteBuf(new PooledByteBufAllocator())));
 
     // Act and Assert
-    assertSame(incomingPublish, (new MqttIncomingQos2Publish(incomingPublish)).getIncomingPublish());
+    assertSame(incomingPublish, new MqttIncomingQos2Publish(incomingPublish).getIncomingPublish());
   }
 }

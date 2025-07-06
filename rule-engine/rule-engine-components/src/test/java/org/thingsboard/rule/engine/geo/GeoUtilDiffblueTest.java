@@ -10,15 +10,18 @@ import org.junit.jupiter.api.Test;
 class GeoUtilDiffblueTest {
   /**
    * Test {@link GeoUtil#distance(Coordinates, Coordinates, RangeUnit)}.
+   *
    * <ul>
-   *   <li>When {@link Coordinates#Coordinates(double, double)} with latitude is ten and longitude is ten.</li>
-   *   <li>Then return zero.</li>
+   *   <li>When {@link Coordinates#Coordinates(double, double)} with latitude is ten and longitude
+   *       is ten.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link GeoUtil#distance(Coordinates, Coordinates, RangeUnit)}
+   *
+   * <p>Method under test: {@link GeoUtil#distance(Coordinates, Coordinates, RangeUnit)}
    */
   @Test
-  @DisplayName("Test distance(Coordinates, Coordinates, RangeUnit); when Coordinates(double, double) with latitude is ten and longitude is ten; then return zero")
+  @DisplayName(
+      "Test distance(Coordinates, Coordinates, RangeUnit); when Coordinates(double, double) with latitude is ten and longitude is ten; then return zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"double GeoUtil.distance(Coordinates, Coordinates, RangeUnit)"})
   void testDistance_whenCoordinatesWithLatitudeIsTenAndLongitudeIsTen_thenReturnZero() {
@@ -31,12 +34,13 @@ class GeoUtilDiffblueTest {
 
   /**
    * Test {@link GeoUtil#contains(String, Coordinates)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>When empty string.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link GeoUtil#contains(String, Coordinates)}
+   *
+   * <p>Method under test: {@link GeoUtil#contains(String, Coordinates)}
    */
   @Test
   @DisplayName("Test contains(String, Coordinates); when empty string; then throw RuntimeException")
@@ -49,12 +53,13 @@ class GeoUtilDiffblueTest {
 
   /**
    * Test {@link GeoUtil#contains(String, Coordinates)}.
+   *
    * <ul>
-   *   <li>When space.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>When space.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link GeoUtil#contains(String, Coordinates)}
+   *
+   * <p>Method under test: {@link GeoUtil#contains(String, Coordinates)}
    */
   @Test
   @DisplayName("Test contains(String, Coordinates); when space; then throw RuntimeException")
@@ -62,6 +67,7 @@ class GeoUtilDiffblueTest {
   @MethodsUnderTest({"boolean GeoUtil.contains(String, Coordinates)"})
   void testContains_whenSpace_thenThrowRuntimeException() {
     // Arrange, Act and Assert
-    assertThrows(RuntimeException.class, () -> GeoUtil.contains(" ", new Coordinates(10.0d, 10.0d)));
+    assertThrows(
+        RuntimeException.class, () -> GeoUtil.contains(" ", new Coordinates(10.0d, 10.0d)));
   }
 }

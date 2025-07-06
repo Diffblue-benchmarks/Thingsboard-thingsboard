@@ -14,14 +14,16 @@ import org.junit.jupiter.api.Test;
 class DeviceInfoDiffblueTest {
   /**
    * Test {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}.
+   *
    * <ul>
-   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.</li>
+   *   <li>Given {@code AXAXAXAX} Bytes is {@code UTF-8}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
+   *
+   * <p>Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
    */
   @Test
-  @DisplayName("Test new DeviceInfo(Device, String, boolean, String, boolean); given 'AXAXAXAX' Bytes is 'UTF-8'")
+  @DisplayName(
+      "Test new DeviceInfo(Device, String, boolean, String, boolean); given 'AXAXAXAX' Bytes is 'UTF-8'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceInfo.<init>(Device, String, boolean, String, boolean)"})
   void testNewDeviceInfo_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
@@ -57,20 +59,22 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}.
+   *
    * <ul>
-   *   <li>Given empty array of {@code byte}.</li>
+   *   <li>Given empty array of {@code byte}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
+   *
+   * <p>Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
    */
   @Test
-  @DisplayName("Test new DeviceInfo(Device, String, boolean, String, boolean); given empty array of byte")
+  @DisplayName(
+      "Test new DeviceInfo(Device, String, boolean, String, boolean); given empty array of byte")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceInfo.<init>(Device, String, boolean, String, boolean)"})
   void testNewDeviceInfo_givenEmptyArrayOfByte() {
     // Arrange
     Device device = new Device();
-    device.setDeviceDataBytes(new byte[]{});
+    device.setDeviceDataBytes(new byte[] {});
 
     // Act
     DeviceInfo actualDeviceInfo = new DeviceInfo(device, "Dr", true, "foo.txt", true);
@@ -100,11 +104,12 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
+   *
+   * <p>Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
    */
   @Test
   @DisplayName("Test new DeviceInfo(Device, String, boolean, String, boolean); when Device()")
@@ -139,19 +144,22 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device()}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
+   *
+   * <p>Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
    */
   @Test
-  @DisplayName("Test new DeviceInfo(Device, String, boolean, String, boolean); when Device(Device) with device is Device()")
+  @DisplayName(
+      "Test new DeviceInfo(Device, String, boolean, String, boolean); when Device(Device) with device is Device()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceInfo.<init>(Device, String, boolean, String, boolean)"})
   void testNewDeviceInfo_whenDeviceWithDeviceIsDevice() {
     // Arrange and Act
-    DeviceInfo actualDeviceInfo = new DeviceInfo(new Device(new Device()), "Dr", true, "foo.txt", true);
+    DeviceInfo actualDeviceInfo =
+        new DeviceInfo(new Device(new Device()), "Dr", true, "foo.txt", true);
 
     // Assert
     assertTrue(actualDeviceInfo.getAdditionalInfo() instanceof NullNode);
@@ -178,19 +186,22 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}.
+   *
    * <ul>
-   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.</li>
+   *   <li>When {@link Device#Device(Device)} with device is {@link Device#Device(Device)}.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
+   *
+   * <p>Method under test: {@link DeviceInfo#DeviceInfo(Device, String, boolean, String, boolean)}
    */
   @Test
-  @DisplayName("Test new DeviceInfo(Device, String, boolean, String, boolean); when Device(Device) with device is Device(Device)")
+  @DisplayName(
+      "Test new DeviceInfo(Device, String, boolean, String, boolean); when Device(Device) with device is Device(Device)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceInfo.<init>(Device, String, boolean, String, boolean)"})
   void testNewDeviceInfo_whenDeviceWithDeviceIsDevice2() {
     // Arrange and Act
-    DeviceInfo actualDeviceInfo = new DeviceInfo(new Device(new Device(new Device())), "Dr", true, "foo.txt", true);
+    DeviceInfo actualDeviceInfo =
+        new DeviceInfo(new Device(new Device(new Device())), "Dr", true, "foo.txt", true);
 
     // Assert
     assertTrue(actualDeviceInfo.getAdditionalInfo() instanceof NullNode);
@@ -217,12 +228,14 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}, and {@link DeviceInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceInfo#equals(Object)}
    *   <li>{@link DeviceInfo#hashCode()}
@@ -245,12 +258,14 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}, and {@link DeviceInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceInfo#equals(Object)}
    *   <li>{@link DeviceInfo#hashCode()}
@@ -273,12 +288,14 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}, and {@link DeviceInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DeviceInfo#equals(Object)}
    *   <li>{@link DeviceInfo#hashCode()}
@@ -300,12 +317,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -321,12 +339,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -343,12 +362,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -365,12 +385,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -387,12 +408,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -409,12 +431,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -433,12 +456,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -457,12 +481,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -475,12 +500,13 @@ class DeviceInfoDiffblueTest {
 
   /**
    * Test {@link DeviceInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link DeviceInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link DeviceInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

@@ -13,8 +13,9 @@ import org.thingsboard.server.common.data.EntityType;
 class EdgeIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeId#EdgeId(UUID)}
    *   <li>{@link EdgeId#getEntityType()}
@@ -41,8 +42,8 @@ class EdgeIdDiffblueTest {
 
   /**
    * Test {@link EdgeId#fromUUID(UUID)}.
-   * <p>
-   * Method under test: {@link EdgeId#fromUUID(UUID)}
+   *
+   * <p>Method under test: {@link EdgeId#fromUUID(UUID)}
    */
   @Test
   @DisplayName("Test fromUUID(UUID)")
@@ -50,7 +51,8 @@ class EdgeIdDiffblueTest {
   @MethodsUnderTest({"EdgeId EdgeId.fromUUID(UUID)"})
   void testFromUUID() {
     // Arrange and Act
-    EdgeId actualFromUUIDResult = EdgeId.fromUUID(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    EdgeId actualFromUUIDResult =
+        EdgeId.fromUUID(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Assert
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", actualFromUUIDResult.getId().toString());

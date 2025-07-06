@@ -12,15 +12,18 @@ import org.junit.jupiter.api.Test;
 
 class PropertyUtilsDiffblueTest {
   /**
-   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties}, {@code propertiesStr}, {@code parser}.
+   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties},
+   * {@code propertiesStr}, {@code parser}.
+   *
    * <ul>
-   *   <li>Then return size is one.</li>
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; then return size is one")
+  @DisplayName(
+      "Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String, Function)"})
   void testGetPropsWithDefaultPropertiesPropertiesStrParser_thenReturnSizeIsOne() {
@@ -28,7 +31,8 @@ class PropertyUtilsDiffblueTest {
     HashMap<String, String> defaultProperties = new HashMap<>();
 
     // Act
-    Map<String, String> actualProps = PropertyUtils.getProps(defaultProperties, ":", PropertyUtils::getProps);
+    Map<String, String> actualProps =
+        PropertyUtils.getProps(defaultProperties, ":", PropertyUtils::getProps);
 
     // Assert
     assertEquals(1, actualProps.size());
@@ -36,15 +40,18 @@ class PropertyUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties}, {@code propertiesStr}, {@code parser}.
+   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties},
+   * {@code propertiesStr}, {@code parser}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
+   *   <li>When empty string.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when empty string")
+  @DisplayName(
+      "Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when empty string")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String, Function)"})
   void testGetPropsWithDefaultPropertiesPropertiesStrParser_whenEmptyString() {
@@ -52,23 +59,27 @@ class PropertyUtilsDiffblueTest {
     HashMap<String, String> defaultProperties = new HashMap<>();
 
     // Act
-    Map<String, String> actualProps = PropertyUtils.getProps(defaultProperties, "", PropertyUtils::getProps);
+    Map<String, String> actualProps =
+        PropertyUtils.getProps(defaultProperties, "", PropertyUtils::getProps);
 
     // Assert
     assertTrue(actualProps.isEmpty());
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties}, {@code propertiesStr}, {@code parser}.
+   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties},
+   * {@code propertiesStr}, {@code parser}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when 'null'; then return Empty")
+  @DisplayName(
+      "Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when 'null'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String, Function)"})
   void testGetPropsWithDefaultPropertiesPropertiesStrParser_whenNull_thenReturnEmpty() {
@@ -76,22 +87,26 @@ class PropertyUtilsDiffblueTest {
     HashMap<String, String> defaultProperties = new HashMap<>();
 
     // Act
-    Map<String, String> actualProps = PropertyUtils.getProps(defaultProperties, null, PropertyUtils::getProps);
+    Map<String, String> actualProps =
+        PropertyUtils.getProps(defaultProperties, null, PropertyUtils::getProps);
 
     // Assert
     assertTrue(actualProps.isEmpty());
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties}, {@code propertiesStr}, {@code parser}.
+   * Test {@link PropertyUtils#getProps(Map, String, Function)} with {@code defaultProperties},
+   * {@code propertiesStr}, {@code parser}.
+   *
    * <ul>
-   *   <li>When {@code ;}.</li>
+   *   <li>When {@code ;}.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String, Function)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when ';'")
+  @DisplayName(
+      "Test getProps(Map, String, Function) with 'defaultProperties', 'propertiesStr', 'parser'; when ';'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String, Function)"})
   void testGetPropsWithDefaultPropertiesPropertiesStrParser_whenSemicolon() {
@@ -99,23 +114,27 @@ class PropertyUtilsDiffblueTest {
     HashMap<String, String> defaultProperties = new HashMap<>();
 
     // Act
-    Map<String, String> actualProps = PropertyUtils.getProps(defaultProperties, ";", PropertyUtils::getProps);
+    Map<String, String> actualProps =
+        PropertyUtils.getProps(defaultProperties, ";", PropertyUtils::getProps);
 
     // Assert
     assertTrue(actualProps.isEmpty());
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code propertiesStr}.
+   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code
+   * propertiesStr}.
+   *
    * <ul>
-   *   <li>When {@code :}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>When {@code :}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when ':'; then return size is one")
+  @DisplayName(
+      "Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when ':'; then return size is one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String)"})
   void testGetPropsWithDefaultPropertiesPropertiesStr_whenColon_thenReturnSizeIsOne() {
@@ -128,16 +147,19 @@ class PropertyUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code propertiesStr}.
+   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code
+   * propertiesStr}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When empty string.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when empty string; then return Empty")
+  @DisplayName(
+      "Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when empty string; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String)"})
   void testGetPropsWithDefaultPropertiesPropertiesStr_whenEmptyString_thenReturnEmpty() {
@@ -149,16 +171,19 @@ class PropertyUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code propertiesStr}.
+   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code
+   * propertiesStr}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when 'null'; then return Empty")
+  @DisplayName(
+      "Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when 'null'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String)"})
   void testGetPropsWithDefaultPropertiesPropertiesStr_whenNull_thenReturnEmpty() {
@@ -170,16 +195,19 @@ class PropertyUtilsDiffblueTest {
   }
 
   /**
-   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code propertiesStr}.
+   * Test {@link PropertyUtils#getProps(Map, String)} with {@code defaultProperties}, {@code
+   * propertiesStr}.
+   *
    * <ul>
-   *   <li>When {@code ;}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code ;}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(Map, String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(Map, String)}
    */
   @Test
-  @DisplayName("Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when ';'; then return Empty")
+  @DisplayName(
+      "Test getProps(Map, String) with 'defaultProperties', 'propertiesStr'; when ';'; then return Empty")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Map PropertyUtils.getProps(Map, String)"})
   void testGetPropsWithDefaultPropertiesPropertiesStr_whenSemicolon_thenReturnEmpty() {
@@ -192,12 +220,13 @@ class PropertyUtilsDiffblueTest {
 
   /**
    * Test {@link PropertyUtils#getProps(String)} with {@code properties}.
+   *
    * <ul>
-   *   <li>When {@code :}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>When {@code :}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(String)}
    */
   @Test
   @DisplayName("Test getProps(String) with 'properties'; when ':'; then return size is one")
@@ -214,12 +243,13 @@ class PropertyUtilsDiffblueTest {
 
   /**
    * Test {@link PropertyUtils#getProps(String)} with {@code properties}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When empty string.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(String)}
    */
   @Test
   @DisplayName("Test getProps(String) with 'properties'; when empty string; then return Empty")
@@ -235,12 +265,13 @@ class PropertyUtilsDiffblueTest {
 
   /**
    * Test {@link PropertyUtils#getProps(String)} with {@code properties}.
+   *
    * <ul>
-   *   <li>When {@code null}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code null}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(String)}
    */
   @Test
   @DisplayName("Test getProps(String) with 'properties'; when 'null'; then return Empty")
@@ -256,12 +287,13 @@ class PropertyUtilsDiffblueTest {
 
   /**
    * Test {@link PropertyUtils#getProps(String)} with {@code properties}.
+   *
    * <ul>
-   *   <li>When {@code ;:}.</li>
-   *   <li>Then return size is one.</li>
+   *   <li>When {@code ;:}.
+   *   <li>Then return size is one.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(String)}
    */
   @Test
   @DisplayName("Test getProps(String) with 'properties'; when ';:'; then return size is one")
@@ -278,12 +310,13 @@ class PropertyUtilsDiffblueTest {
 
   /**
    * Test {@link PropertyUtils#getProps(String)} with {@code properties}.
+   *
    * <ul>
-   *   <li>When {@code ;}.</li>
-   *   <li>Then return Empty.</li>
+   *   <li>When {@code ;}.
+   *   <li>Then return Empty.
    * </ul>
-   * <p>
-   * Method under test: {@link PropertyUtils#getProps(String)}
+   *
+   * <p>Method under test: {@link PropertyUtils#getProps(String)}
    */
   @Test
   @DisplayName("Test getProps(String) with 'properties'; when ';'; then return Empty")

@@ -4,12 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.core.FormatSchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.StreamReadCapability;
@@ -21,29 +23,35 @@ import com.fasterxml.jackson.databind.cfg.DeserializerFactoryConfig;
 import com.fasterxml.jackson.databind.deser.BeanDeserializerFactory;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.Impl;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.util.AccessPattern;
 import java.io.IOException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.thingsboard.server.common.data.BaseData;
-import org.thingsboard.server.common.data.TenantProfile;
 
 class EntityIdDeserializerDiffblueTest {
   /**
-   * Test {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code jsonParser}, {@code ctx}.
+   * Test {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code
+   * jsonParser}, {@code ctx}.
+   *
    * <ul>
-   *   <li>Given {@link TenantProfile#mapper}.</li>
+   *   <li>Given builder findAndAddModules build.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)}
+   *
+   * <p>Method under test: {@link EntityIdDeserializer#deserialize(JsonParser,
+   * DeserializationContext)}
    */
   @Test
-  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'ctx'; given mapper")
+  @DisplayName(
+      "Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'ctx'; given builder findAndAddModules build")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.id.EntityId EntityIdDeserializer.deserialize(JsonParser, DeserializationContext)"})
-  void testDeserializeWithJsonParserCtx_givenMapper() throws IOException {
+    "org.thingsboard.server.common.data.id.EntityId EntityIdDeserializer.deserialize(JsonParser, DeserializationContext)"
+  })
+  void testDeserializeWithJsonParserCtx_givenBuilderFindAndAddModulesBuild() throws IOException {
     // Arrange
     EntityIdDeserializer entityIdDeserializer = new EntityIdDeserializer();
     JsonParserSequence d = mock(JsonParserSequence.class);
@@ -53,35 +61,96 @@ class EntityIdDeserializerDiffblueTest {
     when(d.currentTokenId()).thenReturn(1);
     when(d.currentToken()).thenReturn(JsonToken.NOT_AVAILABLE);
     when(d.nextToken()).thenReturn(JsonToken.NOT_AVAILABLE);
-    when(d.getCodec()).thenReturn(TenantProfile.mapper);
+    when(d.getCodec()).thenReturn(JsonMapper.builder().findAndAddModules().build());
+    doNothing().when(d).setSchema(Mockito.<FormatSchema>any());
+
     JsonParserDelegate jsonParser = new JsonParserDelegate(d);
+    jsonParser.setSchema(mock(FormatSchema.class));
 
     // Act and Assert
-    assertThrows(IOException.class, () -> entityIdDeserializer.deserialize(jsonParser,
-        new Impl(new BeanDeserializerFactory(new DeserializerFactoryConfig()))));
+    assertThrows(
+        IOException.class,
+        () ->
+            entityIdDeserializer.deserialize(
+                jsonParser,
+                new Impl(new BeanDeserializerFactory(new DeserializerFactoryConfig()))));
     verify(d).clearCurrentToken();
     verify(d, atLeast(1)).currentToken();
     verify(d).currentTokenId();
     verify(d).getCodec();
     verify(d).getReadCapabilities();
+    verify(d).setSchema(isA(FormatSchema.class));
     verify(d).nextToken();
   }
 
   /**
-   * Test {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code jsonParser}, {@code ctx}.
+   * Test {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code
+   * jsonParser}, {@code ctx}.
+   *
    * <ul>
-   *   <li>Given one.</li>
-   *   <li>Then throw {@link IOException}.</li>
+   *   <li>Given {@link IOException#IOException(String)} with {@code entityType}.
    * </ul>
-   * <p>
-   * Method under test: {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)}
+   *
+   * <p>Method under test: {@link EntityIdDeserializer#deserialize(JsonParser,
+   * DeserializationContext)}
    */
   @Test
-  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'ctx'; given one; then throw IOException")
+  @DisplayName(
+      "Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'ctx'; given IOException(String) with 'entityType'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.id.EntityId EntityIdDeserializer.deserialize(JsonParser, DeserializationContext)"})
-  void testDeserializeWithJsonParserCtx_givenOne_thenThrowIOException() throws IOException {
+    "org.thingsboard.server.common.data.id.EntityId EntityIdDeserializer.deserialize(JsonParser, DeserializationContext)"
+  })
+  void testDeserializeWithJsonParserCtx_givenIOExceptionWithEntityType() throws IOException {
+    // Arrange
+    EntityIdDeserializer entityIdDeserializer = new EntityIdDeserializer();
+    JsonParserSequence d = mock(JsonParserSequence.class);
+    JacksonFeatureSet<StreamReadCapability> fromBitmaskResult = JacksonFeatureSet.fromBitmask(1);
+    when(d.getReadCapabilities()).thenReturn(fromBitmaskResult);
+    when(d.currentTokenId()).thenReturn(1);
+    when(d.currentToken()).thenReturn(JsonToken.NOT_AVAILABLE);
+    when(d.nextToken()).thenThrow(new IOException("entityType"));
+    when(d.getCodec()).thenReturn(BaseData.mapper);
+    doNothing().when(d).setSchema(Mockito.<FormatSchema>any());
+
+    JsonParserDelegate jsonParser = new JsonParserDelegate(d);
+    jsonParser.setSchema(mock(FormatSchema.class));
+
+    // Act and Assert
+    assertThrows(
+        IOException.class,
+        () ->
+            entityIdDeserializer.deserialize(
+                jsonParser,
+                new Impl(new BeanDeserializerFactory(new DeserializerFactoryConfig()))));
+    verify(d, atLeast(1)).currentToken();
+    verify(d).currentTokenId();
+    verify(d).getCodec();
+    verify(d).getReadCapabilities();
+    verify(d).setSchema(isA(FormatSchema.class));
+    verify(d).nextToken();
+  }
+
+  /**
+   * Test {@link EntityIdDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code
+   * jsonParser}, {@code ctx}.
+   *
+   * <ul>
+   *   <li>Given one.
+   *   <li>Then calls {@link JsonParserSequence#clearCurrentToken()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityIdDeserializer#deserialize(JsonParser,
+   * DeserializationContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'ctx'; given one; then calls clearCurrentToken()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.id.EntityId EntityIdDeserializer.deserialize(JsonParser, DeserializationContext)"
+  })
+  void testDeserializeWithJsonParserCtx_givenOne_thenCallsClearCurrentToken() throws IOException {
     // Arrange
     EntityIdDeserializer entityIdDeserializer = new EntityIdDeserializer();
     JsonParserSequence d = mock(JsonParserSequence.class);
@@ -92,23 +161,31 @@ class EntityIdDeserializerDiffblueTest {
     when(d.currentToken()).thenReturn(JsonToken.NOT_AVAILABLE);
     when(d.nextToken()).thenReturn(JsonToken.NOT_AVAILABLE);
     when(d.getCodec()).thenReturn(BaseData.mapper);
+    doNothing().when(d).setSchema(Mockito.<FormatSchema>any());
+
     JsonParserDelegate jsonParser = new JsonParserDelegate(d);
+    jsonParser.setSchema(mock(FormatSchema.class));
 
     // Act and Assert
-    assertThrows(IOException.class, () -> entityIdDeserializer.deserialize(jsonParser,
-        new Impl(new BeanDeserializerFactory(new DeserializerFactoryConfig()))));
+    assertThrows(
+        IOException.class,
+        () ->
+            entityIdDeserializer.deserialize(
+                jsonParser,
+                new Impl(new BeanDeserializerFactory(new DeserializerFactoryConfig()))));
     verify(d).clearCurrentToken();
     verify(d, atLeast(1)).currentToken();
     verify(d).currentTokenId();
     verify(d).getCodec();
     verify(d).getReadCapabilities();
+    verify(d).setSchema(isA(FormatSchema.class));
     verify(d).nextToken();
   }
 
   /**
    * Test new {@link EntityIdDeserializer} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link EntityIdDeserializer}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link EntityIdDeserializer}
    */
   @Test
   @DisplayName("Test new EntityIdDeserializer (default constructor)")

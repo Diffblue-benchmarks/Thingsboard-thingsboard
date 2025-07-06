@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
 class EdgeInstructionsDiffblueTest {
   /**
    * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeInstructions#equals(Object)}
    *   <li>{@link EdgeInstructions#hashCode()}
@@ -38,12 +40,14 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeInstructions#equals(Object)}
    *   <li>{@link EdgeInstructions#hashCode()}
@@ -66,12 +70,14 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}, and {@link EdgeInstructions#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeInstructions#equals(Object)}
    *   <li>{@link EdgeInstructions#hashCode()}
@@ -93,12 +99,13 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeInstructions#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeInstructions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -114,12 +121,13 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeInstructions#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeInstructions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -127,8 +135,8 @@ class EdgeInstructionsDiffblueTest {
   @MethodsUnderTest({"boolean EdgeInstructions.equals(Object)", "int EdgeInstructions.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    EdgeInstructions edgeInstructions = new EdgeInstructions(
-        "org.thingsboard.server.common.data.edge.EdgeInstructions");
+    EdgeInstructions edgeInstructions =
+        new EdgeInstructions("org.thingsboard.server.common.data.edge.EdgeInstructions");
 
     // Act and Assert
     assertNotEquals(edgeInstructions, new EdgeInstructions("Instructions"));
@@ -136,12 +144,13 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeInstructions#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeInstructions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -154,12 +163,13 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test {@link EdgeInstructions#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link EdgeInstructions#equals(Object)}
+   *
+   * <p>Method under test: {@link EdgeInstructions#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -172,8 +182,9 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeInstructions#EdgeInstructions()}
    *   <li>{@link EdgeInstructions#setInstructions(String)}
@@ -184,9 +195,13 @@ class EdgeInstructionsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeInstructions.<init>()", "void EdgeInstructions.<init>(String)",
-      "String EdgeInstructions.getInstructions()", "void EdgeInstructions.setInstructions(String)",
-      "String EdgeInstructions.toString()"})
+  @MethodsUnderTest({
+    "void EdgeInstructions.<init>()",
+    "void EdgeInstructions.<init>(String)",
+    "String EdgeInstructions.getInstructions()",
+    "void EdgeInstructions.setInstructions(String)",
+    "String EdgeInstructions.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     EdgeInstructions actualEdgeInstructions = new EdgeInstructions();
@@ -200,11 +215,13 @@ class EdgeInstructionsDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@code Instructions}.</li>
+   *   <li>When {@code Instructions}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link EdgeInstructions#EdgeInstructions(String)}
    *   <li>{@link EdgeInstructions#setInstructions(String)}
@@ -215,9 +232,13 @@ class EdgeInstructionsDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; when 'Instructions'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void EdgeInstructions.<init>()", "void EdgeInstructions.<init>(String)",
-      "String EdgeInstructions.getInstructions()", "void EdgeInstructions.setInstructions(String)",
-      "String EdgeInstructions.toString()"})
+  @MethodsUnderTest({
+    "void EdgeInstructions.<init>()",
+    "void EdgeInstructions.<init>(String)",
+    "String EdgeInstructions.getInstructions()",
+    "void EdgeInstructions.setInstructions(String)",
+    "String EdgeInstructions.toString()"
+  })
   void testGettersAndSetters_whenInstructions() {
     // Arrange and Act
     EdgeInstructions actualEdgeInstructions = new EdgeInstructions("Instructions");

@@ -9,14 +9,14 @@ import org.junit.experimental.categories.Category;
 public class CacheExecutorServiceDiffblueTest {
   /**
    * Test {@link CacheExecutorService#getThreadPollSize()}.
-   * <p>
-   * Method under test: {@link CacheExecutorService#getThreadPollSize()}
+   *
+   * <p>Method under test: {@link CacheExecutorService#getThreadPollSize()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"int CacheExecutorService.getThreadPollSize()"})
   public void testGetThreadPollSize() {
     // Arrange, Act and Assert
-    assertEquals(0, (new CacheExecutorService()).getThreadPollSize());
+    assertEquals(0, new CacheExecutorService().getThreadPollSize());
   }
 }

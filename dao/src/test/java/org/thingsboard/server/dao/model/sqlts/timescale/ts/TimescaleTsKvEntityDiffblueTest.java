@@ -21,12 +21,14 @@ import org.thingsboard.server.common.data.query.TsValue;
 public class TimescaleTsKvEntityDiffblueTest {
   /**
    * Test {@link TimescaleTsKvEntity#equals(Object)}, and {@link TimescaleTsKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TimescaleTsKvEntity#equals(Object)}
    *   <li>{@link TimescaleTsKvEntity#hashCode()}
@@ -34,7 +36,10 @@ public class TimescaleTsKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean TimescaleTsKvEntity.equals(Object)", "int TimescaleTsKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TimescaleTsKvEntity.equals(Object)",
+    "int TimescaleTsKvEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TimescaleTsKvEntity timescaleTsKvEntity = new TimescaleTsKvEntity();
@@ -71,12 +76,14 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#equals(Object)}, and {@link TimescaleTsKvEntity#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TimescaleTsKvEntity#equals(Object)}
    *   <li>{@link TimescaleTsKvEntity#hashCode()}
@@ -84,7 +91,10 @@ public class TimescaleTsKvEntityDiffblueTest {
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean TimescaleTsKvEntity.equals(Object)", "int TimescaleTsKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TimescaleTsKvEntity.equals(Object)",
+    "int TimescaleTsKvEntity.hashCode()"
+  })
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TimescaleTsKvEntity timescaleTsKvEntity = new TimescaleTsKvEntity();
@@ -108,16 +118,20 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean TimescaleTsKvEntity.equals(Object)", "int TimescaleTsKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TimescaleTsKvEntity.equals(Object)",
+    "int TimescaleTsKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TimescaleTsKvEntity timescaleTsKvEntity = new TimescaleTsKvEntity();
@@ -152,16 +166,20 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean TimescaleTsKvEntity.equals(Object)", "int TimescaleTsKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TimescaleTsKvEntity.equals(Object)",
+    "int TimescaleTsKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TimescaleTsKvEntity timescaleTsKvEntity = new TimescaleTsKvEntity();
@@ -183,16 +201,20 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#equals(Object)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#equals(Object)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"boolean TimescaleTsKvEntity.equals(Object)", "int TimescaleTsKvEntity.hashCode()"})
+  @MethodsUnderTest({
+    "boolean TimescaleTsKvEntity.equals(Object)",
+    "int TimescaleTsKvEntity.hashCode()"
+  })
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TimescaleTsKvEntity timescaleTsKvEntity = new TimescaleTsKvEntity();
@@ -214,8 +236,9 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TimescaleTsKvEntity#TimescaleTsKvEntity()}
    *   <li>{@link TimescaleTsKvEntity#toString()}
@@ -244,40 +267,51 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code Agg Type}.</li>
-   *   <li>Then toData Kv return {@link StringDataEntry}.</li>
+   *   <li>When {@code Agg Type}.
+   *   <li>Then toData Kv return {@link StringDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAggType_thenToDataKvReturnStringDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "Agg Type", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "Agg Type", 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof StringDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return toData toTsValue Count longValue is one.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return toData toTsValue Count longValue is one.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAvg_thenReturnToDataToTsValueCountLongValueIsOne() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 1L, "", "AVG",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 1L, "", "AVG", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -288,21 +322,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then return toData toTsValue Value is {@code 42}.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then return toData toTsValue Value is {@code 42}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAvg_thenReturnToDataToTsValueValueIs42() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "AVG",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "AVG", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -316,97 +355,125 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then toData Kv return {@link DoubleDataEntry}.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then toData Kv return {@link DoubleDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAvg_thenToDataKvReturnDoubleDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "AVG", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "AVG", 42L).toData();
     assertTrue(toDataResult instanceof AggTsKvEntry);
     assertTrue(((AggTsKvEntry) toDataResult).getKv() instanceof DoubleDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then toData Kv return {@link DoubleDataEntry}.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then toData Kv return {@link DoubleDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAvg_thenToDataKvReturnDoubleDataEntry2() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, null, "AVG", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, null, "AVG", 42L).toData();
     assertTrue(toDataResult instanceof AggTsKvEntry);
     assertTrue(((AggTsKvEntry) toDataResult).getKv() instanceof DoubleDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code AVG}.</li>
-   *   <li>Then toData Kv return {@link DoubleDataEntry}.</li>
+   *   <li>When {@code AVG}.
+   *   <li>Then toData Kv return {@link DoubleDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenAvg_thenToDataKvReturnDoubleDataEntry3() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, null, 10.0d, 0L, 0L, "", "AVG", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, null, 10.0d, 0L, 0L, "", "AVG", 42L).toData();
     assertTrue(toDataResult instanceof AggTsKvEntry);
     assertTrue(((AggTsKvEntry) toDataResult).getKv() instanceof DoubleDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long,
+   * Long)}.
+   *
    * <ul>
-   *   <li>When forty-two.</li>
-   *   <li>Then toData Kv return {@link LongDataEntry}.</li>
+   *   <li>When forty-two.
+   *   <li>Then toData Kv return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long,
+   * Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenFortyTwo_thenToDataKvReturnLongDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, 3L, 3L, 3L, 3L, 3L, 42L)).toData();
+    TsKvEntry toDataResult = new TimescaleTsKvEntity(1L, 42L, 3L, 3L, 3L, 3L, 3L, 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof LongDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MAX}.</li>
-   *   <li>Then return DoubleValue doubleValue is forty-two.</li>
+   *   <li>When {@code MAX}.
+   *   <li>Then return DoubleValue doubleValue is forty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMax_thenReturnDoubleValueDoubleValueIsFortyTwo() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "MAX",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "MAX", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -416,21 +483,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MAX}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MAX}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMax_thenReturnDoubleValueIsNull() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "MAX",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "MAX", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -442,21 +514,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMin_thenReturnDoubleValueIsNull() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "MIN",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "MIN", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -468,21 +545,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMin_thenReturnDoubleValueIsNull2() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 1L, "", "MIN",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 1L, "", "MIN", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -494,21 +576,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMin_thenReturnDoubleValueIsNull3() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 1L, 0L, "", "MIN",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 1L, 0L, "", "MIN", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -520,40 +607,51 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code MIN}.</li>
-   *   <li>Then toData Kv return {@link StringDataEntry}.</li>
+   *   <li>When {@code MIN}.
+   *   <li>Then toData Kv return {@link StringDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenMin_thenToDataKvReturnStringDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "MIN", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "MIN", 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof StringDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
-   *   <li>Then return DoubleValue doubleValue is fifty-two.</li>
+   *   <li>When {@code SUM}.
+   *   <li>Then return DoubleValue doubleValue is fifty-two.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenSum_thenReturnDoubleValueDoubleValueIsFiftyTwo() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "SUM",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, 42L, 10.0d, 3L, 3L, "42", "SUM", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -563,21 +661,26 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
-   *   <li>Then return DoubleValue is {@code null}.</li>
+   *   <li>When {@code SUM}.
+   *   <li>Then return DoubleValue is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenSum_thenReturnDoubleValueIsNull() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "SUM",
-        42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, null, null, 0L, 0L, "", "SUM", 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -589,39 +692,51 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long,
+   * String, String, Long)}.
+   *
    * <ul>
-   *   <li>When {@code SUM}.</li>
-   *   <li>Then toData Kv return {@link StringDataEntry}.</li>
+   *   <li>When {@code SUM}.
+   *   <li>Then toData Kv return {@link StringDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double, Long, Long, String, String, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Double,
+   * Long, Long, String, String, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Double, Long, Long, String, String, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenSum_thenToDataKvReturnStringDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, null, 10.0d, 3L, 3L, "42", "SUM", 42L)).toData();
+    TsKvEntry toDataResult =
+        new TimescaleTsKvEntity(1L, 42L, null, 10.0d, 3L, 3L, "42", "SUM", 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof StringDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long,
+   * Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then return toData ValueAsString is {@code 6}.</li>
+   *   <li>When zero.
+   *   <li>Then return toData ValueAsString is {@code 6}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long,
+   * Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenZero_thenReturnToDataValueAsStringIs6() {
     // Arrange and Act
-    TimescaleTsKvEntity actualTimescaleTsKvEntity = new TimescaleTsKvEntity(1L, 42L, 0L, 0L, 3L, 3L, 0L, 42L);
+    TimescaleTsKvEntity actualTimescaleTsKvEntity =
+        new TimescaleTsKvEntity(1L, 42L, 0L, 0L, 3L, 3L, 0L, 42L);
 
     // Assert
     TsKvEntry toDataResult = actualTimescaleTsKvEntity.toData();
@@ -632,51 +747,62 @@ public class TimescaleTsKvEntityDiffblueTest {
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long,
+   * Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then toData Kv return {@link LongDataEntry}.</li>
+   *   <li>When zero.
+   *   <li>Then toData Kv return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long,
+   * Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenZero_thenToDataKvReturnLongDataEntry() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, 0L, 3L, 3L, 3L, 3L, 42L)).toData();
+    TsKvEntry toDataResult = new TimescaleTsKvEntity(1L, 42L, 0L, 3L, 3L, 3L, 3L, 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof LongDataEntry);
   }
 
   /**
-   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}.
+   * Test {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long,
+   * Long)}.
+   *
    * <ul>
-   *   <li>When zero.</li>
-   *   <li>Then toData Kv return {@link LongDataEntry}.</li>
+   *   <li>When zero.
+   *   <li>Then toData Kv return {@link LongDataEntry}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long, Long, Long, Long, Long)}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#TimescaleTsKvEntity(Long, Long, Long, Long,
+   * Long, Long, Long, Long)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({"void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"})
+  @MethodsUnderTest({
+    "void TimescaleTsKvEntity.<init>(Long, Long, Long, Long, Long, Long, Long, Long)"
+  })
   public void testNewTimescaleTsKvEntity_whenZero_thenToDataKvReturnLongDataEntry2() {
     // Arrange, Act and Assert
-    TsKvEntry toDataResult = (new TimescaleTsKvEntity(1L, 42L, 0L, 0L, 3L, 3L, 3L, 42L)).toData();
+    TsKvEntry toDataResult = new TimescaleTsKvEntity(1L, 42L, 0L, 0L, 3L, 3L, 3L, 42L).toData();
     assertTrue(toDataResult instanceof BasicTsKvEntry);
     assertTrue(((BasicTsKvEntry) toDataResult).getKv() instanceof LongDataEntry);
   }
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} BooleanValue is {@code true}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} BooleanValue is {@code true}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -702,12 +828,13 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} DoubleValue is ten.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} DoubleValue is ten.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -733,12 +860,13 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} JsonValue is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} JsonValue is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -764,12 +892,13 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} LongValue is one.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} LongValue is one.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -795,12 +924,13 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} StrValue is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} StrValue is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -826,12 +956,13 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} StrValue is {@code null}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()} StrValue is {@code null}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -857,18 +988,19 @@ public class TimescaleTsKvEntityDiffblueTest {
 
   /**
    * Test {@link TimescaleTsKvEntity#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link TimescaleTsKvEntity#TimescaleTsKvEntity()}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
+   *
+   * <p>Method under test: {@link TimescaleTsKvEntity#isNotEmpty()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"boolean TimescaleTsKvEntity.isNotEmpty()"})
   public void testIsNotEmpty_givenTimescaleTsKvEntity_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new TimescaleTsKvEntity()).isNotEmpty());
+    assertFalse(new TimescaleTsKvEntity().isNotEmpty());
   }
 }

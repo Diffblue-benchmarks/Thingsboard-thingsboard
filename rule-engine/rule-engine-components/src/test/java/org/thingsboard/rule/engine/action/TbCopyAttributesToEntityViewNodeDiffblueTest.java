@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 class TbCopyAttributesToEntityViewNodeDiffblueTest {
   /**
    * Test new {@link TbCopyAttributesToEntityViewNode} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link TbCopyAttributesToEntityViewNode}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link
+   * TbCopyAttributesToEntityViewNode}
    */
   @Test
   @DisplayName("Test new TbCopyAttributesToEntityViewNode (default constructor)")
@@ -18,6 +19,6 @@ class TbCopyAttributesToEntityViewNodeDiffblueTest {
   @MethodsUnderTest({"void TbCopyAttributesToEntityViewNode.<init>()"})
   void testNewTbCopyAttributesToEntityViewNode() {
     // Arrange, Act and Assert
-    assertNull((new TbCopyAttributesToEntityViewNode()).config);
+    assertNull(new TbCopyAttributesToEntityViewNode().config);
   }
 }

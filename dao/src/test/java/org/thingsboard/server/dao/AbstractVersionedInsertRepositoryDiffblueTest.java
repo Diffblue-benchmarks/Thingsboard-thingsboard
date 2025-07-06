@@ -35,26 +35,26 @@ public class AbstractVersionedInsertRepositoryDiffblueTest {
   @Autowired
   private AbstractVersionedInsertRepository<AttributeKvEntity> abstractVersionedInsertRepository;
 
-  @MockBean
-  private JdbcTemplate jdbcTemplate;
+  @MockBean private JdbcTemplate jdbcTemplate;
 
-  @MockBean
-  private TransactionTemplate transactionTemplate;
+  @MockBean private TransactionTemplate transactionTemplate;
 
   /**
    * Test {@link AbstractVersionedInsertRepository#saveOrUpdate(List)}.
-   * <p>
-   * Method under test: {@link AbstractVersionedInsertRepository#saveOrUpdate(List)}
+   *
+   * <p>Method under test: {@link AbstractVersionedInsertRepository#saveOrUpdate(List)}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"List AbstractVersionedInsertRepository.saveOrUpdate(List)"})
   public void testSaveOrUpdate() throws TransactionException {
     // Arrange
-    when(transactionTemplate.execute(Mockito.<TransactionCallback<Object>>any())).thenReturn(new ArrayList<>());
+    when(transactionTemplate.execute(Mockito.<TransactionCallback<Object>>any()))
+        .thenReturn(new ArrayList<>());
 
     // Act
-    List<Long> actualSaveOrUpdateResult = abstractVersionedInsertRepository.saveOrUpdate(new ArrayList<>());
+    List<Long> actualSaveOrUpdateResult =
+        abstractVersionedInsertRepository.saveOrUpdate(new ArrayList<>());
 
     // Assert
     verify(transactionTemplate).execute(isA(TransactionCallback.class));

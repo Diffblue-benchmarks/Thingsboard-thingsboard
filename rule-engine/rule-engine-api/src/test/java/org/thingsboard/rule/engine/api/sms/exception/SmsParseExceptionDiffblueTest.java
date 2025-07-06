@@ -11,17 +11,21 @@ import org.junit.jupiter.api.Test;
 class SmsParseExceptionDiffblueTest {
   /**
    * Test {@link SmsParseException#SmsParseException(String)}.
+   *
    * <ul>
-   *   <li>When {@code Msg}.</li>
-   *   <li>Then return Cause is {@code null}.</li>
+   *   <li>When {@code Msg}.
+   *   <li>Then return Cause is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsParseException#SmsParseException(String)}
+   *
+   * <p>Method under test: {@link SmsParseException#SmsParseException(String)}
    */
   @Test
   @DisplayName("Test new SmsParseException(String); when 'Msg'; then return Cause is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmsParseException.<init>(String)", "void SmsParseException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void SmsParseException.<init>(String)",
+    "void SmsParseException.<init>(String, Throwable)"
+  })
   void testNewSmsParseException_whenMsg_thenReturnCauseIsNull() {
     // Arrange and Act
     SmsParseException actualSmsParseException = new SmsParseException("Msg");
@@ -34,17 +38,22 @@ class SmsParseExceptionDiffblueTest {
 
   /**
    * Test {@link SmsParseException#SmsParseException(String, Throwable)}.
+   *
    * <ul>
-   *   <li>When {@link Throwable#Throwable()}.</li>
-   *   <li>Then return Cause is {@link Throwable#Throwable()}.</li>
+   *   <li>When {@link Throwable#Throwable()}.
+   *   <li>Then return Cause is {@link Throwable#Throwable()}.
    * </ul>
-   * <p>
-   * Method under test: {@link SmsParseException#SmsParseException(String, Throwable)}
+   *
+   * <p>Method under test: {@link SmsParseException#SmsParseException(String, Throwable)}
    */
   @Test
-  @DisplayName("Test new SmsParseException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @DisplayName(
+      "Test new SmsParseException(String, Throwable); when Throwable(); then return Cause is Throwable()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void SmsParseException.<init>(String)", "void SmsParseException.<init>(String, Throwable)"})
+  @MethodsUnderTest({
+    "void SmsParseException.<init>(String)",
+    "void SmsParseException.<init>(String, Throwable)"
+  })
   void testNewSmsParseException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();

@@ -14,11 +14,12 @@ import org.thingsboard.common.util.ThingsBoardThreadFactory;
 class ActorSystemContextDiffblueTest {
   /**
    * Test {@link ActorSystemContext#getScheduler()}.
+   *
    * <ul>
-   *   <li>Then return {@link ScheduledThreadPoolExecutor}.</li>
+   *   <li>Then return {@link ScheduledThreadPoolExecutor}.
    * </ul>
-   * <p>
-   * Method under test: {@link ActorSystemContext#getScheduler()}
+   *
+   * <p>Method under test: {@link ActorSystemContext#getScheduler()}
    */
   @Test
   @DisplayName("Test getScheduler(); then return ScheduledThreadPoolExecutor")
@@ -38,17 +39,24 @@ class ActorSystemContextDiffblueTest {
 
     // Assert
     assertTrue(actualScheduler instanceof ScheduledThreadPoolExecutor);
-    assertTrue(((ScheduledThreadPoolExecutor) actualScheduler).getThreadFactory() instanceof ThingsBoardThreadFactory);
+    assertTrue(
+        ((ScheduledThreadPoolExecutor) actualScheduler).getThreadFactory()
+            instanceof ThingsBoardThreadFactory);
     assertEquals(0, ((ScheduledThreadPoolExecutor) actualScheduler).getActiveCount());
     assertEquals(0, ((ScheduledThreadPoolExecutor) actualScheduler).getLargestPoolSize());
     assertEquals(0, ((ScheduledThreadPoolExecutor) actualScheduler).getPoolSize());
     assertEquals(0L, ((ScheduledThreadPoolExecutor) actualScheduler).getCompletedTaskCount());
     assertEquals(0L, ((ScheduledThreadPoolExecutor) actualScheduler).getTaskCount());
     assertEquals(3, ((ScheduledThreadPoolExecutor) actualScheduler).getCorePoolSize());
-    assertFalse(((ScheduledThreadPoolExecutor) actualScheduler).getContinueExistingPeriodicTasksAfterShutdownPolicy());
+    assertFalse(
+        ((ScheduledThreadPoolExecutor) actualScheduler)
+            .getContinueExistingPeriodicTasksAfterShutdownPolicy());
     assertFalse(((ScheduledThreadPoolExecutor) actualScheduler).getRemoveOnCancelPolicy());
     assertTrue(((ScheduledThreadPoolExecutor) actualScheduler).getQueue().isEmpty());
-    assertTrue(((ScheduledThreadPoolExecutor) actualScheduler).getExecuteExistingDelayedTasksAfterShutdownPolicy());
-    assertEquals(Integer.MAX_VALUE, ((ScheduledThreadPoolExecutor) actualScheduler).getMaximumPoolSize());
+    assertTrue(
+        ((ScheduledThreadPoolExecutor) actualScheduler)
+            .getExecuteExistingDelayedTasksAfterShutdownPolicy());
+    assertEquals(
+        Integer.MAX_VALUE, ((ScheduledThreadPoolExecutor) actualScheduler).getMaximumPoolSize());
   }
 }

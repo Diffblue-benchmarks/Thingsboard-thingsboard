@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 class FirstEventActivityStrategyDiffblueTest {
   /**
    * Test {@link FirstEventActivityStrategy#onActivity()}.
-   * <p>
-   * Method under test: {@link FirstEventActivityStrategy#onActivity()}
+   *
+   * <p>Method under test: {@link FirstEventActivityStrategy#onActivity()}
    */
   @Test
   @DisplayName("Test onActivity()")
@@ -21,17 +21,20 @@ class FirstEventActivityStrategyDiffblueTest {
   @MethodsUnderTest({"boolean FirstEventActivityStrategy.onActivity()"})
   void testOnActivity() {
     // Arrange, Act and Assert
-    assertTrue((new FirstEventActivityStrategy()).onActivity());
+    assertTrue(new FirstEventActivityStrategy().onActivity());
   }
 
   /**
-   * Test {@link FirstEventActivityStrategy#equals(Object)}, and {@link FirstEventActivityStrategy#hashCode()}.
+   * Test {@link FirstEventActivityStrategy#equals(Object)}, and {@link
+   * FirstEventActivityStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FirstEventActivityStrategy#equals(Object)}
    *   <li>{@link FirstEventActivityStrategy#hashCode()}
@@ -40,7 +43,10 @@ class FirstEventActivityStrategyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FirstEventActivityStrategy.equals(Object)", "int FirstEventActivityStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FirstEventActivityStrategy.equals(Object)",
+    "int FirstEventActivityStrategy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     FirstEventActivityStrategy firstEventActivityStrategy = new FirstEventActivityStrategy();
@@ -53,13 +59,16 @@ class FirstEventActivityStrategyDiffblueTest {
   }
 
   /**
-   * Test {@link FirstEventActivityStrategy#equals(Object)}, and {@link FirstEventActivityStrategy#hashCode()}.
+   * Test {@link FirstEventActivityStrategy#equals(Object)}, and {@link
+   * FirstEventActivityStrategy#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link FirstEventActivityStrategy#equals(Object)}
    *   <li>{@link FirstEventActivityStrategy#hashCode()}
@@ -68,7 +77,10 @@ class FirstEventActivityStrategyDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FirstEventActivityStrategy.equals(Object)", "int FirstEventActivityStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FirstEventActivityStrategy.equals(Object)",
+    "int FirstEventActivityStrategy.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     FirstEventActivityStrategy firstEventActivityStrategy = new FirstEventActivityStrategy();
@@ -81,17 +93,21 @@ class FirstEventActivityStrategyDiffblueTest {
 
   /**
    * Test {@link FirstEventActivityStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FirstEventActivityStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link FirstEventActivityStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FirstEventActivityStrategy.equals(Object)", "int FirstEventActivityStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FirstEventActivityStrategy.equals(Object)",
+    "int FirstEventActivityStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new FirstEventActivityStrategy(), 1);
@@ -99,17 +115,21 @@ class FirstEventActivityStrategyDiffblueTest {
 
   /**
    * Test {@link FirstEventActivityStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FirstEventActivityStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link FirstEventActivityStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FirstEventActivityStrategy.equals(Object)", "int FirstEventActivityStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FirstEventActivityStrategy.equals(Object)",
+    "int FirstEventActivityStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new FirstEventActivityStrategy(), null);
@@ -117,26 +137,32 @@ class FirstEventActivityStrategyDiffblueTest {
 
   /**
    * Test {@link FirstEventActivityStrategy#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link FirstEventActivityStrategy#equals(Object)}
+   *
+   * <p>Method under test: {@link FirstEventActivityStrategy#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean FirstEventActivityStrategy.equals(Object)", "int FirstEventActivityStrategy.hashCode()"})
+  @MethodsUnderTest({
+    "boolean FirstEventActivityStrategy.equals(Object)",
+    "int FirstEventActivityStrategy.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new FirstEventActivityStrategy(), "Different type to FirstEventActivityStrategy");
+    assertNotEquals(
+        new FirstEventActivityStrategy(), "Different type to FirstEventActivityStrategy");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link FirstEventActivityStrategy}
    *   <li>{@link FirstEventActivityStrategy#onReportingPeriodEnd()}
@@ -146,16 +172,21 @@ class FirstEventActivityStrategyDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void FirstEventActivityStrategy.<init>()",
-      "boolean FirstEventActivityStrategy.onReportingPeriodEnd()",
-      "java.lang.String FirstEventActivityStrategy.toString()"})
+  @MethodsUnderTest({
+    "void FirstEventActivityStrategy.<init>()",
+    "boolean FirstEventActivityStrategy.onReportingPeriodEnd()",
+    "java.lang.String FirstEventActivityStrategy.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     FirstEventActivityStrategy actualFirstEventActivityStrategy = new FirstEventActivityStrategy();
-    boolean actualOnReportingPeriodEndResult = actualFirstEventActivityStrategy.onReportingPeriodEnd();
+    boolean actualOnReportingPeriodEndResult =
+        actualFirstEventActivityStrategy.onReportingPeriodEnd();
 
     // Assert
-    assertEquals("FirstEventActivityStrategy(firstEventReceived=false)", actualFirstEventActivityStrategy.toString());
+    assertEquals(
+        "FirstEventActivityStrategy(firstEventReceived=false)",
+        actualFirstEventActivityStrategy.toString());
     assertFalse(actualOnReportingPeriodEndResult);
   }
 }

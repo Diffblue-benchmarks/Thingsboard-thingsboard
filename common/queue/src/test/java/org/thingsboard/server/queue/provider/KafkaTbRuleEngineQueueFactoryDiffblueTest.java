@@ -24,15 +24,18 @@ import org.thingsboard.server.queue.settings.TbQueueTransportNotificationSetting
 
 class KafkaTbRuleEngineQueueFactoryDiffblueTest {
   /**
-   * Test {@link KafkaTbRuleEngineQueueFactory#createToRuleEngineMsgConsumer(Queue)} with {@code configuration}.
-   * <p>
-   * Method under test: {@link KafkaTbRuleEngineQueueFactory#createToRuleEngineMsgConsumer(Queue)}
+   * Test {@link KafkaTbRuleEngineQueueFactory#createToRuleEngineMsgConsumer(Queue)} with {@code
+   * configuration}.
+   *
+   * <p>Method under test: {@link
+   * KafkaTbRuleEngineQueueFactory#createToRuleEngineMsgConsumer(Queue)}
    */
   @Test
   @DisplayName("Test createToRuleEngineMsgConsumer(Queue) with 'configuration'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.queue.TbQueueConsumer KafkaTbRuleEngineQueueFactory.createToRuleEngineMsgConsumer(Queue)"})
+    "org.thingsboard.server.queue.TbQueueConsumer KafkaTbRuleEngineQueueFactory.createToRuleEngineMsgConsumer(Queue)"
+  })
   void testCreateToRuleEngineMsgConsumerWithConfiguration() {
     // Arrange
     TbKafkaTopicConfigs kafkaTopicConfigs = mock(TbKafkaTopicConfigs.class);
@@ -51,16 +54,27 @@ class KafkaTbRuleEngineQueueFactoryDiffblueTest {
     TbQueueRuleEngineSettings ruleEngineSettings = new TbQueueRuleEngineSettings();
     TbQueueRemoteJsInvokeSettings jsInvokeSettings = new TbQueueRemoteJsInvokeSettings();
     TbKafkaSettings kafkaSettings2 = new TbKafkaSettings();
-    TbKafkaConsumerStatsService consumerStatsService = new TbKafkaConsumerStatsService(kafkaSettings2,
-        new TbKafkaConsumerStatisticConfig());
+    TbKafkaConsumerStatsService consumerStatsService =
+        new TbKafkaConsumerStatsService(kafkaSettings2, new TbKafkaConsumerStatisticConfig());
 
-    TbQueueTransportNotificationSettings transportNotificationSettings = new TbQueueTransportNotificationSettings();
-    KafkaTbRuleEngineQueueFactory kafkaTbRuleEngineQueueFactory = new KafkaTbRuleEngineQueueFactory(topicService,
-        kafkaSettings, serviceInfoProvider, coreSettings, ruleEngineSettings, jsInvokeSettings, consumerStatsService,
-        transportNotificationSettings, new TbQueueEdgeSettings(), kafkaTopicConfigs);
+    TbQueueTransportNotificationSettings transportNotificationSettings =
+        new TbQueueTransportNotificationSettings();
+    KafkaTbRuleEngineQueueFactory kafkaTbRuleEngineQueueFactory =
+        new KafkaTbRuleEngineQueueFactory(
+            topicService,
+            kafkaSettings,
+            serviceInfoProvider,
+            coreSettings,
+            ruleEngineSettings,
+            jsInvokeSettings,
+            consumerStatsService,
+            transportNotificationSettings,
+            new TbQueueEdgeSettings(),
+            kafkaTopicConfigs);
 
     // Act and Assert
-    assertThrows(UnsupportedOperationException.class,
+    assertThrows(
+        UnsupportedOperationException.class,
         () -> kafkaTbRuleEngineQueueFactory.createToRuleEngineMsgConsumer(new Queue()));
     verify(kafkaTopicConfigs).getCoreConfigs();
     verify(kafkaTopicConfigs).getEdgeConfigs();

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ComponentDescriptorIdDiffblueTest {
   /**
    * Test {@link ComponentDescriptorId#ComponentDescriptorId(UUID)}.
-   * <p>
-   * Method under test: {@link ComponentDescriptorId#ComponentDescriptorId(UUID)}
+   *
+   * <p>Method under test: {@link ComponentDescriptorId#ComponentDescriptorId(UUID)}
    */
   @Test
   @DisplayName("Test new ComponentDescriptorId(UUID)")
@@ -23,7 +23,7 @@ class ComponentDescriptorIdDiffblueTest {
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
     // Act and Assert
-    UUID id2 = (new ComponentDescriptorId(id)).getId();
+    UUID id2 = new ComponentDescriptorId(id).getId();
     assertEquals("784f394c-42b6-435a-983c-b7beff2784f9", id2.toString());
     assertSame(id, id2);
   }

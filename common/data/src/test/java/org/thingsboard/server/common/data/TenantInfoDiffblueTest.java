@@ -15,12 +15,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class TenantInfoDiffblueTest {
   /**
    * Test {@link TenantInfo#equals(Object)}, and {@link TenantInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantInfo#equals(Object)}
    *   <li>{@link TenantInfo#hashCode()}
@@ -43,12 +45,14 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}, and {@link TenantInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantInfo#equals(Object)}
    *   <li>{@link TenantInfo#hashCode()}
@@ -71,12 +75,14 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}, and {@link TenantInfo#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantInfo#equals(Object)}
    *   <li>{@link TenantInfo#hashCode()}
@@ -98,12 +104,13 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -119,12 +126,13 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -140,12 +148,13 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -158,12 +167,13 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link TenantInfo#equals(Object)}
+   *
+   * <p>Method under test: {@link TenantInfo#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -176,11 +186,13 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantInfo#TenantInfo()}
    *   <li>{@link TenantInfo#setTenantProfileName(String)}
@@ -191,9 +203,13 @@ class TenantInfoDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantInfo.<init>()", "void TenantInfo.<init>(TenantId)",
-      "String TenantInfo.getTenantProfileName()", "void TenantInfo.setTenantProfileName(String)",
-      "String TenantInfo.toString()"})
+  @MethodsUnderTest({
+    "void TenantInfo.<init>()",
+    "void TenantInfo.<init>(TenantId)",
+    "String TenantInfo.getTenantProfileName()",
+    "void TenantInfo.setTenantProfileName(String)",
+    "String TenantInfo.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     TenantInfo actualTenantInfo = new TenantInfo();
@@ -222,12 +238,14 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>When {@link TenantId#SYS_TENANT_ID}.</li>
-   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID} {@link TenantId#SYS_TENANT_ID}.</li>
+   *   <li>When {@link TenantId#SYS_TENANT_ID}.
+   *   <li>Then return Id is {@link TenantId#SYS_TENANT_ID} {@link TenantId#SYS_TENANT_ID}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link TenantInfo#TenantInfo(TenantId)}
    *   <li>{@link TenantInfo#setTenantProfileName(String)}
@@ -236,11 +254,16 @@ class TenantInfoDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when SYS_TENANT_ID; then return Id is SYS_TENANT_ID SYS_TENANT_ID")
+  @DisplayName(
+      "Test getters and setters; when SYS_TENANT_ID; then return Id is SYS_TENANT_ID SYS_TENANT_ID")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void TenantInfo.<init>()", "void TenantInfo.<init>(TenantId)",
-      "String TenantInfo.getTenantProfileName()", "void TenantInfo.setTenantProfileName(String)",
-      "String TenantInfo.toString()"})
+  @MethodsUnderTest({
+    "void TenantInfo.<init>()",
+    "void TenantInfo.<init>(TenantId)",
+    "String TenantInfo.getTenantProfileName()",
+    "void TenantInfo.setTenantProfileName(String)",
+    "String TenantInfo.toString()"
+  })
   void testGettersAndSetters_whenSys_tenant_id_thenReturnIdIsSys_tenant_idSys_tenant_id() {
     // Arrange
     TenantId tenantId = TenantId.SYS_TENANT_ID;
@@ -273,8 +296,8 @@ class TenantInfoDiffblueTest {
 
   /**
    * Test {@link TenantInfo#TenantInfo(Tenant, String)}.
-   * <p>
-   * Method under test: {@link TenantInfo#TenantInfo(Tenant, String)}
+   *
+   * <p>Method under test: {@link TenantInfo#TenantInfo(Tenant, String)}
    */
   @Test
   @DisplayName("Test new TenantInfo(Tenant, String)")

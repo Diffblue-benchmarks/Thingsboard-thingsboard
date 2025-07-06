@@ -16,13 +16,16 @@ import org.thingsboard.server.common.data.oauth2.OAuth2MapperConfig.OAuth2Mapper
 
 class OAuth2ClientRegistrationTemplateDiffblueTest {
   /**
-   * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}, and {@link OAuth2ClientRegistrationTemplate#hashCode()}.
+   * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}, and {@link
+   * OAuth2ClientRegistrationTemplate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientRegistrationTemplate#equals(Object)}
    *   <li>{@link OAuth2ClientRegistrationTemplate#hashCode()}
@@ -31,12 +34,16 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
 
     // Act and Assert
     assertEquals(oAuth2ClientRegistrationTemplate, oAuth2ClientRegistrationTemplate2);
@@ -45,13 +52,16 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}, and {@link OAuth2ClientRegistrationTemplate#hashCode()}.
+   * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}, and {@link
+   * OAuth2ClientRegistrationTemplate#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientRegistrationTemplate#equals(Object)}
    *   <li>{@link OAuth2ClientRegistrationTemplate#hashCode()}
@@ -60,11 +70,14 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
     // Act and Assert
     assertEquals(oAuth2ClientRegistrationTemplate, oAuth2ClientRegistrationTemplate);
@@ -74,22 +87,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate(
-        new OAuth2ClientRegistrationTemplate());
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
 
     // Act and Assert
     assertNotEquals(oAuth2ClientRegistrationTemplate, new OAuth2ClientRegistrationTemplate());
@@ -97,21 +113,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setProviderId("42");
 
     // Act and Assert
@@ -120,41 +140,46 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     oAuth2ClientRegistrationTemplate.setMapperConfig(mapperConfig);
 
@@ -164,21 +189,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setAuthorizationUri("JaneDoe");
 
     // Act and Assert
@@ -187,21 +216,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setAccessTokenUri("ABC123");
 
     // Act and Assert
@@ -210,21 +243,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setScope(new ArrayList<>());
 
     // Act and Assert
@@ -233,21 +270,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setUserInfoUri("User Info Uri");
 
     // Act and Assert
@@ -256,21 +297,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setUserNameAttributeName("janedoe");
 
     // Act and Assert
@@ -279,21 +324,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setJwkSetUri("Jwk Set Uri");
 
     // Act and Assert
@@ -302,21 +351,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setClientAuthenticationMethod("Client Authentication Method");
 
     // Act and Assert
@@ -325,21 +378,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setComment("Comment");
 
     // Act and Assert
@@ -348,21 +405,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setLoginButtonIcon("Login Button Icon");
 
     // Act and Assert
@@ -371,21 +432,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setLoginButtonLabel("Login Button Label");
 
     // Act and Assert
@@ -394,21 +459,25 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate.setHelpLink("Help Link");
 
     // Act and Assert
@@ -417,23 +486,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setProviderId("42");
 
     // Act and Assert
@@ -442,43 +516,49 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     oAuth2ClientRegistrationTemplate2.setMapperConfig(mapperConfig);
 
@@ -488,23 +568,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setAuthorizationUri("JaneDoe");
 
     // Act and Assert
@@ -513,23 +598,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setAccessTokenUri("ABC123");
 
     // Act and Assert
@@ -538,23 +628,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setScope(new ArrayList<>());
 
     // Act and Assert
@@ -563,23 +658,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setUserInfoUri("User Info Uri");
 
     // Act and Assert
@@ -588,23 +688,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setUserNameAttributeName("janedoe");
 
     // Act and Assert
@@ -613,23 +718,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setJwkSetUri("Jwk Set Uri");
 
     // Act and Assert
@@ -638,23 +748,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setClientAuthenticationMethod("Client Authentication Method");
 
     // Act and Assert
@@ -663,23 +778,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setComment("Comment");
 
     // Act and Assert
@@ -688,23 +808,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setLoginButtonIcon("Login Button Icon");
 
     // Act and Assert
@@ -713,23 +838,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setLoginButtonLabel("Login Button Label");
 
     // Act and Assert
@@ -738,23 +868,28 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
 
-    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate oAuth2ClientRegistrationTemplate2 =
+        new OAuth2ClientRegistrationTemplate();
     oAuth2ClientRegistrationTemplate2.setHelpLink("Help Link");
 
     // Act and Assert
@@ -763,18 +898,21 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new OAuth2ClientRegistrationTemplate(), null);
@@ -782,27 +920,33 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
 
   /**
    * Test {@link OAuth2ClientRegistrationTemplate#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
+   *
+   * <p>Method under test: {@link OAuth2ClientRegistrationTemplate#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean OAuth2ClientRegistrationTemplate.equals(Object)",
-      "int OAuth2ClientRegistrationTemplate.hashCode()"})
+  @MethodsUnderTest({
+    "boolean OAuth2ClientRegistrationTemplate.equals(Object)",
+    "int OAuth2ClientRegistrationTemplate.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new OAuth2ClientRegistrationTemplate(), "Different type to OAuth2ClientRegistrationTemplate");
+    assertNotEquals(
+        new OAuth2ClientRegistrationTemplate(),
+        "Different type to OAuth2ClientRegistrationTemplate");
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate()}
    *   <li>{@link OAuth2ClientRegistrationTemplate#setAccessTokenUri(String)}
@@ -838,63 +982,71 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientRegistrationTemplate.<init>()",
-      "String OAuth2ClientRegistrationTemplate.getAccessTokenUri()",
-      "String OAuth2ClientRegistrationTemplate.getAuthorizationUri()",
-      "String OAuth2ClientRegistrationTemplate.getClientAuthenticationMethod()",
-      "String OAuth2ClientRegistrationTemplate.getComment()", "String OAuth2ClientRegistrationTemplate.getHelpLink()",
-      "String OAuth2ClientRegistrationTemplate.getJwkSetUri()",
-      "String OAuth2ClientRegistrationTemplate.getLoginButtonIcon()",
-      "String OAuth2ClientRegistrationTemplate.getLoginButtonLabel()",
-      "OAuth2MapperConfig OAuth2ClientRegistrationTemplate.getMapperConfig()",
-      "String OAuth2ClientRegistrationTemplate.getName()", "String OAuth2ClientRegistrationTemplate.getProviderId()",
-      "List OAuth2ClientRegistrationTemplate.getScope()", "String OAuth2ClientRegistrationTemplate.getUserInfoUri()",
-      "String OAuth2ClientRegistrationTemplate.getUserNameAttributeName()",
-      "void OAuth2ClientRegistrationTemplate.setAccessTokenUri(String)",
-      "void OAuth2ClientRegistrationTemplate.setAuthorizationUri(String)",
-      "void OAuth2ClientRegistrationTemplate.setClientAuthenticationMethod(String)",
-      "void OAuth2ClientRegistrationTemplate.setComment(String)",
-      "void OAuth2ClientRegistrationTemplate.setHelpLink(String)",
-      "void OAuth2ClientRegistrationTemplate.setJwkSetUri(String)",
-      "void OAuth2ClientRegistrationTemplate.setLoginButtonIcon(String)",
-      "void OAuth2ClientRegistrationTemplate.setLoginButtonLabel(String)",
-      "void OAuth2ClientRegistrationTemplate.setMapperConfig(OAuth2MapperConfig)",
-      "void OAuth2ClientRegistrationTemplate.setProviderId(String)",
-      "void OAuth2ClientRegistrationTemplate.setScope(List)",
-      "void OAuth2ClientRegistrationTemplate.setUserInfoUri(String)",
-      "void OAuth2ClientRegistrationTemplate.setUserNameAttributeName(String)",
-      "String OAuth2ClientRegistrationTemplate.toString()"})
+  @MethodsUnderTest({
+    "void OAuth2ClientRegistrationTemplate.<init>()",
+    "String OAuth2ClientRegistrationTemplate.getAccessTokenUri()",
+    "String OAuth2ClientRegistrationTemplate.getAuthorizationUri()",
+    "String OAuth2ClientRegistrationTemplate.getClientAuthenticationMethod()",
+    "String OAuth2ClientRegistrationTemplate.getComment()",
+    "String OAuth2ClientRegistrationTemplate.getHelpLink()",
+    "String OAuth2ClientRegistrationTemplate.getJwkSetUri()",
+    "String OAuth2ClientRegistrationTemplate.getLoginButtonIcon()",
+    "String OAuth2ClientRegistrationTemplate.getLoginButtonLabel()",
+    "OAuth2MapperConfig OAuth2ClientRegistrationTemplate.getMapperConfig()",
+    "String OAuth2ClientRegistrationTemplate.getName()",
+    "String OAuth2ClientRegistrationTemplate.getProviderId()",
+    "List OAuth2ClientRegistrationTemplate.getScope()",
+    "String OAuth2ClientRegistrationTemplate.getUserInfoUri()",
+    "String OAuth2ClientRegistrationTemplate.getUserNameAttributeName()",
+    "void OAuth2ClientRegistrationTemplate.setAccessTokenUri(String)",
+    "void OAuth2ClientRegistrationTemplate.setAuthorizationUri(String)",
+    "void OAuth2ClientRegistrationTemplate.setClientAuthenticationMethod(String)",
+    "void OAuth2ClientRegistrationTemplate.setComment(String)",
+    "void OAuth2ClientRegistrationTemplate.setHelpLink(String)",
+    "void OAuth2ClientRegistrationTemplate.setJwkSetUri(String)",
+    "void OAuth2ClientRegistrationTemplate.setLoginButtonIcon(String)",
+    "void OAuth2ClientRegistrationTemplate.setLoginButtonLabel(String)",
+    "void OAuth2ClientRegistrationTemplate.setMapperConfig(OAuth2MapperConfig)",
+    "void OAuth2ClientRegistrationTemplate.setProviderId(String)",
+    "void OAuth2ClientRegistrationTemplate.setScope(List)",
+    "void OAuth2ClientRegistrationTemplate.setUserInfoUri(String)",
+    "void OAuth2ClientRegistrationTemplate.setUserNameAttributeName(String)",
+    "String OAuth2ClientRegistrationTemplate.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
-    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate();
+    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate();
     actualOAuth2ClientRegistrationTemplate.setAccessTokenUri("ABC123");
     actualOAuth2ClientRegistrationTemplate.setAuthorizationUri("JaneDoe");
-    actualOAuth2ClientRegistrationTemplate.setClientAuthenticationMethod("Client Authentication Method");
+    actualOAuth2ClientRegistrationTemplate.setClientAuthenticationMethod(
+        "Client Authentication Method");
     actualOAuth2ClientRegistrationTemplate.setComment("Comment");
     actualOAuth2ClientRegistrationTemplate.setHelpLink("Help Link");
     actualOAuth2ClientRegistrationTemplate.setJwkSetUri("Jwk Set Uri");
     actualOAuth2ClientRegistrationTemplate.setLoginButtonIcon("Login Button Icon");
     actualOAuth2ClientRegistrationTemplate.setLoginButtonLabel("Login Button Label");
-    OAuth2MapperConfigBuilder allowUserCreationResult = OAuth2MapperConfig.builder()
-        .activateUser(true)
-        .allowUserCreation(true);
-    OAuth2BasicMapperConfig basic = OAuth2BasicMapperConfig.builder()
-        .alwaysFullScreen(true)
-        .customerNamePattern("Customer Name Pattern")
-        .defaultDashboardName("Default Dashboard Name")
-        .emailAttributeKey("jane.doe@example.org")
-        .firstNameAttributeKey("Jane")
-        .lastNameAttributeKey("Doe")
-        .tenantNamePattern("Tenant Name Pattern")
-        .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
-        .build();
+    OAuth2MapperConfigBuilder allowUserCreationResult =
+        OAuth2MapperConfig.builder().activateUser(true).allowUserCreation(true);
+    OAuth2BasicMapperConfig basic =
+        OAuth2BasicMapperConfig.builder()
+            .alwaysFullScreen(true)
+            .customerNamePattern("Customer Name Pattern")
+            .defaultDashboardName("Default Dashboard Name")
+            .emailAttributeKey("jane.doe@example.org")
+            .firstNameAttributeKey("Jane")
+            .lastNameAttributeKey("Doe")
+            .tenantNamePattern("Tenant Name Pattern")
+            .tenantNameStrategy(TenantNameStrategyType.DOMAIN)
+            .build();
     OAuth2MapperConfigBuilder basicResult = allowUserCreationResult.basic(basic);
-    OAuth2CustomMapperConfig custom = OAuth2CustomMapperConfig.builder()
-        .password("iloveyou")
-        .sendToken(true)
-        .url("https://example.org/example")
-        .username("janedoe")
-        .build();
+    OAuth2CustomMapperConfig custom =
+        OAuth2CustomMapperConfig.builder()
+            .password("iloveyou")
+            .sendToken(true)
+            .url("https://example.org/example")
+            .username("janedoe")
+            .build();
     OAuth2MapperConfig mapperConfig = basicResult.custom(custom).type(MapperType.BASIC).build();
     actualOAuth2ClientRegistrationTemplate.setMapperConfig(mapperConfig);
     actualOAuth2ClientRegistrationTemplate.setProviderId("42");
@@ -905,13 +1057,15 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
     String actualToStringResult = actualOAuth2ClientRegistrationTemplate.toString();
     String actualAccessTokenUri = actualOAuth2ClientRegistrationTemplate.getAccessTokenUri();
     String actualAuthorizationUri = actualOAuth2ClientRegistrationTemplate.getAuthorizationUri();
-    String actualClientAuthenticationMethod = actualOAuth2ClientRegistrationTemplate.getClientAuthenticationMethod();
+    String actualClientAuthenticationMethod =
+        actualOAuth2ClientRegistrationTemplate.getClientAuthenticationMethod();
     String actualComment = actualOAuth2ClientRegistrationTemplate.getComment();
     String actualHelpLink = actualOAuth2ClientRegistrationTemplate.getHelpLink();
     String actualJwkSetUri = actualOAuth2ClientRegistrationTemplate.getJwkSetUri();
     String actualLoginButtonIcon = actualOAuth2ClientRegistrationTemplate.getLoginButtonIcon();
     String actualLoginButtonLabel = actualOAuth2ClientRegistrationTemplate.getLoginButtonLabel();
-    OAuth2MapperConfig actualMapperConfig = actualOAuth2ClientRegistrationTemplate.getMapperConfig();
+    OAuth2MapperConfig actualMapperConfig =
+        actualOAuth2ClientRegistrationTemplate.getMapperConfig();
     String actualName = actualOAuth2ClientRegistrationTemplate.getName();
     String actualProviderId = actualOAuth2ClientRegistrationTemplate.getProviderId();
     List<String> actualScope = actualOAuth2ClientRegistrationTemplate.getScope();
@@ -949,18 +1103,23 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
+   * Test {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @DisplayName("Test new OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"})
+  @MethodsUnderTest({
+    "void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"
+  })
   void testNewOAuth2ClientRegistrationTemplate() {
     // Arrange and Act
-    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate(
-        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate()));
+    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(
+            new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate()));
 
     // Assert
     assertTrue(actualOAuth2ClientRegistrationTemplate.getAdditionalInfo() instanceof NullNode);
@@ -984,19 +1143,24 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
+   * Test {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
+   *
+   * <p>Method under test: {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
    */
   @Test
   @DisplayName("Test new OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"})
+  @MethodsUnderTest({
+    "void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"
+  })
   void testNewOAuth2ClientRegistrationTemplate2() {
     // Arrange and Act
-    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate(
+    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate =
         new OAuth2ClientRegistrationTemplate(
-            new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate())));
+            new OAuth2ClientRegistrationTemplate(
+                new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate())));
 
     // Assert
     assertTrue(actualOAuth2ClientRegistrationTemplate.getAdditionalInfo() instanceof NullNode);
@@ -1020,21 +1184,27 @@ class OAuth2ClientRegistrationTemplateDiffblueTest {
   }
 
   /**
-   * Test {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
+   * Test {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}.
+   *
    * <ul>
-   *   <li>When {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate()}.</li>
+   *   <li>When {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate()}.
    * </ul>
-   * <p>
-   * Method under test: {@link OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
+   *
+   * <p>Method under test: {@link
+   * OAuth2ClientRegistrationTemplate#OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate)}
    */
   @Test
-  @DisplayName("Test new OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate); when OAuth2ClientRegistrationTemplate()")
+  @DisplayName(
+      "Test new OAuth2ClientRegistrationTemplate(OAuth2ClientRegistrationTemplate); when OAuth2ClientRegistrationTemplate()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"})
+  @MethodsUnderTest({
+    "void OAuth2ClientRegistrationTemplate.<init>(OAuth2ClientRegistrationTemplate)"
+  })
   void testNewOAuth2ClientRegistrationTemplate_whenOAuth2ClientRegistrationTemplate() {
     // Arrange and Act
-    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate = new OAuth2ClientRegistrationTemplate(
-        new OAuth2ClientRegistrationTemplate());
+    OAuth2ClientRegistrationTemplate actualOAuth2ClientRegistrationTemplate =
+        new OAuth2ClientRegistrationTemplate(new OAuth2ClientRegistrationTemplate());
 
     // Assert
     assertTrue(actualOAuth2ClientRegistrationTemplate.getAdditionalInfo() instanceof NullNode);

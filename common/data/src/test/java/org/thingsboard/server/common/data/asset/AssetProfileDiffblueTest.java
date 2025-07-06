@@ -14,29 +14,33 @@ import org.thingsboard.server.common.data.id.TenantId;
 class AssetProfileDiffblueTest {
   /**
    * Test {@link AssetProfile#getExternalId()}.
-   * <p>
-   * Method under test: {@link AssetProfile#getExternalId()}
+   *
+   * <p>Method under test: {@link AssetProfile#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetProfileId AssetProfile.getExternalId()"})
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.id.AssetProfileId AssetProfile.getExternalId()"
+  })
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new AssetProfile()).getExternalId());
+    assertNull(new AssetProfile().getExternalId());
   }
 
   /**
    * Test {@link AssetProfile#AssetProfile(AssetProfile)}.
+   *
    * <ul>
-   *   <li>Given {@code true}.</li>
-   *   <li>When {@link AssetProfile#AssetProfile()} Default is {@code true}.</li>
+   *   <li>Given {@code true}.
+   *   <li>When {@link AssetProfile#AssetProfile()} Default is {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#AssetProfile(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfile#AssetProfile(AssetProfile)}
    */
   @Test
-  @DisplayName("Test new AssetProfile(AssetProfile); given 'true'; when AssetProfile() Default is 'true'")
+  @DisplayName(
+      "Test new AssetProfile(AssetProfile); given 'true'; when AssetProfile() Default is 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfile.<init>(AssetProfile)"})
   void testNewAssetProfile_givenTrue_whenAssetProfileDefaultIsTrue() {
@@ -50,11 +54,12 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#AssetProfile(AssetProfile)}.
+   *
    * <ul>
-   *   <li>When {@link AssetProfile#AssetProfile()}.</li>
+   *   <li>When {@link AssetProfile#AssetProfile()}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#AssetProfile(AssetProfile)}
+   *
+   * <p>Method under test: {@link AssetProfile#AssetProfile(AssetProfile)}
    */
   @Test
   @DisplayName("Test new AssetProfile(AssetProfile); when AssetProfile()")
@@ -70,8 +75,8 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#getId()}.
-   * <p>
-   * Method under test: {@link AssetProfile#getId()}
+   *
+   * <p>Method under test: {@link AssetProfile#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -79,13 +84,13 @@ class AssetProfileDiffblueTest {
   @MethodsUnderTest({"org.thingsboard.server.common.data.id.AssetProfileId AssetProfile.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new AssetProfile()).getId());
+    assertNull(new AssetProfile().getId());
   }
 
   /**
    * Test {@link AssetProfile#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link AssetProfile#getCreatedTime()}
+   *
+   * <p>Method under test: {@link AssetProfile#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -93,17 +98,19 @@ class AssetProfileDiffblueTest {
   @MethodsUnderTest({"long AssetProfile.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new AssetProfile()).getCreatedTime());
+    assertEquals(0L, new AssetProfile().getCreatedTime());
   }
 
   /**
    * Test {@link AssetProfile#equals(Object)}, and {@link AssetProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfile#equals(Object)}
    *   <li>{@link AssetProfile#hashCode()}
@@ -126,12 +133,14 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}, and {@link AssetProfile#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AssetProfile#equals(Object)}
    *   <li>{@link AssetProfile#hashCode()}
@@ -153,12 +162,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -171,12 +181,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -193,12 +204,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -215,12 +227,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -237,12 +250,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -259,12 +273,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -281,12 +296,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -295,7 +311,8 @@ class AssetProfileDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
-    assetProfile.setDefaultRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assetProfile.setDefaultRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(assetProfile, new AssetProfile());
@@ -303,12 +320,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -325,12 +343,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -339,7 +358,8 @@ class AssetProfileDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
-    assetProfile.setDefaultEdgeRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assetProfile.setDefaultEdgeRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(assetProfile, new AssetProfile());
@@ -347,12 +367,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -369,12 +390,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -391,12 +413,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -415,12 +438,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -439,12 +463,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -463,12 +488,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -487,12 +513,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -503,7 +530,8 @@ class AssetProfileDiffblueTest {
     AssetProfile assetProfile = new AssetProfile();
 
     AssetProfile assetProfile2 = new AssetProfile();
-    assetProfile2.setDefaultRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assetProfile2.setDefaultRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(assetProfile, assetProfile2);
@@ -511,12 +539,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -535,12 +564,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -551,7 +581,8 @@ class AssetProfileDiffblueTest {
     AssetProfile assetProfile = new AssetProfile();
 
     AssetProfile assetProfile2 = new AssetProfile();
-    assetProfile2.setDefaultEdgeRuleChainId(new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    assetProfile2.setDefaultEdgeRuleChainId(
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(assetProfile, assetProfile2);
@@ -559,12 +590,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -583,12 +615,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -601,12 +634,13 @@ class AssetProfileDiffblueTest {
 
   /**
    * Test {@link AssetProfile#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetProfile#equals(Object)}
+   *
+   * <p>Method under test: {@link AssetProfile#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ServiceFailureExceptionDiffblueTest {
   /**
    * Test {@link ServiceFailureException#ServiceFailureException(String)}.
-   * <p>
-   * Method under test: {@link ServiceFailureException#ServiceFailureException(String)}
+   *
+   * <p>Method under test: {@link ServiceFailureException#ServiceFailureException(String)}
    */
   @Test
   @DisplayName("Test new ServiceFailureException(String)")
@@ -20,7 +20,8 @@ class ServiceFailureExceptionDiffblueTest {
   @MethodsUnderTest({"void ServiceFailureException.<init>(String)"})
   void testNewServiceFailureException() {
     // Arrange and Act
-    ServiceFailureException actualServiceFailureException = new ServiceFailureException("An error occurred");
+    ServiceFailureException actualServiceFailureException =
+        new ServiceFailureException("An error occurred");
 
     // Assert
     assertEquals("An error occurred", actualServiceFailureException.getMessage());
@@ -30,8 +31,8 @@ class ServiceFailureExceptionDiffblueTest {
 
   /**
    * Test {@link ServiceFailureException#ServiceFailureException(Throwable)}.
-   * <p>
-   * Method under test: {@link ServiceFailureException#ServiceFailureException(Throwable)}
+   *
+   * <p>Method under test: {@link ServiceFailureException#ServiceFailureException(Throwable)}
    */
   @Test
   @DisplayName("Test new ServiceFailureException(Throwable)")

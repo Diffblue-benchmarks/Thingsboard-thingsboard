@@ -10,14 +10,14 @@ import org.thingsboard.server.common.data.EntityType;
 public class BaseRuleChainServiceDiffblueTest {
   /**
    * Test {@link BaseRuleChainService#getEntityType()}.
-   * <p>
-   * Method under test: {@link BaseRuleChainService#getEntityType()}
+   *
+   * <p>Method under test: {@link BaseRuleChainService#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"EntityType BaseRuleChainService.getEntityType()"})
   public void testGetEntityType() {
     // Arrange, Act and Assert
-    assertEquals(EntityType.RULE_CHAIN, (new BaseRuleChainService()).getEntityType());
+    assertEquals(EntityType.RULE_CHAIN, new BaseRuleChainService().getEntityType());
   }
 }

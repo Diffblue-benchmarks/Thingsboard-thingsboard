@@ -19,12 +19,14 @@ import org.thingsboard.server.common.data.id.TenantId;
 class CustomerDiffblueTest {
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -47,12 +49,14 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -78,12 +82,14 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -109,12 +115,14 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -130,7 +138,8 @@ class CustomerDiffblueTest {
     customer.setExternalId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     Customer customer2 = new Customer();
-    customer2.setExternalId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    customer2.setExternalId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertEquals(customer, customer2);
@@ -140,12 +149,14 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -171,12 +182,14 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}, and {@link Customer#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#equals(Object)}
    *   <li>{@link Customer#hashCode()}
@@ -198,12 +211,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -211,7 +225,8 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"boolean Customer.equals(Object)", "int Customer.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    Customer customer = new Customer(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    Customer customer =
+        new Customer(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(customer, new Customer());
@@ -219,12 +234,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -241,12 +257,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -263,12 +280,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -285,12 +303,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -307,12 +326,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -331,12 +351,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -355,12 +376,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -371,7 +393,8 @@ class CustomerDiffblueTest {
     Customer customer = new Customer();
 
     Customer customer2 = new Customer();
-    customer2.setExternalId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    customer2.setExternalId(
+        new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Act and Assert
     assertNotEquals(customer, customer2);
@@ -379,12 +402,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
@@ -403,12 +427,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
@@ -421,12 +446,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#equals(Object)}
+   *
+   * <p>Method under test: {@link Customer#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
@@ -439,8 +465,8 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#getExternalId()}.
-   * <p>
-   * Method under test: {@link Customer#getExternalId()}
+   *
+   * <p>Method under test: {@link Customer#getExternalId()}
    */
   @Test
   @DisplayName("Test getExternalId()")
@@ -448,13 +474,14 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"CustomerId Customer.getExternalId()"})
   void testGetExternalId() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getExternalId());
+    assertNull(new Customer().getExternalId());
   }
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#Customer(CustomerId)}
    *   <li>{@link Customer#setExternalId(CustomerId)}
@@ -471,10 +498,19 @@ class CustomerDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Customer.<init>()", "void Customer.<init>(CustomerId)", "String Customer.getName()",
-      "TenantId Customer.getTenantId()", "String Customer.getTitle()", "Long Customer.getVersion()",
-      "void Customer.setExternalId(CustomerId)", "void Customer.setTenantId(TenantId)",
-      "void Customer.setTitle(String)", "void Customer.setVersion(Long)", "String Customer.toString()"})
+  @MethodsUnderTest({
+    "void Customer.<init>()",
+    "void Customer.<init>(CustomerId)",
+    "String Customer.getName()",
+    "TenantId Customer.getTenantId()",
+    "String Customer.getTitle()",
+    "Long Customer.getVersion()",
+    "void Customer.setExternalId(CustomerId)",
+    "void Customer.setTenantId(TenantId)",
+    "void Customer.setTitle(String)",
+    "void Customer.setVersion(Long)",
+    "String Customer.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     CustomerId id = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -493,9 +529,11 @@ class CustomerDiffblueTest {
     Long actualVersion = actualCustomer.getVersion();
 
     // Assert
-    assertEquals("Customer [title=Dr, tenantId=13814000-1dd2-11b2-8080-808080808080, additionalInfo=null, country=null,"
-        + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
-        + " id=784f394c-42b6-435a-983c-b7beff2784f9]", actualToStringResult);
+    assertEquals(
+        "Customer [title=Dr, tenantId=13814000-1dd2-11b2-8080-808080808080, additionalInfo=null, country=null,"
+            + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
+            + " id=784f394c-42b6-435a-983c-b7beff2784f9]",
+        actualToStringResult);
     assertEquals("Dr", actualName);
     assertEquals("Dr", actualTitle);
     assertNull(actualCustomer.getAddress());
@@ -515,11 +553,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test getters and setters.
+   *
    * <ul>
-   *   <li>Then return Id is {@code null}.</li>
+   *   <li>Then return Id is {@code null}.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Customer#Customer()}
    *   <li>{@link Customer#setExternalId(CustomerId)}
@@ -536,10 +576,19 @@ class CustomerDiffblueTest {
   @Test
   @DisplayName("Test getters and setters; then return Id is 'null'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void Customer.<init>()", "void Customer.<init>(CustomerId)", "String Customer.getName()",
-      "TenantId Customer.getTenantId()", "String Customer.getTitle()", "Long Customer.getVersion()",
-      "void Customer.setExternalId(CustomerId)", "void Customer.setTenantId(TenantId)",
-      "void Customer.setTitle(String)", "void Customer.setVersion(Long)", "String Customer.toString()"})
+  @MethodsUnderTest({
+    "void Customer.<init>()",
+    "void Customer.<init>(CustomerId)",
+    "String Customer.getName()",
+    "TenantId Customer.getTenantId()",
+    "String Customer.getTitle()",
+    "Long Customer.getVersion()",
+    "void Customer.setExternalId(CustomerId)",
+    "void Customer.setTenantId(TenantId)",
+    "void Customer.setTitle(String)",
+    "void Customer.setVersion(Long)",
+    "String Customer.toString()"
+  })
   void testGettersAndSetters_thenReturnIdIsNull() {
     // Arrange and Act
     Customer actualCustomer = new Customer();
@@ -555,9 +604,11 @@ class CustomerDiffblueTest {
     Long actualVersion = actualCustomer.getVersion();
 
     // Assert
-    assertEquals("Customer [title=Dr, tenantId=13814000-1dd2-11b2-8080-808080808080, additionalInfo=null, country=null,"
-        + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
-        + " id=null]", actualToStringResult);
+    assertEquals(
+        "Customer [title=Dr, tenantId=13814000-1dd2-11b2-8080-808080808080, additionalInfo=null, country=null,"
+            + " state=null, city=null, address=null, address2=null, zip=null, phone=null, email=null, createdTime=0,"
+            + " id=null]",
+        actualToStringResult);
     assertEquals("Dr", actualName);
     assertEquals("Dr", actualTitle);
     assertNull(actualCustomer.getAddress());
@@ -577,11 +628,12 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#Customer(Customer)}.
+   *
    * <ul>
-   *   <li>When {@link Customer#Customer()}.</li>
+   *   <li>When {@link Customer#Customer()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#Customer(Customer)}
+   *
+   * <p>Method under test: {@link Customer#Customer(Customer)}
    */
   @Test
   @DisplayName("Test new Customer(Customer); when Customer()")
@@ -613,11 +665,12 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#Customer(Customer)}.
+   *
    * <ul>
-   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
+   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#Customer(Customer)}
+   *
+   * <p>Method under test: {@link Customer#Customer(Customer)}
    */
   @Test
   @DisplayName("Test new Customer(Customer); when Customer(Customer) with customer is Customer()")
@@ -649,14 +702,17 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#Customer(Customer)}.
+   *
    * <ul>
-   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer(Customer)}.</li>
+   *   <li>When {@link Customer#Customer(Customer)} with customer is {@link
+   *       Customer#Customer(Customer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#Customer(Customer)}
+   *
+   * <p>Method under test: {@link Customer#Customer(Customer)}
    */
   @Test
-  @DisplayName("Test new Customer(Customer); when Customer(Customer) with customer is Customer(Customer)")
+  @DisplayName(
+      "Test new Customer(Customer); when Customer(Customer) with customer is Customer(Customer)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void Customer.<init>(Customer)"})
   void testNewCustomer_whenCustomerWithCustomerIsCustomer2() {
@@ -685,8 +741,8 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#getId()}.
-   * <p>
-   * Method under test: {@link Customer#getId()}
+   *
+   * <p>Method under test: {@link Customer#getId()}
    */
   @Test
   @DisplayName("Test getId()")
@@ -694,13 +750,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"CustomerId Customer.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getId());
+    assertNull(new Customer().getId());
   }
 
   /**
    * Test {@link Customer#getCreatedTime()}.
-   * <p>
-   * Method under test: {@link Customer#getCreatedTime()}
+   *
+   * <p>Method under test: {@link Customer#getCreatedTime()}
    */
   @Test
   @DisplayName("Test getCreatedTime()")
@@ -708,13 +764,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"long Customer.getCreatedTime()"})
   void testGetCreatedTime() {
     // Arrange, Act and Assert
-    assertEquals(0L, (new Customer()).getCreatedTime());
+    assertEquals(0L, new Customer().getCreatedTime());
   }
 
   /**
    * Test {@link Customer#getCountry()}.
-   * <p>
-   * Method under test: {@link Customer#getCountry()}
+   *
+   * <p>Method under test: {@link Customer#getCountry()}
    */
   @Test
   @DisplayName("Test getCountry()")
@@ -722,13 +778,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getCountry()"})
   void testGetCountry() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getCountry());
+    assertNull(new Customer().getCountry());
   }
 
   /**
    * Test {@link Customer#getState()}.
-   * <p>
-   * Method under test: {@link Customer#getState()}
+   *
+   * <p>Method under test: {@link Customer#getState()}
    */
   @Test
   @DisplayName("Test getState()")
@@ -736,13 +792,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getState()"})
   void testGetState() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getState());
+    assertNull(new Customer().getState());
   }
 
   /**
    * Test {@link Customer#getCity()}.
-   * <p>
-   * Method under test: {@link Customer#getCity()}
+   *
+   * <p>Method under test: {@link Customer#getCity()}
    */
   @Test
   @DisplayName("Test getCity()")
@@ -750,13 +806,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getCity()"})
   void testGetCity() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getCity());
+    assertNull(new Customer().getCity());
   }
 
   /**
    * Test {@link Customer#getAddress()}.
-   * <p>
-   * Method under test: {@link Customer#getAddress()}
+   *
+   * <p>Method under test: {@link Customer#getAddress()}
    */
   @Test
   @DisplayName("Test getAddress()")
@@ -764,13 +820,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getAddress()"})
   void testGetAddress() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getAddress());
+    assertNull(new Customer().getAddress());
   }
 
   /**
    * Test {@link Customer#getAddress2()}.
-   * <p>
-   * Method under test: {@link Customer#getAddress2()}
+   *
+   * <p>Method under test: {@link Customer#getAddress2()}
    */
   @Test
   @DisplayName("Test getAddress2()")
@@ -778,13 +834,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getAddress2()"})
   void testGetAddress2() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getAddress2());
+    assertNull(new Customer().getAddress2());
   }
 
   /**
    * Test {@link Customer#getZip()}.
-   * <p>
-   * Method under test: {@link Customer#getZip()}
+   *
+   * <p>Method under test: {@link Customer#getZip()}
    */
   @Test
   @DisplayName("Test getZip()")
@@ -792,13 +848,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getZip()"})
   void testGetZip() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getZip());
+    assertNull(new Customer().getZip());
   }
 
   /**
    * Test {@link Customer#getPhone()}.
-   * <p>
-   * Method under test: {@link Customer#getPhone()}
+   *
+   * <p>Method under test: {@link Customer#getPhone()}
    */
   @Test
   @DisplayName("Test getPhone()")
@@ -806,13 +862,13 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getPhone()"})
   void testGetPhone() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getPhone());
+    assertNull(new Customer().getPhone());
   }
 
   /**
    * Test {@link Customer#getEmail()}.
-   * <p>
-   * Method under test: {@link Customer#getEmail()}
+   *
+   * <p>Method under test: {@link Customer#getEmail()}
    */
   @Test
   @DisplayName("Test getEmail()")
@@ -820,25 +876,27 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"String Customer.getEmail()"})
   void testGetEmail() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getEmail());
+    assertNull(new Customer().getEmail());
   }
 
   /**
    * Test {@link Customer#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Customer#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Customer(Customer) with customer is Customer(); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Customer(Customer) with customer is Customer(); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Customer.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenCustomerWithCustomerIsCustomer_thenReturnInstance() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Customer(new Customer())).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Customer(new Customer()).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -846,20 +904,23 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer(Customer)}.</li>
-   *   <li>Then return {@link NullNode#instance}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link
+   *       Customer#Customer(Customer)}.
+   *   <li>Then return {@link NullNode#instance}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Customer#getAdditionalInfo()}
    */
   @Test
-  @DisplayName("Test getAdditionalInfo(); given Customer(Customer) with customer is Customer(Customer); then return instance")
+  @DisplayName(
+      "Test getAdditionalInfo(); given Customer(Customer) with customer is Customer(Customer); then return instance")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode Customer.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenCustomerWithCustomerIsCustomer_thenReturnInstance2() {
     // Arrange and Act
-    JsonNode actualAdditionalInfo = (new Customer(new Customer(new Customer()))).getAdditionalInfo();
+    JsonNode actualAdditionalInfo = new Customer(new Customer(new Customer())).getAdditionalInfo();
 
     // Assert
     assertSame(((NullNode) actualAdditionalInfo).instance, actualAdditionalInfo);
@@ -867,12 +928,13 @@ class CustomerDiffblueTest {
 
   /**
    * Test {@link Customer#getAdditionalInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Customer#Customer()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#getAdditionalInfo()}
+   *
+   * <p>Method under test: {@link Customer#getAdditionalInfo()}
    */
   @Test
   @DisplayName("Test getAdditionalInfo(); given Customer(); then return 'null'")
@@ -880,16 +942,17 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"JsonNode Customer.getAdditionalInfo()"})
   void testGetAdditionalInfo_givenCustomer_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new Customer()).getAdditionalInfo());
+    assertNull(new Customer().getAdditionalInfo());
   }
 
   /**
    * Test {@link Customer#isPublic()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer()}.</li>
+   *   <li>Given {@link Customer#Customer()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#isPublic()}
+   *
+   * <p>Method under test: {@link Customer#isPublic()}
    */
   @Test
   @DisplayName("Test isPublic(); given Customer()")
@@ -897,16 +960,17 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"boolean Customer.isPublic()"})
   void testIsPublic_givenCustomer() {
     // Arrange, Act and Assert
-    assertFalse((new Customer()).isPublic());
+    assertFalse(new Customer().isPublic());
   }
 
   /**
    * Test {@link Customer#isPublic()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#isPublic()}
+   *
+   * <p>Method under test: {@link Customer#isPublic()}
    */
   @Test
   @DisplayName("Test isPublic(); given Customer(Customer) with customer is Customer()")
@@ -914,16 +978,18 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"boolean Customer.isPublic()"})
   void testIsPublic_givenCustomerWithCustomerIsCustomer() {
     // Arrange, Act and Assert
-    assertFalse((new Customer(new Customer())).isPublic());
+    assertFalse(new Customer(new Customer()).isPublic());
   }
 
   /**
    * Test {@link Customer#isPublic()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer(Customer)}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link
+   *       Customer#Customer(Customer)}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#isPublic()}
+   *
+   * <p>Method under test: {@link Customer#isPublic()}
    */
   @Test
   @DisplayName("Test isPublic(); given Customer(Customer) with customer is Customer(Customer)")
@@ -931,69 +997,68 @@ class CustomerDiffblueTest {
   @MethodsUnderTest({"boolean Customer.isPublic()"})
   void testIsPublic_givenCustomerWithCustomerIsCustomer2() {
     // Arrange, Act and Assert
-    assertFalse((new Customer(new Customer(new Customer()))).isPublic());
+    assertFalse(new Customer(new Customer(new Customer())).isPublic());
   }
 
   /**
    * Test {@link Customer#toShortCustomerInfo()}.
-   * <ul>
-   *   <li>Given {@link Customer#Customer()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link Customer#toShortCustomerInfo()}
+   *
+   * <p>Method under test: {@link Customer#toShortCustomerInfo()}
    */
   @Test
-  @DisplayName("Test toShortCustomerInfo(); given Customer()")
+  @DisplayName("Test toShortCustomerInfo()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ShortCustomerInfo Customer.toShortCustomerInfo()"})
-  void testToShortCustomerInfo_givenCustomer() {
-    // Arrange and Act
-    ShortCustomerInfo actualToShortCustomerInfoResult = (new Customer()).toShortCustomerInfo();
+  void testToShortCustomerInfo() {
+    // Arrange
+    Customer customer = new Customer(new Customer());
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    customer.setId(customerId);
 
-    // Assert
-    assertNull(actualToShortCustomerInfoResult.getTitle());
-    assertNull(actualToShortCustomerInfoResult.getCustomerId());
-    assertFalse(actualToShortCustomerInfoResult.isPublic());
+    // Act and Assert
+    assertSame(customerId, customer.toShortCustomerInfo().getCustomerId());
   }
 
   /**
    * Test {@link Customer#toShortCustomerInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.</li>
+   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer()}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#toShortCustomerInfo()}
+   *
+   * <p>Method under test: {@link Customer#toShortCustomerInfo()}
    */
   @Test
   @DisplayName("Test toShortCustomerInfo(); given Customer(Customer) with customer is Customer()")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ShortCustomerInfo Customer.toShortCustomerInfo()"})
   void testToShortCustomerInfo_givenCustomerWithCustomerIsCustomer() {
-    // Arrange and Act
-    ShortCustomerInfo actualToShortCustomerInfoResult = (new Customer(new Customer())).toShortCustomerInfo();
+    // Arrange
+    Customer customer = new Customer(new Customer(new Customer()));
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    customer.setId(customerId);
 
-    // Assert
-    assertNull(actualToShortCustomerInfoResult.getTitle());
-    assertNull(actualToShortCustomerInfoResult.getCustomerId());
-    assertFalse(actualToShortCustomerInfoResult.isPublic());
+    // Act and Assert
+    assertSame(customerId, customer.toShortCustomerInfo().getCustomerId());
   }
 
   /**
    * Test {@link Customer#toShortCustomerInfo()}.
+   *
    * <ul>
-   *   <li>Given {@link Customer#Customer(Customer)} with customer is {@link Customer#Customer(Customer)}.</li>
+   *   <li>Given {@link Customer#Customer()}.
+   *   <li>Then return Title is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Customer#toShortCustomerInfo()}
+   *
+   * <p>Method under test: {@link Customer#toShortCustomerInfo()}
    */
   @Test
-  @DisplayName("Test toShortCustomerInfo(); given Customer(Customer) with customer is Customer(Customer)")
+  @DisplayName("Test toShortCustomerInfo(); given Customer(); then return Title is 'null'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ShortCustomerInfo Customer.toShortCustomerInfo()"})
-  void testToShortCustomerInfo_givenCustomerWithCustomerIsCustomer2() {
+  void testToShortCustomerInfo_givenCustomer_thenReturnTitleIsNull() {
     // Arrange and Act
-    ShortCustomerInfo actualToShortCustomerInfoResult = (new Customer(new Customer(new Customer())))
-        .toShortCustomerInfo();
+    ShortCustomerInfo actualToShortCustomerInfoResult = new Customer().toShortCustomerInfo();
 
     // Assert
     assertNull(actualToShortCustomerInfoResult.getTitle());

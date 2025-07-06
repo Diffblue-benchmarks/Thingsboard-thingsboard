@@ -15,8 +15,8 @@ import org.thingsboard.server.dao.sql.resource.TbResourceRepository;
 public class BaseResourceServiceDiffblueTest {
   /**
    * Test {@link BaseResourceService#getEntityType()}.
-   * <p>
-   * Method under test: {@link BaseResourceService#getEntityType()}
+   *
+   * <p>Method under test: {@link BaseResourceService#getEntityType()}
    */
   @Test
   @Category(MaintainedByDiffblue.class)
@@ -27,7 +27,9 @@ public class BaseResourceServiceDiffblueTest {
     JpaTbResourceInfoDao resourceInfoDao = new JpaTbResourceInfoDao();
 
     // Act and Assert
-    assertEquals(EntityType.TB_RESOURCE,
-        (new BaseResourceService(resourceDao, resourceInfoDao, new ResourceDataValidator())).getEntityType());
+    assertEquals(
+        EntityType.TB_RESOURCE,
+        new BaseResourceService(resourceDao, resourceInfoDao, new ResourceDataValidator())
+            .getEntityType());
   }
 }

@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class GuavaSessionUtilsDiffblueTest {
   /**
    * Test {@link GuavaSessionUtils#builder()}.
-   * <p>
-   * Method under test: {@link GuavaSessionUtils#builder()}
+   *
+   * <p>Method under test: {@link GuavaSessionUtils#builder()}
    */
   @Test
   @DisplayName("Test builder()")

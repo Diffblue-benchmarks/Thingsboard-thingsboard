@@ -12,15 +12,17 @@ import org.junit.jupiter.api.Test;
 class LifeCycleEventFilterDiffblueTest {
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor) ErrorStr is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor) ErrorStr is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor) ErrorStr is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilterErrorStrIsFoo_thenReturnTrue() {
@@ -37,15 +39,17 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Event is empty string.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Event is empty string.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Event is empty string; then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Event is empty string; then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilterEventIsEmptyString_thenReturnFalse() {
@@ -62,15 +66,17 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Event is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Event is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Event is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Event is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilterEventIsFoo_thenReturnTrue() {
@@ -87,15 +93,17 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Server is {@code Server}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Server is {@code Server}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Server is 'Server'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Server is 'Server'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilterServerIsServer_thenReturnTrue() {
@@ -109,15 +117,17 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Status is {@code foo}.</li>
-   *   <li>Then return {@code true}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor) Status is {@code foo}.
+   *   <li>Then return {@code true}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Status is 'foo'; then return 'true'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor) Status is 'foo'; then return 'true'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilterStatusIsFoo_thenReturnTrue() {
@@ -134,30 +144,34 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#isNotEmpty()}.
+   *
    * <ul>
-   *   <li>Given {@link LifeCycleEventFilter} (default constructor).</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>Given {@link LifeCycleEventFilter} (default constructor).
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#isNotEmpty()}
    */
   @Test
-  @DisplayName("Test isNotEmpty(); given LifeCycleEventFilter (default constructor); then return 'false'")
+  @DisplayName(
+      "Test isNotEmpty(); given LifeCycleEventFilter (default constructor); then return 'false'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean LifeCycleEventFilter.isNotEmpty()"})
   void testIsNotEmpty_givenLifeCycleEventFilter_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse((new LifeCycleEventFilter()).isNotEmpty());
+    assertFalse(new LifeCycleEventFilter().isNotEmpty());
   }
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -166,7 +180,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -189,12 +206,14 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -203,7 +222,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -226,12 +248,14 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -240,7 +264,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -263,12 +290,14 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -277,7 +306,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -300,12 +332,14 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -314,7 +348,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -337,12 +374,14 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}, and {@link LifeCycleEventFilter#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link LifeCycleEventFilter#equals(Object)}
    *   <li>{@link LifeCycleEventFilter#hashCode()}
@@ -351,7 +390,10 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -368,17 +410,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -399,17 +445,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -430,17 +480,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -461,17 +515,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -492,17 +550,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -523,17 +585,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -554,17 +620,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -585,17 +655,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -616,17 +690,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -641,17 +719,21 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test {@link LifeCycleEventFilter#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link LifeCycleEventFilter#equals(Object)}
+   *
+   * <p>Method under test: {@link LifeCycleEventFilter#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean LifeCycleEventFilter.equals(Object)", "int LifeCycleEventFilter.hashCode()"})
+  @MethodsUnderTest({
+    "boolean LifeCycleEventFilter.equals(Object)",
+    "int LifeCycleEventFilter.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LifeCycleEventFilter lifeCycleEventFilter = new LifeCycleEventFilter();
@@ -666,8 +748,9 @@ class LifeCycleEventFilterDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link LifeCycleEventFilter}
    *   <li>{@link LifeCycleEventFilter#setErrorStr(String)}
@@ -685,12 +768,19 @@ class LifeCycleEventFilterDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void LifeCycleEventFilter.<init>()", "String LifeCycleEventFilter.getErrorStr()",
-      "String LifeCycleEventFilter.getEvent()", "EventType LifeCycleEventFilter.getEventType()",
-      "String LifeCycleEventFilter.getServer()", "String LifeCycleEventFilter.getStatus()",
-      "void LifeCycleEventFilter.setErrorStr(String)", "void LifeCycleEventFilter.setEvent(String)",
-      "void LifeCycleEventFilter.setServer(String)", "void LifeCycleEventFilter.setStatus(String)",
-      "String LifeCycleEventFilter.toString()"})
+  @MethodsUnderTest({
+    "void LifeCycleEventFilter.<init>()",
+    "String LifeCycleEventFilter.getErrorStr()",
+    "String LifeCycleEventFilter.getEvent()",
+    "EventType LifeCycleEventFilter.getEventType()",
+    "String LifeCycleEventFilter.getServer()",
+    "String LifeCycleEventFilter.getStatus()",
+    "void LifeCycleEventFilter.setErrorStr(String)",
+    "void LifeCycleEventFilter.setEvent(String)",
+    "void LifeCycleEventFilter.setServer(String)",
+    "void LifeCycleEventFilter.setStatus(String)",
+    "String LifeCycleEventFilter.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     LifeCycleEventFilter actualLifeCycleEventFilter = new LifeCycleEventFilter();
@@ -707,7 +797,8 @@ class LifeCycleEventFilterDiffblueTest {
     // Assert
     assertEquals("An error occurred", actualErrorStr);
     assertEquals("Event", actualEvent);
-    assertEquals("LifeCycleEventFilter(server=Server, event=Event, status=Status, errorStr=An error occurred)",
+    assertEquals(
+        "LifeCycleEventFilter(server=Server, event=Event, status=Status, errorStr=An error occurred)",
         actualToStringResult);
     assertEquals("Server", actualServer);
     assertEquals("Status", actualLifeCycleEventFilter.getStatus());

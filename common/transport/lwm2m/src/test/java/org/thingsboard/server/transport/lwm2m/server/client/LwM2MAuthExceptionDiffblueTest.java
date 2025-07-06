@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 class LwM2MAuthExceptionDiffblueTest {
   /**
    * Test new {@link LwM2MAuthException} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link LwM2MAuthException}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link LwM2MAuthException}
    */
   @Test
   @DisplayName("Test new LwM2MAuthException (default constructor)")

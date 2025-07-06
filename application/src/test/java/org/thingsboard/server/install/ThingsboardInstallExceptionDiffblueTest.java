@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 class ThingsboardInstallExceptionDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ThingsboardInstallException#ThingsboardInstallException(String, Throwable)}
    *   <li>{@link ThingsboardInstallException#getExitCode()}
@@ -20,15 +21,17 @@ class ThingsboardInstallExceptionDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ThingsboardInstallException.<init>(String, Throwable)",
-      "int ThingsboardInstallException.getExitCode()"})
+  @MethodsUnderTest({
+    "void ThingsboardInstallException.<init>(String, Throwable)",
+    "int ThingsboardInstallException.getExitCode()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Throwable cause = new Throwable();
 
     // Act
-    ThingsboardInstallException actualThingsboardInstallException = new ThingsboardInstallException("An error occurred",
-        cause);
+    ThingsboardInstallException actualThingsboardInstallException =
+        new ThingsboardInstallException("An error occurred", cause);
     int actualExitCode = actualThingsboardInstallException.getExitCode();
 
     // Assert

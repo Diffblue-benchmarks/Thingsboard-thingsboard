@@ -11,8 +11,9 @@ import org.thingsboard.server.common.data.query.DynamicValue;
 class AnyTimeScheduleDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link AnyTimeSchedule}
    *   <li>{@link AnyTimeSchedule#getDynamicValue()}
@@ -22,8 +23,11 @@ class AnyTimeScheduleDiffblueTest {
   @Test
   @DisplayName("Test getters and setters")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void AnyTimeSchedule.<init>()", "DynamicValue AnyTimeSchedule.getDynamicValue()",
-      "AlarmScheduleType AnyTimeSchedule.getType()"})
+  @MethodsUnderTest({
+    "void AnyTimeSchedule.<init>()",
+    "DynamicValue AnyTimeSchedule.getDynamicValue()",
+    "AlarmScheduleType AnyTimeSchedule.getType()"
+  })
   void testGettersAndSetters() {
     // Arrange and Act
     AnyTimeSchedule actualAnyTimeSchedule = new AnyTimeSchedule();
